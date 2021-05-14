@@ -3,9 +3,9 @@
 #include "ciconskill.h"
 
 /**
- * Å¬·£½ºÅ³Ç¥½Ã¿¡ »ç¿ëµÇ´Â  Icon
+ * í´ëœìŠ¤í‚¬í‘œì‹œì— ì‚¬ìš©ë˜ëŠ”  Icon
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/12
  */
 class CIconSkillClan: public CIconSkill {
@@ -18,9 +18,9 @@ public:
 
     virtual int GetIndex(); /// GetSkillSlotFromIcon()
     void SetSkillSlotToIcon(int iSkillSlot);
-    int GetSkillSlotFromIcon(); /// SetSkillSlotToIcon¿¡¼­ ÀúÀåÇØµÎ¾ú´ø ½ºÅ³½½·Ô ÀÎµ¦½º¸¦ ¸®ÅÏÇÑ´Ù.
+    int GetSkillSlotFromIcon(); /// SetSkillSlotToIconì—ì„œ ì €ì¥í•´ë‘ì—ˆë˜ ìŠ¤í‚¬ìŠ¬ë¡¯ ì¸ë±ìŠ¤ë¥¼ ë¦¬í„´í•œë‹¤.
     virtual int GetSkillLevel();
-    virtual int GetSkillIndex(); /// CSkill¿¡¼­ ½ºÅ³ÀÎµ¦½º(STB¶óÀÎ³Ñ¹ö)¸¦ ±¸ÇØ¼­ ¸®ÅÏÇÑ´Ù.
+    virtual int GetSkillIndex(); /// CSkillì—ì„œ ìŠ¤í‚¬ì¸ë±ìŠ¤(STBë¼ì¸ë„˜ë²„)ë¥¼ êµ¬í•´ì„œ ë¦¬í„´í•œë‹¤.
     CSkill* GetSkill();
 
     //----------------------------------------------------------------------------------------------------

@@ -4,10 +4,10 @@
 #include "CGameState.h"
 
 /**
- * Ä³¸¯ÅÍ ¼±ÅÃÈÄ °ÔÀÓ¿¡ µé¾î°¡±âÀü Ä«¸Ş¶ó ÀÌµ¿½ÃÀÇ State Class
+ * ìºë¦­í„° ì„ íƒí›„ ê²Œì„ì— ë“¤ì–´ê°€ê¸°ì „ ì¹´ë©”ë¼ ì´ë™ì‹œì˜ State Class
  *	- Next State : CGameStatePrepareMain
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CGameStateMoveMain: public CGameState {
@@ -19,8 +19,8 @@ public:
     virtual int Enter(int iPrevStateID);
     virtual int Leave(int iNextStateID);
 
-    /// CGameÀÇ Msg Queue¿¡ ³Ö±â Àü¿¡ Áï½Ã Ã³¸®ÇØ¾ßÇÒ Msg¸¦ Ã³¸®ÇÏ´Â Method
-    ///°¢ State´Â Method¸¦ OverridingÇÏ¿© Ã³¸®ÇØ¾ßÇÒ Message¸¦ Ã³¸®ÇÑ´Ù
+    /// CGameì˜ Msg Queueì— ë„£ê¸° ì „ì— ì¦‰ì‹œ ì²˜ë¦¬í•´ì•¼í•  Msgë¥¼ ì²˜ë¦¬í•˜ëŠ” Method
+    ///ê° StateëŠ” Methodë¥¼ Overridingí•˜ì—¬ ì²˜ë¦¬í•´ì•¼í•  Messageë¥¼ ì²˜ë¦¬í•œë‹¤
     virtual int ProcWndMsgInstant(unsigned uiMsg, WPARAM wParam, LPARAM lParam);
 
     virtual void ServerDisconnected();

@@ -9,7 +9,7 @@ extern "C" {
 //-------------------------------------------------------------------------------------------------
 
 /*
-LUA¿¡¼­ È£ÃâµÇµµ·Ï µî·ÏÇÒ ÇÔ¼öÀÇ ÇüÅÂ.
+LUAì—ì„œ í˜¸ì¶œë˜ë„ë¡ ë“±ë¡í•  í•¨ìˆ˜ì˜ í˜•íƒœ.
 int lua_Write (lua_State *L)
 {
     int i, n = lua_gettop(L);	//
@@ -27,7 +27,7 @@ int lua_Write (lua_State *L)
 */
 
 /*
-    static index´Â 1ºÎÅÍ !!! 0ºÎÅÍ ¾Æ´Ô.
+    static indexëŠ” 1ë¶€í„° !!! 0ë¶€í„° ì•„ë‹˜.
 */
 class classLUA {
 private:
@@ -40,7 +40,7 @@ public:
     classLUA(int iStackSize = 0);
     ~classLUA();
 
-    // ½ÇÇà.
+    // ì‹¤í–‰.
     int LoadToBuffer(const char* szFileName);
     int Do_File(const char* szFileName) { return lua_dofile(m_pState, szFileName); }
     int Do_String(const char* pString) { return lua_dostring(m_pState, pString); }
@@ -49,29 +49,29 @@ public:
         return ((m_pBuffer) ? Do_Buffer((const char*)m_pBuffer, m_lBufferSize) : -1);
     }
 
-    // C ÇÔ¼ö µî·Ï.
+    // C í•¨ìˆ˜ ë“±ë¡.
     void Reg_Function(const char* szFunctionName, lua_CFunction Function);
 
-    // ½ºÅØ °Ë»ç.  iIndex == ½ºÅØ ÀÎµ¦½º
+    // ìŠ¤í… ê²€ì‚¬.  iIndex == ìŠ¤í… ì¸ë±ìŠ¤
     int Stack_QueryType(int iIndex) {
         return lua_type(m_pState, iIndex);
-    } // ½ºÅØÀÇ iIndexÀÇ element ÀÚ·á ÇüÅÂ¸¦ ÆÇ´ÜÇÑ´Ù.
+    } // ìŠ¤í…ì˜ iIndexì˜ element ìë£Œ í˜•íƒœë¥¼ íŒë‹¨í•œë‹¤.
     const char* Stack_TypeName(int iType) {
         return lua_typename(m_pState, iType);
-    } // ½ºÅØÀÇ Stack_QueryType¿¡¼­ ¾òÀº ÇüÅÂÀÇ ÀÌ¸§À» ¾ò´Â´Ù.
-    int Stack_GetSpaceCount() { return lua_stackspace(m_pState); } // ½ºÅØÀÇ ³²Àº °ø°£À» ¾ò´Â´Ù.
-    int Stack_GetElementCount() { return lua_gettop(m_pState); } // ½ºÅØÀÇ element ¼ö¸¦ ¾ò´Â´Ù.
-    void Stack_Clear() { lua_settop(m_pState, 0); } // ½ºÅØÀ» ºñ¿î´Ù.
+    } // ìŠ¤í…ì˜ Stack_QueryTypeì—ì„œ ì–»ì€ í˜•íƒœì˜ ì´ë¦„ì„ ì–»ëŠ”ë‹¤.
+    int Stack_GetSpaceCount() { return lua_stackspace(m_pState); } // ìŠ¤í…ì˜ ë‚¨ì€ ê³µê°„ì„ ì–»ëŠ”ë‹¤.
+    int Stack_GetElementCount() { return lua_gettop(m_pState); } // ìŠ¤í…ì˜ element ìˆ˜ë¥¼ ì–»ëŠ”ë‹¤.
+    void Stack_Clear() { lua_settop(m_pState, 0); } // ìŠ¤í…ì„ ë¹„ìš´ë‹¤.
     void Stack_SetTop(int iIndex) {
         lua_settop(m_pState, iIndex);
-    } // ½ºÅØÀÇ top index¸¦ iIndex·Î ¹Ù²Û´Ù.
+    } // ìŠ¤í…ì˜ top indexë¥¼ iIndexë¡œ ë°”ê¾¼ë‹¤.
     void Stack_PushValue(int iIndex) {
         lua_pushvalue(m_pState, iIndex);
-    } // ½ºÅØÀÇ iIndexÀÇ element¸¦ ½ºÅØ¿¡ pushÇÑ´Ù.
-    void Stack_Remove(int iIndex) { lua_remove(m_pState, iIndex); } // ½ºÅØÀÇ iIndex¸¦ »èÁ¦ÇÑ´Ù.
+    } // ìŠ¤í…ì˜ iIndexì˜ elementë¥¼ ìŠ¤í…ì— pushí•œë‹¤.
+    void Stack_Remove(int iIndex) { lua_remove(m_pState, iIndex); } // ìŠ¤í…ì˜ iIndexë¥¼ ì‚­ì œí•œë‹¤.
     void Stack_Move(int iIndex) {
         lua_insert(m_pState, iIndex);
-    } // ½ºÅØÀÇ top element¸¦ iIndex·Î ¿Å±ä´Ù.
+    } // ìŠ¤í…ì˜ top elementë¥¼ iIndexë¡œ ì˜®ê¸´ë‹¤.
     int Stack_Tag(int iIndex) { return lua_tag(m_pState, iIndex); }
 
     void Stack_PushNumber(double dbValue) { lua_pushnumber(m_pState, dbValue); }

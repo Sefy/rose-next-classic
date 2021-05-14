@@ -108,7 +108,7 @@ CSkillDLG::IsValidLevelUp(int iSkillSlotIdx) {
 
     short nSkillIDX = g_pAVATAR->m_Skills.m_nSkillINDEX[iSkillSlotIdx];
 
-    ///½ºÅ³·¹º§ÀÌ 10ÀÌ»óÀÌ°Å³ª ÇÊ¿ä Æ÷ÀÎÆ®º¸´Ù ÇöÀç Æ÷ÀÎÆ®°¡ Àû´Ù¸é false
+    ///ìŠ¤í‚¬ë ˆë²¨ì´ 10ì´ìƒì´ê±°ë‚˜ í•„ìš” í¬ì¸íŠ¸ë³´ë‹¤ í˜„ìž¬ í¬ì¸íŠ¸ê°€ ì ë‹¤ë©´ false
     if (SKILL_1LEV_INDEX(nSkillIDX) != SKILL_1LEV_INDEX(nSkillIDX + 1)
         || SKILL_LEVEL(nSkillIDX) + 1 != SKILL_LEVEL(nSkillIDX + 1)) {
         return false;
@@ -143,7 +143,7 @@ CSkillDLG::IsVision() {
     return false;
 }
 //-----------------------------------------------------------------------------------------------------
-/// @brief ½ºÅ³¿¡ ´ëÇÑ ¼Ò¸ð ´É·ÂÄ¡¹× ±âÅ¸ º¯°æ»çÇ×¿¡ ´ëÇÑ ÀÎÅÍÆäÀÌ½º Àû¿ëÀ» À§ÇÑ Method
+/// @brief ìŠ¤í‚¬ì— ëŒ€í•œ ì†Œëª¨ ëŠ¥ë ¥ì¹˜ë° ê¸°íƒ€ ë³€ê²½ì‚¬í•­ì— ëŒ€í•œ ì¸í„°íŽ˜ì´ìŠ¤ ì ìš©ì„ ìœ„í•œ Method
 //-----------------------------------------------------------------------------------------------------
 void
 CSkillDLG::UpdateSkillLists() {

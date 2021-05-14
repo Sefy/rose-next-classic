@@ -18,7 +18,7 @@ CUpgrade::CUpgrade(void) {
 
     for (int i = 0; i < 3; ++i) {
         m_pMaterialItems[i] = NULL;
-        m_pRequireMaterialItems[i] = NULL; /// Á¦·Ã¿¡ ¿ä±¸µÇ´Â ¾ÆÀÌÅÛ¸®½ºÆ®
+        m_pRequireMaterialItems[i] = NULL; /// ì œë ¨ì— ìš”êµ¬ë˜ëŠ” ì•„ì´í…œë¦¬ìŠ¤íŠ¸
     }
 }
 
@@ -27,7 +27,7 @@ CUpgrade::~CUpgrade(void) {
 
     for (int i = 0; i < 3; ++i) {
         SAFE_DELETE(m_pMaterialItems[i]);
-        SAFE_DELETE(m_pRequireMaterialItems[i]); /// Á¦·Ã¿¡ ¿ä±¸µÇ´Â ¾ÆÀÌÅÛ¸®½ºÆ®
+        SAFE_DELETE(m_pRequireMaterialItems[i]); /// ì œë ¨ì— ìš”êµ¬ë˜ëŠ” ì•„ì´í…œë¦¬ìŠ¤íŠ¸
     }
 }
 
@@ -99,7 +99,7 @@ CUpgrade::SetMaterialItem(CItem* pItem) {
     if (pItem == NULL)
         return;
 
-    // 1. Ã¹¹øÂ° Àç·á Å¸ÀÔÀÎ°¡¸¦ Ã¼Å©ÇÑ´Ù.
+    // 1. ì²«ë²ˆì§¸ ì¬ë£Œ íƒ€ì…ì¸ê°€ë¥¼ ì²´í¬í•œë‹¤.
     CRequireMaterial* pRequireMaterial = m_pRequireMaterialItems[0];
     assert(pRequireMaterial);
     if (pRequireMaterial) {
@@ -148,7 +148,7 @@ CUpgrade::SetMaterialItem(CItem* pItem) {
 }
 
 //*-----------------------------------------------------------/
-/// Á¦·ÃÇÒ ´ë»ó¾ÆÀÌÅÛÀÌ³ª Á¦·Ã¿¡ ÇÊ¿äÇÑ Àç·á ¾ÆÀÌÅÛÀ» Ãß°¡ÇÑ´Ù.
+/// ì œë ¨í•  ëŒ€ìƒì•„ì´í…œì´ë‚˜ ì œë ¨ì— í•„ìš”í•œ ì¬ë£Œ ì•„ì´í…œì„ ì¶”ê°€í•œë‹¤.
 //*-----------------------------------------------------------/
 bool
 CUpgrade::SetItem(CItem* pItem) {
@@ -200,7 +200,7 @@ CUpgrade::RemoveTargetItem() {
 }
 
 //*-----------------------------------------------------------/
-/// Á¦·ÃÇÒ ´ë»ó¾ÆÀÌÅÛÀÌ³ª Á¦·Ã¿¡ ÇÊ¿äÇÑ Àç·á ¾ÆÀÌÅÛÀ» »«´Ù.
+/// ì œë ¨í•  ëŒ€ìƒì•„ì´í…œì´ë‚˜ ì œë ¨ì— í•„ìš”í•œ ì¬ë£Œ ì•„ì´í…œì„ ëº€ë‹¤.
 //*-----------------------------------------------------------/
 void
 CUpgrade::RemoveMaterialItem(CItem* pItem) {
@@ -289,7 +289,7 @@ CUpgrade::Send_CRAFT_UPGRADE_REQ() {
             m_pTargetItem->GetIndex(),
             btUseItemINV);
     } else if (m_iUseItemInvenIdx && m_iSkillSlotIdx == 0 && m_iNpcSvrIdx == 0) {
-#pragma message("¾ÆÀÌÅÛ »ç¿ëÀ¸·Î Á¦·ÃÇÏ´Â °æ¿ì?")
+#pragma message("ì•„ì´í…œ ì‚¬ìš©ìœ¼ë¡œ ì œë ¨í•˜ëŠ” ê²½ìš°?")
     }
     return true;
 }
@@ -329,7 +329,7 @@ CUpgrade::ComputeSuccessProb() {
     float fDividend = 800 / 320 * (fMatQuality * (fDuration + 180) * (fWorldProd + 10));
     float fDivisor = (fGrade + 2) * (fGrade + 3) * (fGrade * 5 + fItemQuality * 3 + 250);
 
-#pragma message("ÃßÈÄ ¹Ù²î¾î¾ß ÇÒ Àç·Ã¿¹»óÈ®·ü(2005/2/22)")
+#pragma message("ì¶”í›„ ë°”ë€Œì–´ì•¼ í•  ì¬ë ¨ì˜ˆìƒí™•ë¥ (2005/2/22)")
     // float fDivisor		= ( fGrade + 2 ) * ( fGrade + 3 ) * (fGrade + 5 + fItemQuality * 3 + 250
     // );
 
@@ -437,15 +437,15 @@ CUpgrade::SendPacketUpgrade() {
             case NOTENOUGH_MP:
                 g_itMGR.OpenMsgBox(STR_NOT_ENOUGH_MANA);
                 break;
-            case NOTENOUGH_MATERIAL: /// Àç·á¾ÆÀÌÅÛÀÇ °³¼ö ºÎÁ·.
+            case NOTENOUGH_MATERIAL: /// ì¬ë£Œì•„ì´í…œì˜ ê°œìˆ˜ ë¶€ì¡±.
                 g_itMGR.OpenMsgBox(STR_NOT_ENOUGH_MATERIAL);
                 break;
-            case INVALID_MATERIAL: /// ÇÊ¿äÇÑ Àç·á¾ÆÀÌÅÛÀÌ ¾ø´Ù.
+            case INVALID_MATERIAL: /// í•„ìš”í•œ ì¬ë£Œì•„ì´í…œì´ ì—†ë‹¤.
                 g_itMGR.OpenMsgBox(STR_NOT_EXIST_MATERIAL);
                 break;
-            case INVALID_TARGETITEM: /// Á¦·ÃÇÒ ¾ÆÀÌÅÛÀÌ ¾ø°Å³ª Àß¸øµÈ ¾ÆÀÌÅÛÀÌ´Ù.
+            case INVALID_TARGETITEM: /// ì œë ¨í•  ì•„ì´í…œì´ ì—†ê±°ë‚˜ ì˜ëª»ëœ ì•„ì´í…œì´ë‹¤.
                 break;
-            case NOTENOUGH_MONEY: /// npc·Î Á¦·Ã½Ã µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù.
+            case NOTENOUGH_MONEY: /// npcë¡œ ì œë ¨ì‹œ ëˆì´ ë¶€ì¡±í•©ë‹ˆë‹¤.
                 g_itMGR.OpenMsgBox(STR_NOT_ENOUGH_MONEY);
                 break;
             default:
@@ -491,7 +491,7 @@ CUpgrade::AddResultItemSet(tag_SET_INVITEM& Item) {
 }
 
 //*----------------------------------------------------------------------//
-/// ¸ğµç °á°ú°¡ SettingµÈ ÈÄ¿¡ È£ÃâµÇ¾î¾ß ÇÑ´Ù.
+/// ëª¨ë“  ê²°ê³¼ê°€ Settingëœ í›„ì— í˜¸ì¶œë˜ì–´ì•¼ í•œë‹¤.
 //*----------------------------------------------------------------------//
 void
 CUpgrade::SetResult(BYTE btResult) {

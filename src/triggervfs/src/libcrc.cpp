@@ -3,7 +3,7 @@
 #include "libCrc.h"
 #include "classCRC.h"
 
-// Crc °ªÀ» Á¶»çÇÑ´Ù
+// Crc ê°’ì„ ì¡°ì‚¬í•œë‹¤
 DWORD
 CLibCrc::GetIcarusCrc(const unsigned char* pbtData, int lLength) {
     return classCRC::DataCRC32(pbtData, lLength, true);

@@ -6,10 +6,10 @@
 #include "../GameProc/LoadingImageManager.h"
 
 /**
- * Á¸°£ ¿öÇÁ½Ã ·ÎµùÀÌ¹ÌÁö¸¦ º¸¿©ÁÖ´Â Class
- *	- CLoadingImageManager°¡ stb¸¦ ÂüÁ¶ÇÏ¿© º¸¿©ÁÖ¾î¾ßÇÒ ÀÌ¹ÌÁö¸¦ ¹Ù²Ù¾î ÁØ´Ù.
+ * ì¡´ê°„ ì›Œí”„ì‹œ ë¡œë”©ì´ë¯¸ì§€ë¥¼ ë³´ì—¬ì£¼ëŠ” Class
+ *	- CLoadingImageManagerê°€ stbë¥¼ ì°¸ì¡°í•˜ì—¬ ë³´ì—¬ì£¼ì–´ì•¼í•  ì´ë¯¸ì§€ë¥¼ ë°”ê¾¸ì–´ ì¤€ë‹¤.
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/5
  */
 class CLoading: public CJSingleton<CLoading> {
@@ -18,7 +18,7 @@ class CLoading: public CJSingleton<CLoading> {
 
     CLoadingImageManager m_LoadingImageManager;
 
-    /// m_LoadingImageManager °¡ ÃÊ±âÈ­ µÇ¾ú´Â°¡?
+    /// m_LoadingImageManager ê°€ ì´ˆê¸°í™” ë˜ì—ˆëŠ”ê°€?
     bool m_bInitLoadingImageManager;
 
 public:

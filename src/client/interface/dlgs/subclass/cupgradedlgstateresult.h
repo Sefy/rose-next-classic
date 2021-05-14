@@ -7,9 +7,9 @@ class CGuage;
 class CUpgradeDlg;
 
 /**
- * Á¦·ÃÀÎÅÍÆäÀÌ½º Ã¢ÀÇ State Class : ¼­¹ö·ÎºÎÅÍ Á¦·Ã¿äÃ»¿¡ ´ëÇÑ ÀÀ´äÀ» ¹Ş°í Ãâ·ÂÇÏ´Â »óÅÂ
+ * ì œë ¨ì¸í„°í˜ì´ìŠ¤ ì°½ì˜ State Class : ì„œë²„ë¡œë¶€í„° ì œë ¨ìš”ì²­ì— ëŒ€í•œ ì‘ë‹µì„ ë°›ê³  ì¶œë ¥í•˜ëŠ” ìƒíƒœ
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CUpgradeDlgStateResult: public CUpgradeDlgState {

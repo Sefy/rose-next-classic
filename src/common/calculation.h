@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	Calculation.h
- * \brief	ÀüÅõ,½ºÅ³ »ç¿ë½Ã °è»ê, Å¬¶óÀÌ¾ğÆ®, ¼­¹ö µÎ °è»ê½ÄÀº Ç×»ó ÀÏÄ¡ÇØ¾ßÇÔ
+ * \brief	ì „íˆ¬,ìŠ¤í‚¬ ì‚¬ìš©ì‹œ ê³„ì‚°, í´ë¼ì´ì–¸íŠ¸, ì„œë²„ ë‘ ê³„ì‚°ì‹ì€ í•­ìƒ ì¼ì¹˜í•´ì•¼í•¨
  */
 #ifndef __CALCULATION_H
 #define __CALCULATION_H
@@ -30,7 +30,7 @@ class CUserDATA;
  * \ingroup SHO_GS_LIB
  * \class	CCal
  * \author	wookSang.Jo
- * \brief	Å¬¶óÀÌ¾ğÆ®¿Í °øÀ¯µÇ´Â ÀüÅõ¹× ÀÏ¹İ °è»ê °ø½Ä ¼³Á¤ Å¬·¡½º
+ * \brief	í´ë¼ì´ì–¸íŠ¸ì™€ ê³µìœ ë˜ëŠ” ì „íˆ¬ë° ì¼ë°˜ ê³„ì‚° ê³µì‹ ì„¤ì • í´ë˜ìŠ¤
  */
 class CCal {
 private:
@@ -66,7 +66,7 @@ public:
         return (int)((iBasePrice + 10000) * (iCurDurability + 50) / 10000.f);
     }
 
-    // Àåºñ¿¡¼­ º¸¼® ºĞ¸®½Ã ÇÊ¿äÇÑ mp & money
+    // ì¥ë¹„ì—ì„œ ë³´ì„ ë¶„ë¦¬ì‹œ í•„ìš”í•œ mp & money
     // param :
     //		short ORI_QUAL = ITEM_QUALITY( pInITEM->GetTYPE(), pInITEM->GetItemNO() );
     //		short GEM_QUAL = ITEM_QUALITY( ITEM_TYPE_GEM,	  pInITEM->GetGemNO() );
@@ -77,12 +77,12 @@ public:
         return (ORI_QUAL * 5 + 50);
     }
 
-    // Àåºñ¸¦ Àç·á·Î ºĞÇØ½Ã ÇÊ¿äÇÑ mp & money
+    // ì¥ë¹„ë¥¼ ì¬ë£Œë¡œ ë¶„í•´ì‹œ í•„ìš”í•œ mp & money
     // param : ITEM_QUALITY( pInITEM->GetTYPE(), pInITEM->GetItemNO() );
     static int GetMP_WhenBreakupMAT(short ORI_QUAL) { return (ORI_QUAL + 30); }
     static int GetMONEY_WhenBreakupMAT(short ORI_QUAL) { return (ORI_QUAL * 10 + 20); }
 
-    // ÀåºñÀÇ µî±ŞÀ» ¿Ã¸±¶§ ÇÊ¿äÇÑ mp & money
+    // ì¥ë¹„ì˜ ë“±ê¸‰ì„ ì˜¬ë¦´ë•Œ í•„ìš”í•œ mp & money
     // param :
     //		pInITEM->GetGrade ()
     //		ITEM_QUALITY( pInITEM->GetTYPE(), pInITEM->GetItemNO() );
@@ -93,7 +93,7 @@ public:
         return (int)((nCurGrade) * (nCurGrade + 1) * ITEM_QUAL * (ITEM_QUAL + 20) * 0.2f);
     }
 
-    // ÇöÀç ÆÄÆ¼ ·¹º§¿¡¼­ ¾÷µÇ±â À§ÇØ ¾ò¾î¾ßÇÒ °æÇèÄ¡¾ç
+    // í˜„ì¬ íŒŒí‹° ë ˆë²¨ì—ì„œ ì—…ë˜ê¸° ìœ„í•´ ì–»ì–´ì•¼í•  ê²½í—˜ì¹˜ì–‘
     static int Get_PartyLevelUpNeedEXP(int iCurPartyLEV) {
         return ((iCurPartyLEV + 7) * (iCurPartyLEV + 10) * 5) + 200;
     }

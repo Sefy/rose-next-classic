@@ -69,7 +69,7 @@ iocpSOCKET::Clear_LIST(void) {
 }
 
 //-------------------------------------------------------------------------------------------------
-// pRecvNode¿¡ ÀÌ¾î ¹Þ±â.
+// pRecvNodeì— ì´ì–´ ë°›ê¸°.
 ePacketRECV
 iocpSOCKET::Recv_Continue(tagIO_DATA* recv_data) {
     if (0
@@ -88,7 +88,7 @@ iocpSOCKET::Recv_Continue(tagIO_DATA* recv_data) {
 }
 
 //-------------------------------------------------------------------------------------------------
-// »õ·Î ¹Þ±â.
+// ìƒˆë¡œ ë°›ê¸°.
 ePacketRECV
 iocpSOCKET::Recv_Start(void) {
     tagIO_DATA* recv_data = this->Alloc_RecvIODATA();
@@ -104,7 +104,7 @@ iocpSOCKET::Recv_Start(void) {
 }
 
 //-------------------------------------------------------------------------------------------------
-// CThreadWORKER::STATUS_ReturnTRUE () ¿¡¼­¸¸ È£ÃâµÈ´Ù.
+// CThreadWORKER::STATUS_ReturnTRUE () ì—ì„œë§Œ í˜¸ì¶œëœë‹¤.
 ePacketRECV
 iocpSOCKET::Recv_Complete(tagIO_DATA* recv_data) {
     ePacketRECV eResult = eRESULT_PACKET_OK;
@@ -159,7 +159,7 @@ iocpSOCKET::Recv_Complete(tagIO_DATA* recv_data) {
                     "*** ERROR: Decode recv packet header2, IP[ %s ]\n",
                     this->m_IP.Get());
 
-                // ºí·¢ ¸®½ºÆ®¿¡ ip µî·Ï...
+                // ë¸”ëž™ ë¦¬ìŠ¤íŠ¸ì— ip ë“±ë¡...
                 return eRESULT_PACKET_BLOCK; // false;
             }
         }
@@ -173,7 +173,7 @@ iocpSOCKET::Recv_Complete(tagIO_DATA* recv_data) {
         }
 
         if (nRemainBytes > nPacketSIZE) {
-            // Ãß°¡ ÆÐÅ¶ÀÌ ÀÖ´Ù.
+            // ì¶”ê°€ íŒ¨í‚·ì´ ìžˆë‹¤.
             nRemainBytes -= nPacketSIZE;
             pHEADER = (t_PACKETHEADER*)(pHEADER->m_pDATA + nPacketSIZE);
             nPacketSIZE = 0;
@@ -181,7 +181,7 @@ iocpSOCKET::Recv_Complete(tagIO_DATA* recv_data) {
             break;
     }
 
-    // ¸ðÀÚ¶õ ºÎºÐÀ» ´Ù½Ã ÀÐ¾îµéÀÏ µ¥ÀÌÅ¸ »ý¼º.
+    // ëª¨ìžëž€ ë¶€ë¶„ì„ ë‹¤ì‹œ ì½ì–´ë“¤ì¼ ë°ì´íƒ€ ìƒì„±.
     tagIO_DATA* new_recv = this->Alloc_RecvIODATA();
     if (new_recv) {
         new_recv->bytes = nRemainBytes;
@@ -194,7 +194,7 @@ iocpSOCKET::Recv_Complete(tagIO_DATA* recv_data) {
             this->Free_RecvIODATA(new_recv);
             return eRESULT_PACKET_DISCONNECT; // false;
         }
-        return this->Recv_Continue(new_recv); // ÀÌ¾î ¹Þ±â.
+        return this->Recv_Continue(new_recv); // ì´ì–´ ë°›ê¸°.
     }
 
     eResult = eRESULT_PACKET_DISCONNECT; // false;
@@ -203,7 +203,7 @@ iocpSOCKET::Recv_Complete(tagIO_DATA* recv_data) {
 }
 
 //-------------------------------------------------------------------------------------------------
-// pSendNode¿¡ ÀÌ¾î º¸³»±â.
+// pSendNodeì— ì´ì–´ ë³´ë‚´ê¸°.
 bool
 iocpSOCKET::Send_Continue(tagIO_DATA* pSendDATA) {
     if (pSendDATA->bytes >= pSendDATA->packet.size) {
@@ -258,8 +258,8 @@ iocpSOCKET::Send_Start(const classPACKET& packet) {
         } else {
             int iQedCnt = m_SendList.GetNodeCount();
             if (iQedCnt > 100) {
-                // º¸³»±â ½ÃµµÇÑ ÈÄ ¾ÆÁ÷±îÁö ´ÙÀ½ ÆÐÅ¶À» º¸³»Áö ¸øÇÏ°í ÀÖ´Â³Ñ...
-                // ÆÐÅ¶À» ½×³õ°í ÀÖ´Ù¸é Â©¶ó¹ö·Á¾ßÁö...
+                // ë³´ë‚´ê¸° ì‹œë„í•œ í›„ ì•„ì§ê¹Œì§€ ë‹¤ìŒ íŒ¨í‚·ì„ ë³´ë‚´ì§€ ëª»í•˜ê³  ìžˆëŠ”ë„˜...
+                // íŒ¨í‚·ì„ ìŒ“ë†“ê³  ìžˆë‹¤ë©´ ì§¤ë¼ë²„ë ¤ì•¼ì§€...
                 DWORD dwPassTime = ::timeGetTime() - this->m_dwCheckTIME;
                 if (dwPassTime >= 60 * 1000 || iQedCnt > 2500) {
                     g_LOG.CS_ODS(0xffff,
@@ -277,12 +277,12 @@ iocpSOCKET::Send_Start(const classPACKET& packet) {
 }
 
 //-------------------------------------------------------------------------------------------------
-// CThreadWORKER::STATUS_ReturnTRUE() ¿¡¼­¸¸ È£ÃâµÈ´Ù.
+// CThreadWORKER::STATUS_ReturnTRUE() ì—ì„œë§Œ í˜¸ì¶œëœë‹¤.
 bool
 iocpSOCKET::Send_Complete(tagIO_DATA* pSendDATA) {
     m_csSendQ.Lock();
     {
-        if (0 == this->m_iSocketIDX) { // Á¾·áµÆ´Ù.
+        if (0 == this->m_iSocketIDX) { // ì¢…ë£Œëë‹¤.
             m_csSendQ.Unlock();
             return false;
         }
@@ -310,7 +310,7 @@ iocpSOCKET::Send_Complete(tagIO_DATA* pSendDATA) {
                     return false;
                 }
             }
-        } else if (pSendDATA->bytes < pSendDATA->packet.size) { // ºÎºÐ Àü¼ÛµÊ..
+        } else if (pSendDATA->bytes < pSendDATA->packet.size) { // ë¶€ë¶„ ì „ì†¡ë¨..
             if (!this->Send_Continue(pSendDATA)) {
                 m_csSendQ.Unlock();
                 return false;

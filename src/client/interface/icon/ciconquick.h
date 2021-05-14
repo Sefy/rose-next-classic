@@ -3,12 +3,12 @@
 #include "cicon.h"
 
 /**
- * Äü¹Ù¿¡ »ç¿ëµÇ´Â Icon, ³»ºÎÀûÀ¸·Î ´Ù¸¥ ¾ÆÀÌÄÜÀ» °¡Áö°í ÀÖ´Ù.
+ * í€µë°”ì— ì‚¬ìš©ë˜ëŠ” Icon, ë‚´ë¶€ì ìœ¼ë¡œ ë‹¤ë¥¸ ì•„ì´ì½˜ì„ ê°€ì§€ê³  ìžˆë‹¤.
  *
- * @Warning		Ç×»ó CIconÀÇ virtual method¸¦ ±¸ÇöÇØÁÖ¾î¾ß ÇÑ´Ù.( ¸â¹ö·Î °¡Áö°í ÀÖ´Â CIconÀÌ
- * µ¿ÀÛÇÏµµ·Ï
+ * @Warning		í•­ìƒ CIconì˜ virtual methodë¥¼ êµ¬í˜„í•´ì£¼ì–´ì•¼ í•œë‹¤.( ë©¤ë²„ë¡œ ê°€ì§€ê³  ìžˆëŠ” CIconì´
+ * ë™ìž‘í•˜ë„ë¡
  * )
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CIconQuick: public CIcon {
@@ -30,7 +30,7 @@ public:
     const CIcon* GetIcon();
 
 protected:
-    CIcon* m_pIcon; /// ½ÇÁ¦ ¸ðµç Ã³¸®¸¦ ÇÒ ¾ÆÀÌÄÜ¿¡ ´ëÇÑ Æ÷ÀÎÅÍ
-    int m_iQuickBarSlotIndex; /// Äü¹Ù¿¡¼­ÀÇ ½½·Ô ÀÎµ¦½º
+    CIcon* m_pIcon; /// ì‹¤ì œ ëª¨ë“  ì²˜ë¦¬ë¥¼ í•  ì•„ì´ì½˜ì— ëŒ€í•œ í¬ì¸í„°
+    int m_iQuickBarSlotIndex; /// í€µë°”ì—ì„œì˜ ìŠ¬ë¡¯ ì¸ë±ìŠ¤
 };
 #endif

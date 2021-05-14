@@ -2,9 +2,9 @@
 #define _CTString_
 
 /**
- * ÃÊ±â¿¡ ÀÛ¼ºµÈ string class : CInfo¿¡¼­ »ç¿ëÁßÀÌ´Ù
+ * ì´ˆê¸°ì— ì‘ì„±ëœ string class : CInfoì—ì„œ ì‚¬ìš©ì¤‘ì´ë‹¤
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/5
  */
 class CTString {

@@ -3,10 +3,10 @@
 #include "cmakestate.h"
 
 /**
- * Á¦Á¶ÀÎÅÍÆäÀÌ½º Ã¢ÀÇ State Class : Á¦Á¶½ÃÀÛÀ» ¼­¹ö¿¡ ¿äÃ»ÇÏ°í °á°ú¸¦ ´ë±âÇÏ´Â »óÅÂ
+ * ì œì¡°ì¸í„°íŽ˜ì´ìŠ¤ ì°½ì˜ State Class : ì œì¡°ì‹œìž‘ì„ ì„œë²„ì— ìš”ì²­í•˜ê³  ê²°ê³¼ë¥¼ ëŒ€ê¸°í•˜ëŠ” ìƒíƒœ
  *
- * @Warning		ÀÌ »óÅÂÀÇ °æ¿ì´Â À¯ÀúÀÇ ÀÔ·Â¿¡ ´ëÇÑ Ã³¸®¸¦ ÇÏÁö ¾Êµµ·Ï ÇÑ´Ù.
- * @Author		ÃÖÁ¾Áø
+ * @Warning		ì´ ìƒíƒœì˜ ê²½ìš°ëŠ” ìœ ì €ì˜ ìž…ë ¥ì— ëŒ€í•œ ì²˜ë¦¬ë¥¼ í•˜ì§€ ì•Šë„ë¡ í•œë‹¤.
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CMakeStateWait: public CMakeState {

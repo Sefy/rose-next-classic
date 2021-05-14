@@ -7,9 +7,9 @@
 #include "event/CTEventServerList.h"
 
 /**
- * ·Î±×ÀÎ¼­¹ö¿¡¼­ ¹ŞÀº ¿ùµå ¼­¹ö¹× Ã¤³Î¼­¹ö Data Class
+ * ë¡œê·¸ì¸ì„œë²„ì—ì„œ ë°›ì€ ì›”ë“œ ì„œë²„ë° ì±„ë„ì„œë²„ Data Class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CServerList: public CObservable {
@@ -36,10 +36,10 @@ public:
     bool IsShowChannel();
 
 private:
-    /// list  ¿ùµå ¼­¹ö ID, ¿ùµå¼­¹öÀÌ¸§,Ã¤³Î¼­¹ö ¸®½ºÆ® (¿ùµå ¼­¹ö ID¸¦ °¡Áö°í ÀÖÀÚ)
+    /// list  ì›”ë“œ ì„œë²„ ID, ì›”ë“œì„œë²„ì´ë¦„,ì±„ë„ì„œë²„ ë¦¬ìŠ¤íŠ¸ (ì›”ë“œ ì„œë²„ IDë¥¼ ê°€ì§€ê³  ìˆì)
     std::map<int, WORLDSERVER_INFO> m_worldserver_list;
     std::list<CHANNELSERVER_INFO> m_channelserver_nulllist;
-    /// type - Ã¤³Îº¸ÀÌ±â/°¨Ãß±â
+    /// type - ì±„ë„ë³´ì´ê¸°/ê°ì¶”ê¸°
     bool m_show_channel;
     CTEventServerList m_Event;
 };

@@ -4,7 +4,7 @@
 
 #include "../InterfaceType.h"
 
-/// ÀÎº¥Åä¸®¿¡¼­ ºĞ¸®/ºĞÇØ Ã¢À¸·Î ¾ÆÀÌÅÛ ÀÌµ¿
+/// ì¸ë²¤í† ë¦¬ì—ì„œ ë¶„ë¦¬/ë¶„í•´ ì°½ìœ¼ë¡œ ì•„ì´í…œ ì´ë™
 class CTCmdDragItem2SeparateDlg: public CTCommand {
 public:
     CTCmdDragItem2SeparateDlg(void) {}
@@ -12,7 +12,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// ¾ÆÀÌÅÛÀ» Äü¹Ù¿¡ µî·Ï
+/// ì•„ì´í…œì„ í€µë°”ì— ë“±ë¡
 class CTCmdDragInven2QuickBar: public CTCommand {
 public:
     CTCmdDragInven2QuickBar(void) { m_nType = DLG_TYPE_QUICKBAR; }
@@ -22,7 +22,7 @@ public:
     short m_nType;
 };
 
-/// ½ºÅ³À» Äü¹Ù¿¡ µî·Ï
+/// ìŠ¤í‚¬ì„ í€µë°”ì— ë“±ë¡
 class CTCmdDragSkill2QuickBar: public CTCommand {
 public:
     CTCmdDragSkill2QuickBar(void) { m_nType = DLG_TYPE_QUICKBAR; };
@@ -33,7 +33,7 @@ public:
     short m_nType;
 };
 
-/// Å¬·£ ½ºÅ³À»  Äü¹Ù¿¡ ½ºÅ³ µî·Ï
+/// í´ëœ ìŠ¤í‚¬ì„  í€µë°”ì— ìŠ¤í‚¬ ë“±ë¡
 class CTCmdDragClanSkill2QuickBar: public CTCommand {
 public:
     CTCmdDragClanSkill2QuickBar(void){};
@@ -41,7 +41,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// Äü¹Ù¿¡¼­ ¾ÆÀÌÅÛ(½ºÅ³µî Æ÷ÇÔ)À» »«´Ù.
+/// í€µë°”ì—ì„œ ì•„ì´í…œ(ìŠ¤í‚¬ë“± í¬í•¨)ì„ ëº€ë‹¤.
 class CTCmdDragItemFromQuickBar: public CTCommand {
 public:
     CTCmdDragItemFromQuickBar(void) { m_nType = DLG_TYPE_QUICKBAR; }
@@ -51,7 +51,7 @@ public:
     short m_nType;
 };
 
-/// Äü¹Ù¾È¿¡¼­ µî·ÏµÈ ¾ÆÀÌÅÛ(½ºÅ³µî Æ÷ÇÔ)À» À§Ä¡ ÀÌµ¿ÇÑ´Ù.
+/// í€µë°”ì•ˆì—ì„œ ë“±ë¡ëœ ì•„ì´í…œ(ìŠ¤í‚¬ë“± í¬í•¨)ì„ ìœ„ì¹˜ ì´ë™í•œë‹¤.
 class CTCmdMoveIconInQuickBar: public CTCommand {
 public:
     CTCmdMoveIconInQuickBar(void) { m_nType = DLG_TYPE_QUICKBAR; }
@@ -62,7 +62,7 @@ public:
     short m_nType;
 };
 
-/// ÀÎº¥Åä¸®¿¡¼­ Ä³¸¯ÅÍ Ã¢À¸·ÎÀÇ ÀåÂø
+/// ì¸ë²¤í† ë¦¬ì—ì„œ ìºë¦­í„° ì°½ìœ¼ë¡œì˜ ì¥ì°©
 class CTCmdDragItemEquipFromInven: public CTCommand {
 public:
     CTCmdDragItemEquipFromInven(void) {}
@@ -70,7 +70,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// ¾ÆÀÌÅÛÃ¢ ¾È¿¡¼­ ÀåÂøµÈ ¾ÆÀÌÅÛÀ» DragÇØ¼­ Å»Âø
+/// ì•„ì´í…œì°½ ì•ˆì—ì„œ ì¥ì°©ëœ ì•„ì´í…œì„ Dragí•´ì„œ íƒˆì°©
 class CTCmdDragItemFromEquipInItemDlg: public CTCommand {
 public:
     CTCmdDragItemFromEquipInItemDlg(void) {}
@@ -78,7 +78,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// ¾ÆÀÌÅÛÃ¢ ¾È¿¡¼­ ÀÎº¥Åä¸®¿¡ ÀÖ´Â ¾ÆÀÌÅÛÀ» DragÇÏ´Â Command
+/// ì•„ì´í…œì°½ ì•ˆì—ì„œ ì¸ë²¤í† ë¦¬ì— ìˆëŠ” ì•„ì´í…œì„ Dragí•˜ëŠ” Command
 class CTCmdDragItemFromInvenInItemDlg: public CTCommand {
 public:
     CTCmdDragItemFromInvenInItemDlg(void) {}
@@ -86,7 +86,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// ¾ÆÀÌÅÛÃ¢ÀÇ ÀÎº¥Åä¸®¿¡¼­ ³»°¡ °³¼³ÇÑ °³ÀÎ»óÁ¡À¸·Î ¾ÆÀÌÅÛÀ» ÀÌµ¿ÇÏ´Â Command
+/// ì•„ì´í…œì°½ì˜ ì¸ë²¤í† ë¦¬ì—ì„œ ë‚´ê°€ ê°œì„¤í•œ ê°œì¸ìƒì ìœ¼ë¡œ ì•„ì´í…œì„ ì´ë™í•˜ëŠ” Command
 class CTCmdDragItem2PrivateStoreDlg: public CTCommand {
 public:
     CTCmdDragItem2PrivateStoreDlg(void) {}
@@ -94,7 +94,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// WishList¿¡ ¾ÆÀÌÅÛ Ãß°¡
+/// WishListì— ì•„ì´í…œ ì¶”ê°€
 class CTCmdDragItem2WishList: public CTCommand {
 public:
     CTCmdDragItem2WishList(void) {}
@@ -102,7 +102,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// ³»°¡ °³¼³ÇÑ °³ÀÎ»óÁ¡¿¡¼­ ÆÇ¸Å ¹°Ç°À» »©´Â Command
+/// ë‚´ê°€ ê°œì„¤í•œ ê°œì¸ìƒì ì—ì„œ íŒë§¤ ë¬¼í’ˆì„ ë¹¼ëŠ” Command
 class CTCmdDragSellItemFromPrivateStoreDlg: public CTCommand {
 public:
     CTCmdDragSellItemFromPrivateStoreDlg(void) {}
@@ -110,7 +110,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// ³»°¡ °³¼³ÇÑ °³ÀÎ»óÁ¡¿¡¼­ ¸ÅÀÔ ¹°Ç°À» »©´Â Command
+/// ë‚´ê°€ ê°œì„¤í•œ ê°œì¸ìƒì ì—ì„œ ë§¤ì… ë¬¼í’ˆì„ ë¹¼ëŠ” Command
 class CTCmdDragBuyItemFromPrivateStoreDlg: public CTCommand {
 public:
     CTCmdDragBuyItemFromPrivateStoreDlg(void) {}
@@ -118,7 +118,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// ´Ù¸¥ ¾Æ¹ÙÅ¸ÀÇ °³ÀÎ»óÁ¡¿¡¼­ ¹°Ç°À» »ì¶§ µå·¡±×ÇÏ´Â   Command
+/// ë‹¤ë¥¸ ì•„ë°”íƒ€ì˜ ê°œì¸ìƒì ì—ì„œ ë¬¼í’ˆì„ ì‚´ë•Œ ë“œë˜ê·¸í•˜ëŠ”   Command
 class CTCmdDragSellItemFromAvatarStoreDlg: public CTCommand {
 public:
     CTCmdDragSellItemFromAvatarStoreDlg(void) {}
@@ -126,7 +126,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// Á¦·Ã¿¡¼­ µå·¡±×¾Øµå¶øÀ¸·Î Å¸°Ù ¾ÆÀÌÅÛÀ» »©´Â Command
+/// ì œë ¨ì—ì„œ ë“œë˜ê·¸ì•¤ë“œëìœ¼ë¡œ íƒ€ê²Ÿ ì•„ì´í…œì„ ë¹¼ëŠ” Command
 class CTCmdDragTakeoutTargetItemFromUpgradeDlg: public CTCommand {
 public:
     CTCmdDragTakeoutTargetItemFromUpgradeDlg() {}
@@ -134,7 +134,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// Á¦·Ã¿¡¼­ µå·¡±×¾Øµå¶øÀ¸·Î Àç·á ¾ÆÀÌÅÛÀ» »©´Â Command
+/// ì œë ¨ì—ì„œ ë“œë˜ê·¸ì•¤ë“œëìœ¼ë¡œ ì¬ë£Œ ì•„ì´í…œì„ ë¹¼ëŠ” Command
 class CTCmdDragTakeoutMaterialItemFromUpgradeDlg: public CTCommand {
 public:
     CTCmdDragTakeoutMaterialItemFromUpgradeDlg() {}
@@ -142,7 +142,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// ¾ÆÀÌÅÛ Ã¢¿¡¼­ Á¦·ÃÃ¢À¸·Î ¾ÆÀÌÅÛÀ» µå·¡±×¾Øµå¶øÇÏ´Â Command
+/// ì•„ì´í…œ ì°½ì—ì„œ ì œë ¨ì°½ìœ¼ë¡œ ì•„ì´í…œì„ ë“œë˜ê·¸ì•¤ë“œëí•˜ëŠ” Command
 class CTCmdDragTakeinItem2UpgradeDlg: public CTCommand {
 public:
     CTCmdDragTakeinItem2UpgradeDlg() {}

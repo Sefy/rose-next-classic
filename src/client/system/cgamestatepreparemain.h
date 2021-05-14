@@ -4,10 +4,10 @@
 #include "cgamestate.h"
 
 /**
- * Ä³¸¯ÅÍ ¼±ÅÃÈÄ CGameStateMainÀü Ã³¸®¸¦ ÇÏ´Â State Class
- *	- CGameStateWarp¿Í ºñ½ÁÇÏÁö¸¸ ´Ù¸¥ ºÎºĞÀÌ ÀÖ¾î ºĞ¸®µÇ¾ú´Ù.
+ * ìºë¦­í„° ì„ íƒí›„ CGameStateMainì „ ì²˜ë¦¬ë¥¼ í•˜ëŠ” State Class
+ *	- CGameStateWarpì™€ ë¹„ìŠ·í•˜ì§€ë§Œ ë‹¤ë¥¸ ë¶€ë¶„ì´ ìˆì–´ ë¶„ë¦¬ë˜ì—ˆë‹¤.
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CGameStatePrepareMain: public CGameState {

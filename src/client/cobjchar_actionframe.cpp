@@ -22,8 +22,8 @@ CObjCHAR::FireBulletWithPetWeapon(CObjCHAR* pTarget) {
         int iBulletNO = PAT_BULLET(((CObjCART*)this)->GetPetParts(RIDE_PART_ARMS));
 
         if (pTarget && iBulletNO) {
-            //¹ÚÁöÈ£::¹ß»ç Æ÷ÀÎÅÍ¸¦ °¡Á®¿Â´Ù.
-            ///<- 2005/7/25 Ä«Æ® ½Ã½ºÅÛ ÆÄÃ÷ Ãß°¡·Î ¼öÁ¤ : nAvy
+            //ë°•ì§€í˜¸::ë°œì‚¬ í¬ì¸í„°ë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+            ///<- 2005/7/25 ì¹´íŠ¸ ì‹œìŠ¤í…œ íŒŒì¸  ì¶”ê°€ë¡œ ìˆ˜ì • : nAvy
             /// int	btPoint =
             /// PAT_BULLET_FIRE_POINT(((CObjCART*)this)->GetPetParts(RIDE_PART_ARMS),64);
 #ifdef _GBC
@@ -40,18 +40,18 @@ CObjCHAR::FireBulletWithPetWeapon(CObjCHAR* pTarget) {
 }
 
 //-------------------------------------------------------------------------------------------------
-/// Å¸°ÝÈ¿°ú¸¦ ºÙÀÌ°í,
-/// @todo Å¸°ÝÄ¡´Â ¼­¹ö·ÎºÎÅÍÀÇ Àü¼Û¿¡ ÀÇÁ¸ÇÑ´Ù.. ÇöÀç´Â
+/// íƒ€ê²©íš¨ê³¼ë¥¼ ë¶™ì´ê³ ,
+/// @todo íƒ€ê²©ì¹˜ëŠ” ì„œë²„ë¡œë¶€í„°ì˜ ì „ì†¡ì— ì˜ì¡´í•œë‹¤.. í˜„ìž¬ëŠ”
 void
 CObjCHAR::ActionEVENT(int iActionIDX) {
-    // ¸ð¼ÇÁß ¾×¼Ç ÇÁ·¹ÀÓ¿¡ µ¥ÀÌÅ¸°¡ ¾ø´Â °æ¿ì
-    // °­Á¦·Î ³Ö¾î Á×À»¶§µµ ¾×¼ÇÀÌ ¹ß»ýÇÑ´Ù.
+    // ëª¨ì…˜ì¤‘ ì•¡ì…˜ í”„ë ˆìž„ì— ë°ì´íƒ€ê°€ ì—†ëŠ” ê²½ìš°
+    // ê°•ì œë¡œ ë„£ì–´ ì£½ì„ë•Œë„ ì•¡ì…˜ì´ ë°œìƒí•œë‹¤.
     if (this->Get_HP() <= 0)
         return;
 
-    /// ÇöÀç ÇÁ·¹ÀÓÀÇ ÀÌº¥Æ® ÁøÇà..
+    /// í˜„ìž¬ í”„ë ˆìž„ì˜ ì´ë²¤íŠ¸ ì§„í–‰..
     switch (iActionIDX) {
-            /// Æ¯¼ö ÇÁ·¹ÀÓ...
+            /// íŠ¹ìˆ˜ í”„ë ˆìž„...
         case 1:
         case 2:
         case 3:
@@ -60,38 +60,38 @@ CObjCHAR::ActionEVENT(int iActionIDX) {
             ActionSpecialFrame(iActionIDX);
         } break;
 
-            /// ±ÙÁ¢
+            /// ê·¼ì ‘
         case 21:
         case 31:
         case 41: {
-            // ±ÙÁ¢ !
+            // ê·¼ì ‘ !
             ActionInFighting(iActionIDX);
         } break;
 
-            /// È°
+            /// í™œ
         case 22:
         case 32:
         case 42: {
-            // È°°ø°Ý !
+            // í™œê³µê²© !
             ActionBow(iActionIDX);
         } break;
 
-            /// ÃÑ
+            /// ì´
         case 23:
         case 33:
         case 43: {
-            // ÃÑ°ø°Ý !
+            // ì´ê³µê²© !
             ActionGun(iActionIDX);
         } break;
 
-            /// ½ºÅ³
+            /// ìŠ¤í‚¬
         case 24:
         case 34: {
-            // ½ºÅ³°ø°Ý !
+            // ìŠ¤í‚¬ê³µê²© !
             ActionSkill(iActionIDX);
         } break;
 
-            /// ½ºÅ³ ±ÙÁ¢Çü Å¸°Ý ½ºÅ³
+            /// ìŠ¤í‚¬ ê·¼ì ‘í˜• íƒ€ê²© ìŠ¤í‚¬
         case 25:
         case 35:
         case 10:
@@ -99,9 +99,9 @@ CObjCHAR::ActionEVENT(int iActionIDX) {
         case 56:
         case 66:
 
-            /// ¿Þ¼Õ ¹«±â ÃÑ¾Ëº¯°æ
+            /// ì™¼ì† ë¬´ê¸° ì´ì•Œë³€ê²½
         case 26: {
-            // ½ºÅ³°ø°Ý !
+            // ìŠ¤í‚¬ê³µê²© !
             ActionImmediateSkill(iActionIDX);
         } break;
 
@@ -119,20 +119,20 @@ CObjCHAR::ActionEVENT(int iActionIDX) {
     }
 
     /*
-    /// ÇÑ¹ø ¶§¸®°í ÁßÁö
+    /// í•œë²ˆ ë•Œë¦¬ê³  ì¤‘ì§€
     if ( m_bAttackSTART )
     Attack_END( false );
     */
 }
 
 //////////////////////////////////////////////////////////////////////////
-/// Æ¯¼ö ¾×¼Ç ÇÁ·¹ÀÓ
+/// íŠ¹ìˆ˜ ì•¡ì…˜ í”„ë ˆìž„
 //////////////////////////////////////////////////////////////////////////
 const int CHAR_STEP_SOLID = 653;
 void
 CObjCHAR::ActionSpecialFrame(int iActionIDX) {
     switch (iActionIDX) {
-        /// ¹ßÀÚ±¹ ¼Ò¸®
+        /// ë°œìžêµ­ ì†Œë¦¬
         case 1: {
             if (this->IsA(OBJ_USER)) {
                 D3DVECTOR vPos = g_pAVATAR->Get_CurPOS();
@@ -159,7 +159,7 @@ CObjCHAR::ActionSpecialFrame(int iActionIDX) {
         } break;
 
         //----------------------------------------------------------------------------------------------------
-        /// Castle Gear ÀÇ ¹ßÀÚ±¹.. ±×¸®°í.. ¹ßÀÚ±¹ »ç¿îµå
+        /// Castle Gear ì˜ ë°œìžêµ­.. ê·¸ë¦¬ê³ .. ë°œìžêµ­ ì‚¬ìš´ë“œ
         //----------------------------------------------------------------------------------------------------
         case 2:
         case 3: {
@@ -167,11 +167,11 @@ CObjCHAR::ActionSpecialFrame(int iActionIDX) {
                 int iEffectIDX = PAT_MOVE_EFFECT(((CObjCART*)this)->GetPetParts(RIDE_PART_LEG));
                 int iDummyIDX = 0;
                 switch (iActionIDX) {
-                    /// 1¹ø ´õ¹Ì¿¡ ºÎÂø
+                    /// 1ë²ˆ ë”ë¯¸ì— ë¶€ì°©
                     case 2: {
                         iDummyIDX = 1;
                     } break;
-                    /// 2¹ø ´õ¹Ì¿¡ ºÎÂø
+                    /// 2ë²ˆ ë”ë¯¸ì— ë¶€ì°©
                     case 3: {
                         iDummyIDX = 2;
                     } break;
@@ -195,14 +195,14 @@ CObjCHAR::ActionSpecialFrame(int iActionIDX) {
             }
         } break;
 
-        /// resurrection ½ºÅ³ »ç¿ë
+        /// resurrection ìŠ¤í‚¬ ì‚¬ìš©
         case 91: {
             CObjCHAR* pTarget = g_pObjMGR->Get_CharOBJ(this->m_iActiveObject, false);
 
             if (pTarget) {
                 ::setModelBlinkCloseMode(pTarget->GetZMODEL(), false);
 
-                ///ÆÄÆ¼¿øÀÏ°æ¿ì ¼­¹ö¿¡¼­ »õ·Î¿î HP°¡ ¿Â´Ù. ÀÌ°æ¿ì ´Ù½Ã ¸®¼Â½ÃÅ°Áö ¾Ê±â À§ÇÑ Á¶°Ç
+                ///íŒŒí‹°ì›ì¼ê²½ìš° ì„œë²„ì—ì„œ ìƒˆë¡œìš´ HPê°€ ì˜¨ë‹¤. ì´ê²½ìš° ë‹¤ì‹œ ë¦¬ì…‹ì‹œí‚¤ì§€ ì•Šê¸° ìœ„í•œ ì¡°ê±´
                 /// 2005/3/22-nAvy
                 if (pTarget->Get_HP() <= 0)
                     pTarget->Set_HP(1);
@@ -212,7 +212,7 @@ CObjCHAR::ActionSpecialFrame(int iActionIDX) {
                 int iBulletIDX = SKILL_BULLET_NO(m_nDoingSkillIDX);
                 if (iBulletIDX) {
                     short nEffectFileIDX = EFFECT_BULLET_NORMAL(iBulletIDX);
-                    /// Áö¿ª°ø°Ý¸¶¹ýÀº ÃÑ¾ËÀ» ½î´Â°Ô ¾Æ´Ï¶ó Å¸°Ù¿¡ ÀÌÆåÆ®¸¦ ºÙÀÎ´Ù.
+                    /// ì§€ì—­ê³µê²©ë§ˆë²•ì€ ì´ì•Œì„ ì˜ëŠ”ê²Œ ì•„ë‹ˆë¼ íƒ€ê²Ÿì— ì´íŽ™íŠ¸ë¥¼ ë¶™ì¸ë‹¤.
                     CEffect* pHitEFT = g_pEffectLIST->Add_EffectWithIDX(nEffectFileIDX, true);
                     if (pHitEFT) {
                         pHitEFT->LinkNODE(pTarget->GetZMODEL());
@@ -228,7 +228,7 @@ CObjCHAR::ActionSpecialFrame(int iActionIDX) {
 
                     pTarget->Set_HP((g_pAVATAR->Get_MaxHP() * 3) / 10);
 
-                    /// °æÇèÄ¡ º¹±¸
+                    /// ê²½í—˜ì¹˜ ë³µêµ¬
                     int iSkillRecoverEXPConst = SKILL_POWER(m_nDoingSkillIDX);
                     g_pAVATAR->Cancel_PenalEXP(iSkillRecoverEXPConst);
                 }
@@ -238,7 +238,7 @@ CObjCHAR::ActionSpecialFrame(int iActionIDX) {
 }
 
 //////////////////////////////////////////////////////////////////////////
-/// ±ÙÁ¢ °ø°Ý ¾×¼Ç
+/// ê·¼ì ‘ ê³µê²© ì•¡ì…˜
 //////////////////////////////////////////////////////////////////////////
 void
 CObjCHAR::ActionInFighting(int iActionIDX) {
@@ -246,18 +246,18 @@ CObjCHAR::ActionInFighting(int iActionIDX) {
 
     if (pTarget) {
         switch (iActionIDX) {
-                /// Å¸°ÝÄ¡
+                /// íƒ€ê²©ì¹˜
             case 21: {
                 int iEffectIDX = 0;
 
                 //----------------------------------------------------------------------------------------------------
-                /// @brief ÆÖ¸ðµå¿¡ µû¶ó¼­ ÀÌÆåÆ® ¼±ÅÃ( ÆÖÀº Arms ÀÇ Á¤º¸·Î ºÎÅÍ È¿°ú¸¦ °¡Á®¿Â´Ù. )
+                /// @brief íŒ»ëª¨ë“œì— ë”°ë¼ì„œ ì´íŽ™íŠ¸ ì„ íƒ( íŒ»ì€ Arms ì˜ ì •ë³´ë¡œ ë¶€í„° íš¨ê³¼ë¥¼ ê°€ì ¸ì˜¨ë‹¤. )
                 //----------------------------------------------------------------------------------------------------
                 if (this->IsPET() == false) {
-                    /// ¹«±â°¡ ÀÖÀ»°æ¿ì..
+                    /// ë¬´ê¸°ê°€ ìžˆì„ê²½ìš°..
                     iEffectIDX = WEAPON_DEFAULT_EFFECT(this->Get_R_WEAPON());
 
-                    /// ¹«±â°¡ ¾øÀ»°æ¿ì..
+                    /// ë¬´ê¸°ê°€ ì—†ì„ê²½ìš°..
                     if (!this->Get_R_WEAPON()) {
                         if (this->IsA(OBJ_MOB))
                             iEffectIDX = NPC_HAND_HIT_EFFECT(this->Get_CharNO());
@@ -265,9 +265,9 @@ CObjCHAR::ActionInFighting(int iActionIDX) {
 
                     pTarget->Hitted(this, iEffectIDX, this->m_nActiveSkillIDX);
 
-                    /// »ç¿îµå
+                    /// ì‚¬ìš´ë“œ
                     if (pTarget->IsUSER() == false) {
-                        /// Å¸°Ý»ç¿îµå Ãâ·Â
+                        /// íƒ€ê²©ì‚¬ìš´ë“œ ì¶œë ¥
                         short nCharIdx = pTarget->Get_CharNO();
 
                         short nHitSound = WEAPON_ATK_HIT_SOUND(this->Get_R_WEAPON());
@@ -275,26 +275,26 @@ CObjCHAR::ActionInFighting(int iActionIDX) {
                         if (nHittedSound) {
                             g_pSoundLIST->IDX_PlaySound3D(nHittedSound, pTarget->Get_CurPOS());
                         }
-                    } else // ÀÚ±â ¾Æ¹ÙÅ¸°¡ Å¸°ÙÀÎ °æ¿ì
+                    } else // ìžê¸° ì•„ë°”íƒ€ê°€ íƒ€ê²Ÿì¸ ê²½ìš°
                     {
-                        /// Å¸°Ý»ç¿îµå Ãâ·Â
+                        /// íƒ€ê²©ì‚¬ìš´ë“œ ì¶œë ¥
                         short nHitSound = WEAPON_ATK_HIT_SOUND(this->Get_R_WEAPON());
                         short nHittedSound = HIT_SOUND(nHitSound, 1);
                         if (nHittedSound) {
-                            // g_pSoundLIST->IDX_PlaySound( nHittedSound ); // ¾È3D ·Î Ãâ·Â
+                            // g_pSoundLIST->IDX_PlaySound( nHittedSound ); // ì•ˆ3D ë¡œ ì¶œë ¥
                             g_pSoundLIST->IDX_PlaySound3D(nHittedSound, Get_CurPOS());
                         }
                     }
                 } else {
-                    ///<- 2005/7/25 Ä«Æ® ½Ã½ºÅÛ ÆÄÃ÷ Ãß°¡·Î ¼öÁ¤ : nAvy
-                    ///ÀüÃ³¸®±â Á¤ÀÇ·Î ±¸Á¶°¡ ¹Ù²ñ¿¡ µû¶ó ´Ù½Ã º¹±¸ 2005/8/31
+                    ///<- 2005/7/25 ì¹´íŠ¸ ì‹œìŠ¤í…œ íŒŒì¸  ì¶”ê°€ë¡œ ìˆ˜ì • : nAvy
+                    ///ì „ì²˜ë¦¬ê¸° ì •ì˜ë¡œ êµ¬ì¡°ê°€ ë°”ë€œì— ë”°ë¼ ë‹¤ì‹œ ë³µêµ¬ 2005/8/31
                     iEffectIDX = PAT_HIT_EFFECT(((CObjCART*)this)->GetPetParts(RIDE_PART_ARMS));
 
                     pTarget->Hitted(this, iEffectIDX, 0);
 
                     int iSoundIDX = 0;
-                    ///<- 2005/7/25 Ä«Æ® ½Ã½ºÅÛ ÆÄÃ÷ Ãß°¡·Î ¼öÁ¤ : nAvy
-                    ///ÀüÃ³¸®±â Á¤ÀÇ·Î ±¸Á¶°¡ ¹Ù²ñ¿¡ µû¶ó ´Ù½Ã º¹±¸ 2005/8/31 navye
+                    ///<- 2005/7/25 ì¹´íŠ¸ ì‹œìŠ¤í…œ íŒŒì¸  ì¶”ê°€ë¡œ ìˆ˜ì • : nAvy
+                    ///ì „ì²˜ë¦¬ê¸° ì •ì˜ë¡œ êµ¬ì¡°ê°€ ë°”ë€œì— ë”°ë¼ ë‹¤ì‹œ ë³µêµ¬ 2005/8/31 navye
                     iSoundIDX = PAT_HIT_SOUND(((CObjCART*)this)->GetPetParts(RIDE_PART_ARMS));
 
                     if (iSoundIDX)
@@ -302,9 +302,9 @@ CObjCHAR::ActionInFighting(int iActionIDX) {
                 }
             } break;
 
-                /// °ø°Ý »ç¿îµå
+                /// ê³µê²© ì‚¬ìš´ë“œ
             case 31: {
-                /// °ø°Ý »ç¿îµå ¼³Á¤
+                /// ê³µê²© ì‚¬ìš´ë“œ ì„¤ì •
                 short nHitStartSound = WEAPON_ATK_START_SOUND(this->Get_R_WEAPON());
 
                 if (!(this->Get_R_WEAPON()) && this->IsA(OBJ_MOB)) {
@@ -312,7 +312,7 @@ CObjCHAR::ActionInFighting(int iActionIDX) {
                 }
 
                 if (nHitStartSound) {
-                    if (this->IsUSER()) // ÀÚ±â ¾Æ¹ÙÅ¸°¡ °ø°ÝÇÏ´Â °æ¿ì¿¡´Â ¾È3D ·Î Ãâ·Â
+                    if (this->IsUSER()) // ìžê¸° ì•„ë°”íƒ€ê°€ ê³µê²©í•˜ëŠ” ê²½ìš°ì—ëŠ” ì•ˆ3D ë¡œ ì¶œë ¥
                         // g_pSoundLIST->IDX_PlaySound( nHitStartSound );
                         g_pSoundLIST->IDX_PlaySound3D(nHitStartSound, Get_CurPOS());
                     else
@@ -323,26 +323,26 @@ CObjCHAR::ActionInFighting(int iActionIDX) {
     }
 }
 
-/// È° °ø°Ý ¾×¼Ç
+/// í™œ ê³µê²© ì•¡ì…˜
 void
 CObjCHAR::ActionBow(int iActionIDX) {
     CObjCHAR* pTarget = g_pObjMGR->Get_CharOBJ(this->m_iActiveObject, true);
 
     if (pTarget) {
         switch (iActionIDX) {
-                /// ¹ß»ç, »ç¿îµå
+                /// ë°œì‚¬, ì‚¬ìš´ë“œ
             case 22: {
 
                 //----------------------------------------------------------------------------------------------------
-                /// Pet ÀÌ ½î´Â°Å¶ó¸é ÆÖÀÇ Á¤º¸·Î ÃÑ¾ËÀ» ½ð´Ù.
+                /// Pet ì´ ì˜ëŠ”ê±°ë¼ë©´ íŒ»ì˜ ì •ë³´ë¡œ ì´ì•Œì„ ìœë‹¤.
                 //----------------------------------------------------------------------------------------------------
                 if (this->IsPET()) {
                     FireBulletWithPetWeapon(pTarget);
                     return;
                 }
 
-                // ¹ß»ç
-                // °ø°Ý µ¿ÀÛ½Ã ÀåÂøµÈ ¹«±â ¹ß»ç...
+                // ë°œì‚¬
+                // ê³µê²© ë™ìž‘ì‹œ ìž¥ì°©ëœ ë¬´ê¸° ë°œì‚¬...
                 int iBulletIDX = Get_BulletNO();
                 if (pTarget && iBulletIDX) {
                     g_pBltMGR->Add_BULLET(this, pTarget, iBulletIDX);
@@ -352,7 +352,7 @@ CObjCHAR::ActionBow(int iActionIDX) {
 
                 // if( pTarget->IsUSER() == false )
                 {
-                    /// Å¸°Ý»ç¿îµå Ãâ·Â
+                    /// íƒ€ê²©ì‚¬ìš´ë“œ ì¶œë ¥
                     short nFireSound = WEAPON_ATK_FIRE_SOUND(this->Get_R_WEAPON());
                     if (nFireSound) {
                         if (IsUSER()) {
@@ -365,9 +365,9 @@ CObjCHAR::ActionBow(int iActionIDX) {
                 }
             } break;
 
-                /// °ø°Ý »ç¿îµå
+                /// ê³µê²© ì‚¬ìš´ë“œ
             case 32: {
-                /// °ø°Ý »ç¿îµå ¼³Á¤
+                /// ê³µê²© ì‚¬ìš´ë“œ ì„¤ì •
                 short nHitStartSound = WEAPON_ATK_START_SOUND(this->Get_R_WEAPON());
                 if (nHitStartSound) {
                     if (IsUSER())
@@ -383,7 +383,7 @@ CObjCHAR::ActionBow(int iActionIDX) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÃÑ °ø°Ý ¾×¼Ç
+/// @brief ì´ ê³µê²© ì•¡ì…˜
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -393,18 +393,18 @@ CObjCHAR::ActionGun(int iActionIDX) {
     if (pTarget) {
         switch (iActionIDX) {
 
-                /// ¹ß»ç, »ç¿îµå
+                /// ë°œì‚¬, ì‚¬ìš´ë“œ
             case 23: {
                 //----------------------------------------------------------------------------------------------------
-                /// Pet ÀÌ ½î´Â°Å¶ó¸é ÆÖÀÇ Á¤º¸·Î ÃÑ¾ËÀ» ½ð´Ù.
+                /// Pet ì´ ì˜ëŠ”ê±°ë¼ë©´ íŒ»ì˜ ì •ë³´ë¡œ ì´ì•Œì„ ìœë‹¤.
                 //----------------------------------------------------------------------------------------------------
                 if (this->IsPET()) {
                     FireBulletWithPetWeapon(pTarget);
                     return;
                 }
 
-                // ¹ß»ç
-                // °ø°Ý µ¿ÀÛ½Ã ÀåÂøµÈ ¹«±â ¹ß»ç...
+                // ë°œì‚¬
+                // ê³µê²© ë™ìž‘ì‹œ ìž¥ì°©ëœ ë¬´ê¸° ë°œì‚¬...
                 int iBulletIDX = Get_BulletNO();
                 if (pTarget && iBulletIDX) {
                     g_pBltMGR->Add_BULLET(this, pTarget, iBulletIDX);
@@ -415,7 +415,7 @@ CObjCHAR::ActionGun(int iActionIDX) {
 
                 // if( pTarget->IsUSER() == false )
                 {
-                    /// ¹ß»ç»ç¿îµå Ãâ·Â
+                    /// ë°œì‚¬ì‚¬ìš´ë“œ ì¶œë ¥
                     short nFireSound = WEAPON_ATK_FIRE_SOUND(this->Get_R_WEAPON());
                     if (nFireSound) {
                         if (IsUSER())
@@ -427,13 +427,13 @@ CObjCHAR::ActionGun(int iActionIDX) {
                 }
             } break;
 
-                /// °ø°Ý »ç¿îµå
+                /// ê³µê²© ì‚¬ìš´ë“œ
             case 33: {
-                /// °ø°Ý »ç¿îµå ¼³Á¤
+                /// ê³µê²© ì‚¬ìš´ë“œ ì„¤ì •
                 short nHitStartSound = WEAPON_ATK_START_SOUND(this->Get_R_WEAPON());
                 if (nHitStartSound) {
                     D3DXVECTOR3 Velocity =
-                        pTarget->Get_CurPOS() - Get_CurPOS(); // 1ÃÊ µ¿¾È¿¡ ÀÌµ¿ÇÏ´Â º¤ÅÍ
+                        pTarget->Get_CurPOS() - Get_CurPOS(); // 1ì´ˆ ë™ì•ˆì— ì´ë™í•˜ëŠ” ë²¡í„°
 
                     if (IsUSER())
                         // g_pSoundLIST->IDX_PlaySound( nHitStartSound );
@@ -446,13 +446,13 @@ CObjCHAR::ActionGun(int iActionIDX) {
     }
 }
 
-/// ½ºÅ³ °ø°Ý ¾×¼Ç
+/// ìŠ¤í‚¬ ê³µê²© ì•¡ì…˜
 void
 CObjCHAR::ActionSkill(int iActionIDX) {
     CObjCHAR* pTarget = 0;
 
     switch (iActionIDX) {
-            /// ¹ß»ç, »ç¿îµå
+            /// ë°œì‚¬, ì‚¬ìš´ë“œ
         case 24: {
             int iSkillIdx =
                 (this->m_nActiveSkillIDX) ? this->m_nActiveSkillIDX : this->m_nDoingSkillIDX;
@@ -475,14 +475,14 @@ CObjCHAR::ActionSkill(int iActionIDX) {
                 case SKILL_ACTION_TARGET_STATE_DURATION: {
                     CObjCHAR* pTarget = g_pObjMGR->Get_ClientCharOBJ(this->m_iServerTarget, true);
 
-                    /// Å¸°ÙÀÌ ¸ÕÀú Á×¾ú¾îµµ.. ¼ÒÁøÇØ¾ßµÈ´Ù..
+                    /// íƒ€ê²Ÿì´ ë¨¼ì € ì£½ì—ˆì–´ë„.. ì†Œì§„í•´ì•¼ëœë‹¤..
                     ProcEffectedSkill();
                     if (pTarget) {
                         CSkillManager::ActionSkill(iSkillIdx, this, pTarget);
                     }
                 } break;
 
-                    /// Å¸°Ù´ë»ó ¸¶¹ý
+                    /// íƒ€ê²ŸëŒ€ìƒ ë§ˆë²•
                 case SKILL_ACTION_FIRE_BULLET: {
                     CObjCHAR* pTarget = g_pObjMGR->Get_ClientCharOBJ(this->m_iServerTarget, true);
                     if (pTarget) {
@@ -493,7 +493,7 @@ CObjCHAR::ActionSkill(int iActionIDX) {
                     ProcEffectedSkill();
                     CSkillManager::ActionSkill(iSkillIdx, this, pTarget);
                 } break;
-                    /// Áö¿ª´ë»ó ¸¶¹ý
+                    /// ì§€ì—­ëŒ€ìƒ ë§ˆë²•
                 case SKILL_ACTION_AREA_TARGET: {
                     CObjCHAR* pTarget = g_pObjMGR->Get_ClientCharOBJ(this->m_iServerTarget, true);
                     CSkillManager::ActionSkill(iSkillIdx, this, pTarget, this->m_PosGOTO, true);
@@ -508,7 +508,7 @@ CObjCHAR::ActionSkill(int iActionIDX) {
                     break;
             }
 
-            /// ¹ß»ç »ç¿îµå ¼³Á¤
+            /// ë°œì‚¬ ì‚¬ìš´ë“œ ì„¤ì •
             short nFireSound = SKILL_BULLET_FIRE_SOUND(iSkillIdx);
             if (nFireSound) {
                 if (IsUSER())
@@ -520,14 +520,14 @@ CObjCHAR::ActionSkill(int iActionIDX) {
 
         } break;
 
-            /// Å¸°Ý( ¹ß»ç ) »ç¿îµå
+            /// íƒ€ê²©( ë°œì‚¬ ) ì‚¬ìš´ë“œ
         case 34: {
             int iSkillIdx =
                 (this->m_nActiveSkillIDX) ? this->m_nActiveSkillIDX : this->m_nDoingSkillIDX;
             if (iSkillIdx == 0)
                 break;
 
-            /// °ø°Ý »ç¿îµå ¼³Á¤
+            /// ê³µê²© ì‚¬ìš´ë“œ ì„¤ì •
             short nHitStartSound = SKILL_BULLET_FIRE_SOUND(this->m_nActiveSkillIDX);
             if (nHitStartSound) {
                 if (IsUSER())
@@ -538,7 +538,7 @@ CObjCHAR::ActionSkill(int iActionIDX) {
             }
             // CObjCHAR *pTarget = g_pObjMGR->Get_ClientCharOBJ( this->m_iServerTarget, true );
 
-            ///// Å¸°ÙÀÌ ÀÖ°í ¼¿ÇÁ°¡ ¾Æ´Ò°æ¿ì...
+            ///// íƒ€ê²Ÿì´ ìžˆê³  ì…€í”„ê°€ ì•„ë‹ê²½ìš°...
             // if( pTarget &&
             //	( SKILL_TYPE( this->m_nActiveSkillIDX ) != SKILL_ACTION_SELF_BOUND_DURATION &&
             //	SKILL_TYPE( this->m_nActiveSkillIDX ) != SKILL_ACTION_SELF_BOUND &&
@@ -578,18 +578,18 @@ CObjCHAR::ActionSkill(int iActionIDX) {
 void
 CObjCHAR::ShowCastingEffect(int iActionIDX) {
     switch (iActionIDX) {
-        /// ½ºÅ³ ÀÌÆåÆ® ½Ã¿¬.
-        /// Ä³½ºÆÃ½Ã ÀÌº¥Æ®´Â m_nActiveSkillIDX ÀÇ ÀÎµ¦½º ÀÌ¿ë..
+        /// ìŠ¤í‚¬ ì´íŽ™íŠ¸ ì‹œì—°.
+        /// ìºìŠ¤íŒ…ì‹œ ì´ë²¤íŠ¸ëŠ” m_nActiveSkillIDX ì˜ ì¸ë±ìŠ¤ ì´ìš©..
         case 44: {
             ActionSkillCastingFrame(0);
         } break;
 
-            /// Ä³½ºÆÃ½Ã ÀÌº¥Æ®´Â m_nActiveSkillIDX ÀÇ ÀÎµ¦½º ÀÌ¿ë..
+            /// ìºìŠ¤íŒ…ì‹œ ì´ë²¤íŠ¸ëŠ” m_nActiveSkillIDX ì˜ ì¸ë±ìŠ¤ ì´ìš©..
         case 64: {
             ActionSkillCastingFrame(1);
         } break;
 
-            /// Ä³½ºÆÃ½Ã ÀÌº¥Æ®´Â m_nActiveSkillIDX ÀÇ ÀÎµ¦½º ÀÌ¿ë..
+            /// ìºìŠ¤íŒ…ì‹œ ì´ë²¤íŠ¸ëŠ” m_nActiveSkillIDX ì˜ ì¸ë±ìŠ¤ ì´ìš©..
         case 74: {
             ActionSkillCastingFrame(2);
         } break;
@@ -599,7 +599,7 @@ CObjCHAR::ShowCastingEffect(int iActionIDX) {
     }
 }
 
-/// 44,64,75, 45,65,75 Ã³¸®..
+/// 44,64,75, 45,65,75 ì²˜ë¦¬..
 void
 CObjCHAR::ActionSkillCastingFrame(int iCastingOrder) {
     int iSkillIDX = (this->m_nActiveSkillIDX) ? this->m_nActiveSkillIDX : this->m_nDoingSkillIDX;
@@ -618,12 +618,12 @@ CObjCHAR::ActionSkillCastingFrame(int iCastingOrder) {
                     SKILL_CASTING_EFFECT_POINT(iSkillIDX, iCastingOrder));
             }
 
-            /// ³» ÁÖÀ§ ¹üÀ§ µ¥¹ÌÁö Å¸ÀÔÀÌ°Å³ª Áö¿ª ½ºÅ³ ÀÌ¶ó¸é..
+            /// ë‚´ ì£¼ìœ„ ë²”ìœ„ ë°ë¯¸ì§€ íƒ€ìž…ì´ê±°ë‚˜ ì§€ì—­ ìŠ¤í‚¬ ì´ë¼ë©´..
             if (SKILL_TYPE(iSkillIDX) == SKILL_ACTION_SELF_DAMAGE
                 || SKILL_TYPE(iSkillIDX) == SKILL_ACTION_AREA_TARGET) {
-                /// ½ºÅ³ ½ÇÁ¦ ¾×¼Ç µ¿ÀÛÁßÀÇ Ä³½ºÆÃ ÀÌÆåÆ®ÀÏ °æ¿ì¸¸..
+                /// ìŠ¤í‚¬ ì‹¤ì œ ì•¡ì…˜ ë™ìž‘ì¤‘ì˜ ìºìŠ¤íŒ… ì´íŽ™íŠ¸ì¼ ê²½ìš°ë§Œ..
                 if (iCastingOrder == 2 || iCastingOrder == 3) {
-                    /// ¸µÅ© ÇÏÁö ¾Ê´Â´Ù.
+                    /// ë§í¬ í•˜ì§€ ì•ŠëŠ”ë‹¤.
                     pCastingEFT->UnlinkVisibleWorld();
                 }
             } else {
@@ -636,7 +636,7 @@ CObjCHAR::ActionSkillCastingFrame(int iCastingOrder) {
         }
     }
 
-    /// Å¸°Ý »ç¿îµå ¼³Á¤
+    /// íƒ€ê²© ì‚¬ìš´ë“œ ì„¤ì •
     int iHitSound = SKILL_HIT_DUMMY_SOUND(iSkillIDX, iCastingOrder);
     if (iHitSound) {
         if (IsUSER())
@@ -647,7 +647,7 @@ CObjCHAR::ActionSkillCastingFrame(int iCastingOrder) {
     }
 }
 
-/// ¿¬Å¸°ø°Ý È¿°ú( ´õ¹Ì.. )
+/// ì—°íƒ€ê³µê²© íš¨ê³¼( ë”ë¯¸.. )
 void
 CObjCHAR::RepeatedlyHitEffect(int iHitOrder) {
     int iSkillIdx = (this->m_nActiveSkillIDX) ? this->m_nActiveSkillIDX : this->m_nDoingSkillIDX;
@@ -672,7 +672,7 @@ CObjCHAR::RepeatedlyHitEffect(int iHitOrder) {
         }
     }
 
-    /// Å¸°Ý »ç¿îµå ¼³Á¤
+    /// íƒ€ê²© ì‚¬ìš´ë“œ ì„¤ì •
     int iHitSound = SKILL_HIT_DUMMY_SOUND(iSkillIdx, iHitOrder);
     if (iHitSound) {
         if (IsUSER())
@@ -710,7 +710,7 @@ CObjCHAR::FireEffectBullet(CObjCHAR* pTarget, int iBulletIDX, bool bDummy, int i
     }
 }
 
-/// ±ÙÁ¢ Å¸°Ý ½ºÅ³ °ø°Ý ¾×¼Ç
+/// ê·¼ì ‘ íƒ€ê²© ìŠ¤í‚¬ ê³µê²© ì•¡ì…˜
 void
 CObjCHAR::ActionImmediateSkill(int iActionIDX) {
     CObjCHAR* pTarget = g_pObjMGR->Get_CharOBJ(this->m_iActiveObject, true);
@@ -718,8 +718,8 @@ CObjCHAR::ActionImmediateSkill(int iActionIDX) {
     if (pTarget) {
         switch (iActionIDX) {
 
-                /// ¿Þ¼Õ ¹«±â ÃÑ¾Ëº¯°æ
-                /// 56, 66 Àº ÃÑ¾Ë¿¡ µ¥¹ÌÁö°¡ ¾ø´Â ´õ¹Ì ÃÑ¾ËÀÌ¶ó´Â°É ³Ö´Â´Ù.
+                /// ì™¼ì† ë¬´ê¸° ì´ì•Œë³€ê²½
+                /// 56, 66 ì€ ì´ì•Œì— ë°ë¯¸ì§€ê°€ ì—†ëŠ” ë”ë¯¸ ì´ì•Œì´ë¼ëŠ”ê±¸ ë„£ëŠ”ë‹¤.
             case 26: {
                 int iSkillIdx =
                     (this->m_nActiveSkillIDX) ? this->m_nActiveSkillIDX : this->m_nDoingSkillIDX;
@@ -741,7 +741,7 @@ CObjCHAR::ActionImmediateSkill(int iActionIDX) {
                 FireEffectBullet(pTarget, SKILL_BULLET_NO(iSkillIdx), true, iSkillIdx);
             } break;
 
-                /// ¿¬Å¸ ´õ¹Ì ÀÌÆåÆ®
+                /// ì—°íƒ€ ë”ë¯¸ ì´íŽ™íŠ¸
             case 10: {
                 RepeatedlyHitEffect(0);
             } break;
@@ -749,7 +749,7 @@ CObjCHAR::ActionImmediateSkill(int iActionIDX) {
                 RepeatedlyHitEffect(1);
             } break;
 
-                ///Å¸°Ý
+                ///íƒ€ê²©
             case 25: {
                 int iSkillIdx =
                     (this->m_nActiveSkillIDX) ? this->m_nActiveSkillIDX : this->m_nDoingSkillIDX;
@@ -766,7 +766,7 @@ CObjCHAR::ActionImmediateSkill(int iActionIDX) {
                 CSkillManager::ActionSkill(iSkillIdx, this, pTarget);
 
                 ///
-                /// Å¸°Ý
+                /// íƒ€ê²©
                 ///
 
                 int iEffectIDX;
@@ -776,7 +776,7 @@ CObjCHAR::ActionImmediateSkill(int iActionIDX) {
                     if (iEffectIDX == 0) {
                         iEffectIDX = WEAPON_DEFAULT_EFFECT(this->Get_R_WEAPON());
 
-                        /// ¹«±â°¡ ¾øÀ»°æ¿ì..
+                        /// ë¬´ê¸°ê°€ ì—†ì„ê²½ìš°..
                         if (!this->Get_R_WEAPON()) {
                             if (this->IsA(OBJ_MOB))
                                 iEffectIDX = NPC_HAND_HIT_EFFECT(this->Get_CharNO());
@@ -789,7 +789,7 @@ CObjCHAR::ActionImmediateSkill(int iActionIDX) {
                     }
                 }
 
-                /// ¹ß»ç »ç¿îµå ¼³Á¤
+                /// ë°œì‚¬ ì‚¬ìš´ë“œ ì„¤ì •
                 short nHittedSound = SKILL_HIT_SOUND(iSkillIdx);
                 if (nHittedSound) {
                     if (IsUSER())
@@ -801,7 +801,7 @@ CObjCHAR::ActionImmediateSkill(int iActionIDX) {
 
             } break;
 
-                /// °ø°Ý »ç¿îµå ¼³Á¤
+                /// ê³µê²© ì‚¬ìš´ë“œ ì„¤ì •
             case 35: {
             } break;
         }

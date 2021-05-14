@@ -7,11 +7,11 @@ class CTImage;
 class CTButton;
 
 /**
- * WindowsÀÇ Window Caption°°Àº ±â´ÉÀÇ Caption Class
- *	- ÇöÀç CTDialog¿Í CTMsgBoxµÎ±ºµ¥¿¡¼­ Áßº¹µÈ Ã³¸®¸¦ ÇØÁÖ°í ÀÖ´Ù. ÁÖÀÇÇÒ°Í
- *	: CTCaption¿¡¼­ Ã³¸®µÉ¼ö ÀÖµµ·Ï ¼öÁ¤ÇÊ¿ä
+ * Windowsì˜ Window Captionê°™ì€ ê¸°ëŠ¥ì˜ Caption Class
+ *	- í˜„ì¬ CTDialogì™€ CTMsgBoxë‘êµ°ë°ì—ì„œ ì¤‘ë³µëœ ì²˜ë¦¬ë¥¼ í•´ì£¼ê³  ìˆë‹¤. ì£¼ì˜í• ê²ƒ
+ *	: CTCaptionì—ì„œ ì²˜ë¦¬ë ìˆ˜ ìˆë„ë¡ ìˆ˜ì •í•„ìš”
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2003/12/11
  */
 class TGAMECTRL_API CTCaption: public CWinCtrl {
@@ -40,11 +40,11 @@ public:
 protected:
     bool m_bClicked;
 
-    /// ÀÌÇÏ ÇöÀç ±¸ÇöµÇ¾î ÀÖÁö ¾Ê´Ù.( »ç¿ëÇÏ°í ÀÖÁö ¾Ê´Ù´Â : 2005/8/30 ÃÖÁ¾Áø )
-    std::string m_strTitle; ///Å¸ÀÌÆ² ¹Ù¿¡ º°µµ·Î ±×·ÁÁö´Â String
-    CTImage* m_pIcon; /// Á¦ÀÏ ¾Õ¿¡ º¸¿©Áú ¾ÆÀÌÄÜÀÌ¹ÌÁö
-    CTImage* m_pImage; /// Ä¸¼Ç Image
+    /// ì´í•˜ í˜„ì¬ êµ¬í˜„ë˜ì–´ ìˆì§€ ì•Šë‹¤.( ì‚¬ìš©í•˜ê³  ìˆì§€ ì•Šë‹¤ëŠ” : 2005/8/30 ìµœì¢…ì§„ )
+    std::string m_strTitle; ///íƒ€ì´í‹€ ë°”ì— ë³„ë„ë¡œ ê·¸ë ¤ì§€ëŠ” String
+    CTImage* m_pIcon; /// ì œì¼ ì•ì— ë³´ì—¬ì§ˆ ì•„ì´ì½˜ì´ë¯¸ì§€
+    CTImage* m_pImage; /// ìº¡ì…˜ Image
     CTButton* m_pCloseButton; /// Dialog Close
-    CTButton* m_pIconButton; /// Dialog Iconize(??)¾ÆÀÌÄÜÈ­
+    CTButton* m_pIconButton; /// Dialog Iconize(??)ì•„ì´ì½˜í™”
 };
 #endif ///_TCAPTION_

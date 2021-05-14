@@ -11,7 +11,7 @@
 #include "tgamectrl/SplitHangul.h"
 //----------------------------------------------------------------------------------------------------
 /// Class CIconSkill
-/// @brief	Skill °´Ã¼¿¡ ´ëÇÑ View Class
+/// @brief	Skill ê°ì²´ì— ëŒ€í•œ View Class
 //----------------------------------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ CIconSkill::~CIconSkill(void) {}
 //----------------------------------------------------------------------------------------------------
 /// @param
 /// @brief Overrided from CIcon
-/// @modify CSlot¿¡¼­ À§Ä¡¸¦ °¡Á®¿ÀÁö ¾Ê°í CSlot::MoveWindow¿¡¼­ ¹Ù²ãÁÖ´Â PositionÀ» »ç¿ëÇÑ´Ù. nAvy
+/// @modify CSlotì—ì„œ ìœ„ì¹˜ë¥¼ ê°€ì ¸ì˜¤ì§€ ì•Šê³  CSlot::MoveWindowì—ì„œ ë°”ê¿”ì£¼ëŠ” Positionì„ ì‚¬ìš©í•œë‹¤. nAvy
 /// 2004/5/20
 //----------------------------------------------------------------------------------------------------
 
@@ -163,11 +163,11 @@ CIconSkill::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
                 }
                 break;
             }
-            case SKILL_ACTION_IMMEDIATE: /// 3,				///< ±ÙÁ¢ Áï½Ã ¹ßµ¿.( Áï½Ã ¸ğ¼Ç ±³Ã¼ )
-            case SKILL_ACTION_ENFORCE_WEAPON: /// 4,		///< ¹«±â»óÅÂ º¯°æ( °­È­, È¿°ú ¿¬Ãâ(
-                                              /// Á¤·ÉÅº? ) )
-            case SKILL_ACTION_ENFORCE_BULLET: /// 5,		///< °­È­ÃÑ¾Ë º¯°æ ¹ß»ç. ( ¾ÆÀÌ½º
-                                              /// ¾Ö·Î¿ì.. ½ÇÁ¦ È­»ìÀÌ º¯ÇÏ´Â.. )
+            case SKILL_ACTION_IMMEDIATE: /// 3,				///< ê·¼ì ‘ ì¦‰ì‹œ ë°œë™.( ì¦‰ì‹œ ëª¨ì…˜ êµì²´ )
+            case SKILL_ACTION_ENFORCE_WEAPON: /// 4,		///< ë¬´ê¸°ìƒíƒœ ë³€ê²½( ê°•í™”, íš¨ê³¼ ì—°ì¶œ(
+                                              /// ì •ë ¹íƒ„? ) )
+            case SKILL_ACTION_ENFORCE_BULLET: /// 5,		///< ê°•í™”ì´ì•Œ ë³€ê²½ ë°œì‚¬. ( ì•„ì´ìŠ¤
+                                              /// ì• ë¡œìš°.. ì‹¤ì œ í™”ì‚´ì´ ë³€í•˜ëŠ”.. )
             {
                 AddSkillName(iSkillNo, ToolTip);
                 AddSkillTypeTarget(iSkillNo, ToolTip);
@@ -201,7 +201,7 @@ CIconSkill::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
 
                 break;
             }
-            case SKILL_ACTION_FIRE_BULLET: /// 6,			///< ¹ß»ç.( ÆÄÀÌ¾îº¼ )
+            case SKILL_ACTION_FIRE_BULLET: /// 6,			///< ë°œì‚¬.( íŒŒì´ì–´ë³¼ )
             {
                 AddSkillName(iSkillNo, ToolTip);
                 AddSkillTypeTarget(iSkillNo, ToolTip);
@@ -236,7 +236,7 @@ CIconSkill::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
                 }
                 break;
             }
-            case SKILL_ACTION_AREA_TARGET: ///= 7,			///< Áö¿ª °ø°İ¸¶¹ı( ´ç±Ù ¹üÀ§.. )
+            case SKILL_ACTION_AREA_TARGET: ///= 7,			///< ì§€ì—­ ê³µê²©ë§ˆë²•( ë‹¹ê·¼ ë²”ìœ„.. )
             {
                 AddSkillName(iSkillNo, ToolTip);
                 AddSkillTypeTarget(iSkillNo, ToolTip);
@@ -271,8 +271,8 @@ CIconSkill::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
                 break;
             }
             case SKILL_ACTION_SELF_BOUND_DURATION: ///=8
-            case SKILL_ACTION_SELF_STATE_DURATION: /// = 12,		///< ÀÚ½Å¿¡°Ô ¹ßµ¿ Áö¼Ó ¸¶¹ı.(
-                                                   /// Ä³½ºÆÃ À¯ ) »óÅÂ°ü·Ã
+            case SKILL_ACTION_SELF_STATE_DURATION: /// = 12,		///< ìì‹ ì—ê²Œ ë°œë™ ì§€ì† ë§ˆë²•.(
+                                                   /// ìºìŠ¤íŒ… ìœ  ) ìƒíƒœê´€ë ¨
             {
                 AddSkillName(iSkillNo, ToolTip);
 
@@ -306,10 +306,10 @@ CIconSkill::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
                 }
                 break;
             }
-            case SKILL_ACTION_TARGET_BOUND_DURATION: /// = 9,	///< Å¸°Ù¿¡°Ô ¹ßµ¿ Áö¼Ó ¸¶¹ı.(
-                                                     /// Ä³½ºÆÃ À¯ ) ´É·ÂÄ¡
-            case SKILL_ACTION_TARGET_STATE_DURATION: /// = 13,	///< »ó´ë¿¡°Ô ¹ßµ¿ Áö¼Ó ¸¶¹ı.(
-                                                     /// Ä³½ºÆÃ À¯ ) »óÅÂ°ü·Ã
+            case SKILL_ACTION_TARGET_BOUND_DURATION: /// = 9,	///< íƒ€ê²Ÿì—ê²Œ ë°œë™ ì§€ì† ë§ˆë²•.(
+                                                     /// ìºìŠ¤íŒ… ìœ  ) ëŠ¥ë ¥ì¹˜
+            case SKILL_ACTION_TARGET_STATE_DURATION: /// = 13,	///< ìƒëŒ€ì—ê²Œ ë°œë™ ì§€ì† ë§ˆë²•.(
+                                                     /// ìºìŠ¤íŒ… ìœ  ) ìƒíƒœê´€ë ¨
             {
                 AddSkillName(iSkillNo, ToolTip);
                 AddSkillTypeTarget(iSkillNo, ToolTip);
@@ -342,8 +342,8 @@ CIconSkill::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
 
                 break;
             }
-            case SKILL_ACTION_SELF_BOUND: /// = 10,			///< ÀÚ½Å¿¡°Ô ¹ßµ¿ ¹Ù·Î ¾÷ ¸¶¹ı.( Ä³½ºÆÃ
-                                          /// À¯ ) ´É·ÂÄ¡
+            case SKILL_ACTION_SELF_BOUND: /// = 10,			///< ìì‹ ì—ê²Œ ë°œë™ ë°”ë¡œ ì—… ë§ˆë²•.( ìºìŠ¤íŒ…
+                                          /// ìœ  ) ëŠ¥ë ¥ì¹˜
             {
                 AddSkillName(iSkillNo, ToolTip);
                 AddSkillTypeTarget(iSkillNo, ToolTip);
@@ -375,8 +375,8 @@ CIconSkill::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
                 }
                 break;
             }
-            case SKILL_ACTION_TARGET_BOUND: /// = 11,			///< Å¸°Ù¿¡°Ô ¹ßµ¿ ¹Ù·Î ¾÷ ¸¶¹ı.(
-                                            /// Ä³½ºÆÃ À¯ ) ´É·ÂÄ¡
+            case SKILL_ACTION_TARGET_BOUND: /// = 11,			///< íƒ€ê²Ÿì—ê²Œ ë°œë™ ë°”ë¡œ ì—… ë§ˆë²•.(
+                                            /// ìºìŠ¤íŒ… ìœ  ) ëŠ¥ë ¥ì¹˜
             {
 
                 AddSkillName(iSkillNo, ToolTip);
@@ -409,12 +409,12 @@ CIconSkill::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
                 }
                 break;
             }
-            case SKILL_ACTION_SUMMON_PET: /// = 14,				///< ÆÖ ¼ÒÈ¯ ½ºÅ³
+            case SKILL_ACTION_SUMMON_PET: /// = 14,				///< íŒ» ì†Œí™˜ ìŠ¤í‚¬
             {
                 AddSkillName(iSkillNo, ToolTip);
                 AddSkillTypeTarget(iSkillNo, ToolTip, false);
                 AddSkillUseProperty(iSkillNo, ToolTip);
-                ///ÇÊ¿ä ¼ÒÈ¯·®
+                ///í•„ìš” ì†Œí™˜ëŸ‰
                 if (int iNpcNo = SKILL_SUMMON_PET(iSkillNo))
                     ToolTip.AddString(CStr::Printf("%s : %d",
                         STR_REQUIRE_SUMMONQUANTITY,
@@ -518,7 +518,7 @@ CIconSkill::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
 
                 break;
             }
-            case SKILL_ACTION_SELF_AND_TARGET: /// 19¹ø
+            case SKILL_ACTION_SELF_AND_TARGET: /// 19ë²ˆ
             {
                 AddSkillName(iSkillNo, ToolTip);
                 AddSkillTypeTarget(iSkillNo, ToolTip);
@@ -596,7 +596,7 @@ CIconSkill::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
 }
 
 ///*---------------------------------------------------------------------------------------------/
-/// ½ºÅ³ ÅøÆÁ °ü·Ã
+/// ìŠ¤í‚¬ íˆ´íŒ ê´€ë ¨
 void
 CIconSkill::AddSkillTypeTarget(int iSkillNo, CInfo& ToolTip, bool bAddTarget) {
     char* pszBuf = NULL;
@@ -624,7 +624,7 @@ CIconSkill::AddSkillSummon(int iSkillNo, CInfo& ToolTip) {
 
 void
 CIconSkill::AddSkillDistanceScope(int iSkillNo, CInfo& ToolTip, bool bAddScope) {
-    ///°Å¸®°¡ 0ÀÏ°æ¿ì´Â Ç¥½ÃÇÏÁö ¾Ê´Â´Ù.
+    ///ê±°ë¦¬ê°€ 0ì¼ê²½ìš°ëŠ” í‘œì‹œí•˜ì§€ ì•ŠëŠ”ë‹¤.
     char* pszBuf;
     int iDistance = SKILL_DISTANCE(iSkillNo) / 100;
     int iScope = SKILL_SCOPE(iSkillNo) / 100;
@@ -695,7 +695,7 @@ CIconSkill::AddSkillDuration(int iSkillNo, CInfo& ToolTip, DWORD color) {
 int
 CIconSkill::GetSkillNextLevelNo(int iSkillNo) {
 
-    if (iSkillNo >= g_SkillList.Get_SkillCNT()) ///ÃÖ´ë°ª
+    if (iSkillNo >= g_SkillList.Get_SkillCNT()) ///ìµœëŒ€ê°’
         return 0;
 
     if (SKILL_1LEV_INDEX(iSkillNo) == SKILL_1LEV_INDEX(iSkillNo + 1)) {
@@ -787,7 +787,7 @@ CIconSkill::AddSkillRequireEquip(int iSkillNo, CInfo& ToolTip) {
     tagITEM EquipItem;
 
     for (int i = 0; i < SKILL_NEED_WEAPON_CNT; ++i) {
-        if (SKILL_NEED_WEAPON(iSkillNo, i)) ///¾ÆÀÌÅÛ Å¸ÀÔÀÌ´Ù
+        if (SKILL_NEED_WEAPON(iSkillNo, i)) ///ì•„ì´í…œ íƒ€ì…ì´ë‹¤
         {
             for (int iEquipIdx = 0; iEquipIdx < MAX_EQUIP_IDX; ++iEquipIdx) {
                 EquipItem = g_pAVATAR->m_Inventory.m_ItemEQUIP[iEquipIdx];
@@ -817,7 +817,7 @@ CIconSkill::AddSkillRequireEquip(int iSkillNo, CInfo& ToolTip) {
 
 void
 CIconSkill::AddSkillRequireUnion(int iSkillNo, CInfo& ToolTip) {
-    std::string strTemp("[Á¶ÇÕ:");
+    std::string strTemp("[ì¡°í•©:");
 
     DWORD dwColor = g_dwRED;
     int iCheckCount = 0;
@@ -849,8 +849,8 @@ CIconSkill::AddSkillRequireUnion(int iSkillNo, CInfo& ToolTip) {
 void
 CIconSkill::AddSkillRequireJob(int iSkillNo, CInfo& ToolTip) {
     int iClass = SKILL_AVAILBLE_CLASS_SET(iSkillNo);
-    /// REMARK FOR TEST<- 2004.3.18.nAvy LIST_SKILL.STB°¡ ¾ÆÁ÷ ¼öÁ¤¾ÈµÇÀÖÀ¸¹Ç·Î ÇØ¼­ ÀÓ½ÃÀûÀ¸·Î ¸·´Â
-    /// ÄÚµå
+    /// REMARK FOR TEST<- 2004.3.18.nAvy LIST_SKILL.STBê°€ ì•„ì§ ìˆ˜ì •ì•ˆë˜ìˆìœ¼ë¯€ë¡œ í•´ì„œ ì„ì‹œì ìœ¼ë¡œ ë§‰ëŠ”
+    /// ì½”ë“œ
     if (iClass >= g_TblClass.row_count)
         return;
     ///->
@@ -1131,7 +1131,7 @@ CIconSkill::AddSkillSuccessRateDuration(int iSkillNo, CInfo& ToolTip) {
             STR_CONTINUE_TIME,
             SKILL_DURATION(iSkillNo),
             STR_SECOND);
-    } else ///¼º°ø·üÀÌ 0ÀÏ°æ¿ì 100%·Î Ã³¸®
+    } else ///ì„±ê³µë¥ ì´ 0ì¼ê²½ìš° 100%ë¡œ ì²˜ë¦¬
     {
         pszBuf = CStr::Printf("%s:%d%%  %s:%d%s",
             STR_SUCCESS_RATE,
@@ -1162,17 +1162,17 @@ CIconSkill::GetNeedPoint4LevelUp(int iSkillNo) {
     int iNextLevelSkillIDX = iSkillNo + 1;
 
     if (iNextLevelSkillIDX >= g_SkillList.Get_SkillCNT()) {
-        // ´õÀÌ»ó ·¹º§¾÷ ÇÒ¼ö ¾ø´Ù.
+        // ë”ì´ìƒ ë ˆë²¨ì—… í• ìˆ˜ ì—†ë‹¤.
         return 0;
     }
 
-    // °°Àº Á¾·ùÀÇ ½ºÅ³ÀÌ°í ¹è¿ì·Á´Â ·¹º§ÀÌ ÇöÀç ·¹º§ÀÇ ´ÙÀ½ ·¹º§ÀÎ°¡ ??
+    // ê°™ì€ ì¢…ë¥˜ì˜ ìŠ¤í‚¬ì´ê³  ë°°ìš°ë ¤ëŠ” ë ˆë²¨ì´ í˜„ì¬ ë ˆë²¨ì˜ ë‹¤ìŒ ë ˆë²¨ì¸ê°€ ??
     if (SKILL_1LEV_INDEX(iSkillNo) != SKILL_1LEV_INDEX(iNextLevelSkillIDX)
         || SKILL_LEVEL(iSkillNo) + 1 != SKILL_LEVEL(iNextLevelSkillIDX)) {
         return 0;
     }
 
-    // TODO:: ¿©±â¼­ skill stbÀÇ ÄÃ·³¿¡ ÀÖ´Â °ªÀ» Àü¼Û...
+    // TODO:: ì—¬ê¸°ì„œ skill stbì˜ ì»¬ëŸ¼ì— ìˆëŠ” ê°’ì„ ì „ì†¡...
     return SKILL_NEED_LEVELUPPOINT(iNextLevelSkillIDX);
 }
 
@@ -1204,8 +1204,8 @@ void
 CIconSkill::AddSkillRequireSkillPoint2Learn(int iSkillNo, CInfo& ToolTip) {
 
     int iNeedPoint = SKILL_NEED_LEVELUPPOINT(iSkillNo);
-    if (iNeedPoint && SKILL_TAB_TYPE(iSkillNo) != 3) ///ÇÊ¿äÆ÷ÀÎÆ®°¡ ÀÖ°í, Å¬·£½ºÅ³ÀÌ ¾Æ´Ò°æ¿ì¿¡¸¸(
-                                                     ///Å¬·£½ºÅ³ÀÏ°æ¿ì ´Ù¸¥ µ¥ÀÌÅ¸°¡ µé¾î°£´Ù )
+    if (iNeedPoint && SKILL_TAB_TYPE(iSkillNo) != 3) ///í•„ìš”í¬ì¸íŠ¸ê°€ ìˆê³ , í´ëœìŠ¤í‚¬ì´ ì•„ë‹ê²½ìš°ì—ë§Œ(
+                                                     ///í´ëœìŠ¤í‚¬ì¼ê²½ìš° ë‹¤ë¥¸ ë°ì´íƒ€ê°€ ë“¤ì–´ê°„ë‹¤ )
     {
         char* pszBuf = CStr::Printf("[%s : %d]", STR_REQUIRE_SKILLPOINT, iNeedPoint);
 

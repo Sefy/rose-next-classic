@@ -10,10 +10,10 @@ class IScrollModel;
 class CTScrollBarType;
 
 /**
- * ½ºÅ©·Ñ ¹Ù Class
- *	- ¿¬°üClass		CTScrollBarType, CTScrollBox
+ * ìŠ¤í¬ë¡¤ ë°” Class
+ *	- ì—°ê´€Class		CTScrollBarType, CTScrollBox
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Data		2005/8/30
  */
@@ -41,27 +41,27 @@ public:
     void MoveEnd();
     void MoveHome();
 
-    ///	ScrollÀ» ºÙÀÌ±â À§ÇÑ Class(IScrollModelÀ» »ó¼Ó¹ŞÀº)ÀÇ Æ÷ÀÎÅÍ
+    ///	Scrollì„ ë¶™ì´ê¸° ìœ„í•œ Class(IScrollModelì„ ìƒì†ë°›ì€)ì˜ í¬ì¸í„°
     void SetModel(IScrollModel* pModel);
 
-    /// ScrollBox°¡ ScrollModelÀÇ °ªÀ» ¾Ë±â À§ÇÏ¿© Áß°èÇØÁÖ´Â operation
+    /// ScrollBoxê°€ ScrollModelì˜ ê°’ì„ ì•Œê¸° ìœ„í•˜ì—¬ ì¤‘ê³„í•´ì£¼ëŠ” operation
     int GetExtent();
     int GetMaximum();
     void SetModelValue(int i);
     virtual void Show();
     virtual void Hide();
 
-    /// IScrollModel°ú ScrollBox(Thumb)À» Á¶Á¤( Prev,Next¹öÆ°,wheel Ã³¸®½Ã )
+    /// IScrollModelê³¼ ScrollBox(Thumb)ì„ ì¡°ì •( Prev,Nextë²„íŠ¼,wheel ì²˜ë¦¬ì‹œ )
     void SetValue(int iValue);
 
     std::vector<CWinCtrl*> GetChildren() override;
 
 protected:
-    CTButton* m_pPrevButton; // "´ÙÀ½" ¹öÆ°
-    CTButton* m_pNextButton; // "ÀÌÀü" ¹öÆ°
-    CTScrollBox* m_pScrollBox; // ¼öÆò,¼öÁ÷¿¡ µû¶ó ½ºÅ×ÀÌÆ® ÆĞÅÏ»ç¿ë
+    CTButton* m_pPrevButton; // "ë‹¤ìŒ" ë²„íŠ¼
+    CTButton* m_pNextButton; // "ì´ì „" ë²„íŠ¼
+    CTScrollBox* m_pScrollBox; // ìˆ˜í‰,ìˆ˜ì§ì— ë”°ë¼ ìŠ¤í…Œì´íŠ¸ íŒ¨í„´ì‚¬ìš©
 
-    IScrollModel* m_pScrollModel; // ScrollBar¿Í °°ÀÌ µ¿ÀÛµÉ ModelÀÇ Æ÷ÀÎÅÍ
-    CTScrollBarType* m_pScrollBarType; // ¼öÆò,¼öÁ÷¿¡ µû¶ó ½ºÆ®·¹Æ¼Áö ÆĞÅÏ »ç¿ë
+    IScrollModel* m_pScrollModel; // ScrollBarì™€ ê°™ì´ ë™ì‘ë  Modelì˜ í¬ì¸í„°
+    CTScrollBarType* m_pScrollBarType; // ìˆ˜í‰,ìˆ˜ì§ì— ë”°ë¼ ìŠ¤íŠ¸ë ˆí‹°ì§€ íŒ¨í„´ ì‚¬ìš©
 };
 #endif ///_TSCROLLBAR_

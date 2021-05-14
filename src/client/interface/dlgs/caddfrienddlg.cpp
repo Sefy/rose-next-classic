@@ -53,7 +53,7 @@ CAddFriendDlg::SendReqAddFriend() {
 
     char* pszName = pEditBox->get_text();
     if (pszName && strlen(pszName) > 0) {
-        if (strcmpi(pszName, g_pAVATAR->Get_NAME())) ///ÀÚ±â ÀÚ½ÅÀº ¾ÈµÈ´Ù.
+        if (strcmpi(pszName, g_pAVATAR->Get_NAME())) ///ìê¸° ìì‹ ì€ ì•ˆëœë‹¤.
         {
             CTDialog* pDlg = g_itMGR.FindDlg(DLG_TYPE_COMMUNITY);
             assert(pDlg);

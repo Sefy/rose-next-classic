@@ -42,7 +42,7 @@ CUpgradeDlgStateResult::Leave() {
         case CRAFT_UPGRADE_SUCCESS:
             CUpgrade::GetInstance().RemoveTargetItem();
             CUpgrade::GetInstance().ApplyResultItemSet();
-            // g_itMGR.OpenMsgBox(STR_CRAFT_UPGRADE_SUCCESS);///ÇØ´ç ¾ÆÀÌÅÛÀ» º¸¿©ÁÖÀÚ.
+            // g_itMGR.OpenMsgBox(STR_CRAFT_UPGRADE_SUCCESS);///í•´ë‹¹ ì•„ì´í…œì„ ë³´ì—¬ì£¼ì.
             break;
         case CRAFT_UPGRADE_FAILED:
             CUpgrade::GetInstance().RemoveTargetItem();
@@ -114,7 +114,7 @@ CUpgradeDlgStateResult::Update(POINT ptMouse) {
                     CMsgBox::BT_OK,
                     true,
                     0,
-                    pCmd); ///ÇØ´ç ¾ÆÀÌÅÛÀ» º¸¿©ÁÖÀÚ.
+                    pCmd); ///í•´ë‹¹ ì•„ì´í…œì„ ë³´ì—¬ì£¼ì.
 
                 int itemtype = 0;
                 int itemno = 0;

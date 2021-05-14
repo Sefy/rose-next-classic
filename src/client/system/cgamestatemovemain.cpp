@@ -45,7 +45,7 @@ CGameStateMoveMain::Update(bool bLostFocus) {
 
     // processing  ...
     if (g_ClientStorage.m_VideoOption.background_render || !bLostFocus) {
-        if (::beginScene()) // ¼º°øÇÑ °æ¿ì¿¡¸¸ ·»´õ¸µ
+        if (::beginScene()) // ì„±ê³µí•œ ê²½ìš°ì—ë§Œ ë Œë”ë§
         {
             ::clearScreen();
             ::renderScene();
@@ -55,7 +55,7 @@ CGameStateMoveMain::Update(bool bLostFocus) {
             /// Screen message display
             g_UIMed.Draw();
             /// UI display
-            ///Ä«¸Ş¶ó ¸ğ¼ÇÀÌ ¸ØÃçÀÖÀ»°æ¿ì¿¡¸¸ º¸ÀÌ°Ô ÇÑ´Ù.
+            ///ì¹´ë©”ë¼ ëª¨ì…˜ì´ ë©ˆì¶°ìˆì„ê²½ìš°ì—ë§Œ ë³´ì´ê²Œ í•œë‹¤.
 
             ::endSprite();
 

@@ -3,10 +3,10 @@
 #include "ciconskill.h"
 
 /**
- * ½ºÅ³ Æ®¸®Ã¢¿¡¼­ »ç¿ëµÇ´Â Skill Icon
- *	- ½ÇÁ¦ ¹è¿î ½ºÅ³ÀÌ ¾Æ´Ñ ÀüÃ¼ ½ºÅ³À» º¸¿©ÁÖ±âÀ§ÇÏ¿© ´õ¹Ì µ¥ÀÌÅ¸¸¦ °¡Áø ½ºÅ³ ¾ÆÀÌÄÜ
+ * ìŠ¤í‚¬ íŠ¸ë¦¬ì°½ì—ì„œ ì‚¬ìš©ë˜ëŠ” Skill Icon
+ *	- ì‹¤ì œ ë°°ìš´ ìŠ¤í‚¬ì´ ì•„ë‹Œ ì „ì²´ ìŠ¤í‚¬ì„ ë³´ì—¬ì£¼ê¸°ìœ„í•˜ì—¬ ë”ë¯¸ ë°ì´íƒ€ë¥¼ ê°€ì§„ ìŠ¤í‚¬ ì•„ì´ì½˜
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/12
  */
 class CIconSkillDummy: public CIconSkill {

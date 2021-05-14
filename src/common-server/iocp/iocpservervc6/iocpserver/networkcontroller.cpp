@@ -5,7 +5,7 @@
 
 #define TRACE TraceDebug
 
-// µğ¹ö±× Ãâ·Â
+// ë””ë²„ê·¸ ì¶œë ¥
 void
 TraceDebug(LPCTSTR lpszFormat, ...) {
     static char szBuf[256];
@@ -34,13 +34,13 @@ NetworkController::~NetworkController(void) {
     DeleteCriticalSection(&m_cs);
 }
 
-// ÃÊ±âÈ­ Ã³¸®
+// ì´ˆê¸°í™” ì²˜ë¦¬
 BOOL
 NetworkController::Init(const int Port) {
     WSADATA wsd;
     SOCKADDR_IN serverSockAddr;
 
-    // ¼ÒÄÏ ÃÊ±âÈ­ Ã³¸®
+    // ì†Œì¼“ ì´ˆê¸°í™” ì²˜ë¦¬
     if (WSAStartup(MAKEWORD(2, 2), &wsd) != 0) {
         TRACE("WSAStartup Failed: %d\n", WSAGetLastError());
         return FALSE;
@@ -71,7 +71,7 @@ NetworkController::Init(const int Port) {
 
     TRACE("\nSocket Initiation Success\n");
 
-    // IOCP ÃÊ±âÈ­ Ã³¸®
+    // IOCP ì´ˆê¸°í™” ì²˜ë¦¬
     int ErrCode;
     if (!m_IocpHandler.Create(0, &ErrCode)) {
         TRACE("Create IO Completion Port Error: %d\n", ErrCode);
@@ -97,7 +97,7 @@ NetworkController::Init(const int Port) {
     return TRUE;
 }
 
-// Accept ÀÛ¾÷ Ã³¸®
+// Accept ì‘ì—… ì²˜ë¦¬
 void
 NetworkController::AcceptProcess(void) {
     int ErrCode = 0;
@@ -117,8 +117,8 @@ NetworkController::AcceptProcess(void) {
         __try {
             clientsocket = accept(m_listenSocket, (LPSOCKADDR)&clientsockaddr, &sockaddr_size);
             if (clientsocket == INVALID_SOCKET) {
-                // ¸®½¼ ¼ÒÄÏÀ» Å¬·ÎÁî ÇÏ¸é ÀÌ ¿¡·¯°¡ ³ª¿À¹Ç·Î
-                // ÀÌ ¿¡·¯½Ã¿¡ Accept ·çÇÁ¸¦ ºüÁ®³ª°£´Ù.
+                // ë¦¬ìŠ¨ ì†Œì¼“ì„ í´ë¡œì¦ˆ í•˜ë©´ ì´ ì—ëŸ¬ê°€ ë‚˜ì˜¤ë¯€ë¡œ
+                // ì´ ì—ëŸ¬ì‹œì— Accept ë£¨í”„ë¥¼ ë¹ ì ¸ë‚˜ê°„ë‹¤.
                 if (WSAGetLastError() == WSAEINTR) {
                     return;
                 }
@@ -154,14 +154,14 @@ NetworkController::AcceptProcess(void) {
                 ;
             }
 
-            // ¼ÒÄÏ ÄÁÅØ½ºÆ® ÇÒ´ç -> Completion Key
+            // ì†Œì¼“ ì»¨í…ìŠ¤íŠ¸ í• ë‹¹ -> Completion Key
             pPerSocketCtx = AllocPerSocketContext(clientsocket);
             if (pPerSocketCtx == NULL) {
                 TRACE("Socket Context Allocation Error\n");
                 continue;
             }
 
-            // IOCP Ä¿³Î °´Ã¼¿Í ¿¬°á
+            // IOCP ì»¤ë„ ê°ì²´ì™€ ì—°ê²°
             if (!m_IocpHandler.Associate(clientsocket,
                     reinterpret_cast<ULONG_PTR>(pPerSocketCtx),
                     &ErrCode)) {
@@ -169,7 +169,7 @@ NetworkController::AcceptProcess(void) {
                 continue;
             }
 
-            // ÃÊ±â Recv ¿äÃ»
+            // ì´ˆê¸° Recv ìš”ì²­
             BOOL bRet = RecvPost(pPerSocketCtx);
             if (bRet == FALSE) {
                 TRACE("Init RecvPost Error\n");
@@ -192,7 +192,7 @@ NetworkController::AcceptProcess(void) {
     }
 }
 
-// ¿Ï·á ÆĞÅ¶ Ã³¸® ÇÔ¼ö
+// ì™„ë£Œ íŒ¨í‚· ì²˜ë¦¬ í•¨ìˆ˜
 void
 NetworkController::ProcessingThread(void) {
     PPerSocketContext pPerSocketCtx = NULL;
@@ -201,7 +201,7 @@ NetworkController::ProcessingThread(void) {
     int ErrCode = 0;
 
     while (TRUE) {
-        // IO Completion Packet ¾ò¾î¿Â´Ù.
+        // IO Completion Packet ì–»ì–´ì˜¨ë‹¤.
         BOOL bRet = m_IocpHandler.GetCompletionStatus(reinterpret_cast<ULONG_PTR*>(&pPerSocketCtx),
             &dwBytesTransferred,
             reinterpret_cast<LPOVERLAPPED*>(&pPerIoCtx),
@@ -219,9 +219,9 @@ NetworkController::ProcessingThread(void) {
             if (NULL == pPerIoCtx) {
                 TRACE("Getting Completion Packet Failed %d\n", ErrCode);
             } else {
-                // ¿©±â·Î ¿À¸é ¿¡·¯°¡ 64ÀÏ °¡´É¼ºÀÌ ³ô´Ù.
-                // Áï ÁöÁ¤µÈ ³×Æ®¿öÅ© ÀÌ¸§À» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù. ÀÌ´Ù.
-                // ¹¹ ÀÌ·²¶© ¼ÒÄÏ ²÷¾î¹ö¸®¸é ¸¸»ç OKÀÌ´Ù.
+                // ì—¬ê¸°ë¡œ ì˜¤ë©´ ì—ëŸ¬ê°€ 64ì¼ ê°€ëŠ¥ì„±ì´ ë†’ë‹¤.
+                // ì¦‰ ì§€ì •ëœ ë„¤íŠ¸ì›Œí¬ ì´ë¦„ì„ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ì´ë‹¤.
+                // ë­ ì´ëŸ´ë• ì†Œì¼“ ëŠì–´ë²„ë¦¬ë©´ ë§Œì‚¬ OKì´ë‹¤.
                 TRACE("Client Connection Close, Socket will Close.\n");
 #ifdef STATISTICS
                 m_state.DecreaseConnection();
@@ -234,14 +234,14 @@ NetworkController::ProcessingThread(void) {
         }
 
         try {
-            // Å¬¶óÀÌ¾ğÆ®°¡ ¿¬°á ²÷À½
+            // í´ë¼ì´ì–¸íŠ¸ê°€ ì—°ê²° ëŠìŒ
             if (dwBytesTransferred == 0) {
                 TRACE("Client(%d) Connection Closed.\n", pPerSocketCtx->socket);
 
                 throw "dwBytestransferred==0\n";
             }
 
-            // IO ¼º°İ¿¡ µû¶ó ±×¿¡ µû¸¥ Ã³¸®
+            // IO ì„±ê²©ì— ë”°ë¼ ê·¸ì— ë”°ë¥¸ ì²˜ë¦¬
             if (pPerIoCtx == pPerSocketCtx->recvContext) {
                 // RECV Operation
                 if (!RecvCompleteEvent(pPerSocketCtx, dwBytesTransferred)) {
@@ -263,7 +263,7 @@ NetworkController::ProcessingThread(void) {
         } catch (char* errText) {
             TRACE(errText);
 
-// continue ¹®À» ¾²¸é Abnormal Termination ÀÌ µÈ´Ù.
+// continue ë¬¸ì„ ì“°ë©´ Abnormal Termination ì´ ëœë‹¤.
 #ifdef STATISTICS
             m_state.DecreaseConnection();
 #endif
@@ -273,7 +273,7 @@ NetworkController::ProcessingThread(void) {
     }
 }
 
-// Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ ÄÁÅØ½ºÆ® Á¦°ÅÇÏ°í ¼ÒÄÏ ´İÀ½
+// í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ì»¨í…ìŠ¤íŠ¸ ì œê±°í•˜ê³  ì†Œì¼“ ë‹«ìŒ
 void
 NetworkController::CloseClient(PPerSocketContext pPerSocketCtx, bool bGraceful) {
     EnterCriticalSection(&m_cs);
@@ -303,7 +303,7 @@ NetworkController::CloseClient(PPerSocketContext pPerSocketCtx, bool bGraceful) 
     LeaveCriticalSection(&m_cs);
 }
 
-// Per Io Context ¸Ş¸ğ¸® ÇÒ´ç
+// Per Io Context ë©”ëª¨ë¦¬ í• ë‹¹
 PPerIoContext
 NetworkController::AllocPerIoContextForSend(void) {
     PPerIoContext pPerIoCtx = NULL;
@@ -326,7 +326,7 @@ NetworkController::AllocPerIoContextForRecv(void) {
     return pPerIoCtx;
 }
 
-// Per Socket Context ¸Ş¸ğ¸® ÇÒ´ç
+// Per Socket Context ë©”ëª¨ë¦¬ í• ë‹¹
 PPerSocketContext
 NetworkController::AllocPerSocketContext(SOCKET clientSocket) {
     PPerSocketContext pPerSocketCtx = NULL;
@@ -340,7 +340,7 @@ NetworkController::AllocPerSocketContext(SOCKET clientSocket) {
     return pPerSocketCtx;
 }
 
-// PerIoContext ¸Ş¸ğ¸® Á¦°Å
+// PerIoContext ë©”ëª¨ë¦¬ ì œê±°
 void
 NetworkController::DeallocPerIoContextForRecv(PPerIoContext pPerIoCtx) {
     assert(pPerIoCtx);
@@ -355,21 +355,21 @@ NetworkController::DeallocPerIoContextForSend(PPerIoContext pPerIoCtx) {
     assert(bRet);
 }
 
-// PerSocketContext ¸Ş¸ğ¸® Á¦°Å
+// PerSocketContext ë©”ëª¨ë¦¬ ì œê±°
 void
 NetworkController::DeallocPerSocketContext(PPerSocketContext pPerSocketCtx) {
     assert(pPerSocketCtx);
 
-    // IO Context ÇÒ´çÇÑ °Í Á¦°Å
+    // IO Context í• ë‹¹í•œ ê²ƒ ì œê±°
     DeallocPerIoContextForRecv(pPerSocketCtx->recvContext);
     DeallocPerIoContextForSend(pPerSocketCtx->sendContext);
 
-    // ¼ÒÄÏ ÄÁÅØ½ºÆ® Á¦°Å
+    // ì†Œì¼“ ì»¨í…ìŠ¤íŠ¸ ì œê±°
     BOOL bRet = m_pPerSocketCtxMemPool->Free(pPerSocketCtx);
     assert(bRet);
 }
 
-// RECV ¿äÃ»
+// RECV ìš”ì²­
 BOOL
 NetworkController::RecvPost(PPerSocketContext pPerSocketCtx) {
     DWORD dwRecvBytes = 0;
@@ -400,7 +400,7 @@ NetworkController::RecvPost(PPerSocketContext pPerSocketCtx) {
     return TRUE;
 }
 
-// Send ¿äÃ»
+// Send ìš”ì²­
 BOOL
 NetworkController::SendPost(PPerSocketContext pPerSocketCtx) {
     DWORD dwSendBytes = 0;
@@ -431,12 +431,12 @@ NetworkController::SendPost(PPerSocketContext pPerSocketCtx) {
     return TRUE;
 }
 
-// ¸®½Ãºê ÀÌº¥Æ® Ã³¸® ÇÚµé·¯ ÇÔ¼ö
-// return °ª: TRUE  -> ¿¡·¯ ¾øÀÌ Á¤»óÀûÀ¸·Î Ã³¸®µÊ
-//            FALSE -> ¿Ï·á ÆĞÅ¶ Ã³¸® µ¿ÀÛ Áß ¿¡·¯ ¹ß»ı
+// ë¦¬ì‹œë¸Œ ì´ë²¤íŠ¸ ì²˜ë¦¬ í•¸ë“¤ëŸ¬ í•¨ìˆ˜
+// return ê°’: TRUE  -> ì—ëŸ¬ ì—†ì´ ì •ìƒì ìœ¼ë¡œ ì²˜ë¦¬ë¨
+//            FALSE -> ì™„ë£Œ íŒ¨í‚· ì²˜ë¦¬ ë™ì‘ ì¤‘ ì—ëŸ¬ ë°œìƒ
 BOOL
 NetworkController::RecvCompleteEvent(PPerSocketContext pPerSocketCtx, DWORD dwBytesTransferred) {
-    // Echo ¼­¹ö ÀÌ¹Ç·Î ¹ŞÀº ³»¿ëÀº ±×´ë·Î µ¹·Áº¸³½´Ù.
+    // Echo ì„œë²„ ì´ë¯€ë¡œ ë°›ì€ ë‚´ìš©ì€ ê·¸ëŒ€ë¡œ ëŒë ¤ë³´ë‚¸ë‹¤.
     // TRACE("GET THIS: %d Bytes -> Return To Client \n",dwBytesTransferred);
 
 #ifdef STATISTICS
@@ -462,12 +462,12 @@ NetworkController::RecvCompleteEvent(PPerSocketContext pPerSocketCtx, DWORD dwBy
     return TRUE;
 }
 
-// Send ¿Ï·á ÆĞÅ¶ Ã³¸® ÇÚµé·¯ ÇÔ¼ö
-// return °ª: TRUE  -> ¿¡·¯ ¾øÀÌ Á¤»óÀûÀ¸·Î Ã³¸®µÊ
-//            FALSE -> ¿Ï·á ÆĞÅ¶ Ã³¸® µ¿ÀÛ Áß ¿¡·¯ ¹ß»ı
+// Send ì™„ë£Œ íŒ¨í‚· ì²˜ë¦¬ í•¸ë“¤ëŸ¬ í•¨ìˆ˜
+// return ê°’: TRUE  -> ì—ëŸ¬ ì—†ì´ ì •ìƒì ìœ¼ë¡œ ì²˜ë¦¬ë¨
+//            FALSE -> ì™„ë£Œ íŒ¨í‚· ì²˜ë¦¬ ë™ì‘ ì¤‘ ì—ëŸ¬ ë°œìƒ
 BOOL
 NetworkController::SendCompleteEvent(PPerSocketContext pPerSocketCtx, DWORD dwBytesTransferred) {
-    // Echo ¼­¹ö ÀÌ¹Ç·Î Send ¿Ï·á½Ã´Â ÇÒ ÀÏÀÌ ¾ø´Ù.
+    // Echo ì„œë²„ ì´ë¯€ë¡œ Send ì™„ë£Œì‹œëŠ” í•  ì¼ì´ ì—†ë‹¤.
 
 #ifdef STATISTICS
     m_state.IncreaseBytesSent(dwBytesTransferred);
@@ -476,21 +476,21 @@ NetworkController::SendCompleteEvent(PPerSocketContext pPerSocketCtx, DWORD dwBy
     return TRUE;
 }
 
-// Recv, Send ¿Ï·á µ¿ÀÛ ¿ÜÀÇ Ã³¸® ÇÚµé·¯ ÇÔ¼ö
-// return °ª: TRUE  -> ¿¡·¯ ¾øÀÌ Á¤»óÀûÀ¸·Î Ã³¸®µÊ
-//            FALSE -> ¿Ï·á ÆĞÅ¶ Ã³¸® µ¿ÀÛ Áß ¿¡·¯ ¹ß»ı
+// Recv, Send ì™„ë£Œ ë™ì‘ ì™¸ì˜ ì²˜ë¦¬ í•¸ë“¤ëŸ¬ í•¨ìˆ˜
+// return ê°’: TRUE  -> ì—ëŸ¬ ì—†ì´ ì •ìƒì ìœ¼ë¡œ ì²˜ë¦¬ë¨
+//            FALSE -> ì™„ë£Œ íŒ¨í‚· ì²˜ë¦¬ ë™ì‘ ì¤‘ ì—ëŸ¬ ë°œìƒ
 BOOL
 NetworkController::OtherCompleteEvent(PPerSocketContext pPerSocketCtx, DWORD dwBytesTransferred) {
     TRACE("Critical Error. Invalid Operation. Client Close!\n");
 
-    // ÇöÀç ¿©±â·Î ¿À¸é Recv , Send ÀÌ¿ÜÀÇ ÀÌ»óÇÑ µ¿ÀÛÀ» °¡¸®Å´ ¼ÒÄÏ ²÷¾î¹ö¸®ÀÚ.
+    // í˜„ì¬ ì—¬ê¸°ë¡œ ì˜¤ë©´ Recv , Send ì´ì™¸ì˜ ì´ìƒí•œ ë™ì‘ì„ ê°€ë¦¬í‚´ ì†Œì¼“ ëŠì–´ë²„ë¦¬ì.
     closesocket(pPerSocketCtx->socket);
     pPerSocketCtx->socket = INVALID_SOCKET;
 
-    return FALSE; // ¿¡·¯¸¦ °¡¶óÅ´
+    return FALSE; // ì—ëŸ¬ë¥¼ ê°€ë¼í‚´
 }
 
-// ¼­¹ö Áß´Ü
+// ì„œë²„ ì¤‘ë‹¨
 void
 NetworkController::ServerClose(void) {
     m_IocpHandler.CloseAllThreads();

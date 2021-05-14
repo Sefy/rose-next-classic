@@ -24,13 +24,13 @@ CAvatarState::Leave(CJustModelAVT* pAvt) {
 void
 CAvatarStateNormal::Enter(CJustModelAVT* pAvt) {
     pAvt->SetMotion(1);
-    ///¸ð¼Ç ¹Ù²Þ
+    ///ëª¨ì…˜ ë°”ê¿ˆ
 }
 ///*--------------------------------------------------------------------------------------------*///
 void
 CAvatarStateSitdown::Enter(CJustModelAVT* pAvt) {
     pAvt->SetMotion(5, 1);
-    ///¸ð¼ÇÀÌ ¹Ù²Þ
+    ///ëª¨ì…˜ì´ ë°”ê¿ˆ
 }
 
 void
@@ -53,7 +53,7 @@ CAvatarStateStandup::Enter(CJustModelAVT* pAvt) {
 
 void
 CAvatarStateStandup::Update(CJustModelAVT* pAvt) {
-    ///¸ð¼ÇÀÌ ³¡³ª¸é »óÅÂ¸¦ normal·Î ¼öÁ¤
+    ///ëª¨ì…˜ì´ ëë‚˜ë©´ ìƒíƒœë¥¼ normalë¡œ ìˆ˜ì •
     if (getAnimatableState(pAvt->GetModelNode()) == 0)
         pAvt->SwitchState(CJustModelAVT::STATE_NORMAL);
 }

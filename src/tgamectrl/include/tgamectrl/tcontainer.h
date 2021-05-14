@@ -5,11 +5,11 @@
 #include <deque>
 
 /**
- * TObject¸¦ ItemÀ¸·Î °¡Áö´Â Container Class
- *	- Subscript´Â 1-Base·Î µ¿ÀÛÇÑ´Ù.
- *	- ³»ºÎÀûÀ¸·Î ¾ÆÀÌÅÛÀ» ¼±ÅÃÇÒ ¼ö ÀÖ´Ù.
+ * TObjectë¥¼ Itemìœ¼ë¡œ ê°€ì§€ëŠ” Container Class
+ *	- SubscriptëŠ” 1-Baseë¡œ ë™ì‘í•œë‹¤.
+ *	- ë‚´ë¶€ì ìœ¼ë¡œ ì•„ì´í…œì„ ì„ íƒí•  ìˆ˜ ìˆë‹¤.
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Date		2005/8/30
  */

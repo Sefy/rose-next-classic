@@ -44,7 +44,7 @@ STBDATA			 g_TblDropITEM;
 STBDATA          g_TblStore;
 */
 
-STBDATA g_TblAVATAR; // ¾Æ¹ÙÅ¸ ÃÊ±â ¼³Á¤ µ¥ÀÌÅ¸..
+STBDATA g_TblAVATAR; // ì•„ë°”íƒ€ ì´ˆê¸° ì„¤ì • ë°ì´íƒ€..
 STBDATA g_TblWARP;
 STBDATA g_TblZONE;
 STBDATA* g_pTblSTBs[ITEM_TYPE_RIDE_PART + 1];
@@ -74,7 +74,7 @@ CThreadGUILD* g_pThreadGUILD = NULL;
 
 //-------------------------------------------------------------------------------------------------
 
-#define DEF_CLIENT_POOL_SIZE 0x7fff // 32767	µ¿½Ã Á¢¼Ó ´ë±â ¼ÒÄÏ
+#define DEF_CLIENT_POOL_SIZE 0x7fff // 32767	ë™ì‹œ ì ‘ì† ëŒ€ê¸° ì†Œì¼“
 #define INC_CLIENT_POOL_SIZE 0xfff // 4095
 
 #define DEF_SERVER_POOL_SIZE 64
@@ -138,7 +138,7 @@ SHO_WS::SystemINIT(HINSTANCE hInstance, char* szBaseDataDIR, int iLangType) {
     g_pSockLSV = new WS_lsvSOCKET;
     //	g_pSockLOG = new WS_logSOCKET( USE_MY_SQL_AGENT );
 
-    // ·Î±×ÀÎ ¼­¹ö¿¡ Á¢¼ÓÇÒ Å¬¶óÀÌ¾ðÆ® ¼ÒÄÏ »ý¼º...
+    // ë¡œê·¸ì¸ ì„œë²„ì— ì ‘ì†í•  í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ìƒì„±...
     CSocketWND* pSockWND = CSocketWND::InitInstance(hInstance, 2);
     if (pSockWND) {
         // pSockWND->AddSocketMsgProc( WM_LSVSOCK_MSG, LSV_SocketMSG );
@@ -190,17 +190,17 @@ SHO_WS::~SHO_WS() {
 }
 
 //-------------------------------------------------------------------------------------------------
-// ¼­¹ö ÃÊ±âÈ­
-// 1. µðºñ ¼­¹ö Á¢¼Ó
-// 2. Á¸ ¼­¹ö Á¢¼Ó Çã¿ë
-// 3. »ç¿ëÀÚ Á¢¼Ó Çã¿ë..
-// 4. ·Î±×ÀÎ ¼­¹ö Á¢¼Ó
+// ì„œë²„ ì´ˆê¸°í™”
+// 1. ë””ë¹„ ì„œë²„ ì ‘ì†
+// 2. ì¡´ ì„œë²„ ì ‘ì† í—ˆìš©
+// 3. ì‚¬ìš©ìž ì ‘ì† í—ˆìš©..
+// 4. ë¡œê·¸ì¸ ì„œë²„ ì ‘ì†
 bool
 SHO_WS::connect_database(ServerConfig& config) {
     if (NULL == this->GetInstance())
         return false;
 
-    g_pThreadSQL = new CWS_ThreadSQL; // suspend ¸ðµå·Î ½ÃÀÛµÊ.
+    g_pThreadSQL = new CWS_ThreadSQL; // suspend ëª¨ë“œë¡œ ì‹œìž‘ë¨.
     if (!g_pThreadSQL->db.connect(config.database.connection_string)) {
         std::string error_message = g_pThreadSQL->db.last_error_message();
         LOG_ERROR("Failed to connect to the database: {}", error_message.c_str());
@@ -255,8 +255,8 @@ SHO_WS::Start(HWND hMainWND,
 
     g_pChatROOMs = new CChatRoomLIST(MAX_CHAT_ROOMS);
 
-    g_pUserLIST->Active(m_iClientListenPortNO, MAX_WORLD_USER_UBFF, 5 * 60); // 5ºÐ ´ë±â
-    g_pListSERVER->Active(m_iServerListenPortNO, 512, 3 * 60); // 3ºÐ ´ë±â
+    g_pUserLIST->Active(m_iClientListenPortNO, MAX_WORLD_USER_UBFF, 5 * 60); // 5ë¶„ ëŒ€ê¸°
+    g_pListSERVER->Active(m_iServerListenPortNO, 512, 3 * 60); // 3ë¶„ ëŒ€ê¸°
 
     m_dwRandomSEED = ::timeGetTime();
 
@@ -293,13 +293,13 @@ SHO_WS::Shutdown() {
     g_pUserLIST->Shutdown();
     g_pListSERVER->Shutdown();
 
-    SAFE_DELETE(g_pChatROOMs); // Á¦ÀÏ ¸¶Áö¸·¿¡...
+    SAFE_DELETE(g_pChatROOMs); // ì œì¼ ë§ˆì§€ë§‰ì—...
 }
 
 //-------------------------------------------------------------------------------------------------
 void
 SHO_WS::StartCLI_SOCKET() {
-    g_pUserLIST->Active(m_iClientListenPortNO, MAX_WORLD_USER_UBFF, 5 * 60); // 5ºÐ ´ë±â
+    g_pUserLIST->Active(m_iClientListenPortNO, MAX_WORLD_USER_UBFF, 5 * 60); // 5ë¶„ ëŒ€ê¸°
 }
 
 void
@@ -352,7 +352,7 @@ SHO_WS::Load_BasicDATA() {
 }
 void
 SHO_WS::Free_BasicDATA() {
-    // STBDATA´Â ÀÚµ¿ Ç®¸²..
+    // STBDATAëŠ” ìžë™ í’€ë¦¼..
     g_SkillList.Free();
 }
 void
@@ -404,11 +404,11 @@ WS_TimerProc(HWND hwnd /* handle to window */,
 
             switch (g_ZoneLIST.m_dwAccTIME % 6) {
                 case 0:
-                case 3: // 30ÃÊ¿¡ ÇÑ¹ø¾¿ Ã¼Å©...
+                case 3: // 30ì´ˆì— í•œë²ˆì”© ì²´í¬...
                     g_pUserLIST->Check_SocketALIVE();
                     break;
                 case 1: // case 4 :
-                    g_pUserLIST->CloseIdleSCOKET(150 * 1000); // 2ºÐ 30ÃÊ
+                    g_pUserLIST->CloseIdleSCOKET(150 * 1000); // 2ë¶„ 30ì´ˆ
                     break;
             }
             break;

@@ -117,7 +117,7 @@ CItemSlot::AddItem(int iInvenIdx, tagITEM& Item) {
     return pItem;
 }
 
-/// NotifyObserverÀü¿¡ CInventory¿¡ÀÖ´Â tagITEMÀ» Empty·Î ¸¸µé¾î¾ß ÇÑ´Ù.
+/// NotifyObserverì „ì— CInventoryì—ìžˆëŠ” tagITEMì„ Emptyë¡œ ë§Œë“¤ì–´ì•¼ í•œë‹¤.
 bool
 CItemSlot::DelItem(int iInvenIdx) {
     assert(iInvenIdx >= 0 && iInvenIdx < INVENTORY_TOTAL_SIZE);
@@ -152,7 +152,7 @@ CItemSlot::AddItem(tagITEM& Item) {
 
     assert(iEmptySlotIdx >= 0);
 
-    /// TODO::¸®ÅÏ°ªÀÌ ¾ø¾ú´Âµ¥ ÀÏ´Ü ÀÓ½Ã·Î ³Ö¾úÀ½ ¿ø·¡ ¸®ÅÏ°ªÀ» ³Öµµ·Ï..
+    /// TODO::ë¦¬í„´ê°’ì´ ì—†ì—ˆëŠ”ë° ì¼ë‹¨ ìž„ì‹œë¡œ ë„£ì—ˆìŒ ì›ëž˜ ë¦¬í„´ê°’ì„ ë„£ë„ë¡..
 
     return AddItem(iEmptySlotIdx, Item);
 }
@@ -176,17 +176,17 @@ CItemSlot::GetItem(int iInvenIdx) {
     return m_listItems[iInvenIdx];
 }
 
-/// °³¼ö¸¸ °¨¼ÒÇÏ´Â °æ¿ì¿¡´Â º°µµ·Î Ã³¸®ÇÒÇÊ¿ä°¡ ¾ø´Ù.
+/// ê°œìˆ˜ë§Œ ê°ì†Œí•˜ëŠ” ê²½ìš°ì—ëŠ” ë³„ë„ë¡œ ì²˜ë¦¬í• í•„ìš”ê°€ ì—†ë‹¤.
 void
 CItemSlot::SubItem(int iInvenIdx, tagITEM& Item) {
     assert(iInvenIdx >= 0 && iInvenIdx < INVENTORY_TOTAL_SIZE);
     CItem* pItem = GetItem(iInvenIdx);
     assert(pItem);
     if (pItem) {
-        if (!Item.IsEnableDupCNT()) ///°³¼ö ¾ø´Â ¾ÆÀÌÅÛÀÏ°æ¿ì »èÁ¦ÇÑ´Ù.
+        if (!Item.IsEnableDupCNT()) ///ê°œìˆ˜ ì—†ëŠ” ì•„ì´í…œì¼ê²½ìš° ì‚­ì œí•œë‹¤.
         {
             DelItem(iInvenIdx);
-            assert(0 && "°³¼ö ¾ø´Â ¾ÆÀÌÅÛÀ» »©·Á°í ÇÑ´Ù@ CItemSlot::SubItem");
+            assert(0 && "ê°œìˆ˜ ì—†ëŠ” ì•„ì´í…œì„ ë¹¼ë ¤ê³  í•œë‹¤@ CItemSlot::SubItem");
         }
 
         if (pItem->IsEmpty()) {

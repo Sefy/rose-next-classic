@@ -30,7 +30,7 @@ CHotICONS::DelHotICON(BYTE btListIDX) {
 }
 
 #ifndef __SERVER
-/// ¸¸¾à ÇÖ¾ÆÀÌÄÜÀÌ ÂüÁ¶ÇÏ´Â ¾ÆÀÌÅÛÀÌ »ç¶óÁ³À»°æ¿ì..
+/// ë§Œì•½ í•«ì•„ì´ì½˜ì´ ì°¸ì¡°í•˜ëŠ” ì•„ì´í…œì´ ì‚¬ë¼ì¡Œì„ê²½ìš°..
 void
 CHotICONS::UpdateHotICON() {
     for (int i = 0; i < MAX_HOT_ICONS; i++) {
@@ -43,7 +43,7 @@ CHotICONS::UpdateHotICON() {
                         break;
                     }
 
-                    /// ÂüÁ¶ÇÏ´Â ¾ÆÀÌÅÛÀÌ ¹«È¿ÇÏ¸é Áö¿ö¶ó..
+                    /// ì°¸ì¡°í•˜ëŠ” ì•„ì´í…œì´ ë¬´íš¨í•˜ë©´ ì§€ì›Œë¼..
                     if (g_pAVATAR->m_Inventory.m_ItemLIST[m_IconLIST[i].m_nSlotNo].m_cType == 0) {
                         DelHotICON(i);
                     }

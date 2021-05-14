@@ -5,10 +5,10 @@
 #include "../../GameCommon/IObserver.h"
 #include "tgamectrl/iactionlistener.h"
 /**
- * Ä¿¹Â´ÏÆ¼ Ã¢¿¡¼­ Ã¤ÆÃ·ëÀ»  À§ÇÑ UI Dialog
+ * ì»¤ë®¤ë‹ˆí‹° ì°½ì—ì„œ ì±„íŒ…ë£¸ì„  ìœ„í•œ UI Dialog
  *	- Observable : CChatRoom
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CChatRoomDlg: public CTDialog, public IObserver, public IActionListener {
@@ -26,7 +26,7 @@ public:
     virtual unsigned ActionPerformed(CActionEvent* e);
 
     void RecvChatMsg(WORD wUserID,
-        const char* pszMsg); /// ¼­¹ö·Î ºÎÅÍ ¹ŞÀº Ã¤ÆÃ·ëÀÇ Ã¤ÆÃ¸Ş¼¼Áö Ã³¸®
+        const char* pszMsg); /// ì„œë²„ë¡œ ë¶€í„° ë°›ì€ ì±„íŒ…ë£¸ì˜ ì±„íŒ…ë©”ì„¸ì§€ ì²˜ë¦¬
 
 private:
     void AddChatMsg(const char* pszMsg, DWORD dwColor);
@@ -35,8 +35,8 @@ private:
     void OnLButtonDown(unsigned uiProcID, WPARAM wParam, LPARAM lParam);
     void SendChatMsg();
 
-    void Minimize(); /// ÃÖ¼ÒÈ­½Ã Ã³¸®
-    void Maximize(); /// ÃÖ´ëÈ­½Ã Ã³¸®
+    void Minimize(); /// ìµœì†Œí™”ì‹œ ì²˜ë¦¬
+    void Maximize(); /// ìµœëŒ€í™”ì‹œ ì²˜ë¦¬
 
     CWinCtrl* FindChildInPane(unsigned uiPaneID, unsigned uiChildID);
 
@@ -65,8 +65,8 @@ private:
         TAB_MEMBER = 1,
     };
 
-    bool m_bMinimize; /// ÃÖ¼ÒÈ­/ÃÖ´ëÈ­ ±¸ºĞ
-    int m_iTab; /// ÅÇ ±¸ºĞ
-    std::list<CChatMember> m_Members; /// Ã¤ÆÃ·ë ¸â¹ö ÀúÀå ÄÁÅ×ÀÌ³Ê
+    bool m_bMinimize; /// ìµœì†Œí™”/ìµœëŒ€í™” êµ¬ë¶„
+    int m_iTab; /// íƒ­ êµ¬ë¶„
+    std::list<CChatMember> m_Members; /// ì±„íŒ…ë£¸ ë©¤ë²„ ì €ì¥ ì»¨í…Œì´ë„ˆ
 };
 #endif

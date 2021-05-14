@@ -2,12 +2,12 @@
 #define _CTSCROLLBARTYPE_
 #include <crtdbg.h>
 /**
- * CTScrollBarÀÇ Type¿¡ µû¸¥ Strategy Class( ¼öÆò/¼öÁ÷ )
- *		- ÇöÀç Strategy PatternÀ» ¾²Áö¾Ê¾Æµµ ¹«¹æÇÏÁö¸¸ µğ¹ö±ëÀÇ ¿ëÀÌÇÔ°ú ¾ÕÀ¸·Î ½Ç½Ã°£À¸·Î
- *½ºÅ©·Ñ¹Ù°¡
- *		- Å¸ÀÔÀÌ ¹Ù²ğ°æ¿ìµµ »ı°¢ÇØ¼­ ¸¸µç´Ù.
+ * CTScrollBarì˜ Typeì— ë”°ë¥¸ Strategy Class( ìˆ˜í‰/ìˆ˜ì§ )
+ *		- í˜„ì¬ Strategy Patternì„ ì“°ì§€ì•Šì•„ë„ ë¬´ë°©í•˜ì§€ë§Œ ë””ë²„ê¹…ì˜ ìš©ì´í•¨ê³¼ ì•ìœ¼ë¡œ ì‹¤ì‹œê°„ìœ¼ë¡œ
+ *ìŠ¤í¬ë¡¤ë°”ê°€
+ *		- íƒ€ì…ì´ ë°”ë€”ê²½ìš°ë„ ìƒê°í•´ì„œ ë§Œë“ ë‹¤.
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  *
  * @Date			2005/8/30
  */
@@ -15,7 +15,7 @@ class CTScrollBarType {
 public:
     CTScrollBarType(void);
     virtual ~CTScrollBarType(void);
-    ///½ºÅ©·Ñ¹Ù Å¸ÀÔ(TScrollBar Type )
+    ///ìŠ¤í¬ë¡¤ë°” íƒ€ì…(TScrollBar Type )
 
     virtual POINT
     GetPrevButtonOffset(POINT ptScrollBarOffset, SIZE ScrollBarSize, SIZE PrevButtonSize) = 0 {

@@ -4,8 +4,8 @@
 class CTImage;
 
 /**
- * »ç¿ë¾ÈÇÔ:CTDialogÇÏ´Ü¿¡ ºÎÂøµÇ´Â Class
- * @Author	ÃÖÁ¾Áø
+ * ì‚¬ìš©ì•ˆí•¨:CTDialogí•˜ë‹¨ì— ë¶€ì°©ë˜ëŠ” Class
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/8/30
  */
 class TGAMECTRL_API CTStatusBar: public CWinCtrl {

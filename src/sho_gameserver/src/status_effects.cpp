@@ -13,7 +13,7 @@ StatusEffects::IsTauntSTATUS(int iAttackObjIDX, CZoneTHREAD* pCurZone) {
     if (this->IsSET(c_dwIngFLAG[ING_TAUNT])) {
         CObjCHAR* pDestCHAR = g_pObjMGR->Get_CharOBJ(this->m_iTargetOBJ[ING_TAUNT], true);
         if (pDestCHAR) {
-            // Å¸¿îÆ®¸¦ °Ç³ÑÀÌ¸é Å¸¿îÆ® »óÅÂ°¡ ¾Æ´Ñ°ÍÀ¸·Î...
+            // íƒ€ìš´íŠ¸ë¥¼ ê±´ë„˜ì´ë©´ íƒ€ìš´íŠ¸ ìƒíƒœê°€ ì•„ë‹Œê²ƒìœ¼ë¡œ...
             if (this->m_iTargetOBJ[ING_TAUNT] == iAttackObjIDX)
                 return false;
 
@@ -21,7 +21,7 @@ StatusEffects::IsTauntSTATUS(int iAttackObjIDX, CZoneTHREAD* pCurZone) {
                 return true;
         }
 
-        // Å¸°ÙÀÌ ¾ø°Å³ª Á¸À» ÀÌµ¿Çß´Ù...Å¸¿îÆ® Ç®¸®µµ·Ï..
+        // íƒ€ê²Ÿì´ ì—†ê±°ë‚˜ ì¡´ì„ ì´ë™í–ˆë‹¤...íƒ€ìš´íŠ¸ í’€ë¦¬ë„ë¡..
         m_nTICKs[ING_TAUNT] = 0;
         return false;
     }
@@ -34,14 +34,14 @@ bool
 StatusEffects::IsEnableApplayITEM(short nIngStbIDX) {
     short nTypeIDX = STATE_TYPE(nIngStbIDX);
 
-    // ÀÌ¹Ì Àû¿ëµÇ¾î ÀÖ´Â°¡ ?
+    // ì´ë¯¸ ì ìš©ë˜ì–´ ìžˆëŠ”ê°€ ?
     if (this->IsSET(c_dwIngFLAG[nTypeIDX])) {
         if (0 == STATE_CAN_DUPLICATED(nIngStbIDX)) {
-            // °»½Å Àû¿ë ºÒ°¡¸é ¹«Á¶°Ç Ãë¼Ò...
+            // ê°±ì‹  ì ìš© ë¶ˆê°€ë©´ ë¬´ì¡°ê±´ ì·¨ì†Œ...
             return false;
         }
 
-        // Àû¿ë µÇ¾î ÀÖ´Â°Í º¸´Ù ¿ì¼± ¼øÀ§°¡ ÀÖ´Â°¡ ?
+        // ì ìš© ë˜ì–´ ìžˆëŠ”ê²ƒ ë³´ë‹¤ ìš°ì„  ìˆœìœ„ê°€ ìžˆëŠ”ê°€ ?
         if (m_nIngSTBIdx[nTypeIDX] > nIngStbIDX) {
             return false;
         }
@@ -53,10 +53,10 @@ bool
 StatusEffects::IsEnableApplay(short nIngStbIDX, short nAdjValue) {
     short nTypeIDX = STATE_TYPE(nIngStbIDX);
 
-    // ÀÌ¹Ì Àû¿ëµÇ¾î ÀÖ´Â°¡ ?
+    // ì´ë¯¸ ì ìš©ë˜ì–´ ìžˆëŠ”ê°€ ?
     if (this->IsSET(c_dwIngFLAG[nTypeIDX])) {
         if (0 == STATE_CAN_DUPLICATED(nIngStbIDX)) {
-            // °»½Å Àû¿ë ºÒ°¡¸é ¹«Á¶°Ç Ãë¼Ò...
+            // ê°±ì‹  ì ìš© ë¶ˆê°€ë©´ ë¬´ì¡°ê±´ ì·¨ì†Œ...
             return false;
         }
 
@@ -76,46 +76,46 @@ StatusEffects::UpdateIngSTATUS(CObjCHAR* pCharOBJ,
     short nAdjVALUE,
     short nSkillIDX,
     int iTargetObjIDX) {
-    // ¹Ýµå½Ã Àû¿ë °¡´É¿©ºÎ ÆÇ´ÜÇÑÈÄ È£ÃâµÇ¾î¾ß ÇÑ´Ù !!!
+    // ë°˜ë“œì‹œ ì ìš© ê°€ëŠ¥ì—¬ë¶€ íŒë‹¨í•œí›„ í˜¸ì¶œë˜ì–´ì•¼ í•œë‹¤ !!!
     short nTypeIDX = STATE_TYPE(nIngStbIDX);
 
     // if ( nTypeIDX <= ING_INC_MP ) {
-    //	// ½ºÅ³·Î´Â ¹°¾àÀ¸·Î º¯°æµÇ´Â »óÅÂ¸¦ º¯°æÇÒ¼ö ¾øµµ·Ï...
+    //	// ìŠ¤í‚¬ë¡œëŠ” ë¬¼ì•½ìœ¼ë¡œ ë³€ê²½ë˜ëŠ” ìƒíƒœë¥¼ ë³€ê²½í• ìˆ˜ ì—†ë„ë¡...
     //	return 0;
     //}
 
     if (nTypeIDX > ING_CHECK_END) {
         switch (nTypeIDX) {
-            case ING_CLEAR_INVISIBLE: // Åõ¸í»óÅÂ ÇØÁö..
+            case ING_CLEAR_INVISIBLE: // íˆ¬ëª…ìƒíƒœ í•´ì§€..
             {
                 if (this->IsSET(c_dwIngFLAG[ING_DISGUISE])) {
                     m_nTICKs[ING_DISGUISE] =
-                        0; // ¹Ù·Î »èÁ¦ ÇÏÁö ¸»°í ´ÙÀ½ Ã³¸®ÇØ ÁÖÀ§¿¡ Àü¼ÛµÉ¼ö ÀÖµµ·Ï..
+                        0; // ë°”ë¡œ ì‚­ì œ í•˜ì§€ ë§ê³  ë‹¤ìŒ ì²˜ë¦¬í•´ ì£¼ìœ„ì— ì „ì†¡ë ìˆ˜ ìžˆë„ë¡..
                 }
                 if (this->IsSET(c_dwIngFLAG[ING_TRANSPARENT])) {
                     m_nTICKs[ING_TRANSPARENT] =
-                        0; // ¹Ù·Î »èÁ¦ ÇÏÁö ¸»°í ´ÙÀ½ Ã³¸®ÇØ ÁÖÀ§¿¡ Àü¼ÛµÉ¼ö ÀÖµµ·Ï..
+                        0; // ë°”ë¡œ ì‚­ì œ í•˜ì§€ ë§ê³  ë‹¤ìŒ ì²˜ë¦¬í•´ ì£¼ìœ„ì— ì „ì†¡ë ìˆ˜ ìžˆë„ë¡..
                 }
                 return 0;
             }
-            case ING_CLEAR_GOOD: // À¯¸®
+            case ING_CLEAR_GOOD: // ìœ ë¦¬
             {
                 for (short nI = ING_POISONED; nI <= ING_CHECK_END; nI++) {
                     if (this->IsSET(c_dwIngFLAG[nI])
                         && STATE_PRIFITS_LOSSES(m_nIngSTBIdx[nI]) == 0) {
                         m_nTICKs[nI] =
-                            0; // ¹Ù·Î »èÁ¦ ÇÏÁö ¸»°í ´ÙÀ½ Ã³¸®ÇØ ÁÖÀ§¿¡ Àü¼ÛµÉ¼ö ÀÖµµ·Ï..
+                            0; // ë°”ë¡œ ì‚­ì œ í•˜ì§€ ë§ê³  ë‹¤ìŒ ì²˜ë¦¬í•´ ì£¼ìœ„ì— ì „ì†¡ë ìˆ˜ ìžˆë„ë¡..
                     }
                 }
                 return 0;
             }
-            case ING_CLEAR_BAD: // ºÒ¸®
+            case ING_CLEAR_BAD: // ë¶ˆë¦¬
             {
                 for (short nI = ING_POISONED; nI <= ING_CHECK_END; nI++) {
                     if (this->IsSET(c_dwIngFLAG[nI])
                         && STATE_PRIFITS_LOSSES(m_nIngSTBIdx[nI]) == 1) {
                         m_nTICKs[nI] =
-                            0; // ¹Ù·Î »èÁ¦ ÇÏÁö ¸»°í ´ÙÀ½ Ã³¸®ÇØ ÁÖÀ§¿¡ Àü¼ÛµÉ¼ö ÀÖµµ·Ï..
+                            0; // ë°”ë¡œ ì‚­ì œ í•˜ì§€ ë§ê³  ë‹¤ìŒ ì²˜ë¦¬í•´ ì£¼ìœ„ì— ì „ì†¡ë ìˆ˜ ìžˆë„ë¡..
                     }
                 }
                 if (this->IsSET(FLAG_ING_TAUNT)) {
@@ -124,8 +124,8 @@ StatusEffects::UpdateIngSTATUS(CObjCHAR* pCharOBJ,
                 return 0;
             }
             case ING_CLEAR_ALL: {
-                // ÀüÃ¼ ÇØÁö½Ã ¹°¾àµµ ÇØÁöµÇ±â ¶§¹®¿¡...
-                // this->ClearALL( FLAG_ING_CLEAR );		// »óÁ¡ »óÅÂ´Â À¯Áö.
+                // ì „ì²´ í•´ì§€ì‹œ ë¬¼ì•½ë„ í•´ì§€ë˜ê¸° ë•Œë¬¸ì—...
+                // this->ClearALL( FLAG_ING_CLEAR );		// ìƒì  ìƒíƒœëŠ” ìœ ì§€.
                 for (short nI = ING_POISONED; nI <= ING_CHECK_END; nI++) {
                     if (this->IsSET(c_dwIngFLAG[nI])
                         && STATE_PRIFITS_LOSSES(m_nIngSTBIdx[nI]) < 2) {
@@ -140,7 +140,7 @@ StatusEffects::UpdateIngSTATUS(CObjCHAR* pCharOBJ,
                 return 0;
         }
 
-        // Å¸¿îÆ®µî...
+        // íƒ€ìš´íŠ¸ë“±...
     }
 
     this->SetFLAG(c_dwIngFLAG[nTypeIDX]);
@@ -152,10 +152,10 @@ StatusEffects::UpdateIngSTATUS(CObjCHAR* pCharOBJ,
     m_iTargetOBJ[nTypeIDX] = iTargetObjIDX;
 
     /*
-        »èÁ¦~~~
+        ì‚­ì œ~~~
         if ( c_dwIngFLAG[ nTypeIDX ] & ( FLAG_ING_MAX_HP | FLAG_ING_MAX_MP ) ) {
-            // ÃÖ´ë HP,MP°¡ ¿Ã¶ó°¡´Â °æ¿ì ÇöÀç ¼öÄ¡±îÁö °°ÀÌ ¿Ã¸®ÀÚ...	2004. 4. 12
-            // ¸ÕÀú MAX_HP¸¦ ¿Ã·Á¾ß ¾Æ·¡¼­ ÇöÀç ÇÇ°¡ ¿À¸¥´Ù.
+            // ìµœëŒ€ HP,MPê°€ ì˜¬ë¼ê°€ëŠ” ê²½ìš° í˜„ìž¬ ìˆ˜ì¹˜ê¹Œì§€ ê°™ì´ ì˜¬ë¦¬ìž...	2004. 4. 12
+            // ë¨¼ì € MAX_HPë¥¼ ì˜¬ë ¤ì•¼ ì•„ëž˜ì„œ í˜„ìž¬ í”¼ê°€ ì˜¤ë¥¸ë‹¤.
             switch( nTypeIDX ) {
                 case ING_INC_MAX_HP :	pCharOBJ->Add_HP( nAdjVALUE );	break;
                 case ING_INC_MAX_MP :	pCharOBJ->Add_MP( nAdjVALUE );	break;
@@ -168,7 +168,7 @@ StatusEffects::UpdateIngSTATUS(CObjCHAR* pCharOBJ,
 
 void
 StatusEffects::UpdateIngPOTION(short nIngStbIDX, short nTotValue, short nAdjPerSEC) {
-    // ¹Ýµå½Ã Àû¿ë °¡´É¿©ºÎ ÆÇ´ÜÇÑÈÄ È£ÃâµÇ¾î¾ß ÇÑ´Ù !!!
+    // ë°˜ë“œì‹œ ì ìš© ê°€ëŠ¥ì—¬ë¶€ íŒë‹¨í•œí›„ í˜¸ì¶œë˜ì–´ì•¼ í•œë‹¤ !!!
     short nTypeIDX = STATE_TYPE(nIngStbIDX);
 
     if (nTypeIDX > FLAG_ING_MP)
@@ -178,11 +178,11 @@ StatusEffects::UpdateIngPOTION(short nIngStbIDX, short nTotValue, short nAdjPerS
 
     m_nIngSTBIdx[nTypeIDX] = nIngStbIDX;
 
-    m_POTION[nTypeIDX].m_dwTotTIME = (1000 * nTotValue / nAdjPerSEC); // ÀüÃ¼ ÇÊ¿ä½Ã°£
+    m_POTION[nTypeIDX].m_dwTotTIME = (1000 * nTotValue / nAdjPerSEC); // ì „ì²´ í•„ìš”ì‹œê°„
 
     assert(m_POTION[nTypeIDX].m_dwTotTIME);
 
-    m_POTION[nTypeIDX].m_dwAccTIME = 0; // ´©Àû½Ã°£.
+    m_POTION[nTypeIDX].m_dwAccTIME = 0; // ëˆ„ì ì‹œê°„.
     m_POTION[nTypeIDX].m_nTotVALUE = nTotValue;
     m_POTION[nTypeIDX].m_nAccVALUE = 0;
 }
@@ -198,7 +198,7 @@ StatusEffects::Proc_IngPOTION(PotionEffect* pPOTION, DWORD dwPassTIME) {
 
     short nDiff;
     if (iCurAccValue >= pPOTION->m_nTotVALUE) {
-        // Àû¿ë³¡...
+        // ì ìš©ë...
         nDiff = pPOTION->m_nTotVALUE - pPOTION->m_nAccVALUE;
     } else {
         nDiff = iCurAccValue - pPOTION->m_nAccVALUE;
@@ -214,7 +214,7 @@ DWORD
 StatusEffects::Proc(CObjCHAR* pCharOBJ, DWORD dwPassTIME) {
     DWORD dwChangedFLAG = 0;
 
-    // ¹°¾à Ã³¸®... ¸Å ÇÁ·¹ÀÓº°...
+    // ë¬¼ì•½ ì²˜ë¦¬... ë§¤ í”„ë ˆìž„ë³„...
     if (this->IsSET(FLAG_ING_HP | FLAG_ING_MP)) {
         short nAdj;
         PotionEffect* pPOTION;
@@ -228,7 +228,7 @@ StatusEffects::Proc(CObjCHAR* pCharOBJ, DWORD dwPassTIME) {
 
             if (pCharOBJ->Add_HP(nAdj) >= pCharOBJ->Get_MaxHP()
                 || pPOTION->m_nAccVALUE >= pPOTION->m_nTotVALUE) {
-                // Ã³¸® ¿Ï·á or ¸¸¶¥.
+                // ì²˜ë¦¬ ì™„ë£Œ or ë§Œë•….
                 this->ClearStatusFLAG(FLAG_ING_HP);
                 dwChangedFLAG |= FLAG_ING_HP;
                 btIngEND = 0x01;
@@ -244,7 +244,7 @@ StatusEffects::Proc(CObjCHAR* pCharOBJ, DWORD dwPassTIME) {
 
             if (pCharOBJ->Add_MP(nAdj) >= pCharOBJ->Get_MaxMP()
                 || pPOTION->m_nAccVALUE >= pPOTION->m_nTotVALUE) {
-                // Ã³¸® ¿Ï·á or ¸¸¶¥.
+                // ì²˜ë¦¬ ì™„ë£Œ or ë§Œë•….
                 this->ClearStatusFLAG(FLAG_ING_MP);
                 dwChangedFLAG |= FLAG_ING_MP;
                 btIngEND |= 0x02;
@@ -256,14 +256,14 @@ StatusEffects::Proc(CObjCHAR* pCharOBJ, DWORD dwPassTIME) {
         }
     }
 
-    // 1ÃÊ´ç Ã³¸® ÇÒ°Íµé...
+    // 1ì´ˆë‹¹ ì²˜ë¦¬ í• ê²ƒë“¤...
     m_dwAccTIME += dwPassTIME;
     if (m_dwAccTIME < ONE_SECOND)
         return dwChangedFLAG;
     m_dwAccTIME -= ONE_SECOND;
 
     if (this->IsSET(FLAG_ING_PROC_PER_TICK)) {
-        // Áßµ¶...
+        // ì¤‘ë…...
         if (this->IsSET(FLAG_ING_POISONED)) {
             if (m_nTICKs[ING_POISONED]-- > 0) {
                 // dec hp
@@ -281,7 +281,7 @@ StatusEffects::Proc(CObjCHAR* pCharOBJ, DWORD dwPassTIME) {
             }
         }
 
-        // ¼ÒÈ¯µÈ ¸÷ÀÇ »ý¸í ½Ã°£....
+        // ì†Œí™˜ëœ ëª¹ì˜ ìƒëª… ì‹œê°„....
         if (this->IsSET(FLAG_ING_DEC_LIFE_TIME)) {
             if (pCharOBJ->Get_HP() > 0) {
                 short nValue = STATE_APPLY_ABILITY_VALUE(m_nIngSTBIdx[ING_DEC_LIFE_TIME], 0);
@@ -289,7 +289,7 @@ StatusEffects::Proc(CObjCHAR* pCharOBJ, DWORD dwPassTIME) {
                 if (pCharOBJ->Get_HP() > nValue) {
                     pCharOBJ->Sub_HP(nValue);
                 } else {
-                    // ÀÚ»ì ½ÃÅ²´Ù...
+                    // ìžì‚´ ì‹œí‚¨ë‹¤...
                     pCharOBJ->Add_DAMAGE(nValue);
                     return 0;
                 }
@@ -297,9 +297,9 @@ StatusEffects::Proc(CObjCHAR* pCharOBJ, DWORD dwPassTIME) {
         }
     }
 
-    // ºñÆ® ÇÃ·¹±× ÁýÇÕ
+    // ë¹„íŠ¸ í”Œë ˆê·¸ ì§‘í•©
     if (this->IsSET(FLAG_ING_CHECK_PER_TICK)) {
-        // ÃÖ´ë HP
+        // ìµœëŒ€ HP
         if (this->IsSET(FLAG_ING_MAX_HP)) {
             if (m_nTICKs[ING_INC_MAX_HP]-- <= 0) {
                 this->ClearSTATUS(ING_INC_MAX_HP);
@@ -308,7 +308,7 @@ StatusEffects::Proc(CObjCHAR* pCharOBJ, DWORD dwPassTIME) {
             }
         }
 
-        // ÃÖ´ë MP
+        // ìµœëŒ€ MP
         if (this->IsSET(FLAG_ING_MAX_MP)) {
             if (m_nTICKs[ING_INC_MAX_MP]-- <= 0) {
                 this->ClearSTATUS(ING_INC_MAX_MP);
@@ -317,19 +317,19 @@ StatusEffects::Proc(CObjCHAR* pCharOBJ, DWORD dwPassTIME) {
             }
         }
 
-        // À¯Áö ½Ã°£ Ã¼Å©..
+        // ìœ ì§€ ì‹œê°„ ì²´í¬..
         for (short nI = ING_CHECK_START; nI <= ING_CHECK_END; nI++) {
             if (!this->IsSET(c_dwIngFLAG[nI]))
                 continue;
 
             if (m_nTICKs[nI]-- <= 0) {
-                // ½Ã°£ÀÌ ¿Ï·á µÇ¾úÀ¸¸é...
+                // ì‹œê°„ì´ ì™„ë£Œ ë˜ì—ˆìœ¼ë©´...
                 this->ClearSTATUS((eING_TYPE)nI);
                 dwChangedFLAG |= c_dwIngFLAG[nI];
             }
         }
 
-        // Å¸¿îÆ®..
+        // íƒ€ìš´íŠ¸..
         if (this->IsSET(FLAG_ING_TAUNT)) {
             if (m_nTICKs[ING_TAUNT]-- <= 0) {
                 this->m_iTargetOBJ[ING_TAUNT] = 0;
@@ -338,7 +338,7 @@ StatusEffects::Proc(CObjCHAR* pCharOBJ, DWORD dwPassTIME) {
             }
         }
 
-        // ºÎÈ°
+        // ë¶€í™œ
         if (this->IsSET(FLAG_ING_REVIVE)) {
             if (m_nTICKs[ING_REVIVE]-- <= 0) {
                 this->ClearSTATUS(ING_REVIVE);

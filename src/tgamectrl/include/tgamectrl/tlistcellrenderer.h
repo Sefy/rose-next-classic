@@ -4,9 +4,9 @@
 class CTStatic;
 
 /**
- * CTContainerItemÀ» ItemÀ¸·Î °¡Áö´Â Container¸¦ ¼ÒÀ¯ÇÑ JListBox¸¦ À§ÇÑ Renderer
+ * CTContainerItemì„ Itemìœ¼ë¡œ ê°€ì§€ëŠ” Containerë¥¼ ì†Œìœ í•œ JListBoxë¥¼ ìœ„í•œ Renderer
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  *
  * @Data			2005/8/30
  */

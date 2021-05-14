@@ -5,7 +5,7 @@
 #include "Form.h"
 #include "CCaption.h"
 
-// ´ëÈ­»óÀÚ
+// ëŒ€í™”ìƒì
 class CDlgBX: public CWndCtrl {
 protected:
     t_caption_bar m_tCaption;

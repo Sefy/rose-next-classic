@@ -32,7 +32,7 @@ CSplitHangul::Clear() {
     m_iStackDepth = 0;
     m_StringList.clear();
 }
-// ÇÑ±ÛÀ» ÁÖ¾îÁø Å©±â·Î ÀÚ¸¥´Ù..
+// í•œê¸€ì„ ì£¼ì–´ì§„ í¬ê¸°ë¡œ ìë¥¸ë‹¤..
 bool
 CSplitHangul::SplitHangul(char* Str, int iLength) {
     if (Str == NULL)
@@ -50,7 +50,7 @@ CSplitHangul::SplitHangul(char* Str, int iLength) {
     memcpy(m_TempBuf, Str, iLength);
     // std::remove( &m_TempBuf[0], &m_TempBuf[ iLength ], 20 );
 
-    // ÇÑ±ÛÀÇ ¸®µå¹ÙÀÌÆ®°¡ ¾Æ´Ï´Ù..
+    // í•œê¸€ì˜ ë¦¬ë“œë°”ì´íŠ¸ê°€ ì•„ë‹ˆë‹¤..
     if (!IsDBCSTrailByte(m_TempBuf, m_TempBuf + iLength - 1)) {
         m_TempBuf[iLength - 1] = NULL;
         Str += iLength - 1;

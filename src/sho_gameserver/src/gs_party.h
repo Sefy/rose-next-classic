@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	GS_Party.h
- * \brief	°ÔÀÓ³»ÀÇ ÆÄÆ¼°ü¸®¹× Ã³¸®
+ * \brief	ê²Œì„ë‚´ì˜ íŒŒí‹°ê´€ë¦¬ë° ì²˜ë¦¬
  */
 #ifndef __GS_PARTY_H
 #define __GS_PARTY_H
@@ -33,13 +33,13 @@ struct tagPartyUSER {
  * \ingroup SHO_GS_LIB
  * \class	CParty
  * \author	wookSang.Jo
- * \brief	ÆÄÆ¼¹× ÆÄÆ¼¿ø °ü¸® Å¬·¡½º
+ * \brief	íŒŒí‹°ë° íŒŒí‹°ì› ê´€ë¦¬ í´ë˜ìŠ¤
  */
 class CParty: public CCriticalSection {
 private:
     short m_nMemberCNT;
-    int m_iPartyEXP; // ÆÄÆ¼ °æÇèÄ¡
-    BYTE m_btPartyLEV; // ÇöÀç ÆÄÆ¼·¹º§
+    int m_iPartyEXP; // íŒŒí‹° ê²½í—˜ì¹˜
+    BYTE m_btPartyLEV; // í˜„ì¬ íŒŒí‹°ë ˆë²¨
 
     //	void	Check_UserLEV ();
     void LevelUP();
@@ -48,19 +48,19 @@ private:
 
 public:
     WORD m_wPartyWSID;
-    BYTE m_btPartyRULE; // ÆÄÆ¼ ¾ÆÀÌÅÛ/°æÇèÄ¡ ºĞ¹è ¹æ½Ä
+    BYTE m_btPartyRULE; // íŒŒí‹° ì•„ì´í…œ/ê²½í—˜ì¹˜ ë¶„ë°° ë°©ì‹
     DWORD m_dwLastKillTIME;
-    int m_iAverageLEV; // Æò±Õ ÆÄÆ¼¿ø ·¹º§
-    int m_iTotalLEV; // ¸ğµç ÆÄÆ¼¿ø ·¹º§ ÇÕ
+    int m_iAverageLEV; // í‰ê·  íŒŒí‹°ì› ë ˆë²¨
+    int m_iTotalLEV; // ëª¨ë“  íŒŒí‹°ì› ë ˆë²¨ í•©
 
     // short	m_nMinUserLEV;
     // short	m_nMaxUserLEV;
 
 #ifdef __USE_ARRAY_PARTY_USER
-    BYTE m_btItemORDERs[MAX_INV_TYPE + 1]; // MAX_INV_TYPE == µ· !!!
+    BYTE m_btItemORDERs[MAX_INV_TYPE + 1]; // MAX_INV_TYPE == ëˆ !!!
     tagPartyUSER* m_pPartyUSERs[MAX_PARTY_MEMBERS];
 #else
-    CDLList<tagPartyUSER> m_PartyUSER; // ÆÄÆ¼¿ø ¸®½ºÆ®
+    CDLList<tagPartyUSER> m_PartyUSER; // íŒŒí‹°ì› ë¦¬ìŠ¤íŠ¸
 #endif
 
     CParty(): CCriticalSection(4000) { ; }
@@ -73,12 +73,12 @@ public:
         m_iTotalLEV = 0;
 
 #ifdef __USE_ARRAY_PARTY_USER
-        memset(m_btItemORDERs, MAX_PARTY_MEMBERS, MAX_INV_TYPE); // Ã¹¼ø¼­·Î 0ÀÌ µÇµµ·Ï...
+        memset(m_btItemORDERs, MAX_PARTY_MEMBERS, MAX_INV_TYPE); // ì²«ìˆœì„œë¡œ 0ì´ ë˜ë„ë¡...
         ::ZeroMemory(m_pPartyUSERs, sizeof(tagPartyUSER*) * MAX_PARTY_MEMBERS);
 #endif
     }
 
-    classUSER* GetPartyOWNER() // ÆÄÆ¼Â¯À» ¾òÀ½
+    classUSER* GetPartyOWNER() // íŒŒí‹°ì§±ì„ ì–»ìŒ
     {
 #ifdef __USE_ARRAY_PARTY_USER
         classUSER* pOwner;
@@ -142,7 +142,7 @@ public:
  * \ingroup SHO_GS_LIB
  * \class	CPartyBUFF
  * \author	wookSang.Jo
- * \brief	ÀüÃ¼ ÆÄÆ¼ °ü¸® Å¬·¡½º
+ * \brief	ì „ì²´ íŒŒí‹° ê´€ë¦¬ í´ë˜ìŠ¤
  */
 // class CPartyBUFF : public CDataPOOL< CParty >
 class CPartyBUFF: public CIndexARRAY<CParty*> {
@@ -167,7 +167,7 @@ private:
 
         return pCParty;
     }
-    void Pool_Free(CParty* pCParty) { // Lock °É·Á¼­ È£ÃâµÈ´Ù..
+    void Pool_Free(CParty* pCParty) { // Lock ê±¸ë ¤ì„œ í˜¸ì¶œëœë‹¤..
         // this->m_csPartyBUFF.Lock ();
         {
             this->m_pINDEX[pCParty->m_wPartyWSID] = NULL;

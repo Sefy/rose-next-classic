@@ -19,7 +19,7 @@ enum {
 };
 
 //-------------------------------------------------------------------------------------------------
-// ¼­¹ö¿¡¼­´Â ±¸Á¶Ã¼ÀÌ¸§ÀÌ ¹İµå½Ã tagITEM...
+// ì„œë²„ì—ì„œëŠ” êµ¬ì¡°ì²´ì´ë¦„ì´ ë°˜ë“œì‹œ tagITEM...
 short
 tagITEM::Subtract(tagITEM& sITEM) {
     if (this->GetHEADER() != sITEM.GetHEADER()) {
@@ -35,19 +35,19 @@ tagITEM::Subtract(tagITEM& sITEM) {
             return (ITEM_WEIGHT(sITEM.m_cType, sITEM.m_nItemNo) * sITEM.GetQuantity());
         }
 
-        // ÇöÀç º¸À¯ ¼ö·®.
+        // í˜„ì¬ ë³´ìœ  ìˆ˜ëŸ‰.
         nWeight = ITEM_WEIGHT(sITEM.m_cType, sITEM.m_nItemNo) * this->GetQuantity();
         sITEM.m_uiQuantity = this->GetQuantity();
     } else
         nWeight = ITEM_WEIGHT(sITEM.m_cType, sITEM.m_nItemNo);
 
-    // Àåºñ ¾ÆÀÌÅÛÀº ¹«Á¶°Ç »èÁ¦..
+    // ì¥ë¹„ ì•„ì´í…œì€ ë¬´ì¡°ê±´ ì‚­ì œ..
     this->Clear();
 
     return nWeight;
 }
 //-------------------------------------------------------------------------------------------------
-// ¼­¹ö¿¡¼­´Â ±¸Á¶Ã¼ÀÌ¸§ÀÌ ¹İµå½Ã tagITEM...
+// ì„œë²„ì—ì„œëŠ” êµ¬ì¡°ì²´ì´ë¦„ì´ ë°˜ë“œì‹œ tagITEM...
 void
 tagITEM::SubtractOnly(tagITEM& sITEM) {
     if (this->GetHEADER() != sITEM.GetHEADER())
@@ -60,7 +60,7 @@ tagITEM::SubtractOnly(tagITEM& sITEM) {
         }
     }
 
-    // Àåºñ ¾ÆÀÌÅÛÀº ¹«Á¶°Ç, °¹¼ö 0°³ÀÎ ¾ÆÀÌÅÛ »èÁ¦..
+    // ì¥ë¹„ ì•„ì´í…œì€ ë¬´ì¡°ê±´, ê°¯ìˆ˜ 0ê°œì¸ ì•„ì´í…œ ì‚­ì œ..
     this->Clear();
 }
 
@@ -84,7 +84,7 @@ tagBaseITEM::Init(int iItem, unsigned int uiQuantity) {
             uiQuantity = 1;
         this->m_uiQuantity = uiQuantity;
     } else {
-        this->m_nLife = MAX_ITEM_LIFE; // ±âº» ¼ö¸íÀº 1000À¸·Î ..
+        this->m_nLife = MAX_ITEM_LIFE; // ê¸°ë³¸ ìˆ˜ëª…ì€ 1000ìœ¼ë¡œ ..
         this->m_cDurability = ITEM_DURABITY(this->m_cType, this->m_nItemNo);
     }
 }
@@ -111,8 +111,8 @@ tagBaseITEM::IsEnableKEEPING() {
     if (this->IsEmpty())
         return false;
 
-    // 0ÀÎ°Í¸¸ ÀºÇà¿¡ º¸°ü °¡´ÉÇÔ...
-    // °èÁ¤À¸·Î °øÀ¯µÇ´Â Ã¢°í±â ¶§¹®¿¡ ´Ù¸¥ ÄÉ¸¯À¸·Î ¾ÆÀÌÅÛÀÌ ÀüÀÌ ¾ÈµÇµµ·Ï...
+    // 0ì¸ê²ƒë§Œ ì€í–‰ì— ë³´ê´€ ê°€ëŠ¥í•¨...
+    // ê³„ì •ìœ¼ë¡œ ê³µìœ ë˜ëŠ” ì°½ê³ ê¸° ë•Œë¬¸ì— ë‹¤ë¥¸ ì¼€ë¦­ìœ¼ë¡œ ì•„ì´í…œì´ ì „ì´ ì•ˆë˜ë„ë¡...
     return (0 == ITEM_USE_RESTRICTION(this->m_cType, this->m_nItemNo)
         || (ITEM_ENABLE_KEEPING & ITEM_USE_RESTRICTION(this->m_cType, this->m_nItemNo)));
 }
@@ -126,7 +126,7 @@ tagBaseITEM::IsEnableDROP() {
         return false;
 
     if (ITEM_DONT_DROP_EXCHANGE & ITEM_USE_RESTRICTION(this->m_cType, this->m_nItemNo)) {
-        // µå·Ó ºÒ°¡ ¾ÆÀÌÅÛ.
+        // ë“œë¡­ ë¶ˆê°€ ì•„ì´í…œ.
         return false;
     }
 
@@ -142,7 +142,7 @@ tagBaseITEM::IsEnableSELL() {
         return false;
 
     if (ITEM_DONT_SELL & ITEM_USE_RESTRICTION(this->m_cType, this->m_nItemNo)) {
-        // ÆÇ¸Å ºÒ°¡ ¾ÆÀÌÅÛ.
+        // íŒë§¤ ë¶ˆê°€ ì•„ì´í…œ.
         return false;
     }
 
@@ -155,13 +155,13 @@ tagBaseITEM::IsTwoHands() {
     if (m_cType == ITEM_TYPE_WEAPON) {
         short nWeaponTYPE = WEAPON_TYPE(m_nItemNo);
         if (nWeaponTYPE >= 221 && nWeaponTYPE <= 255) {
-            // ¾ç¼Õ°Ë : 221 ~
-            // ¿ø°Å¸® : 231 ~
-            // ¸¶¹ı¹«±â : 241 ~
-            // Ä«Æ®¸£°è¿­ : 251 ~
+            // ì–‘ì†ê²€ : 221 ~
+            // ì›ê±°ë¦¬ : 231 ~
+            // ë§ˆë²•ë¬´ê¸° : 241 ~
+            // ì¹´íŠ¸ë¥´ê³„ì—´ : 251 ~
             if (nWeaponTYPE != 242) {
                 return true;
-            } // else ( 242 ÇÑ¼Õ ¸¶¹ı µµ±¸ )
+            } // else ( 242 í•œì† ë§ˆë²• ë„êµ¬ )
         }
     }
 
@@ -171,7 +171,7 @@ tagBaseITEM::IsTwoHands() {
 //-------------------------------------------------------------------------------------------------
 t_eSHOT
 tagBaseITEM::GetShotTYPE() {
-    /// ¸Ç¼Õ ÀÏ¶§µµ È£ÃâµÈ´Ù.
+    /// ë§¨ì† ì¼ë•Œë„ í˜¸ì¶œëœë‹¤.
     if (ITEM_TYPE_WEAPON == m_cType) {
         switch (WEAPON_TYPE(m_nItemNo)) {
 
@@ -193,16 +193,16 @@ tagBaseITEM::GetShotTYPE() {
 const t_EquipINDEX s_ItemType2EquipPos[] = {
     MAX_EQUIP_IDX,
 
-    EQUIP_IDX_FACE_ITEM, // ITEM_TYPE_FACE_ITEM = 1,		// 1	LIST_FACEITEM.stb	¾ó±¼ Àå½Ä
+    EQUIP_IDX_FACE_ITEM, // ITEM_TYPE_FACE_ITEM = 1,		// 1	LIST_FACEITEM.stb	ì–¼êµ´ ì¥ì‹
     EQUIP_IDX_HELMET, // ITEM_TYPE_HELMET,			// 2	LIST_CAP.stb
     EQUIP_IDX_ARMOR, // ITEM_TYPE_ARMOR,				// 3	LIST_BODY.stb
     EQUIP_IDX_GAUNTLET, // ITEM_TYPE_GAUNTLET,			// 4	LIST_ARMS.stb
     EQUIP_IDX_BOOTS, // ITEM_TYPE_BOOTS,				// 5	LIST_FOOT.stb
     EQUIP_IDX_KNAPSACK, // ITEM_TYPE_KNAPSACK,			// 6	LIST_BACK.stb
-    EQUIP_IDX_NECKLACE, // ITEM_TYPE_JEWEL,				// 7	LIST_JEWEL.stb		Àå½Å±¸ : ¸ñ°ÉÀÌ
-                        // ¹İÁö
+    EQUIP_IDX_NECKLACE, // ITEM_TYPE_JEWEL,				// 7	LIST_JEWEL.stb		ì¥ì‹ êµ¬ : ëª©ê±¸ì´
+                        // ë°˜ì§€
 
-    EQUIP_IDX_WEAPON_R, // ITEM_TYPE_WEAPON,			// 8	LIST_WEAPON.stb		¹«±â
+    EQUIP_IDX_WEAPON_R, // ITEM_TYPE_WEAPON,			// 8	LIST_WEAPON.stb		ë¬´ê¸°
     EQUIP_IDX_WEAPON_L, // ITEM_TYPE_SUBWPN,			// 9	LIST_SUBWPN.stb
 };
 t_EquipINDEX
@@ -269,7 +269,7 @@ tagBaseITEM::GetModelINDEX() {
     if (m_cType == 0)
         return 0;
 
-    return ITEM_FIELD_MODEL(m_cType, m_nItemNo); // ¾ø´Â°æ¿ì´Â ´ëÇ¥ ¹Ú½º³ª º¸µû¸®·Î...
+    return ITEM_FIELD_MODEL(m_cType, m_nItemNo); // ì—†ëŠ”ê²½ìš°ëŠ” ëŒ€í‘œ ë°•ìŠ¤ë‚˜ ë³´ë”°ë¦¬ë¡œ...
 }
 #endif
 
@@ -282,7 +282,7 @@ tagBaseITEM::GettingMESSAGE() {
     } else if (IsEnableDupCNT()) {
         return CStr::Printf(F_STR_GETTING_ITEMS, ITEM_NAME(m_cType, m_nItemNo), GetQuantity());
     } else {
-        // Àåºñ..
+        // ì¥ë¹„..
         return CStr::Printf(F_STR_GETTING_ITEM, ITEM_NAME(m_cType, m_nItemNo));
     }
 
@@ -306,7 +306,7 @@ tagBaseITEM::GettingMESSAGE(int iInventoryListNo) {
             ITEM_NAME(m_cType, m_nItemNo),
             m_uiQuantity - sItem.GetQuantity());
     } else {
-        // Àåºñ..
+        // ì¥ë¹„..
         return CStr::Printf(F_STR_GETTING_ITEM, ITEM_NAME(m_cType, m_nItemNo));
     }
 
@@ -342,7 +342,7 @@ tagBaseITEM::SubtractQuestMESSAGE() {
 #endif
 
 //-------------------------------------------------------------------------------------------------
-///¼Ò¸ğÅº¾ÆÀÌÅÛÀÇ ShotTypeÀ» ¾ò±â
+///ì†Œëª¨íƒ„ì•„ì´í…œì˜ ShotTypeì„ ì–»ê¸°
 #ifndef __SERVER
 t_eSHOT
 tagBaseITEM::GetBulletType() {
@@ -363,13 +363,13 @@ tagBaseITEM::GetNaturalBulletType(int iItemNo) {
         return retType;
 
     switch (ITEM_TYPE(ITEM_TYPE_NATURAL, iItemNo)) {
-        case 431: ///È­»ì
+        case 431: ///í™”ì‚´
             retType = SHOT_TYPE_ARROW;
             break;
-        case 432: ///ÃÑ¾Ë
+        case 432: ///ì´ì•Œ
             retType = SHOT_TYPE_BULLET;
             break;
-        case 433: ///ÅõÃ´
+        case 433: ///íˆ¬ì²™
         case 421:
         case 422:
         case 423:
@@ -425,7 +425,7 @@ tagBaseITEM::IsEnableExchange() {
         return false;
 
     if (ITEM_DONT_DROP_EXCHANGE & ITEM_USE_RESTRICTION(this->m_cType, this->m_nItemNo)) {
-        // µå·Ó ,±³È¯ ºÒ°¡ ¾ÆÀÌÅÛ.
+        // ë“œë¡­ ,êµí™˜ ë¶ˆê°€ ì•„ì´í…œ.
         return false;
     }
 
@@ -439,14 +439,14 @@ tagBaseITEM::IsEnableSeparate() {
     if (IsEmpty())
         return false;
 
-    if (GetTYPE() == ITEM_TYPE_GEM) ///º¸¼®Àº ºĞ¸®°¡ ºÒ°¡´ÉÇÏ´Ù
+    if (GetTYPE() == ITEM_TYPE_GEM) ///ë³´ì„ì€ ë¶„ë¦¬ê°€ ë¶ˆê°€ëŠ¥í•˜ë‹¤
         return false;
     if (GetTYPE() == ITEM_TYPE_NATURAL)
         return false;
     if (GetTYPE() == ITEM_TYPE_USE)
         return false;
 
-    if (HasSocket() && GetGemNO()) ///Àç¹ÖµÈ °æ¿ì
+    if (HasSocket() && GetGemNO()) ///ì¬ë°ëœ ê²½ìš°
         return true;
 
     #ifdef _NEWBREAK
@@ -469,16 +469,16 @@ tagBaseITEM::IsEnableUpgrade() {
     int iClass = ITEM_TYPE(GetTYPE(), GetItemNO());
 
     if (GetGrade() < 9) {
-        if (iClass >= 211 && iClass <= 280) ///¹«±â - °ø°İ·Â, ¸íÁß·Â»ó½Â
+        if (iClass >= 211 && iClass <= 280) ///ë¬´ê¸° - ê³µê²©ë ¥, ëª…ì¤‘ë ¥ìƒìŠ¹
             return true;
 
-        if (iClass >= 121 && iClass <= 153) ///¹æ¾î±¸ - ¹æ¾î·Â, Ç×¸¶·Â, È¸ÇÇ·Â»ó½Â
+        if (iClass >= 121 && iClass <= 153) ///ë°©ì–´êµ¬ - ë°©ì–´ë ¥, í•­ë§ˆë ¥, íšŒí”¼ë ¥ìƒìŠ¹
             return true;
 
-        if (iClass == 161 || iClass == 163) ///µîÀåºñ( °¡¹æ Á¦¿Ü)
+        if (iClass == 161 || iClass == 163) ///ë“±ì¥ë¹„( ê°€ë°© ì œì™¸)
             return true;
 
-        if (iClass == 261) ///¹æÆĞ - ¹æ¾î·Â,Ç×¸¶·Â,È¸ÇÇ·Â»ó½Â
+        if (iClass == 261) ///ë°©íŒ¨ - ë°©ì–´ë ¥,í•­ë§ˆë ¥,íšŒí”¼ë ¥ìƒìŠ¹
             return true;
     }
     return false;

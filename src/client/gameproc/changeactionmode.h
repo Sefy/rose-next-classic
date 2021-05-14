@@ -17,7 +17,7 @@ private:
     int m_iAvatarActionMode;
     int m_iElapsedAttackEnd; // the elapsed time from attack end.
 
-    bool m_bUpdateMode; // ÀüÅõÁßÀÎ°¡?
+    bool m_bUpdateMode; // ì „íˆ¬ì¤‘ì¸ê°€?
 
     CObjCHAR* m_pObjCHAR;
 

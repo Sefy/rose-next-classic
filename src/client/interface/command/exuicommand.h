@@ -3,7 +3,7 @@
 #include "tgamectrl/tcommand.h"
 #include <string>
 
-/// °ÔÀÓ¼±ÅÃÃ¢¿¡¼­ Ä³¸¯ÅÍ »èÁ¦¿äÃ»
+/// ê²Œì„ì„ íƒì°½ì—ì„œ ìºë¦­í„° ì‚­ì œìš”ì²­
 class CTCmdDeleteCharacter: public CTCommand {
 public:
     CTCmdDeleteCharacter(int iSelectListID, const char* pszName);
@@ -15,7 +15,7 @@ protected:
     std::string m_strName;
 };
 
-/// °ÔÀÓ¼±ÅÃÃ¢¿¡¼­ »èÁ¦ ´ë±âÁßÀÎ Ä³¸¯ÅÍ µÇ»ì¸®±â ¿äÃ»
+/// ê²Œì„ì„ íƒì°½ì—ì„œ ì‚­ì œ ëŒ€ê¸°ì¤‘ì¸ ìºë¦­í„° ë˜ì‚´ë¦¬ê¸° ìš”ì²­
 class CTCmdReviveCharacter: public CTCommand {
 public:
     CTCmdReviveCharacter(int iSelectListID, const char* pszName);

@@ -7,10 +7,10 @@
 #include "tgamectrl/TSplitString.h"
 
 /**
- * NPC ´ëÈ­½Ã À¯Àú°¡ ¼±ÅÃÇÒ Scirpt¸¦  Ãâ·ÂÇÒ ZLISTBOX¸¦ À§ÇÑ Item Class
+ * NPC ëŒ€í™”ì‹œ ìœ ì €ê°€ ì„ íƒí•  Scirptë¥¼  ì¶œë ¥í•  ZLISTBOXë¥¼ ìœ„í•œ Item Class
  *
- * @Warning		±¹³»¹öÁ¯°ú ´ë¸¸¹öÁ¯ÀÌ ´Ù¸¥ Item Class¸¦ »ç¿ëÇÑ´Ù.
- * @Author		ÃÖÁ¾Áø
+ * @Warning		êµ­ë‚´ë²„ì ¼ê³¼ ëŒ€ë§Œë²„ì ¼ì´ ë‹¤ë¥¸ Item Classë¥¼ ì‚¬ìš©í•œë‹¤.
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CDialogNpcScriptAnswerItem: public CWinCtrl {
@@ -37,8 +37,8 @@ protected:
 
     CJStringParser m_Script;
 
-    int m_iEventID; //ÀÌº¥Æ®ÀÇ ¾ÆÀÌµğ
-    void (*m_fpEventHandle)(int iEventID); //¿¹½Ã ¼±ÅÃ½Ã Ã³¸® ÇÔ¼ö
+    int m_iEventID; //ì´ë²¤íŠ¸ì˜ ì•„ì´ë””
+    void (*m_fpEventHandle)(int iEventID); //ì˜ˆì‹œ ì„ íƒì‹œ ì²˜ë¦¬ í•¨ìˆ˜
     bool m_highlight;
 };
 #endif

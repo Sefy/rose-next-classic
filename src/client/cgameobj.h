@@ -6,13 +6,13 @@
 
 ///
 /// Game object class
-/// ¸ğµç °ÔÀÓ ³»ºÎÀÇ ÃÖ»óÀ§ ¿ÀºêÁ§Æ®
+/// ëª¨ë“  ê²Œì„ ë‚´ë¶€ì˜ ìµœìƒìœ„ ì˜¤ë¸Œì íŠ¸
 ///
 
 class CGameOBJ {
 private:
     static float m_fPickDistance; ///< distance from Rayorigin to collision point
-    static D3DXVECTOR3 m_PickPosition; ///< Ãæµ¹°Ë»ç½Ã ÀÓ½Ã·Î »ç¿ëÇÏ´Â º¯¼ö.( Collision point )
+    static D3DXVECTOR3 m_PickPosition; ///< ì¶©ëŒê²€ì‚¬ì‹œ ì„ì‹œë¡œ ì‚¬ìš©í•˜ëŠ” ë³€ìˆ˜.( Collision point )
 
 protected:
     static bool m_bStepOnObject;
@@ -38,15 +38,15 @@ public:
     CGameOBJ();
     virtual ~CGameOBJ();
 
-    /// ¿ÀºêÁ§Æ® ½½·Ô ¹øÈ£.
+    /// ì˜¤ë¸Œì íŠ¸ ìŠ¬ë¡¯ ë²ˆí˜¸.
     short Get_INDEX() { return m_nIndex; }
     static const D3DXVECTOR3& Get_PickPOSITION() { return m_PickPosition; }
 
-    /// ÇöÀç À§Ä¡
+    /// í˜„ì¬ ìœ„ì¹˜
     virtual D3DXVECTOR3& Get_CurPOS() { return m_PosCUR; }
     void Set_CurPOS(D3DXVECTOR3& PosCUR) { m_PosCUR = PosCUR; }
 
-    /// ÁÖ¾îÁø ±æÀÌÀÌ»óÀ¸·Î ÇÇÅ·µÇ´Â °æ¿ì ÇÈÅ· À§Ä¡ Á¶Á¤
+    /// ì£¼ì–´ì§„ ê¸¸ì´ì´ìƒìœ¼ë¡œ í”¼í‚¹ë˜ëŠ” ê²½ìš° í”½í‚¹ ìœ„ì¹˜ ì¡°ì •
     static void AdjustPickPOSITION(float fMaxDistanceFromAvatar);
 
     bool IsA(t_ObjTAG Obj_TYPE) { return (Get_TYPE() == Obj_TYPE); }
@@ -63,14 +63,14 @@ public:
     //////////////////////////////////////////////////////////////////////////////////////////
     /// > GameObj virtual functions
 
-    /// ÇöÀç view frustum ¾È¿¡ ÀÖ´Â°¡?
+    /// í˜„ì¬ view frustum ì•ˆì— ìˆëŠ”ê°€?
     virtual bool IsInViewFrustum() = 0 { *(int*)0 = 10; };
     virtual bool IsIntersect(float& fCurDistance) = 0 { *(int*)0 = 10; };
-    /// Ä«¸Ş¶ó¿ÍÀÇ »çÀÌ¿¡ ÀÖ´Â ¿ÀºêÁ§Æ®´Â ´Ù¸¥ Ã³¸® ÇÊ¿ä..
+    /// ì¹´ë©”ë¼ì™€ì˜ ì‚¬ì´ì— ìˆëŠ” ì˜¤ë¸Œì íŠ¸ëŠ” ë‹¤ë¥¸ ì²˜ë¦¬ í•„ìš”..
     virtual bool IsIntersectForCamera(float& fCurDis) { return false; };
-    /// ¾À¿¡ ¿ÀºêÁ§Æ® »ğÀÔ.
+    /// ì”¬ì— ì˜¤ë¸Œì íŠ¸ ì‚½ì….
     virtual void InsertToScene(void) = 0 { *(int*)0 = 10; };
-    /// ¾ÀÀ¸·ÎºÎÅÍ ¿ÀºêÁ§Æ® »èÁ¦
+    /// ì”¬ìœ¼ë¡œë¶€í„° ì˜¤ë¸Œì íŠ¸ ì‚­ì œ
     virtual void RemoveFromScene(bool bIncludeEFFECT = true) = 0 { *(int*)0 = 10; };
 
     virtual int Get_TYPE() = 0 { *(int*)0 = 10; };

@@ -6,10 +6,10 @@
 class CTCmdInputName;
 
 /**
- * �̸��� ��Ʈ�� �Է½� �������� ���Ǵ� ���̾�α�
+ * 이름및 스트링 입력시 공통으로 사용되는 다이얼로그
  *
- * @Warning		�׻� �� ���̾�α׸� ����ϰ� ������ �ʴ�.
- * @Author		������
+ * @Warning		항상 이 다이얼로그를 사용하고 있지는 않다.
+ * @Author		최종진
  * @Date			2005/9/14
  */
 class CInputNameDlg: public CTDialog {

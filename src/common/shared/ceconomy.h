@@ -3,7 +3,7 @@
 #include "CItem.h"
 
 struct tagECONOMY {
-    // ÀÔ·Â µ¥ÀÌÅÍ...
+    // ìž…ë ¥ ë°ì´í„°...
     union {
         struct {
 #if defined(__SERVER) || defined(__VIRTUAL_SERVER)
@@ -40,7 +40,7 @@ private:
     int m_iTownCounter;
 
 public:
-    // ¸¶À» ¹°°¡...
+    // ë§ˆì„ ë¬¼ê°€...
     static bool IsEssentialGoods(int iItemTYPE);
 
     CEconomy();
@@ -74,10 +74,10 @@ public:
 #if defined(__SERVER) || defined(__VIRTUAL_SERVER)
         if (nVarIDX >= 11 && nVarIDX <= 30) {
             if (nVarIDX <= 20) {
-                // º¸À¯·®
+                // ë³´ìœ ëŸ‰
                 return m_iTownITEM[MIN_PRICE_TYPE + nVarIDX - 11];
             } else {
-                // ¹°°¡..
+                // ë¬¼ê°€..
                 return m_btItemRATE[MIN_PRICE_TYPE + nVarIDX - 21];
             }
         }

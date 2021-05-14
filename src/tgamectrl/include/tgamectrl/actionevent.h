@@ -6,15 +6,15 @@
 class CWinCtrl;
 
 //---------------------------------------------------------------------------------------------------
-/// CWinCtrlÀÇ CActionListenerList¿¡ Ãß°¡µÇ¾î ÀÖ´Â IActionListener¸¦ È£Ãâ½Ã ÀÎÀÚ·Î ³Ñ±æ Class
+/// CWinCtrlì˜ CActionListenerListì— ì¶”ê°€ë˜ì–´ ìˆëŠ” IActionListenerë¥¼ í˜¸ì¶œì‹œ ì¸ìë¡œ ë„˜ê¸¸ Class
 ///
-///			* Client¿¡¼­ CWinCtrlÀÇ ActionListenerList¿¡ IActionListener¸¦ Ãß°¡ÇØ¼­
-///				CWinCtrl::Process¿¡¼­ Á÷Á¢ ClientÀÇ Ã³¸® ·çÆ¾À» È£ÃâÇÒ¼ö ÀÖµµ·Ï ÇÏ±â À§ÇÑ System¿¡
-///»ç¿ë
+///			* Clientì—ì„œ CWinCtrlì˜ ActionListenerListì— IActionListenerë¥¼ ì¶”ê°€í•´ì„œ
+///				CWinCtrl::Processì—ì„œ ì§ì ‘ Clientì˜ ì²˜ë¦¬ ë£¨í‹´ì„ í˜¸ì¶œí• ìˆ˜ ìˆë„ë¡ í•˜ê¸° ìœ„í•œ Systemì—
+///ì‚¬ìš©
 ///
-/// °ü·Ã Class : CActionListenerList, IActionListener, CActionEvent
+/// ê´€ë ¨ Class : CActionListenerList, IActionListener, CActionEvent
 ///
-/// @author	ÃÖÁ¾Áø
+/// @author	ìµœì¢…ì§„
 /// @date 2005/8/19
 //---------------------------------------------------------------------------------------------------
 class TGAMECTRL_API CActionEvent {
@@ -34,13 +34,13 @@ public:
     void SetLParam(unsigned lParam);
 
 protected:
-    /// Event¸¦ Ã³¸®ÇÑ CWinCtrlÀÇ Æ÷ÀÎÅÍ
+    /// Eventë¥¼ ì²˜ë¦¬í•œ CWinCtrlì˜ í¬ì¸í„°
     CWinCtrl* m_pSource;
-    /// Event ID : Window MessageÀÏ°æ¿ì Message ID
+    /// Event ID : Window Messageì¼ê²½ìš° Message ID
     unsigned m_uiID;
-    /// Window MessageÀÏ°æ¿ìWParam : ¾Æ´Ò°æ¿ì ÀÓÀÇ·Î »ç¿ë°¡´É
+    /// Window Messageì¼ê²½ìš°WParam : ì•„ë‹ê²½ìš° ì„ì˜ë¡œ ì‚¬ìš©ê°€ëŠ¥
     unsigned m_uiWParam;
-    /// Window MessageÀÏ°æ¿ìLParam : ¾Æ´Ò°æ¿ì ÀÓÀÇ·Î »ç¿ë°¡´É
+    /// Window Messageì¼ê²½ìš°LParam : ì•„ë‹ê²½ìš° ì„ì˜ë¡œ ì‚¬ìš©ê°€ëŠ¥
     unsigned m_uiLParam;
 };
 #endif

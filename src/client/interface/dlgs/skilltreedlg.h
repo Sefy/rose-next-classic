@@ -31,17 +31,17 @@ struct s_userdata {
     }
 };
 /**
- * ÀüÃ¼ ½ºÅ³¿¡ ´ëÇÑ Á¤º¸¸¦ Æ®¸®Çü½ÄÀ¸·Î º¸¿©ÁÖ´Â ´ÙÀÌ¾ó·Î±×
- *	- µ¥ÀÌÅ¸´Â XMLÇü½ÄÀ¸·Î µÇ¾î ÀÖ´Ù.
- *	- PARSER´Â MSXMLÀÌ ¾Æ´Ñ EXPATÀ» »ç¿ëÇÑ´Ù.
+ * ì „ì²´ ìŠ¤í‚¬ì— ëŒ€í•œ ì •ë³´ë¥¼ íŠ¸ë¦¬í˜•ì‹ìœ¼ë¡œ ë³´ì—¬ì£¼ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
+ *	- ë°ì´íƒ€ëŠ” XMLí˜•ì‹ìœ¼ë¡œ ë˜ì–´ ìžˆë‹¤.
+ *	- PARSERëŠ” MSXMLì´ ì•„ë‹Œ EXPATì„ ì‚¬ìš©í•œë‹¤.
  *	- Observable : CSkillSlot
  *
  *
- * @Warning	´ë¸¸¹öÁ¯ÀÇ °æ¿ì ½ºÅ³Æ®¸®Ã¢À» º¸¿©ÁÖÁö ¾ÊÀ¸¸ç µ¥ÀÌÅ¸µµ ¸¸µé¾îÁ® ÀÖÁö ¾Ê´Ù.
- * @TODO		MSXMLÀÇ °æ¿ì È£È¯¼º ¹®Á¦·Î ³·Àº ¹öÁ¯À» »ç¿ëÁßÀÎµ¥ »ç¿ëÁßÀÎ ¹öÁ¯¿¡¼­´Â ¸Þ¸ð¸®¿¡¼­
- *È­ÀÏÀ» ·Îµå ÇÒ¼ö ¾ø´Ù.. ±×·¡¼­ XMLÀÇ °æ¿ì °¡»óÈ­ÀÏ½Ã½ºÅÛÀ» »ç¿ë¸øÇÏ°í ÀÖ´Ù..±×·¡¼­ Å×½ºÆ®°âÇØ¼­
- *EXPATÀ¸·Î ±¸ÇöÇÏ¿´´Ù. ³ªÁß¿¡ TGameCtrl¿¡¼­ÀÇ Parserµµ ±³Ã¼ÇÏ´Â°Ô ÁÁÀ»µíÇÏ´Ù.
- * @Author	ÃÖÁ¾Áø
+ * @Warning	ëŒ€ë§Œë²„ì ¼ì˜ ê²½ìš° ìŠ¤í‚¬íŠ¸ë¦¬ì°½ì„ ë³´ì—¬ì£¼ì§€ ì•Šìœ¼ë©° ë°ì´íƒ€ë„ ë§Œë“¤ì–´ì ¸ ìžˆì§€ ì•Šë‹¤.
+ * @TODO		MSXMLì˜ ê²½ìš° í˜¸í™˜ì„± ë¬¸ì œë¡œ ë‚®ì€ ë²„ì ¼ì„ ì‚¬ìš©ì¤‘ì¸ë° ì‚¬ìš©ì¤‘ì¸ ë²„ì ¼ì—ì„œëŠ” ë©”ëª¨ë¦¬ì—ì„œ
+ *í™”ì¼ì„ ë¡œë“œ í• ìˆ˜ ì—†ë‹¤.. ê·¸ëž˜ì„œ XMLì˜ ê²½ìš° ê°€ìƒí™”ì¼ì‹œìŠ¤í…œì„ ì‚¬ìš©ëª»í•˜ê³  ìžˆë‹¤..ê·¸ëž˜ì„œ í…ŒìŠ¤íŠ¸ê²¸í•´ì„œ
+ *EXPATìœ¼ë¡œ êµ¬í˜„í•˜ì˜€ë‹¤. ë‚˜ì¤‘ì— TGameCtrlì—ì„œì˜ Parserë„ êµì²´í•˜ëŠ”ê²Œ ì¢‹ì„ë“¯í•˜ë‹¤.
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/15
  */
 class CSkillTreeDlg: public CTDialog, public IObserver {

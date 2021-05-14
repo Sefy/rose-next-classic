@@ -2,18 +2,18 @@
 #define _Encrypt_Decrypt_
 #include <string>
 
-const unsigned int KEYSIZEPOSITION = 15; // Å°ÀÇ ÀÚ¸´¼ö. ¾Æ½ºÅ°ÄÚµå ¹üÀ§°¡ 0~127ÀÌ´Ù..orz
-const unsigned int KEYINFORMATION = 394; // Å°ÀÇ ½ÇÁ¦ »çÀÌÁî.
-const unsigned int KEYPOSITION = 135; // Å°°¡ ½ÃÀÛµÇ´Â À§Ä¡.
+const unsigned int KEYSIZEPOSITION = 15; // í‚¤ì˜ ìë¦¿ìˆ˜. ì•„ìŠ¤í‚¤ì½”ë“œ ë²”ìœ„ê°€ 0~127ì´ë‹¤..orz
+const unsigned int KEYINFORMATION = 394; // í‚¤ì˜ ì‹¤ì œ ì‚¬ì´ì¦ˆ.
+const unsigned int KEYPOSITION = 135; // í‚¤ê°€ ì‹œì‘ë˜ëŠ” ìœ„ì¹˜.
 
-const unsigned int SORT = 255; // ·£´ıÀ¸·Î »ı¼ºÇÒ ¼ıÀÚÀÇ ¹üÀ§.
+const unsigned int SORT = 255; // ëœë¤ìœ¼ë¡œ ìƒì„±í•  ìˆ«ìì˜ ë²”ìœ„.
 
-const int MAXSTRING = 512; // ÃÖ´ë ´ëÀÔ °³¼ö ¼³Á¤.
+const int MAXSTRING = 512; // ìµœëŒ€ ëŒ€ì… ê°œìˆ˜ ì„¤ì •.
 
 struct Crypt {
-    unsigned int size; // Å° »çÀÌÁî
-    bool bKeyJudgment; // ½ÇÇàÆÄÀÏ¿¡ Å°°¡ µé¾îÀÖ´ÂÁö À¯¹«.
-    std::string sCyrptKey; // Å°
+    unsigned int size; // í‚¤ ì‚¬ì´ì¦ˆ
+    bool bKeyJudgment; // ì‹¤í–‰íŒŒì¼ì— í‚¤ê°€ ë“¤ì–´ìˆëŠ”ì§€ ìœ ë¬´.
+    std::string sCyrptKey; // í‚¤
 };
 
 class CEncryptDecrypt {
@@ -21,14 +21,14 @@ public:
     CEncryptDecrypt();
     ~CEncryptDecrypt();
 
-    int KeyPositionInformation(std::string sKey); // ½ÇÁ¦ Å°ÀÇ »çÀÌÁî¸¦ ¸®ÅÏ.
+    int KeyPositionInformation(std::string sKey); // ì‹¤ì œ í‚¤ì˜ ì‚¬ì´ì¦ˆë¥¼ ë¦¬í„´.
 
     Crypt EncryptDataLoad(char* filename);
     Crypt EncryptDataLoad_Server(char* filename);
 
-    std::string Encrypt(std::string pEncrypt); // Å°¸¦ ¾ÏÈ£È­
-    std::string DecryptFromFile(std::string pDecrypt); // File¿¡¼­ »Ì¾Æ³½ °É ¾ÏÈ£È­ ÇØÁ¦.
-    std::string DecryptFromString(std::string pDecrypt); // ¾ÏÈ£È­ ½ºÆ®¸µ¸¸ »Ì¾Æ¼­ ¾ÏÈ£È­ ÇØÁ¦.
+    std::string Encrypt(std::string pEncrypt); // í‚¤ë¥¼ ì•”í˜¸í™”
+    std::string DecryptFromFile(std::string pDecrypt); // Fileì—ì„œ ë½‘ì•„ë‚¸ ê±¸ ì•”í˜¸í™” í•´ì œ.
+    std::string DecryptFromString(std::string pDecrypt); // ì•”í˜¸í™” ìŠ¤íŠ¸ë§ë§Œ ë½‘ì•„ì„œ ì•”í˜¸í™” í•´ì œ.
 };
 
 extern CEncryptDecrypt g_EncryptDecrypt;

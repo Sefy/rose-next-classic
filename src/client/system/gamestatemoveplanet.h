@@ -9,9 +9,9 @@ enum enumPLANET {
 };
 
 /**
- * Çà¼º°£ ÀÌµ¿ ¿¬ÃâÀ» À§ÇÑ State Class
+ * í–‰ì„±ê°„ ì´ë™ ì—°ì¶œì„ ìœ„í•œ State Class
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/15
  */
 class CGameStateMovePlanet: public CGameState {

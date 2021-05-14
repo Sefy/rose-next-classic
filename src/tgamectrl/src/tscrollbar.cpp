@@ -92,7 +92,7 @@ CTScrollBar::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
     if (m_pScrollBox && m_pScrollBox->Process(uiMsg, wParam, lParam))
         return m_pScrollBox->GetControlID();
 
-    ///¿µ¿ª¾È¿¡¼­
+    ///ì˜ì—­ì•ˆì—ì„œ
     if (uiMsg == WM_LBUTTONDOWN && m_pScrollBox && IsInside(ptMouse.x, ptMouse.y)) {
         m_pScrollBox->MoveBoxPositionByScreenPoint(ptMouse);
     }

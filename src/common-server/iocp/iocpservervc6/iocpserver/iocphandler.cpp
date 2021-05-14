@@ -24,9 +24,9 @@ IocpHandler::~IocpHandler(void) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// IOCP »ı¼º ¹× ÃÊ±âÈ­
-// nMaxNumberOfConcurrentThreads: Concurrent Thread ÀÇ °¹¼ö
-// pnOutErrCode: ¿¡·¯ »óÈ² ½Ã¿¡ ¿ÜºÎ·Î ´øÁ®Áú ¿¡·¯ÄÚµå, NULL ÀÌ µé¾î¿À¸é ¿¡·¯ÄÚµå¸¦ ´øÁöÁö ¾Ê´Â´Ù.
+// IOCP ìƒì„± ë° ì´ˆê¸°í™”
+// nMaxNumberOfConcurrentThreads: Concurrent Thread ì˜ ê°¯ìˆ˜
+// pnOutErrCode: ì—ëŸ¬ ìƒí™© ì‹œì— ì™¸ë¶€ë¡œ ë˜ì ¸ì§ˆ ì—ëŸ¬ì½”ë“œ, NULL ì´ ë“¤ì–´ì˜¤ë©´ ì—ëŸ¬ì½”ë“œë¥¼ ë˜ì§€ì§€ ì•ŠëŠ”ë‹¤.
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 BOOL
@@ -41,10 +41,10 @@ IocpHandler::Create(int nMaxNumberOfConcurrentThreads, int* pnOutErrCode) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// ¼ÒÄÏ°ú IOCP ¿Í ¿¬°á
-// hSocket		 : IOCP ¿Í ¿¬°áµÉ ¼ÒÄÏ
-// CompletionKey : ¿¬°áµÇ¸é¼­ ¾²¿©Áú Completion Key
-// pnOutErrCode  : À§¿Í »óµ¿
+// ì†Œì¼“ê³¼ IOCP ì™€ ì—°ê²°
+// hSocket		 : IOCP ì™€ ì—°ê²°ë  ì†Œì¼“
+// CompletionKey : ì—°ê²°ë˜ë©´ì„œ ì“°ì—¬ì§ˆ Completion Key
+// pnOutErrCode  : ìœ„ì™€ ìƒë™
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 BOOL
@@ -56,10 +56,10 @@ IocpHandler::Associate(SOCKET hSocket, ULONG_PTR CompletionKey, int* pnOutErrCod
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// ÆÄÀÏ ÇÚµé°ú IOCP ¿ÍÀÇ ¿¬°á
-// hDevice		 : IOCP ¿Í ¿¬°áµÉ µğ¹ÙÀÌ½º
-// CompletionKey : ¿¬°áµÇ¸é¼­ ¾²¿©Áú Completion Key
-// pnOutErrCode  : À§¿Í »óµ¿
+// íŒŒì¼ í•¸ë“¤ê³¼ IOCP ì™€ì˜ ì—°ê²°
+// hDevice		 : IOCP ì™€ ì—°ê²°ë  ë””ë°”ì´ìŠ¤
+// CompletionKey : ì—°ê²°ë˜ë©´ì„œ ì“°ì—¬ì§ˆ Completion Key
+// pnOutErrCode  : ìœ„ì™€ ìƒë™
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 BOOL
@@ -77,11 +77,11 @@ IocpHandler::Associate(HANDLE hDevice, ULONG_PTR CompletionKey, int* pnOutErrCod
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// IO Completion Queue¿¡ ÇÑ ¿Ï·á ÆĞÅ¶¸¦ »ç¿ëÀÚ Á¤ÀÇ·Î Ãß°¡
-// CompletionKey      : »ç¿ëÀÚ Á¤ÀÇ ¿Ï·á ÆĞÅ¶¿¡ µé¾î°¥ Completion Key
-// dwBytesTransferred : »ç¿ëÀÚ Á¤ÀÇ ¿Ï·á ÆĞÅ¶¿¡ µé¾î°¥ ¹ÙÀÌÆ®¼ö(0 µğÆúÆ®)
-// pOverlapped        : »ç¿ëÀÚ Á¤ÀÇ ¿Ï·á ÆĞÅ¶¿¡ µé¾î°¡´Â ¿À¹ö·¦µå ±¸Á¶Ã¼(NULL µğÆúÆ®)
-// pnOutErrCode       : À§¿Í »óµ¿
+// IO Completion Queueì— í•œ ì™„ë£Œ íŒ¨í‚·ë¥¼ ì‚¬ìš©ì ì •ì˜ë¡œ ì¶”ê°€
+// CompletionKey      : ì‚¬ìš©ì ì •ì˜ ì™„ë£Œ íŒ¨í‚·ì— ë“¤ì–´ê°ˆ Completion Key
+// dwBytesTransferred : ì‚¬ìš©ì ì •ì˜ ì™„ë£Œ íŒ¨í‚·ì— ë“¤ì–´ê°ˆ ë°”ì´íŠ¸ìˆ˜(0 ë””í´íŠ¸)
+// pOverlapped        : ì‚¬ìš©ì ì •ì˜ ì™„ë£Œ íŒ¨í‚·ì— ë“¤ì–´ê°€ëŠ” ì˜¤ë²„ë©ë“œ êµ¬ì¡°ì²´(NULL ë””í´íŠ¸)
+// pnOutErrCode       : ìœ„ì™€ ìƒë™
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 BOOL
@@ -99,12 +99,12 @@ IocpHandler::PostCompletionStatus(ULONG_PTR CompletionKey,
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// IO Completion Queue¿¡¼­ ¿Ï·á ÆĞÅ¶À» ¾ò¾î¿Â´Ù.
-// pOutCompletionKey      : IO Completon Å¥¿¡¼­ »©³»¿Â ·¹ÄÚµåÀÇ Completion Key
-// pdwOutBytesTransferred : IO Completon Å¥¿¡¼­ »©³»¿Â ·¹ÄÚµåÀÇ ¹ÙÀÌÆ®¼ö(0 µğÆúÆ®)
-// pOutOverlapped         : IO Completon Å¥¿¡¼­ »©³»¿Â ·¹ÄÚµåÀÇ ¿À¹ö·¦µå ±¸Á¶Ã¼(NULL µğÆúÆ®)
-//  pnOutErrCode          : À§¿Í »óµ¿
-//  dwWaitingTime         : ¿Ï·á ÆĞÅ¶ÀÌ ¾øÀ» ½Ã¿¡ ±â´Ù¸± ½Ã°£ (µğÆúÆ®: ¹«ÇÑ´ë)
+// IO Completion Queueì—ì„œ ì™„ë£Œ íŒ¨í‚·ì„ ì–»ì–´ì˜¨ë‹¤.
+// pOutCompletionKey      : IO Completon íì—ì„œ ë¹¼ë‚´ì˜¨ ë ˆì½”ë“œì˜ Completion Key
+// pdwOutBytesTransferred : IO Completon íì—ì„œ ë¹¼ë‚´ì˜¨ ë ˆì½”ë“œì˜ ë°”ì´íŠ¸ìˆ˜(0 ë””í´íŠ¸)
+// pOutOverlapped         : IO Completon íì—ì„œ ë¹¼ë‚´ì˜¨ ë ˆì½”ë“œì˜ ì˜¤ë²„ë©ë“œ êµ¬ì¡°ì²´(NULL ë””í´íŠ¸)
+//  pnOutErrCode          : ìœ„ì™€ ìƒë™
+//  dwWaitingTime         : ì™„ë£Œ íŒ¨í‚·ì´ ì—†ì„ ì‹œì— ê¸°ë‹¤ë¦´ ì‹œê°„ (ë””í´íŠ¸: ë¬´í•œëŒ€)
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 BOOL
@@ -127,11 +127,11 @@ IocpHandler::GetCompletionStatus(ULONG_PTR* pOutCompletionKey,
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// IOCP Worker Thread Ç®À» ¸¸µë
-// piProcessThread: IIocpProcessThread ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ŞÀº Å¬·¡½º¿¡ ´ëÇÑ Æ÷ÀÎÅÍ Áï ¾²·¹µå Ç®¿¡
-// µé¾î°¥
-//                  ¾²·¹µå ÇÔ¼ö°¡ ±¸ÇöµÈ Å¬·¡½ºÀÇ Æ÷ÀÎÅÍ
-// nNumOfPooledThredad: Ç®¸µÇÒ ¾²·¹µå °³¼ö, 0ÀÌ¸é µğÆúÆ® °ª¿¡ ¸ÂÃß¾îÁü
+// IOCP Worker Thread í’€ì„ ë§Œë“¬
+// piProcessThread: IIocpProcessThread ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì€ í´ë˜ìŠ¤ì— ëŒ€í•œ í¬ì¸í„° ì¦‰ ì“°ë ˆë“œ í’€ì—
+// ë“¤ì–´ê°ˆ
+//                  ì“°ë ˆë“œ í•¨ìˆ˜ê°€ êµ¬í˜„ëœ í´ë˜ìŠ¤ì˜ í¬ì¸í„°
+// nNumOfPooledThredad: í’€ë§í•  ì“°ë ˆë“œ ê°œìˆ˜, 0ì´ë©´ ë””í´íŠ¸ ê°’ì— ë§ì¶”ì–´ì§
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 BOOL
@@ -143,8 +143,8 @@ IocpHandler::CreateThreadPool(IIocpProcessThread* piProcessThread, int nNumOfPoo
         SYSTEM_INFO si;
         GetSystemInfo(&si);
 
-        // µğÆúÆ® ¾²·¹µå ¼ö·Î
-        // 2 * ÇÁ·Î¼¼¼­¼ö + 2 ÀÇ °ø½ÄÀ» µû¶úÀ½
+        // ë””í´íŠ¸ ì“°ë ˆë“œ ìˆ˜ë¡œ
+        // 2 * í”„ë¡œì„¸ì„œìˆ˜ + 2 ì˜ ê³µì‹ì„ ë”°ëìŒ
         m_CreatedThreadNumber = si.dwNumberOfProcessors * 2 + 2;
     } else {
         m_CreatedThreadNumber = nNumOfPooledThread;
@@ -159,7 +159,7 @@ IocpHandler::CreateThreadPool(IIocpProcessThread* piProcessThread, int nNumOfPoo
     return TRUE;
 }
 
-// IOCP ¿öÄ¿ ¾²·¹µå ½ÃÀÛ Æ÷ÀÎÆ®·Î¼­¸¸ÀÇ ¿ªÈ°
+// IOCP ì›Œì»¤ ì“°ë ˆë“œ ì‹œì‘ í¬ì¸íŠ¸ë¡œì„œë§Œì˜ ì—­í™œ
 DWORD __stdcall IocpHandler::IocpWorkerThreadStartingPoint(PVOID pvParam) {
     IIocpProcessThread* piProcessThread = (IIocpProcessThread*)pvParam;
     piProcessThread->ProcessingThread();
@@ -167,7 +167,7 @@ DWORD __stdcall IocpHandler::IocpWorkerThreadStartingPoint(PVOID pvParam) {
     return 0;
 }
 
-// ÇöÀç µ¹°í ÀÖ´Â ¾²·¹µå ¸ğµÎ Á×ÀÓ
+// í˜„ì¬ ëŒê³  ìˆëŠ” ì“°ë ˆë“œ ëª¨ë‘ ì£½ì„
 void
 IocpHandler::CloseAllThreads(void) {
     for (int i = 0; i < m_CreatedThreadNumber; i++) {

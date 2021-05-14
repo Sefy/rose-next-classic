@@ -17,7 +17,7 @@ void SC_InitGame ( void );
 
 
 ///
-/// »õ·Î¿î½ºÅ©¸³Æ® ½ÇÇà
+/// ìƒˆë¡œìš´ìŠ¤í¬ë¦½íŠ¸ ì‹¤í–‰
 ///
 SYSTEM_SCRIPT
 int SC_DoScript ( ZSTRING strName );
@@ -25,7 +25,7 @@ int SC_DoScript ( ZSTRING strName );
 
 
 ///
-/// Ä³¸¯ÅÍ »ı¼º°ü·Ã
+/// ìºë¦­í„° ìƒì„±ê´€ë ¨
 ///
 
 SYSTEM_SCRIPT
@@ -38,7 +38,7 @@ void SC_DestroyAVT ( HNODE hAVT );
 
 
 
-/// ¸ğ¼Ç ¼¼ÆÃ
+/// ëª¨ì…˜ ì„¸íŒ…
 SYSTEM_SCRIPT
 void SC_SetAvatarMotionByName ( ZSTRING strName, ZSTRING strMotion );
 
@@ -83,7 +83,7 @@ void SC_AttachMotion ( HNODE hNode, HNODE hMotion );
 SYSTEM_SCRIPT
 void SC_ControlAnimation ( HNODE hNode, int iControl );
 
-/// ¸ğ¼Ç Á¶ÀÛ °ü·Ã
+/// ëª¨ì…˜ ì¡°ì‘ ê´€ë ¨
 SYSTEM_SCRIPT
 void SC_SetMotionFrame ( HNODE hNode, int iFrame );
 
@@ -134,7 +134,7 @@ void SC_SetAvatarFace ( ZSTRING pszName, int iFace );
 
 SYSTEM_SCRIPT
 void SC_SetAvatarHair ( ZSTRING pszName, int iHair );
-////ÀÎÅÍÆäÀÌ½º¿ë
+////ì¸í„°í˜ì´ìŠ¤ìš©
 SYSTEM_SCRIPT
 void SC_AddSelectItem4CreateAvatar ( int iType, ZSTRING pszItem, ZSTRING pszValue );
 
@@ -145,7 +145,7 @@ SYSTEM_SCRIPT
 void SC_SelectItem4CreateAvatar ( int iType, int iSubscript );
 
 ///
-/// Á¸ °ü¸®
+/// ì¡´ ê´€ë¦¬
 ///
 SYSTEM_SCRIPT
 int SC_GetBGZoneNO ( void );
@@ -153,14 +153,14 @@ int SC_GetBGZoneNO ( void );
 
 
 //------------------------------------------------------------------------------------------------
-/// ÀÌº¥Æ® °ü·Ã
+/// ì´ë²¤íŠ¸ ê´€ë ¨
 //------------------------------------------------------------------------------------------------
 
 
 ///
-/// ÀÌº¥Æ® ¿ÀºêÁ§Æ® °ü·Ã..
-/// type 0 : Æ÷Áö¼Ç ³ëµå
-/// type 1 : ¾Ö´Ï¸ÅÀÌ¼Ç ³ëµå
+/// ì´ë²¤íŠ¸ ì˜¤ë¸Œì íŠ¸ ê´€ë ¨..
+/// type 0 : í¬ì§€ì…˜ ë…¸ë“œ
+/// type 1 : ì• ë‹ˆë§¤ì´ì…˜ ë…¸ë“œ
 ///
 SYSTEM_SCRIPT
 HNODE SC_GetEventObject ( int iEventID, int iType );
@@ -169,7 +169,7 @@ SYSTEM_SCRIPT
 int SC_GetEventObjectIndex ( int iEventID );
 
 ///
-/// Con ÆÄÀÏ ½ÇÇà
+/// Con íŒŒì¼ ì‹¤í–‰
 ///
 SYSTEM_SCRIPT
 void SC_RunEvent ( int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX );
@@ -181,7 +181,7 @@ SYSTEM_SCRIPT
 void SC_RunEventObjectEvent ( int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX );
 
 ///
-/// ¾Ë¸² ¸Ş¼¼Áö¹Ú½º
+/// ì•Œë¦¼ ë©”ì„¸ì§€ë°•ìŠ¤
 ///
 SYSTEM_SCRIPT
 void SC_ShowNotifyMessage ( int iStringIDX );
@@ -195,7 +195,7 @@ void SC_LogString ( ZSTRING szMessage );
 
 
 //------------------------------------------------------------------------------------------------
-/// ÄÆ¾À °ü·Ã
+/// ì»·ì”¬ ê´€ë ¨
 //------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 int SC_ChangeState ( int iNewState );
@@ -205,7 +205,7 @@ int SC_ScreenFadeInStart ( float fade_in_t, float fade_m_t, float fade_out_t, in
 
 
 //------------------------------------------------------------------------------------------------
-/// ÀÌÆåÆ® °ü·Ã
+/// ì´í™íŠ¸ ê´€ë ¨
 //------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 int		SC_GetEffectUseFile ( ZSTRING szEffectFile );
@@ -220,7 +220,7 @@ SYSTEM_SCRIPT
 void	SC_EffectOnObject ( HNODE hNode, int iEffectHash );
 
 //------------------------------------------------------------------------------------------------
-/// ÀÎÅÍÆäÀÌ½º °ü·Ã
+/// ì¸í„°í˜ì´ìŠ¤ ê´€ë ¨
 //------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 void	SC_OpenDialog ( int iDialog );
@@ -247,7 +247,7 @@ void	SC_RemoveNpcIndicator ( int npcno );
 SYSTEM_SCRIPT
 void	SC_RemoveCoordinatesIndicator ( int index );
 //------------------------------------------------------------------------------------------------
-/// ¾Æ¹ÙÅ¸ Á¤º¸
+/// ì•„ë°”íƒ€ ì •ë³´
 //------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 int	SC_GetAvatarEXP ( );
@@ -256,21 +256,21 @@ SYSTEM_SCRIPT
 int	SC_GetAvatarLEVEL ( );
 
 //------------------------------------------------------------------------------------------------
-/// ½ºÅ©¸³Æ®¸¦ ½ÇÇàÇÑ´Ù. 2005-05-26 ±èÃ¢¼ö
+/// ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì‹¤í–‰í•œë‹¤. 2005-05-26 ê¹€ì°½ìˆ˜
 //------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 void SC_QF_doQuestTrigger ( ZSTRING TriggerName );
 
 //------------------------------------------------------------------------------------------------
-/// Äù½ºÆ® Æ®¸®°Å ÄÁµğ¼ÇÀ» Ã¼Å©ÇÑ´Ù. 2005-05-26 ±èÃ¢¼ö
+/// í€˜ìŠ¤íŠ¸ íŠ¸ë¦¬ê±° ì»¨ë””ì…˜ì„ ì²´í¬í•œë‹¤. 2005-05-26 ê¹€ì°½ìˆ˜
 //------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 int SC_QF_checkQuestCondition ( ZSTRING szQuestTriggerName );
 
 
 //------------------------------------------------------------------------------------------------
-/// SC => GF/QF ¿¬µ¿ ½ºÅ©¸³µå
-/// ÀÚ¼¼ÇÑ ¼³¸íÀº SC_¸¦ »« ½ºÅ©¸³Æ® ÂüÁ¶
+/// SC => GF/QF ì—°ë™ ìŠ¤í¬ë¦½ë“œ
+/// ìì„¸í•œ ì„¤ëª…ì€ SC_ë¥¼ ëº€ ìŠ¤í¬ë¦½íŠ¸ ì°¸ì¡°
 //------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 int SC_GF_getVariable ( int iVarTYPE );	
@@ -300,18 +300,18 @@ SYSTEM_SCRIPT
 int SC_QF_getQuestSwitch ( int hQUEST, int iSwitchNO );
 
 SYSTEM_SCRIPT
-int SC_QF_getQuestItemQuantity ( int iQuestID, int iItemNo/*5ÀÚ¸®:Type+No*/ );
+int SC_QF_getQuestItemQuantity ( int iQuestID, int iItemNo/*5ìë¦¬:Type+No*/ );
 
 SYSTEM_SCRIPT
 int SC_QF_getUserSwitch ( int iSwitchNO );
 //------------------------------------------------------------------------------------------------
-/// ¾Æ¹ÙÅ¸ÀÇ ºÎÈ°Á¸À» ÇöÀç Á¸À¸·Î º¯°æÇÑ´Ù.
+/// ì•„ë°”íƒ€ì˜ ë¶€í™œì¡´ì„ í˜„ì¬ ì¡´ìœ¼ë¡œ ë³€ê²½í•œë‹¤.
 //------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 void SC_GF_setRevivePosition ( );
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
-/// Tutorial Image Show °ü·Ã 
+/// Tutorial Image Show ê´€ë ¨ 
 //------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 void SC_ShowTutorialImage ( ZSTRING filename, int x, int y, float fadein_endtime, float fadeout_starttime, float max_time, int append_or_renewal );
@@ -320,8 +320,8 @@ void SC_ShowTutorialImage ( ZSTRING filename, int x, int y, float fadein_endtime
 
 
 //------------------------------------------------------------------------------------------------
-// ÇÔ¼ö ÀÌ¸§µÚ¿¡ ÇÑÄ­ ¶ç¿î´Ù. ( ´ÙÀ½¿¡ ÇÑÄ­ ¶ç¿î´Ù, ÆÄ¶ó¹ÌÅÍ Å¸ÀÔ µÚ¿¡ ÇÑÄ­ ¶ç¿î´Ù. 
-// ÆÄ¶ó¹ÌÅÍ ÀÌ¸§ µÚ¿¡ ÇÑÄ­ ¶ç¿î´Ù
+// í•¨ìˆ˜ ì´ë¦„ë’¤ì— í•œì¹¸ ë„ìš´ë‹¤. ( ë‹¤ìŒì— í•œì¹¸ ë„ìš´ë‹¤, íŒŒë¼ë¯¸í„° íƒ€ì… ë’¤ì— í•œì¹¸ ë„ìš´ë‹¤. 
+// íŒŒë¼ë¯¸í„° ì´ë¦„ ë’¤ì— í•œì¹¸ ë„ìš´ë‹¤
 //------------------------------------------------------------------------------------------------
 
 int SC_QF_GetNpcQuestStatus ( int npcindex );

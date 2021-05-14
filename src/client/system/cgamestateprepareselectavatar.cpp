@@ -53,7 +53,7 @@ CGameStatePrepareSelectAvatar::Enter(int iPrevStateID) {
     if (m_hThread) {
         tDone = false;
         ResumeThread(m_hThread);
-    } else /// Thread »ı¼º ½ÇÆĞ½Ã ¸ŞÀÎ¾²·¹µå¿¡¼­ ·ÎµùÇÏ°í State¸¦ ¹Ù²Ù¾î ÁØ´Ù.
+    } else /// Thread ìƒì„± ì‹¤íŒ¨ì‹œ ë©”ì¸ì“°ë ˆë“œì—ì„œ ë¡œë”©í•˜ê³  Stateë¥¼ ë°”ê¾¸ì–´ ì¤€ë‹¤.
 #endif
     {
 #ifndef __THREADED_LOADING
@@ -68,8 +68,8 @@ CGameStatePrepareSelectAvatar::Enter(int iPrevStateID) {
 int
 CGameStatePrepareSelectAvatar::Leave(int iNextStateID) {
     g_EUILobby.HideMsgBox();
-    ::setDeltaTime(0); // µ¥ÀÌÅÍ ·Îµù ¶§¹®¿¡, ÇÁ·¹ÀÓ°£ ½Ã°£Â÷°¡ ³Ê¹« ¸¹ÀÌ ³ª¼­, Ä«¸Ş¶ó ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ
-                       // Á¾·áµÉ ¼ö ÀÖ´Ù. µû¶ó¼­, ÇÁ·¹ÀÓ°£ ½Ã°£Â÷¸¦ 0À¸·Î ÇÔ.
+    ::setDeltaTime(0); // ë°ì´í„° ë¡œë”© ë•Œë¬¸ì—, í”„ë ˆì„ê°„ ì‹œê°„ì°¨ê°€ ë„ˆë¬´ ë§ì´ ë‚˜ì„œ, ì¹´ë©”ë¼ ì• ë‹ˆë©”ì´ì…˜ì´
+                       // ì¢…ë£Œë  ìˆ˜ ìˆë‹¤. ë”°ë¼ì„œ, í”„ë ˆì„ê°„ ì‹œê°„ì°¨ë¥¼ 0ìœ¼ë¡œ í•¨.
     CSystemProcScript::GetSingleton().CallLuaFunction("LeaveLoadSelectAvatar", ZZ_PARAM_END);
     return 0;
 }

@@ -4,10 +4,10 @@
 #include "tgamectrl/tdialog.h"
 
 /**
- * Á×¾úÀ»¶§ ºÎÈ° ÁöÁ¡À» ¼±ÅÃÇÏ´Â ´ÙÀÌ¾ó·Î±×
+ * ì£½ì—ˆì„ë•Œ ë¶€í™œ ì§€ì ì„ ì„ íƒí•˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Warning		´ë¸¸¹öÀü¿¡¼­´Â ÇöÀç ÇÊµåºÎÈ° ¼±ÅÃÀ» ÇÒ¼ö ¾ø´Ù( XML¿¡¼­ ¹öÆ°ºÎºÐÀ» »°´Ù )
- * @Author		ÃÖÁ¾Áø
+ * @Warning		ëŒ€ë§Œë²„ì „ì—ì„œëŠ” í˜„ìž¬ í•„ë“œë¶€í™œ ì„ íƒì„ í• ìˆ˜ ì—†ë‹¤( XMLì—ì„œ ë²„íŠ¼ë¶€ë¶„ì„ ëºë‹¤ )
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/14
  */
 class CRestartDLG: public CTDialog {
@@ -20,10 +20,10 @@ public:
 
 protected:
     enum {
-        BTN_RESTART_SAVE_POSITION = 3, /// ÀúÀåµÈ ¸¶À»·Î
-        BTN_RESTART_CURRENT_FIELD, /// ÇöÀç ÇÊµå¿¡¼­ ( ´ë¸¸¹öÁ¯¿¡¼­´Â ºüÁ³´Ù: XML Date)
-        BTN_RESTART_DUNGEON_GATE, /// ´øÀüÀÔ±¸·Î ( ´ë¸¸¹öÁ¯¿¡¼­ ´øÀü¾È¿¡¼­ Á×¾úÀ»°æ¿ì ´øÀüÀÔ±¸¿¡¼­
-                                  /// ºÎÈ°ÇÒ¼ö ÀÖµµ·Ï ¹öÆ° Ãß°¡ )
+        BTN_RESTART_SAVE_POSITION = 3, /// ì €ìž¥ëœ ë§ˆì„ë¡œ
+        BTN_RESTART_CURRENT_FIELD, /// í˜„ìž¬ í•„ë“œì—ì„œ ( ëŒ€ë§Œë²„ì ¼ì—ì„œëŠ” ë¹ ì¡Œë‹¤: XML Date)
+        BTN_RESTART_DUNGEON_GATE, /// ë˜ì „ìž…êµ¬ë¡œ ( ëŒ€ë§Œë²„ì ¼ì—ì„œ ë˜ì „ì•ˆì—ì„œ ì£½ì—ˆì„ê²½ìš° ë˜ì „ìž…êµ¬ì—ì„œ
+                                  /// ë¶€í™œí• ìˆ˜ ìžˆë„ë¡ ë²„íŠ¼ ì¶”ê°€ )
     };
 
     bool On_LButtonUP(unsigned iProcID);

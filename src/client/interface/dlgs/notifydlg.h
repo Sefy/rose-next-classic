@@ -3,10 +3,10 @@
     #include "tgamectrl/JStringParser.h"
 
 /**
- * �˸���ưŬ���� �ش� ������ ǥ���ϱ� ���� ���̾�α�
- *	- 2005/9/15�� ���� ä��â �����ʿ� ǥ�õǰ� �ִ�
+ * 알림버튼클릭시 해당 도움말을 표시하기 위한 다이얼로그
+ *	- 2005/9/15일 현재 채팅창 오른쪽에 표시되고 있다
  *
- * @Author		������
+ * @Author		최종진
  * @Date			2005/9/15
  */
 class CNotifyDlg: public CTDialog {

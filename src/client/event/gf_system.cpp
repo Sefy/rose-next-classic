@@ -125,10 +125,10 @@ GF_spawnMonXY(int iMonNo, int iMonLevel, int iX, int iY) {}
 void
 GF_spawnMonAtEvent(int iMonNo, int iMonLevel, int iEvnetNo) {}
 
-//----------------------------------[ ¿öÇÁ ÇÔ¼ö ]---------------------------------------------------
+//----------------------------------[ ì›Œí”„ í•¨ìˆ˜ ]---------------------------------------------------
 ZSTRING
 GF_getReviveZoneName() {
-    // ÇöÀç ¼³Á¤µÈ ºÎÈ° ¸ÊÀÇ ÀÌ¸§À» ¾ò´Â´Ù..
+    // í˜„ì¬ ì„¤ì •ëœ ë¶€í™œ ë§µì˜ ì´ë¦„ì„ ì–»ëŠ”ë‹¤..
     if (g_pAVATAR->m_nReviveZoneNO > 0)
         return ZONE_NAME(g_pAVATAR->m_nReviveZoneNO);
     return NULL;
@@ -136,31 +136,31 @@ GF_getReviveZoneName() {
 
 void
 GF_setRevivePosition() {
-    /// ÇöÀç Á¸À» ºÎÈ° Àå¼Ò ÁöÁ¤ ¿äÃ»ÇÑ´Ù..
+    /// í˜„ì¬ ì¡´ì„ ë¶€í™œ ì¥ì†Œ ì§€ì • ìš”ì²­í•œë‹¤..
     g_pNet->Send_cli_SET_REVIVE_POS();
-    /// client´Â º°µµ·Î ÇöÀç Á¸À» ºÎÈ°Àå¼Ò·Î °¡Áö°í ÀÖ´Â´Ù.
+    /// clientëŠ” ë³„ë„ë¡œ í˜„ì¬ ì¡´ì„ ë¶€í™œì¥ì†Œë¡œ ê°€ì§€ê³  ìˆëŠ”ë‹¤.
     g_pAVATAR->m_nReviveZoneNO = g_pTerrain->GetZoneNO();
 }
 
 void
 GF_warp(int iWarpIndex) {
-    g_pNet->Send_cli_TELEPORT_REQ(g_pAVATAR, iWarpIndex /* ÀÌ °ªÀº warp.stb¿¡ ÀÖ´Â ÁÙ¹øÈ£ °ª */);
+    g_pNet->Send_cli_TELEPORT_REQ(g_pAVATAR, iWarpIndex /* ì´ ê°’ì€ warp.stbì— ìˆëŠ” ì¤„ë²ˆí˜¸ ê°’ */);
 }
 
-//----------------------------------[  °æÁ¦ °ü·Ã ]-------------------------------------------------
-// TOWN_RATE ¼³Á¤ÇÏ±â
+//----------------------------------[  ê²½ì œ ê´€ë ¨ ]-------------------------------------------------
+// TOWN_RATE ì„¤ì •í•˜ê¸°
 void
 GF_setTownRate(int iTownRate) {
-    ::g_pTerrain->m_Economy.SetTownRATE(iTownRate /* ÀÌ °ªÀ¸·Î TOWN_RATE°¡ Á¶Á¤µÈ´Ù */);
+    ::g_pTerrain->m_Economy.SetTownRATE(iTownRate /* ì´ ê°’ìœ¼ë¡œ TOWN_RATEê°€ ì¡°ì •ëœë‹¤ */);
 }
 
-// TOWN_RATE °¡Á®¿À±â
+// TOWN_RATE ê°€ì ¸ì˜¤ê¸°
 int
 GF_getTownRate(void) {
     return ::g_pTerrain->m_Economy.Get_TownRATE();
 }
 
-// WORLD_RATE °¡Á®¿À±â
+// WORLD_RATE ê°€ì ¸ì˜¤ê¸°
 int
 GF_getWorldRate(void) {
     return ::Get_WorldRATE();
@@ -171,13 +171,13 @@ GF_setWorldRate(int iWorldRate) {
     ::Set_WorldRATE(iWorldRate);
 }
 
-// ¾ÆÀÌÅÛ ¹°°¡ ¾Ë¾Æ³»±â
+// ì•„ì´í…œ ë¬¼ê°€ ì•Œì•„ë‚´ê¸°
 int
 GF_getItemRate(int iItemTYPE) {
     return ::g_pTerrain->m_Economy.Get_ItemRATE(iItemTYPE);
 }
 
-// ¾ÆÀÌÅÛ º¸À¯·® °¡Á®¿À±â
+// ì•„ì´í…œ ë³´ìœ ëŸ‰ ê°€ì ¸ì˜¤ê¸°
 int
 GF_checkTownItem(int iItemTYPE) {
 #ifdef __VIRTUAL_SERVER
@@ -188,7 +188,7 @@ GF_checkTownItem(int iItemTYPE) {
 }
 
 //-------------------------------------------------------------------------------------------------
-/// iNPCNO : ¿ÀºêÁ§Æ® ¹øÈ£°¡ ³Ñ¾î¿Â´Ù.
+/// iNPCNO : ì˜¤ë¸Œì íŠ¸ ë²ˆí˜¸ê°€ ë„˜ì–´ì˜¨ë‹¤.
 void
 GF_openStore(int iNPCNO, int bSpecialTab) {
     if (CStore::GetInstance().ChangeStore(iNPCNO, bSpecialTab)) {
@@ -199,7 +199,7 @@ GF_openStore(int iNPCNO, int bSpecialTab) {
 }
 
 //=========================================================================
-// °ø¿ë ÇÔ¼ö. CF_xxx
+// ê³µìš© í•¨ìˆ˜. CF_xxx
 //=========================================================================
 void
 CF_addMsgToChatWND(char* pStr, ...) {

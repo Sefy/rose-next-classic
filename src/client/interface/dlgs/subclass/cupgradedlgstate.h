@@ -2,9 +2,9 @@
 #define _CUpgradeDlgState_
 
 /**
- * Á¦·ÃÀÎÅÍÆäÀÌ½º Ã¢ÀÇ State Base Class :
+ * ì œë ¨ì¸í„°í˜ì´ìŠ¤ ì°½ì˜ State Base Class :
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CUpgradeDlgState {

@@ -5,9 +5,9 @@ class CZListBox;
 class CFriendListItem;
 
 /**
- * Community ¸¦ À§ÇÑ ´ÙÀÌ¾ó·Î±×
+ * Community ë¥¼ ìœ„í•œ ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CCommDlg: public CTDialog {
@@ -17,7 +17,7 @@ public:
     virtual unsigned Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam);
     virtual void Show();
 
-    ///Ä£±¸¸ñ·Ï °ü·Ã
+    ///ì¹œêµ¬ëª©ë¡ ê´€ë ¨
     void AddFriend(DWORD dwUserTag, BYTE btStatus, const char* pszName);
     void ClearFriendList();
     void ChangeFriendStatus(DWORD dwUserTag, BYTE btStatus);
@@ -27,23 +27,23 @@ public:
     CFriendListItem* FindFriend(DWORD dwUserTag);
     CFriendListItem* FindFriendByName(const char* pszName);
 
-    ///¿ìÆíÇÔ¸ñ·Ï °ü·Ã
+    ///ìš°í¸í•¨ëª©ë¡ ê´€ë ¨
     void ClearMemoList();
     void AddMemo(int iRowid, const char* pszFromName, const char* pszMemo, DWORD dwRecvTime);
     void DeleteMemo(int iIndex);
 
-    /// ´ëÈ­¹æ¸ñ·Ï °ü·Ã
+    /// ëŒ€í™”ë°©ëª©ë¡ ê´€ë ¨
     void ClearChatRoomList();
     void AddChatRoom(const char* pszTitle, BYTE btRoomType, short nRoomID, BYTE btUserCount);
 
-    /// Å¬¶óÀÌ¾ğÆ®¿¡ ÀúÀåµÇ¾î ÀÖ´ø ÂÊÁö¸¦ °¡Á®¿À±â À§ÇÏ¿© ÇÊ¿äÇÑ Method(  Sqlite »ç¿ëÁß )
+    /// í´ë¼ì´ì–¸íŠ¸ì— ì €ì¥ë˜ì–´ ìˆë˜ ìª½ì§€ë¥¼ ê°€ì ¸ì˜¤ê¸° ìœ„í•˜ì—¬ í•„ìš”í•œ Method(  Sqlite ì‚¬ìš©ì¤‘ )
     static int callback(void* NotUsed, int argc, char** argv, char** azColName);
 
 private:
     void OnLButtonUp(unsigned uiProcID, WPARAM wParam, LPARAM lParam);
     CZListBox* GetZListBox(int iTab, int iListID);
 
-    /// Å¬¶óÀÌ¾ğÆ®¿¡ ÀúÀåµÇ¾î ÀÖ´ø ÂÊÁö °¡Á®¿À±â( Sqlite »ç¿ëÁß )
+    /// í´ë¼ì´ì–¸íŠ¸ì— ì €ì¥ë˜ì–´ ìˆë˜ ìª½ì§€ ê°€ì ¸ì˜¤ê¸°( Sqlite ì‚¬ìš©ì¤‘ )
     void LoadMemoFromDB();
 
 private:

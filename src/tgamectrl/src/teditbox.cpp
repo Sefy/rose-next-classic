@@ -47,7 +47,7 @@ CTEditBox::SetMultiline(bool bMultiline) {
 
 bool
 CTEditBox::OnKeyDown(WPARAM wParam, LPARAM lParam) {
-    ///Æ÷Ä¿½º¸¦ °¡Áö°í ÀÖÁö ¾Ê¾ÒÀ»¶§ Enter°¡ µé¾î¿Ã¼ö ÀÖ´Ù.
+    ///í¬ì»¤ìŠ¤ë¥¼ ê°€ì§€ê³  ìˆì§€ ì•Šì•˜ì„ë•Œ Enterê°€ ë“¤ì–´ì˜¬ìˆ˜ ìˆë‹¤.
     if (!IsFocus())
         return false;
 
@@ -83,7 +83,7 @@ CTEditBox::OnKeyDown(WPARAM wParam, LPARAM lParam) {
             if (pCurrPos != pNextPos) {
                 m_iPromptPos += (pNextPos - pCurrPos) / sizeof(char);
 
-                ///È­¸é¿¡ Ç¥½ÃµÇ´Â ±æÀÌ¸¦ °è»êÇÏ°í ¸¸¾à ³Ñ´Â´Ù¸é ViewPos¸¦ µÚ·Î ³Ñ±ä´Ù.
+                ///í™”ë©´ì— í‘œì‹œë˜ëŠ” ê¸¸ì´ë¥¼ ê³„ì‚°í•˜ê³  ë§Œì•½ ë„˜ëŠ”ë‹¤ë©´ ViewPosë¥¼ ë’¤ë¡œ ë„˜ê¸´ë‹¤.
                 _ASSERT(m_iPromptPos > m_iViewPos);
                 if (m_iPromptPos > m_iViewPos) {
                     int iLen = m_iPromptPos - m_iViewPos;
@@ -151,10 +151,10 @@ CTEditBox::SetFocus(bool bFocus) {
 }
 
 //*-------------------------------------------------------------------------------------*
-/// - »ç¿ëÀÚÀÇ Å°º¸µå ÀÔ·ÂÀ» EditBox¿¡ ¹İ¿µÇÑ´Ù.
-/// @warning WM_KEYUP Ã³¸®¿¡ ÁÖÀÇÇÒ°Í, ÇöÀç º¯È¯Áß Key Up¿¡ ´ëÇÑ ¸Ş¼¼Áö°¡ ¿À°í ÀÖ´Ù.( ¿©±â¼­ ´Ù¸¥
-/// Ã³¸®½Ã ÀÏº»¾î/Áß±¹¾î º¯È¯½Ã¿¡ sideeffect¹ß»ı°¡´É¼ºÀÌ ³ô´Ù )
-///          WM_KEYDOWN¿¡¼­ Ã³¸®ÇÒ°ÍÀ» ÃßÃµ;;
+/// - ì‚¬ìš©ìì˜ í‚¤ë³´ë“œ ì…ë ¥ì„ EditBoxì— ë°˜ì˜í•œë‹¤.
+/// @warning WM_KEYUP ì²˜ë¦¬ì— ì£¼ì˜í• ê²ƒ, í˜„ì¬ ë³€í™˜ì¤‘ Key Upì— ëŒ€í•œ ë©”ì„¸ì§€ê°€ ì˜¤ê³  ìˆë‹¤.( ì—¬ê¸°ì„œ ë‹¤ë¥¸
+/// ì²˜ë¦¬ì‹œ ì¼ë³¸ì–´/ì¤‘êµ­ì–´ ë³€í™˜ì‹œì— sideeffectë°œìƒê°€ëŠ¥ì„±ì´ ë†’ë‹¤ )
+///          WM_KEYDOWNì—ì„œ ì²˜ë¦¬í• ê²ƒì„ ì¶”ì²œ;;
 //*-------------------------------------------------------------------------------------*
 UINT
 CTEditBox::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
@@ -189,7 +189,7 @@ CTEditBox::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
         //		}
         //	}
         //	break;
-        case WM_KEYDOWN: /// Enter¿Í EscÃ³¸®ÇÏÀÚ.
+        case WM_KEYDOWN: /// Enterì™€ Escì²˜ë¦¬í•˜ì.
         {
             if (IsFocus()) {
                 if ((wParam == VK_ESCAPE || wParam == VK_RETURN)
@@ -244,7 +244,7 @@ CTEditBox::Draw() {
     std::string strView;
     int iInsertPos = 0;
 
-    // È­¸é¿¡ ½ÇÁ¦ Ç¥½ÃÇÒ SubStringÀ» ±¸ÇÑ´Ù.
+    // í™”ë©´ì— ì‹¤ì œ í‘œì‹œí•  SubStringì„ êµ¬í•œë‹¤.
     if (m_bMultiline) {
         iInsertPos = m_iPromptPos;
         if (m_pszBuffer)
@@ -276,7 +276,7 @@ CTEditBox::Draw() {
             }
             pCurrPos = pNextPos;
         }
-        /////¼ıÀÚ¸¸ ÀÔ·Â¹ŞÀ»¶§´Â ´õÇÏÁö ¾Ê´Â´Ù.
+        /////ìˆ«ìë§Œ ì…ë ¥ë°›ì„ë•ŒëŠ” ë”í•˜ì§€ ì•ŠëŠ”ë‹¤.
         // strView.insert( g_iPromptPos - g_iViewPos, g_strCompText );
         //_ASSERT( strView.size() >= m_iPromptPos - m_iViewPos );
 
@@ -292,7 +292,7 @@ CTEditBox::Draw() {
     if (IsFocus())
         strView.insert(iInsertPos, CTIme::GetInstance().GetCompsitionString());
 
-    /// Ãâ·ÂµÉ À§Ä¡¸¦ º¯°æÇÑ´Ù.
+    /// ì¶œë ¥ë  ìœ„ì¹˜ë¥¼ ë³€ê²½í•œë‹¤.
     m_pFontMgr->SetTransformSprite((float)m_sPosition.x, (float)m_sPosition.y);
 
     RECT rcDraw = {0, 0, m_iWidth, m_iHeight};
@@ -320,14 +320,14 @@ CTEditBox::Draw() {
     if (!strView.empty())
         m_pFontMgr->Draw(m_iFont, true, &rcDraw, m_dwTextColor, TextAlign, strView.c_str());
 
-    ///ÇÁ·ÒÇÁÆ®±×¸®±â
+    ///í”„ë¡¬í”„íŠ¸ê·¸ë¦¬ê¸°
     if (IsFocus() && !IsTypeHideCursor()) {
         CTIme& TIme = CTIme::GetInstance();
         std::string strTemp = strView.substr(0, iInsertPos + TIme.GetCursorPos());
         SIZE size = m_pFontMgr->GetFontTextExtent(m_iFont, strTemp.c_str());
 
         rcDraw.left = size.cx;
-        rcDraw.right = size.cx + 10; ///°íÁ¤
+        rcDraw.right = size.cx + 10; ///ê³ ì •
         rcDraw.top += 1;
         rcDraw.bottom += 1;
 
@@ -366,7 +366,7 @@ CTEditBox::Draw() {
 
                 rcDraw.right = rcDraw.left + size.cx - 1;
 
-                for (int i = 0; i < dwClauseLen; ++i) ///¼Ó¼º¿¡ µû¶ó¼­ UnderlineÀÌ Æ²¸®°Ô ÇØ¾ßÇÑ´Ù.
+                for (int i = 0; i < dwClauseLen; ++i) ///ì†ì„±ì— ë”°ë¼ì„œ Underlineì´ í‹€ë¦¬ê²Œ í•´ì•¼í•œë‹¤.
                 {
                     switch (compAttr[*iterClauseInfo]) {
                         case ATTR_TARGET_CONVERTED:
@@ -376,7 +376,7 @@ CTEditBox::Draw() {
                             strunderline.append(TIme.GetStr_ATTR_CONVERTED());
                             break;
                         case ATTR_INPUT:
-                            strunderline.append(TIme.GetStr_ATTR_INPUT()); ///±×³É ÀÔ·ÂÁß
+                            strunderline.append(TIme.GetStr_ATTR_INPUT()); ///ê·¸ëƒ¥ ì…ë ¥ì¤‘
                         default:
                             break;
                     }
@@ -385,7 +385,7 @@ CTEditBox::Draw() {
                 }
                 m_pFontMgr
                     ->Draw(m_iFont, true, &rcDraw, m_dwTextColor, TextAlign, strunderline.c_str());
-                rcDraw.left += size.cx; ///´ÙÀ½Àı ´ëºñ
+                rcDraw.left += size.cx; ///ë‹¤ìŒì ˆ ëŒ€ë¹„
             }
         }
         /*
@@ -567,7 +567,7 @@ CTEditBox::OnChar(WPARAM wParam, LPARAM lParam) {
         }
         default: {
             if (((wParam & 0xff) != 27) && ((wParam & 0xff) != 9) && (wParam != VK_RETURN)) {
-                ///¼ıÀÚ¸¸ ÀÔ·Â¹ŞÀ»¶§´Â ¼ıÀÚÀÎÁö¸¦ Ã¼Å©ÇÑ´Ù.
+                ///ìˆ«ìë§Œ ì…ë ¥ë°›ì„ë•ŒëŠ” ìˆ«ìì¸ì§€ë¥¼ ì²´í¬í•œë‹¤.
                 if (IsTypeNumber())
                     if (wParam < '0' || wParam > '9')
                         break;
@@ -587,7 +587,7 @@ CTEditBox::OnChar(WPARAM wParam, LPARAM lParam) {
                 m_pszBuffer[m_iPromptPos] = wParam & 0xff;
                 m_iPromptPos++;
 
-#pragma message("2¹ÙÀÌÆ® ¹®ÀÚÁß¿¡¼­ 1¹øÂ° ¹ÙÀÌÆ®¸¸ µé¾î¿À¸é ¾î¶»°Ô µÉ±î³ª?")
+#pragma message("2ë°”ì´íŠ¸ ë¬¸ìì¤‘ì—ì„œ 1ë²ˆì§¸ ë°”ì´íŠ¸ë§Œ ë“¤ì–´ì˜¤ë©´ ì–´ë–»ê²Œ ë ê¹Œë‚˜?")
                 if (m_iPromptPos > m_iViewPos) {
                     int iLen = m_iPromptPos - m_iViewPos;
                     char* pszTemp = new char[iLen + 1];

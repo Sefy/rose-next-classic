@@ -70,8 +70,8 @@
  * \ingroup SHO_GS_LIB
  * \class	CObjEVENT
  * \author	wookSang.Jo
- * \brief	ÀÌº¥Æ® °´Ã¼ °ü¸®¹× Ã³¸®ÇÏ´Â Å¬·¡½º
- *			CGameOBJÅ¬·¡½º¸¦ »ó¼Ó¹ÞÀ½
+ * \brief	ì´ë²¤íŠ¸ ê°ì²´ ê´€ë¦¬ë° ì²˜ë¦¬í•˜ëŠ” í´ëž˜ìŠ¤
+ *			CGameOBJí´ëž˜ìŠ¤ë¥¼ ìƒì†ë°›ìŒ
  */
 class CObjEVENT: public CObjVAR, public CGameOBJ {
 private:
@@ -100,12 +100,12 @@ public:
     int VGetCur_ZoneTIME() { return GetCur_ZoneTIME(); }
 
     void Set_ObjVAR(BYTE btVarIDX, short nValue) {
-        // ¿©±â¼­ ¼³Á¤ ? ¾Æ´Ô ¼­¹ö¿¡¼­ ¹Þ¾Æ¼­ ¼³Á¤ ???
+        // ì—¬ê¸°ì„œ ì„¤ì • ? ì•„ë‹˜ ì„œë²„ì—ì„œ ë°›ì•„ì„œ ì„¤ì • ???
         if (0 == btVarIDX) {
             short nBefore = this->Get_ObjVAR(0);
             CObjVAR::Set_ObjVAR(0, nValue);
             if (nBefore != this->Get_ObjVAR(0)) {
-                // °ªÀÌ ¹Ù²î¾ú´Ù.
+                // ê°’ì´ ë°”ë€Œì—ˆë‹¤.
                 this->Send_gsv_SET_EVENT_STATUS();
             }
         } else

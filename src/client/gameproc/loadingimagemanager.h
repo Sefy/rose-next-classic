@@ -5,9 +5,9 @@
 #include <vector>
 
 /**
- * °¢ Á¸º° È¤Àº Çà¼ºº°.. »óÈ²¿¡ µû¸¥ ·ÎµùÀÌ¹ÌÁö ±³Ã¼ °ü¸®..
+ * ê° ì¡´ë³„ í˜¹ì€ í–‰ì„±ë³„.. ìƒí™©ì— ë”°ë¥¸ ë¡œë”©ì´ë¯¸ì§€ êµì²´ ê´€ë¦¬..
  *
- * @Author		ÀÌµ¿Çö
+ * @Author		ì´ë™í˜„
  * @Date			2005/9/5
  */
 
@@ -21,14 +21,14 @@ public:
     void ReleaseTexture(HNODE hTexture);
 
 private:
-    /// ÀÌº¥Æ®¿ë ·Îµù ÀÌ¹ÌÁö¸¦ Ãâ·ÂÇØ¾ßÇÏ´Â°¡..
+    /// ì´ë²¤íŠ¸ìš© ë¡œë”© ì´ë¯¸ì§€ë¥¼ ì¶œë ¥í•´ì•¼í•˜ëŠ”ê°€..
     bool m_bDisplayEventLoadingImage;
 
-    /// Çà¼ºº° ·Îµù ÀÌ¹ÌÁö Å×ÀÌºí
+    /// í–‰ì„±ë³„ ë¡œë”© ì´ë¯¸ì§€ í…Œì´ë¸”
     std::vector<std::string> m_LoadingImageTableByEvent;
-    /// Çà¼ºº° ·Îµù ÀÌ¹ÌÁö Å×ÀÌºí
+    /// í–‰ì„±ë³„ ë¡œë”© ì´ë¯¸ì§€ í…Œì´ë¸”
     std::multimap<int, std::string> m_LoadingImageTableByPlanet;
-    /// Á¸º° ·Îµù ÀÌ¹ÌÁö Å×ÀÌºí
+    /// ì¡´ë³„ ë¡œë”© ì´ë¯¸ì§€ í…Œì´ë¸”
     std::multimap<int, std::string> m_LoadingImageTableByZone;
 
     HNODE GetLoadingImageFromTable(std::multimap<int, std::string>& imageTable, int iKey);

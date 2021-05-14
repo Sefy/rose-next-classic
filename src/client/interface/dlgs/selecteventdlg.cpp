@@ -164,7 +164,7 @@ CSelectEventDlg::Update(POINT ptMouse) {
     CTDialog::Update(ptMouse);
     CGameOBJ* pObj = g_pObjMGR->Get_OBJECT(m_nTargetClientIdx);
 
-    /// NPC Object°¡ ¾ø°Å³ª ÀÖ´Âµ¥ °Å¸®°¡ ÀÏÁ¤ °Å¸® ÀÌ»óÀÌ¶ó¸é
+    /// NPC Objectê°€ ì—†ê±°ë‚˜ ìžˆëŠ”ë° ê±°ë¦¬ê°€ ì¼ì • ê±°ë¦¬ ì´ìƒì´ë¼ë©´
     if (pObj == NULL)
         Hide();
     else if (g_pAVATAR->Get_DISTANCE(pObj->Get_CurPOS()) >= 1000)

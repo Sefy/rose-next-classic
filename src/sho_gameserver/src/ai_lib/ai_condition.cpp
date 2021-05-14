@@ -10,7 +10,7 @@ extern short Get_ServerChannelNO();
 //-------------------------------------------------------------------------------------------------
 bool
 F_AICOND_00(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
-    // ªÁøÎæ»«‘.
+    // ÏÇ¨Ïö©ÏïàÌï®.
     return false;
 }
 //-------------------------------------------------------------------------------------------------
@@ -19,10 +19,10 @@ F_AICOND_01(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     /*
     struct		AICOND01
     {
-        DWORD			dwSize ;					// ¿Ã Ω∫∆Æ∑∞√ƒ¿« ≈©±‚
-        AITYPE			Type ;						// ¡∂∞« ≈∏¿‘
-        int				iDamage;					// µ•πÃ¡ˆ∑Æ
-        BYTE			cRecvOrGive ;				// 0=πﬁ¥Ÿ , 1=¡÷¥Ÿ
+        DWORD			dwSize ;					// Ïù¥ Ïä§Ìä∏Îü≠Ï≥êÏùò ÌÅ¨Í∏∞
+        AITYPE			Type ;						// Ï°∞Í±¥ ÌÉÄÏûÖ
+        int				iDamage;					// Îç∞ÎØ∏ÏßÄÎüâ
+        BYTE			cRecvOrGive ;				// 0=Î∞õÎã§ , 1=Ï£ºÎã§
     } ;
     */
     AICOND01* pCond = (AICOND01*)pConDATA;
@@ -62,12 +62,12 @@ F_AICOND_02(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
                 iCurDist = (int)(pAIParam->m_pSourCHAR->Get_DISTANCE(pFindCHAR));
                 if (iCurDist < iNearDist) {
                     iNearDist = iCurDist;
-                    // ∞°¿Â ∞°±ÓøÓ ≥—...
+                    // Í∞ÄÏû• Í∞ÄÍπåÏö¥ ÎÑò...
                     pAIParam->m_pNearCHAR = pFindCHAR;
                 }
 
                 if (iFindCNT >= pCond->wChrNum) {
-                    // ∞°¿Â ∏∂¡ˆ∏∑ø° √£¿∫≥—
+                    // Í∞ÄÏû• ÎßàÏßÄÎßâÏóê Ï∞æÏùÄÎÑò
                     pAIParam->m_pFindCHAR = pFindCHAR;
                     return true;
                 }
@@ -87,9 +87,9 @@ F_AICOND_03(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     /*
     struct		AICOND03
     {
-        DWORD			dwSize ;					// ¿Ã Ω∫∆Æ∑∞√ƒ¿« ≈©±‚
-        AITYPE			Type ;						// ¡∂∞« ≈∏¿‘
-        int				iDistance ;					// ∞≈∏Æ
+        DWORD			dwSize ;					// Ïù¥ Ïä§Ìä∏Îü≠Ï≥êÏùò ÌÅ¨Í∏∞
+        AITYPE			Type ;						// Ï°∞Í±¥ ÌÉÄÏûÖ
+        int				iDistance ;					// Í±∞Î¶¨
     } ;
     */
     AICOND03* pCond = (AICOND03*)pConDATA;
@@ -105,10 +105,10 @@ F_AICOND_04(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     /*
     struct		AICOND04
     {
-        DWORD			dwSize ;					// ¿Ã Ω∫∆Æ∑∞√ƒ¿« ≈©±‚
-        AITYPE			Type ;						// ¡∂∞« ≈∏¿‘
-        int				iDistance ;					// ∞≈∏Æ
-        BYTE			cMoreLess ;					// ¿ÃªÛ ¿Ã«œ
+        DWORD			dwSize ;					// Ïù¥ Ïä§Ìä∏Îü≠Ï≥êÏùò ÌÅ¨Í∏∞
+        AITYPE			Type ;						// Ï°∞Í±¥ ÌÉÄÏûÖ
+        int				iDistance ;					// Í±∞Î¶¨
+        BYTE			cMoreLess ;					// Ïù¥ÏÉÅ Ïù¥Ìïò
     } ;
     */
     AICOND04* pCond = (AICOND04*)pConDATA;
@@ -118,11 +118,11 @@ F_AICOND_04(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 
     int iDistance = (int)(pAIParam->m_pSourCHAR->Get_DISTANCE(pTarget));
     if (pCond->cMoreLess) {
-        // ¿Ã«œ
+        // Ïù¥Ìïò
         if (iDistance <= pCond->iDistance)
             return true;
     } else {
-        // ¿ÃªÛ
+        // Ïù¥ÏÉÅ
         if (iDistance >= pCond->iDistance)
             return true;
     }
@@ -135,34 +135,34 @@ F_AICOND_05(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     /*
     struct		AICOND05
     {
-        DWORD			dwSize ;					// ¿Ã Ω∫∆Æ∑∞√ƒ¿« ≈©±‚
-        AITYPE			Type ;						// ¡∂∞« ≈∏¿‘
-        int				cAbType ;					// ¥…∑¬ƒ° ≈∏¿‘
+        DWORD			dwSize ;					// Ïù¥ Ïä§Ìä∏Îü≠Ï≥êÏùò ÌÅ¨Í∏∞
+        AITYPE			Type ;						// Ï°∞Í±¥ ÌÉÄÏûÖ
+        int				cAbType ;					// Îä•Î†•Ïπò ÌÉÄÏûÖ
         int				iDiff ;
-        BYTE			cMoreLess ;					// ≈´∞° , ¿€¿∫∞°
+        BYTE			cMoreLess ;					// ÌÅ∞Í∞Ä , ÏûëÏùÄÍ∞Ä
     } ;
         cAbType
-            0 ∑π∫ß
-            1 ∞¯∞›∑¬
-            2 πÊæÓ∑¬
-            3 «◊∏∂∑¬
+            0 Î†àÎ≤®
+            1 Í≥µÍ≤©Î†•
+            2 Î∞©Ïñ¥Î†•
+            3 Ìï≠ÎßàÎ†•
             4 HP
-            5 ∏≈∑¬
+            5 Îß§Î†•
     */
     AICOND05* pCond = (AICOND05*)pConDATA;
 
-    // ≈∏∞Ÿ¿«...
+    // ÌÉÄÍ≤üÏùò...
     CAI_OBJ* pTarget = pAIParam->m_pSourCHAR->Get_TARGET();
     if (NULL == pTarget)
         return false;
 
     int iValue = AI_Get_Ability(pTarget, pCond->cAbType);
     if (pCond->cMoreLess) {
-        // ¿Ã«œ
+        // Ïù¥Ìïò
         if (iValue <= pCond->iDiff)
             return true;
     } else {
-        // ¿ÃªÛ
+        // Ïù¥ÏÉÅ
         if (iValue >= pCond->iDiff)
             return true;
     }
@@ -175,20 +175,20 @@ F_AICOND_06(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     /*
     struct		AICOND06
     {
-        DWORD			dwSize ;					// ¿Ã Ω∫∆Æ∑∞√ƒ¿« ≈©±‚
-        AITYPE			Type ;						// ¡∂∞« ≈∏¿‘
-        DWORD			wHP ;						// HP ºˆƒ°
-        BYTE			cMoreLess ;					// ≈´∞° , ¿€¿∫∞°
+        DWORD			dwSize ;					// Ïù¥ Ïä§Ìä∏Îü≠Ï≥êÏùò ÌÅ¨Í∏∞
+        AITYPE			Type ;						// Ï°∞Í±¥ ÌÉÄÏûÖ
+        DWORD			wHP ;						// HP ÏàòÏπò
+        BYTE			cMoreLess ;					// ÌÅ∞Í∞Ä , ÏûëÏùÄÍ∞Ä
     } ;
     */
     AICOND06* pCond = (AICOND06*)pConDATA;
 
     if (pCond->cMoreLess) {
-        // ¿Ã«œ
+        // Ïù¥Ìïò
         if (pAIParam->m_pSourCHAR->Get_PercentHP() <= (int)pCond->wHP)
             return true;
     } else {
-        // ¿ÃªÛ
+        // Ïù¥ÏÉÅ
         if (pAIParam->m_pSourCHAR->Get_PercentHP() >= (int)pCond->wHP)
             return true;
     }
@@ -200,9 +200,9 @@ F_AICOND_07(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     /*
     struct		AICOND07
     {
-        DWORD			dwSize ;					// ¿Ã Ω∫∆Æ∑∞√ƒ¿« ≈©±‚
-        AITYPE			Type ;						// ¡∂∞« ≈∏¿‘
-        BYTE			cPercent ;					// »Æ∑¸
+        DWORD			dwSize ;					// Ïù¥ Ïä§Ìä∏Îü≠Ï≥êÏùò ÌÅ¨Í∏∞
+        AITYPE			Type ;						// Ï°∞Í±¥ ÌÉÄÏûÖ
+        BYTE			cPercent ;					// ÌôïÎ•†
     } ;
     */
     AICOND07* pCond = (AICOND07*)pConDATA;
@@ -221,15 +221,15 @@ F_AICOND_08(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 #endif
 
     /*
-    // ¡÷∫Ø distance≥ªø° ¿⁄Ω≈∞˙ ∑π∫ß¬˜∞° ¿÷¥¬ æ∆πŸ≈∏/∏ÛΩ∫≈Õ∞° ¿÷¿∏∏È
-    // ≈∏∞Ÿ¿∏∑Œ ¡ˆ¡§.
+    // Ï£ºÎ≥Ä distanceÎÇ¥Ïóê ÏûêÏã†Í≥º Î†àÎ≤®Ï∞®Í∞Ä ÏûàÎäî ÏïÑÎ∞îÌÉÄ/Î™¨Ïä§ÌÑ∞Í∞Ä ÏûàÏúºÎ©¥
+    // ÌÉÄÍ≤üÏúºÎ°ú ÏßÄÏ†ï.
     struct		AICOND08
     {
-        DWORD			dwSize ;					// ¿Ã Ω∫∆Æ∑∞√ƒ¿« ≈©±‚
-        AITYPE			Type ;						// ¡∂∞« ≈∏¿‘
-        int				iDistance ;					// ∞≈∏Æ
-        char			cLevelDiff ;				// ∑π∫ß¬˜ (-128~127 ) ¿⁄Ω≈¿« ∑π∫ß∫∏¥Ÿ
-    cLevelDiff¿ÃªÛ¿Œ BYTE			cChrType ;					// ƒ≥∏Ø≈Õ ≈∏¿‘ (æ∆πŸ≈∏=0,∏ÛΩ∫≈Õ=1)
+        DWORD			dwSize ;					// Ïù¥ Ïä§Ìä∏Îü≠Ï≥êÏùò ÌÅ¨Í∏∞
+        AITYPE			Type ;						// Ï°∞Í±¥ ÌÉÄÏûÖ
+        int				iDistance ;					// Í±∞Î¶¨
+        char			cLevelDiff ;				// Î†àÎ≤®Ï∞® (-128~127 ) ÏûêÏã†Ïùò Î†àÎ≤®Î≥¥Îã§
+    cLevelDiffÏù¥ÏÉÅÏù∏ BYTE			cChrType ;					// Ï∫êÎ¶≠ÌÑ∞ ÌÉÄÏûÖ (ÏïÑÎ∞îÌÉÄ=0,Î™¨Ïä§ÌÑ∞=1)
     } ;
     */
     AICOND08* pCond = (AICOND08*)pConDATA;
@@ -259,11 +259,11 @@ F_AICOND_08(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 bool
 F_AICOND_09(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     /*
-    // ¿⁄Ω≈¿ª ∞¯∞›«— ƒ…∏Ø≈ÕøÕ ∞¯∞› ≈∏∞Ÿ¿Ã ¥Ÿ∏• ƒ…∏Ø≈Õ ¿Œ∞°?
+    // ÏûêÏã†ÏùÑ Í≥µÍ≤©Ìïú ÏºÄÎ¶≠ÌÑ∞ÏôÄ Í≥µÍ≤© ÌÉÄÍ≤üÏù¥ Îã§Î•∏ ÏºÄÎ¶≠ÌÑ∞ Ïù∏Í∞Ä?
     struct		AICOND09
     {
-        DWORD			dwSize ;					// ¿Ã Ω∫∆Æ∑∞√ƒ¿« ≈©±‚
-        AITYPE			Type ;						// ¡∂∞« ≈∏¿‘
+        DWORD			dwSize ;					// Ïù¥ Ïä§Ìä∏Îü≠Ï≥êÏùò ÌÅ¨Í∏∞
+        AITYPE			Type ;						// Ï°∞Í±¥ ÌÉÄÏûÖ
     } ;
     */
     AICOND09* pCond = (AICOND09*)pConDATA;
@@ -277,18 +277,18 @@ F_AICOND_09(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 bool
 F_AICOND_10(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     /*
-    // ¿⁄Ω≈¿ª ∞¯∞›«— ƒ…∏Ø≈Õ¿« ¥…∑¬ƒ°∞° ∞¯∞› ≈∏∞Ÿ ƒ…∏Ø≈Õ∫∏¥Ÿ ≈´∞°/¿€¿∫∞°?
+    // ÏûêÏã†ÏùÑ Í≥µÍ≤©Ìïú ÏºÄÎ¶≠ÌÑ∞Ïùò Îä•Î†•ÏπòÍ∞Ä Í≥µÍ≤© ÌÉÄÍ≤ü ÏºÄÎ¶≠ÌÑ∞Î≥¥Îã§ ÌÅ∞Í∞Ä/ÏûëÏùÄÍ∞Ä?
     struct		AICOND10
     {
-        DWORD			dwSize ;					// ¿Ã Ω∫∆Æ∑∞√ƒ¿« ≈©±‚
-        AITYPE			Type ;						// ¡∂∞« ≈∏¿‘
-        BYTE			cAbType ;					// ¥…∑¬ƒ° ≈∏¿‘
-        BYTE			cMoreLess ;					// ≈´=0 , ¿€¿∫=1
+        DWORD			dwSize ;					// Ïù¥ Ïä§Ìä∏Îü≠Ï≥êÏùò ÌÅ¨Í∏∞
+        AITYPE			Type ;						// Ï°∞Í±¥ ÌÉÄÏûÖ
+        BYTE			cAbType ;					// Îä•Î†•Ïπò ÌÉÄÏûÖ
+        BYTE			cMoreLess ;					// ÌÅ∞=0 , ÏûëÏùÄ=1
     } ;
     */
     AICOND10* pCond = (AICOND10*)pConDATA;
 
-    // π›µÂΩ√ ≈∏∞Ÿ¿Ã ¡∏¿Á«ÿæﬂ «—¥Ÿ.
+    // Î∞òÎìúÏãú ÌÉÄÍ≤üÏù¥ Ï°¥Ïû¨Ìï¥Ïïº ÌïúÎã§.
     if (NULL == pAIParam->m_pSourCHAR->Get_TARGET() || NULL == pAIParam->m_pDestCHAR)
         return false;
 
@@ -296,11 +296,11 @@ F_AICOND_10(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     iV1 = AI_Get_Ability(pAIParam->m_pDestCHAR, pCond->cAbType);
     iV2 = AI_Get_Ability(pAIParam->m_pSourCHAR->Get_TARGET(), pCond->cAbType);
     if (pCond->cMoreLess) {
-        // ¿€¿∫
+        // ÏûëÏùÄ
         if (iV1 < iV2)
             return true;
     } else {
-        // ≈´
+        // ÌÅ∞
         if (iV1 > iV2)
             return true;
     }
@@ -313,18 +313,18 @@ F_AICOND_10(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 bool
 F_AICOND_11(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     /*
-     * Explain : ¿⁄Ω≈¿ª ∞¯∞›«— ƒ≥∏Ø≈Õ¿« A¥…∑¬ƒ°∞° B∞™∫∏¥Ÿ ≈©∞≈≥™/¿€¿∫ ∞ÊøÏ
+     * Explain : ÏûêÏã†ÏùÑ Í≥µÍ≤©Ìïú Ï∫êÎ¶≠ÌÑ∞Ïùò AÎä•Î†•ÏπòÍ∞Ä BÍ∞íÎ≥¥Îã§ ÌÅ¨Í±∞ÎÇò/ÏûëÏùÄ Í≤ΩÏö∞
     struct		AICOND11
     {
-        DWORD			dwSize ;		// ¿Ã Ω∫∆Æ∑∞√ƒ¿« ≈©±‚
-        AITYPE			Type ;			// ¡∂∞« ≈∏¿‘ = AICOND_11
-        BYTE			cAbType ;		// ¥…∑¬ƒ° (∑π∫ß=0, ∞¯∞›∑¬=1, πÊæÓ∑¬=2, «◊∏∂∑¬=3, HP=4,
-    ∏≈∑¬=5) int				iValue;			// ∫Ò±≥∞™. ¿Ã∞™∫∏¥Ÿ ≈´∞°/¿€¿∫∞°. ¿Ã∑±Ωƒ¿∏∑Œ BYTE
-    cMoreLess ;		// ≈´=0 , ¿€¿∫=1 } ;
+        DWORD			dwSize ;		// Ïù¥ Ïä§Ìä∏Îü≠Ï≥êÏùò ÌÅ¨Í∏∞
+        AITYPE			Type ;			// Ï°∞Í±¥ ÌÉÄÏûÖ = AICOND_11
+        BYTE			cAbType ;		// Îä•Î†•Ïπò (Î†àÎ≤®=0, Í≥µÍ≤©Î†•=1, Î∞©Ïñ¥Î†•=2, Ìï≠ÎßàÎ†•=3, HP=4,
+    Îß§Î†•=5) int				iValue;			// ÎπÑÍµêÍ∞í. Ïù¥Í∞íÎ≥¥Îã§ ÌÅ∞Í∞Ä/ÏûëÏùÄÍ∞Ä. Ïù¥Îü∞ÏãùÏúºÎ°ú BYTE
+    cMoreLess ;		// ÌÅ∞=0 , ÏûëÏùÄ=1 } ;
     */
     AICOND11* pCond = (AICOND11*)pConDATA;
 
-    // π›µÂΩ√ ≈∏∞Ÿ¿Ã æ¯æÓæﬂ «—¥Ÿ.
+    // Î∞òÎìúÏãú ÌÉÄÍ≤üÏù¥ ÏóÜÏñ¥Ïïº ÌïúÎã§.
     if (pAIParam->m_pSourCHAR->Get_TARGET())
         return false;
 
@@ -334,11 +334,11 @@ F_AICOND_11(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     int iValue = AI_Get_Ability(pAIParam->m_pDestCHAR, pCond->cAbType);
 
     if (pCond->cMoreLess) {
-        // ¿Ã«œ
+        // Ïù¥Ìïò
         if (iValue <= pCond->iValue)
             return true;
     } else {
-        // ¿ÃªÛ
+        // Ïù¥ÏÉÅ
         if (iValue >= pCond->iValue)
             return true;
     }
@@ -350,12 +350,12 @@ F_AICOND_11(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 bool
 F_AICOND_12(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     /*
-    /// «ˆ¿Á ¡∏¿Ã ¡ˆ±› ≥∑¿Œ∞° / π„¿Œ∞° ?
+    /// ÌòÑÏû¨ Ï°¥Ïù¥ ÏßÄÍ∏à ÎÇÆÏù∏Í∞Ä / Î∞§Ïù∏Í∞Ä ?
     struct		AICOND12
     {
-        DWORD			dwSize ;		// ¿Ã Ω∫∆Æ∑∞√ƒ¿« ≈©±‚
-        AITYPE			Type ;			// ¡∂∞« ≈∏¿‘ = AICOND_12
-        BYTE			cWhen;			// 0 = ≥∑¿Œ¡ˆ √º≈©, 1 = π„¿Œ¡ˆ √º≈©
+        DWORD			dwSize ;		// Ïù¥ Ïä§Ìä∏Îü≠Ï≥êÏùò ÌÅ¨Í∏∞
+        AITYPE			Type ;			// Ï°∞Í±¥ ÌÉÄÏûÖ = AICOND_12
+        BYTE			cWhen;			// 0 = ÎÇÆÏù∏ÏßÄ Ï≤¥ÌÅ¨, 1 = Î∞§Ïù∏ÏßÄ Ï≤¥ÌÅ¨
     };
     */
     int iZoneTIME = pAIParam->m_pSourCHAR->Get_ZoneTIME();
@@ -366,15 +366,15 @@ F_AICOND_12(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 bool
 F_AICOND_13(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 /*
-/// ¿⁄Ω≈/≈∏∞Ÿø°∞‘ ∞…∑¡¿÷¥¬ ªÛ≈¬ √º≈©.
+/// ÏûêÏã†/ÌÉÄÍ≤üÏóêÍ≤å Í±∏Î†§ÏûàÎäî ÏÉÅÌÉú Ï≤¥ÌÅ¨.
 struct		AICOND13
 {
     DWORD			dwSize;
     AITYPE			Type;
 
-    BYTE			btCheckTarget;	// 0 = ¿⁄±‚¿⁄Ω≈, 1 = ∞¯∞›≈∏∞Ÿ
-    BYTE			btStatusType;	// 0 = «ÿ∑ŒøÓ, 1 = ¿Ø∏Æ«—, 2 = «ÿ∑ŒøÓ/¿Ø∏Æ«— æ∆π´∞≈≥™
-    BYTE			btHave;			// 0 = æ¯¥¬∞° ? 1 = ¿÷¥¬∞° ?
+    BYTE			btCheckTarget;	// 0 = ÏûêÍ∏∞ÏûêÏã†, 1 = Í≥µÍ≤©ÌÉÄÍ≤ü
+    BYTE			btStatusType;	// 0 = Ìï¥Î°úÏö¥, 1 = Ïú†Î¶¨Ìïú, 2 = Ìï¥Î°úÏö¥/Ïú†Î¶¨Ìïú ÏïÑÎ¨¥Í±∞ÎÇò
+    BYTE			btHave;			// 0 = ÏóÜÎäîÍ∞Ä ? 1 = ÏûàÎäîÍ∞Ä ?
 };
 */
 #ifndef __SERVER
@@ -384,34 +384,34 @@ struct		AICOND13
 
     CAI_OBJ* pTarget;
     if (pCond->btCheckTarget) {
-        // ∞¯∞› ≈∏ƒœ ...
+        // Í≥µÍ≤© ÌÉÄÏºì ...
         pTarget = pAIParam->m_pSourCHAR->Get_TARGET();
         if (NULL == pTarget)
             return false;
     } else {
-        // ¿⁄Ω≈..
+        // ÏûêÏã†..
         pTarget = pAIParam->m_pSourCHAR;
     }
 
     DWORD dwStatus;
     switch (pCond->btStatusType) {
-        case 0: // «ÿ∑ŒøÓ
+        case 0: // Ìï¥Î°úÏö¥
             dwStatus = FLAG_ING_BAD & pTarget->Get_MagicSTATUS();
             break;
-        case 1: // ¿Ø∏Æ«—
+        case 1: // Ïú†Î¶¨Ìïú
             dwStatus = FLAG_ING_GOOD & pTarget->Get_MagicSTATUS();
             break;
-        case 2: // æœ∞≈≥™..
+        case 2: // ÏïîÍ±∞ÎÇò..
             dwStatus = pTarget->Get_MagicSTATUS();
             break;
     }
 
     if (dwStatus) {
-        // ªÛ≈¬¿÷¥Ÿ..
+        // ÏÉÅÌÉúÏûàÎã§..
         return (pCond->btHave) ? true : false;
     }
 
-    // ªÛ≈¬æ¯¥Ÿ.
+    // ÏÉÅÌÉúÏóÜÎã§.
     return (0 == pCond->btHave) ? true : false;
 #endif
 }
@@ -419,17 +419,17 @@ struct		AICOND13
 bool
 F_AICOND_14(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 /*
-// NPC ∫Øºˆ √º≈©	- AICOND14
+// NPC Î≥ÄÏàò Ï≤¥ÌÅ¨	- AICOND14
 typedef struct	tagValue
 {
     DWORD			dwSize;
     AITYPE			Type;
 
-    short			nVarNo;	// ∫Øºˆ π¯»£ : 0 ~ , ¡∏¿« ∞Ê¡¶µ•¿Ã≈Õ ∫Øºˆ
-    int				iValue;	// ∫Ò±≥«“ µ•¿Ã≈Õ∞™ (iType¿« ¥…∑¬ƒ° Op iValue)
-    BYTE			btOp;	// iValue∞™ø° ¥Î«— ∫Ò±≥πÊπ˝. 0 = ∞∞¥Ÿ, 1 = ≈©¥Ÿ, 2 = ≈©∞≈≥™ ∞∞¥Ÿ.
-3=¿€¥Ÿ, 4=¿€∞≈≥™ ∞∞¥Ÿ.
-                            // (æ◊º«¬ ) 5 = ∞™πŸ≤ﬁ, 6 = ¡ı∞°, 7 = ∞®º“
+    short			nVarNo;	// Î≥ÄÏàò Î≤àÌò∏ : 0 ~ , Ï°¥Ïùò Í≤ΩÏ†úÎç∞Ïù¥ÌÑ∞ Î≥ÄÏàò
+    int				iValue;	// ÎπÑÍµêÌï† Îç∞Ïù¥ÌÑ∞Í∞í (iTypeÏùò Îä•Î†•Ïπò Op iValue)
+    BYTE			btOp;	// iValueÍ∞íÏóê ÎåÄÌïú ÎπÑÍµêÎ∞©Î≤ï. 0 = Í∞ôÎã§, 1 = ÌÅ¨Îã§, 2 = ÌÅ¨Í±∞ÎÇò Í∞ôÎã§.
+3=ÏûëÎã§, 4=ÏûëÍ±∞ÎÇò Í∞ôÎã§.
+                            // (Ïï°ÏÖòÏ™Ω) 5 = Í∞íÎ∞îÍøà, 6 = Ï¶ùÍ∞Ä, 7 = Í∞êÏÜå
 } AICOND14, AICOND15, AICOND16, AIACT25, AIACT26, AIACT27;
 */
 #ifndef __SERVER
@@ -448,17 +448,17 @@ typedef struct	tagValue
 bool
 F_AICOND_15(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 /*
-// ø˘µÂ∫Øºˆ √º≈©	- AICOND15
+// ÏõîÎìúÎ≥ÄÏàò Ï≤¥ÌÅ¨	- AICOND15
 typedef struct	tagValue
 {
     DWORD			dwSize;
     AITYPE			Type;
 
-    short			nVarNo;	// ∫Øºˆ π¯»£ : 0 ~ , ¡∏¿« ∞Ê¡¶µ•¿Ã≈Õ ∫Øºˆ
-    int				iValue;	// ∫Ò±≥«“ µ•¿Ã≈Õ∞™ (iType¿« ¥…∑¬ƒ° Op iValue)
-    BYTE			btOp;	// iValue∞™ø° ¥Î«— ∫Ò±≥πÊπ˝. 0 = ∞∞¥Ÿ, 1 = ≈©¥Ÿ, 2 = ≈©∞≈≥™ ∞∞¥Ÿ.
-3=¿€¥Ÿ, 4=¿€∞≈≥™ ∞∞¥Ÿ.
-                            // (æ◊º«¬ ) 5 = ∞™πŸ≤ﬁ, 6 = ¡ı∞°, 7 = ∞®º“
+    short			nVarNo;	// Î≥ÄÏàò Î≤àÌò∏ : 0 ~ , Ï°¥Ïùò Í≤ΩÏ†úÎç∞Ïù¥ÌÑ∞ Î≥ÄÏàò
+    int				iValue;	// ÎπÑÍµêÌï† Îç∞Ïù¥ÌÑ∞Í∞í (iTypeÏùò Îä•Î†•Ïπò Op iValue)
+    BYTE			btOp;	// iValueÍ∞íÏóê ÎåÄÌïú ÎπÑÍµêÎ∞©Î≤ï. 0 = Í∞ôÎã§, 1 = ÌÅ¨Îã§, 2 = ÌÅ¨Í±∞ÎÇò Í∞ôÎã§.
+3=ÏûëÎã§, 4=ÏûëÍ±∞ÎÇò Í∞ôÎã§.
+                            // (Ïï°ÏÖòÏ™Ω) 5 = Í∞íÎ∞îÍøà, 6 = Ï¶ùÍ∞Ä, 7 = Í∞êÏÜå
 } AICOND14, AICOND15, AICOND16, AIACT25, AIACT26, AIACT27;
 */
 #ifndef __SERVER
@@ -474,17 +474,17 @@ typedef struct	tagValue
 bool
 F_AICOND_16(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 /*
-// ∞Ê¡¶ µ•¿Ã≈Õ √º≈© - AICOND16
+// Í≤ΩÏ†ú Îç∞Ïù¥ÌÑ∞ Ï≤¥ÌÅ¨ - AICOND16
 typedef struct	tagValue
 {
     DWORD			dwSize;
     AITYPE			Type;
 
-    short			nVarNo;	// ∫Øºˆ π¯»£ : 0 ~ , ¡∏¿« ∞Ê¡¶µ•¿Ã≈Õ ∫Øºˆ
-    int				iValue;	// ∫Ò±≥«“ µ•¿Ã≈Õ∞™ (iType¿« ¥…∑¬ƒ° Op iValue)
-    BYTE			btOp;	// iValue∞™ø° ¥Î«— ∫Ò±≥πÊπ˝. 0 = ∞∞¥Ÿ, 1 = ≈©¥Ÿ, 2 = ≈©∞≈≥™ ∞∞¥Ÿ.
-3=¿€¥Ÿ, 4=¿€∞≈≥™ ∞∞¥Ÿ.
-                            // (æ◊º«¬ ) 5 = ∞™πŸ≤ﬁ, 6 = ¡ı∞°, 7 = ∞®º“
+    short			nVarNo;	// Î≥ÄÏàò Î≤àÌò∏ : 0 ~ , Ï°¥Ïùò Í≤ΩÏ†úÎç∞Ïù¥ÌÑ∞ Î≥ÄÏàò
+    int				iValue;	// ÎπÑÍµêÌï† Îç∞Ïù¥ÌÑ∞Í∞í (iTypeÏùò Îä•Î†•Ïπò Op iValue)
+    BYTE			btOp;	// iValueÍ∞íÏóê ÎåÄÌïú ÎπÑÍµêÎ∞©Î≤ï. 0 = Í∞ôÎã§, 1 = ÌÅ¨Îã§, 2 = ÌÅ¨Í±∞ÎÇò Í∞ôÎã§.
+3=ÏûëÎã§, 4=ÏûëÍ±∞ÎÇò Í∞ôÎã§.
+                            // (Ïï°ÏÖòÏ™Ω) 5 = Í∞íÎ∞îÍøà, 6 = Ï¶ùÍ∞Ä, 7 = Í∞êÏÜå
 } AICOND14, AICOND15, AICOND16, AIACT25, AIACT26, AIACT27;
 */
 #ifndef __SERVER
@@ -500,13 +500,13 @@ typedef struct	tagValue
 bool
 F_AICOND_17(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 /*
-/// NPC º±≈√
+/// NPC ÏÑ†ÌÉù
 struct AICOND17
 {
     DWORD			dwSize;
     AITYPE			Type;
 
-    int				iNpcNo; /// º±≈√«“ NPC π¯»£
+    int				iNpcNo; /// ÏÑ†ÌÉùÌï† NPC Î≤àÌò∏
 };
 */
 #ifndef __SERVER
@@ -555,17 +555,17 @@ bool
 F_AICOND_20(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     AICOND20* pCond = (AICOND20*)pConDATA;
 /*
-// ¿⁄Ω≈(∏ÛΩ∫≈Õ)¿« ¥…∑¬ƒ°/±‚≈∏/¡÷¿Œƒ≥∏Ø≈Õ ∞¸∑√ µ•¿Ã≈Õ √º≈©
+// ÏûêÏã†(Î™¨Ïä§ÌÑ∞)Ïùò Îä•Î†•Ïπò/Í∏∞ÌÉÄ/Ï£ºÏù∏Ï∫êÎ¶≠ÌÑ∞ Í¥ÄÎ†® Îç∞Ïù¥ÌÑ∞ Ï≤¥ÌÅ¨
 struct AICOND20
 {
     DWORD	dwSize;
     AITYPE	Type;
 
-    BYTE	btAbType ;		// ¥…∑¬ƒ° (∑π∫ß=0, ∞¯∞›∑¬=1, πÊæÓ∑¬=2, «◊∏∂∑¬=3, HP=4, ∏≈∑¬=5)
+    BYTE	btAbType ;		// Îä•Î†•Ïπò (Î†àÎ≤®=0, Í≥µÍ≤©Î†•=1, Î∞©Ïñ¥Î†•=2, Ìï≠ÎßàÎ†•=3, HP=4, Îß§Î†•=5)
 
-    int		iValue;	// ∫Ò±≥«“ µ•¿Ã≈Õ∞™ (iType¿« ¥…∑¬ƒ° Op iValue)
-    BYTE	btOp;	// iData∞™ø° ¥Î«— ∫Ò±≥πÊπ˝. 0 = ∞∞¥Ÿ, 1 = ≈©¥Ÿ, 2 = ≈©∞≈≥™ ∞∞¥Ÿ. 3=¿€¥Ÿ,
-4=¿€∞≈≥™ ∞∞¥Ÿ.
+    int		iValue;	// ÎπÑÍµêÌï† Îç∞Ïù¥ÌÑ∞Í∞í (iTypeÏùò Îä•Î†•Ïπò Op iValue)
+    BYTE	btOp;	// iDataÍ∞íÏóê ÎåÄÌïú ÎπÑÍµêÎ∞©Î≤ï. 0 = Í∞ôÎã§, 1 = ÌÅ¨Îã§, 2 = ÌÅ¨Í±∞ÎÇò Í∞ôÎã§. 3=ÏûëÎã§,
+4=ÏûëÍ±∞ÎÇò Í∞ôÎã§.
 };
 */
 #ifndef __SERVER
@@ -584,7 +584,7 @@ F_AICOND_21(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     return false;
 #else
     AICOND21* pCond = (AICOND21*)pConDATA;
-    /// ¡÷¿Œƒ≥∏Ø≈Õ∞° ¡∏¿Á ¿Øπ´ »Æ¿Œ
+    /// Ï£ºÏù∏Ï∫êÎ¶≠ÌÑ∞Í∞Ä Ï°¥Ïû¨ Ïú†Î¨¥ ÌôïÏù∏
 
     return (NULL == pAIParam->m_pSourCHAR->Get_CALLER());
 #endif
@@ -596,7 +596,7 @@ F_AICOND_22(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     return false;
 #else
     AICOND22* pCond = (AICOND22*)pConDATA;
-    /// ¡÷¿Œƒ≥∏Ø≈Õ∞° «ˆ¿Á ∞¯∞›≈∏∞Ÿ¿ª ∞°¡ˆ∞Ì ¿÷¥¬∞° ?
+    /// Ï£ºÏù∏Ï∫êÎ¶≠ÌÑ∞Í∞Ä ÌòÑÏû¨ Í≥µÍ≤©ÌÉÄÍ≤üÏùÑ Í∞ÄÏßÄÍ≥† ÏûàÎäîÍ∞Ä ?
 
     CAI_OBJ* pOwner = pAIParam->m_pSourCHAR->Get_CALLER();
     if (!pOwner)
@@ -608,7 +608,7 @@ F_AICOND_22(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 
 bool
 F_AICOND_23(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
-    /// ø˘µÂΩ√∞¢ √º≈©
+    /// ÏõîÎìúÏãúÍ∞Å Ï≤¥ÌÅ¨
     AICOND23* pCond = (AICOND23*)pConDATA;
 
     if ((UINT)pAIParam->m_pSourCHAR->Get_WorldTIME() >= pCond->ulTime
@@ -621,19 +621,19 @@ F_AICOND_23(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 bool
 F_AICOND_24(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 /*
-/// ≥Ø¬• + Ω√∞¢ √º≈©
+/// ÎÇ†Ïßú + ÏãúÍ∞Å Ï≤¥ÌÅ¨
 struct AICOND24
 {
     DWORD			dwSize;
     AITYPE			Type;
 
-    BYTE			btDate;		// ≥Ø¬•. (1 ~ 31)
+    BYTE			btDate;		// ÎÇ†Ïßú. (1 ~ 31)
 
-    BYTE			btHour1;	// Ω√ (1 ~ 24)
-    BYTE			btMin1;		// ∫– (1 ~ 60)
-    BYTE			btHour2;	// Ω√
-    BYTE			btMin2;		// ∫–
-    //  «ˆ¿Á¿« ≥Ø¬•∞° btDate ¿Ã∞Ì, btHour1Ω√ btMin1∫–  <= «ˆ¿Á Ω√∞¢ <= btHour1Ω√ btMin1∫– ¿Ã∏È true
+    BYTE			btHour1;	// Ïãú (1 ~ 24)
+    BYTE			btMin1;		// Î∂Ñ (1 ~ 60)
+    BYTE			btHour2;	// Ïãú
+    BYTE			btMin2;		// Î∂Ñ
+    //  ÌòÑÏû¨Ïùò ÎÇ†ÏßúÍ∞Ä btDate Ïù¥Í≥†, btHour1Ïãú btMin1Î∂Ñ  <= ÌòÑÏû¨ ÏãúÍ∞Å <= btHour1Ïãú btMin1Î∂Ñ Ïù¥Î©¥ true
 };
 */
 #ifdef __SERVER
@@ -659,19 +659,19 @@ struct AICOND24
 bool
 F_AICOND_25(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 /*
-/// ø‰¿œ + Ω√∞¢ √º≈©
+/// ÏöîÏùº + ÏãúÍ∞Å Ï≤¥ÌÅ¨
 struct AICOND25
 {
     DWORD			dwSize;
     AITYPE			Type;
 
-    BYTE			btWeekDay;	// ø‰¿œ (0 ~ 6)
+    BYTE			btWeekDay;	// ÏöîÏùº (0 ~ 6)
 
-    BYTE			btHour1;	// Ω√
-    BYTE			btMin1;		// ∫–
+    BYTE			btHour1;	// Ïãú
+    BYTE			btMin1;		// Î∂Ñ
     BYTE			btHour2;
     BYTE			btMin2;
-    //  «ˆ¿Á¿« ø‰¿œ¿Ã btWeekDay ¿Ã∞Ì, btHour1Ω√ btMin1∫–  <= «ˆ¿Á Ω√∞¢ <= btHour1Ω√ btMin1∫– ¿Ã∏È
+    //  ÌòÑÏû¨Ïùò ÏöîÏùºÏù¥ btWeekDay Ïù¥Í≥†, btHour1Ïãú btMin1Î∂Ñ  <= ÌòÑÏû¨ ÏãúÍ∞Å <= btHour1Ïãú btMin1Î∂Ñ Ïù¥Î©¥
 true
 };
 */
@@ -709,20 +709,20 @@ bool
 F_AICOND_27(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 /*
  * Struct Name : AICOND_27
- * ¡÷∫Øƒ≥∏Ø≈Õ ªÛ»≤ √º≈©
- * Explain : √º≈©π¸¿ß iDistance¿Ã≥ªø° ƒ≥∏Ø≈Õ≈∏¿‘ cChrType¿Ã∞Ì ∑π∫ß¬˜∞° cLevelDiff¿ÃªÛ¿Ã∞Ì ƒ≥∏Ø≈Õºˆ∞°
-wChrNum¿ÃªÛ/¿Ã«œ¿Œ ∞ÊøÏ truct		AICOND27			// 2π¯ ¡∂∞««œ∞Ì ∫ÒΩ¡...
+ * Ï£ºÎ≥ÄÏ∫êÎ¶≠ÌÑ∞ ÏÉÅÌô© Ï≤¥ÌÅ¨
+ * Explain : Ï≤¥ÌÅ¨Î≤îÏúÑ iDistanceÏù¥ÎÇ¥Ïóê Ï∫êÎ¶≠ÌÑ∞ÌÉÄÏûÖ cChrTypeÏù¥Í≥† Î†àÎ≤®Ï∞®Í∞Ä cLevelDiffÏù¥ÏÉÅÏù¥Í≥† Ï∫êÎ¶≠ÌÑ∞ÏàòÍ∞Ä
+wChrNumÏù¥ÏÉÅ/Ïù¥ÌïòÏù∏ Í≤ΩÏö∞ truct		AICOND27			// 2Î≤à Ï°∞Í±¥ÌïòÍ≥† ÎπÑÏä∑...
 {
     DWORD		dwSize ;
     AITYPE		Type ;
-    int			iDistance ;		// √º≈©∞≈∏Æ
-    BYTE		cChrType ;		// ƒ≥∏Ø≈Õ ≈∏¿‘ (æ∆πŸ≈∏=0,∏ÛΩ∫≈Õ=1)
+    int			iDistance ;		// Ï≤¥ÌÅ¨Í±∞Î¶¨
+    BYTE		cChrType ;		// Ï∫êÎ¶≠ÌÑ∞ ÌÉÄÏûÖ (ÏïÑÎ∞îÌÉÄ=0,Î™¨Ïä§ÌÑ∞=1)
     short		nLevelDiff ;	//
     short		nLevelDiff2 ;	// nLevelDiff <= XXXX <= nLevelDiff2
 
-    WORD		wChrNum ;		// ƒ≥∏Ø≈Õ º˝¿⁄
-    BYTE		btOp;			// ƒ≥∏Ø≈Õ º˝¿⁄ø° ¥Î«— OP (0 = ∞∞¥Ÿ, 1 = ≈©¥Ÿ, 2 = ≈©∞≈≥™ ∞∞¥Ÿ.
-3=¿€¥Ÿ, 4=¿€∞≈≥™ ∞∞¥Ÿ.) } ;
+    WORD		wChrNum ;		// Ï∫êÎ¶≠ÌÑ∞ Ïà´Ïûê
+    BYTE		btOp;			// Ï∫êÎ¶≠ÌÑ∞ Ïà´ÏûêÏóê ÎåÄÌïú OP (0 = Í∞ôÎã§, 1 = ÌÅ¨Îã§, 2 = ÌÅ¨Í±∞ÎÇò Í∞ôÎã§.
+3=ÏûëÎã§, 4=ÏûëÍ±∞ÎÇò Í∞ôÎã§.) } ;
 */
 #ifdef __SERVER
     AICOND27* pCond = (AICOND27*)pConDATA;
@@ -743,12 +743,12 @@ wChrNum¿ÃªÛ/¿Ã«œ¿Œ ∞ÊøÏ truct		AICOND27			// 2π¯ ¡∂∞««œ∞Ì ∫ÒΩ¡...
                 iCurDist = (int)(pAIParam->m_pSourCHAR->Get_DISTANCE(pFindCHAR));
                 if (iCurDist < iNearDist) {
                     iNearDist = iCurDist;
-                    // ∞°¿Â ∞°±ÓøÓ ≥—...
+                    // Í∞ÄÏû• Í∞ÄÍπåÏö¥ ÎÑò...
                     pAIParam->m_pNearCHAR = pFindCHAR;
                 }
 
                 // if ( iFindCNT >= pCond->wChrNum ) {
-                // ∞°¿Â ∏∂¡ˆ∏∑ø° √£¿∫≥—
+                // Í∞ÄÏû• ÎßàÏßÄÎßâÏóê Ï∞æÏùÄÎÑò
                 //	pAIParam->m_pFindCHAR = pFindCHAR;
                 //	return true;
                 //}
@@ -766,16 +766,16 @@ wChrNum¿ÃªÛ/¿Ã«œ¿Œ ∞ÊøÏ truct		AICOND27			// 2π¯ ¡∂∞««œ∞Ì ∫ÒΩ¡...
 bool
 F_AICOND_28(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
 /*
-// ∏ÛΩ∫≈Õ ∫Øºˆ √º≈©
+// Î™¨Ïä§ÌÑ∞ Î≥ÄÏàò Ï≤¥ÌÅ¨
 struct	AICOND28
 {
     DWORD			dwSize;
     AITYPE			Type;
 
-    short			nVarNo;	// ∫Øºˆ π¯»£ : 0 ~ 4
-    int				iValue;	// ∫Ò±≥«“ µ•¿Ã≈Õ∞™
-    BYTE			btOp;	// iValue∞™ø° ¥Î«— ∫Ò±≥πÊπ˝. 0 = ∞∞¥Ÿ, 1 = ≈©¥Ÿ, 2 = ≈©∞≈≥™ ∞∞¥Ÿ.
-3=¿€¥Ÿ, 4=¿€∞≈≥™ ∞∞¥Ÿ. } ;
+    short			nVarNo;	// Î≥ÄÏàò Î≤àÌò∏ : 0 ~ 4
+    int				iValue;	// ÎπÑÍµêÌï† Îç∞Ïù¥ÌÑ∞Í∞í
+    BYTE			btOp;	// iValueÍ∞íÏóê ÎåÄÌïú ÎπÑÍµêÎ∞©Î≤ï. 0 = Í∞ôÎã§, 1 = ÌÅ¨Îã§, 2 = ÌÅ¨Í±∞ÎÇò Í∞ôÎã§.
+3=ÏûëÎã§, 4=ÏûëÍ±∞ÎÇò Í∞ôÎã§. } ;
 */
 #ifdef __SERVER
     tagValueAI* pVALUE = (tagValueAI*)pConDATA;
@@ -785,18 +785,18 @@ struct	AICOND28
 #endif
 }
 
-// ∞¯∞›¿⁄ / ∞¯∞›≈∏∞Ÿ¿Ã ≈¨∑£∏∂Ω∫≈Õ¿Œ∞° ?
+// Í≥µÍ≤©Ïûê / Í≥µÍ≤©ÌÉÄÍ≤üÏù¥ ÌÅ¥ÎûúÎßàÏä§ÌÑ∞Ïù∏Í∞Ä ?
 bool
 F_AICOND_29(stCondHead* pConDATA, t_AIPARAM* pAIParam) {
     AICOND29* pCond = (AICOND29*)pConDATA;
 
     switch (pCond->btTargetType) {
-        case 0: // 0 : ∞¯∞›¿⁄
+        case 0: // 0 : Í≥µÍ≤©Ïûê
             if (NULL == pAIParam->m_pDestCHAR)
                 return false;
             return pAIParam->m_pDestCHAR->Is_ClanMASTER();
 
-        case 1: // 1 : ∞¯∞›≈∏∞Ÿ
+        case 1: // 1 : Í≥µÍ≤©ÌÉÄÍ≤ü
         {
             CAI_OBJ* pTarget = pAIParam->m_pSourCHAR->Get_TARGET();
             if (NULL == pTarget)

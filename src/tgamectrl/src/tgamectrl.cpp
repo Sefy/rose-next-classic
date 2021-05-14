@@ -1,4 +1,4 @@
-// TGameCtrl.cpp : DLL ÀÀ¿ë ÇÁ·Î±×·¥¿¡ ´ëÇÑ ÁøÀÔÁ¡À» Á¤ÀÇÇÕ´Ï´Ù.
+// TGameCtrl.cpp : DLL ì‘ìš© í”„ë¡œê·¸ëž¨ì— ëŒ€í•œ ì§„ìž…ì ì„ ì •ì˜í•©ë‹ˆë‹¤.
 //
 
 #include "stdafx.h"
@@ -76,9 +76,9 @@ void	TWriteConsole(const char *fmt,...)
                     &nChars,
                     NULL );
 
-    /* ±×³É ÀÌ·¸°Ô ÇØÁÖ¸é ¾Ë¾Æ¼­ ¶ß°Ú°Å´Ï ÇÏ´Â... ÀÌ ¾ÈÀÏÇÑ »ý°¢  /(^0^)/ */
+    /* ê·¸ëƒ¥ ì´ë ‡ê²Œ í•´ì£¼ë©´ ì•Œì•„ì„œ ëœ¨ê² ê±°ë‹ˆ í•˜ëŠ”... ì´ ì•ˆì¼í•œ ìƒê°  /(^0^)/ */
 
-/* ¾ÆÀÌ ÇãÁ¢ÇØ ¤Ð.¤Ð  */
+/* ì•„ì´ í—ˆì ‘í•´ ã… .ã…   */
 
 //	va_end(vaArglist);
 //}

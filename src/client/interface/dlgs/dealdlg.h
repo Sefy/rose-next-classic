@@ -10,10 +10,10 @@ class CDragItem;
 class CTCommand;
 
 /**
- * NPC»óÁ¡¿¡¼­ °Å·¡½Ã ¿©·¯°³ÀÇ ¹°°ÇÀ» ÇÑ²¨¹ø¿¡ »ç°Å³ª ÆÈ¶§ »ç¿ëÇÏ´Â ´ÙÀÌ¾ó·Î±×( µğÆúÆ®·Î °°ÀÌ ¶á´Ù )
+ * NPCìƒì ì—ì„œ ê±°ë˜ì‹œ ì—¬ëŸ¬ê°œì˜ ë¬¼ê±´ì„ í•œêº¼ë²ˆì— ì‚¬ê±°ë‚˜ íŒ”ë•Œ ì‚¬ìš©í•˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸( ë””í´íŠ¸ë¡œ ê°™ì´ ëœ¬ë‹¤ )
  *	- Observable : CDealData
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/14
  */
 class CDealDLG: public CTDialog, public IObserver {
@@ -39,8 +39,8 @@ public:
     virtual void Update(CObservable* pObservable, CTObject* pObj);
 
     enum dealDLG {
-        DEAL_BTN_CLOSE = 10, // 1.Ã¢´İ±â
-        DEAL_BTN_OK, // 2.°Å·¡È®ÀÎ
+        DEAL_BTN_CLOSE = 10, // 1.ì°½ë‹«ê¸°
+        DEAL_BTN_OK, // 2.ê±°ë˜í™•ì¸
     };
 
 private:

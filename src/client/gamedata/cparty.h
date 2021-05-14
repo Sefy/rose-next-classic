@@ -6,14 +6,14 @@
 struct PartyMember {
     tag_PARTY_MEMBER m_Info;
     std::string m_strName;
-    DWORD m_dwDisconnectedTime; ///ºñÁ¤»ó Á¾·á½Ã Á¢¼ÓÀÌ ²÷¿©Áø »ç¿ëÀÚ
+    DWORD m_dwDisconnectedTime; ///ë¹„ì •ìƒ ì¢…ë£Œì‹œ ì ‘ì†ì´ ëŠì—¬ì§„ ì‚¬ìš©ì
 };
 
 /**
- * ÆÄÆ¼½Ã ÆÄÆ¼ Data¸¦ °¡Áö°í ÀÖ´Â Class
+ * íŒŒí‹°ì‹œ íŒŒí‹° Dataë¥¼ ê°€ì§€ê³  ìˆëŠ” Class
  *	- Observer : CPartyDlg
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CParty: public CObservable {
@@ -54,9 +54,9 @@ public:
     void SetExp(int iExp);
     void LevelUp();
 
-    void Make(); ///³»°¡ ÆÄÆ¼¸¦ ¸¸µé¾úÀ»°æ¿ì
-    void Join(); ///ÆÄÆ¼¿¡ Âü°¡ÇßÀ»°æ¿ì
-    void Leave(); ///ÆÄÆ¼¸¦ ¶°³¯¶§
+    void Make(); ///ë‚´ê°€ íŒŒí‹°ë¥¼ ë§Œë“¤ì—ˆì„ê²½ìš°
+    void Join(); ///íŒŒí‹°ì— ì°¸ê°€í–ˆì„ê²½ìš°
+    void Leave(); ///íŒŒí‹°ë¥¼ ë– ë‚ ë•Œ
     void Destory();
     void Update();
 

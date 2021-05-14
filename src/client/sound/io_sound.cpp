@@ -203,7 +203,7 @@ CSoundLIST::KEY_StopSound3DLoop(t_HASHKEY HashKEY) {
     tagSndFILE* pSoundData = Get_DATAUseKEY(HashKEY);
 
     if (NULL == pSoundData) {
-        // »ç¿îµåÆÄÀÏ¸®½ºÆ® ¿¡ µî·Ï µÇÁö ¾Ê´Â »ç¿îµå ÆÄÀÏÀÌ´Ù.
+        // ì‚¬ìš´ë“œíŒŒì¼ë¦¬ìŠ¤íŠ¸ ì— ë“±ë¡ ë˜ì§€ ì•ŠëŠ” ì‚¬ìš´ë“œ íŒŒì¼ì´ë‹¤.
         return false;
     }
 
@@ -246,7 +246,7 @@ CSoundLIST::IDX_StopSound3DLoop(short nIndex) {
     tagSndFILE* pSoundData = Get_DATAUseIDX(nIndex);
 
     if (NULL == pSoundData) {
-        // »ç¿îµåÆÄÀÏ¸®½ºÆ® ¿¡ µî·Ï µÇÁö ¾Ê´Â »ç¿îµå ÆÄÀÏÀÌ´Ù.
+        // ì‚¬ìš´ë“œíŒŒì¼ë¦¬ìŠ¤íŠ¸ ì— ë“±ë¡ ë˜ì§€ ì•ŠëŠ” ì‚¬ìš´ë“œ íŒŒì¼ì´ë‹¤.
         return false;
     }
 
@@ -327,7 +327,7 @@ CSoundLIST::PlaySoundFile3D(char* szFileName,
 }
 
 //-------------------------------------------------------------------------------------------------
-/// @bug pSndFileDATA ÀÖ´Âµ¥.. pDATA->m_DATA NULL  ÀÏ °æ¿ì°¡ ÀÖ³Ä?
+/// @bug pSndFileDATA ìžˆëŠ”ë°.. pDATA->m_DATA NULL  ì¼ ê²½ìš°ê°€ ìžˆëƒ?
 t_HASHKEY
 CSoundLIST::AddSoundFile(char* szFileName, short nMixCNT, short nIndex) {
     t_HASHKEY uiKEY = CStr::GetHASH(szFileName);
@@ -355,7 +355,7 @@ CSoundLIST::SubSoundFile(t_HASHKEY uiKEY) {
     if (pSndFileDATA) {
         if (pSndFileDATA->m_DATA) {
             if (--pSndFileDATA->m_DATA->m_nRefCNT <= 0) {
-                pSndFileDATA->m_iRefCnt = 0; // °­Á¦·Î 1·Î ¼³Á¤ÇÏ¿© »èÁ¦´ë±â ¹öÆÛ¿¡ µî·ÏµÇµµ·Ï....
+                pSndFileDATA->m_iRefCnt = 0; // ê°•ì œë¡œ 1ë¡œ ì„¤ì •í•˜ì—¬ ì‚­ì œëŒ€ê¸° ë²„í¼ì— ë“±ë¡ë˜ë„ë¡....
                 this->Sub_DATA(pSndFileDATA, false);
             }
         }

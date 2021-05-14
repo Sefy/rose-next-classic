@@ -6,10 +6,10 @@
 #include "IScrollModel.h"
 
 //--------------------------------------------------------------------------------------------------------------------------------------
-///	Å×ÀÌºí Class
-///	- childrenÀ» ¶óÀÎ´ç ÄÃ·³ °³¼ö·Î ³ª´©¾î Ã³¸®ÇÑ´Ù.
+///	í…Œì´ë¸” Class
+///	- childrenì„ ë¼ì¸ë‹¹ ì»¬ëŸ¼ ê°œìˆ˜ë¡œ ë‚˜ëˆ„ì–´ ì²˜ë¦¬í•œë‹¤.
 ///
-/// @Author				ÃÖÁ¾Áø
+/// @Author				ìµœì¢…ì§„
 /// @Date				2005/08/30
 //--------------------------------------------------------------------------------------------------------------------------------------
 class TGAMECTRL_API CJTable: public CWinCtrl, public IScrollModel {
@@ -38,24 +38,24 @@ public:
     virtual RECT GetWindowRect();
 
     void Add(CWinCtrl* pCtrl);
-    void SetColumnCount(int iCount); /// ¶óÀÎ´ç Cell °³¼ö Set
+    void SetColumnCount(int iCount); /// ë¼ì¸ë‹¹ Cell ê°œìˆ˜ Set
     void SetCellWidth(int iWidth); /// Cell Width Set
     void SetCellHeight(int iHeight); /// Cell Height Set
-    void SetRowMargin(int iMargin); /// ¶óÀÎ°£ Space Set
-    void SetColMargin(int iMargin); /// Cell°£ Space Set
+    void SetRowMargin(int iMargin); /// ë¼ì¸ê°„ Space Set
+    void SetColMargin(int iMargin); /// Cellê°„ Space Set
     CWinCtrl* GetItem(int iIndex);
     int GetSelectedItemID();
 
 protected:
-    int m_iValue; /// È­¸é¿¡¼­ ¸ÇÀ§¿¡ ±×·ÁÁú Row Index
-    int m_iExtent; /// ÇÑ È­¸é¿¡ ±×·ÁÁú Rows
-    int m_iColumnCount; /// ¶óÀÎ´ç Cell °³¼ö
+    int m_iValue; /// í™”ë©´ì—ì„œ ë§¨ìœ„ì— ê·¸ë ¤ì§ˆ Row Index
+    int m_iExtent; /// í•œ í™”ë©´ì— ê·¸ë ¤ì§ˆ Rows
+    int m_iColumnCount; /// ë¼ì¸ë‹¹ Cell ê°œìˆ˜
     int m_iCellWidth; /// Cell Width
     int m_iCellHeight; /// Cell Height
-    int m_iRowMargin; /// Row°£ Space
-    int m_iColMargin; /// Cell°£ Space
+    int m_iRowMargin; /// Rowê°„ Space
+    int m_iColMargin; /// Cellê°„ Space
 
-    int m_iSelectedItemID; /// ¼±ÅÃµÇ¾îÁø ItemÀÇ ID
+    int m_iSelectedItemID; /// ì„ íƒë˜ì–´ì§„ Itemì˜ ID
 
     std::vector<CWinCtrl*> m_Items;
     std::vector<CWinCtrl*> m_ViewItems;

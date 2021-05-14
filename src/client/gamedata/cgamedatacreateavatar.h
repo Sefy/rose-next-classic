@@ -7,10 +7,10 @@
 class CJustModelAVT;
 
 /**
- * Ä³¸¯ÅÍ ¼±ÅÃÇÏ´Â ºÎºĞ¿¡¼­ »ç¿ëÇÏ´Â Data Class + ¾à°£ÀÇ Á¤º¸ Ãâ·Â Ãß°¡
- *	- CJustModelAVT list¿Í Interface¿ë DataµéÀ» º¸°üÇÑ´Ù.
+ * ìºë¦­í„° ì„ íƒí•˜ëŠ” ë¶€ë¶„ì—ì„œ ì‚¬ìš©í•˜ëŠ” Data Class + ì•½ê°„ì˜ ì •ë³´ ì¶œë ¥ ì¶”ê°€
+ *	- CJustModelAVT listì™€ Interfaceìš© Dataë“¤ì„ ë³´ê´€í•œë‹¤.
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CGameDataCreateAvatar {
@@ -21,7 +21,7 @@ public:
     ~CGameDataCreateAvatar(void);
     void Clear();
 
-    ///¸ğµ¨°ü·Ã
+    ///ëª¨ë¸ê´€ë ¨
     void AddCreateAvatar(CJustModelAVT* pAvatar);
     void RemoveCreateAvatar(const char* pszName);
 
@@ -40,7 +40,7 @@ public:
     int GetAvatarCount();
 
 private:
-    std::string m_strSelectedAvatarName; ///¼±ÅÃµÇ¾îÁ® ÀÖ´Â ¾Æ¹ÙÅ¸ÀÇ ÀÌ¸§
+    std::string m_strSelectedAvatarName; ///ì„ íƒë˜ì–´ì ¸ ìˆëŠ” ì•„ë°”íƒ€ì˜ ì´ë¦„
 
     std::multimap<int, CJustModelAVT*> m_avatars_premium;
     std::multimap<int, CJustModelAVT*> m_avatars_platinum;

@@ -7,7 +7,7 @@
 //---------------------------------------------------------------------------------------------------------------------
 /// Button Class
 ///
-/// @Author	ÃÖÁ¾Áø
+/// @Author	ìµœì¢…ì§„
 /// @Date	2005/8/30
 //---------------------------------------------------------------------------------------------------------------------
 class TGAMECTRL_API CTButton: public CWinCtrl {
@@ -49,27 +49,27 @@ public:
     void SetBlinkGid(int iGid);
 
 protected:
-    CSinglelineString m_text; /// ¹öÆ°À§¿¡ Ãâ·ÂµÉ Text
+    CSinglelineString m_text; /// ë²„íŠ¼ìœ„ì— ì¶œë ¥ë  Text
 
     int m_iButtonState; /// BS_NORMAL, BS_MOUSEOVER, BS_CLICKED
 
-    int m_iModuleID; /// ImagesÀÇ ¸ðµâ ID - ÃÖ´ë 5°³ »óÅÂÀÇ ÀÌ¹ÌÁö¸¦ ¼³Á¤ÇÒ¼ö ÀÖÁö¸¸ ¸ðµâÀº
-                     /// ÇÑ°³ÀÌ´Ù(°øÅëµÈ ¸ðµâ¿¡ ÀÖ¾î¾ß ÇÑ´Ù)
+    int m_iModuleID; /// Imagesì˜ ëª¨ë“ˆ ID - ìµœëŒ€ 5ê°œ ìƒíƒœì˜ ì´ë¯¸ì§€ë¥¼ ì„¤ì •í• ìˆ˜ ìžˆì§€ë§Œ ëª¨ë“ˆì€
+                     /// í•œê°œì´ë‹¤(ê³µí†µëœ ëª¨ë“ˆì— ìžˆì–´ì•¼ í•œë‹¤)
 
-    int m_iNormalGraphicID; /// º¸Åë»óÅÂ¿¡¼­ÀÇ ÀÌ¹ÌÁö ID
-    int m_iOverGraphicID; /// ¸¶¿ì½º°¡ ¹öÆ°¿µ¿ªÀ§¿¡ ÀÖÀ»¶§ÀÇ ÀÌ¹ÌÁö ID
-    int m_iDownGraphicID; ///	À¯ÀúÀÇ ÀÔ·ÂÀ¸·Î ¹öÆ°ÀÌ ´­·ÈÀ»´ëÀÇ ÀÌ¹ÌÁö ID
-    int m_iDisableGrahicID; /// Disable»óÅÂÀÏ¶§ÀÇ ÀÌ¹ÌÁö ID
-    int m_iBlinkGraphicID; /// ±ô¹ÚÀÓ»óÅÂÀÏ¶§ ³ë¸»»óÅÂ¿Í ¹ø°¥¾Æ Ç¥½ÃµÉ ÀÌ¹ÌÁö ID
-    int m_iSourceNormalGraphicID; /// ±ô¹ÚÀÓ»óÅÂÀÏ¶§ ÀÓ½Ã·Î ½ÇÁ¦ ³ë¸»»óÅÂÀÇ ÀÌ¹ÌÁö ID¸¦ ÀúÀåÇÏ°í
-                                  /// ÀÖÀ» º¯¼ö
+    int m_iNormalGraphicID; /// ë³´í†µìƒíƒœì—ì„œì˜ ì´ë¯¸ì§€ ID
+    int m_iOverGraphicID; /// ë§ˆìš°ìŠ¤ê°€ ë²„íŠ¼ì˜ì—­ìœ„ì— ìžˆì„ë•Œì˜ ì´ë¯¸ì§€ ID
+    int m_iDownGraphicID; ///	ìœ ì €ì˜ ìž…ë ¥ìœ¼ë¡œ ë²„íŠ¼ì´ ëˆŒë ¸ì„ëŒ€ì˜ ì´ë¯¸ì§€ ID
+    int m_iDisableGrahicID; /// Disableìƒíƒœì¼ë•Œì˜ ì´ë¯¸ì§€ ID
+    int m_iBlinkGraphicID; /// ê¹œë°•ìž„ìƒíƒœì¼ë•Œ ë…¸ë§ìƒíƒœì™€ ë²ˆê°ˆì•„ í‘œì‹œë  ì´ë¯¸ì§€ ID
+    int m_iSourceNormalGraphicID; /// ê¹œë°•ìž„ìƒíƒœì¼ë•Œ ìž„ì‹œë¡œ ì‹¤ì œ ë…¸ë§ìƒíƒœì˜ ì´ë¯¸ì§€ IDë¥¼ ì €ìž¥í•˜ê³ 
+                                  /// ìžˆì„ ë³€ìˆ˜
 
-    int m_iOverSoundID; /// ¹öÆ°ÀÌ
-    int m_iClickSoundID; /// ¹öÆ° Å¬¸¯½Ã PlayÇÒ »ç¿îµå ID
-    int m_iBlink; /// ±ô¹ÚÀÓ »óÅÂÀÎ°¡?
-    int m_iBlinkTime; /// ±ô¹ÚÀÓ»óÅÂÀÏ°æ¿ì ½Ã°£ °£°Ý
+    int m_iOverSoundID; /// ë²„íŠ¼ì´
+    int m_iClickSoundID; /// ë²„íŠ¼ í´ë¦­ì‹œ Playí•  ì‚¬ìš´ë“œ ID
+    int m_iBlink; /// ê¹œë°•ìž„ ìƒíƒœì¸ê°€?
+    int m_iBlinkTime; /// ê¹œë°•ìž„ìƒíƒœì¼ê²½ìš° ì‹œê°„ ê°„ê²©
     DWORD m_dwPrevUpdateTime;
-    bool m_bNoImage; /// ÀÌ¹ÌÁö ¾ø´Â ¹öÆ°ÀÎ°¡?
-    DWORD m_textcolor; /// ÅØ½ºÆ® Ä®¶ó
+    bool m_bNoImage; /// ì´ë¯¸ì§€ ì—†ëŠ” ë²„íŠ¼ì¸ê°€?
+    DWORD m_textcolor; /// í…ìŠ¤íŠ¸ ì¹¼ë¼
 };
 #endif /// _TBUTTON_

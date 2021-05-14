@@ -54,7 +54,7 @@ public:
 
     int GetPan() { return m_iSoundPan; }
 
-    // false°æ¿ì ÆÄÀÏÀ» Á÷Á¢ ·Îµå ÇØ¾ß ÇÑ´Ù.
+    // falseê²½ìš° íŒŒì¼ì„ ì§ì ‘ ë¡œë“œ í•´ì•¼ í•œë‹¤.
     bool KEY_PlaySound(t_HASHKEY HashKEY);
     bool KEY_PlaySound(t_HASHKEY HashKEY, int iVolume, int iPan = SOUND_PAN_CENTER);
     bool KEY_PlaySound3D(t_HASHKEY HashKEY,

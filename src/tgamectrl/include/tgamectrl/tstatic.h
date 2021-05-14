@@ -7,11 +7,11 @@
 class CTImage;
 
 /**
- *	ÀÌ¹ÌÁö¿Í ½ºÆ®¸µÀ» º¸¿©ÁÙ¼ö ÀÖ´Â ÀÏ¹İÀûÀÎ Class
- *		- ¾²ÀÌ´Â°÷Àº º°·Î ¾ø´Ù
- *		- ¿¬°üClass	: CTDefaultlistCellRenderer, CTListCellRenderer
+ *	ì´ë¯¸ì§€ì™€ ìŠ¤íŠ¸ë§ì„ ë³´ì—¬ì¤„ìˆ˜ ìˆëŠ” ì¼ë°˜ì ì¸ Class
+ *		- ì“°ì´ëŠ”ê³³ì€ ë³„ë¡œ ì—†ë‹¤
+ *		- ì—°ê´€Class	: CTDefaultlistCellRenderer, CTListCellRenderer
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/1
  */
 class TGAMECTRL_API CTStatic: public CWinCtrl {

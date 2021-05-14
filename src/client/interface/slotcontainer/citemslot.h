@@ -8,13 +8,13 @@ class CTCommand;
 class CTEventItem;
 
 /**
- * CItem ÄÁÅ×ÀÌ³Ê Å¬·¡½º
- *	- ±âÁ¸¿¡ ¼­¹ö¿Í ¼Ò½º¸¦ °øÀ¯ÇØ¼­ ¾²´ø( ÇöÀç:2005/9/15´Â ºÐ¸®µÊ) tagITEMÀ» °¡Áö´Â CInventory´Â
- *°ÔÀÓÀÎÅÍÆäÀÌ½º ±¸Çö¿¡ ¸¹Àº ºÎºÐ¿¡¼­ Á¦¾àÀÌ ÀÖ¾î tagITEMÀº CItemÀ¸·Î CInventory´Â CItemSlotÀ¸·Î
- *wrappingÇÏ¿© »ç¿ëÇÑ´Ù.
- *	- Observable·Î½á º¸À¯ÇÑ ¾ÆÀÌÅÛÀÇ Àå/Å»Âø, ½Àµæ, ¹ö¸²¿¡ µû¶ó Observerµé¿¡°Ô ¾Ë·ÁÁØ´Ù.
+ * CItem ì»¨í…Œì´ë„ˆ í´ëž˜ìŠ¤
+ *	- ê¸°ì¡´ì— ì„œë²„ì™€ ì†ŒìŠ¤ë¥¼ ê³µìœ í•´ì„œ ì“°ë˜( í˜„ìž¬:2005/9/15ëŠ” ë¶„ë¦¬ë¨) tagITEMì„ ê°€ì§€ëŠ” CInventoryëŠ”
+ *ê²Œìž„ì¸í„°íŽ˜ì´ìŠ¤ êµ¬í˜„ì— ë§Žì€ ë¶€ë¶„ì—ì„œ ì œì•½ì´ ìžˆì–´ tagITEMì€ CItemìœ¼ë¡œ CInventoryëŠ” CItemSlotìœ¼ë¡œ
+ *wrappingí•˜ì—¬ ì‚¬ìš©í•œë‹¤.
+ *	- Observableë¡œì¨ ë³´ìœ í•œ ì•„ì´í…œì˜ ìž¥/íƒˆì°©, ìŠµë“, ë²„ë¦¼ì— ë”°ë¼ Observerë“¤ì—ê²Œ ì•Œë ¤ì¤€ë‹¤.
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CItemSlot: public CObservable {

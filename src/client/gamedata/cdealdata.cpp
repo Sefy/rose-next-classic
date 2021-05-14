@@ -24,7 +24,7 @@ CDealData::GetInstance() {
 
 void
 CDealData::Update(CObservable* pObservable, CTObject* pObj) {
-    //¸¸¾à CItemSlot¿¡ ÀÖ´Â ItemÁß Áö¿öÁø°æ¿ì¿¡ ÀÌ Method°¡ È£ÃâµÈ´Ù.
+    //ë§Œì•½ CItemSlotì— ìˆëŠ” Itemì¤‘ ì§€ì›Œì§„ê²½ìš°ì— ì´ Methodê°€ í˜¸ì¶œëœë‹¤.
     assert(pObservable);
 
     if (pObj && strcmp(pObj->toString(), "CTEventItem") == 0) {
@@ -52,7 +52,7 @@ CDealData::Update(CObservable* pObservable, CTObject* pObj) {
                 }
                 break;
             }
-            case CTEventItem::EID_CHANGE_ITEM: ///¼ö·®ÀÌ º¯°æµÇ¾úÀ»°æ¿ì¿¡ ºñ±³ÇØ¼­ Áö¿î´Ù.
+            case CTEventItem::EID_CHANGE_ITEM: ///ìˆ˜ëŸ‰ì´ ë³€ê²½ë˜ì—ˆì„ê²½ìš°ì— ë¹„êµí•´ì„œ ì§€ìš´ë‹¤.
             {
                 CItem* pItem = pEvent->GetItem();
                 std::vector<CItemFragment*>::iterator iter;
@@ -170,7 +170,7 @@ CDealData::RemoveItemFromBuyList(CItem* pItem) {
                 return;
             }
         }
-        assert(0 && "Buy List¿¡ ¾ø´Â ¾ÆÀÌÅÛÀ» »©·Á°í ½ÃµµÇÕ´Ï´Ù @CDealData::RemoveItemFromBuyList");
+        assert(0 && "Buy Listì— ì—†ëŠ” ì•„ì´í…œì„ ë¹¼ë ¤ê³  ì‹œë„í•©ë‹ˆë‹¤ @CDealData::RemoveItemFromBuyList");
     } else {
         assert(0 && "Not Found CItem By index @CDealData::RemoveItemFromBuyList ");
     }
@@ -195,7 +195,7 @@ CDealData::RemoveItemFromSellList(CItem* pItem) {
                 return;
             }
         }
-        assert(0 && "Sell List¿¡ ¾ø´Â ¾ÆÀÌÅÛÀ» »©·Á°í ½ÃµµÇÕ´Ï´Ù");
+        assert(0 && "Sell Listì— ì—†ëŠ” ì•„ì´í…œì„ ë¹¼ë ¤ê³  ì‹œë„í•©ë‹ˆë‹¤");
     } else {
         assert(0 && "Not Found CItem by index @CDealData::RemoveItemFromSellList");
     }
@@ -228,10 +228,10 @@ CDealData::SendTradeReq() {
             return;
         }
     } else {
-        /// ÆÈ²¨ »ì²¨ ´Ù °è»êÇØ¼­..
+        /// íŒ”êº¼ ì‚´êº¼ ë‹¤ ê³„ì‚°í•´ì„œ..
         if (lCurMoney - lTotalBUY < 0) {
             g_itMGR.OpenMsgBox(STR_NOT_ENOUGH_MONEY);
-            return; //µ·ÀÌ ¸ğÀÚ¶õ´Ù .....
+            return; //ëˆì´ ëª¨ìë€ë‹¤ .....
         }
     }
 

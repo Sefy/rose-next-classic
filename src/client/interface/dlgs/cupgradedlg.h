@@ -11,10 +11,10 @@ class CUpgradeDlgStateWait;
 class CUpgradeDlgStateResult;
 
 /**
- * Á¦·Ã¿¡ »ç¿ëµÇ´Â ´ÙÀÌ¾ó·Î±×
+ * ì œë ¨ì— ì‚¬ìš©ë˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *	- Observable : CUpgrade
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/14
  */
 class CUpgradeDlg: public CTDialog, public IObserver {

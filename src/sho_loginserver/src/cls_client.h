@@ -32,19 +32,19 @@ public:
     bool Send_srv_ANNOUNCE_TEXT(char* szText);
 
 public:
-    CStrVAR m_Account; /// °èÁ¤
-    DWORD password_buffer[16]; /// ºñ¹ø
-    DWORD m_dwLastLoginTIME; /// ¸¶Áö¸· Á¢¼Ó½Ã°£
+    CStrVAR m_Account; /// ê³„ì •
+    DWORD password_buffer[16]; /// ë¹„ë²ˆ
+    DWORD m_dwLastLoginTIME; /// ë§ˆì§€ë§‰ ì ‘ì†ì‹œê°„
 
-    DWORD m_dwRIGHT; /// °³¹ßÀÚ/GMµî... °ÔÀÓ³»¿¡¼­ Ä¡Æ®¶Ç´Â Á¢¼Ó ±ÇÇÑ
-    DWORD m_dwPayFLAG; /// °ú±İ ¼³Á¤µÈ ÇÃ·¹±×
+    DWORD m_dwRIGHT; /// ê°œë°œì/GMë“±... ê²Œì„ë‚´ì—ì„œ ì¹˜íŠ¸ë˜ëŠ” ì ‘ì† ê¶Œí•œ
+    DWORD m_dwPayFLAG; /// ê³¼ê¸ˆ ì„¤ì •ëœ í”Œë ˆê·¸
 
     short m_nProcSTEP;
-    char m_pJuMinNO[9]; /// ÁÖ¹Î¹øÈ£ ¾ÕÀÚ¸®~µŞÀÚ¸® 1¹øÂ°
-    bool m_bFreeServerOnly; /// ÇÁ¸®¼­¹ö¿¡¸¸ Á¢¼Ó °¡´ÉÇÏÁö ¿©ºÎ...
+    char m_pJuMinNO[9]; /// ì£¼ë¯¼ë²ˆí˜¸ ì•ìë¦¬~ë’·ìë¦¬ 1ë²ˆì§¸
+    bool m_bFreeServerOnly; /// í”„ë¦¬ì„œë²„ì—ë§Œ ì ‘ì† ê°€ëŠ¥í•˜ì§€ ì—¬ë¶€...
 
-    DWORD m_dwConnTIME; /// Á¢¼Ó½Ã°£
-    bool m_bMonClient; /// ¸ğ´ÏÅÍ¸µ Å¬¶óÀÌ¾ğÆ®ÀÎ°¡ ??
+    DWORD m_dwConnTIME; /// ì ‘ì†ì‹œê°„
+    bool m_bMonClient; /// ëª¨ë‹ˆí„°ë§ í´ë¼ì´ì–¸íŠ¸ì¸ê°€ ??
     bool m_bAdmClient; /// Raven - Server Admin Tool
 
     CDLList<CLS_Client*>::tagNODE* m_pConnNODE;
@@ -76,7 +76,7 @@ public:
 #endif
     }
     void Free() {
-        // _ASSERT( 0 == this->m_iSocketIDX );	¾î¶²°æ¿îÁö.... IROSE¿¡¼­ ¹ß»ı...
+        // _ASSERT( 0 == this->m_iSocketIDX );	ì–´ë–¤ê²½ìš´ì§€.... IROSEì—ì„œ ë°œìƒ...
         this->Clear_LIST();
     }
 
@@ -95,7 +95,7 @@ private:
 };
 
 //-------------------------------------------------------------------------------------------------
-/// Á¢¼ÓµÈ ÀüÃ¼ Å¬¶óÀÌ¾ğÆ® ¸®½ºÆ®
+/// ì ‘ì†ëœ ì „ì²´ í´ë¼ì´ì–¸íŠ¸ ë¦¬ìŠ¤íŠ¸
 class CLS_ListCLIENT: public IOCPSocketSERVER, public CDataPOOL<CLS_Client> {
 public:
     int max_users;
@@ -103,7 +103,7 @@ public:
     CDLList<CLS_Client*> m_ConnLIST;
 
 public:
-    // Worker Thread °¹¼ö = CPU * 2 + 2
+    // Worker Thread ê°¯ìˆ˜ = CPU * 2 + 2
     CLS_ListCLIENT(UINT uiInitDataCNT, UINT uiIncDataCNT);
     ~CLS_ListCLIENT() { ; }
 
@@ -118,15 +118,15 @@ public:
         while (pNode) {
             switch (pNode->m_VALUE->m_nProcSTEP) {
                 case CLIENT_STEP_CONNECT:
-                    // Á¢¼ÓÇÏÀÚ ¸¶ÀÚ º¸³»´Â CLI_ACCEPT_REQ¸¦ 60ÃÊ ¾È¿¡ ¾Èº¸³½³Ñ Â©·¯~~~
+                    // ì ‘ì†í•˜ì ë§ˆì ë³´ë‚´ëŠ” CLI_ACCEPT_REQë¥¼ 60ì´ˆ ì•ˆì— ì•ˆë³´ë‚¸ë„˜ ì§¤ëŸ¬~~~
                     if (dwConnTIME - pNode->m_VALUE->m_dwConnTIME > 60) {
                         pNode->m_VALUE->CloseSocket();
                     }
                     break;
-                case CLIENT_STEP_LOGEDIN: // ·Î±×ÀÎ µÈ °èÁ¤...
+                case CLIENT_STEP_LOGEDIN: // ë¡œê·¸ì¸ ëœ ê³„ì •...
                     if (!pNode->m_VALUE->m_bMonClient
                         && dwConnTIME - pNode->m_VALUE->m_dwConnTIME > 10 * 60) {
-                        // 10ºĞµ¿¾È °ÔÀÓÀ¸·Î ÀÌµ¿¾ÈÇÑ °èÁ¤ °èÁ¤...
+                        // 10ë¶„ë™ì•ˆ ê²Œì„ìœ¼ë¡œ ì´ë™ì•ˆí•œ ê³„ì • ê³„ì •...
                         pNode->m_VALUE->CloseSocket();
                         // g_LOG.CS_ODS (LOG_NORMAL, "10 Min TimeOut[%s]\n",
                         // pNode->m_VALUE->Get_IP() );
@@ -135,7 +135,7 @@ public:
                 default:
                     if (!pNode->m_VALUE->m_bMonClient
                         && dwConnTIME - pNode->m_VALUE->m_dwConnTIME > 5 * 60) {
-                        // 5ºĞµ¿¾È ·Î±×ÀÎ ¾ÈµÈ °èÁ¤...
+                        // 5ë¶„ë™ì•ˆ ë¡œê·¸ì¸ ì•ˆëœ ê³„ì •...
                         pNode->m_VALUE->CloseSocket();
                         // g_LOG.CS_ODS (LOG_NORMAL, "5 Min TimeOut[%s]\n", pNode->m_VALUE->Get_IP()
                         // );
@@ -149,7 +149,7 @@ public:
     //-------------------------------------------------------------------------------------------------
     /// Inherited from IOCPSocketSERVER
     iocpSOCKET* AllocClientSOCKET() {
-        // ¸Ş¸ğ¸®ÇÒ´ç
+        // ë©”ëª¨ë¦¬í• ë‹¹
         CLS_Client* pSOCKET = this->Pool_Alloc();
         if (pSOCKET) {
             pSOCKET->Init();
@@ -173,7 +173,7 @@ public:
     }
     void ClosedClientSOCKET(iocpSOCKET* pSOCKET) {
         this->FreeClientSOCKET(pSOCKET);
-        // ¼ÒÄÏÀÌ »èÁ¦µÆ´Ù.. ¾Ë¾Æ¼­ ¸Ş¸ğ¸® ÇØÁ¦ÇÒ°Í...
+        // ì†Œì¼“ì´ ì‚­ì œëë‹¤.. ì•Œì•„ì„œ ë©”ëª¨ë¦¬ í•´ì œí• ê²ƒ...
     }
 
     bool IsMaxiumUSER() {

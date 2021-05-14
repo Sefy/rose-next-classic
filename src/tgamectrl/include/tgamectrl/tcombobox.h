@@ -9,9 +9,9 @@ class CTImage;
 class CTListBox;
 class ITFont;
 /**
- * ÄŞº¸ ¹Ú½º Class - ¾÷±×·¹ÀÌµå ¹öÁ¯À¸·Î CTComboBoxÀÌ ÀÖ´Ù
+ * ì½¤ë³´ ë°•ìŠ¤ Class - ì—…ê·¸ë ˆì´ë“œ ë²„ì ¼ìœ¼ë¡œ CTComboBoxì´ ìˆë‹¤
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Date		2005/08/30
  */
@@ -48,7 +48,7 @@ public:
     CTListBox* GetListBox() { return m_pListBox; }
     void DrawDropBoxImage();
 
-    void ClearItem(); /// DropBox¿¡ ÀÖ´Â ¸ğµç ItemµéÀ» Áö¿î´Ù.
+    void ClearItem(); /// DropBoxì— ìˆëŠ” ëª¨ë“  Itemë“¤ì„ ì§€ìš´ë‹¤.
 
     std::vector<CWinCtrl*> GetChildren() override;
 
@@ -65,6 +65,6 @@ protected:
     CTListBox* m_pListBox;
 
     li_item_vec
-        m_TempList; ///¸®½ºÆ® ¹Ú½º°¡ ¾øÀ»°æ¿ì ´ë½Å ³Ñ°ÜÁÙ ¸®½ºÆ®ÀÇ ·¹ÆÛ·±½º¸¦ À§ÇÑ ÀÓ½Ã º¯¼ö--;
+        m_TempList; ///ë¦¬ìŠ¤íŠ¸ ë°•ìŠ¤ê°€ ì—†ì„ê²½ìš° ëŒ€ì‹  ë„˜ê²¨ì¤„ ë¦¬ìŠ¤íŠ¸ì˜ ë ˆí¼ëŸ°ìŠ¤ë¥¼ ìœ„í•œ ì„ì‹œ ë³€ìˆ˜--;
 };
 #endif

@@ -4,63 +4,63 @@
 #include <string>
 #include <vector>
 
-/// ÀÌµ¿½ÃÅ°°í À§Ä¡ ¸®ÅÏ
+/// ì´ë™ì‹œí‚¤ê³  ìœ„ì¹˜ ë¦¬í„´
 long __fseek(FILE* fp, int lOff, int iOrg);
-/// ÆÄÀÏ ºí·° ÀÌµ¿
+/// íŒŒì¼ ë¸”ëŸ­ ì´ë™
 bool MoveFileBlock(long lStartOff,
     size_t stLength,
     long lTargetOff,
     int sAllocSize,
     FILE* fp,
     bool bFlush = true);
-/// MakeFileHole : ÆÄÀÏÀÇ Áß°£¿¡ ±¸¸ÛÀ» ¸¸µç´Ù
+/// MakeFileHole : íŒŒì¼ì˜ ì¤‘ê°„ì— êµ¬ë©ì„ ë§Œë“ ë‹¤
 bool MakeFileHole(long lPos, size_t stSize, FILE* fp, bool bFlush);
 
-/// ÆÄÀÏ °Ë»ö°á°ú ÀúÀå
+/// íŒŒì¼ ê²€ìƒ‰ê²°ê³¼ ì €ì¥
 struct stFindFiles {
     DWORD dwFinded;
     DWORD dwTotalSize;
     std::vector<std::string> FileList;
-    std::vector<std::string> vecExcExt; /// Á¦¿Ü½ÃÅ³ È®ÀåÀÚ
-    std::vector<std::string> vecExcDir; /// Á¦¿Ü½ÃÅ³ µğ·ºÅä¸®
+    std::vector<std::string> vecExcExt; /// ì œì™¸ì‹œí‚¬ í™•ì¥ì
+    std::vector<std::string> vecExcDir; /// ì œì™¸ì‹œí‚¬ ë””ë ‰í† ë¦¬
 };
 
 stFindFiles* GetFileList(const char* pBaseDir, const char* FilterExt, const char* FilterDir);
 
-/// Æú´õ·ÎºÎÅÍ ÆÄÀÏ¸®½ºÆ®¸¦ °¡Á®¿Â´Ù. GetFileList¿¡ ÀÇÇØ È£Ãâ
+/// í´ë”ë¡œë¶€í„° íŒŒì¼ë¦¬ìŠ¤íŠ¸ë¥¼ ê°€ì ¸ì˜¨ë‹¤. GetFileListì— ì˜í•´ í˜¸ì¶œ
 void __GetFileNames(const char* pBaseDir, const char* prefix);
-/// µğ·ºÅä¸®³»¿¡ ÀÖ´Â ÆÄÀÏÀÇ °¹¼ö¸¦ Á¶»çÇÑ´Ù. ÇÏÀ§µğ·ºÅä¸®´Â °Ë»ç ¾È ÇÑ´Ù
+/// ë””ë ‰í† ë¦¬ë‚´ì— ìˆëŠ” íŒŒì¼ì˜ ê°¯ìˆ˜ë¥¼ ì¡°ì‚¬í•œë‹¤. í•˜ìœ„ë””ë ‰í† ë¦¬ëŠ” ê²€ì‚¬ ì•ˆ í•œë‹¤
 int GetFileNumInDir(const char* Dir);
-/// µğ·ºÅä¸®³»¿¡ ÀÖ´Â ÆÄÀÏÀÌ¸§À» Á¶»çÇÑ´Ù
+/// ë””ë ‰í† ë¦¬ë‚´ì— ìˆëŠ” íŒŒì¼ì´ë¦„ì„ ì¡°ì‚¬í•œë‹¤
 int GetFileNameInDir(const char* Dir, char** ppFile, int nNum, int nMaxName);
-/// µğ·ºÅä¸®³»¿¡ ÀÖ´Â Ã¹¹øÂ° ÆÄÀÏÀÌ¸§À» Á¶»çÇÑ´Ù.
+/// ë””ë ‰í† ë¦¬ë‚´ì— ìˆëŠ” ì²«ë²ˆì§¸ íŒŒì¼ì´ë¦„ì„ ì¡°ì‚¬í•œë‹¤.
 HANDLE __FindFirstFileName(const char* Dir, const char** FirstName);
-/// µğ·ºÅä¸®³»¿¡ ÀÖ´Â ´ÙÀ½ ÆÄÀÏÀÌ¸§À» ¸®ÅÏÇØ ÁØ´Ù
+/// ë””ë ‰í† ë¦¬ë‚´ì— ìˆëŠ” ë‹¤ìŒ íŒŒì¼ì´ë¦„ì„ ë¦¬í„´í•´ ì¤€ë‹¤
 const char* __FindNextFileName(HANDLE hSearch);
-/// ÆÄÀÏ Find¸¦ ´İ´Â´Ù
+/// íŒŒì¼ Findë¥¼ ë‹«ëŠ”ë‹¤
 void __CloseFindFileName(HANDLE hSearch);
-/// °æ·Î°¡ ÆÄÀÏÀÎÁö ¾Æ´ÑÁö °Ë»ç
+/// ê²½ë¡œê°€ íŒŒì¼ì¸ì§€ ì•„ë‹Œì§€ ê²€ì‚¬
 bool __IsFile(const char* Path);
-/// °æ·Î°¡ µğ·ºÅä¸®ÀÎÁö ¾Æ´ÑÁö °Ë»ç
+/// ê²½ë¡œê°€ ë””ë ‰í† ë¦¬ì¸ì§€ ì•„ë‹Œì§€ ê²€ì‚¬
 bool __IsDirectory(const char* Path);
 
-/// °æ·Î1¿¡¼­ °æ·Î2¸¦ Á¦¿ÜÇÑ ¹®ÀÚ¿­À» ¸®ÅÏÇÑ´Ù
+/// ê²½ë¡œ1ì—ì„œ ê²½ë¡œ2ë¥¼ ì œì™¸í•œ ë¬¸ìì—´ì„ ë¦¬í„´í•œë‹¤
 const char* GetRelativePath(const char* Path1, const char* Path2);
 
 /**************************************************************************************************
- * ÆÄÀÏ °æ·Î¿Í ¹®ÀÚ¿­ °ü·Ã
+ * íŒŒì¼ ê²½ë¡œì™€ ë¬¸ìì—´ ê´€ë ¨
  */
 
-/// Full Path¿¡¼­ Base NameÀ» ¾Ë¾Æ³½´Ù
+/// Full Pathì—ì„œ Base Nameì„ ì•Œì•„ë‚¸ë‹¤
 char* GetBaseName(const char* Path);
 
-/// Full Path¿¡¼­ µğ·ºÅä¸® °æ·Î¸¦ ¾Ë¾Æ³½´Ù
+/// Full Pathì—ì„œ ë””ë ‰í† ë¦¬ ê²½ë¡œë¥¼ ì•Œì•„ë‚¸ë‹¤
 int GetDirectory(const char* Path, char* buff, int nMax);
 
-/// Full Path¿¡¼­ µğ·ºÅä¸® °æ·Î¸¦ ¾Ë¾Æ³½´Ù
+/// Full Pathì—ì„œ ë””ë ‰í† ë¦¬ ê²½ë¡œë¥¼ ì•Œì•„ë‚¸ë‹¤
 std::string GetDirectory(const char* Path);
 
-/// È®ÀåÀÚ±î ºüÁø Base File¸íÀ» Á¶»çÇÑ´Ù
+/// í™•ì¥ìê¹Œ ë¹ ì§„ Base Fileëª…ì„ ì¡°ì‚¬í•œë‹¤
 std::string GetFileNameWithoutExt(const char* Path);
 
 bool __ftruncate(long lNewSize, FILE* fp);
@@ -79,7 +79,7 @@ bool __MoveFileBlock(long lStartOff,
     bool bFlush = true);
 
 /***********************************************************
- * ±ÇÇÑ °ü·Ã
+ * ê¶Œí•œ ê´€ë ¨
  */
 class CFileMode {
 public:

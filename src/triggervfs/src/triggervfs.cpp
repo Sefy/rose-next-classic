@@ -73,10 +73,10 @@ bool __stdcall InitVFS(DWORD key) {
  */
 
 /*********************************************************************************
- * Index ÆÄÀÏ°ú IndexÆÄÀÏ¿¡ ÀÇÇØ °ü¸®µÇ´Â PackÆÄÀÏÀ» ¿¬´Ù
- * @param FileName IndexÆÄÀÏ¸í
- * @param Mode ¼Ó¼º. "r" ÀĞ±â Àü¿ë, "w" ¾²±âÀü¿ë(»ç¿ë¸øÇÔ), "w+" »ı¼º + ¾²±â + ÀĞ±â, "r+" ÀĞ±â +
- * ¾²±â(»ı¼º ¸øÇÔ)
+ * Index íŒŒì¼ê³¼ IndexíŒŒì¼ì— ì˜í•´ ê´€ë¦¬ë˜ëŠ” PackíŒŒì¼ì„ ì—°ë‹¤
+ * @param FileName IndexíŒŒì¼ëª…
+ * @param Mode ì†ì„±. "r" ì½ê¸° ì „ìš©, "w" ì“°ê¸°ì „ìš©(ì‚¬ìš©ëª»í•¨), "w+" ìƒì„± + ì“°ê¸° + ì½ê¸°, "r+" ì½ê¸° +
+ * ì“°ê¸°(ìƒì„± ëª»í•¨)
  */
 VHANDLE __stdcall OpenVFS(const char* FileName, const char* Mode) {
     CVFS_Manager* pVFS = NULL;
@@ -97,8 +97,8 @@ VHANDLE __stdcall OpenVFS(const char* FileName, const char* Mode) {
 }
 
 /*********************************************************************************
- * Index File°ú VFSÆÄÀÏÀ» ´İ´Â´Ù
- * @param hVFS ¿ÀÇÂÇÑ ÇÚµé
+ * Index Fileê³¼ VFSíŒŒì¼ì„ ë‹«ëŠ”ë‹¤
+ * @param hVFS ì˜¤í”ˆí•œ í•¸ë“¤
  */
 void __stdcall CloseVFS(VHANDLE hVFS) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -110,7 +110,7 @@ void __stdcall CloseVFS(VHANDLE hVFS) {
 }
 
 /*********************************************************************************
- * ÆÄÀÏ¿¡ ´ëÇÑ Á¤º¸¸¦ °¡Á®¿È
+ * íŒŒì¼ì— ëŒ€í•œ ì •ë³´ë¥¼ ê°€ì ¸ì˜´
  */
 void __stdcall VGetFileInfo(VHANDLE hVFS, const char* FileName, VFileInfo* FileInfo, bool bCalCrc) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -120,7 +120,7 @@ void __stdcall VGetFileInfo(VHANDLE hVFS, const char* FileName, VFileInfo* FileI
 }
 
 /*********************************************************************************
- * ÆÄÀÏ¿¡ ´ëÇÑ Á¤º¸¸¦ UpdateÇÔ
+ * íŒŒì¼ì— ëŒ€í•œ ì •ë³´ë¥¼ Updateí•¨
  */
 bool __stdcall VSetFileInfo(VHANDLE hVFS, const char* FileName, VFileInfo* FileInfo) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -132,8 +132,8 @@ bool __stdcall VSetFileInfo(VHANDLE hVFS, const char* FileName, VFileInfo* FileI
 }
 
 /*********************************************************************************
- * IndexÆÄÀÏ¿¡ PackÆÄÀÏÀ» Ãß°¡ÇÑ´Ù.
- * ³»ºÎÀûÀ¸·Î ÀÌ°Í Àú°Í ÇÑ´Ù.
+ * IndexíŒŒì¼ì— PackíŒŒì¼ì„ ì¶”ê°€í•œë‹¤.
+ * ë‚´ë¶€ì ìœ¼ë¡œ ì´ê²ƒ ì €ê²ƒ í•œë‹¤.
  */
 bool __stdcall VAddVfs(VHANDLE hVFS, const char* VfsName) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -145,16 +145,16 @@ bool __stdcall VAddVfs(VHANDLE hVFS, const char* VfsName) {
 }
 
 /*********************************************************************************
- * ÆÄÀÏÀ» Ãß°¡ÇÑ´Ù
- * @param hVFS			¿ÀÇÂÇÑ VFS ÇÚµé
- * @param VfsName		Pack ÆÄÀÏ ÀÌ¸§
- * @param FileName		Ãß°¡ÇÒ ÆÄÀÏ¸í
- * @param TargetName	µî·ÏÇÒ ÆÄÀÏ¸í
- * @param shVersion 	¹öÁ¯
- * @param dwCRC			CRC°ª
- * @param btEncType 	Encript Å¸ÀÔ. 0 = ¾ÈÇÔ. 1 = ?
- * @param btCompress	¾ĞÃàÇüÅÂ. 0 = ¾È ÇÔ. 1 = Zip
- * @param bUseDel		»èÁ¦µÈ ºí·Ï »ç¿ëÇÒ Áö ¿©ºÎ. true = »ç¿ë. false = »ç¿ë¾ÈÇÔ
+ * íŒŒì¼ì„ ì¶”ê°€í•œë‹¤
+ * @param hVFS			ì˜¤í”ˆí•œ VFS í•¸ë“¤
+ * @param VfsName		Pack íŒŒì¼ ì´ë¦„
+ * @param FileName		ì¶”ê°€í•  íŒŒì¼ëª…
+ * @param TargetName	ë“±ë¡í•  íŒŒì¼ëª…
+ * @param shVersion 	ë²„ì ¼
+ * @param dwCRC			CRCê°’
+ * @param btEncType 	Encript íƒ€ì…. 0 = ì•ˆí•¨. 1 = ?
+ * @param btCompress	ì••ì¶•í˜•íƒœ. 0 = ì•ˆ í•¨. 1 = Zip
+ * @param bUseDel		ì‚­ì œëœ ë¸”ë¡ ì‚¬ìš©í•  ì§€ ì—¬ë¶€. true = ì‚¬ìš©. false = ì‚¬ìš©ì•ˆí•¨
  */
 short __stdcall VAddFile(VHANDLE hVFS,
     const char* VfsName,
@@ -167,7 +167,7 @@ short __stdcall VAddFile(VHANDLE hVFS,
     bool bUseDel) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
     if (pVFS) {
-        // ODS ("ÆÄÀÏÃß°¡ Àü : %s\n", FileName );
+        // ODS ("íŒŒì¼ì¶”ê°€ ì „ : %s\n", FileName );
         short nRes = pVFS->AddFile(VfsName,
             FileName,
             TargetName,
@@ -176,7 +176,7 @@ short __stdcall VAddFile(VHANDLE hVFS,
             btEncType,
             btCompress,
             bUseDel);
-        // ODS ("ÆÄÀÏÃß°¡ ÈÄ : %s\n", FileName);
+        // ODS ("íŒŒì¼ì¶”ê°€ í›„ : %s\n", FileName);
 
         if (nRes == VADDFILE_CANTWRITE || nRes == VADDFILE_CANTFLUSH) {
             DWORD dwErrCode = 0;
@@ -202,17 +202,17 @@ short __stdcall VAddFile(VHANDLE hVFS,
 }
 
 /**********************************************************************************************
- * ÇÑ°³ÀÇ ÆÄÀÏÀ» Á¦°ÅÇÑ´Ù. °ø¹éÃ³¸®ÇÏ´Â ¹öÁ¯ÀÓ. ÆÄÀÏÀ» Á¤¸®ÇÏ±â À§ÇØ¼­´Â VClearBlank ¸¦ È£ÃâÇÒ°Í
- * PackÆÄÀÏÀ» ÁöÁ¤ÇÏÁö ¾Ê°í Áö¿ò
- * @param FileName Áö¿ï ÆÄÀÏ¸í
+ * í•œê°œì˜ íŒŒì¼ì„ ì œê±°í•œë‹¤. ê³µë°±ì²˜ë¦¬í•˜ëŠ” ë²„ì ¼ì„. íŒŒì¼ì„ ì •ë¦¬í•˜ê¸° ìœ„í•´ì„œëŠ” VClearBlank ë¥¼ í˜¸ì¶œí• ê²ƒ
+ * PackíŒŒì¼ì„ ì§€ì •í•˜ì§€ ì•Šê³  ì§€ì›€
+ * @param FileName ì§€ìš¸ íŒŒì¼ëª…
  */
 short __stdcall VRemoveFile(VHANDLE hVFS, const char* FileName) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
 
     if (pVFS) {
-        // ODS ( "ÆÄÀÏ»èÁ¦ Àü : %s\n", FileName);
+        // ODS ( "íŒŒì¼ì‚­ì œ ì „ : %s\n", FileName);
         short bRet = pVFS->RemoveFile(FileName);
-        // ODS ( "ÆÄÀÏ»èÁ¦ ÈÄ : %s\n", FileName);
+        // ODS ( "íŒŒì¼ì‚­ì œ í›„ : %s\n", FileName);
 
         return bRet;
     }
@@ -221,7 +221,7 @@ short __stdcall VRemoveFile(VHANDLE hVFS, const char* FileName) {
 }
 
 /**********************************************************************************************
- * index¿¡ Æ÷ÇÔµÈ ¸ğµç PackÆÄÀÏÀÇ °ø¹éÀ» Á¦°ÅÇÑ´Ù
+ * indexì— í¬í•¨ëœ ëª¨ë“  PackíŒŒì¼ì˜ ê³µë°±ì„ ì œê±°í•œë‹¤
  */
 void __stdcall VClearBlankAll(VHANDLE hVFS, VCALLBACK_CLEARBLANKALL CallBackProc) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -230,7 +230,7 @@ void __stdcall VClearBlankAll(VHANDLE hVFS, VCALLBACK_CLEARBLANKALL CallBackProc
 }
 
 /**********************************************************************************
- * ±âÁØ¹öÁ¯À» °¡Á®¿È
+ * ê¸°ì¤€ë²„ì ¼ì„ ê°€ì ¸ì˜´
  */
 DWORD __stdcall VGetStdVersion(VHANDLE hVFS) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -242,7 +242,7 @@ DWORD __stdcall VGetStdVersion(VHANDLE hVFS) {
 }
 
 /**********************************************************************************
- * ±âÁØ¹öÁ¯À» ¼³Á¤ÇÔ
+ * ê¸°ì¤€ë²„ì ¼ì„ ì„¤ì •í•¨
  */
 void __stdcall VSetStdVersion(VHANDLE hVFS, DWORD dwVersion) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -252,7 +252,7 @@ void __stdcall VSetStdVersion(VHANDLE hVFS, DWORD dwVersion) {
 }
 
 /**********************************************************************************
- * ÇöÀç¹öÁ¯À» °¡Á®¿È
+ * í˜„ì¬ë²„ì ¼ì„ ê°€ì ¸ì˜´
  */
 DWORD __stdcall VGetCurVersion(VHANDLE hVFS) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -264,7 +264,7 @@ DWORD __stdcall VGetCurVersion(VHANDLE hVFS) {
 }
 
 /**********************************************************************************
- * ÇöÀç¹öÁ¯À» ¼³Á¤ÇÔ
+ * í˜„ì¬ë²„ì ¼ì„ ì„¤ì •í•¨
  */
 void __stdcall VSetCurVersion(VHANDLE hVFS, DWORD dwVersion) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -274,7 +274,7 @@ void __stdcall VSetCurVersion(VHANDLE hVFS, DWORD dwVersion) {
 }
 
 /*********************************************************************************
- * ÀÎµ¦½ºÆÄÀÏ³»¿¡ ÀÖ´Â PackÆÄÀÏÀÇ °¹¼ö¸¦ ¾Ë¾Æ³½´Ù
+ * ì¸ë±ìŠ¤íŒŒì¼ë‚´ì— ìˆëŠ” PackíŒŒì¼ì˜ ê°¯ìˆ˜ë¥¼ ì•Œì•„ë‚¸ë‹¤
  */
 int __stdcall VGetVfsCount(VHANDLE hVFS) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -286,11 +286,11 @@ int __stdcall VGetVfsCount(VHANDLE hVFS) {
 }
 
 /*********************************************************************************
- * ÀÎµ¦½ºÆÄÀÏ¿¡¼­ PackÆÄÀÏ ¸®½ºÆ®¸¦ °¡Á®¿Â´Ù
+ * ì¸ë±ìŠ¤íŒŒì¼ì—ì„œ PackíŒŒì¼ ë¦¬ìŠ¤íŠ¸ë¥¼ ê°€ì ¸ì˜¨ë‹¤
  * @param ppFiles
- * @param dwNum			°¡Á®¿Ã ÀÌ¸§ÀÇ °¹¼ö
- * @param dwMaxPath		ÀúÀåÇÒ ¼ö ÀÖ´Â ÃÖ´ë ±æÀÌ (NULLÆ÷ÇÔ)
- * @return				½ÇÁ¦ ¾Ë¾Æ³½ ÆÄÀÏÀÌ¸§ÀÇ °¹¼ö
+ * @param dwNum			ê°€ì ¸ì˜¬ ì´ë¦„ì˜ ê°¯ìˆ˜
+ * @param dwMaxPath		ì €ì¥í•  ìˆ˜ ìˆëŠ” ìµœëŒ€ ê¸¸ì´ (NULLí¬í•¨)
+ * @return				ì‹¤ì œ ì•Œì•„ë‚¸ íŒŒì¼ì´ë¦„ì˜ ê°¯ìˆ˜
  */
 int __stdcall VGetVfsNames(VHANDLE hVFS, char** ppFiles, DWORD dwNum, short dwMaxPath) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -302,7 +302,7 @@ int __stdcall VGetVfsNames(VHANDLE hVFS, char** ppFiles, DWORD dwNum, short dwMa
 }
 
 /*********************************************************************************
- * VfsÆÄÀÏ³»¿¡ ÀÖ´Â ÆÄÀÏÀÇ °¹¼ö¸¦ ¾Ë¾Æ³½´Ù
+ * VfsíŒŒì¼ë‚´ì— ìˆëŠ” íŒŒì¼ì˜ ê°¯ìˆ˜ë¥¼ ì•Œì•„ë‚¸ë‹¤
  */
 int __stdcall VGetFileCount(VHANDLE hVFS, const char* VfsName) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -314,7 +314,7 @@ int __stdcall VGetFileCount(VHANDLE hVFS, const char* VfsName) {
 }
 
 /*********************************************************************************
- * VfsÆÄÀÏ³»¿¡ ÀÖ´Â ÆÄÀÏÀÇ °¹¼ö¸¦ ¾Ë¾Æ³½´Ù
+ * VfsíŒŒì¼ë‚´ì— ìˆëŠ” íŒŒì¼ì˜ ê°¯ìˆ˜ë¥¼ ì•Œì•„ë‚¸ë‹¤
  */
 int __stdcall VGetTotFileCount(VHANDLE hVFS) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -326,7 +326,7 @@ int __stdcall VGetTotFileCount(VHANDLE hVFS) {
 }
 
 /************************************************************************************
- * PackÆÄÀÏ¿¡¼­ ÆÄÀÏÀÌ¸§À» °¡Á®¿Â´Ù
+ * PackíŒŒì¼ì—ì„œ íŒŒì¼ì´ë¦„ì„ ê°€ì ¸ì˜¨ë‹¤
  */
 int __stdcall VGetFileNames(VHANDLE hVFS,
     const char* VfsName,
@@ -341,10 +341,10 @@ int __stdcall VGetFileNames(VHANDLE hVFS,
     return 0;
 }
 
-/// ----------------------- Pack ÆÄÀÏ³» ÆÄÀÏ ÀÛ¾÷ °ü·Ã ---------------------------
+/// ----------------------- Pack íŒŒì¼ë‚´ íŒŒì¼ ì‘ì—… ê´€ë ¨ ---------------------------
 
 /*********************************************************************************
- * ÆÄÀÏÀ» ¿ÀÇÂÇÑ´Ù
+ * íŒŒì¼ì„ ì˜¤í”ˆí•œë‹¤
  */
 VFileHandle* __stdcall VOpenFile(const char* FileName, VHANDLE hVFS) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -357,7 +357,7 @@ VFileHandle* __stdcall VOpenFile(const char* FileName, VHANDLE hVFS) {
 }
 
 /*********************************************************************************
- * ÆÄÀÏÀ» ´İ´Â´Ù
+ * íŒŒì¼ì„ ë‹«ëŠ”ë‹¤
  */
 void __stdcall VCloseFile(VFileHandle* hVFH) {
     if (hVFH) {
@@ -376,7 +376,7 @@ void __stdcall VCloseFile(VFileHandle* hVFH) {
 }
 
 /*********************************************************************************
- * ÆÄÀÏÀÇ Å©±â¸¦ ¸®ÅÏ (1)
+ * íŒŒì¼ì˜ í¬ê¸°ë¥¼ ë¦¬í„´ (1)
  */
 size_t __stdcall vfgetsize(VFileHandle* pVFH) {
     if (pVFH) {
@@ -387,7 +387,7 @@ size_t __stdcall vfgetsize(VFileHandle* pVFH) {
 }
 
 /*********************************************************************************
- * ÆÄÀÏÀÇ Å©±â¸¦ ¸®ÅÏ (2)
+ * íŒŒì¼ì˜ í¬ê¸°ë¥¼ ë¦¬í„´ (2)
  */
 size_t __stdcall VGetFileLength(VHANDLE hVFS, const char* FileName) {
     /// long lSize = 0;
@@ -402,7 +402,7 @@ size_t __stdcall VGetFileLength(VHANDLE hVFS, const char* FileName) {
 }
 
 /*********************************************************************************
- * ÆÄÀÏÀÌ Á¸ÀçÀ¯¹«¸¦ °Ë»çÇÑ´Ù
+ * íŒŒì¼ì´ ì¡´ì¬ìœ ë¬´ë¥¼ ê²€ì‚¬í•œë‹¤
  */
 bool __stdcall VFileExists(VHANDLE hVFS, const char* FileName) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -413,7 +413,7 @@ bool __stdcall VFileExists(VHANDLE hVFS, const char* FileName) {
 }
 
 /*********************************************************************************
- * PackÆÄÀÏ¾È¿¡¼­¸¸ ÆÄÀÏÀÌ Á¸ÀçÀ¯¹«¸¦ °Ë»çÇÑ´Ù
+ * PackíŒŒì¼ì•ˆì—ì„œë§Œ íŒŒì¼ì´ ì¡´ì¬ìœ ë¬´ë¥¼ ê²€ì‚¬í•œë‹¤
  */
 bool __stdcall VFileExistsInVfs(VHANDLE hVFS, const char* FileName) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -425,21 +425,21 @@ bool __stdcall VFileExistsInVfs(VHANDLE hVFS, const char* FileName) {
 }
 
 /*********************************************************************************
- * vfsÆÄÀÏ¿¡¼­ Æ¯Á¤ÆÄÀÏÀ» ÀĞ´Â´Ù
- * @param buffer ÀĞÀº µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¹öÆÛ
- * @param size ÇÑ Ç×¸ñÀÇ Å©±â
- * @param count ÀĞÀ» Ç×¸ñÀÇ °¹¼ö
+ * vfsíŒŒì¼ì—ì„œ íŠ¹ì •íŒŒì¼ì„ ì½ëŠ”ë‹¤
+ * @param buffer ì½ì€ ë°ì´í„°ë¥¼ ì €ì¥í•  ë²„í¼
+ * @param size í•œ í•­ëª©ì˜ í¬ê¸°
+ * @param count ì½ì„ í•­ëª©ì˜ ê°¯ìˆ˜
  */
 size_t __stdcall vfread(void* buffer, size_t size, size_t count, VFileHandle* pVFH) {
-    size_t stReadSize = size * count; /// ÀĞÀ» ¹ÙÀÌÆ® ¼ö
-    size_t stReaded = 0; /// ÇÑ ¹ÙÀÌÆ®¾¿ ÀĞÀ»¾ú¶§ ½ÇÁ¦·Î ÀĞÈù ¹ÙÀÌÆ®¼ö
-    size_t stItems = 0; /// ÀĞÇôÁø Ç×¸ñ¼ö
+    size_t stReadSize = size * count; /// ì½ì„ ë°”ì´íŠ¸ ìˆ˜
+    size_t stReaded = 0; /// í•œ ë°”ì´íŠ¸ì”© ì½ì„ì—ˆë•Œ ì‹¤ì œë¡œ ì½íŒ ë°”ì´íŠ¸ìˆ˜
+    size_t stItems = 0; /// ì½í˜€ì§„ í•­ëª©ìˆ˜
 
     long lOffset = pVFH->lStartOff + pVFH->lCurrentOffset;
 
     CVFS_Manager* pVFS = (CVFS_Manager*)pVFH->hVFS;
 
-    /// ÀÌ ÆÄÀÏÀÇ ³¡Àº ÃÊ°úÇÏ´ÂÁö È®ÀÎÇÑ´Ù
+    /// ì´ íŒŒì¼ì˜ ëì€ ì´ˆê³¼í•˜ëŠ”ì§€ í™•ì¸í•œë‹¤
     long lToWhere = pVFH->lStartOff + pVFH->lCurrentOffset + stReadSize;
     if (lToWhere >= (signed)(pVFH->lEndOff))
         stReadSize = pVFH->lEndOff - (pVFH->lStartOff + pVFH->lCurrentOffset);
@@ -453,7 +453,7 @@ size_t __stdcall vfread(void* buffer, size_t size, size_t count, VFileHandle* pV
 #ifdef _ENCRYPTION
     #define KEYSIZE 0x1000
     long Mpointer;
-    // µ¥ÀÌÅÍ¸¦ ÀĞ´Â´Ù
+    // ë°ì´í„°ë¥¼ ì½ëŠ”ë‹¤
     if (pVFH->pData) {
         stReaded = sizeof(BYTE) * stReadSize;
         memcpy(buffer, pVFH->pData + pVFH->iAllocOffset + pVFH->lCurrentOffset, stReaded);
@@ -518,27 +518,27 @@ size_t __stdcall vfread(void* buffer, size_t size, size_t count, VFileHandle* pV
         }
     }
 #endif
-    /// ÀĞÀº ¸¸Å­ ÇöÀç ÆÄÀÏ ¿ÀÇÁ¼ÂÀ» ÀÌµ¿½ÃÄÑ ³õ´Â´Ù
+    /// ì½ì€ ë§Œí¼ í˜„ì¬ íŒŒì¼ ì˜¤í”„ì…‹ì„ ì´ë™ì‹œì¼œ ë†“ëŠ”ë‹¤
     pVFH->lCurrentOffset += (long)stReaded;
-    /// ÀĞÇôÁø Ç×¸ñÀÇ °¹¼ö = ÀĞÇôÁø ¹ÙÀÌÆ®¼ö / ÇÑ Ç×¸ñÀÇ Å©±â
+    /// ì½í˜€ì§„ í•­ëª©ì˜ ê°¯ìˆ˜ = ì½í˜€ì§„ ë°”ì´íŠ¸ìˆ˜ / í•œ í•­ëª©ì˜ í¬ê¸°
     stItems = stReaded / size;
 
     return stItems;
 }
 
 /*********************************************************************************
- * ÆÄÀÏ¿¡ ÀüÃ¼ ³»¿ëÀ» °¡¸®Å°´Â Æ÷ÀÎÅÍ¸¦ ¾ò´Â´Ù.
- * ¾òÀº Æ÷ÀÎÅÍ´Â Á÷Á¢ ÇØÁ¦ÇÏ¸é ¾ÈµÊ.
- * @psize »çÀÌÁî¸¦ ¾ò±â À§ÇØ »ç¿ëµÊ.
- * @pVFH ÆÄÀÏ ÇÚµé
- * @return Æ÷ÀÎÅÍ
+ * íŒŒì¼ì— ì „ì²´ ë‚´ìš©ì„ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„°ë¥¼ ì–»ëŠ”ë‹¤.
+ * ì–»ì€ í¬ì¸í„°ëŠ” ì§ì ‘ í•´ì œí•˜ë©´ ì•ˆë¨.
+ * @psize ì‚¬ì´ì¦ˆë¥¼ ì–»ê¸° ìœ„í•´ ì‚¬ìš©ë¨.
+ * @pVFH íŒŒì¼ í•¸ë“¤
+ * @return í¬ì¸í„°
  */
 void* __stdcall vfgetdata(size_t* psize, VFileHandle* pVFH) {
     long lOffset = pVFH->lStartOff + pVFH->lCurrentOffset;
 
     CVFS_Manager* pVFS = (CVFS_Manager*)pVFH->hVFS;
 
-    /// µ¥ÀÌÅÍ¸¦ ÀĞ´Â´Ù
+    /// ë°ì´í„°ë¥¼ ì½ëŠ”ë‹¤
     if (!pVFS) {
         return NULL;
     }
@@ -550,17 +550,17 @@ void* __stdcall vfgetdata(size_t* psize, VFileHandle* pVFH) {
 }
 
 /*********************************************************************************
- * ÆÄÀÏ indicator¸¦ ÀÌµ¿½ÃÅ²´Ù. fseek¿Í µ¿ÀÏÇÏÁö¸¸ ÀÌ ÆÄÀÏÀÌ Â÷ÁöÇÏ´Â ¹üÀ§³»¿¡¼­..
- * @return fseek¿Í µ¿ÀÏ
+ * íŒŒì¼ indicatorë¥¼ ì´ë™ì‹œí‚¨ë‹¤. fseekì™€ ë™ì¼í•˜ì§€ë§Œ ì´ íŒŒì¼ì´ ì°¨ì§€í•˜ëŠ” ë²”ìœ„ë‚´ì—ì„œ..
+ * @return fseekì™€ ë™ì¼
  */
 int __stdcall vfseek(VFileHandle* pVFH, long offset, int origin) {
     int iRet = 0;
     long lOffset = 0;
 
-    /// ÀÌ ÆÄÀÏÀÇ ¹üÀ§¸¦ Àı´ë·Î ³ÑÁö ¸øÇÏ°Ô ÇØ¾ß ÇÑ´Ù.
+    /// ì´ íŒŒì¼ì˜ ë²”ìœ„ë¥¼ ì ˆëŒ€ë¡œ ë„˜ì§€ ëª»í•˜ê²Œ í•´ì•¼ í•œë‹¤.
     switch (origin) {
         case VFSEEK_SET:
-            /// »õ·Ó°Ô Á¤ÇÑ °ªÀÌ »óÇÑ ÇÏÇÑÀ» ³ÑÁö ¸øÇÏµµ·Ï
+            /// ìƒˆë¡­ê²Œ ì •í•œ ê°’ì´ ìƒí•œ í•˜í•œì„ ë„˜ì§€ ëª»í•˜ë„ë¡
             lOffset = pVFH->lStartOff + offset;
             if (lOffset < pVFH->lStartOff) {
                 lOffset = pVFH->lStartOff;
@@ -596,32 +596,32 @@ int __stdcall vfseek(VFileHandle* pVFH, long offset, int origin) {
 
     CVFS_Manager* pVFS = (CVFS_Manager*)pVFH->hVFS;
 
-    if (!pVFS) { // ÀÏ¹İ ÆÄÀÏÀÏ °æ¿ì
-        iRet = fseek(pVFH->fp, lOffset, SEEK_SET); /// ½ÇÁ¦·Î fseek ¼öÇà
+    if (!pVFS) { // ì¼ë°˜ íŒŒì¼ì¼ ê²½ìš°
+        iRet = fseek(pVFH->fp, lOffset, SEEK_SET); /// ì‹¤ì œë¡œ fseek ìˆ˜í–‰
     }
 
     return iRet;
 }
 
 /*********************************************************************************
- * ÆÄÀÏ indicator°ªÀ» ¸®ÅÏÇÑ´Ù ftell°ú µ¿ÀÏÇÏÁö¸¸ ÀÌ ÆÄÀÏÀÌ Â÷ÁöÇÏ´Â ¹üÀ§³»¿¡¼­..
+ * íŒŒì¼ indicatorê°’ì„ ë¦¬í„´í•œë‹¤ ftellê³¼ ë™ì¼í•˜ì§€ë§Œ ì´ íŒŒì¼ì´ ì°¨ì§€í•˜ëŠ” ë²”ìœ„ë‚´ì—ì„œ..
  */
 long __stdcall vftell(VFileHandle* pVFH) {
-    /// ¿ÀÇÂµÈ ÆÄÀÏÀÇ Indicator¸¦ ÇöÀçÀ§Ä¡·Î ¿Å±ä´Ù
+    /// ì˜¤í”ˆëœ íŒŒì¼ì˜ Indicatorë¥¼ í˜„ì¬ìœ„ì¹˜ë¡œ ì˜®ê¸´ë‹¤
     vfseek(pVFH, 0, VFSEEK_CUR);
-    /// ±×¸®°í ¸®ÅÏ. ÇöÀç indicator À§Ä¡°ªÀº »ó´ëÀ§Ä¡ÀÓ
+    /// ê·¸ë¦¬ê³  ë¦¬í„´. í˜„ì¬ indicator ìœ„ì¹˜ê°’ì€ ìƒëŒ€ìœ„ì¹˜ì„
     return pVFH->lCurrentOffset;
 }
 
 /*********************************************************************************
- * feof¿Í µ¿ÀÏ. ÆÄÀÏÀÇ ³¡ÀÌ¸é 1, ¾Æ´Ï¸é 0À» ¸®ÅÏ
+ * feofì™€ ë™ì¼. íŒŒì¼ì˜ ëì´ë©´ 1, ì•„ë‹ˆë©´ 0ì„ ë¦¬í„´
  */
 int __stdcall vfeof(VFileHandle* pVFH) {
     return (pVFH->lStartOff + pVFH->lCurrentOffset == pVFH->lEndOff ? 1 : 0);
 }
 
 /********************************************************************************
- * FileName¿¡ ´ëÇÑ ÀÎµ¦½º Á¤º¸¿Í VFS³»ÀÇ ½ÇÁ¦ µ¥ÀÌÅÍ°¡ ÀÏÄ¡ÇÏ´ÂÁö Ã¼Å©ÇÑ´Ù
+ * FileNameì— ëŒ€í•œ ì¸ë±ìŠ¤ ì •ë³´ì™€ VFSë‚´ì˜ ì‹¤ì œ ë°ì´í„°ê°€ ì¼ì¹˜í•˜ëŠ”ì§€ ì²´í¬í•œë‹¤
  */
 short __stdcall VTestFile(VHANDLE hVFS, const char* FileName) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;
@@ -632,7 +632,7 @@ short __stdcall VTestFile(VHANDLE hVFS, const char* FileName) {
 }
 
 /********************************************************************************
- * FileName¿¡ ´ëÇÑ ÀÎµ¦½º Á¤º¸¿Í VFS³»ÀÇ ½ÇÁ¦ µ¥ÀÌÅÍ°¡ ÀÏÄ¡ÇÏ´ÂÁö Ã¼Å©ÇÑ´Ù
+ * FileNameì— ëŒ€í•œ ì¸ë±ìŠ¤ ì •ë³´ì™€ VFSë‚´ì˜ ì‹¤ì œ ë°ì´í„°ê°€ ì¼ì¹˜í•˜ëŠ”ì§€ ì²´í¬í•œë‹¤
  */
 DWORD __stdcall ComputeCrc(VHANDLE hVFS, const char* FileName) {
     CVFS_Manager* pVFS = (CVFS_Manager*)hVFS;

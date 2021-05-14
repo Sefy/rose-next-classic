@@ -285,10 +285,10 @@ public:
 	
 	//Spring Damper System
 
-	float mass_;    //cameraÀÇ Áú·®..
-	float k_value;  // spring »ó¼ö
-	float b_value;   // damper »ó¼ö
-    float spring_length;  // spinrg & damper SystemÀÇ ±æÀÌ..
+	float mass_;    //cameraì˜ ì§ˆëŸ‰..
+	float k_value;  // spring ìƒìˆ˜
+	float b_value;   // damper ìƒìˆ˜
+    float spring_length;  // spinrg & damper Systemì˜ ê¸¸ì´..
     float mass_a, mass_v;
     float delta_time;
     bool forced_system_transformation;	

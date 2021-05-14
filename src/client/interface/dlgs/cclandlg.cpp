@@ -105,8 +105,8 @@ CClanDlg::OnLButtonUp(unsigned uiProcID, WPARAM wParam, LPARAM lParam) {
     switch (uiProcID) {
         case IID_BTN_PREVIEW: {
             m_ClanMarkPreView.Free();
-            /// Mark.bmp¸¦ ·ÎµåÇØ¼­ CClanMarkUserDefined¿¡ ³Ö´Â´Ù.
-            /// CClanMarkTransfer::RegisterMarkToServer()¿Í ºñ½ÁÇÑ Ã¼Å©·çÆ¾ÀÌ ÇÊ¿äÇÏ´Ù.
+            /// Mark.bmpë¥¼ ë¡œë“œí•´ì„œ CClanMarkUserDefinedì— ë„£ëŠ”ë‹¤.
+            /// CClanMarkTransfer::RegisterMarkToServer()ì™€ ë¹„ìŠ·í•œ ì²´í¬ë£¨í‹´ì´ í•„ìš”í•˜ë‹¤.
             HANDLE hBmpFile = CreateFile(CClanMarkUserDefined::NewClanMarkFileName.c_str(),
                 GENERIC_READ,
                 FILE_SHARE_READ,
@@ -166,7 +166,7 @@ CClanDlg::OnLButtonUp(unsigned uiProcID, WPARAM wParam, LPARAM lParam) {
         case IID_BTN_REGIST_NOTICE: {
             CClan& Clan = CClan::GetInstance();
             if (Clan.GetClanNo()) {
-                ///Å¬·£ ¸¶½ºÅÍÀÏ°æ¿ì¿¡¸¸
+                ///í´ëœ ë§ˆìŠ¤í„°ì¼ê²½ìš°ì—ë§Œ
                 if (CClan::GetInstance().GetClass() >= CClan::CLAN_MASTER)
                     g_itMGR.OpenDialog(DLG_TYPE_CLAN_NOTICE);
                 else
@@ -174,7 +174,7 @@ CClanDlg::OnLButtonUp(unsigned uiProcID, WPARAM wParam, LPARAM lParam) {
             }
         } break;
         case IID_BTN_DELETE_NOTICE:
-            ///Å¬·£ ¸¶½ºÅÍÀÏ°æ¿ì¿¡¸¸
+            ///í´ëœ ë§ˆìŠ¤í„°ì¼ê²½ìš°ì—ë§Œ
             break;
         case IID_BTN_WITHDRAWAL: {
             if (g_pTerrain->is_clan_zone()) {
@@ -185,7 +185,7 @@ CClanDlg::OnLButtonUp(unsigned uiProcID, WPARAM wParam, LPARAM lParam) {
             CClan& Clan = CClan::GetInstance();
             if (Clan.GetClanNo() && !g_pTerrain->is_pvp_zone()) {
                 if (CClan::GetInstance().GetClass() < CClan::CLAN_MASTER) {
-                    ///Å¬·£ ¸¶½ºÅÍ°¡ ¾Æ´Ò°æ¿ì¿¡¸¸
+                    ///í´ëœ ë§ˆìŠ¤í„°ê°€ ì•„ë‹ê²½ìš°ì—ë§Œ
                     g_pNet->Send_cli_CLAN_COMMAND(GCMD_QUIT, NULL);
                     CClan::GetInstance().Clear();
                     g_pAVATAR->ResetClan();
@@ -393,7 +393,7 @@ CClanDlg::DrawInfomation() {
             288,
             dwColor,
             CStringManager::GetSingleton().GetClanClass(
-                CClan::GetInstance().GetClass())); ///ÀÚ½ÅÀÇ Á÷À§
+                CClan::GetInstance().GetClass())); ///ìì‹ ì˜ ì§ìœ„
         ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL],
             true,
             84,

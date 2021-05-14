@@ -4,9 +4,9 @@
 #include "cgamestate.h"
 
 /**
- * °ÔÀÓ³» ¿öÇÁ½ÃÀÇ State Class
+ * ê²Œì„ë‚´ ì›Œí”„ì‹œì˜ State Class
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/14
  */
 class CGameStateWarp: public CGameState {

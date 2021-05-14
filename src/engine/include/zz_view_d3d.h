@@ -15,7 +15,7 @@
  * *****************  Version 2  *****************
  * User: Zho          Date: 04-04-26   Time: 7:39p
  * Updated in $/engine/include
- * 4.26.17½Ã 39ºÐ
+ * 4.26.17ì‹œ 39ë¶„
  * 
  * *****************  Version 1  *****************
  * User: Zho          Date: 03-11-30   Time: 8:06p

@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	GS_ThreadZONE.h
- * \brief	CZoneFILEÅ¬·¡½º¸¦ »ó¼Ó¹ÞÀ¸¸ç, Á¸°ú Á¸¿¡ µî·ÏµÈ °´Ã¼ °ü¸®/Ã³¸®
+ * \brief	CZoneFILEí´ëž˜ìŠ¤ë¥¼ ìƒì†ë°›ìœ¼ë©°, ì¡´ê³¼ ì¡´ì— ë“±ë¡ëœ ê°ì²´ ê´€ë¦¬/ì²˜ë¦¬
  */
 #ifndef ThreadZONEH
 #define ThreadZONEH
@@ -37,8 +37,8 @@ struct tagCalledMOB {
  * \ingroup SHO_GS_LIB
  * \class	CZoneTHREAD
  * \author	wookSang.Jo
- * \brief	Á¸(zone) Ã³¸® ÇÏ´Â ¾²·¡µå Å¬·¡½º
- *			¾²·¡µå Å¬·¡½º¹× Á¸ÆÄÀÏ µ¥ÀÌÅ¸¸¦ Æ÷ÇÔÇÏ°í ÀÖ´Â CZoneFILEÅ¬·¡½º¸¦ »ó¼Ó¹ÞÀ½
+ * \brief	ì¡´(zone) ì²˜ë¦¬ í•˜ëŠ” ì“°ëž˜ë“œ í´ëž˜ìŠ¤
+ *			ì“°ëž˜ë“œ í´ëž˜ìŠ¤ë° ì¡´íŒŒì¼ ë°ì´íƒ€ë¥¼ í¬í•¨í•˜ê³  ìžˆëŠ” CZoneFILEí´ëž˜ìŠ¤ë¥¼ ìƒì†ë°›ìŒ
  */
 class CZoneTHREAD: public CZoneFILE {
 private:
@@ -55,9 +55,9 @@ private:
     classSLLIST<tagCalledMOB> m_MobCALLED;
 
     CCriticalSection m_csZoneObjWAIT;
-    classDLLIST<CGameOBJ*> m_ObjWAIT; // Á¸¿¡ µé¾î°¡±âÀ§ÇØ ´ë±âÇÏ´Â °´Ã¼...
+    classDLLIST<CGameOBJ*> m_ObjWAIT; // ì¡´ì— ë“¤ì–´ê°€ê¸°ìœ„í•´ ëŒ€ê¸°í•˜ëŠ” ê°ì²´...
 
-    classDLLIST<CGameOBJ*> m_ObjLIST; // Á¸¿¡ µé¾î°¡ ÀÖ´Â °´Ã¼...
+    classDLLIST<CGameOBJ*> m_ObjLIST; // ì¡´ì— ë“¤ì–´ê°€ ìžˆëŠ” ê°ì²´...
 
     CCriticalSection m_csPacketLIST;
     classSLLIST<classPACKET*> m_ToSendPacketLIST;

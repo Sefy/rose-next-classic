@@ -1,35 +1,35 @@
 /*
-    ** ¸ðµ¨ µ¥ÀÌÅ¸ text ÀÛ¼º¹ý.
+    ** ëª¨ë¸ ë°ì´íƒ€ text ìž‘ì„±ë²•.
     numobj 1
     obj 1
-        mesh 		3Ddata\????.ZMS		-- ¸Þ½¬ ÆÄÀÏ
-        mat 		3Ddata\????.tga		-- ÅØ½ºÃÄ ÆÄÀÏ
-        isskin   	0					-- skinning		on:1, off:0		*ÁÖÀÇ bonenumber °°ÀÌ
-   »ç¿ë¾ÈµÈ´Ù ! alpha 		0					-- alpha		on:1, off:0 twoside 	0
-   -- twoside		on:1, off:0 alphatest	1                   -- ¾ËÆÄÅ×½ºÆ® ¿©ºÎ. on:1, off:0.
-   2003/10/10 Ãß°¡µÊ. alpharef	128                 -- ¾ËÆÄÅ×½ºÆ®½Ã ºñ±³°ª. 0-255. 2003/10/10
-   Ãß°¡µÊ. ztest		1                   -- ZÅ×½ºÆ®.  on:1, off:0.                     2003/10/10
-   Ãß°¡µÊ. zwrite		1                   -- Z°ª ¾²±â. on:1, off:0.                     2003/10/10
-   Ãß°¡µÊ. blendtype	0                   -- ºí·»µùÅ¸ÀÔ. ±âº»:0, ¹à°Ô:1.                2003/10/10
-   Ãß°¡µÊ. specular	0                   -- ½ºÆäÅ§·¯ ¿©ºÎ. on:1, off:0.				  2003/10/10
-   Ãß°¡µÊ. alphavalue 1.0				-- ÀçÁú ±âº» ÀüÃ¼ ¾ËÆÄ. ±âº»°ª 1.0		2004/07/23 Ãß°¡µÊ.
-        glowtype 0					-- ÀçÁú ±Û·Î¿ì Å¸ÀÔ ±âº»°ª 0					2004/07/25
-   Ãß°¡µÊ. glowcolor 0.5 0.5 0.5    -- ±Û·Î¿ì ÄÃ·¯. ±âº» 1, 1, 1. ¹üÀ§ 0¿¡¼­ 1»çÀÌ. 2004/07/22
-   Ãß°¡µÊ. pos	0.0 0.0 0.0					-- export¿¡¼­ ±â·ÏµÇ´Â Á¤º¸ rot -0.xxx 0.xxx -0.xxx
-   -0.xxx	-- export¿¡¼­ ±â·ÏµÇ´Â Á¤º¸ scale 1.0 1.0 1.0				-- export¿¡¼­ ±â·ÏµÇ´Â Á¤º¸
-        linkdummy	?					-- ÀåÂø ¾ÆÀÌÅÛÀÇ °æ¿ì À§Ä¡ÇÒ ´õ¹Ì ¹øÈ£.
-        bonenumber	?					-- À§Ä¡ÇÒ º»ÀÇ ¹øÈ£				*ÁÖÀÇ isskin°ú °°ÀÌ
-   »ç¿ë¾ÈµÈ´Ù ! parent		0
-        collision	4					-- Ãæµ¹ Ã¼Å©, ÇÊµå ¾ÆÀÌÅÛ, °Ç¹° ³ª¹«µîÀº 4ÀÔ·Â  Ç®,
-   ³ª¹«ÀÙµîÀº ÇÊ¿ä ¾øÀ½.
+        mesh 		3Ddata\????.ZMS		-- ë©”ì‰¬ íŒŒì¼
+        mat 		3Ddata\????.tga		-- í…ìŠ¤ì³ íŒŒì¼
+        isskin   	0					-- skinning		on:1, off:0		*ì£¼ì˜ bonenumber ê°™ì´
+   ì‚¬ìš©ì•ˆëœë‹¤ ! alpha 		0					-- alpha		on:1, off:0 twoside 	0
+   -- twoside		on:1, off:0 alphatest	1                   -- ì•ŒíŒŒí…ŒìŠ¤íŠ¸ ì—¬ë¶€. on:1, off:0.
+   2003/10/10 ì¶”ê°€ë¨. alpharef	128                 -- ì•ŒíŒŒí…ŒìŠ¤íŠ¸ì‹œ ë¹„êµê°’. 0-255. 2003/10/10
+   ì¶”ê°€ë¨. ztest		1                   -- Zí…ŒìŠ¤íŠ¸.  on:1, off:0.                     2003/10/10
+   ì¶”ê°€ë¨. zwrite		1                   -- Zê°’ ì“°ê¸°. on:1, off:0.                     2003/10/10
+   ì¶”ê°€ë¨. blendtype	0                   -- ë¸”ë Œë”©íƒ€ìž…. ê¸°ë³¸:0, ë°ê²Œ:1.                2003/10/10
+   ì¶”ê°€ë¨. specular	0                   -- ìŠ¤íŽ˜í˜ëŸ¬ ì—¬ë¶€. on:1, off:0.				  2003/10/10
+   ì¶”ê°€ë¨. alphavalue 1.0				-- ìž¬ì§ˆ ê¸°ë³¸ ì „ì²´ ì•ŒíŒŒ. ê¸°ë³¸ê°’ 1.0		2004/07/23 ì¶”ê°€ë¨.
+        glowtype 0					-- ìž¬ì§ˆ ê¸€ë¡œìš° íƒ€ìž… ê¸°ë³¸ê°’ 0					2004/07/25
+   ì¶”ê°€ë¨. glowcolor 0.5 0.5 0.5    -- ê¸€ë¡œìš° ì»¬ëŸ¬. ê¸°ë³¸ 1, 1, 1. ë²”ìœ„ 0ì—ì„œ 1ì‚¬ì´. 2004/07/22
+   ì¶”ê°€ë¨. pos	0.0 0.0 0.0					-- exportì—ì„œ ê¸°ë¡ë˜ëŠ” ì •ë³´ rot -0.xxx 0.xxx -0.xxx
+   -0.xxx	-- exportì—ì„œ ê¸°ë¡ë˜ëŠ” ì •ë³´ scale 1.0 1.0 1.0				-- exportì—ì„œ ê¸°ë¡ë˜ëŠ” ì •ë³´
+        linkdummy	?					-- ìž¥ì°© ì•„ì´í…œì˜ ê²½ìš° ìœ„ì¹˜í•  ë”ë¯¸ ë²ˆí˜¸.
+        bonenumber	?					-- ìœ„ì¹˜í•  ë³¸ì˜ ë²ˆí˜¸				*ì£¼ì˜ isskinê³¼ ê°™ì´
+   ì‚¬ìš©ì•ˆëœë‹¤ ! parent		0
+        collision	4					-- ì¶©ëŒ ì²´í¬, í•„ë“œ ì•„ì´í…œ, ê±´ë¬¼ ë‚˜ë¬´ë“±ì€ 4ìž…ë ¥  í’€,
+   ë‚˜ë¬´ìžŽë“±ì€ í•„ìš” ì—†ìŒ.
 
-        mob_stop	3DData\???.ZMO		-- ¸ó½ºÅÍ ¸ðµ¨Áß ¸Þ½¬ ¿¡´Ï¸ÞÀÌ¼ÇÀÌµÇ´Â °æ¿ì °¢ Çàµ¿¿¡ ¸Â´Â
-   ¸ð¼Ç ÆÄÀÏÀ» ±â·Ï mob_move	3DData\???.ZMO		-- º°µµÀÇ ¸ð¼Ç ÆÄÀÏÀÌ ÁöÁ¤ÀÌ ÇÊ¿ä ¾øÀ» °æ¿ì´Â
-   ¾ø´Â Ãß°¡ÇÏÁö ¾Ê´Â´Ù. mob_attack	3DData\???.ZMO      -- ¸ð¼ÇÀÌ ÁöÁ¤µÇÁö ¾ÊÀ¸¸é Á¤Áö ¸ð¼ÇÀÌ
-   »ç¿ëµÈ´Ù. mob_die		3DData\???.ZMO mob_hit		3DData\???.ZMO mob_etc		3DData\???.ZMO
+        mob_stop	3DData\???.ZMO		-- ëª¬ìŠ¤í„° ëª¨ë¸ì¤‘ ë©”ì‰¬ ì—ë‹ˆë©”ì´ì…˜ì´ë˜ëŠ” ê²½ìš° ê° í–‰ë™ì— ë§žëŠ”
+   ëª¨ì…˜ íŒŒì¼ì„ ê¸°ë¡ mob_move	3DData\???.ZMO		-- ë³„ë„ì˜ ëª¨ì…˜ íŒŒì¼ì´ ì§€ì •ì´ í•„ìš” ì—†ì„ ê²½ìš°ëŠ”
+   ì—†ëŠ” ì¶”ê°€í•˜ì§€ ì•ŠëŠ”ë‹¤. mob_attack	3DData\???.ZMO      -- ëª¨ì…˜ì´ ì§€ì •ë˜ì§€ ì•Šìœ¼ë©´ ì •ì§€ ëª¨ì…˜ì´
+   ì‚¬ìš©ëœë‹¤. mob_die		3DData\???.ZMO mob_hit		3DData\???.ZMO mob_etc		3DData\???.ZMO
 
-        avt_walk	3DData\???.ZMO		-- ¾Æ¹ÙÅ¸ ¸ðµ¨Áß ¸Þ½¬ ¿¡´Ï¸ÞÀÌ¼ÇÀÌ µÇ´Â°ÍÀº °¢ µ¿ÀÛ¿¡ ¸Â´Â
-   ¸ð¼Ç ÆÄÀÏÀ» ±â·Ï. avt_attack  3DData\???.ZMO		-- ¸ó½ºÅÍ ¸ð¼Ç ¼³Á¤°ú µ¿ÀÏ. avt_stop1
+        avt_walk	3DData\???.ZMO		-- ì•„ë°”íƒ€ ëª¨ë¸ì¤‘ ë©”ì‰¬ ì—ë‹ˆë©”ì´ì…˜ì´ ë˜ëŠ”ê²ƒì€ ê° ë™ìž‘ì— ë§žëŠ”
+   ëª¨ì…˜ íŒŒì¼ì„ ê¸°ë¡. avt_attack  3DData\???.ZMO		-- ëª¬ìŠ¤í„° ëª¨ì…˜ ì„¤ì •ê³¼ ë™ì¼. avt_stop1
    3DData\???.ZMO avt_stop2	3DData\???.ZMO avt_run		3DData\???.ZMO avt_sitting	3DData\???.ZMO
         avt_sit		3DData\???.ZMO
         avt_standup	3DData\???.ZMO
@@ -42,111 +42,111 @@
 
     numpoint 1
     point 1
-        effect		3DDATA\????.eft		-- Æ÷ÀÎÆ®¿¡ ¸µÅ©µÉ È¿°ú ÆÄÀÏ ¾øÀ¸¸é °ø¹éÀ¸·Î...
-        parent 1						-- Æ÷ÀÎÆ®°¡ À§Ä¡ÇÑ obj ¹øÈ£
-        pos	0.0 0.0 0.0					-- export¿¡¼­ ±â·ÏµÇ´Â Á¤º¸
-        rot -0.xxx 0.xxx -0.xxx -0.xxx	-- export¿¡¼­ ±â·ÏµÇ´Â Á¤º¸
-        scale 1.0 1.0 1.0				-- export¿¡¼­ ±â·ÏµÇ´Â Á¤º¸
+        effect		3DDATA\????.eft		-- í¬ì¸íŠ¸ì— ë§í¬ë  íš¨ê³¼ íŒŒì¼ ì—†ìœ¼ë©´ ê³µë°±ìœ¼ë¡œ...
+        parent 1						-- í¬ì¸íŠ¸ê°€ ìœ„ì¹˜í•œ obj ë²ˆí˜¸
+        pos	0.0 0.0 0.0					-- exportì—ì„œ ê¸°ë¡ë˜ëŠ” ì •ë³´
+        rot -0.xxx 0.xxx -0.xxx -0.xxx	-- exportì—ì„œ ê¸°ë¡ë˜ëŠ” ì •ë³´
+        scale 1.0 1.0 1.0				-- exportì—ì„œ ê¸°ë¡ë˜ëŠ” ì •ë³´
 
 
-    ÄÉ¸¯ÅÍ :
-        isskin °ú bonenumber °¡ µ¿½Ã¿¡ 1ÀÌ µÇ¸é ¾ÊµÈ´Ù.
+    ì¼€ë¦­í„° :
+        isskin ê³¼ bonenumber ê°€ ë™ì‹œì— 1ì´ ë˜ë©´ ì•Šëœë‹¤.
 
-    ¹«±â :
-        -- ¹«±â°¡ ÀåÃ¢µÉ linkdummy¸¦ ¹Ýµå½Ã ±â·ÏÇÑ´Ù.
+    ë¬´ê¸° :
+        -- ë¬´ê¸°ê°€ ìž¥ì°½ë  linkdummyë¥¼ ë°˜ë“œì‹œ ê¸°ë¡í•œë‹¤.
 
 
-    °Ç¹° & ÁöÇü¹° :
-        -- Ãæµ¹ Ã¼Å©°¡ ÇÊ¿äÇÑ ºÎºÐÀº collision À» ±â·ÏÇÑ´Ù.
-        -- ³ª¹µÀÙµî ÄÉ¸¯ÅÍ À§ÂÊ¿¡ À§Ä¡ÇÏ´Â°ÍµéÀÇ °æ¿ì collisionÀ» 0À¸·Î ÇÏ°Å³ª »èÁ¦ÇÑ´Ù.
+    ê±´ë¬¼ & ì§€í˜•ë¬¼ :
+        -- ì¶©ëŒ ì²´í¬ê°€ í•„ìš”í•œ ë¶€ë¶„ì€ collision ì„ ê¸°ë¡í•œë‹¤.
+        -- ë‚˜ë­‡ìžŽë“± ì¼€ë¦­í„° ìœ„ìª½ì— ìœ„ì¹˜í•˜ëŠ”ê²ƒë“¤ì˜ ê²½ìš° collisionì„ 0ìœ¼ë¡œ í•˜ê±°ë‚˜ ì‚­ì œí•œë‹¤.
 
-    ÇÊµå ¾ÆÀÌÅÛ :
-        -- ¹Ýµå½Ã collision °ªÀ» 4·Î ¼³Á¤ÇÑ´Ù.
+    í•„ë“œ ì•„ì´í…œ :
+        -- ë°˜ë“œì‹œ collision ê°’ì„ 4ë¡œ ì„¤ì •í•œë‹¤.
 */
 /*
-    ** Ä³¸¯ÅÍ ´õ¹Ì Æ÷ÀÎÆ® ¼ø¼­.
-        0 : ¿À¸¥¼Õ
-        1 : ¿Þ¼Õ
-        2 : ¿Þ¼Õ ¹æÆÐ
-        3 : µîÀåºñ
-        4 : ÀÔ
-        5 : ´«
-        6 : ¸ðÀÚ
-        7 : Å¸°Ý ÁöÁ¡
-*/
-
-/*
-    ** ¹«±â Æ÷ÀÎÆ® ¼ø¼­ ( È¿°ú ÀåÂø Æ÷ÀÎÆ®´Â 3°³¸¦ ¸¸µê)
-        0 ~ 1 : Ä®ÀÏ °æ¿ì ÀÜ»óÀÌ ±×·ÁÁú µÎÁ¡
-        0 : ¿ø°Å¸® ¹«±â ÃÑ¾Ë ¹ß»ç À§Ä¡.
-        1 ~ ³ª¸ÓÁö : ±âÅ¸ È¿°ú ÀåÂø À§Ä¡. Ä®ÀÏ°æ¿ì 2¹ø Æ÷ÀÎÆ® ºÎÅÍ.
+    ** ìºë¦­í„° ë”ë¯¸ í¬ì¸íŠ¸ ìˆœì„œ.
+        0 : ì˜¤ë¥¸ì†
+        1 : ì™¼ì†
+        2 : ì™¼ì† ë°©íŒ¨
+        3 : ë“±ìž¥ë¹„
+        4 : ìž…
+        5 : ëˆˆ
+        6 : ëª¨ìž
+        7 : íƒ€ê²© ì§€ì 
 */
 
 /*
-    ** ¾Æ¹ÙÅ¸ º» ÀÎµ¦½º.
+    ** ë¬´ê¸° í¬ì¸íŠ¸ ìˆœì„œ ( íš¨ê³¼ ìž¥ì°© í¬ì¸íŠ¸ëŠ” 3ê°œë¥¼ ë§Œë“¦)
+        0 ~ 1 : ì¹¼ì¼ ê²½ìš° ìž”ìƒì´ ê·¸ë ¤ì§ˆ ë‘ì 
+        0 : ì›ê±°ë¦¬ ë¬´ê¸° ì´ì•Œ ë°œì‚¬ ìœ„ì¹˜.
+        1 ~ ë‚˜ë¨¸ì§€ : ê¸°íƒ€ íš¨ê³¼ ìž¥ì°© ìœ„ì¹˜. ì¹¼ì¼ê²½ìš° 2ë²ˆ í¬ì¸íŠ¸ ë¶€í„°.
+*/
+
+/*
+    ** ì•„ë°”íƒ€ ë³¸ ì¸ë±ìŠ¤.
         0 :
         1 :
         2 :
         3 :
-        4 : ¸Ó¸®
+        4 : ë¨¸ë¦¬
         5 :
         6 :
 */
 
 /*
-// ¾ÆÀÌÅÛ ¼ÒºÐ·ùÇ¥ !!!
-°¡¸é     (111)
-¾È°æ     (112)
-±âÅ¸     (113)
-ÀüÅõ¸ð    (121)
-¸¶¹ý¸ð    (122)
-ÀÏ¹Ý¸ðÀÚ  (123)
-¸Ó¸®Àå½Ä (124)
-ÀüÅõº¹   (131)
-¸¶¹ý¿Ê   (132)
-ÀÏ¹Ý¿Ê   (133)
-°Çµé·¿    (141)
-¸¶¹ýÀå°©  (142)
-ÀÏ¹ÝÀå°©  (143)
-ÀüÅõÈ­    (151)
-¸¶¹ýºÎÃ÷  (152)
-ÀÏ¹Ý½Å¹ß (153)
-µî¹æ¾î±¸ (161)
-¹è³¶     (162)
-³¯°³     (163)
-È­»ìÅë   (164)
-ÃÑ¾ËÅë   (165)
-ÆøÅºÅë   (166)
-¸ñ°ÉÀÌ   (171)	ºñ¾îÀÖ´Â ¹ÝÁö¿¡ º¸¼®À» ºÙ¿©¼­ ÀåÂø½ÃÅ²´Ù.
-¹ÝÁö     (172)
-ÇÑ¼Õ°Ë   (211)	µ¥ÀÌÅÍ ÆÄÀÏ¿¡¼­´Â 1¹ø ~ 100¹ø±îÁö
-ÇÑ¼Õ µÐ±â (212)
-¾ç¼Õ°Ë    (221)	Å©±â°¡ Å« ¹«±â Á¾·ù
-µ¥ÀÌÅÍ ÆÄÀÏ¿¡¼­´Â 101¹ø ~ 200¹ø±îÁö
-Ã¢        (222)
-¾ç¼Õ µµ³¢ (223)
-È°        (231)	¿ø°Å¸® °ø°Ý¿ë ¹«±â
-µ¥ÀÌÅÍ ÆÄÀÏ¿¡¼­´Â 201¹ø ~ 300¹ø±îÁö
-ÃÑ        (232)
-¸¶¹ýÁöÆÎÀÌ (241)	¸¶¹ý¿ë ¹«±â³ª µµ±¸
-µ¥ÀÌÅÍ ÆÄÀÏ¿¡¼­´Â 301¹ø ~ 400¹ø±îÁö
-¸¶¹ý µµ±¸  (242)
-Ä«Å¸¸£    (251)	¿À¸¥¼Õ,¿Þ¼Õ¿¡ ¸ðµÎ ½ÖÀ¸·Î ÀåÂøµÇ´Â ¹«±â.
-µ¥ÀÌÅÍ ÆÄÀÏ¿¡¼­´Â 401¹ø ~ 500¹ø±îÁö
-ÀÌµµ·ù    (252)
-½ÖÃÑ     (253)
-¹æÆÐ      (261)	* ÇÑ¼Õ ¹«±â¸¦ ÀåÂøÇßÀ» ¶§, ´Ù¸¥ ¼Õ¿¡ º¸Á¶ Àåºñ¸¦ ÀåÂøÇÒ ¼ö ÀÖ´Ù. * º¸Á¶ Àåºñ´Â
-¾Æ¹ÙÅ¸ÀÇ ¿Þ¼Õ¿¡ ÀåÂøµÈ´Ù. º¸Á¶µµ±¸  (262)	* ÆÒ½Ã»óÇ°, ¸¶¹ýº¸Á¶ µµ±¸. ¾àÇ°      (311)	Ã¼·ÂÈ¸º¹¾à,
-±Ù·Â°­È­Á¦, DHAº¸°­Á¦ À½½Ä      (312)	µÅÁö¹Ùº£Å¥, Åë´ß, ÁÖ¸Ô¹ä ¸¶¹ý¹®¼­  (313)	1È¸¿ë ¸¶¹ýÀ»
-¹ßµ¿½ÃÅ°´Â ¾ÆÀÌÅÛ ½ºÅ³±³º»  (314)	»õ·Î¿î ½ºÅ³À» ¹è¿ì°Ô ÇØÁÖ´Â ¾ÆÀÌÅÛ º¸¼®      (411)	´ÙÀÌ¾Æ¸óµå,
-·çºñ µî.. ¿¹¼úÇ°    (412)	µµÀÚ±â, ±×¸², Á¶°¢»ó µî.. ±Ý¼Ó      (421)	Ã¶, ±¸¸®, Àº µî.. ¸¶±Ý¼Ó
-(422)	¸¶¹ýÀÇÈûÀÌ °áÇÕµÈ Æ¯¼ö ±Ý¼Ó ¼®Àç      (423)	´ë¸®¼®, ±â¿Í, º®µ¹ µî.. ¸ñÀç      (424)	ÆÇÀÚ,
-°¢¸ñ µî.. °¡Á×      (425)	¼Ò°¡Á×, ¾ç°¡Á× µî.. ¿Ê°¨      (426)	¹«¸íÃµ, ¸é, ºñ´Ü, ¸ðÁ÷ µî.. ¿¬±ÝÀç·á
-(427)	¸¶±Ý¼Ó, º¸¼®°¡°øµî¿¡ »ç¿ë È­ÇÐÇ°    (428)	¾àÇ°, À½½Ä µîÀ» ¸¸µé ¶§ »ç¿ë. ±Û¸®¼¼¸°, ¼Ò´Ù,
-¸¶±×³×½·, È­¾à, ¸¶¹ý°¡·ç °ø»êÇ°    (429)	¿­¼è, ÀÎÇü, Á¾ÀÌ, °í¹«, À¯¸®º´, ³ª¹«»óÀÚ, ¸¶¹ýÀ×Å©(»ö±ò
-±¸ºÐ), ºó ¸¶¹ýÃ¥ ÀÚ¿¬¹°    (430)	Ã¶±¤¼®, ¼®Åº, °í·ÉÅä, »ù¹°,¼®À¯,È­¼® µî.. ³ª¹«Åä¸·, ¹ö¼¸,
-ÀÙ»ç±Í, °³¹Ì²¿¸®,´ÞÆØÀÌ¾Ë, °¡Àç²®Áú, »ý¼ö µî Äù½ºÆ® ¹°Ç°(441)	 ¿ÕÀÇ¿Á¼è, ¸¶½ºÅÍÅ°, °¨¿Á¿­¼è ÀÎÁõ¼­
-(442)	 º¸¾È°ü ½ÅºÐÁõ, ±¹¿Õ ÃÊ´ëÀå
+// ì•„ì´í…œ ì†Œë¶„ë¥˜í‘œ !!!
+ê°€ë©´     (111)
+ì•ˆê²½     (112)
+ê¸°íƒ€     (113)
+ì „íˆ¬ëª¨    (121)
+ë§ˆë²•ëª¨    (122)
+ì¼ë°˜ëª¨ìž  (123)
+ë¨¸ë¦¬ìž¥ì‹ (124)
+ì „íˆ¬ë³µ   (131)
+ë§ˆë²•ì˜·   (132)
+ì¼ë°˜ì˜·   (133)
+ê±´ë“¤ë ›    (141)
+ë§ˆë²•ìž¥ê°‘  (142)
+ì¼ë°˜ìž¥ê°‘  (143)
+ì „íˆ¬í™”    (151)
+ë§ˆë²•ë¶€ì¸   (152)
+ì¼ë°˜ì‹ ë°œ (153)
+ë“±ë°©ì–´êµ¬ (161)
+ë°°ë‚­     (162)
+ë‚ ê°œ     (163)
+í™”ì‚´í†µ   (164)
+ì´ì•Œí†µ   (165)
+í­íƒ„í†µ   (166)
+ëª©ê±¸ì´   (171)	ë¹„ì–´ìžˆëŠ” ë°˜ì§€ì— ë³´ì„ì„ ë¶™ì—¬ì„œ ìž¥ì°©ì‹œí‚¨ë‹¤.
+ë°˜ì§€     (172)
+í•œì†ê²€   (211)	ë°ì´í„° íŒŒì¼ì—ì„œëŠ” 1ë²ˆ ~ 100ë²ˆê¹Œì§€
+í•œì† ë‘”ê¸° (212)
+ì–‘ì†ê²€    (221)	í¬ê¸°ê°€ í° ë¬´ê¸° ì¢…ë¥˜
+ë°ì´í„° íŒŒì¼ì—ì„œëŠ” 101ë²ˆ ~ 200ë²ˆê¹Œì§€
+ì°½        (222)
+ì–‘ì† ë„ë¼ (223)
+í™œ        (231)	ì›ê±°ë¦¬ ê³µê²©ìš© ë¬´ê¸°
+ë°ì´í„° íŒŒì¼ì—ì„œëŠ” 201ë²ˆ ~ 300ë²ˆê¹Œì§€
+ì´        (232)
+ë§ˆë²•ì§€íŒ¡ì´ (241)	ë§ˆë²•ìš© ë¬´ê¸°ë‚˜ ë„êµ¬
+ë°ì´í„° íŒŒì¼ì—ì„œëŠ” 301ë²ˆ ~ 400ë²ˆê¹Œì§€
+ë§ˆë²• ë„êµ¬  (242)
+ì¹´íƒ€ë¥´    (251)	ì˜¤ë¥¸ì†,ì™¼ì†ì— ëª¨ë‘ ìŒìœ¼ë¡œ ìž¥ì°©ë˜ëŠ” ë¬´ê¸°.
+ë°ì´í„° íŒŒì¼ì—ì„œëŠ” 401ë²ˆ ~ 500ë²ˆê¹Œì§€
+ì´ë„ë¥˜    (252)
+ìŒì´     (253)
+ë°©íŒ¨      (261)	* í•œì† ë¬´ê¸°ë¥¼ ìž¥ì°©í–ˆì„ ë•Œ, ë‹¤ë¥¸ ì†ì— ë³´ì¡° ìž¥ë¹„ë¥¼ ìž¥ì°©í•  ìˆ˜ ìžˆë‹¤. * ë³´ì¡° ìž¥ë¹„ëŠ”
+ì•„ë°”íƒ€ì˜ ì™¼ì†ì— ìž¥ì°©ëœë‹¤. ë³´ì¡°ë„êµ¬  (262)	* íŒ¬ì‹œìƒí’ˆ, ë§ˆë²•ë³´ì¡° ë„êµ¬. ì•½í’ˆ      (311)	ì²´ë ¥íšŒë³µì•½,
+ê·¼ë ¥ê°•í™”ì œ, DHAë³´ê°•ì œ ìŒì‹      (312)	ë¼ì§€ë°”ë² í, í†µë‹­, ì£¼ë¨¹ë°¥ ë§ˆë²•ë¬¸ì„œ  (313)	1íšŒìš© ë§ˆë²•ì„
+ë°œë™ì‹œí‚¤ëŠ” ì•„ì´í…œ ìŠ¤í‚¬êµë³¸  (314)	ìƒˆë¡œìš´ ìŠ¤í‚¬ì„ ë°°ìš°ê²Œ í•´ì£¼ëŠ” ì•„ì´í…œ ë³´ì„      (411)	ë‹¤ì´ì•„ëª¬ë“œ,
+ë£¨ë¹„ ë“±.. ì˜ˆìˆ í’ˆ    (412)	ë„ìžê¸°, ê·¸ë¦¼, ì¡°ê°ìƒ ë“±.. ê¸ˆì†      (421)	ì² , êµ¬ë¦¬, ì€ ë“±.. ë§ˆê¸ˆì†
+(422)	ë§ˆë²•ì˜íž˜ì´ ê²°í•©ëœ íŠ¹ìˆ˜ ê¸ˆì† ì„ìž¬      (423)	ëŒ€ë¦¬ì„, ê¸°ì™€, ë²½ëŒ ë“±.. ëª©ìž¬      (424)	íŒìž,
+ê°ëª© ë“±.. ê°€ì£½      (425)	ì†Œê°€ì£½, ì–‘ê°€ì£½ ë“±.. ì˜·ê°      (426)	ë¬´ëª…ì²œ, ë©´, ë¹„ë‹¨, ëª¨ì§ ë“±.. ì—°ê¸ˆìž¬ë£Œ
+(427)	ë§ˆê¸ˆì†, ë³´ì„ê°€ê³µë“±ì— ì‚¬ìš© í™”í•™í’ˆ    (428)	ì•½í’ˆ, ìŒì‹ ë“±ì„ ë§Œë“¤ ë•Œ ì‚¬ìš©. ê¸€ë¦¬ì„¸ë¦°, ì†Œë‹¤,
+ë§ˆê·¸ë„¤ìŠ˜, í™”ì•½, ë§ˆë²•ê°€ë£¨ ê³µì‚°í’ˆ    (429)	ì—´ì‡ , ì¸í˜•, ì¢…ì´, ê³ ë¬´, ìœ ë¦¬ë³‘, ë‚˜ë¬´ìƒìž, ë§ˆë²•ìž‰í¬(ìƒ‰ê¹”
+êµ¬ë¶„), ë¹ˆ ë§ˆë²•ì±… ìžì—°ë¬¼    (430)	ì² ê´‘ì„, ì„íƒ„, ê³ ë ¹í† , ìƒ˜ë¬¼,ì„ìœ ,í™”ì„ ë“±.. ë‚˜ë¬´í† ë§‰, ë²„ì„¯,
+ìžŽì‚¬ê·€, ê°œë¯¸ê¼¬ë¦¬,ë‹¬íŒ½ì´ì•Œ, ê°€ìž¬ê»ì§ˆ, ìƒìˆ˜ ë“± í€˜ìŠ¤íŠ¸ ë¬¼í’ˆ(441)	 ì™•ì˜ì˜¥ì‡ , ë§ˆìŠ¤í„°í‚¤, ê°ì˜¥ì—´ì‡  ì¸ì¦ì„œ
+(442)	 ë³´ì•ˆê´€ ì‹ ë¶„ì¦, êµ­ì™• ì´ˆëŒ€ìž¥
 */
 
 #ifndef __DATATYPE_H
@@ -237,7 +237,7 @@ enum t_CharPART {
     BODY_PART_FACE_ITEM = BODY_PART_GOGGLE, // 6 link to dummy
     BODY_PART_KNAPSACK = 7,
 
-    // ¿À¸¥¼Õ, ¿Þ¼Õ ¼ø¼­ ÁÖÀÇ !!!
+    // ì˜¤ë¥¸ì†, ì™¼ì† ìˆœì„œ ì£¼ì˜ !!!
     BODY_PART_WEAPON_R = 8, // 8 link to dummy
     BODY_PART_WEAPON_L = 9,
 
@@ -298,7 +298,7 @@ obj_type_string(t_ObjTAG t) {
     }
 }
     //*************************************************************************************************
-/// Âø¿ëÇÏ°í ÀÖ´Â ¾ÆÀÌÅÛ...
+/// ì°©ìš©í•˜ê³  ìžˆëŠ” ì•„ì´í…œ...
 enum t_EquipINDEX {
     EQUIP_IDX_NULL = 0,
 
@@ -333,9 +333,9 @@ enum costume_index {
 };
 
 enum t_eSHOT {
-    SHOT_TYPE_ARROW = 0, // È­»ì¿ë
-    SHOT_TYPE_BULLET, // ÃÑ/½Ö±ÇÃÑ
-    SHOT_TYPE_THROW, // ÅõÃ´±â¿ë
+    SHOT_TYPE_ARROW = 0, // í™”ì‚´ìš©
+    SHOT_TYPE_BULLET, // ì´/ìŒê¶Œì´
+    SHOT_TYPE_THROW, // íˆ¬ì²™ê¸°ìš©
     MAX_SHOT_TYPE = 3
 };
 
@@ -388,69 +388,69 @@ enum t_InvTYPE { INV_WEAPON = 0, INV_USE, INV_ETC, INV_RIDING, MAX_INV_TYPE };
 #define INVENTORY_PAGE_SIZE (6 * 5)
 #define INVENTORY_TOTAL_SIZE \
     (MAX_EQUIP_IDX + MAX_SHOT_TYPE + MAX_INV_TYPE * INVENTORY_PAGE_SIZE + MAX_RIDING_PART + MAX_COSTUME_IDX)
-#define INVENTORY_USE_ITEM0 (MAX_EQUIP_IDX + INVENTORY_PAGE_SIZE) /// ¼Ò¸ð ¾ÆÀÌÅÛ ½ÃÀÛ ÀÎº¥ ¹øÈ£
+#define INVENTORY_USE_ITEM0 (MAX_EQUIP_IDX + INVENTORY_PAGE_SIZE) /// ì†Œëª¨ ì•„ì´í…œ ì‹œìž‘ ì¸ë²¤ ë²ˆí˜¸
 #define INVENTORY_ETC_ITEM0 \
-    (INVENTORY_USE_ITEM0 + INVENTORY_PAGE_SIZE) /// ±âÅ¸ ÀÌÀÌÅÛ ½ÃÀÛ ÀÎº¥ ¹øÈ£
+    (INVENTORY_USE_ITEM0 + INVENTORY_PAGE_SIZE) /// ê¸°íƒ€ ì´ì´í…œ ì‹œìž‘ ì¸ë²¤ ë²ˆí˜¸
 #define INVENTORY_SHOT_ITEM0 (MAX_EQUIP_IDX + MAX_INV_TYPE * INVENTORY_PAGE_SIZE)
 #define INVENTORY_RIDE_ITEM0 (INVENTORY_SHOT_ITEM0 + MAX_SHOT_TYPE)
 #define INVENTORY_COSTUME_ITEM0 (INVENTORY_RIDE_ITEM0 + MAX_RIDING_PART)
 
 #ifndef __SERVER ///.nAvy.
-    #define INVENTORY_ITEM_INDEX_0 MAX_EQUIP_IDX ///°ÔÀÓ»ó ÀÎº¥Åä¸®ÀÇ Ã¹¹øÂ° INDEX NO
+    #define INVENTORY_ITEM_INDEX_0 MAX_EQUIP_IDX ///ê²Œìž„ìƒ ì¸ë²¤í† ë¦¬ì˜ ì²«ë²ˆì§¸ INDEX NO
     #define INVENTORY_ITEM_INDEX_LAST \
-        MAX_EQUIP_IDX + MAX_INV_TYPE * INVENTORY_PAGE_SIZE - 1 ///°ÔÀÓ»ó ÀÎº¥Åä¸®ÀÇ ¸¶Áö¸· INDEX NO
+        MAX_EQUIP_IDX + MAX_INV_TYPE * INVENTORY_PAGE_SIZE - 1 ///ê²Œìž„ìƒ ì¸ë²¤í† ë¦¬ì˜ ë§ˆì§€ë§‰ INDEX NO
 #endif
 
 enum t_eItemCLASS {
-    JEWEL_ITEM_RING = 171, // ¹ÝÁö
-    JEWEL_ITEM_NECKLACE = 172, // ¸ñ°ÉÀÌ
-    JEWEL_ITEM_EARRING = 173, // ±Í°ÉÀÌ
+    JEWEL_ITEM_RING = 171, // ë°˜ì§€
+    JEWEL_ITEM_NECKLACE = 172, // ëª©ê±¸ì´
+    JEWEL_ITEM_EARRING = 173, // ê·€ê±¸ì´
 
-    WEAPON_ITEM_USE_ARROW = 231, // SHOT_TYPE_ARROW ¼Ò¸ðÇÏ´Â ¹«±â
-    WEAPON_ITEM_USE_ARROW2 = 271, // SHOT_TYPE_ARROW ¼Ò¸ðÇÏ´Â ¹«±â(ÇÑ¼Õ¿ø°Å¸®¹«±â)
-    WEAPON_ITEM_USE_BULLET = 232, // SHOT_TYPE_BULLET ¼Ò¸ðÇÏ´Â ¹«±â
-    WEAPON_ITEM_USE_THROW = 233, // SHOT_TYPE_THROW ¼Ò¸ðÇÏ´Â ¹«±â
-    WEAPON_ITEM_USE_BULLET2 = 253, // SHOT_TYPE_BULLET ¼Ò¸ðÇÏ´Â ¹«±â
-    WEAPON_ITEM_NOT_USE_BULLET = 242, // SHOT_TYPE_BULLET ¼Ò¸ðÇÏ´Â ¹«±â
+    WEAPON_ITEM_USE_ARROW = 231, // SHOT_TYPE_ARROW ì†Œëª¨í•˜ëŠ” ë¬´ê¸°
+    WEAPON_ITEM_USE_ARROW2 = 271, // SHOT_TYPE_ARROW ì†Œëª¨í•˜ëŠ” ë¬´ê¸°(í•œì†ì›ê±°ë¦¬ë¬´ê¸°)
+    WEAPON_ITEM_USE_BULLET = 232, // SHOT_TYPE_BULLET ì†Œëª¨í•˜ëŠ” ë¬´ê¸°
+    WEAPON_ITEM_USE_THROW = 233, // SHOT_TYPE_THROW ì†Œëª¨í•˜ëŠ” ë¬´ê¸°
+    WEAPON_ITEM_USE_BULLET2 = 253, // SHOT_TYPE_BULLET ì†Œëª¨í•˜ëŠ” ë¬´ê¸°
+    WEAPON_ITEM_NOT_USE_BULLET = 242, // SHOT_TYPE_BULLET ì†Œëª¨í•˜ëŠ” ë¬´ê¸°
 
-    WEAPON_ITEM_SHIELD = 261, // ¹æÆÐ ¾ÆÀÌÅÛ
+    WEAPON_ITEM_SHIELD = 261, // ë°©íŒ¨ ì•„ì´í…œ
 
-    USE_ITEM_SKILL_DOING = 313, // ¼Ò¸ð¼º ¾ÆÀÌÅÛÀ¸·Î ½ºÅ³ »ç¿ë
-    USE_ITEM_SKILL_LEARN = 314, // ¼Ò¸ð¼º ¾ÆÀÌÅÛÀ¸·Î ½ºÅ³ ¹è¿ò
+    USE_ITEM_SKILL_DOING = 313, // ì†Œëª¨ì„± ì•„ì´í…œìœ¼ë¡œ ìŠ¤í‚¬ ì‚¬ìš©
+    USE_ITEM_SKILL_LEARN = 314, // ì†Œëª¨ì„± ì•„ì´í…œìœ¼ë¡œ ìŠ¤í‚¬ ë°°ì›€
 
-    USE_ITEM_REPAIR_ITEM = 315, // ¼Ò¸ð¼º ¾ÆÀÌÅÛÀ¸·Î Àåºñ ¼ö¸®
-    USE_ITEM_EVENT_ITEM = 316, // ÃàÇÏ ÀÌº¥Æ® ½ºÅ©·Ñ..
-    USE_ITEM_FUEL = 317, // ¿¬·á ¾ÆÀÌÅÛ
-    USE_ITEM_VOLATILITY_ITEM = 320, // ½Àµæ½Ã ¹Ù·Î ¼Ò¸ðµÇ´Â ¾ÆÀÌÅÛ
+    USE_ITEM_REPAIR_ITEM = 315, // ì†Œëª¨ì„± ì•„ì´í…œìœ¼ë¡œ ìž¥ë¹„ ìˆ˜ë¦¬
+    USE_ITEM_EVENT_ITEM = 316, // ì¶•í•˜ ì´ë²¤íŠ¸ ìŠ¤í¬ë¡¤..
+    USE_ITEM_FUEL = 317, // ì—°ë£Œ ì•„ì´í…œ
+    USE_ITEM_VOLATILITY_ITEM = 320, // ìŠµë“ì‹œ ë°”ë¡œ ì†Œëª¨ë˜ëŠ” ì•„ì´í…œ
 
-    USE_ITEM_MAINTAIN_ITEM = 321, // Áö¼Ó ½Ã°£À¸·Î À¯ÁöµÇ´Â ¾ÆÀÌÅÛ(Ã¢°í¹«·á¼­ºñ½º,Ã¢°íÈ®Àå...)
+    USE_ITEM_MAINTAIN_ITEM = 321, // ì§€ì† ì‹œê°„ìœ¼ë¡œ ìœ ì§€ë˜ëŠ” ì•„ì´í…œ(ì°½ê³ ë¬´ë£Œì„œë¹„ìŠ¤,ì°½ê³ í™•ìž¥...)
 
-    TUNING_PART_BODY_CART = 511, // Æ©´×ºÎÇ° - Ä«Æ® ¹Ùµð
-    TUNING_PART_BODY_CASTLEGEAR = 512, // Æ©´×ºÎÇ° - ÄÉ½½±â¾î ¹Ùµð
+    TUNING_PART_BODY_CART = 511, // íŠœë‹ë¶€í’ˆ - ì¹´íŠ¸ ë°”ë””
+    TUNING_PART_BODY_CASTLEGEAR = 512, // íŠœë‹ë¶€í’ˆ - ì¼€ìŠ¬ê¸°ì–´ ë°”ë””
     TUNING_PART_BODY_MOUNT = 513,
-    TUNING_PART_ENGINE_CART = 521, // Æ©´×ºÎÇ° - Ä«Æ® ¿£Áø
-    TUNING_PART_ENGINE_CASTLEGEAR = 522, // Æ©ÆÃºÎÇ° - Ä³½½±â¾î ¿£Áø
+    TUNING_PART_ENGINE_CART = 521, // íŠœë‹ë¶€í’ˆ - ì¹´íŠ¸ ì—”ì§„
+    TUNING_PART_ENGINE_CASTLEGEAR = 522, // íŠœíŒ…ë¶€í’ˆ - ìºìŠ¬ê¸°ì–´ ì—”ì§„
     TUNING_PART_WEAPON_CASTLEGEAR = 552,
 };
 
 //*************************************************************************************************
-/// ¾ÆÀÌÅÛÀÇ ÁßºÐ·ù ¼ø¼­ --> STB ¼ø¼­ !!.
+/// ì•„ì´í…œì˜ ì¤‘ë¶„ë¥˜ ìˆœì„œ --> STB ìˆœì„œ !!.
 enum t_eITEM {
-    ITEM_TYPE_FACE_ITEM = 1, // 1	LIST_FACEITEM.stb	¾ó±¼ Àå½Ä
+    ITEM_TYPE_FACE_ITEM = 1, // 1	LIST_FACEITEM.stb	ì–¼êµ´ ìž¥ì‹
     ITEM_TYPE_HELMET, // 2	LIST_CAP.stb
     ITEM_TYPE_ARMOR, // 3	LIST_BODY.stb
     ITEM_TYPE_GAUNTLET, // 4	LIST_ARMS.stb
     ITEM_TYPE_BOOTS, // 5	LIST_FOOT.stb
     ITEM_TYPE_KNAPSACK, // 6	LIST_BACK.stb
-    ITEM_TYPE_JEWEL, // 7	LIST_JEWEL.stb		Àå½Å±¸ : ¸ñ°ÉÀÌ ¹ÝÁö
+    ITEM_TYPE_JEWEL, // 7	LIST_JEWEL.stb		ìž¥ì‹ êµ¬ : ëª©ê±¸ì´ ë°˜ì§€
 
-    ITEM_TYPE_WEAPON, // 8	LIST_WEAPON.stb		¹«±â
+    ITEM_TYPE_WEAPON, // 8	LIST_WEAPON.stb		ë¬´ê¸°
     ITEM_TYPE_SUBWPN, // 9	LIST_SUBWPN.stb
 
-    ITEM_TYPE_USE, // 10	LIST_USEITEM.stb	¼Ò¸ð
+    ITEM_TYPE_USE, // 10	LIST_USEITEM.stb	ì†Œëª¨
 
     ITEM_TYPE_ETC, // 11
-    ITEM_TYPE_GEM = ITEM_TYPE_ETC, // 11	LIST_JEMITEM.stb	±âÅ¸ : º¸¼®
+    ITEM_TYPE_GEM = ITEM_TYPE_ETC, // 11	LIST_JEMITEM.stb	ê¸°íƒ€ : ë³´ì„
     ITEM_TYPE_NATURAL, // 12	LIST_NATURAL.stb
     ITEM_TYPE_QUEST, // 13	LIST_QUESTITEM.stb
     ITEM_TYPE_RIDE_PART = 14,
@@ -459,7 +459,7 @@ enum t_eITEM {
 };
 
 //*************************************************************************************************
-/// NPC ¸ð¼Ç ÀÎµ¦½º
+/// NPC ëª¨ì…˜ ì¸ë±ìŠ¤
 enum {
     MOB_ANI_STOP = 0,
     //	MOB_ANI_STOP2,
@@ -478,7 +478,7 @@ enum {
 };
 
 //*************************************************************************************************
-/// ¾Æ¹ÙÅ¸ ¸ð¼Ç ÀÎµ¦½º
+/// ì•„ë°”íƒ€ ëª¨ì…˜ ì¸ë±ìŠ¤
 enum {
     AVT_ANI_STOP1 = 0,
     AVT_ANI_STOP2 = 1,
@@ -504,7 +504,7 @@ enum {
 };
 
 //*************************************************************************************************
-/// ¾Æ¹ÙÅ¸ º¯¼ö ÁöÄªÇÏ´Â ÀÎµ«½º..
+/// ì•„ë°”íƒ€ ë³€ìˆ˜ ì§€ì¹­í•˜ëŠ” ì¸ëŽƒìŠ¤..
 enum t_VarINDEX {
     SV_SEX = 0,
     SV_BIRTH,
@@ -524,18 +524,18 @@ enum t_VarINDEX {
 };
 
 //*************************************************************************************************
-/// ¾Æ¹ÙÅ¸ ´É·ÂÄ¡ ±¸ºÐ
+/// ì•„ë°”íƒ€ ëŠ¥ë ¥ì¹˜ êµ¬ë¶„
 enum t_AbilityINDEX {
-    AT_SEX = 2, // ³²0,¿©1
-    AT_BIRTHSTONE = 3, // Åº»ý¼º
-    AT_CLASS = 4, // Á÷¾÷
-    AT_UNION = 5, // ¼Ò¼Ó
-    AT_RANK = 6, // °è±Þ
-    AT_FAME = 7, // ¸í¼º
-    AT_FACE = 8, // ¾ó±¼¸ð¾ç
+    AT_SEX = 2, // ë‚¨0,ì—¬1
+    AT_BIRTHSTONE = 3, // íƒ„ìƒì„±
+    AT_CLASS = 4, // ì§ì—…
+    AT_UNION = 5, // ì†Œì†
+    AT_RANK = 6, // ê³„ê¸‰
+    AT_FAME = 7, // ëª…ì„±
+    AT_FACE = 8, // ì–¼êµ´ëª¨ì–‘
     AT_HAIR,
 
-    AT_STR = 10, // ±âº» ´É·ÂÄ¡
+    AT_STR = 10, // ê¸°ë³¸ ëŠ¥ë ¥ì¹˜
     AT_DEX,
     AT_INT,
     AT_CON,
@@ -569,25 +569,25 @@ enum t_AbilityINDEX {
     AT_BODY_SIZE,
     AT_SKILLPOINT = 37,
 
-    AT_MAX_HP = 38, // 2004. 2. 3 Ãß°¡
+    AT_MAX_HP = 38, // 2004. 2. 3 ì¶”ê°€
     AT_MAX_MP,
 
     AT_MONEY = 40,
 
-    /// ÆÐ½Ãºê ½ºÅ³ ´É·ÂÄ¡..
+    /// íŒ¨ì‹œë¸Œ ìŠ¤í‚¬ ëŠ¥ë ¥ì¹˜..
     AT_PSV_ATK_POW_NO_WEAPON = 41,
     AT_PSV_ATK_POW_1HAND_WPN =
-        42, // °ø°Ý·Â : ÇÑ¼Õ	<< AT_PSV_ATK_POW_SWORD °Ë ¿¡¼­ ÇÑ¼ÕÀ¸·Î º¯°æ 2004. 2. 26 by icarus
-    AT_PSV_ATK_POW_2HAND_WPN = 43, //			¾ç¼Õ	<< AT_PSV_ATK_POW_AXE	µÐ±â¿¡¼­ ¾ç¼ÕÀ» º¯°æ
+        42, // ê³µê²©ë ¥ : í•œì†	<< AT_PSV_ATK_POW_SWORD ê²€ ì—ì„œ í•œì†ìœ¼ë¡œ ë³€ê²½ 2004. 2. 26 by icarus
+    AT_PSV_ATK_POW_2HAND_WPN = 43, //			ì–‘ì†	<< AT_PSV_ATK_POW_AXE	ë‘”ê¸°ì—ì„œ ì–‘ì†ì„ ë³€ê²½
     AT_PSV_ATK_POW_BOW = 44,
     AT_PSV_ATK_POW_GUN = 45,
     AT_PSV_ATK_POW_STAFF_WAND = 46,
-    AT_PSV_ATK_POW_AUTO_BOW = 47, // ¼®±Ã
-    AT_PSV_ATK_POW_KATAR_PAIR = 48, // ÀÌµµ·ù
+    AT_PSV_ATK_POW_AUTO_BOW = 47, // ì„ê¶
+    AT_PSV_ATK_POW_KATAR_PAIR = 48, // ì´ë„ë¥˜
 
     AT_PSV_ATK_SPD_BOW = 49,
     AT_PSV_ATK_SPD_GUN = 50,
-    AT_PSV_ATK_SPD_PAIR = 51, // ÀÌµµ·ù
+    AT_PSV_ATK_SPD_PAIR = 51, // ì´ë„ë¥˜
 
     AT_PSV_MOV_SPD = 52,
     AT_PSV_DEF_POW,
@@ -597,30 +597,30 @@ enum t_AbilityINDEX {
     AT_PSV_RECOVER_MP,
     AT_PSV_WEIGHT = 58,
 
-    AT_PSV_BUYING = 59, // ±¸ÀÔ °¡°Ý ÈïÁ¤ ±â¼ú
-    AT_PSV_SELLING = 60, // ÆÈ±â °¡°Ý ÈïÁ¤ ±â¼ú
+    AT_PSV_BUYING = 59, // êµ¬ìž… ê°€ê²© í¥ì • ê¸°ìˆ 
+    AT_PSV_SELLING = 60, // íŒ”ê¸° ê°€ê²© í¥ì • ê¸°ìˆ 
 
-    AT_PSV_SAVE_MP = 61, // MP Àý°¨
+    AT_PSV_SAVE_MP = 61, // MP ì ˆê°
 
-    AT_PSV_SUMMON_MOB_CNT = 62, // ¼ÒÈ¯°¡´É ¸÷¼ö
-    AT_PSV_DROP_RATE = 63, // µå·Ó È®·ü
+    AT_PSV_SUMMON_MOB_CNT = 62, // ì†Œí™˜ê°€ëŠ¥ ëª¹ìˆ˜
+    AT_PSV_DROP_RATE = 63, // ë“œë¡­ í™•ë¥ 
 
-    AT_AFTER_PASSIVE_SKILL = 71, // ÆÐ½Ãºê ½ºÅ³ º¸Á¤´É·ÂÄ¡ ÀÌÈÄ...
-    AT_RACE = AT_AFTER_PASSIVE_SKILL, // Á¾Á· init_avatar.stb ¶óÀÎ¹øÈ£ / 2
+    AT_AFTER_PASSIVE_SKILL = 71, // íŒ¨ì‹œë¸Œ ìŠ¤í‚¬ ë³´ì •ëŠ¥ë ¥ì¹˜ ì´í›„...
+    AT_RACE = AT_AFTER_PASSIVE_SKILL, // ì¢…ì¡± init_avatar.stb ë¼ì¸ë²ˆí˜¸ / 2
 
-    // ÀÌÈÄ 2004.5.27 Ãß°¡
-    AT_DROP_RATE = 72, // µå·Ó ¼º°ø·ü
+    // ì´í›„ 2004.5.27 ì¶”ê°€
+    AT_DROP_RATE = 72, // ë“œë¡­ ì„±ê³µë¥ 
     AT_FAME_G = 73,
     AT_FAME_B = 74,
 
-    AT_CURRENT_PLANET = 75, // ÇöÀç ÇÃ·¹ÀÌÇÏ°í ÀÖ´Â Çà¼º ¹øÈ£
+    AT_CURRENT_PLANET = 75, // í˜„ìž¬ í”Œë ˆì´í•˜ê³  ìžˆëŠ” í–‰ì„± ë²ˆí˜¸
 
-    AT_STAMINA = 76, // ½ºÅ×¹Ì³Ê
-    AT_FUEL = 77, // ÇöÀç ¿¬·á..
+    AT_STAMINA = 76, // ìŠ¤í…Œë¯¸ë„ˆ
+    AT_FUEL = 77, // í˜„ìž¬ ì—°ë£Œ..
 
     AT_IMMUNITY,
 
-    AT_UNION_POINT1 = 81, // Á¶ÇÕº° Æ÷ÀÎÆ®
+    AT_UNION_POINT1 = 81, // ì¡°í•©ë³„ í¬ì¸íŠ¸
     AT_UNION_POINT2,
     AT_UNION_POINT3,
     AT_UNION_POINT4,
@@ -631,14 +631,14 @@ enum t_AbilityINDEX {
     AT_UNION_POINT9,
     AT_UNION_POINT10 = 90,
 
-    AT_GUILD_NO = 91, // ±æµå ¹øÈ£
-    AT_GUILD_SCORE, // ±æµå Å¬·£ Á¡¼ö
-    AT_GUILD_POS, // ±æµå Á÷À§
+    AT_GUILD_NO = 91, // ê¸¸ë“œ ë²ˆí˜¸
+    AT_GUILD_SCORE, // ê¸¸ë“œ í´ëžœ ì ìˆ˜
+    AT_GUILD_POS, // ê¸¸ë“œ ì§ìœ„
 
     AT_MAINTAIN_ABILITY = 94,
-    AT_BANK_FREE = AT_MAINTAIN_ABILITY, // Ã¢°í ¹«·á
-    AT_BANK_ADDON = 95, // Ã¢°í È®Àå
-    AT_STORE_SKIN = 96, // Ã¢°í ¸ð¾ç
+    AT_BANK_FREE = AT_MAINTAIN_ABILITY, // ì°½ê³  ë¬´ë£Œ
+    AT_BANK_ADDON = 95, // ì°½ê³  í™•ìž¥
+    AT_STORE_SKIN = 96, // ì°½ê³  ëª¨ì–‘
     AT_PATHP = 97,
 
     AT_PSV_RES,
@@ -658,103 +658,103 @@ enum t_AbilityINDEX {
 };
 
 //*************************************************************************************************
-/// Æ÷ÀÎÅÍ »ç¿ë°¡´ÉÇÑ ´É·ÂÄ¡µé..
+/// í¬ì¸í„° ì‚¬ìš©ê°€ëŠ¥í•œ ëŠ¥ë ¥ì¹˜ë“¤..
 enum t_BasicAbilityINDEX {
-    BA_STR = 0, // 			short	m_nSTR;			// ±Ù·Â 1~200
-    BA_DEX, // short	m_nDEX;			// ¹ÎÃ¸ 1~200
-    BA_INT, // short	m_nINT;			// Áö·Â 1~200
-    BA_CON, // short	m_nCON;			// concentration ÁýÁß·Â 1~200
-    BA_CHARM, // short	m_nCHARM;		// ¸Å·Â 1~200
-    BA_SENSE, // short	m_nSENSE;		// °¨°¢ 1~200
+    BA_STR = 0, // 			short	m_nSTR;			// ê·¼ë ¥ 1~200
+    BA_DEX, // short	m_nDEX;			// ë¯¼ì²© 1~200
+    BA_INT, // short	m_nINT;			// ì§€ë ¥ 1~200
+    BA_CON, // short	m_nCON;			// concentration ì§‘ì¤‘ë ¥ 1~200
+    BA_CHARM, // short	m_nCHARM;		// ë§¤ë ¥ 1~200
+    BA_SENSE, // short	m_nSENSE;		// ê°ê° 1~200
 
     BA_MAX
 };
 
 //*************************************************************************************************
-// ¾Æ¹ÙÅ¸ Á÷¾÷ ±¸ºÐÇ¥.		//
-#define CLASS_VISITOR 0 // 0~9 ¹æ¹®°´
+// ì•„ë°”íƒ€ ì§ì—… êµ¬ë¶„í‘œ.		//
+#define CLASS_VISITOR 0 // 0~9 ë°©ë¬¸ê°
 
-#define CLASS_SOLDIER_111 111 // 1Â÷ ¼ÖÁ®
-#define CLASS_SOLDIER_121 121 // 2Â÷ ³ªÀÌÆ®
-#define CLASS_SOLDIER_122 122 // 2Â÷ Ã¨ÇÁ
-#define CLASS_SOLDIER_131 131 // 3Â÷ ¹ÌÁ¤...
-#define CLASS_SOLDIER_132 132 // 3Â÷ ¹ÌÁ¤...
+#define CLASS_SOLDIER_111 111 // 1ì°¨ ì†”ì ¸
+#define CLASS_SOLDIER_121 121 // 2ì°¨ ë‚˜ì´íŠ¸
+#define CLASS_SOLDIER_122 122 // 2ì°¨ ì±”í”„
+#define CLASS_SOLDIER_131 131 // 3ì°¨ ë¯¸ì •...
+#define CLASS_SOLDIER_132 132 // 3ì°¨ ë¯¸ì •...
 
-#define CLASS_MAGICIAN_211 211 // 1Â÷ ¹ÂÁî
-#define CLASS_MAGICIAN_221 221 // 2Â÷ ¸ÞÁö¼Ç
-#define CLASS_MAGICIAN_222 222 // 2Â÷ Å¬·¯¸¯
-#define CLASS_MAGICIAN_231 231 // 3Â÷ ¹ÌÁ¤..
-#define CLASS_MAGICIAN_232 232 // 3Â÷ ¹ÌÁ¤..
+#define CLASS_MAGICIAN_211 211 // 1ì°¨ ë®¤ì¦ˆ
+#define CLASS_MAGICIAN_221 221 // 2ì°¨ ë©”ì§€ì…˜
+#define CLASS_MAGICIAN_222 222 // 2ì°¨ í´ëŸ¬ë¦­
+#define CLASS_MAGICIAN_231 231 // 3ì°¨ ë¯¸ì •..
+#define CLASS_MAGICIAN_232 232 // 3ì°¨ ë¯¸ì •..
 
-#define CLASS_MIXER_311 311 // 1Â÷ È£Ä¿
-#define CLASS_MIXER_321 321 // 2Â÷ ·¹ÀÌ´õ
-#define CLASS_MIXER_322 322 // 2Â÷ ½ºÄ«¿ìÆ®
-#define CLASS_MIXER_331 331 // 3Â÷ ¹ÌÁ¤
-#define CLASS_MIXER_332 333 // 3Â÷ ¹ÌÁ¤
+#define CLASS_MIXER_311 311 // 1ì°¨ í˜¸ì»¤
+#define CLASS_MIXER_321 321 // 2ì°¨ ë ˆì´ë”
+#define CLASS_MIXER_322 322 // 2ì°¨ ìŠ¤ì¹´ìš°íŠ¸
+#define CLASS_MIXER_331 331 // 3ì°¨ ë¯¸ì •
+#define CLASS_MIXER_332 333 // 3ì°¨ ë¯¸ì •
 
-#define CLASS_MERCHANT_411 411 // 1Â÷ µô·¯
-#define CLASS_MERCHANT_421 421 // 2Â÷ ºÎÁîÁÖ¾Æ
-#define CLASS_MERCHANT_422 422 // 2Â÷ ¾ÆÆ¼Àò
-#define CLASS_MERCHANT_431 431 // 3Â÷ ¹ÌÁ¤
-#define CLASS_MERCHANT_432 432 // 3Â÷ ¹ÌÁ¤
+#define CLASS_MERCHANT_411 411 // 1ì°¨ ë”œëŸ¬
+#define CLASS_MERCHANT_421 421 // 2ì°¨ ë¶€ì¦ˆì£¼ì•„
+#define CLASS_MERCHANT_422 422 // 2ì°¨ ì•„í‹°ìŸŒ
+#define CLASS_MERCHANT_431 431 // 3ì°¨ ë¯¸ì •
+#define CLASS_MERCHANT_432 432 // 3ì°¨ ë¯¸ì •
 
 //*************************************************************************************************
-/// Áö¼Ó »óÅÂ À¯Çü.
+/// ì§€ì† ìƒíƒœ ìœ í˜•.
 enum eING_TYPE {
     ING_NULL = 0,
 
     ING_PROC = 1,
-    ING_INC_HP = ING_PROC, // Ã³¸® : hp º¯È­
-    ING_INC_MP, // Ã³¸® : mp º¯È­
-    ING_POISONED, // Ã³¸® : Áßµ¶
+    ING_INC_HP = ING_PROC, // ì²˜ë¦¬ : hp ë³€í™”
+    ING_INC_MP, // ì²˜ë¦¬ : mp ë³€í™”
+    ING_POISONED, // ì²˜ë¦¬ : ì¤‘ë…
 
-    ING_INC_MAX_HP = 4, // À¯Áö : ÃÖ´ë hp
-    ING_INC_MAX_MP, // À¯Áö : ÃÖ´ë mp
+    ING_INC_MAX_HP = 4, // ìœ ì§€ : ìµœëŒ€ hp
+    ING_INC_MAX_MP, // ìœ ì§€ : ìµœëŒ€ mp
 
     ING_CHECK_START = 6,
 
-    ING_INC_MOV_SPD = ING_CHECK_START, // À¯Áö : ÀÌ¼Ó/°ø¼Ó
-    ING_DEC_MOV_SPD, // À¯Áö : ÀÌ¼Ó/°ø¼Ó
+    ING_INC_MOV_SPD = ING_CHECK_START, // ìœ ì§€ : ì´ì†/ê³µì†
+    ING_DEC_MOV_SPD, // ìœ ì§€ : ì´ì†/ê³µì†
     ING_INC_ATK_SPD = 8,
     ING_DEC_ATK_SPD,
-    ING_INC_APOWER = 10, // À¯Áö : °ø°Ý·Â
+    ING_INC_APOWER = 10, // ìœ ì§€ : ê³µê²©ë ¥
     ING_DEC_APOWER,
-    ING_INC_DPOWER = 12, // À¯Áö : ¹æ¾î·Â
+    ING_INC_DPOWER = 12, // ìœ ì§€ : ë°©ì–´ë ¥
     ING_DEC_DPOWER,
-    ING_INC_RES = 14, // À¯Áö : Ç×¸¶·Â
+    ING_INC_RES = 14, // ìœ ì§€ : í•­ë§ˆë ¥
     ING_DEC_RES,
-    ING_INC_HIT = 16, // À¯Áö : ¸íÁß
+    ING_INC_HIT = 16, // ìœ ì§€ : ëª…ì¤‘
     ING_DEC_HIT,
-    ING_INC_CRITICAL = 18, // À¯Áö : Å©¸®Æ¼ÄÃ
+    ING_INC_CRITICAL = 18, // ìœ ì§€ : í¬ë¦¬í‹°ì»¬
     ING_DEC_CRITICAL,
-    ING_INC_AVOID = 20, // À¯Áö : È¸ÇÇ·Â
+    ING_INC_AVOID = 20, // ìœ ì§€ : íšŒí”¼ë ¥
     ING_DEC_AVOID,
-    ING_DUMB = 22, // À¯Áö : º¡¾î¸® : skill stb 5¹ø ÄÃ·³ÀÌ 7~14ÀÎ ½ºÅ³ »ç¿ë ¸øÇÔ.
-    ING_SLEEP, // À¯Áö : ¼ö¸é : ¸í·É ºÒ´É »óÅÂ·Î.. °ø°Ý ¹ÞÀ¸¸é Ç®¸²
-    ING_FAINTING, // À¯Áö : ±âÀý : ¼ö¸é°ú °°À¸³ª °ø°Ý ¹Þ¾Æµµ ¾ÈÇ®¸²
-    ING_DISGUISE, // À¯Áö : À§Àå :
-    ING_TRANSPARENT, // À¯Áö : Åõ¸í :
-    ING_SHIELD_DAMAGE = 27, // À¯Áö : ¹æÆÐ µ¥¹ÌÁö
-    ING_DUMMY_DAMAGE = 28, // À¯Áö : Ãß°¡ µ¥¹ÌÁö
+    ING_DUMB = 22, // ìœ ì§€ : ë²™ì–´ë¦¬ : skill stb 5ë²ˆ ì»¬ëŸ¼ì´ 7~14ì¸ ìŠ¤í‚¬ ì‚¬ìš© ëª»í•¨.
+    ING_SLEEP, // ìœ ì§€ : ìˆ˜ë©´ : ëª…ë ¹ ë¶ˆëŠ¥ ìƒíƒœë¡œ.. ê³µê²© ë°›ìœ¼ë©´ í’€ë¦¼
+    ING_FAINTING, // ìœ ì§€ : ê¸°ì ˆ : ìˆ˜ë©´ê³¼ ê°™ìœ¼ë‚˜ ê³µê²© ë°›ì•„ë„ ì•ˆí’€ë¦¼
+    ING_DISGUISE, // ìœ ì§€ : ìœ„ìž¥ :
+    ING_TRANSPARENT, // ìœ ì§€ : íˆ¬ëª… :
+    ING_SHIELD_DAMAGE = 27, // ìœ ì§€ : ë°©íŒ¨ ë°ë¯¸ì§€
+    ING_DUMMY_DAMAGE = 28, // ìœ ì§€ : ì¶”ê°€ ë°ë¯¸ì§€
 
     ING_CHECK_END = ING_DUMMY_DAMAGE,
 
-    ING_DEC_LIFE_TIME = 29, // Ã³¸® : ¼ÒÈ¯µÈ ÄÉ¸¯ÀÇ »ý¸í ½Ã°£...	Ãß°¡: 2004. 4. 6
+    ING_DEC_LIFE_TIME = 29, // ì²˜ë¦¬ : ì†Œí™˜ëœ ì¼€ë¦­ì˜ ìƒëª… ì‹œê°„...	ì¶”ê°€: 2004. 4. 6
 
-    ING_CLEAR_GOOD, // Áï°¢ : À¯¸® »óÅÂ ÇØÁö
-    ING_CLEAR_BAD, // Áï°¢ : ºÒ¸® »óÅÂ ÇØÁö
-    ING_CLEAR_ALL, // Áï°¢ : ¸ðµç »óÅÂ ÇØÁö
-    ING_CLEAR_INVISIBLE, // Áï°¢ : Åõ¸í»óÅÂ ÇØÁö(ING_DISGUISE,ING_TRANSPARENT)
+    ING_CLEAR_GOOD, // ì¦‰ê° : ìœ ë¦¬ ìƒíƒœ í•´ì§€
+    ING_CLEAR_BAD, // ì¦‰ê° : ë¶ˆë¦¬ ìƒíƒœ í•´ì§€
+    ING_CLEAR_ALL, // ì¦‰ê° : ëª¨ë“  ìƒíƒœ í•´ì§€
+    ING_CLEAR_INVISIBLE, // ì¦‰ê° : íˆ¬ëª…ìƒíƒœ í•´ì§€(ING_DISGUISE,ING_TRANSPARENT)
 
-    ING_TAUNT, // À¯Áö : Å¸¿îÆ®
-    ING_REVIVE, // À¯Áö : ºÎÈ°
+    ING_TAUNT, // ìœ ì§€ : íƒ€ìš´íŠ¸
+    ING_REVIVE, // ìœ ì§€ : ë¶€í™œ
     ING_GODDESS,
 
     ING_MAX_STATUS
 };
 
 //*************************************************************************************************
-/// Áö¼Ó »óÅÂ À¯Áö ÇÃ·¹±×
+/// ì§€ì† ìƒíƒœ ìœ ì§€ í”Œë ˆê·¸
 #define FLAG_ING_HP 0x00000001
 #define FLAG_ING_MP 0x00000002
 #define FLAG_ING_POISONED 0x00000004
@@ -785,18 +785,18 @@ enum eING_TYPE {
 #define FLAG_ING_SHIELD_DAMAGE 0x08000000
 #define FLAG_ING_DUMMY_DAMAGE 0x10000000
 
-#define FLAG_ING_DEC_LIFE_TIME 0x20000000 /// ¼ÒÈ¯µÈ ÄÉ¸¯À¸·Î ÃÊ´ç HP°¨¼Ò..
-#define FLAG_ING_REVIVE 0x40000000 /// ºÎÈ°...
-#define FLAG_ING_TAUNT 0x80000000 /// Å¸¿îÆ® ½ºÅ³ ¼³Á¤µÊ
+#define FLAG_ING_DEC_LIFE_TIME 0x20000000 /// ì†Œí™˜ëœ ì¼€ë¦­ìœ¼ë¡œ ì´ˆë‹¹ HPê°ì†Œ..
+#define FLAG_ING_REVIVE 0x40000000 /// ë¶€í™œ...
+#define FLAG_ING_TAUNT 0x80000000 /// íƒ€ìš´íŠ¸ ìŠ¤í‚¬ ì„¤ì •ë¨
 
-/// ±âÀý »óÅÂ Á¶»ç½Ã... ÀÌµ¿,°ø°Ý, Àåºñ Å»ºÎÂø, ¼Ò¸ð ¾ÆÀÌÅÛ »ç¿ë, ±³È¯ ÇÒ¼ö ¾ø´Ù.
+/// ê¸°ì ˆ ìƒíƒœ ì¡°ì‚¬ì‹œ... ì´ë™,ê³µê²©, ìž¥ë¹„ íƒˆë¶€ì°©, ì†Œëª¨ ì•„ì´í…œ ì‚¬ìš©, êµí™˜ í• ìˆ˜ ì—†ë‹¤.
 #define FLAG_ING_IGNORE_ALL (FLAG_ING_SLEEP | FLAG_ING_FAINTING)
 
-// Åõ¸í »óÅÂ
+// íˆ¬ëª… ìƒíƒœ
 #define FLAG_ING_INVISIBLE (FLAG_ING_DISGUISE | FLAG_ING_TRANSPARENT)
 
-#define FLAG_ING_PROC_PER_TICK (FLAG_ING_DEC_LIFE_TIME | FLAG_ING_POISONED) /// ¸Å Æ½¸¶´Ù Ã³¸®
-#define FLAG_ING_CHECK_PER_TICK (0xfffffff0) /// ¸Å Æ½¸¶´Ù À¯Áö ½Ã°£¸¸ Ã¼Å©ÇÏ¸éµÊ
+#define FLAG_ING_PROC_PER_TICK (FLAG_ING_DEC_LIFE_TIME | FLAG_ING_POISONED) /// ë§¤ í‹±ë§ˆë‹¤ ì²˜ë¦¬
+#define FLAG_ING_CHECK_PER_TICK (0xfffffff0) /// ë§¤ í‹±ë§ˆë‹¤ ìœ ì§€ ì‹œê°„ë§Œ ì²´í¬í•˜ë©´ë¨
 
 #define FLAG_ING_BAD                                                                           \
     (FLAG_ING_POISONED | FLAG_ING_DEC_MOV_SPEED | FLAG_ING_DEC_ATK_SPEED | FLAG_ING_DEC_APOWER \
@@ -809,21 +809,21 @@ enum eING_TYPE {
         | FLAG_ING_INC_CRITICAL | FLAG_ING_INC_AVOID | FLAG_ING_SHIELD_DAMAGE             \
         | FLAG_ING_DUMMY_DAMAGE | FLAG_ING_DISGUISE | FLAG_ING_TRANSPARENT)
 
-/// ¸ðµç »óÅÂ »èÁ¦½Ã dwSTATUS & FLAG_ING_CLEAR·Î »èÁ¦ÇØ¾ß µÊ...
+/// ëª¨ë“  ìƒíƒœ ì‚­ì œì‹œ dwSTATUS & FLAG_ING_CLEARë¡œ ì‚­ì œí•´ì•¼ ë¨...
 #define FLAG_ING_CLEAR (FLAG_ING_DEC_LIFE_TIME | FLAG_ING_STORE_MODE | FLAG_ING_INTRO_CHAT)
 
 //*************************************************************************************************
-/// º¸Á¶ Áö¼Ó »óÅÂ À¯Áö ÇÃ·¹±×
-#define FLAG_SUB_HIDE 0x00000001 // GM Hide±â´É : ÀÌ ÇÃ·¹±× ¼³Á¤ÀÎ ÄÉ¸¯ÅÍ´Â º¸¿©ÁÖÁö ¾Ê´Â´Ù.
-#define FLAG_SUB_STORE_MODE 0x00000002 /// °³ÀÎ »óÁ¡ ÁßÀÌ´Ù... ¸í·É ºÒ°¡, ¼Ò¸ð ¾ÆÀÌÅÛ »ç¿ë°¡´É
-#define FLAG_SUB_INTRO_CHAT 0x00000004 // ¼Ò°³±Û
+/// ë³´ì¡° ì§€ì† ìƒíƒœ ìœ ì§€ í”Œë ˆê·¸
+#define FLAG_SUB_HIDE 0x00000001 // GM Hideê¸°ëŠ¥ : ì´ í”Œë ˆê·¸ ì„¤ì •ì¸ ì¼€ë¦­í„°ëŠ” ë³´ì—¬ì£¼ì§€ ì•ŠëŠ”ë‹¤.
+#define FLAG_SUB_STORE_MODE 0x00000002 /// ê°œì¸ ìƒì  ì¤‘ì´ë‹¤... ëª…ë ¹ ë¶ˆê°€, ì†Œëª¨ ì•„ì´í…œ ì‚¬ìš©ê°€ëŠ¥
+#define FLAG_SUB_INTRO_CHAT 0x00000004 // ì†Œê°œê¸€
 
-#define FLAG_SUB_ARUA_FAIRY 0x40000000 // ¾Æ·ç¾Æ ¿äÁ¤ ¹öÇÁ...
+#define FLAG_SUB_ARUA_FAIRY 0x40000000 // ì•„ë£¨ì•„ ìš”ì • ë²„í”„...
 //#define	FLAG_SUB_PROC_PER_TICK
-//#define	FLAG_SUB_CHECK_PER_TICK	  ( 0xfffffff0 )	// ¸Å Æ½¸¶´Ù À¯Áö ½Ã°£¸¸ Ã¼Å©ÇÏ¸éµÊ
+//#define	FLAG_SUB_CHECK_PER_TICK	  ( 0xfffffff0 )	// ë§¤ í‹±ë§ˆë‹¤ ìœ ì§€ ì‹œê°„ë§Œ ì²´í¬í•˜ë©´ë¨
 
 //*************************************************************************************************
-/// eING_TYPEÀÇ Áö¼Ó »óÅÂ·Î »óÅÂ ÇÃ·¹±× °ª »Ì´Â Å×ÀÌºí..
+/// eING_TYPEì˜ ì§€ì† ìƒíƒœë¡œ ìƒíƒœ í”Œë ˆê·¸ ê°’ ë½‘ëŠ” í…Œì´ë¸”..
 #ifndef __ADTOOLS
 const DWORD c_dwIngFLAG[] = {
     0, //	ING_NULL,
@@ -849,38 +849,38 @@ const DWORD c_dwIngFLAG[] = {
     FLAG_ING_DEC_CRITICAL, //	ING_DEC_CRITICAL,
     FLAG_ING_INC_AVOID, //	ING_INC_AVOID,
     FLAG_ING_DEC_AVOID, //	ING_DEC_AVOID,
-    FLAG_ING_DUMB, //	ING_DUMB,				// À¯Áö : º¡¾î¸® : skill stb 5¹ø ÄÃ·³ÀÌ 7~14ÀÎ ½ºÅ³
-                   //»ç¿ë ¸øÇÔ.
-    FLAG_ING_SLEEP, //	ING_SLEEP,				// À¯Áö : ¼ö¸é : ¸í·É ºÒ´É »óÅÂ·Î.. °ø°Ý ¹ÞÀ¸¸é Ç®¸²
-    FLAG_ING_FAINTING, //	ING_FAINTING,			// À¯Áö : ±âÀý : ¼ö¸é°ú °°À¸³ª °ø°Ý ¹Þ¾Æµµ
-                       //¾ÈÇ®¸²
-    FLAG_ING_DISGUISE, //	ING_DISGUISE,			// À¯Áö : À§Àå :
-    FLAG_ING_TRANSPARENT, //	ING_TRANSPARENT,		// À¯Áö : Åõ¸í :
-    FLAG_ING_SHIELD_DAMAGE, //	ING_SHIELD_DAMAGE,		// À¯Áö : ¹æÆÐ µ¥¹ÌÁö
-    FLAG_ING_DUMMY_DAMAGE, //	ING_DUMMY_DAMAGE,		// À¯Áö : Ãß°¡ µ¥¹ÌÁö
+    FLAG_ING_DUMB, //	ING_DUMB,				// ìœ ì§€ : ë²™ì–´ë¦¬ : skill stb 5ë²ˆ ì»¬ëŸ¼ì´ 7~14ì¸ ìŠ¤í‚¬
+                   //ì‚¬ìš© ëª»í•¨.
+    FLAG_ING_SLEEP, //	ING_SLEEP,				// ìœ ì§€ : ìˆ˜ë©´ : ëª…ë ¹ ë¶ˆëŠ¥ ìƒíƒœë¡œ.. ê³µê²© ë°›ìœ¼ë©´ í’€ë¦¼
+    FLAG_ING_FAINTING, //	ING_FAINTING,			// ìœ ì§€ : ê¸°ì ˆ : ìˆ˜ë©´ê³¼ ê°™ìœ¼ë‚˜ ê³µê²© ë°›ì•„ë„
+                       //ì•ˆí’€ë¦¼
+    FLAG_ING_DISGUISE, //	ING_DISGUISE,			// ìœ ì§€ : ìœ„ìž¥ :
+    FLAG_ING_TRANSPARENT, //	ING_TRANSPARENT,		// ìœ ì§€ : íˆ¬ëª… :
+    FLAG_ING_SHIELD_DAMAGE, //	ING_SHIELD_DAMAGE,		// ìœ ì§€ : ë°©íŒ¨ ë°ë¯¸ì§€
+    FLAG_ING_DUMMY_DAMAGE, //	ING_DUMMY_DAMAGE,		// ìœ ì§€ : ì¶”ê°€ ë°ë¯¸ì§€
 
-    FLAG_ING_DEC_LIFE_TIME, // ING_DEC_LIFE_TIME		// Ãß°¡: 2004. 4. 6
+    FLAG_ING_DEC_LIFE_TIME, // ING_DEC_LIFE_TIME		// ì¶”ê°€: 2004. 4. 6
 
-    0, // ING_CLEAR_GOOD,			// Áï°¢ : À¯¸® »óÅÂ ÇØÁö
-    0, // ING_CLEAR_BAD,			// Áï°¢ : ºÒ¸® »óÅÂ ÇØÁö
-    0, // ING_CLEAR_ALL,			// Áï°¢ : ¸ðµç »óÅÂ ÇØÁö
-    0, // ING_CLEAR_INVISIBLE,		// Áï°¢ : Åõ¸í»óÅÂ ÇØÁö(ING_DISGUISE,ING_TRANSPARENT)
+    0, // ING_CLEAR_GOOD,			// ì¦‰ê° : ìœ ë¦¬ ìƒíƒœ í•´ì§€
+    0, // ING_CLEAR_BAD,			// ì¦‰ê° : ë¶ˆë¦¬ ìƒíƒœ í•´ì§€
+    0, // ING_CLEAR_ALL,			// ì¦‰ê° : ëª¨ë“  ìƒíƒœ í•´ì§€
+    0, // ING_CLEAR_INVISIBLE,		// ì¦‰ê° : íˆ¬ëª…ìƒíƒœ í•´ì§€(ING_DISGUISE,ING_TRANSPARENT)
 
-    FLAG_ING_TAUNT, // ING_TAUNT				À¯Áö : Å¸¿îÆ®
+    FLAG_ING_TAUNT, // ING_TAUNT				ìœ ì§€ : íƒ€ìš´íŠ¸
     FLAG_ING_REVIVE, // ING_REVIVE
 };
 #endif
 
 //*************************************************************************************************
 //*************************************************************************************************
-#define DEAD_HP (-30000) /// Á×Àº »óÅÂÀÇ HP°ª.
-#define MAX_UNION_COUNT 10 /// ÃÖ´ë Á¶ÇÕ °¹¼ö
+#define DEAD_HP (-30000) /// ì£½ì€ ìƒíƒœì˜ HPê°’.
+#define MAX_UNION_COUNT 10 /// ìµœëŒ€ ì¡°í•© ê°¯ìˆ˜
 
-#define ITEM_OBJ_FREE_TIME (30 * 1000) /// ¾ÆÀÌÅÛ ¼ÒÀ¯±ÇÀÌ ¾ø´Â ½Ã°£...
+#define ITEM_OBJ_FREE_TIME (30 * 1000) /// ì•„ì´í…œ ì†Œìœ ê¶Œì´ ì—†ëŠ” ì‹œê°„...
 #define ITEM_OBJ_LIVE_TIME \
-    ((60 * 1000) + ITEM_OBJ_FREE_TIME) /// ¾ÆÀÌÅÛ Ã³¸§ »ý¼º½Ã »ç¶óÁö±â ±îÁö ½Ã°£.
+    ((60 * 1000) + ITEM_OBJ_FREE_TIME) /// ì•„ì´í…œ ì²˜ë¦„ ìƒì„±ì‹œ ì‚¬ë¼ì§€ê¸° ê¹Œì§€ ì‹œê°„.
 #define ITEM_OBJ_DROP_TIME \
-    ((30 * (60 * 1000)) + ITEM_OBJ_FREE_TIME) /// ÀÎº¥Åä¸®°¡ ¸ðÀÚ¶ó ¹Ù´Û¿¡ ¶³¾îÁø ¾ÆÀÌÅÛ
+    ((30 * (60 * 1000)) + ITEM_OBJ_FREE_TIME) /// ì¸ë²¤í† ë¦¬ê°€ ëª¨ìžë¼ ë°”ë‹¦ì— ë–¨ì–´ì§„ ì•„ì´í…œ
 
 #define MIN_OBJECTS 1
 #define MAX_SERVER_OBJECTS 0x0ffff
@@ -902,11 +902,11 @@ const DWORD c_dwIngFLAG[] = {
 extern const float g_fMinHeight;
 extern const float g_fMaxDistance;
 
-#define AVT_CLICK_EVENT_RANGE 1000 /// ¾Æ¹ÙÅ¸¸¦ Å¬¸¯ÇßÀ»¶§ ¹ÝÀÀÇÒ ÃÖ¼Ò °Å¸®
-#define NPC_CLICK_EVENT_RANGE 250 /// NPC¸¦ Å¬¸¯ÇßÀ»¶§ ¹ÝÀÀÇÒ ÃÖ¼Ò °Å¸®
-#define ITEM_CLICK_EVENT_RANGE 150 /// ITEM Å¬¸¯ÇßÀ»¶§ ¹ÝÀÀÇÒ ÃÖ¼Ò °Å¸®
+#define AVT_CLICK_EVENT_RANGE 1000 /// ì•„ë°”íƒ€ë¥¼ í´ë¦­í–ˆì„ë•Œ ë°˜ì‘í•  ìµœì†Œ ê±°ë¦¬
+#define NPC_CLICK_EVENT_RANGE 250 /// NPCë¥¼ í´ë¦­í–ˆì„ë•Œ ë°˜ì‘í•  ìµœì†Œ ê±°ë¦¬
+#define ITEM_CLICK_EVENT_RANGE 150 /// ITEM í´ë¦­í–ˆì„ë•Œ ë°˜ì‘í•  ìµœì†Œ ê±°ë¦¬
 
-#define PAT_DEFAULT_HP 1000 // PAT HPÀÇ ±âº» °ª
+#define PAT_DEFAULT_HP 1000 // PAT HPì˜ ê¸°ë³¸ ê°’
 //-------------------------------------------------------------------------------------------------
 #endif
 

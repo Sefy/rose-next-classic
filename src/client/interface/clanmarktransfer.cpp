@@ -30,7 +30,7 @@ CClanMarkTransfer::RegisterMarkToServer(int iClanID, const char* pStrFileName) {
     DWORD dwFileSizeHigh = 0;
     DWORD dwFileSizeLow = 0;
 
-    /// 0. BMP ÆÄÀÏ ¿ÀÇÂ
+    /// 0. BMP íŒŒì¼ ì˜¤í”ˆ
     HANDLE hBmpFile = CreateFile(pStrFileName,
         GENERIC_READ,
         FILE_SHARE_READ,
@@ -46,14 +46,14 @@ CClanMarkTransfer::RegisterMarkToServer(int iClanID, const char* pStrFileName) {
         return false;
     }
 
-    /// 1. Æ÷¸ËÀÌ ¸Â´ÂÁö Ã¼Å©
+    /// 1. í¬ë§·ì´ ë§ëŠ”ì§€ ì²´í¬
     if (CheckValidImage(hBmpFile) == false) {
         // g_itMGR.OpenMsgBox( STR_CLANMARK_INVALID_FORMAT	);
         CloseHandle(hBmpFile);
         return false;
     }
 
-    /// 2. CRC¸¦ ±¸ÇÑ´Ù.
+    /// 2. CRCë¥¼ êµ¬í•œë‹¤.
     if (GetImageFileCRC(hBmpFile, &bmp_crc16, &dwNumberOfBytesRead, &dwFileSizeHigh, &dwFileSizeLow)
         == false) {
         _RPTF0(_CRT_ASSERT, "GetImageFileCRC Error");
@@ -63,7 +63,7 @@ CClanMarkTransfer::RegisterMarkToServer(int iClanID, const char* pStrFileName) {
 
     const char* TempZipFileName = "temp.gz";
 
-    /// 3. Memory¿¡ ·ÎµùÇÏ¸é¼­ ¹Ù·Î ÀÓ½Ã È­ÀÏ¿¡ ÀúÀå
+    /// 3. Memoryì— ë¡œë”©í•˜ë©´ì„œ ë°”ë¡œ ì„ì‹œ í™”ì¼ì— ì €ì¥
     if (WriteToZipFile(TempZipFileName, hBmpFile, &dwNumberOfBytesRead) == false) {
         _RPTF0(_CRT_ASSERT, "WriteToZipFile Error");
         CloseHandle(hBmpFile);
@@ -72,7 +72,7 @@ CClanMarkTransfer::RegisterMarkToServer(int iClanID, const char* pStrFileName) {
 
     CloseHandle(hBmpFile);
 
-    /// 4. ÀÓ½ÃÀúÀå zipÈ­ÀÏÀ» loadingÇØ¼­ ¼­¹ö·Î º¸³½´Ù.
+    /// 4. ì„ì‹œì €ì¥ zipí™”ì¼ì„ loadingí•´ì„œ ì„œë²„ë¡œ ë³´ë‚¸ë‹¤.
     if (SendToServerTempZipFile(TempZipFileName, &bmp_crc16, &dwFileSizeHigh, &dwFileSizeLow)
         == false)
         return false;
@@ -81,24 +81,24 @@ CClanMarkTransfer::RegisterMarkToServer(int iClanID, const char* pStrFileName) {
 }
 
 //-----------------------------------------------------------------------------------------------------/
-/// 1. ¼­¹ö·Î ºÎÅÍ ¹ŞÀº µ¥ÀÌÅ¸·Î ÀÓ½Ã Zip File»ı¼º( WriteFile );
-/// 2. ÀÓ½ÃZipFileÀ» Loading ÇÏ¸é¼­ bmpÈ­ÀÏ·Î º¯È¯ÀúÀåÇÑ´Ù( gzread );
+/// 1. ì„œë²„ë¡œ ë¶€í„° ë°›ì€ ë°ì´íƒ€ë¡œ ì„ì‹œ Zip Fileìƒì„±( WriteFile );
+/// 2. ì„ì‹œZipFileì„ Loading í•˜ë©´ì„œ bmpí™”ì¼ë¡œ ë³€í™˜ì €ì¥í•œë‹¤( gzread );
 //-----------------------------------------------------------------------------------------------------/
 void
 CClanMarkTransfer::ReceiveMarkFromServer(int iClanID, WORD wCRC16, BYTE* pData, int iSize) {
     DWORD NumberOfBytesWritten = 0;
     const char* TempZipFileName = "temp.gz";
 
-    /// 1. ¼­¹ö·Î ºÎÅÍ ¹ŞÀº µ¥ÀÌÅ¸·Î ÀÓ½Ã ZipFile»ı¼º
+    /// 1. ì„œë²„ë¡œ ë¶€í„° ë°›ì€ ë°ì´íƒ€ë¡œ ì„ì‹œ ZipFileìƒì„±
     if (SaveZipFileFromServer(TempZipFileName, &NumberOfBytesWritten, pData, iSize) == false)
         return;
 
-    /// 2. ÀÓ½Ã ZipFile·Î ½ÇÁ¦ BmpÈ­ÀÏÀ» »ı¼ºÇÑ´Ù.
+    /// 2. ì„ì‹œ ZipFileë¡œ ì‹¤ì œ Bmpí™”ì¼ì„ ìƒì„±í•œë‹¤.
     CreateImageFileFromZipFile(TempZipFileName, iClanID, &NumberOfBytesWritten);
 }
 
 //------------------------------------------------------------------------------
-/// ÁöÁ¤µÈ »çÀÌÁîÀÇ BmpFileÀÎ°¡¸¦ Ã¼Å©ÇÑ´Ù.
+/// ì§€ì •ëœ ì‚¬ì´ì¦ˆì˜ BmpFileì¸ê°€ë¥¼ ì²´í¬í•œë‹¤.
 //------------------------------------------------------------------------------
 bool
 CClanMarkTransfer::Check_BmpFile(HANDLE hFile, SIZE size) {
@@ -111,7 +111,7 @@ CClanMarkTransfer::Check_BmpFile(HANDLE hFile, SIZE size) {
         return false;
     }
 
-    /// BMP È­ÀÏ ÃÖ¼Ò »çÀÌÁî( Çì´õ»çÀÌÁî) Check
+    /// BMP í™”ì¼ ìµœì†Œ ì‚¬ì´ì¦ˆ( í—¤ë”ì‚¬ì´ì¦ˆ) Check
     const int BmpHeaderSize = sizeof(BITMAPFILEHEADER) + sizeof(BITMAPINFOHEADER);
     if (dwFileSizeLow < BmpHeaderSize) {
         _RPTF1(_CRT_ASSERT, "File Size is too small(%d)", dwFileSizeLow);
@@ -129,7 +129,7 @@ CClanMarkTransfer::Check_BmpFile(HANDLE hFile, SIZE size) {
         g_itMGR.OpenMsgBox("CClanMarkTransfer::Check_BmpFile-ReadFile Error");
         return false;
     }
-    /// 2. Æ÷¸ËÀÌ ¸Â´ÂÁö Ã¼Å©
+    /// 2. í¬ë§·ì´ ë§ëŠ”ì§€ ì²´í¬
     BITMAPFILEHEADER* BitmapFileHeader = (BITMAPFILEHEADER*)header_buffer;
     BITMAPINFOHEADER* BitmapInfoHeader =
         (BITMAPINFOHEADER*)&(header_buffer[sizeof(BITMAPFILEHEADER)]);
@@ -158,7 +158,7 @@ CClanMarkTransfer::Check_BmpFile(HANDLE hFile, SIZE size) {
 }
 
 //--------------------------------------------------------------------------------
-/// 1. Æ÷¸ËÀÌ ¸Â´ÂÁö Ã¼Å©
+/// 1. í¬ë§·ì´ ë§ëŠ”ì§€ ì²´í¬
 //--------------------------------------------------------------------------------
 bool
 CClanMarkTransfer::CheckValidImage(HANDLE hBmpFile) {
@@ -170,7 +170,7 @@ CClanMarkTransfer::CheckValidImage(HANDLE hBmpFile) {
 }
 
 //--------------------------------------------------------------------------------
-/// 2. CRC¸¦ ±¸ÇÑ´Ù.
+/// 2. CRCë¥¼ êµ¬í•œë‹¤.
 //--------------------------------------------------------------------------------
 bool
 CClanMarkTransfer::GetImageFileCRC(HANDLE hBmpFile,
@@ -206,7 +206,7 @@ CClanMarkTransfer::GetImageFileCRC(HANDLE hBmpFile,
 }
 
 //--------------------------------------------------------------------------------
-/// 3. Memory¿¡ ·ÎµùÇÏ¸é¼­ ¹Ù·Î ÀÓ½Ã È­ÀÏ¿¡ ÀúÀå
+/// 3. Memoryì— ë¡œë”©í•˜ë©´ì„œ ë°”ë¡œ ì„ì‹œ í™”ì¼ì— ì €ì¥
 //--------------------------------------------------------------------------------
 bool
 CClanMarkTransfer::WriteToZipFile(const char* TempZipFileName,
@@ -221,7 +221,7 @@ CClanMarkTransfer::WriteToZipFile(const char* TempZipFileName,
     }
 
     BYTE read_buffer[256];
-    SetFilePointer(hBmpFile, 0, 0, FILE_BEGIN); // File Pointer¾ÕÀ¸·Î ÀÌµ¿
+    SetFilePointer(hBmpFile, 0, 0, FILE_BEGIN); // File Pointerì•ìœ¼ë¡œ ì´ë™
     while (ReadFile(hBmpFile, read_buffer, sizeof(read_buffer), pdwNumberOfBytesRead, NULL)) {
         if (*pdwNumberOfBytesRead == 0) /// EOF
             break;
@@ -239,7 +239,7 @@ CClanMarkTransfer::WriteToZipFile(const char* TempZipFileName,
 }
 
 //--------------------------------------------------------------------------------
-/// 4. ÀÓ½ÃÀúÀå zipÈ­ÀÏÀ» loadingÇØ¼­ ¼­¹ö·Î º¸³½´Ù.
+/// 4. ì„ì‹œì €ì¥ zipí™”ì¼ì„ loadingí•´ì„œ ì„œë²„ë¡œ ë³´ë‚¸ë‹¤.
 //--------------------------------------------------------------------------------
 bool
 CClanMarkTransfer::SendToServerTempZipFile(const char* TempZipFileName,
@@ -276,7 +276,7 @@ CClanMarkTransfer::SendToServerTempZipFile(const char* TempZipFileName,
         }
         g_itMGR.OpenMsgBox(" CClanMarkTransfer::SendToServerTempZipFile - GetFileSize Error");
     } else {
-        _ASSERT(*pdwFileSizeHigh == 0); /// 2^32 Å©±â¸¸ Áö¿øÇÑ´Ù. ´õÅ« »çÀÌÁîÀÏ°æ¿ì´Â ¹«½ÃÇÑ´Ù.
+        _ASSERT(*pdwFileSizeHigh == 0); /// 2^32 í¬ê¸°ë§Œ ì§€ì›í•œë‹¤. ë”í° ì‚¬ì´ì¦ˆì¼ê²½ìš°ëŠ” ë¬´ì‹œí•œë‹¤.
         if (*pdwFileSizeHigh == 0) {
             BYTE* buffer = new BYTE[*pdwFileSizeLow];
             DWORD NumberOfBytesReadZipFile;
@@ -303,7 +303,7 @@ CClanMarkTransfer::SendToServerTempZipFile(const char* TempZipFileName,
 }
 
 //--------------------------------------------------------------------------------
-/// 1. ¼­¹ö·Î ºÎÅÍ ¹ŞÀº µ¥ÀÌÅ¸·Î ÀÓ½Ã ZipFile»ı¼º
+/// 1. ì„œë²„ë¡œ ë¶€í„° ë°›ì€ ë°ì´íƒ€ë¡œ ì„ì‹œ ZipFileìƒì„±
 //--------------------------------------------------------------------------------
 bool
 CClanMarkTransfer::SaveZipFileFromServer(const char* TempZipFileName,
@@ -340,7 +340,7 @@ CClanMarkTransfer::SaveZipFileFromServer(const char* TempZipFileName,
 }
 
 //--------------------------------------------------------------------------------
-/// 2. ÀÓ½Ã ZipFile·Î ½ÇÁ¦ BmpÈ­ÀÏÀ» »ı¼ºÇÑ´Ù.
+/// 2. ì„ì‹œ ZipFileë¡œ ì‹¤ì œ Bmpí™”ì¼ì„ ìƒì„±í•œë‹¤.
 //--------------------------------------------------------------------------------
 void
 CClanMarkTransfer::CreateImageFileFromZipFile(const char* TempZipFileName,

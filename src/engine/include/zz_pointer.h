@@ -73,7 +73,7 @@
 // [REFERENCE]
 //   http://www.flipcode.com/cgi-bin/msg.cgi?showThread=COTD-SmartPointerTemplateClass&forum=cotd&id=-1
 //   http://web.ftech.net/~honeyg/articles/smartp.htm
-//   http://www.awl.com/cseng/titles/0-201-70431-5 : �ڡڡڡڡ�
+//   http://www.awl.com/cseng/titles/0-201-70431-5 : ★★★★☆
 template <class T>
 class zz_pointer {
 	// friend functions are used not to confuse "->release()" and ".release()".

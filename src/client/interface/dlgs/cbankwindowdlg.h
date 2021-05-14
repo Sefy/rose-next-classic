@@ -4,9 +4,9 @@
 #include "tgamectrl/singlelinestring.h"
 
 /**
- * ÀºÇà¿¡¼­ µ·À» º¸°üÇÏ°Å³ª Ã£À»¶§ ÁÙ¸®¾çÀ» ÀÔ·ÂÇÏ´Â ´ÙÀÌ¾ó·Î±×
+ * ì€í–‰ì—ì„œ ëˆì„ ë³´ê´€í•˜ê±°ë‚˜ ì°¾ì„ë•Œ ì¤„ë¦¬ì–‘ì„ ì…ë ¥í•˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CBankWindowDlg: public CTDialog {
@@ -29,7 +29,7 @@ private:
     void OnLButtonUp(unsigned proc_id);
 
 private:
-    int m_Type; /// º¸°ü/Ã£±â ±¸ºĞ
-    CSinglelineString m_Title; /// ´ÙÀÌ¾ó·Î±× Ä¸¼Ç¿¡ º¸¿©Áú ÅØ½ºÆ®
+    int m_Type; /// ë³´ê´€/ì°¾ê¸° êµ¬ë¶„
+    CSinglelineString m_Title; /// ë‹¤ì´ì–¼ë¡œê·¸ ìº¡ì…˜ì— ë³´ì—¬ì§ˆ í…ìŠ¤íŠ¸
 };
 #endif

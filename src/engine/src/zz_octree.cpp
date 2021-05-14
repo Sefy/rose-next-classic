@@ -69,7 +69,7 @@
  * *****************  Version 2  *****************
  * User: Zho          Date: 03-12-30   Time: 6:39p
  * Updated in $/engine/src
- * getWorldObjectHeightInScene ¼öÁ¤
+ * getWorldObjectHeightInScene ìˆ˜ì •
  * 
  * *****************  Version 1  *****************
  * User: Zho          Date: 03-11-30   Time: 8:06p

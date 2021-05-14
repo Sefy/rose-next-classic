@@ -6,10 +6,10 @@
 #include <vector>
 
 /**
- * ÇÑ±¹¾îÀÏ°æ¿ì ÇÑÀÚ º¯È¯½Ã »ç¿ëµÇ´Â Candidate Window class
- * - ¿¬°üÅ¬·¡½º CTIme
+ * í•œêµ­ì–´ì¼ê²½ìš° í•œì ë³€í™˜ì‹œ ì‚¬ìš©ë˜ëŠ” Candidate Window class
+ * - ì—°ê´€í´ë˜ìŠ¤ CTIme
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  *
  * @Date			2005/8/30
  */

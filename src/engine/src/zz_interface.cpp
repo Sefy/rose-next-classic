@@ -1390,7 +1390,7 @@ int setScale (
 {
 	CHECK_INTERFACE(setScale);
 	zz_visible * vis = reinterpret_cast<zz_visible *>(hVisible);
-//	zz_assert(vis);                           //ÀÓ½Ã·Î Á¦°Å 2006 0623 ¹ö±× ÀâÀ»¶§ ±îÁö...
+//	zz_assert(vis);                           //ì„ì‹œë¡œ ì œê±° 2006 0623 ë²„ê·¸ ì¡ì„ë•Œ ê¹Œì§€...
 	if (!vis) return 0;
 	vis->set_scale(vec3(ScaleX, ScaleY, ScaleZ));
 	vis->invalidate_transform();
@@ -2126,7 +2126,7 @@ int callScriptFunc (ZSTRING funcName, ...)
 ZZ_DLL
 int attachWindow (const void * window_handle)
 {
-	zz_assertf(znzin, "¿£ÁøÀÌ ÃÊ±âÈ­µÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+	zz_assertf(znzin, "ì—”ì§„ì´ ì´ˆê¸°í™”ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 	zz_assert(znzin->view);
 	zz_assert(znzin->sfxs);
 
@@ -3168,7 +3168,7 @@ int getPositionScript ( HNODE hVisible )
 	return getPosition(hVisible, float_array);
 }
 
-// ¼º°øÇÏ¸é 1, ½ÇÆĞÇÏ¸é 0À» ¸®ÅÏ.
+// ì„±ê³µí•˜ë©´ 1, ì‹¤íŒ¨í•˜ë©´ 0ì„ ë¦¬í„´.
 ZZ_DLL
 int getPosition ( HNODE hVisible, float fPositionXYZ[3] )
 {
@@ -4865,7 +4865,7 @@ HNODE pickNodeScript ( int screenX, int screenY )
 	return 0;
 }
 
-// fHeight : ©øoAI¡Æ¨£(cm)
+// fHeight : Â³oAIÂ°Âª(cm)
 ZZ_SCRIPT
 int setCameraTargetHeight ( HNODE hCamera, float fHeight )
 {
@@ -6064,7 +6064,7 @@ void worldToScreen ( float fWorldX, float fWorldY, float fWorldZ, float * fScree
 	*fScreenZ = screen_pos.z;
 }
 
-// ¸ğµ¨ÀÇ ³ôÀÌ´Â ÀÚ½Ä³ëµåµé±îÁö Æ÷ÇÔÇØ¼­ ´Ù½Ã °è»êÇÑ´Ù.
+// ëª¨ë¸ì˜ ë†’ì´ëŠ” ìì‹ë…¸ë“œë“¤ê¹Œì§€ í¬í•¨í•´ì„œ ë‹¤ì‹œ ê³„ì‚°í•œë‹¤.
 ZZ_SCRIPT
 float getModelHeight ( HNODE hModel )
 {
@@ -6077,7 +6077,7 @@ float getModelHeight ( HNODE hModel )
 	return model->get_height()*ZZ_SCALE_OUT;
 }
 
-/// ¹Ù´Ù °´Ã¼ »ı¼º
+/// ë°”ë‹¤ ê°ì²´ ìƒì„±
 ZZ_SCRIPT
 HNODE loadOceanBlock (
 	ZSTRING pOceanBlockName,
@@ -6627,10 +6627,10 @@ HNODE loadEffect ( ZSTRING pEffectName, ZSTRING pEffectFilePath )
 		// paritle index in STB table
 		fs.read_int32(length);
 		
-        // °ÔÀÓ¿ë ½ÇÁ¦ °æ·Î
+        // ê²Œì„ìš© ì‹¤ì œ ê²½ë¡œ
 		read_string_from_effect(fs, particle_path);
 		
-		// ¾Ö´Ï¸ÅÀÌ¼Ç ÆÄÀÏ »ç¿ëÇÒ²¨³Ä ¸»²¨³Ä..
+		// ì• ë‹ˆë§¤ì´ì…˜ íŒŒì¼ ì‚¬ìš©í• êº¼ëƒ ë§êº¼ëƒ..
 		fs.read_int32(use_motion);
 
         // Particle Animation Name
@@ -6735,7 +6735,7 @@ HNODE loadEffect ( ZSTRING pEffectName, ZSTRING pEffectFilePath )
 		fs.read_int32(dest_blend);
 		fs.read_int32(blend_op);
 
-        // 6/2ÀÏ Ãß°¡.. ¾Ö´Ï¸ÅÀÌ¼Ç ÆÄÀÏ »ç¿ëÇÒ²¨³Ä ¸»²¨³Ä..
+        // 6/2ì¼ ì¶”ê°€.. ì• ë‹ˆë§¤ì´ì…˜ íŒŒì¼ ì‚¬ìš©í• êº¼ëƒ ë§êº¼ëƒ..
 		fs.read_int32(use_animation);
 	
         // Meshani Animation Name
@@ -7414,10 +7414,10 @@ int setFontColor ( HNODE hFont, int iRed, int iGreen, int iBlue, int iAlpha )
 	return 1;
 }
 
-/// ÆùÆ®¿¡ ¾Æ¿ô¶óÀÎ »ö»ó ¼³Á¤
-/// @hFont ÆùÆ® ÇÚµé
-/// @iRed/iGreen/iBlue/iAlpha 0-255 »çÀÌÀÇ Á¤¼ö°ª
-/// @return ¼º°øÇÏ¸é 1, ½ÇÆĞÇÏ¸é 0
+/// í°íŠ¸ì— ì•„ì›ƒë¼ì¸ ìƒ‰ìƒ ì„¤ì •
+/// @hFont í°íŠ¸ í•¸ë“¤
+/// @iRed/iGreen/iBlue/iAlpha 0-255 ì‚¬ì´ì˜ ì •ìˆ˜ê°’
+/// @return ì„±ê³µí•˜ë©´ 1, ì‹¤íŒ¨í•˜ë©´ 0
 ZZ_SCRIPT
 int setFontOutlineColor ( HNODE hFont, int iRed, int iGreen, int iBlue, int iAlpha )
 {
@@ -8374,8 +8374,8 @@ int flipModelShiftDirection ( HNODE hModel )
 	return 1;
 }
 	
-/// ºñÁ®ºí¿¡ Áß·ÂÀ» Àû¿ëÇÑ À§Ä¡¸¦ ¸®ÅÏÇÑ´Ù.
-/// ÇöÀç ¼Óµµ ¹× Áú·®Àº Àû¿ëµÇÁö ¾ÊÀ½.
+/// ë¹„ì ¸ë¸”ì— ì¤‘ë ¥ì„ ì ìš©í•œ ìœ„ì¹˜ë¥¼ ë¦¬í„´í•œë‹¤.
+/// í˜„ì¬ ì†ë„ ë° ì§ˆëŸ‰ì€ ì ìš©ë˜ì§€ ì•ŠìŒ.
 ZZ_DLL
 float applyGravity ( HNODE hVis )
 {
@@ -9284,7 +9284,7 @@ int setCursorPosition ( HNODE hCursor, int iX, int iY )
 	return 1;
 }
 
-/// ¶óÀÎ ±×¸®±â
+/// ë¼ì¸ ê·¸ë¦¬ê¸°
 ZZ_DLL
 int drawLine ( float vStart[3], float vEnd[3], ZZ_COLOR Color )
 {
@@ -9301,7 +9301,7 @@ int drawLine ( float vStart[3], float vEnd[3], ZZ_COLOR Color )
 	return 1;
 }
 
-/// ÃàÁ¤·Ä ¹Ú½º ±×¸®±â
+/// ì¶•ì •ë ¬ ë°•ìŠ¤ ê·¸ë¦¬ê¸°
 ZZ_DLL
 int drawAABB ( float vMin[3], float vMax[3], ZZ_COLOR Color )
 {

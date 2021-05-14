@@ -360,7 +360,7 @@ CTControlMgr::MakeMsgBoxByXML(char* szIDD, CTMsgBox* pBase) {
     } catch (...) {
         bRet = false;
         char szMsg[255];
-        sprintf("XML·Î MsgBox»ı¼ºÁß ¿¡·¯ ¹ß»ı:%s", szIDD);
+        sprintf("XMLë¡œ MsgBoxìƒì„±ì¤‘ ì—ëŸ¬ ë°œìƒ:%s", szIDD);
         MessageBox(NULL, szMsg, "Error", MB_OK);
     }
 
@@ -382,12 +382,12 @@ CTControlMgr::MakeMsgBoxByXML(char* szIDD, CTMsgBox* pBase) {
     return bRet;
 }
 //////////////////////////////////////////////////////////////////////////////////////
-/// 2003 / 12 / 1 / ÃÖÁ¾Áø
-/// ÁÖÀÇ)
-///		1. ÀÌ operation¾È¿¡¼­ Initialize¿Í CoUninitialize¸¦ »ç¿ëÇÏ¸é return½Ã ¿¡·¯¹ß»ı
-///			:	IXMLDOMNodePtrÀÌ ½º¸¶Æ® Æ÷ÀÎÅÍ¿©¼­ »ı±ä ¹®Á¦¿´À½. scope¸¦ ¹ş¾î³¯¶§ »èÁ¦µÇ±â ¶§¹®¿¡
-///¹ß»ıÇÔ. 				IXMLDoMNode(raw pointer)·Î ¼öÁ¤ÇÏ¿© ¹®Á¦ ÇØ°áÇÔ => ´Ù½Ã ¹®Á¦ ¹ß»ı :ÀÌ¸§ ¸ø
-///°¡Á®¿È
+/// 2003 / 12 / 1 / ìµœì¢…ì§„
+/// ì£¼ì˜)
+///		1. ì´ operationì•ˆì—ì„œ Initializeì™€ CoUninitializeë¥¼ ì‚¬ìš©í•˜ë©´ returnì‹œ ì—ëŸ¬ë°œìƒ
+///			:	IXMLDOMNodePtrì´ ìŠ¤ë§ˆíŠ¸ í¬ì¸í„°ì—¬ì„œ ìƒê¸´ ë¬¸ì œì˜€ìŒ. scopeë¥¼ ë²—ì–´ë‚ ë•Œ ì‚­ì œë˜ê¸° ë•Œë¬¸ì—
+///ë°œìƒí•¨. 				IXMLDoMNode(raw pointer)ë¡œ ìˆ˜ì •í•˜ì—¬ ë¬¸ì œ í•´ê²°í•¨ => ë‹¤ì‹œ ë¬¸ì œ ë°œìƒ :ì´ë¦„ ëª»
+///ê°€ì ¸ì˜´
 //////////////////////////////////////////////////////////////////////////////////////
 bool
 CTControlMgr::MakeDialogByXML(const char* IDD, CTDialog* pBase) {
@@ -448,7 +448,7 @@ CTControlMgr::MakeDialogByXML(const char* IDD, CTDialog* pBase) {
         if (iExtent > 1)
             pBase->SetExtent(iExtent);
 
-        ///µğÆúÆ® À§Ä¡
+        ///ë””í´íŠ¸ ìœ„ì¹˜
         iDefaultPosX = GetNodeValueFromNamedNodeMapByName(pNamedNodeMap, "DEFAULT_X");
         iDefaultPosY = GetNodeValueFromNamedNodeMapByName(pNamedNodeMap, "DEFAULT_Y");
         iDefaultAdjustPosX = GetNodeValueFromNamedNodeMapByName(pNamedNodeMap, "ADJUST_X");
@@ -553,7 +553,7 @@ CTControlMgr::MakeDialogByXML(const char* IDD, CTDialog* pBase) {
     } catch (...) {
         bRet = false;
         char szMsg[255];
-        sprintf(szMsg, "XML·Î UI»ı¼ºÁß ¿¡·¯ ¹ß»ı:%s", IDD);
+        sprintf(szMsg, "XMLë¡œ UIìƒì„±ì¤‘ ì—ëŸ¬ ë°œìƒ:%s", IDD);
         MessageBox(NULL, szMsg, "Error", MB_OK);
     }
 

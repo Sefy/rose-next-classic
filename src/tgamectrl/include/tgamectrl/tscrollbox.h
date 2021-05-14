@@ -8,10 +8,10 @@ class CTScrollBoxType;
 class CTImage;
 
 /**
- * TScrollBar¿¡¼­ÀÇ ½ºÅ©·Ñ¹Ú½º( ¹öÆ° ) Class
- * - ¿¬°üClass : CTScrollBoxType, CTScrollBar
+ * TScrollBarì—ì„œì˜ ìŠ¤í¬ë¡¤ë°•ìŠ¤( ë²„íŠ¼ ) Class
+ * - ì—°ê´€Class : CTScrollBoxType, CTScrollBar
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/8/30
  */
 class TGAMECTRL_API CTScrollBox: public CWinCtrl {
@@ -45,8 +45,8 @@ protected:
     int m_iGraphicID;
     CTScrollBar* m_pScrollBar;
 
-    ///½ºÅ©·Ñ¹Ú½º·Î ÀÌµ¿½Ã ÇöÀç ±×·¡ÇÈ°ú ¹öÆ°´Ù¿î ¸¶¿ì½ºÆ÷ÀÎÅÍ¿ÍÀÇ °Å¸®Â÷¸¦ ÀúÀåÇØµÐ´Ù.
-    /// Update¿¡¼­ ÇØ´ç Â÷ÀÌ¸¸Å¬ »©¼­ ±×·¡ÇÈÀ» ÀÌµ¿½ÃÅ²´Ù.
+    ///ìŠ¤í¬ë¡¤ë°•ìŠ¤ë¡œ ì´ë™ì‹œ í˜„ìž¬ ê·¸ëž˜í”½ê³¼ ë²„íŠ¼ë‹¤ìš´ ë§ˆìš°ìŠ¤í¬ì¸í„°ì™€ì˜ ê±°ë¦¬ì°¨ë¥¼ ì €ìž¥í•´ë‘”ë‹¤.
+    /// Updateì—ì„œ í•´ë‹¹ ì°¨ì´ë§Œí´ ë¹¼ì„œ ê·¸ëž˜í”½ì„ ì´ë™ì‹œí‚¨ë‹¤.
 
     bool m_bClicked;
     CTScrollBoxType* m_pScrollBoxType;

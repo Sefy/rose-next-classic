@@ -9,11 +9,11 @@ public:
 
     enum {
         EID_NONE = 0,
-        EID_ADD_MYITEM, /// Ё╩╬фюлеш цъ╟║
-        EID_REMOVE_MYITEM, /// Ё╩╬фюлеш ╩Ха╕
-        EID_ADD_OTHERITEM, /// ╩С╢К╧Ф ╬фюлеш цъ╟║
-        EID_REMOVE_OTHERITEM, /// ╩С╢К╧Ф ╬фюлеш ╩Ха╕
-        EID_CHANGE_READYOTHER /// ╩С╢К╧Ф ╥╧╣П ╩Себ ╨╞╟Ф
+        EID_ADD_MYITEM, /// К┌╢Л∙└Л²╢М┘° Л╤■Й╟─
+        EID_REMOVE_MYITEM, /// К┌╢Л∙└Л²╢М┘° Л┌╜Л═°
+        EID_ADD_OTHERITEM, /// Л┐│К▄─К╟╘ Л∙└Л²╢М┘° Л╤■Й╟─
+        EID_REMOVE_OTHERITEM, /// Л┐│К▄─К╟╘ Л∙└Л²╢М┘° Л┌╜Л═°
+        EID_CHANGE_READYOTHER /// Л┐│К▄─К╟╘ К═┬К■■ Л┐│М┐° КЁ─Й╡╫
     };
 
     void SetSlotIndex(int iIndex);

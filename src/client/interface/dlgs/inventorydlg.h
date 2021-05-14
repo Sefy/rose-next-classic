@@ -8,15 +8,15 @@
 #include "subclass/CSlot.h"
 
 // *--------------------------------------------------------------------* //
-// ÀÎº¥Åä¸® À©µµ¿ì
+// ì¸ë²¤í† ë¦¬ ìœˆë„ìš°
 // *--------------------------------------------------------------------* //
 enum invDLG {
-    INV_IMG, // 0,ÆÇ³¾
-    INV_BTN_CLOSE = 3, // 1,´İ±â
-    INV_BTN_TAB1 = 5, // 2,ÅÇ1
-    INV_BTN_TAB2 = 6, // 3,ÅÇ2
-    INV_BTN_TAB3 = 7, // 4,ÅÇ3
-    INV_BTN_MONEY = 10, //µ·ÀÇ ÀÌµ¿½Ã »ç¿ëµÇ´Â ¹öÆ°
+    INV_IMG, // 0,íŒë‚¼
+    INV_BTN_CLOSE = 3, // 1,ë‹«ê¸°
+    INV_BTN_TAB1 = 5, // 2,íƒ­1
+    INV_BTN_TAB2 = 6, // 3,íƒ­2
+    INV_BTN_TAB3 = 7, // 4,íƒ­3
+    INV_BTN_MONEY = 10, //ëˆì˜ ì´ë™ì‹œ ì‚¬ìš©ë˜ëŠ” ë²„íŠ¼
     INV_MAX_BTN_CNT
 };
 class CDragItem;
@@ -44,15 +44,15 @@ public:
     void MoveIcon(int iVirtualInvenIdx1, int iVirtualInvenIdx2, int iInvenType);
     /*
         void	UpdateInventory();
-        /// ¾ÆÀÌÅÛ »ç¿ë..
+        /// ì•„ì´í…œ ì‚¬ìš©..
         bool	UseItem( short nRealIndex );
     */
-    ///ÀÎÀÚ¸¦ ÀÌ¿ëÇØ¼­ ÇØ´çÇÏ´Â Ã¹¹øÂ° ¾ÆÀÌÅÛÀÇ ½ÇÁ¦ ÀÎº¥Åä¸® ÀÎµ¦½º¸¦ ±¸ÇÑ´Ù.
+    ///ì¸ìë¥¼ ì´ìš©í•´ì„œ í•´ë‹¹í•˜ëŠ” ì²«ë²ˆì§¸ ì•„ì´í…œì˜ ì‹¤ì œ ì¸ë²¤í† ë¦¬ ì¸ë±ìŠ¤ë¥¼ êµ¬í•œë‹¤.
     ///@return
     ///	0 > :Real Inventory Index,
     ///	-1	:NotFound
-    int FindItem(int iItemType, int iItemNo); ///´ëºĞ·ù¿Í ¾ÆÀÌÅÛ No( STB Line No )·Î Ã£±â
-    int FindItem(int iClass); /// 3ÀÚ¸®ÀÇ ÁßºĞ·ù·Î Ã£±â
+    int FindItem(int iItemType, int iItemNo); ///ëŒ€ë¶„ë¥˜ì™€ ì•„ì´í…œ No( STB Line No )ë¡œ ì°¾ê¸°
+    int FindItem(int iClass); /// 3ìë¦¬ì˜ ì¤‘ë¶„ë¥˜ë¡œ ì°¾ê¸°
 
 private:
     bool On_LButtonUP(unsigned iProcID, WPARAM wParam, LPARAM lParam);
@@ -70,7 +70,7 @@ private:
     */
     void DrawWeightANDGold();
     /*
-        /// ¾ÆÀÌÅÛ »ç¿ë¿ä±¸¸¦ ¸¸Á·½ÃÅ°´Â°¡?
+        /// ì•„ì´í…œ ì‚¬ìš©ìš”êµ¬ë¥¼ ë§Œì¡±ì‹œí‚¤ëŠ”ê°€?
         bool	CheckBUseItem( short nSelectNo );
         */
     CDragItem* m_pDragItem;

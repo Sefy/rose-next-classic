@@ -27,12 +27,12 @@ typedef uint8_t BYTE;
 //
 // Character state
 //
-#define CS_BIT_INT 0x1000 // µ¿ÀÛÁß ÀÎÅÍ·´Æ® °É¸®¸é ¾ÈµÇ´Â°Í..
-#define CS_BIT_ADJ 0x2000 // µ¿ÀÛÁß ÁÂÇ¥ º¸Á¤ÇÒ°Í.
-#define CS_BIT_CHK 0x4000 // µ¿ÀÛ ÇÁ·¹ÀÓ Ã¼Å©..
-#define CS_BIT_ONE (0x8000 | CS_BIT_CHK) // µ¿ÀÛÀÌ 1¹ø ·çÇÁ µ¹°í ³¡³¯°Í.
-#define CS_BIT_MOV 0x0100 // ÀÌµ¿ÁßÀÌ´Ù.
-#define CS_BIT_INT2 (0x0200 | CS_BIT_INT) // È÷Æ® µ¿ÀÛÁ¶Â÷µµ Àû¿ë¾ÈµÈ´Ù..
+#define CS_BIT_INT 0x1000 // ë™ì‘ì¤‘ ì¸í„°ëŸ½íŠ¸ ê±¸ë¦¬ë©´ ì•ˆë˜ëŠ”ê²ƒ..
+#define CS_BIT_ADJ 0x2000 // ë™ì‘ì¤‘ ì¢Œí‘œ ë³´ì •í• ê²ƒ.
+#define CS_BIT_CHK 0x4000 // ë™ì‘ í”„ë ˆì„ ì²´í¬..
+#define CS_BIT_ONE (0x8000 | CS_BIT_CHK) // ë™ì‘ì´ 1ë²ˆ ë£¨í”„ ëŒê³  ëë‚ ê²ƒ.
+#define CS_BIT_MOV 0x0100 // ì´ë™ì¤‘ì´ë‹¤.
+#define CS_BIT_INT2 (0x0200 | CS_BIT_INT) // íˆíŠ¸ ë™ì‘ì¡°ì°¨ë„ ì ìš©ì•ˆëœë‹¤..
 
 #define CS_BIT_ATTACK 0x0002
 
@@ -43,14 +43,14 @@ typedef uint8_t BYTE;
 #define CS_FALL (0x0004 | CS_BIT_INT | CS_BIT_ONE)
 #define CS_RAISE (0x0005 | CS_BIT_INT | CS_BIT_ONE)
 #define CS_SITTING (0x0005 | CS_BIT_INT | CS_BIT_ONE)
-#define CS_SIT (0x0006 | CS_BIT_INT) // Áö¼Ó µÇ´Â µ¿ÀÛ
+#define CS_SIT (0x0006 | CS_BIT_INT) // ì§€ì† ë˜ëŠ” ë™ì‘
 #define CS_STANDING (0x0007 | CS_BIT_INT | CS_BIT_ONE)
 #define CS_NEXT_STOP (0x0008 | CS_BIT_INT | CS_BIT_ONE)
 #define CS_NEXT_STOP2 (0x0009 | CS_BIT_INT2 | CS_BIT_ONE)
 #define CS_DIE (0x0010 | CS_BIT_INT | CS_BIT_ONE)
 #define CS_CASTING (0x0011 | CS_BIT_INT2 | CS_BIT_ONE)
 
-#define CMD_BIT_INT 0x8000 // ¸í·ÉÁß ÀÎÅÍ·´Æ® °É¸®¸é ¾ÈµÇ´Â°Í..
+#define CMD_BIT_INT 0x8000 // ëª…ë ¹ì¤‘ ì¸í„°ëŸ½íŠ¸ ê±¸ë¦¬ë©´ ì•ˆë˜ëŠ”ê²ƒ..
 
 #define CMD_STOP 0x0000
 #define CMD_MOVE 0x0001
@@ -63,7 +63,7 @@ typedef uint8_t BYTE;
 #define CMD_RUNAWAY (0x0009 | CMD_BIT_INT)
 #define CMD_SIT 0x000a
 
-/// °øÅë¾×¼Çµé
+/// ê³µí†µì•¡ì…˜ë“¤
 enum {
     COMMON_COMMAND_SIT = 1,
     COMMON_COMMAND_PICK_ITEM = 2,
@@ -73,11 +73,11 @@ enum {
     COMMON_COMMAND_ATTACK = 6,
     COMMON_COMMAND_DRIVE_CART = 7,
     COMMON_COMMAND_ADD_FRIEND = 8,
-    COMMON_COMMAND_PARTY = 9, ///ÆÄÆ¼°á¼º, ÆÄÆ¼Á¶ÀÎ½ÅÃ»
-    COMMON_COMMAND_EXCHANGE = 10, ///°Å·¡½ÅÃ»
+    COMMON_COMMAND_PARTY = 9, ///íŒŒí‹°ê²°ì„±, íŒŒí‹°ì¡°ì¸ì‹ ì²­
+    COMMON_COMMAND_EXCHANGE = 10, ///ê±°ë˜ì‹ ì²­
     COMMON_COMMAND_PRIVATESTORE = 11,
     COMMON_COMMAND_SELFTARGET = 12,
-    COMMON_COMMAND_BOARD_CART = 13, // Ä«Æ® Å¾½Â ½ºÅ³.
+    COMMON_COMMAND_BOARD_CART = 13, // ì¹´íŠ¸ íƒ‘ìŠ¹ ìŠ¤í‚¬.
 };
 
 
@@ -94,7 +94,7 @@ private:
 #else
 public:
 #endif
-    int m_iServerTarget; /// °ø°İÇÒ ¼­¹ö °´Á¦ ¹øÈ£
+    int m_iServerTarget; /// ê³µê²©í•  ì„œë²„ ê°ì œ ë²ˆí˜¸
 
 protected:
     CAI_OBJ* Get_TargetOBJ();
@@ -121,7 +121,7 @@ public:
 private:
     WORD m_wState;
     WORD m_wCommand;
-    WORD m_wBeforeCMD; /// self skill »ç¿ë½Ã ÇöÀç ¸í·É ÀúÀå..
+    WORD m_wBeforeCMD; /// self skill ì‚¬ìš©ì‹œ í˜„ì¬ ëª…ë ¹ ì €ì¥..
 
 protected:
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -176,12 +176,12 @@ protected:
     virtual int Get_L_WEAPON() = 0 { *(int*)0 = 10; };
     virtual void SetMotionRepeatCount(int iRepeatCount) = 0 { *(int*)0 = 10; };
 
-    /// ½ÇÁ¦ ½ºÅ³µ¿ÀÛÀ» ÇÒ¼ö ÀÖ´Â°¡?( ¼­¹ö·Î ºÎÅÍ ½ÇÁ¦ °á°ú¸¦ ¹Ş¾Ò´Â°¡? )
+    /// ì‹¤ì œ ìŠ¤í‚¬ë™ì‘ì„ í• ìˆ˜ ìˆëŠ”ê°€?( ì„œë²„ë¡œ ë¶€í„° ì‹¤ì œ ê²°ê³¼ë¥¼ ë°›ì•˜ëŠ”ê°€? )
     virtual bool bCanActionActiveSkill() = 0 { *(int*)0 = 10; };
     virtual void SetEffectedSkillFlag(bool bResult) = 0 { *(int*)0 = 10; };
     virtual bool bCanStartSkill() = 0 {
         *(int*)0 = 10;
-    }; /// ¼­¹ö·Î ºÎÅÍ Ä³½ºÆÃ ½ºÅ¸Æ® ÆĞÅ¶À» ¹Ş¾Ò´Â°¡?
+    }; /// ì„œë²„ë¡œ ë¶€í„° ìºìŠ¤íŒ… ìŠ¤íƒ€íŠ¸ íŒ¨í‚·ì„ ë°›ì•˜ëŠ”ê°€?
     virtual void SetStartSkill(bool bResult) = 0 { *(int*)0 = 10; };
 
     virtual void Set_ModelDIR(t_POSITION& PosToView, bool bImmediate = false) = 0 {
@@ -192,12 +192,12 @@ protected:
     virtual float Get_ModelSPEED() = 0 { *(int*)0 = 10; };
 #endif
 
-    /// ¾Æ·¡ 3°³ÀÇ ÇÔ¼ö´Â ÀÚ½ÅÀÏ°æ¿ì ÀÚÃ¼ °è»êµÈ °ª / ÆÄÆ¼¿øÀÏ°æ¿ì ¼­¹ö¿¡¼­ ¹ŞÀº °ª ¸®ÅÏ
-    virtual int Get_CON() { return 0; } // À¯ÀúÀÏ °æ¿ì return pAVATAR->GetCur_CON();
-    virtual int GetAdd_RecoverHP() { return 0; } // À¯ÀúÀÏ °æ¿ì return pAVATAR->m_btRecoverHP;
-    virtual int GetAdd_RecoverMP() { return 0; } // À¯ÀúÀÏ °æ¿ì return pAVATAR->m_btRecoverHP;
+    /// ì•„ë˜ 3ê°œì˜ í•¨ìˆ˜ëŠ” ìì‹ ì¼ê²½ìš° ìì²´ ê³„ì‚°ëœ ê°’ / íŒŒí‹°ì›ì¼ê²½ìš° ì„œë²„ì—ì„œ ë°›ì€ ê°’ ë¦¬í„´
+    virtual int Get_CON() { return 0; } // ìœ ì €ì¼ ê²½ìš° return pAVATAR->GetCur_CON();
+    virtual int GetAdd_RecoverHP() { return 0; } // ìœ ì €ì¼ ê²½ìš° return pAVATAR->m_btRecoverHP;
+    virtual int GetAdd_RecoverMP() { return 0; } // ìœ ì €ì¼ ê²½ìš° return pAVATAR->m_btRecoverHP;
 
-    /// ´õÇØ ÁØ´Ù.
+    /// ë”í•´ ì¤€ë‹¤.
     virtual void RecoverHP(short nRecoverMODE) { /* nop */
     }
     virtual void RecoverMP(short nRecoverMODE) { /* nop */
@@ -208,7 +208,7 @@ public:
     virtual void Adj_MoveSPEED(WORD wSrvDIST, const D3DVECTOR& PosGOTO) = 0 { *(int*)0 = 10; };
     virtual void Adj_AniSPEED(float fAniSpeed) = 0 { *(int*)0 = 10; };
 
-    virtual void Reset_Position() = 0 { *(int*)0 = 10; }; /// ÀÌµ¿ ½ÃÀÛ½Ã, ÇöÀç À§Ä¡¸¦ ÀçÁ¶Á¤
+    virtual void Reset_Position() = 0 { *(int*)0 = 10; }; /// ì´ë™ ì‹œì‘ì‹œ, í˜„ì¬ ìœ„ì¹˜ë¥¼ ì¬ì¡°ì •
 #endif
 
 protected:
@@ -227,10 +227,10 @@ public:
 protected:
     virtual DWORD GetIngDurationStateFLAG() = 0 {
         *(int*)0 = 10;
-    }; /// ÇöÀç Áö¼Ó »óÅÂ ÇÃ·¹±×°ªÀ» ¾ò´Â´Ù.
+    }; /// í˜„ì¬ ì§€ì† ìƒíƒœ í”Œë ˆê·¸ê°’ì„ ì–»ëŠ”ë‹¤.
     virtual short GetIngDurationStateSKILL(eING_TYPE eTYPE) = 0 {
         *(int*)0 = 10;
-    }; /// ÇöÀç Áö¼Ó »óÅÂ¿¡ Àû¿ëµÈ ½ºÅ³¹øÈ£
+    }; /// í˜„ì¬ ì§€ì† ìƒíƒœì— ì ìš©ëœ ìŠ¤í‚¬ë²ˆí˜¸
 
 public:
     virtual void Set_HP(int iHP){};
@@ -303,10 +303,10 @@ public:
     virtual int Get_WorldTIME(void);
 
     //-----------------------------------------------------------------------------------------------
-    //¹ÚÁöÈ£:: °¡»óÇÔ¼ö Àç¼±¾ğ
-    //Ä«Æ® Å¸ÄÏ ½ºÅ³À» »ç¿ëÇÏ±â À§ÇØ¼­ ¼±¾ğÇÔ
+    //ë°•ì§€í˜¸:: ê°€ìƒí•¨ìˆ˜ ì¬ì„ ì–¸
+    //ì¹´íŠ¸ íƒ€ì¼“ ìŠ¤í‚¬ì„ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œ ì„ ì–¸í•¨
     virtual int ProcCMD_Skill2OBJECT_PET() { return 0; };
-    //Ä«Æ® ½ºÅ³ »ç¿ëÈÄ ´ÙÀ½ Çàµ¿À» Á¤ÀÇ ÇÏ±â À§ÇØ ¼±¾ğÇÔ .
+    //ì¹´íŠ¸ ìŠ¤í‚¬ ì‚¬ìš©í›„ ë‹¤ìŒ í–‰ë™ì„ ì •ì˜ í•˜ê¸° ìœ„í•´ ì„ ì–¸í•¨ .
     virtual void SetNewCommandAfterSkill_PET(int iSkillNO) {}
     //-----------------------------------------------------------------------------------------------
 
@@ -337,7 +337,7 @@ public:
     void SetNewCommandAfterSkill(int iSkillNO);
     int ProcSkillCastingAction(int iServerTarget, CObjCHAR* pTarget);
     int ProcSkillCastingLoop(CObjCHAR* pTarget);
-    int ProcSkillAction(CObjCHAR* pTarget); ///< ½ÇÁ¦ ½ºÅ³ ¾×¼Çµ¿ÀÛÀ» ÇÑ´Ù.
+    int ProcSkillAction(CObjCHAR* pTarget); ///< ì‹¤ì œ ìŠ¤í‚¬ ì•¡ì…˜ë™ì‘ì„ í•œë‹¤.
 
     bool Goto_TARGET(CObjCHAR* pTarget, int iRange);
     bool Goto_POSITION(int iRange = 0);
@@ -360,18 +360,18 @@ public:
 public:
     bool m_bAttackSTART;
     bool m_bCastingSTART;
-    int m_iCastingStartTime; /// µğ¹ö±ëÀ» À§ÇÑ º¯¼ö...
+    int m_iCastingStartTime; /// ë””ë²„ê¹…ì„ ìœ„í•œ ë³€ìˆ˜...
 
-    int m_iWaitLoopCnt; /// ¼­¹ö·ÎºÎÅÍÀÇ °á°ú¸¦ ±â´Ù¸®¸ç..
+    int m_iWaitLoopCnt; /// ì„œë²„ë¡œë¶€í„°ì˜ ê²°ê³¼ë¥¼ ê¸°ë‹¤ë¦¬ë©°..
 
-    int m_SkillActionState; ///< ÇöÀç ½ºÅ³ÀÇ µ¿ÀÛ»óÅÂ( Ä³½ºÆÃÁßÀÎ°¡? ´ë±â ·çÇÁ ÁßÀÎ°¡? ½ÇÁ¦ ¾×¼Ç
-                            ///< ÁßÀÎ°¡? )
-    short m_nToDoSkillIDX; /// »ç¿ëÇÒ(¼³Á¤µÈ) ½ºÅ³
+    int m_SkillActionState; ///< í˜„ì¬ ìŠ¤í‚¬ì˜ ë™ì‘ìƒíƒœ( ìºìŠ¤íŒ…ì¤‘ì¸ê°€? ëŒ€ê¸° ë£¨í”„ ì¤‘ì¸ê°€? ì‹¤ì œ ì•¡ì…˜
+                            ///< ì¤‘ì¸ê°€? )
+    short m_nToDoSkillIDX; /// ì‚¬ìš©í• (ì„¤ì •ëœ) ìŠ¤í‚¬
 
-    short m_nActiveSkillIDX; /// ÇöÀç µ¿ÀÛ¿¡ Àû¿ëµÈ (Ä³½ºÆÃÁß) ½ºÅ³
-    int m_iActiveObject; /// ÇöÀç µ¿ÀÛ¿¡ Àû¿ëµÈ Å¸ÄÏ :: Å¬¶óÀÌ¾ğÆ® °´Ã¼ ¹øÈ£
-    short m_nDoingSkillIDX; /// ÇöÀç ¾×¼Ç ÁøÇàÁßÀÎ ½ºÅ³¹øÈ£. ¾×¼Çµ¿ÀÛ ½ÃÀÛ½Ã ¼¼ÆÃÇÏ°í °¢ ¸ğ¼Ç Á¾·á½Ã
-                            /// ¸®¼Â..
+    short m_nActiveSkillIDX; /// í˜„ì¬ ë™ì‘ì— ì ìš©ëœ (ìºìŠ¤íŒ…ì¤‘) ìŠ¤í‚¬
+    int m_iActiveObject; /// í˜„ì¬ ë™ì‘ì— ì ìš©ëœ íƒ€ì¼“ :: í´ë¼ì´ì–¸íŠ¸ ê°ì²´ ë²ˆí˜¸
+    short m_nDoingSkillIDX; /// í˜„ì¬ ì•¡ì…˜ ì§„í–‰ì¤‘ì¸ ìŠ¤í‚¬ë²ˆí˜¸. ì•¡ì…˜ë™ì‘ ì‹œì‘ì‹œ ì„¸íŒ…í•˜ê³  ê° ëª¨ì…˜ ì¢…ë£Œì‹œ
+                            /// ë¦¬ì…‹..
 
     float m_fRunAniSPEED;
 
@@ -381,9 +381,9 @@ public:
     t_POSITION m_PosBORN;
     t_POSITION m_PosMoveSTART;
     t_POSITION m_PosGOTO;
-    tPOINTF m_MoveVEC; // 1/1000 ´ç ÀÌµ¿·®
+    tPOINTF m_MoveVEC; // 1/1000 ë‹¹ ì´ë™ëŸ‰
     BYTE m_bRunMODE;
-    BYTE m_btMoveMODE; // 0:°È±â, 1:¶Ù±â, 2:Å¸±â
+    BYTE m_btMoveMODE; // 0:ê±·ê¸°, 1:ë›°ê¸°, 2:íƒ€ê¸°
 
 public:
     CObjAI();
@@ -393,13 +393,13 @@ public:
     bool ProcOneActionFrame(int iIndex);
     bool ProcMotionFrame(void);
 
-    void Set_STATE(WORD wState) { m_wState = wState; } /// »óÅÂ ¼³Á¤
+    void Set_STATE(WORD wState) { m_wState = wState; } /// ìƒíƒœ ì„¤ì •
     WORD Get_STATE() { return m_wState; }
     WORD Get_COMMAND() { return m_wCommand; }
     void Set_COMMAND(WORD wCommand) { m_wCommand = wCommand; }
 
     //--------------------------------------------------------------------------------------------------------------------
-    //¹ÚÁöÈ£:: ÀÌÀü ¸í·ÉÀ» ÄÁÆ®·Ñ ÇÏ±âÀ§ÇØ Á¤ÀÇÇÔ.
+    //ë°•ì§€í˜¸:: ì´ì „ ëª…ë ¹ì„ ì»¨íŠ¸ë¡¤ í•˜ê¸°ìœ„í•´ ì •ì˜í•¨.
     WORD Get_BECOMMAND() { return m_wBeforeCMD; }
     void Set_BECOMMAND(WORD wCommand) { m_wBeforeCMD = wCommand; }
     //--------------------------------------------------------------------------------------------------------------------
@@ -409,7 +409,7 @@ public:
     void Reset_MoveVEC();
 
     float Cal_RunAniSPEED(short nCmPerSec) {
-        // ÀÌµ¿ µ¿ÀÛ µô·¹ÀÌ = ( ÀÌµ¿¼Óµµ+180) /600
+        // ì´ë™ ë™ì‘ ë”œë ˆì´ = ( ì´ë™ì†ë„+180) /600
         return ((nCmPerSec + 180.f) / 600.f);
     }
 
@@ -430,7 +430,7 @@ public:
     /// queuing the command
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
-    /// ÇöÀç ¸í·ÉÀ» Àû¿ëÇÒ¼ö ÀÖ´Â°¡?
+    /// í˜„ì¬ ëª…ë ¹ì„ ì ìš©í• ìˆ˜ ìˆëŠ”ê°€?
     virtual bool CanApplyCommand() = 0 { *(int*)0 = 10; };
 
     virtual void PushCommandSit() = 0 { *(int*)0 = 10; };

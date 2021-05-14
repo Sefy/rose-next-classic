@@ -5,7 +5,7 @@
 
 class CTargetManager: public CJSingleton<CTargetManager> {
 private:
-    int m_iCurrentMouseTargetObject; /// ¸¶¿ì½º ÀÌµ¿Áß ÇöÀç ¸¶¿ì½º°¡ °¡¸£Å°´Â ¿ÀºêÁ§Æ®
+    int m_iCurrentMouseTargetObject; /// ë§ˆìš°ìŠ¤ ì´ë™ì¤‘ í˜„ì¬ ë§ˆìš°ìŠ¤ê°€ ê°€ë¥´í‚¤ëŠ” ì˜¤ë¸Œì íŠ¸
 
 public:
     CTargetManager(void);

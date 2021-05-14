@@ -65,8 +65,8 @@ CSystemMsgDlg::SetMessage(const char* szTitle,
     if (szMsg == NULL || szTitle == NULL)
         return false;
 
-    /// ±âÁ¸ ÆÁÀÌ³ª ÇïÇÁÀÏ°æ¿ì °øÁö»çÇ×À» ¿ì¼±¼øÀ§·Î Ç¥½ÃÇÑ´Ù.
-    /// °øÁö»çÇ×ÀÏ °æ¿ì¿¡µµ »õ·Î¿î °øÁö»çÇ×ÀÌ ¿ì¼±ÇÑ´Ù.
+    /// ê¸°ì¡´ íŒì´ë‚˜ í—¬í”„ì¼ê²½ìš° ê³µì§€ì‚¬í•­ì„ ìš°ì„ ìˆœìœ„ë¡œ í‘œì‹œí•œë‹¤.
+    /// ê³µì§€ì‚¬í•­ì¼ ê²½ìš°ì—ë„ ìƒˆë¡œìš´ ê³µì§€ì‚¬í•­ì´ ìš°ì„ í•œë‹¤.
     if (m_Notice.GetLineCount() && m_iMsgType == MSG_TYPE_NOTICE)
         if (iType != MSG_TYPE_NOTICE)
             return false;

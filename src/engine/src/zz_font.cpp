@@ -21,7 +21,7 @@
 
 ZZ_IMPLEMENT_DYNAMIC(zz_font, zz_node)
 
-#define ZZ_DEFAULT_FONTNAME "±¼¸²Ã¼"
+#define ZZ_DEFAULT_FONTNAME "êµ´ë¦¼ì²´"
 #define ZZ_DEFAULT_FONTSIZE (9)
 
 #define ZZ_MAX_FONTS 1000

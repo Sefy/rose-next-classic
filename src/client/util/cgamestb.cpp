@@ -61,17 +61,17 @@ CGameSTB::Open(char* szFileName) {
     if (u.cValue[0] == 'S' && u.cValue[1] == 'T' && u.cValue[2] == 'B') {
         iVersion = u.cValue[3] - '0';
 
-        // ø≠, ¡Ÿ µ•¿Ã≈∏ ∏ˆ√º∞° µÈæÓ¿÷¥¬∞˜...
+        // Ïó¥, Ï§Ñ Îç∞Ïù¥ÌÉÄ Î™∏Ï≤¥Í∞Ä Îì§Ïñ¥ÏûàÎäîÍ≥≥...
         m_pMemStream->Read(&u.lValue, sizeof(long));
     }
 
-    // ø≠ ∞πºˆ, ¡Ÿ ∞πºˆ
+    // Ïó¥ Í∞ØÏàò, Ï§Ñ Í∞ØÏàò
     m_pMemStream->ReadInt32(&m_iRowCount);
     m_pMemStream->ReadInt32(&m_iColCount);
 
     m_lFP += u.lValue;
 
-    // ¡Ÿ≥Ù¿Ã.
+    // Ï§ÑÎÜíÏù¥.
     m_pMemStream->Seek(sizeof(int), FILE_POS_CUR);
 
     switch (iVersion) {
@@ -83,14 +83,14 @@ CGameSTB::Open(char* szFileName) {
             break;
     }
 
-    // ø≠ ¿Ã∏ß..
+    // Ïó¥ Ïù¥Î¶Ñ..
     short nI, nLen;
     for (nI = 0; nI < m_iColCount; nI++) {
         m_pMemStream->ReadInt16(&nLen);
         m_pMemStream->Seek(nLen, FILE_POS_CUR);
     }
 
-    // µ•¿Ã≈∏ ¿Ã∏ß.
+    // Îç∞Ïù¥ÌÉÄ Ïù¥Î¶Ñ.
     m_RowNAME = new CStrVAR[m_iRowCount];
     char* pStr = CStr::GetString();
 

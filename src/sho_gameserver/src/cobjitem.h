@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	CObjITEM.h
- * \brief	ÇÊµå¿¡ µî·ÏµÈ ¾ÆÀÌÅÛ °´Ã¼
+ * \brief	í•„ë“œì— ë“±ë¡ëœ ì•„ì´í…œ ê°ì²´
  */
 #ifndef __COBJITEM_H
 #define __COBJITEM_H
@@ -15,8 +15,8 @@ class CParty;
  * \ingroup SHO_GS_LIB
  * \class	CObjITEM
  * \author	wookSang.Jo
- * \brief	¹Ù´Û¿¡ ¶³¾îÁø ¾ÆÀÌÅÛ °´Ã¼ °ü¸®¹× Ã³¸®ÇÏ´Â Å¬·¡½º
- *			CGameOBJÅ¬·¡½º¸¦ »ó¼Ó¹ÞÀ½
+ * \brief	ë°”ë‹¦ì— ë–¨ì–´ì§„ ì•„ì´í…œ ê°ì²´ ê´€ë¦¬ë° ì²˜ë¦¬í•˜ëŠ” í´ëž˜ìŠ¤
+ *			CGameOBJí´ëž˜ìŠ¤ë¥¼ ìƒì†ë°›ìŒ
  */
 class CObjITEM: public CGameOBJ {
 private:
@@ -26,13 +26,13 @@ private:
 public:
     tagITEM m_ITEM;
 
-    int m_iOwnerObjIDX; /// ¾ÆÀÌÅÛÀ» ¼ÒÀ¯ÇÒ¼ö ÀÖ´Â À¯Àú
-    int m_iRemainTIME; /// ±Í¼ÓµÇ¾î ÀÖ´Â ³²Àº ½Ã°£
+    int m_iOwnerObjIDX; /// ì•„ì´í…œì„ ì†Œìœ í• ìˆ˜ ìžˆëŠ” ìœ ì €
+    int m_iRemainTIME; /// ê·€ì†ë˜ì–´ ìžˆëŠ” ë‚¨ì€ ì‹œê°„
 
-    bool m_bDropperIsUSER; /// »ç¿ëÀÚ°¡ ¶³±º ¾ÆÀÌÅÛÀÌ³Ä?
-    CStrVAR m_DropperACCOUNT; /// ¶³±º »ç¿ëÀÚÀÇ °èÁ¤
-    CStrVAR m_DropperNAME; /// ¶³±º ÄÉ¸¯ÅÍ ÀÌ¸§
-    CStrVAR m_DropperIP; /// ¶³±º »ç¿ëÀÚ IP
+    bool m_bDropperIsUSER; /// ì‚¬ìš©ìžê°€ ë–¨êµ° ì•„ì´í…œì´ëƒ?
+    CStrVAR m_DropperACCOUNT; /// ë–¨êµ° ì‚¬ìš©ìžì˜ ê³„ì •
+    CStrVAR m_DropperNAME; /// ë–¨êµ° ì¼€ë¦­í„° ì´ë¦„
+    CStrVAR m_DropperIP; /// ë–¨êµ° ì‚¬ìš©ìž IP
     DWORD m_dwDropperDBID; /// db id
     DWORD m_dwDropperClanID;
 

@@ -7,11 +7,11 @@ class CItem;
 
 /**
  * Item Icon Class
- *	- CTRL + MOUSE LBUTTONDOWN ½Ã  À§½Ã¸®½ºÆ®¿¡ Ãß°¡ÇÏ´Â ±â´É ~ CIconItem::Process
+ *	- CTRL + MOUSE LBUTTONDOWN ì‹œ  ìœ„ì‹œë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•˜ëŠ” ê¸°ëŠ¥ ~ CIconItem::Process
  *
  *
- * @Warning		¼ÒÄÏÀÌ¹ÌÁö TextureÀÇ load¹× unload´Â ·¹ÆÛ·±½º Ä«¿îÆÃÀ¸·Î Ã³¸®ÇÑ´Ù.
- * @Author		ÃÖÁ¾Áø
+ * @Warning		ì†Œì¼“ì´ë¯¸ì§€ Textureì˜ loadë° unloadëŠ” ë ˆí¼ëŸ°ìŠ¤ ì¹´ìš´íŒ…ìœ¼ë¡œ ì²˜ë¦¬í•œë‹¤.
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CIconItem: public CIcon {
@@ -42,11 +42,11 @@ public:
     bool IsEmpty();
 
 protected:
-    CItem* m_pItem; /// ¾ÆÀÌÄÜÀÌ ÂüÁ¶ÇÒ ½ÇÁ¦¾ÆÀÌÅÛ¿¡ ´ëÇÑ Æ÷ÀÎÅÍ < CItemÀÌ ÀÖ´Â °æ¿ì : ¿¹)
-                    /// ÀÎº¥Åä¸®ÀÇ ¾ÆÀÌÅÛ >
-    bool m_bDeleteItemData; /// ½ÇÁ¦ ¾ÆÀÌÅÛÀÌ ¾øÀ»°æ¿ì »ç¿ëÇÒ ¾ÆÀÌÅÛµ¥ÀÌÅ¸
-    static HNODE m_hSocketTexture; /// ¼ÒÄÏÀ» °¡Áø ¾ÆÀÌÅÛÀÇ °æ¿ì À§¿¡ Ç¥½ÃÇÏ±â À§ÇÑ TextureÀÇ ³ëµå
-    static int m_iSocketTextureRefCount; /// ·¹ÆÛ·±½º Ä«¿îÆÃÀ» ÅëÇØ¼­ 0ÀÏ°æ¿ì »èÁ¦ÇÑ´Ù.
+    CItem* m_pItem; /// ì•„ì´ì½˜ì´ ì°¸ì¡°í•  ì‹¤ì œì•„ì´í…œì— ëŒ€í•œ í¬ì¸í„° < CItemì´ ìˆëŠ” ê²½ìš° : ì˜ˆ)
+                    /// ì¸ë²¤í† ë¦¬ì˜ ì•„ì´í…œ >
+    bool m_bDeleteItemData; /// ì‹¤ì œ ì•„ì´í…œì´ ì—†ì„ê²½ìš° ì‚¬ìš©í•  ì•„ì´í…œë°ì´íƒ€
+    static HNODE m_hSocketTexture; /// ì†Œì¼“ì„ ê°€ì§„ ì•„ì´í…œì˜ ê²½ìš° ìœ„ì— í‘œì‹œí•˜ê¸° ìœ„í•œ Textureì˜ ë…¸ë“œ
+    static int m_iSocketTextureRefCount; /// ë ˆí¼ëŸ°ìŠ¤ ì¹´ìš´íŒ…ì„ í†µí•´ì„œ 0ì¼ê²½ìš° ì‚­ì œí•œë‹¤.
 };
 
 #endif

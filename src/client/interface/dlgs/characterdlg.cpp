@@ -173,7 +173,7 @@ CCharacterDLG::Update(POINT ptMouse) {
     // for( iterSlots = m_Slots.begin(); iterSlots != m_Slots.end(); ++iterSlots )
     //	iterSlots->second.Update( ptMouse );
 
-    /// ∫∏≥ Ω∫ ∆˜¿Œ∆Æø° µ˚∏• ƒ¡≈Õ∑— »∞º∫»≠..
+    /// Î≥¥ÎÑàÏä§ Ìè¨Ïù∏Ìä∏Ïóê Îî∞Î•∏ Ïª®ÌÑ∞Î°§ ÌôúÏÑ±Ìôî..
     /*if( g_pAVATAR )
     {
         int iNeedPoint = 0;
@@ -255,7 +255,7 @@ CCharacterDLG::Update(POINT ptMouse) {
             break;
         }
         case ABILITY_INFO: {
-            ///¿Ã«œ ≈¯∆¡ «•Ω√
+            ///Ïù¥Ìïò Ìà¥ÌåÅ ÌëúÏãú
             CTDialog* pDlg = CTDialog::GetProcessMouseOverDialog();
             if (pDlg && pDlg != this)
                 return;
@@ -332,14 +332,14 @@ CCharacterDLG::DrawBasicInfo() {
     D3DXMatrixTranslation(&mat, (float)m_sPosition.x, (float)m_sPosition.y, 0.0f);
     ::setTransformSprite(mat);
 
-    ///¿Ã∏ß
+    ///Ïù¥Î¶Ñ
     ::drawFont(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         59,
         67,
         D3DCOLOR_XRGB(0, 255, 42),
         g_pAVATAR->Get_NAME());
-    ///≈¨∑°Ω∫(¡˜æ˜)
+    ///ÌÅ¥ÎûòÏä§(ÏßÅÏóÖ)
     ::drawFont(g_GameDATA.m_hFONT[FONT_NORMAL],
         true,
         59,
@@ -355,7 +355,7 @@ CCharacterDLG::DrawBasicInfo() {
             g_dwWHITE,
             CClan::GetInstance().GetName());
 
-    //∑π∫ß
+    //Î†àÎ≤®
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         59,
@@ -363,7 +363,7 @@ CCharacterDLG::DrawBasicInfo() {
         D3DCOLOR_XRGB(255, 255, 0),
         "%d",
         g_pAVATAR->Get_LEVEL());
-    //∞Ê«Ëƒ°
+    //Í≤ΩÌóòÏπò
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL],
         true,
         59,
@@ -373,7 +373,7 @@ CCharacterDLG::DrawBasicInfo() {
         g_pAVATAR->Get_EXP(),
         g_pAVATAR->Get_NeedEXP(g_pAVATAR->Get_LEVEL()));
 
-    /// 214 - Ω∫≈◊πÃ≥™ ∞‘¿Ã¡ˆ
+    /// 214 - Ïä§ÌÖåÎØ∏ÎÇò Í≤åÏù¥ÏßÄ
     //::drawFontf( g_GameDATA.m_hFONT[ FONT_NORMAL ], true, 59,214, D3DCOLOR_XRGB( 0, 210, 255), "%d
     /// %d", g_pAVATAR->GetCur_STAMINA(),c_iMaxStamina );
 }
@@ -384,7 +384,7 @@ CCharacterDLG::DrawAbilityInfo() {
     D3DXMatrixTranslation(&mat, (float)m_sPosition.x, (float)m_sPosition.y, 0.0f);
     ::setTransformSprite(mat);
 
-    ///»˚
+    ///Ìûò
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         58,
@@ -392,7 +392,7 @@ CCharacterDLG::DrawAbilityInfo() {
         D3DCOLOR_XRGB(0, 255, 42),
         "%d",
         g_pAVATAR->Get_STR());
-    ///πŒ√∏
+    ///ÎØºÏ≤©
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         58,
@@ -400,7 +400,7 @@ CCharacterDLG::DrawAbilityInfo() {
         D3DCOLOR_XRGB(0, 255, 42),
         "%d",
         g_pAVATAR->Get_DEX());
-    ///¡ˆ∑¬
+    ///ÏßÄÎ†•
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         58,
@@ -408,7 +408,7 @@ CCharacterDLG::DrawAbilityInfo() {
         D3DCOLOR_XRGB(0, 255, 42),
         "%d",
         g_pAVATAR->Get_INT());
-    ///¡˝¡ﬂ
+    ///ÏßëÏ§ë
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         58,
@@ -416,7 +416,7 @@ CCharacterDLG::DrawAbilityInfo() {
         D3DCOLOR_XRGB(0, 255, 42),
         "%d",
         g_pAVATAR->Get_CON());
-    ///∏≈∑¬
+    ///Îß§Î†•
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         58,
@@ -424,7 +424,7 @@ CCharacterDLG::DrawAbilityInfo() {
         D3DCOLOR_XRGB(0, 255, 42),
         "%d",
         g_pAVATAR->Get_CHARM());
-    ///∞®∞¢
+    ///Í∞êÍ∞Å
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         58,
@@ -433,7 +433,7 @@ CCharacterDLG::DrawAbilityInfo() {
         "%d",
         g_pAVATAR->Get_SENSE());
 
-    ///∞¯∞›∑¬
+    ///Í≥µÍ≤©Î†•
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         171,
@@ -441,7 +441,7 @@ CCharacterDLG::DrawAbilityInfo() {
         g_dwWHITE,
         "%d",
         g_pAVATAR->stats.attack_power);
-    ///πÊæÓ∑¬
+    ///Î∞©Ïñ¥Î†•
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         171,
@@ -449,7 +449,7 @@ CCharacterDLG::DrawAbilityInfo() {
         g_dwWHITE,
         "%d",
         g_pAVATAR->Get_DEF());
-    ///∏∂π˝¿˙«◊
+    ///ÎßàÎ≤ïÏ†ÄÌï≠
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         171,
@@ -457,7 +457,7 @@ CCharacterDLG::DrawAbilityInfo() {
         g_dwWHITE,
         "%d",
         g_pAVATAR->Get_RES());
-    ///∏Ì¡ﬂ∑¬
+    ///Î™ÖÏ§ëÎ†•
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         171,
@@ -465,7 +465,7 @@ CCharacterDLG::DrawAbilityInfo() {
         g_dwWHITE,
         "%d",
         g_pAVATAR->stats.hit_rate);
-    ///≈©∏Æ∆ºƒ√
+    ///ÌÅ¨Î¶¨Ìã∞Ïª¨
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         171,
@@ -473,7 +473,7 @@ CCharacterDLG::DrawAbilityInfo() {
         g_dwWHITE,
         "%d",
         g_pAVATAR->Get_CRITICAL());
-    ///»∏««∑¬
+    ///ÌöåÌîºÎ†•
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         171,
@@ -481,7 +481,7 @@ CCharacterDLG::DrawAbilityInfo() {
         g_dwWHITE,
         "%d",
         g_pAVATAR->Get_AVOID());
-    ///∞¯∞›º”µµ
+    ///Í≥µÍ≤©ÏÜçÎèÑ
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         171,
@@ -489,7 +489,7 @@ CCharacterDLG::DrawAbilityInfo() {
         g_dwWHITE,
         "%d",
         g_pAVATAR->stats.attack_speed);
-    ///¿Ãµøº”µµ
+    ///Ïù¥ÎèôÏÜçÎèÑ
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         171,
@@ -498,7 +498,7 @@ CCharacterDLG::DrawAbilityInfo() {
         "%d",
         g_pAVATAR->stats.move_speed);
 
-    ///∆˜¿Œ∆Æ
+    ///Ìè¨Ïù∏Ìä∏
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         69,
@@ -514,7 +514,7 @@ CCharacterDLG::DrawUnionInfo() {
     D3DXMatrixTranslation(&mat, (float)m_sPosition.x, (float)m_sPosition.y, 0.0f);
     ::setTransformSprite(mat);
 
-    ///≈¨∑£
+    ///ÌÅ¥Îûú
     ::drawFont(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
         true,
         90,

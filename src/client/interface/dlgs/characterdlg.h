@@ -7,11 +7,11 @@
 #include "DataType.h"
 
 /**
- * Ä³¸¯ÅÍ Á¤º¸¸¦ º¸¿©ÁÖ±â À§ÇÑ ´ÙÀÌ¾ó·Î±×
+ * ìºë¦­í„° ì •ë³´ë¥¼ ë³´ì—¬ì£¼ê¸° ìœ„í•œ ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Warning		ÇöÀç(2005/9/12) ´ë¸¸(New)¹öÁ¯¿¡´Â Á¶ÇÕ Á¤º¸¸¦ º¸¿©ÁÖÁö ¾Ê´Â´Ù( XML¿¡¼­ ÅÇ¹öÆ°À»
- * ¾ø¾Ö¼­ ÅÇÀ» ÀÌµ¿ÇÒ¼ö ¾øµµ·Ï µÇ¾î ÀÖ´Ù )
- * @Author		ÃÖÁ¾Áø
+ * @Warning		í˜„ì¬(2005/9/12) ëŒ€ë§Œ(New)ë²„ì ¼ì—ëŠ” ì¡°í•© ì •ë³´ë¥¼ ë³´ì—¬ì£¼ì§€ ì•ŠëŠ”ë‹¤( XMLì—ì„œ íƒ­ë²„íŠ¼ì„
+ * ì—†ì• ì„œ íƒ­ì„ ì´ë™í• ìˆ˜ ì—†ë„ë¡ ë˜ì–´ ìˆë‹¤ )
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CCharacterDLG: public CTDialog {
@@ -53,15 +53,15 @@ protected:
     bool On_LButtonUP(unsigned iProcID, WPARAM wParam, LPARAM lParam);
     bool On_LButtonDN(unsigned iProcID, WPARAM wParam, LPARAM lParam);
 
-    void DrawBasicInfo(); /// ±âº»Á¤º¸ Draw
-    void DrawAbilityInfo(); /// ´É·ÂÄ¡ Draw
-    void DrawUnionInfo(); /// Á¶ÇÕÁ¤º¸ Draw
+    void DrawBasicInfo(); /// ê¸°ë³¸ì •ë³´ Draw
+    void DrawAbilityInfo(); /// ëŠ¥ë ¥ì¹˜ Draw
+    void DrawUnionInfo(); /// ì¡°í•©ì •ë³´ Draw
 
 private:
-    int m_iTab; /// ÅÇ±¸ºĞ
-    int m_iGuageBlueGID; /// ¸¶³ª °ÔÀÌÁöÀÇ ±×·¡ÇÈ ID
-    int m_iGuageYellowGID; /// ½ºÅ×¹Ì³ª °ÔÀÌÁöÀÇ ±×·¡ÇÈ ID
-    int m_iGuageRedGID; /// Ã¼·Â °ÔÀÌÁöÀÇ ±×·¡ÇÈ ID
+    int m_iTab; /// íƒ­êµ¬ë¶„
+    int m_iGuageBlueGID; /// ë§ˆë‚˜ ê²Œì´ì§€ì˜ ê·¸ë˜í”½ ID
+    int m_iGuageYellowGID; /// ìŠ¤í…Œë¯¸ë‚˜ ê²Œì´ì§€ì˜ ê·¸ë˜í”½ ID
+    int m_iGuageRedGID; /// ì²´ë ¥ ê²Œì´ì§€ì˜ ê·¸ë˜í”½ ID
 };
 
 #endif

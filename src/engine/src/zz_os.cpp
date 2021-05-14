@@ -103,7 +103,7 @@ void zz_os::initialize ()
 		g_get_ticks_ptr = zz_os::get_ticks_qpc;
 		counter_string = "qpc";
 	}
-	else { // use timeGetTime   //AMD µà¾ó ÄÚ¾î ¹®Á¦·Î ÀÎÇÑ ½Ã°£ º¯°æ
+	else { // use timeGetTime   //AMD ë“€ì–¼ ì½”ì–´ ë¬¸ì œë¡œ ì¸í•œ ì‹œê°„ ë³€ê²½
 		// none of fast methods are available.
 		g_counter_type = TIMER_TIMEGETTIME;
 		g_get_ticks_ptr = zz_os::get_ticks_tgt;

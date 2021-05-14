@@ -6,9 +6,9 @@ class CTCommand;
 class CIcon;
 
 /**
- * ¸Ş¼¼Áö ¹Ú½º¿ë ´ÙÀÌ¾ó·Î±×
+ * ë©”ì„¸ì§€ ë°•ìŠ¤ìš© ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CMsgBox: public CTMsgBox {
@@ -27,14 +27,14 @@ public:
     void SetInvokerDlgID(unsigned int iDlgID);
     void SetIcons(std::list<CIcon*>& Icons);
 
-    ///Áßº¹µÇ¾î¼­ ¿­¸° MsgBoxµéÀ» °°Àº Typeº°·Î ¸ğµÎ ´İ°í ½ÍÀ»¶§ TypeÀ» ÁöÁ¤ÇÏ°í OpenMsgBox¿¡¼­ ±×
-    /// TypeÀ» ÀÎÀÚ·Î ³Ñ°ÜÁØ´Ù.
+    ///ì¤‘ë³µë˜ì–´ì„œ ì—´ë¦° MsgBoxë“¤ì„ ê°™ì€ Typeë³„ë¡œ ëª¨ë‘ ë‹«ê³  ì‹¶ì„ë•Œ Typeì„ ì§€ì •í•˜ê³  OpenMsgBoxì—ì„œ ê·¸
+    /// Typeì„ ì¸ìë¡œ ë„˜ê²¨ì¤€ë‹¤.
     enum {
         MSGTYPE_NONE,
         MSGTYPE_RECV_TRADE_REQ,
         MSGTYPE_RECV_PARTY_REQ,
         MSGTYPE_RECV_CLANJOIN_REQ,
-        MSGTYPE_RECV_CART_RIDE_REQ, // 2ÀÎ½Â Ä«Æ®
+        MSGTYPE_RECV_CART_RIDE_REQ, // 2ì¸ìŠ¹ ì¹´íŠ¸
     };
 
     enum { IID_BTN_OK = 255, IID_BTN_CANCEL = 256 };
@@ -44,9 +44,9 @@ protected:
     void ClearCommand();
 
 protected:
-    CTCommand* m_pCmdOk; /// Ok BtnÀÌ ´­·ÈÀ»¶§ Ã³¸®ÇÒ Command
-    CTCommand* m_pCmdCancel; /// Cancel BtnÀÌ ´­·ÈÀ»¶§ Ã³¸®ÇÒ Command
-    unsigned int m_iInvokerDlgID; /// Command ¸¦ Ã³¸®ÇÒ TDialogID
-    std::vector<CSlot> m_Slots; /// ¸Ş¼¼Áö ¹Ú½º¿¡ ¾ÆÀÌÄÜÀÌ º¸¿©Áú¶§ »ç¿ëµÇ´Â ½½·Ô ÄÁÅ×ÀÌ³Ê
+    CTCommand* m_pCmdOk; /// Ok Btnì´ ëˆŒë ¸ì„ë•Œ ì²˜ë¦¬í•  Command
+    CTCommand* m_pCmdCancel; /// Cancel Btnì´ ëˆŒë ¸ì„ë•Œ ì²˜ë¦¬í•  Command
+    unsigned int m_iInvokerDlgID; /// Command ë¥¼ ì²˜ë¦¬í•  TDialogID
+    std::vector<CSlot> m_Slots; /// ë©”ì„¸ì§€ ë°•ìŠ¤ì— ì•„ì´ì½˜ì´ ë³´ì—¬ì§ˆë•Œ ì‚¬ìš©ë˜ëŠ” ìŠ¬ë¡¯ ì»¨í…Œì´ë„ˆ
 };
 #endif

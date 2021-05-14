@@ -76,7 +76,7 @@ CObjEVENT::Init(CZoneTHREAD* pZONE,
     float fWorldX,
     float fWorldY,
     WORD wMapEventID) {
-    // TODO:: mapx, mapy·Î Á¸ Æ®¸®°Å µ¥ÀÌÅ¸ °Ë»öÇØ¼­ ¾øÀ¸¸é ½ºÅµ...
+    // TODO:: mapx, mapyë¡œ ì¡´ íŠ¸ë¦¬ê±° ë°ì´íƒ€ ê²€ìƒ‰í•´ì„œ ì—†ìœ¼ë©´ ìŠ¤í‚µ...
     m_PosCUR.x = fWorldX;
     m_PosCUR.y = fWorldY;
 
@@ -87,7 +87,7 @@ CObjEVENT::Init(CZoneTHREAD* pZONE,
 
     m_HashID = ::Make_EventObjectID(pZONE->Get_ZoneNO(), cMapX, cMapY, wMapEventID);
 
-    return pZONE->Add_OBJECT(this); // Á¸¿¡ Ãß°¡..
+    return pZONE->Add_OBJECT(this); // ì¡´ì— ì¶”ê°€..
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -128,7 +128,7 @@ CObjEVENT::Make_gsv_ADD_OBJECT(classPACKET* pCPacket) {
 int
 CObjEVENT::Proc(void) {
     if (CObjVAR::ProcVAR((this->GetZONE())->GetPassTIME())) {
-        // ´ÙÀ½ ÀÌº¥Æ® Ã³¸®...
+        // ë‹¤ìŒ ì´ë²¤íŠ¸ ì²˜ë¦¬...
         // m_HashCurrentTrigger = m_HashNextTrigger;
         g_QuestList.CheckQUEST(NULL, m_HashNextTrigger, true, 0, this);
         m_HashNextTrigger = 0;

@@ -1,7 +1,7 @@
 #ifndef _CStoreUnion_
 #define _CStoreUnion_
 
-///»ç¿ë¾ÈÇÔ
+///ì‚¬ìš©ì•ˆí•¨
 class CStoreUnion {
 public:
     CStoreUnion(void);

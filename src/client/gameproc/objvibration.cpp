@@ -60,7 +60,7 @@ CObjvibration::StartVibration() {
     if (m_pObjCHAR == NULL)
         return;
 
-    /// ÀÌ¹Ì ¶³°í ÀÖ´Âµ¥ ¶Ç¸Â´Â´Ù¸é..
+    /// ì´ë¯¸ ë–¨ê³  ìžˆëŠ”ë° ë˜ë§žëŠ”ë‹¤ë©´..
     if (m_bActivated) {
         return;
         // m_pObjCHAR->ResetCUR_POS( m_vOldObjPos );

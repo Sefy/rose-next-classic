@@ -35,16 +35,16 @@ class ITSound;
 class ITFont;
 
 /**
- * 1. XML·ÎºÎÅÍÀÇ control»ı¼º
- *	2. client¿¡¼­ ³Ñ¾î¿Â °¢ ÀÎÅÍÆäÀÌ½ºÀÇ ÀÓÇÃ¸®¸ÕÆ®µÈ objectÀÇ Æ÷ÀÎÅÍ¸¦ ÀúÀåÇØµĞ´Ù.
+ * 1. XMLë¡œë¶€í„°ì˜ controlìƒì„±
+ *	2. clientì—ì„œ ë„˜ì–´ì˜¨ ê° ì¸í„°í˜ì´ìŠ¤ì˜ ì„í”Œë¦¬ë¨¼íŠ¸ëœ objectì˜ í¬ì¸í„°ë¥¼ ì €ì¥í•´ë‘”ë‹¤.
  *		- ITDraw, ITFont, ITSound,
- *	3. client¿¡¼­ÀÇ ±âÅ¸ º¯¼ö¸¦ ÀúÀå
- *		- ±¹°¡ÄÚµå, À©µµ¿ì ÇÚµé, ÀÔ·ÂÅ¸ÀÔ( ¿£ÅÍÃ¤ÆÃÅ¸ÀÔ, ¼¼ºìÇÏÃ÷(³ë¸») Å¸ÀÔ )
+ *	3. clientì—ì„œì˜ ê¸°íƒ€ ë³€ìˆ˜ë¥¼ ì €ì¥
+ *		- êµ­ê°€ì½”ë“œ, ìœˆë„ìš° í•¸ë“¤, ì…ë ¥íƒ€ì…( ì—”í„°ì±„íŒ…íƒ€ì…, ì„¸ë¸í•˜ì¸ (ë…¸ë§) íƒ€ì… )
  *
- * @Warning			ScrollBar´Â »ı¼ºÈÄ PrevButton,NextButton(MakeButton),ScrollBox(MakeScrollBox)¸¦
- *¸¸µé¾î¼­ ³Ö¾îÁÖ¾î¾ßÇÑ´Ù
+ * @Warning			ScrollBarëŠ” ìƒì„±í›„ PrevButton,NextButton(MakeButton),ScrollBox(MakeScrollBox)ë¥¼
+ *ë§Œë“¤ì–´ì„œ ë„£ì–´ì£¼ì–´ì•¼í•œë‹¤
  *
- * @Author			ÃÖÁ¾Áø
+ * @Author			ìµœì¢…ì§„
  *
  * @Date			2005/8/30
  */
@@ -61,7 +61,7 @@ public:
 
     bool MakeDialogByXML(const char* IDD, CTDialog* pBase);
 
-    /// Control »ı¼º
+    /// Control ìƒì„±
     CTButton* MakeButton(int ID,
         int iScrX,
         int iScrY,
@@ -104,9 +104,9 @@ public:
     CTScrollBox*
     MakeScrollBox(int ID, int iWidth, int iHeight, int iGraphicID, int iModuleID, int iType);
 
-    /// 2003 /11 /26 / ÃÖÁ¾Áø
-    /// 1. RadioBox¿¡´Â RadioButton¸¸ÀÌ µî·ÏµÈ´Ù.
-    ///	2. RadioBox¿¡ RadioButtonÀÌ µî·ÏµÉ¶§ RadioBox´Â RadioButton¿¡°Ô ÀÚ½ÅÀÇ Æ÷ÀÎÅÍ¸¦ ³Ñ°ÜÁØ´Ù.
+    /// 2003 /11 /26 / ìµœì¢…ì§„
+    /// 1. RadioBoxì—ëŠ” RadioButtonë§Œì´ ë“±ë¡ëœë‹¤.
+    ///	2. RadioBoxì— RadioButtonì´ ë“±ë¡ë ë•Œ RadioBoxëŠ” RadioButtonì—ê²Œ ìì‹ ì˜ í¬ì¸í„°ë¥¼ ë„˜ê²¨ì¤€ë‹¤.
     CTRadioBox* MakeRadioBox(int ID);
     CTRadioButton* MakeRadioButton(int ID,
         int iScrX,
@@ -126,12 +126,12 @@ public:
         int iBGraphicID,
         int iModuleID);
 
-    /// ÇöÀç CTDialog¿¡ Add ½ÃÅ³¼ö ¾ø´Â MsgBox¸¦ ¸¸µå´Â Operation - 2003/12/11 : ÃÖÁ¾Áø
+    /// í˜„ì¬ CTDialogì— Add ì‹œí‚¬ìˆ˜ ì—†ëŠ” MsgBoxë¥¼ ë§Œë“œëŠ” Operation - 2003/12/11 : ìµœì¢…ì§„
     bool MakeMsgBoxByXML(char* szIDD, CTMsgBox* pBase);
 
-    /// ¸Ş¸ğ¸® ÇØÁ¦
+    /// ë©”ëª¨ë¦¬ í•´ì œ
     //	bool ReleaseCtrl( unsigned int iID );
-    /// Control°Ë»ö
+    /// Controlê²€ìƒ‰
     /// CWinCtrl*		Find( unsigned int iID );
     ITDraw* GetDrawMgr() { return m_pDrawMgr; }
     void SetDrawMgr(ITDraw* pDrawMgr) { m_pDrawMgr = pDrawMgr; }

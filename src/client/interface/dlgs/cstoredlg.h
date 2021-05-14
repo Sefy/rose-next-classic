@@ -8,12 +8,12 @@
 #include "../../GameData/CStore.h"
 // enum StoreDLG
 //{
-//	STORE_IMG,								//0,ÆÇ³¾
-//	STORE_BTN_CLOSE = 3,					//1,´İ±â
+//	STORE_IMG,								//0,íŒë‚¼
+//	STORE_BTN_CLOSE = 3,					//1,ë‹«ê¸°
 //	STORE_RADIOBOX  = 4,
-//	STORE_BTN_TAB1  = 5,					//2,ÅÇ1
-//	STORE_BTN_TAB2  = 6,					//3,ÅÇ2
-//	STORE_BTN_TAB3  = 7,					//4,ÅÇ3
+//	STORE_BTN_TAB1  = 5,					//2,íƒ­1
+//	STORE_BTN_TAB2  = 6,					//3,íƒ­2
+//	STORE_BTN_TAB3  = 7,					//4,íƒ­3
 //	STORE_BTN_TAB4  = 8,
 //	SROTE_MAX_BTN_CNT
 //};
@@ -22,15 +22,15 @@ class CTCmdNumberInput;
 class CTCmdOpenNumberInputDlg;
 
 /**
- * NPC»óÁ¡¿ë ´ÙÀÌ¾ó·Î±×
+ * NPCìƒì ìš© ë‹¤ì´ì–¼ë¡œê·¸
  *	- Observable : CStore
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/14
  **/
 class CStoreDLG: public CTDialog, public IObserver {
 private:
-    CSlot m_Slots[MAX_INV_TYPE][c_iSlotCountPerTab]; /// ÆÇ¸Å ¾ÆÀÌÅÛÀÌ AttachµÉ Slotµé
+    CSlot m_Slots[MAX_INV_TYPE][c_iSlotCountPerTab]; /// íŒë§¤ ì•„ì´í…œì´ Attachë  Slotë“¤
     short m_nInvType; ///< Item type[ wasting item, Equipment item, .. ]
 
     CTCmdNumberInput* m_pCmdNumberInput;

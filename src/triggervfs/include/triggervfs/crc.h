@@ -8,7 +8,7 @@ typedef unsigned char BYTE;
 typedef unsigned short WORD;
 #endif
 
-/// ¸Ş¸ğ¸®¿¡ ÀÖ´Â µ¥ÀÌÅÍ·ÎºÎÅÍ CRC°ªÀ» °è»êÇÑ´Ù
+/// ë©”ëª¨ë¦¬ì— ìˆëŠ” ë°ì´í„°ë¡œë¶€í„° CRCê°’ì„ ê³„ì‚°í•œë‹¤
 unsigned long getcrc_32(const BYTE* buff, DWORD dwSize);
-/// ÆÄÀÏÀ» ÀĞ¾î¼­ 32ºñÆ® CRC¸¦ °è»êÇÑ´Ù
+/// íŒŒì¼ì„ ì½ì–´ì„œ 32ë¹„íŠ¸ CRCë¥¼ ê³„ì‚°í•œë‹¤
 unsigned long getcrc_32_file(const char* FileName);

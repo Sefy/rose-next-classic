@@ -31,7 +31,7 @@ CQueryDLG::CQueryDLG() {
     m_sQuestion.m_nCurPageNo = 0;
     m_sQuestion.m_nPageCNT = 0;
 
-    m_nMaxLength = 50; //ÇÑ¶óÀÎ¿¡ ÃÖ´ë 50ÀÚ±îÁö ...
+    m_nMaxLength = 50; //í•œë¼ì¸ì— ìµœëŒ€ 50ìê¹Œì§€ ...
 
     m_iFontNo_q = 2;
     m_dCOL_q = D3DCOLOR_RGBA(0, 0, 0, 255);
@@ -113,12 +113,12 @@ CQueryDLG::OpenDLG(short nSX,
     short nMaxCharLength,
     int iEventID,
     void (*fpCloseProc)(int iEventID)) {
-    //±âÁ¸ÀÇ µ¥ÀÌÅ¸ Å¬¸®¾î
+    //ê¸°ì¡´ì˜ ë°ì´íƒ€ í´ë¦¬ì–´
     ReleaseQuestion();
     ReleaseExam();
-    //Áú¹®
+    //ì§ˆë¬¸
     AppendQuestion(szQuery, iEventID);
-    //¿¹½Ã
+    //ì˜ˆì‹œ
     Free_EXAM();
     m_nExamCNT = 0;
     m_nMaxExamCNT = 0;
@@ -163,7 +163,7 @@ CQueryDLG::DrawQuery() {
 
     short nI;
     // *--------------------------------------------------------------------* //
-    //±âº»Ã¢À» ±×¸°´Ù(Ã¢Àº 3´Ü°è·Î ±¸ºĞµÇ¾î ÀÖ´Ù)
+    //ê¸°ë³¸ì°½ì„ ê·¸ë¦°ë‹¤(ì°½ì€ 3ë‹¨ê³„ë¡œ êµ¬ë¶„ë˜ì–´ ìˆë‹¤)
     short nYOffset = 0;
 
     CResourceMgr* pResourceMgr = CResourceMgr::GetInstance();
@@ -172,10 +172,10 @@ CQueryDLG::DrawQuery() {
         return;
 
     POINT ptDlg = GetPosition();
-    //¸ÇÀ§
+    //ë§¨ìœ„
     nYOffset += 31;
 
-    //Áß°£
+    //ì¤‘ê°„
     for (nI = 0; nI < m_nMaxLN + m_nExamCNT + 1; nI++) {
         pDrawMgr->Draw(ptDlg.x,
             ptDlg.y + nYOffset + (nI * 19),
@@ -183,7 +183,7 @@ CQueryDLG::DrawQuery() {
             pResourceMgr->GetImageNID(IMAGE_RES_UI, "ID_QUERY_MIDDLE"));
     }
 
-    //¾Æ·¡
+    //ì•„ë˜
     pDrawMgr->Draw(ptDlg.x,
         ptDlg.y + nYOffset + (nI * 19),
         IMAGE_RES_UI,
@@ -193,13 +193,13 @@ CQueryDLG::DrawQuery() {
         IMAGE_RES_UI,
         pResourceMgr->GetImageNID(IMAGE_RES_UI, "ID_QUERY_TOP"));
 
-    //ÀüÃ¼Å©±â¸¦ µî·ÏÇØÁØ´Ù
+    //ì „ì²´í¬ê¸°ë¥¼ ë“±ë¡í•´ì¤€ë‹¤
     SetHeight(nYOffset + (nI * 19) + 11);
 
     // *--------------------------------------------------------------------* //
-    //Áú¹®µéÀº Ãâ·ÂÇÑ´Ù
+    //ì§ˆë¬¸ë“¤ì€ ì¶œë ¥í•œë‹¤
     for (nI = 0; nI < m_nMaxLN; nI++) {
-        //ÅØ½ºÆ® Ãâ·Â
+        //í…ìŠ¤íŠ¸ ì¶œë ¥
         // if(nI<m_nMaxLN)
         {
             char* pTXT = m_sQuestion.m_pQuestionPage[m_sQuestion.m_nCurPageNo].m_szQuestion[nI];
@@ -215,10 +215,10 @@ CQueryDLG::DrawQuery() {
     }
 
     // *--------------------------------------------------------------------* //
-    //¸¶Áö¸·À¸·Î ÂïÇÑ À§Ä¡
+    //ë§ˆì§€ë§‰ìœ¼ë¡œ ì°í•œ ìœ„ì¹˜
     m_nLastPosY = nI * 20;
     short nSelLN = getMouseSelectLN();
-    //¿¹½ÃµéÀ» Ãâ·ÂÇÑ´Ù
+    //ì˜ˆì‹œë“¤ì„ ì¶œë ¥í•œë‹¤
     for (nI = 0; nI < m_nExamCNT; nI++) {
         char* pTXT = m_vecEXAM[nI].m_pExam;
         if (strlen(pTXT)) {
@@ -245,13 +245,13 @@ CQueryDLG::DrawQuery() {
 
 bool
 CQueryDLG::AppendQuestion(char* szQuestion, int iEventID) {
-    //±âÁ¸ Áú¹®ÀÌ ÀÖÀ¸¸é »èÁ¦
+    //ê¸°ì¡´ ì§ˆë¬¸ì´ ìˆìœ¼ë©´ ì‚­ì œ
     ReleaseQuestion();
 
-    //µé¾î¿Â Áú¹®À» ºĞÇÒÇØ¼­ µî·Ï
+    //ë“¤ì–´ì˜¨ ì§ˆë¬¸ì„ ë¶„í• í•´ì„œ ë“±ë¡
     CSplitHangul splitHAN(szQuestion, m_nMaxLength);
     short nLineCNT = splitHAN.GetLineCount();
-    short nAllocSize = (nLineCNT / MAX_QUESTION_LN) + 1; //ÆäÀÌÁö °³¼ö
+    short nAllocSize = (nLineCNT / MAX_QUESTION_LN) + 1; //í˜ì´ì§€ ê°œìˆ˜
     m_nMaxLN = nLineCNT;
     m_sQuestion.m_pQuestionPage = new t_question_page[nAllocSize];
 
@@ -261,7 +261,7 @@ CQueryDLG::AppendQuestion(char* szQuestion, int iEventID) {
         short nPageNo;
         m_sQuestion.m_nPageCNT = nAllocSize;
         for (short nI = 0; nI < nLineCNT; nI++) {
-            //ºĞ¸®µÈ Áú¹®µéÀ» ÆäÀÌÁö¿¡ µî·Ï ½ÃÅ²´Ù
+            //ë¶„ë¦¬ëœ ì§ˆë¬¸ë“¤ì„ í˜ì´ì§€ì— ë“±ë¡ ì‹œí‚¨ë‹¤
             nPageNo = nI / MAX_QUESTION_LN;
             strcpy(m_sQuestion.m_pQuestionPage[nPageNo].m_szQuestion[nI % MAX_QUESTION_LN],
                 (char*)splitHAN.GetString(nI));
@@ -290,7 +290,7 @@ CQueryDLG::AppendExam(char* szExam, int iEventID, void (*fpExamEvent)(int iEvent
     CSplitHangul splitHAN(szExam, m_nMaxLength - 4);
     short nLineCNT = splitHAN.GetLineCount();
 
-    short nLnID = m_nLastExamID; //¾ÆÀÌµğ¸¦ ºÎ¿©ÇØÁØ´Ù.....
+    short nLnID = m_nLastExamID; //ì•„ì´ë””ë¥¼ ë¶€ì—¬í•´ì¤€ë‹¤.....
     m_nLastExamID++;
     for (short nI = 0; nI < nLineCNT; nI++) {
         t_query_exam sQuery;
@@ -372,9 +372,9 @@ CQueryDLG::ProcessEvent(short nNum) {
     }
 }
 ///*-------------------------------------------------------------------------
-/// 2004/3/30:¼öÁ¤ nAvy
-/// 1.nSelNoÀ» Á÷Á¢ m_vecEXAMÀÇ Ã·ÀÚ·Î »ç¿ëÇÔ ( ExamÀÌ 2ÁÙÀÌ»óÀÏ °æ¿ì ¹®Á¦ ¹ß»ı )
-/// => Loop¸¦ µ¹¾Æ¼­ m_nLnCNT¿Í °°Àº °ÍÀ» Ã³¸®ÇÏµµ·Ï ÇÑ´Ù.
+/// 2004/3/30:ìˆ˜ì • nAvy
+/// 1.nSelNoì„ ì§ì ‘ m_vecEXAMì˜ ì²¨ìë¡œ ì‚¬ìš©í•¨ ( Examì´ 2ì¤„ì´ìƒì¼ ê²½ìš° ë¬¸ì œ ë°œìƒ )
+/// => Loopë¥¼ ëŒì•„ì„œ m_nLnCNTì™€ ê°™ì€ ê²ƒì„ ì²˜ë¦¬í•˜ë„ë¡ í•œë‹¤.
 bool
 CQueryDLG::MouseClickEventProc() {
     if (!m_nExamCNT)
@@ -395,7 +395,7 @@ CQueryDLG::MouseClickEventProc() {
 
 bool
 CQueryDLG::KeyDownEventProc(WPARAM wParam) {
-    //¿¹½Ã¼±ÅÃ Ã³¸®
+    //ì˜ˆì‹œì„ íƒ ì²˜ë¦¬
     switch (wParam) {
         case '1':
             ProcessEvent(0);
@@ -449,7 +449,7 @@ CQueryDLG::Update(POINT ptMouse) {
     CTDialog::Update(ptMouse);
     CObjCHAR* pObjChar = g_pObjMGR->Get_CharOBJ(m_nTargetClientIdx, false);
 
-    /// NPC Object°¡ ¾ø°Å³ª ÀÖ´Âµ¥ °Å¸®°¡ ÀÏÁ¤ °Å¸® ÀÌ»óÀÌ¶ó¸é
+    /// NPC Objectê°€ ì—†ê±°ë‚˜ ìˆëŠ”ë° ê±°ë¦¬ê°€ ì¼ì • ê±°ë¦¬ ì´ìƒì´ë¼ë©´
     if (pObjChar == NULL)
         Close();
     else if (g_pAVATAR->Get_DISTANCE(pObjChar) >= 1000)

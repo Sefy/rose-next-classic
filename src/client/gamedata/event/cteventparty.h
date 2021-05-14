@@ -2,7 +2,7 @@
 #define _CTEventParty_
 #include "ctevent.h"
 //*---------------------------------------------------------//
-/// ÆÄÆ¼°ü·Ã º¯°æÀ» ¾Ë¸®´Â Event( CParty, CPartyDlg¿¡¼­ »ç¿ë)
+/// íŒŒí‹°ê´€ë ¨ ë³€ê²½ì„ ì•Œë¦¬ëŠ” Event( CParty, CPartyDlgì—ì„œ ì‚¬ìš©)
 //*---------------------------------------------------------//
 class CTEventParty: public CTEvent {
 public:
@@ -10,14 +10,14 @@ public:
     virtual ~CTEventParty(void);
     enum {
         EID_NONE,
-        EID_JOIN_MEMBER, /// ¸®½ºÆ®¿¡ Ãß°¡
-        EID_LEAVE_MEMBER, /// ¸®½ºÆ®¿¡¼­ »èÁ¦
-        EID_CHANGE_LEADER, /// ¹æÀå ¸¶Å©Ç¥½Ã º¯°æ, Entrust,Ban Button Enable/Disable
-        EID_CHANGE_OBJECT_SERVERINDEX, /// OBJECT SERVER INDEX º¯°æ
-        EID_BAN_MEMBER, /// ³»°¡ ¾Æ´Ñ ´Ù¸§ ¸â¹ö°¡ ÆÄÆ¼¿¡¼­ Ãß¹æ ´çÇßÀ»°æ¿ì
-        EID_CLEAR, /// ÆÄÆ¼ Á¾·á
-        EID_INIT, /// ÆÄÆ¼ ½ÃÀÛ
-        EID_MEMBER_DISCONNECTED, /// ÆÄÆ¼¿øÀÇ ºñÁ¤»óÁ¾·á
+        EID_JOIN_MEMBER, /// ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
+        EID_LEAVE_MEMBER, /// ë¦¬ìŠ¤íŠ¸ì—ì„œ ì‚­ì œ
+        EID_CHANGE_LEADER, /// ë°©ìž¥ ë§ˆí¬í‘œì‹œ ë³€ê²½, Entrust,Ban Button Enable/Disable
+        EID_CHANGE_OBJECT_SERVERINDEX, /// OBJECT SERVER INDEX ë³€ê²½
+        EID_BAN_MEMBER, /// ë‚´ê°€ ì•„ë‹Œ ë‹¤ë¦„ ë©¤ë²„ê°€ íŒŒí‹°ì—ì„œ ì¶”ë°© ë‹¹í–ˆì„ê²½ìš°
+        EID_CLEAR, /// íŒŒí‹° ì¢…ë£Œ
+        EID_INIT, /// íŒŒí‹° ì‹œìž‘
+        EID_MEMBER_DISCONNECTED, /// íŒŒí‹°ì›ì˜ ë¹„ì •ìƒì¢…ë£Œ
         EID_CHANGE_RULE,
     };
     void SetObjSvrIdx(WORD iObjSvrIdx);
@@ -33,7 +33,7 @@ public:
     BYTE GetRule();
 
 protected:
-    WORD m_wObjSvrIdx; /// EID_CHANGE_OBJECT_SERVERINDEX½Ã¿¡´Â ±âÁ¸		ObjSvrIndx
+    WORD m_wObjSvrIdx; /// EID_CHANGE_OBJECT_SERVERINDEXì‹œì—ëŠ” ê¸°ì¡´		ObjSvrIndx
     std::string m_strName;
     DWORD m_dwObjectTag;
     BYTE m_btRule;

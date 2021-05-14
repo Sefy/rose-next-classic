@@ -182,7 +182,7 @@ void zz_particle_emitter::update_animation (bool recursive, zz_time diff_time)
 
 void zz_particle_emitter::render (bool recursive)
 {
-//	zz_assert(res.get_created());             //test  particel error Àá½Ã ÁÖ¼®Ã³¸®..
+//	zz_assert(res.get_created());             //test  particel error ìž ì‹œ ì£¼ì„ì²˜ë¦¬..
 	assert(m_vbParticles || m_vbParticles_point);
 
 	if (znzin->renderer->get_render_where() == ZZ_RW_SHADOWMAP) return;

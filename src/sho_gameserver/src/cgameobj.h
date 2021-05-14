@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	CGameOBJ.h
- * \brief	·ÎÁî¿Â¶óÀÎ¿¡¼­ Ã³¸®µÇ´Â °´Ã¼ÀÇ ±âº»ÀÌ µÇ´Â Å¬·¡½º
+ * \brief	ë¡œì¦ˆì˜¨ë¼ì¸ì—ì„œ ì²˜ë¦¬ë˜ëŠ” ê°ì²´ì˜ ê¸°ë³¸ì´ ë˜ëŠ” í´ëž˜ìŠ¤
  */
 #ifndef CObjectH
 #define CObjectH
@@ -19,7 +19,7 @@ class CZoneTHREAD;
  * \ingroup SHO_GS_LIB
  * \class	CGameOBJ
  * \author	wookSang.Jo
- * \brief	°ÔÀÓ³» Á¸Á¦ÇÏ´Â °´Ã¼Å¬·¡½º µéÀÌ »ó¼Ó¹Þ´Â ±âÀú Å¬·¡½º
+ * \brief	ê²Œìž„ë‚´ ì¡´ì œí•˜ëŠ” ê°ì²´í´ëž˜ìŠ¤ ë“¤ì´ ìƒì†ë°›ëŠ” ê¸°ì € í´ëž˜ìŠ¤
  */
 class CGameOBJ {
 private:
@@ -27,10 +27,10 @@ private:
 
 protected:
 public:
-    int m_iIndex; // != 0 ÀÌ¸é Á¸¿¡ µé¾î°¡ ÀÖ´Ù !!!!
-    tPOINTF m_PosCUR; /// Âü°¡ÇØ ÀÖ´Â Á¸ÀÇ À§Ä¡
-    POINTS m_PosSECTOR; /// À§Ä¡¿¡ ÇØ´çÇÏ´Â ¼½ÅÍ ÁÂÇ¥
-    CZoneSECTOR* m_pGroupSECTOR; /// Âü°¡ÇØ ÀÖ´Â ¼½ÅÍÀÇ Æ÷ÀÎÅÍ
+    int m_iIndex; // != 0 ì´ë©´ ì¡´ì— ë“¤ì–´ê°€ ìžˆë‹¤ !!!!
+    tPOINTF m_PosCUR; /// ì°¸ê°€í•´ ìžˆëŠ” ì¡´ì˜ ìœ„ì¹˜
+    POINTS m_PosSECTOR; /// ìœ„ì¹˜ì— í•´ë‹¹í•˜ëŠ” ì„¹í„° ì¢Œí‘œ
+    CZoneSECTOR* m_pGroupSECTOR; /// ì°¸ê°€í•´ ìžˆëŠ” ì„¹í„°ì˜ í¬ì¸í„°
 
     classDLLNODE<CGameOBJ*> m_ZoneNODE;
     classDLLNODE<CGameOBJ*> m_SectorNODE;
@@ -55,7 +55,7 @@ public:
     bool IsCHAR() { return (Get_TYPE() >= OBJ_NPC); }
     bool IsUSER() { return (Get_TYPE() >= OBJ_AVATAR); }
 
-    bool IsNEIGHBOR(CGameOBJ* pObj) // ¼½ÅÍ ÆÐÅ¶ÀÌ Àü¼Û °¡´ÉÇÑ ¿µ¿ª¿¡ ÀÖ³ª?
+    bool IsNEIGHBOR(CGameOBJ* pObj) // ì„¹í„° íŒ¨í‚·ì´ ì „ì†¡ ê°€ëŠ¥í•œ ì˜ì—­ì— ìžˆë‚˜?
     {
         if (this->GetZONE() == pObj->GetZONE()) {
             if (abs(this->m_PosSECTOR.x - pObj->m_PosSECTOR.x) <= 1

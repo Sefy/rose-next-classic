@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	GS_ListUSER.h
- * \brief	¼­¹ö¿¡ Á¢¼ÓµÈ »ç¿ëÀÚ °ü¸®
+ * \brief	ì„œë²„ì— ì ‘ì†ëœ ì‚¬ìš©ì ê´€ë¦¬
  */
 #ifndef GS_ListUSERH
 #define GS_ListUSERH
@@ -17,7 +17,7 @@
  * \ingroup SHO_GS_LIB
  * \class	CUserLIST
  * \author	wookSang.Jo
- * \brief	Á¢¼ÓµÇ¾î ÀÖ´Â ÀüÃ¼ »ç¿ëÀÚ¸¦ °ü¸®ÇÏ´Â Å¬·¡½º
+ * \brief	ì ‘ì†ë˜ì–´ ìˆëŠ” ì „ì²´ ì‚¬ìš©ìë¥¼ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤
  */
 class CUserLIST: public IOCPSocketSERVER, public CDataPOOL<classUSER> {
 public:
@@ -36,7 +36,7 @@ public:
     classHASH<classUSER*>* m_pHashACCOUNT;
     classHASH<classUSER*>* m_pHashCHAR;
 
-    classDLLIST<CGameOBJ*> m_NullZoneLIST; // Á¸ÀÌ ¾øÀÌ ¶°µµ´Â À¯Àú~
+    classDLLIST<CGameOBJ*> m_NullZoneLIST; // ì¡´ì´ ì—†ì´ ë– ë„ëŠ” ìœ ì €~
     int m_iUserCNT;
 
     void InitData(classUSER* pData);
@@ -84,26 +84,26 @@ public:
 
     /// Inherited from IOCPSocketSERVER
     iocpSOCKET* AllocClientSOCKET() {
-        // ¸Ş¸ğ¸®ÇÒ´ç
+        // ë©”ëª¨ë¦¬í• ë‹¹
         classUSER* pCLIENT = this->Pool_Alloc();
         if (pCLIENT)
             this->InitData(pCLIENT);
         return pCLIENT;
     }
     void FreeClientSOCKET(iocpSOCKET* pCLIENT) {
-        // °ËÁõ¾øÀÌ ¸Ş¸ğ¸® ÇØÁ¦
+        // ê²€ì¦ì—†ì´ ë©”ëª¨ë¦¬ í•´ì œ
         this->FreeData((classUSER*)pCLIENT);
         this->Pool_Free((classUSER*)pCLIENT);
     }
     void ClosedClientSOCKET(iocpSOCKET* pCLIENT) {
-        // ¼ÒÄÏÀÌ »èÁ¦µÆ´Ù.. ¾Ë¾Æ¼­ ¸Ş¸ğ¸® ÇØÁ¦ÇÒ°Í...
+        // ì†Œì¼“ì´ ì‚­ì œëë‹¤.. ì•Œì•„ì„œ ë©”ëª¨ë¦¬ í•´ì œí• ê²ƒ...
         if (0 == ((classUSER*)pCLIENT)->Get_INDEX()) {
-            // Á¸¿¡ µé¾î°¡ ÀÖÁö ¾Ê°Å³ª Á¸¿¡ µé¾î°¡±â À§ÇØ ´ë±âÁßÀÎ »óÅÂ ¹Ù·Î »èÁ¦ µî·Ï...
+            // ì¡´ì— ë“¤ì–´ê°€ ìˆì§€ ì•Šê±°ë‚˜ ì¡´ì— ë“¤ì–´ê°€ê¸° ìœ„í•´ ëŒ€ê¸°ì¤‘ì¸ ìƒíƒœ ë°”ë¡œ ì‚­ì œ ë“±ë¡...
             this->DeleteUSER((classUSER*)pCLIENT, LOGOUT_MODE_NET_ERROR);
         }
         /*
         else
-            // Á¸¿¡ µé¾î ÀÖÀ¸¸é Á¸¿¡¼­ »èÁ¦ÈÄ Á÷Á¢ this->DeleteUSER È£Ãâ...
+            // ì¡´ì— ë“¤ì–´ ìˆìœ¼ë©´ ì¡´ì—ì„œ ì‚­ì œí›„ ì§ì ‘ this->DeleteUSER í˜¸ì¶œ...
         */
     }
 

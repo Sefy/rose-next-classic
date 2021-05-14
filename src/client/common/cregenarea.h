@@ -31,10 +31,10 @@ public:
 
     int m_iInterval;
     int m_iLimitCNT;
-    int m_iTacticsPOINT; // Àü¼úP ÁÖ±â
+    int m_iTacticsPOINT; // ì „ìˆ P ì£¼ê¸°
 
     int m_iLiveCNT;
-    int m_iCurTactics; // ÇöÀç Àü¼úP
+    int m_iCurTactics; // í˜„ìž¬ ì „ìˆ P
     //#ifdef	_DEBUG
     //	int			m_iLastCurTactics;
     //#endif
@@ -69,7 +69,7 @@ public:
 
     void AddLiveCNT() { m_iLiveCNT++; }
     void SubLiveCNT() {
-        // °­Á¦ ÃÊ±âÈ­ÇÒ°æ¿ì - °ªÀÌ µÉ¼ö ÀÖ´Ù.
+        // ê°•ì œ ì´ˆê¸°í™”í• ê²½ìš° - ê°’ì´ ë ìˆ˜ ìžˆë‹¤.
         if (m_iLiveCNT > 0)
             m_iLiveCNT--;
     }

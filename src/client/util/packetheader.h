@@ -37,7 +37,7 @@ struct t_NETWORK_STATUS: public t_PACKETHEADER {
 #define NETWORK_STATUS_CONNECT 0x001
 #define NETWORK_STATUS_ACCEPTED 0x002
 #define NETWORK_STATUS_DISCONNECT \
-    0x003 // ¼­¹ö¿ÍÀÇ Á¢¼ÓÀÌ ²÷°å´Ù.. But TGNet_DisconnectFromServerÈ£ÃâÇØ¾ßµÇ~~
+    0x003 // ì„œë²„ì™€ì˜ ì ‘ì†ì´ ëŠê²¼ë‹¤.. But TGNet_DisconnectFromServerí˜¸ì¶œí•´ì•¼ë˜~~
 #define NETWORK_STATUS_DERVERDEAD 0x004
 #pragma pack(pop)
 //-------------------------------------------------------------------------------------------------

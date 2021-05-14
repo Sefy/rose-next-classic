@@ -7,7 +7,7 @@
 #include "TCaption.h"
 #include "TControlMgr.h"
 #include "ITFont.h"
-const short LINESPACE_BUTTONDROW = 2; ///¹öÆ°À» ±×¸®±â À§ÇÑ ¿©À¯ ¶óÀÎ¼ö
+const short LINESPACE_BUTTONDROW = 2; ///ë²„íŠ¼ì„ ê·¸ë¦¬ê¸° ìœ„í•œ ì—¬ìœ  ë¼ì¸ìˆ˜
 CTMsgBox::CTMsgBox(void) {
     m_iExtraHeight = 0;
     m_iExtraHeightStartPoint = 0;
@@ -132,7 +132,7 @@ CTMsgBox::Draw() {
         m_pButtonCancel->Draw();
 }
 
-/// ¹öÆ°µéÀÇ »óÅÂ¿Í xÁÂÇ¥°áÁ¤
+/// ë²„íŠ¼ë“¤ì˜ ìƒíƒœì™€ xì¢Œí‘œê²°ì •
 void
 CTMsgBox::SetButtonType(short int iType) {
     m_iButtonType = iType;
@@ -191,7 +191,7 @@ CTMsgBox::SetString(const char* szString) {
     m_message_parser.Clear();
     m_message_parser.SetString(szString, m_iWidth - 30);
 
-    ///¹öÆ°µéÀÇ Y- Offset ¹× ¹Ú½ºÀÇ ³ôÀÌ °áÁ¤
+    ///ë²„íŠ¼ë“¤ì˜ Y- Offset ë° ë°•ìŠ¤ì˜ ë†’ì´ ê²°ì •
     if (m_pImageTop && m_pImageMiddle && m_pImageBottom) {
         int iBoxHeight = 0;
         POINT ptOffset = {0, 0};
@@ -209,7 +209,7 @@ CTMsgBox::SetString(const char* szString) {
         if (m_iExtraHeight)
             m_iExtraHeightStartPoint = iBoxHeight;
 
-        ///¹öÆ°µéÀÇ YÁÂÇ¥ Àç°è»ê
+        ///ë²„íŠ¼ë“¤ì˜ Yì¢Œí‘œ ìž¬ê³„ì‚°
         if (m_pButtonOk && m_pImageBottom) {
             ptOffset = m_pButtonOk->GetOffset();
             ptOffset.y = ptDraw.y + m_pImageBottom->GetHeight() / 2 - m_pButtonOk->GetHeight() / 2
@@ -226,9 +226,9 @@ CTMsgBox::SetString(const char* szString) {
 
         iBoxHeight += m_pImageTop->GetHeight();
 
-        ///¸Þ¼¼Áö ¹Ú½ºÀÇ ÀüÃ¼ ³ôÀÌ °áÁ¤
+        ///ë©”ì„¸ì§€ ë°•ìŠ¤ì˜ ì „ì²´ ë†’ì´ ê²°ì •
         SetHeight(iBoxHeight + m_iExtraHeight);
-        ///Àç°è»êµÈ OffsetÀ» ÀÌ¿ëÇÏ¿© ¹öÆ°µéÀÇ À§Ä¡ ÀçÁ¶Á¤
+        ///ìž¬ê³„ì‚°ëœ Offsetì„ ì´ìš©í•˜ì—¬ ë²„íŠ¼ë“¤ì˜ ìœ„ì¹˜ ìž¬ì¡°ì •
         MoveWindow(GetPosition());
     }
 }
@@ -262,29 +262,29 @@ CTMsgBox::SetImages(CTImage* pImageTop, CTImage* pImageMiddle, CTImage* pImageBo
 }
 
 /// 2003 /12 / 11 / Navy
-/// ¼¼´Ü°è·Î ³ª´©¾îÁø ÀÌ¹ÌÁöµéÀ» ±×¸°´Ù.
-/// ¹öÆ°ÀÇ À§Ä¡µµ »ý°¢ÇÒ°Í
-/// ¸ÅÇÁ·¹ÀÓ¸¶´Ù Ã³¸®µÇ´Âµ¥ ÇØ¾ßÇÒ ÀÛ¾÷ÀÌ ³Ê¹« ¸¹´Ù. Á¤¸® ¿ä
-/// yÁÂÇ¥°áÁ¤
+/// ì„¸ë‹¨ê³„ë¡œ ë‚˜ëˆ„ì–´ì§„ ì´ë¯¸ì§€ë“¤ì„ ê·¸ë¦°ë‹¤.
+/// ë²„íŠ¼ì˜ ìœ„ì¹˜ë„ ìƒê°í• ê²ƒ
+/// ë§¤í”„ë ˆìž„ë§ˆë‹¤ ì²˜ë¦¬ë˜ëŠ”ë° í•´ì•¼í•  ìž‘ì—…ì´ ë„ˆë¬´ ë§Žë‹¤. ì •ë¦¬ ìš”
+/// yì¢Œí‘œê²°ì •
 void
 CTMsgBox::DrawImages() {
     if (m_pImageTop && m_pImageMiddle && m_pImageBottom) {
         POINT ptDraw = GetPosition();
 
-        ///»ó´ÜÀÌ¹ÌÁö ±×¸®±â
+        ///ìƒë‹¨ì´ë¯¸ì§€ ê·¸ë¦¬ê¸°
         m_pImageTop->MoveWindow(ptDraw);
         m_pImageTop->Draw();
 
         ptDraw.y += m_pImageTop->GetHeight();
 
-        /// Áß´ÜÀÌ¹ÌÁö ±×¸®±â
+        /// ì¤‘ë‹¨ì´ë¯¸ì§€ ê·¸ë¦¬ê¸°
         for (int i = 0; i < m_message_parser.GetStringCount() /*+ LINESPACE_BUTTONDROW*/; ++i) {
             m_pImageMiddle->MoveWindow(ptDraw);
             m_pImageMiddle->Draw();
 
             ptDraw.y += m_pImageMiddle->GetHeight();
         }
-        /// ExtraHeight±×¸®±â
+        /// ExtraHeightê·¸ë¦¬ê¸°
         if (m_iExtraHeight > 0) {
             for (int i = 0; i < m_iExtraHeight / m_pImageMiddle->GetHeight() + 1; ++i) {
                 m_pImageMiddle->MoveWindow(ptDraw);
@@ -293,13 +293,13 @@ CTMsgBox::DrawImages() {
                 ptDraw.y += m_pImageMiddle->GetHeight();
             }
         }
-        /// ÇÏ´ÜÀÌ¹ÌÁö ±×¸®±â
+        /// í•˜ë‹¨ì´ë¯¸ì§€ ê·¸ë¦¬ê¸°
         m_pImageBottom->MoveWindow(ptDraw);
         m_pImageBottom->Draw();
     }
 }
 
-///¹öÆ° Å¸ÀÔ¿¡ µû¶ó ¹öÆ°ÀÇ ShowÃ³¸®
+///ë²„íŠ¼ íƒ€ìž…ì— ë”°ë¼ ë²„íŠ¼ì˜ Showì²˜ë¦¬
 void
 CTMsgBox::Show() {
     CTDialog::Show();

@@ -53,24 +53,24 @@ class CIconDialog;
 class CNotifyButtonDlg;
 
 /**
- * Ä³¸¯ÅÍ ¼±ÅÃÈÄ °ÔÀÓÀ» ³ª°¡°Å³ª Ä³¸¯ÅÍ ¼±ÅÃÃ¢À¸·Î ´Ù½Ã ÀÌµ¿ÇÏ±â Àü±îÁöÀÇ ÀÎÅÍÆäÀÌ½º µ¿ÀÛ °ü¸®ÀÚ
- *  - WM_LBUTTONDOWNÀÌ ÀÏ¾î³ª°Å³ª Show°¡ µÈDlg´Â ¸®½ºÆ®ÀÇ ¸ÇµÚ·Î ¿Å°Ü¼­ ±×¸®±â´Â ¸Ç ¸¶Áö¸·À¸·Î ÇÏ°í
- * Ã³¸®´Â Á¦ÀÏ ¸ÕÀú ÇÏ°Ô ÇÑ´Ù.
+ * ìºë¦­í„° ì„ íƒí›„ ê²Œì„ì„ ë‚˜ê°€ê±°ë‚˜ ìºë¦­í„° ì„ íƒì°½ìœ¼ë¡œ ë‹¤ì‹œ ì´ë™í•˜ê¸° ì „ê¹Œì§€ì˜ ì¸í„°í˜ì´ìŠ¤ ë™ì‘ ê´€ë¦¬ì
+ *  - WM_LBUTTONDOWNì´ ì¼ì–´ë‚˜ê±°ë‚˜ Showê°€ ëœDlgëŠ” ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ë’¤ë¡œ ì˜®ê²¨ì„œ ê·¸ë¦¬ê¸°ëŠ” ë§¨ ë§ˆì§€ë§‰ìœ¼ë¡œ í•˜ê³ 
+ * ì²˜ë¦¬ëŠ” ì œì¼ ë¨¼ì € í•˜ê²Œ í•œë‹¤.
  *
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  *
  * @Date			2005/9/5
  *
  */
 class IT_MGR {
-    /// IT_MGRÀÇ ¸â¹ö¿¡ Á¢±ÙÀÌ ÇÊ¿äÇÑ Å¬·¡½ºµéÀ» friend·Î ¼±¾ğ
-    friend class CTCmdCreateMsgBox; /// ¸Ş¼¼ÁöÃ¢À» »õ·Î ¿©´Â TCommand
-    friend class CTCmdDeleteMsgBox; /// ¸Ş¼¼ÁöÃ¢À» ´İ´Â TCommand
-    friend class CTCmdClosePrivateChatDlg; /// 1:1´ëÈ­Ã¢À» ´İ´Â TCommand
-    friend class CTCmdOpenPrivateChatDlg; /// 1:1´ëÈ­Ã¢À» »õ·Î TCommand
+    /// IT_MGRì˜ ë©¤ë²„ì— ì ‘ê·¼ì´ í•„ìš”í•œ í´ë˜ìŠ¤ë“¤ì„ friendë¡œ ì„ ì–¸
+    friend class CTCmdCreateMsgBox; /// ë©”ì„¸ì§€ì°½ì„ ìƒˆë¡œ ì—¬ëŠ” TCommand
+    friend class CTCmdDeleteMsgBox; /// ë©”ì„¸ì§€ì°½ì„ ë‹«ëŠ” TCommand
+    friend class CTCmdClosePrivateChatDlg; /// 1:1ëŒ€í™”ì°½ì„ ë‹«ëŠ” TCommand
+    friend class CTCmdOpenPrivateChatDlg; /// 1:1ëŒ€í™”ì°½ì„ ìƒˆë¡œ TCommand
 
-    /// IT_MGRÀÇ Stateµé
+    /// IT_MGRì˜ Stateë“¤
     friend class CITStateNormal;
     friend class CITStateRepair;
     friend class CITStateAppraisal;
@@ -80,13 +80,13 @@ public:
     IT_MGR();
     ~IT_MGR();
 
-    enum { /// Ã¤ÆÃ ÀÔ·Â ¹æ½Ä Å¸ÀÔ
-        INPUTTYPE_NORMAL, /// Ã¤ÆÃ½Ã¸¶´Ù Enter¸¦ ÀÔ·ÂÇÏ°í ´Ù½Ã ¿£ÅÍ¸¦ ÀÔ·Â½Ã Ã¤ÆÃ¸ğµå´Â Á¾·áµÈ´Ù.
-        INPUTTYPE_AUTOENTER, /// Show½Ã¿¡ ÇØ´ç Dialog¿¡ EditBox°¡ ÀÖ´Ù¸é ÀÚµ¿ ÀÔ·ÂµÈ´Ù.EnterÈÄ
-                             /// ÀÚµ¿À¸·Î ´Ù½Ã Focus¸¦ °¡Áø´Ù.
+    enum { /// ì±„íŒ… ì…ë ¥ ë°©ì‹ íƒ€ì…
+        INPUTTYPE_NORMAL, /// ì±„íŒ…ì‹œë§ˆë‹¤ Enterë¥¼ ì…ë ¥í•˜ê³  ë‹¤ì‹œ ì—”í„°ë¥¼ ì…ë ¥ì‹œ ì±„íŒ…ëª¨ë“œëŠ” ì¢…ë£Œëœë‹¤.
+        INPUTTYPE_AUTOENTER, /// Showì‹œì— í•´ë‹¹ Dialogì— EditBoxê°€ ìˆë‹¤ë©´ ìë™ ì…ë ¥ëœë‹¤.Enterí›„
+                             /// ìë™ìœ¼ë¡œ ë‹¤ì‹œ Focusë¥¼ ê°€ì§„ë‹¤.
     };
 
-    enum { /// Ã¤ÆÃ±Û Å¸ÀÔ
+    enum { /// ì±„íŒ…ê¸€ íƒ€ì…
         CHAT_TYPE_ALL,
         CHAT_TYPE_SHOUT,
         CHAT_TYPE_PARTY,
@@ -103,7 +103,7 @@ public:
         CHAT_TYPE_MAX,
     };
 
-    enum { /// »óÅÂ Å¸ÀÔ
+    enum { /// ìƒíƒœ íƒ€ì…
         STATE_NORMAL,
         STATE_REPAIR,
         STATE_APPRAISAL,
@@ -115,12 +115,12 @@ public:
     };
 
     enum {
-        QUERYTYPE_NPC, /// NPC ´ëÈ­
-        QUERYTYPE_ITEM, /// ¾ÆÀÌÅÛ »ç¿ë½Ã »ç¿ëµÇ´Â ´ëÈ­Ã¢
-        QUERYTYPE_SELECT, /// ¼±ÅÃ¹®¸¸ÀÌ ³ª¿­µÇ¾î À¯Àú°¡ ¼±ÅÃÇÏ´Â ´ëÈ­Ã¢( ·ç³ª¸¶À»ÀÇ ¿öÇÁ°ÔÀÌÆ® )
+        QUERYTYPE_NPC, /// NPC ëŒ€í™”
+        QUERYTYPE_ITEM, /// ì•„ì´í…œ ì‚¬ìš©ì‹œ ì‚¬ìš©ë˜ëŠ” ëŒ€í™”ì°½
+        QUERYTYPE_SELECT, /// ì„ íƒë¬¸ë§Œì´ ë‚˜ì—´ë˜ì–´ ìœ ì €ê°€ ì„ íƒí•˜ëŠ” ëŒ€í™”ì°½( ë£¨ë‚˜ë§ˆì„ì˜ ì›Œí”„ê²Œì´íŠ¸ )
     };
 
-    /// °ÔÀÓ³» ¸ğµç ½ºÆ®¸µ Á¶ÇÕ¿ë ¹öÆÛ·Î »ç¿ë..
+    /// ê²Œì„ë‚´ ëª¨ë“  ìŠ¤íŠ¸ë§ ì¡°í•©ìš© ë²„í¼ë¡œ ì‚¬ìš©..
     char m_MessageBuf[1024];
 
     bool Init();
@@ -128,7 +128,7 @@ public:
     UINT MsgProc(UINT uiMsg, WPARAM wParam, LPARAM lParam);
     void Update();
 
-    ///ÄÚµù½Ã¿¡´Â ÀÌ°÷¿¡¼­ ÇÏ°í³ª¼­ ¾ÈÁ¤È­µÇ¸é CRecvPacketÀ¸·Î ÀÌµ¿½ÃÅ°ÀÚ
+    ///ì½”ë”©ì‹œì—ëŠ” ì´ê³³ì—ì„œ í•˜ê³ ë‚˜ì„œ ì•ˆì •í™”ë˜ë©´ CRecvPacketìœ¼ë¡œ ì´ë™ì‹œí‚¤ì
     /// bool PacketProc( t_PACKET * pRecvPacket );
     // void RegToolTip( const CInfo& Info );
     // *--------------------------------------------------------------* //
@@ -145,11 +145,11 @@ public:
     CPrivateChatDlg* GetPrivateChatDlg(DWORD dwUserTag);
 
     void
-    OpenPrivateChatDlg(DWORD dwUserTag, BYTE btStatus, const char* pszName); /// 1:1 ´ëÈ­Ã¢ ¿ÀÇÂ
+    OpenPrivateChatDlg(DWORD dwUserTag, BYTE btStatus, const char* pszName); /// 1:1 ëŒ€í™”ì°½ ì˜¤í”ˆ
 
     // *------------------------------------------------------------------------------------------------------------------------------*
     // //
-    /// NPC ´ëÈ­Ã¢ ¿ÀÇÂ
+    /// NPC ëŒ€í™”ì°½ ì˜¤í”ˆ
     bool OpenQueryDLG(short nSX,
         short nSY,
         char* szQuery,
@@ -159,34 +159,34 @@ public:
         int iEventOwner,
         int iEventDlgType);
 
-    void CloseQueryDlg(); /// NPC´ëÈ­Ã¢À» ´İ´Â´Ù
+    void CloseQueryDlg(); /// NPCëŒ€í™”ì°½ì„ ë‹«ëŠ”ë‹¤
 
     bool QueryDLG_AppendExam(char* szExam,
         int iEventID,
         void (*fpExamEvent)(int iEventID),
-        int iType); /// NPC ´ëÈ­Ã¢¿¡¼­ ¼±ÅÃ¹®À» Ãß°¡ÇÑ´Ù.
+        int iType); /// NPC ëŒ€í™”ì°½ì—ì„œ ì„ íƒë¬¸ì„ ì¶”ê°€í•œë‹¤.
     // *------------------------------------------------------------------------------------------------------------------------------*
     // //
 
-    void UpdateQuickSlot(); /// CHotIconSlot Á¤º¸¸¦ ¹ÙÅÁÀ¸·Î QuickDlg ÀÇ ½½·ÔµéÀ» ¾÷µ¥ÀÌÆ®
+    void UpdateQuickSlot(); /// CHotIconSlot ì •ë³´ë¥¼ ë°”íƒ•ìœ¼ë¡œ QuickDlg ì˜ ìŠ¬ë¡¯ë“¤ì„ ì—…ë°ì´íŠ¸
 
-    short GetItemInventoryTAB(tagITEM sItem); /// ¾ÆÀÌÅÛÃ¢¿¡¼­ ¾ÆÀÌÅÛÀÌ µé¾î°¥ ÅÇÀ» ¾ò¾î¿Â´Ù
+    short GetItemInventoryTAB(tagITEM sItem); /// ì•„ì´í…œì°½ì—ì„œ ì•„ì´í…œì´ ë“¤ì–´ê°ˆ íƒ­ì„ ì–»ì–´ì˜¨ë‹¤
 
-    void Close_store(); /// NPC»óÁ¡À» ´İ´Â´Ù
+    void Close_store(); /// NPCìƒì ì„ ë‹«ëŠ”ë‹¤
 
     void ShowNumberInputDlg(CTCmdNumberInput* pCmd,
         CTObject* pCmdParam,
-        __int64 iMaxNumber = -1); /// ¼ıÀÚ ÀÔ·ÂÃ¢ ¿­±â
+        __int64 iMaxNumber = -1); /// ìˆ«ì ì…ë ¥ì°½ ì—´ê¸°
 
-    bool OpenMakeDlg(int iSkillSlotIdx); /// Á¦Á¶Ã¢ ¿­±â
+    bool OpenMakeDlg(int iSkillSlotIdx); /// ì œì¡°ì°½ ì—´ê¸°
 
     void OpenDialogBySkill(int iSkillSlotIdx,
-        int iTargetDialogID); /// ½ºÅ³·Î ´ÙÀÌ¾ó·Î±×¸¦ ¿­¶§ »ç¿ëµÇ´Â Method
+        int iTargetDialogID); /// ìŠ¤í‚¬ë¡œ ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ì—´ë•Œ ì‚¬ìš©ë˜ëŠ” Method
 
-    bool OpenInputNameDlg(CTCmdInputName* pCmd); /// ÀÌ¸§ ÀÔ·ÂÃ¢ ¿­±â
+    bool OpenInputNameDlg(CTCmdInputName* pCmd); /// ì´ë¦„ ì…ë ¥ì°½ ì—´ê¸°
 
     /*-----------------------------------------------------------------------------*/
-    /// ¸Ş¼¼Áö ¹Ú½º ¿©´Â methods
+    /// ë©”ì„¸ì§€ ë°•ìŠ¤ ì—¬ëŠ” methods
     void OpenMsgBox(const char* szMsg,
         short int iButtonType = CMsgBox::BT_OK,
         bool bModal = true,
@@ -214,28 +214,28 @@ public:
     void OpenDialog(int iDlgType,
         bool bToggle = true,
         int iPosX = -1,
-        int iPosY = -1); /// ´ÙÀÌ¾ó·Î±×¸¦ ¿¬´Ù
-    void CloseDialog(int iDlgType); /// ´ÙÀÌ¾ó·Î±×¸¦ ´İ´Â´Ù.
+        int iPosY = -1); /// ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ì—°ë‹¤
+    void CloseDialog(int iDlgType); /// ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ë‹«ëŠ”ë‹¤.
 
-    CTDialog* FindDlg(DWORD dwDlgType); /// ÇØ´ç IDÀÇ ´ÙÀÌ¾ó·Î±×¸¦ Ã£¾Æ¼­ Æ÷ÀÎÅÍ¸¦ ¸®ÅÏ
+    CTDialog* FindDlg(DWORD dwDlgType); /// í•´ë‹¹ IDì˜ ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ì°¾ì•„ì„œ í¬ì¸í„°ë¥¼ ë¦¬í„´
 
-    CMsgBox* FindMsgBox(int iMsgType); /// ÇØ´ç Å¸ÀÔÀÇ ¸Ş¼¼Áö ¹Ú½ºÀÇ Æ÷ÀÎÅÍ¸¦ ¸®ÅÏ
+    CMsgBox* FindMsgBox(int iMsgType); /// í•´ë‹¹ íƒ€ì…ì˜ ë©”ì„¸ì§€ ë°•ìŠ¤ì˜ í¬ì¸í„°ë¥¼ ë¦¬í„´
 
-    int IsDlgOpened(int iDlgID); /// ÇØ´ç IDÀÇ ´ÙÀÌ¾ó·Î±×°¡ ¿­·Á ÀÖ´Â°¡?
-    bool IsOpenedMsgBox(int iType); /// ÇØ´ç Å¸ÀÔÀÇ ¸Ş¼¼Áö ¹Ú½º°¡ 1°³ ÀÌ»ó ¿­·Á ÀÖ´Â°¡?
+    int IsDlgOpened(int iDlgID); /// í•´ë‹¹ IDì˜ ë‹¤ì´ì–¼ë¡œê·¸ê°€ ì—´ë ¤ ìˆëŠ”ê°€?
+    bool IsOpenedMsgBox(int iType); /// í•´ë‹¹ íƒ€ì…ì˜ ë©”ì„¸ì§€ ë°•ìŠ¤ê°€ 1ê°œ ì´ìƒ ì—´ë ¤ ìˆëŠ”ê°€?
 
-    bool AddTCommand(int iDlgID, CTCommand* pCmd); /// Command¸¦ Queue¿¡ Ãß°¡
+    bool AddTCommand(int iDlgID, CTCommand* pCmd); /// Commandë¥¼ Queueì— ì¶”ê°€
 
     /*---------------------------------------------------------------------------*/
-    void InitInterfacePos(); /// ÀÎÅÍÆäÀÌ½º ÃÊ±âÈ­, ÇØ»óµµ°¡ ¹Ù²î°Å³ª ÀÎÅÍÆäÀÌ½º¸¦ ÃÖÃÊ À§Ä¡·Î
-                             /// ¿Å±â°í ½ÍÀ»¶§ »ç¿ëÇÏ´Â Method
-    void SetInterfacePosBySavedData(); ///	ÀúÀåµÇÀÖ´ø Dialog PositionÀÌ ÀÖÀ»°æ¿ì °¡Á®¿Í¼­ DialogÀÇ
-                                       ///À§Ä¡µéÀ» ¼öÁ¤ÇÑ´Ù.
-    void SetInterfacePos_After(); /// °¡Àå ¸¶Áö¸·¿¡ °­Á¦·Î Pos ¼ÂÆÃ
+    void InitInterfacePos(); /// ì¸í„°í˜ì´ìŠ¤ ì´ˆê¸°í™”, í•´ìƒë„ê°€ ë°”ë€Œê±°ë‚˜ ì¸í„°í˜ì´ìŠ¤ë¥¼ ìµœì´ˆ ìœ„ì¹˜ë¡œ
+                             /// ì˜®ê¸°ê³  ì‹¶ì„ë•Œ ì‚¬ìš©í•˜ëŠ” Method
+    void SetInterfacePosBySavedData(); ///	ì €ì¥ë˜ìˆë˜ Dialog Positionì´ ìˆì„ê²½ìš° ê°€ì ¸ì™€ì„œ Dialogì˜
+                                       ///ìœ„ì¹˜ë“¤ì„ ìˆ˜ì •í•œë‹¤.
+    void SetInterfacePos_After(); /// ê°€ì¥ ë§ˆì§€ë§‰ì— ê°•ì œë¡œ Pos ì…‹íŒ…
 
-    void ServerDisconnected(); /// ¼­¹ö¿ÍÀÇ ¿¬°áÀÌ ²÷¾îÁ³À»°æ¿ì Ã³¸®ÇÏ´Â method
+    void ServerDisconnected(); /// ì„œë²„ì™€ì˜ ì—°ê²°ì´ ëŠì–´ì¡Œì„ê²½ìš° ì²˜ë¦¬í•˜ëŠ” method
 
-    bool IsMouseOnInterface(); /// ÇöÀç ¸¶¿ì½º°¡ ÀÎÅÍÆäÀÌ½ºÀ§¿¡ ÀÖ´Â°¡?
+    bool IsMouseOnInterface(); /// í˜„ì¬ ë§ˆìš°ìŠ¤ê°€ ì¸í„°í˜ì´ìŠ¤ìœ„ì— ìˆëŠ”ê°€?
 
     /*---------------------------------------------------------------------------*/
     void AddDialogIcon(int iDialogType);
@@ -247,34 +247,34 @@ public:
     void SetDialogIconPosition(int iDialogType, POINT pt);
 
     /*---------------------------------------------------------------------------*/
-    /// »óÅÂ º¯°æ¿¡ µû¸¥ ÀÎÅÍÆäÀÌ½º º¯°æ methods
-    void BeginRepair(); /// ¼ö¸® ½ÃÀÛ
-    void BeginAppraisal(); /// ¾ÆÀÌÅÛ°¨Á¤  ½ÃÀÛ
-    void EndRepair(); /// ¼ö¸®»óÅÂ ³¡
-    void EndAppraisal(); /// ¾ÆÀÌÅÛ°¨Á¤ ³¡
+    /// ìƒíƒœ ë³€ê²½ì— ë”°ë¥¸ ì¸í„°í˜ì´ìŠ¤ ë³€ê²½ methods
+    void BeginRepair(); /// ìˆ˜ë¦¬ ì‹œì‘
+    void BeginAppraisal(); /// ì•„ì´í…œê°ì •  ì‹œì‘
+    void EndRepair(); /// ìˆ˜ë¦¬ìƒíƒœ ë
+    void EndAppraisal(); /// ì•„ì´í…œê°ì • ë
 
     // void	BeginRepairItem();
 
     /*---------------------------------------------------------------------------*/
-    int GetState(); /// ÇöÀç »óÅÂ¸¦ ±¸ÇÏ´Â method
-    void ChangeState(int iIndex); /// »óÅÂ º¯°æ method
+    int GetState(); /// í˜„ì¬ ìƒíƒœë¥¼ êµ¬í•˜ëŠ” method
+    void ChangeState(int iIndex); /// ìƒíƒœ ë³€ê²½ method
 
     /*---------------------------------------------------------------------------*/
-    void CloseDialogAllExceptDefaultView(); /// ±âº»ÀûÀ¸·Î º¸ÀÌ´Â ´ÙÀÌ¾ó·Î±×¸¦ Á¦¿ÜÇÑ ¸ğµç
-                                            /// ´ÙÀÌ¾ó·Î±×¸¦ ´İ´Â´Ù.
+    void CloseDialogAllExceptDefaultView(); /// ê¸°ë³¸ì ìœ¼ë¡œ ë³´ì´ëŠ” ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ì œì™¸í•œ ëª¨ë“ 
+                                            /// ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ë‹«ëŠ”ë‹¤.
 
     /*---------------------------------------------------------------------------*/
-    void ShowQuestStartMessage(int index); /// Äù½ºÆ® ½ÃÀÛ½Ã Ã¤ÆÃÃ¢¿¡ Ç¥½ÃÇÏ´Â method
+    void ShowQuestStartMessage(int index); /// í€˜ìŠ¤íŠ¸ ì‹œì‘ì‹œ ì±„íŒ…ì°½ì— í‘œì‹œí•˜ëŠ” method
 
     /*---------------------------------------------------------------------------*/
-    void AddNotifybutton(int iEventIndex); /// ¾Ë¸²¹öÆ°À» Ãß°¡ÇÑ´Ù.
-    void ClearNotifyButtons(); /// ¸ğµç ¾Ë¸²¹öÆ°À» ´İ´Â´Ù.
+    void AddNotifybutton(int iEventIndex); /// ì•Œë¦¼ë²„íŠ¼ì„ ì¶”ê°€í•œë‹¤.
+    void ClearNotifyButtons(); /// ëª¨ë“  ì•Œë¦¼ë²„íŠ¼ì„ ë‹«ëŠ”ë‹¤.
 
     /*---------------------------------------------------------------------------*/
-    CTEditBox* GetFocusEditBox(); /// ÇöÀç ÀÔ·Â Æ÷Ä¿½º¸¦ °¡Áø TEditBoxÀÇ Æ÷ÀÎÅÍ¸¦ ±¸ÇÑ´Ù.
+    CTEditBox* GetFocusEditBox(); /// í˜„ì¬ ì…ë ¥ í¬ì»¤ìŠ¤ë¥¼ ê°€ì§„ TEditBoxì˜ í¬ì¸í„°ë¥¼ êµ¬í•œë‹¤.
 
     /*---------------------------------------------------------------------------*/
-    /// ÀüÅõ½Ã È¤Àº ºñÀüÅõ½Ã¿¡ ¼­¹ö¿ÍÀÇ Á¢¼Ó Á¾·á¸¦ Áö¿¬ÇÏ±â À§ÇÑ Methods
+    /// ì „íˆ¬ì‹œ í˜¹ì€ ë¹„ì „íˆ¬ì‹œì— ì„œë²„ì™€ì˜ ì ‘ì† ì¢…ë£Œë¥¼ ì§€ì—°í•˜ê¸° ìœ„í•œ Methods
     void SetWaitDisconnectTime(int iSec);
     int GetWaitDisconnectTime();
 
@@ -284,46 +284,46 @@ public:
     CReloadProcess* GetReloadProcess();
     CTDrawImpl* GetDrawImplPtr();
 
-    void RefreshDlg(); //  ÇØ»óµµ º¯°æ¿¡ µû¸¥ À§Ä¡ ÀçÁ¶Á¤.
+    void RefreshDlg(); //  í•´ìƒë„ ë³€ê²½ì— ë”°ë¥¸ ìœ„ì¹˜ ì¬ì¡°ì •.
 
     // Reloads all the dialogs from their XML files
     void reload_dialogs();
 
 private:
-    void ProcCommand(); /// Command Queue¿¡ ÀúÀåµÇ¾î ÀÖ´Â TCommand¸¦ ½ÇÇàÇÑ´Ù.
+    void ProcCommand(); /// Command Queueì— ì €ì¥ë˜ì–´ ìˆëŠ” TCommandë¥¼ ì‹¤í–‰í•œë‹¤.
 
     void
-    AppendDlg(short nDlgType, CTDialog* pDLG, int iID = 0); /// DialogµéÀ» º¸°üÇÏ´Â ÄÁÅ×ÀÌ³Ê¿¡ Ãß°¡
+    AppendDlg(short nDlgType, CTDialog* pDLG, int iID = 0); /// Dialogë“¤ì„ ë³´ê´€í•˜ëŠ” ì»¨í…Œì´ë„ˆì— ì¶”ê°€
     void InsertDlg(short nDlgType,
         CTDialog* pDlg,
         int iNextID,
-        int iID = 0); /// ÄÁÅ×ÀÌ³Ê¿¡¼­ Æ¯Á¤ DialogµÚ¿¡ ÇØ´ç ´ÙÀÌ¾ó·Î±×¸¦ Ãß°¡ÇÑ´Ù.
+        int iID = 0); /// ì»¨í…Œì´ë„ˆì—ì„œ íŠ¹ì • Dialogë’¤ì— í•´ë‹¹ ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ì¶”ê°€í•œë‹¤.
 
     void MoveDlg2ListEnd(
-        CTDialog* pDlg); /// Æ¯Á¤ Dialog¸¦ ¸®½ºÆ®ÀÇ ¸ÇµÚ·Î ÀÌµ¿ ( È­¸é¿¡¼­ Á¦ÀÏÀ§·Î ¿À°ÔµÈ´Ù)
+        CTDialog* pDlg); /// íŠ¹ì • Dialogë¥¼ ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ë’¤ë¡œ ì´ë™ ( í™”ë©´ì—ì„œ ì œì¼ìœ„ë¡œ ì˜¤ê²Œëœë‹¤)
     void MoveDlgIcon2ListEnd(CIconDialog*
-            pIcon); /// Æ¯Á¤ Dialog IconÀ» ¸®½ºÆ®ÀÇ ¸ÇµÚ·Î ÀÌµ¿ ( È­¸é¿¡¼­ Á¦ÀÏÀ§·Î ¿À°ÔµÈ´Ù)
+            pIcon); /// íŠ¹ì • Dialog Iconì„ ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ë’¤ë¡œ ì´ë™ ( í™”ë©´ì—ì„œ ì œì¼ìœ„ë¡œ ì˜¤ê²Œëœë‹¤)
 
-    void ProcessEscKeyDown(); /// ESC Å°°¡ ´­·ÈÀ»¶§ Ã³¸®ÇÏ´Â Method
+    void ProcessEscKeyDown(); /// ESC í‚¤ê°€ ëˆŒë ¸ì„ë•Œ ì²˜ë¦¬í•˜ëŠ” Method
 
 private:
-    list_dlgs m_Dlgs; /// °ÔÀÓ³» »ç¿ëµÇ´Â ÀÎÅÍÆäÀÌ½º ´ÙÀÌ¾ó·Î±×µéÀ» º¸°üÇÏ´Â ÄÁÅ×ÀÌ³Ê
-    CTCommandQ m_CommandQ; /// Command Queue( ´ÙÀÌ¾ó·Î±×¿¡ Á¾¼ÓÀûÀÎ Command´Â °¢ ´ÙÀÌ¾ó·Î±×°¡ °¡Áö°í
-                           /// ÀÖ´Â´Ù)
+    list_dlgs m_Dlgs; /// ê²Œì„ë‚´ ì‚¬ìš©ë˜ëŠ” ì¸í„°í˜ì´ìŠ¤ ë‹¤ì´ì–¼ë¡œê·¸ë“¤ì„ ë³´ê´€í•˜ëŠ” ì»¨í…Œì´ë„ˆ
+    CTCommandQ m_CommandQ; /// Command Queue( ë‹¤ì´ì–¼ë¡œê·¸ì— ì¢…ì†ì ì¸ CommandëŠ” ê° ë‹¤ì´ì–¼ë¡œê·¸ê°€ ê°€ì§€ê³ 
+                           /// ìˆëŠ”ë‹¤)
 
     /*---------------------------------------------------------------------------*/
-    /// »ç¿ëÀÚ°¡ EscÅ°·Î ¿­·ÁÀÖ´Â Ã¢µéÀÇ »óÅÂ¸¦ ÀúÀå(¿­¸°»óÅÂ¸¸)ÇÒ¼ö ÀÖ´Â ½Ã½ºÅÛÀ» À§ÇÑ Memberµé
-    std::list<int> m_listSavedDialog; /// Set¿¡ µé¾î°¥¼öÀÖ´Â DialogµéÀÇ ID
-    std::list<std::list<int>> m_StackDialogSet; /// SetÀÌ ÀúÀåµÇ¾îÁú Stack;
+    /// ì‚¬ìš©ìê°€ Escí‚¤ë¡œ ì—´ë ¤ìˆëŠ” ì°½ë“¤ì˜ ìƒíƒœë¥¼ ì €ì¥(ì—´ë¦°ìƒíƒœë§Œ)í• ìˆ˜ ìˆëŠ” ì‹œìŠ¤í…œì„ ìœ„í•œ Memberë“¤
+    std::list<int> m_listSavedDialog; /// Setì— ë“¤ì–´ê°ˆìˆ˜ìˆëŠ” Dialogë“¤ì˜ ID
+    std::list<std::list<int>> m_StackDialogSet; /// Setì´ ì €ì¥ë˜ì–´ì§ˆ Stack;
     /*---------------------------------------------------------------------------*/
 
     std::list<CIconDialog*>
-        m_Icons; /// ¿­¸° ´ÙÀÌ¾ó·Î±×µéÀÌ È­¸é»ó¿¡ ¾ÆÀÌÄÜÈ­ µÇ¾úÀ»¶§ ÀúÀåµÇ´Â ÄÁÅ×ÀÌ³Ê
-    std::map<int, POINT> m_ptIcons; /// ¾ÆÀÌÄÜÈ­µÈ ´ÙÀÌ¾ó·Î±×ÀÇ À§Ä¡¸¦ ÀúÀåÇØµÎ´Â ÄÁÅ×ÀÌ³Ê
+        m_Icons; /// ì—´ë¦° ë‹¤ì´ì–¼ë¡œê·¸ë“¤ì´ í™”ë©´ìƒì— ì•„ì´ì½˜í™” ë˜ì—ˆì„ë•Œ ì €ì¥ë˜ëŠ” ì»¨í…Œì´ë„ˆ
+    std::map<int, POINT> m_ptIcons; /// ì•„ì´ì½˜í™”ëœ ë‹¤ì´ì–¼ë¡œê·¸ì˜ ìœ„ì¹˜ë¥¼ ì €ì¥í•´ë‘ëŠ” ì»¨í…Œì´ë„ˆ
 
     CIconDialog*
-        m_pDialogIconFromMenu; /// ¸Ş´ºÃ¢¿¡¼­ ¹öÆ°À» µå·¡±×ÇÒ¶§ ÇÊ¿äÇÑ ±âº» ¾ÆÀÌÄÜÀ» º¸°üÇÑ´Ù.
-    CNotifyButtonDlg* m_pNotifyButtonDlg; /// ¾Ë¸²¹öÆ°À» ÀúÀåÇØµÑ ÄÁÅ×ÀÌ³Ê ´ÙÀÌ¾ó·Î±×
+        m_pDialogIconFromMenu; /// ë©”ë‰´ì°½ì—ì„œ ë²„íŠ¼ì„ ë“œë˜ê·¸í• ë•Œ í•„ìš”í•œ ê¸°ë³¸ ì•„ì´ì½˜ì„ ë³´ê´€í•œë‹¤.
+    CNotifyButtonDlg* m_pNotifyButtonDlg; /// ì•Œë¦¼ë²„íŠ¼ì„ ì €ì¥í•´ë‘˜ ì»¨í…Œì´ë„ˆ ë‹¤ì´ì–¼ë¡œê·¸
 
     /*---------------------------------------------------------------------------*/
     // States
@@ -334,7 +334,7 @@ private:
     int m_iWaitDisconnectTime;
     int m_iWaitDisconnectType; /// 0. Disconnect 1. Goto Select Avatar
 
-    CReloadProcess* m_pReloadProcess; /// ¾ÆÀÌÅÛ¹× ½ºÅ³ÀÇ ÄğÅ¸ÀÓÀ» ¾ÆÀÌÄÜÀ§¿¡ Ç¥½ÃÇÏ±â À§ÇÑ ¸â¹ö
+    CReloadProcess* m_pReloadProcess; /// ì•„ì´í…œë° ìŠ¤í‚¬ì˜ ì¿¨íƒ€ì„ì„ ì•„ì´ì½˜ìœ„ì— í‘œì‹œí•˜ê¸° ìœ„í•œ ë©¤ë²„
 };
 
 extern IT_MGR g_itMGR;

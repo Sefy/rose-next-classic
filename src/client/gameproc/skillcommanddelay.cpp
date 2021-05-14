@@ -7,7 +7,7 @@
 /// for singleton
 CSkillCommandDelay _skillCommandDelay;
 
-const int ANI_FRAME = 8; /// 0 ~ 8 ±îÁö 9 Àå
+const int ANI_FRAME = 8; /// 0 ~ 8 ê¹Œì§€ 9 ìž¥
 
 CSkillCommandDelay::CSkillCommandDelay(void): m_dwCastingTimeDelay(1000) {
     m_dwCastingStartTime = g_GameDATA.GetGameTime();

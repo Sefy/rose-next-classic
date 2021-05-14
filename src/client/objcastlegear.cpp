@@ -49,8 +49,8 @@ CObjCastleGear::Create(CObjCHAR* pParent, int iCartType, D3DVECTOR& Position) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief /*override*/virtual bool	SetCMD_ATTACK ( int iServerTarget ); ´Â Á¤ÀÇÇÒ ÇÊ¿ä¾ø´Ù.
-///			CObjAI::SetCMD_ATTACK °¡ ³»ºÎÀûÀ¸·Î È£ÃâÇÏ´Â ÇÔ¼öÀÌ´Ù.
+/// @brief /*override*/virtual bool	SetCMD_ATTACK ( int iServerTarget ); ëŠ” ì •ì˜í•  í•„ìš”ì—†ë‹¤.
+///			CObjAI::SetCMD_ATTACK ê°€ ë‚´ë¶€ì ìœ¼ë¡œ í˜¸ì¶œí•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -58,7 +58,7 @@ CObjCastleGear::SetCMD_ATTACK(int iServerTarget, WORD wSrvDIST, const D3DVECTOR&
     CObjCHAR::SetCMD_ATTACK(iServerTarget, wSrvDIST, PosGOTO);
 
     //----------------------------------------------------------------------------------------------------
-    /// Æê Å¾½ÂÀ» ÇÑ Ä³¸¯ÅÍÀÇ ¸ð¼ÇÀ» ±³Ã¼ÇÑ´Ù.
+    /// íŽ« íƒ‘ìŠ¹ì„ í•œ ìºë¦­í„°ì˜ ëª¨ì…˜ì„ êµì²´í•œë‹¤.
     //----------------------------------------------------------------------------------------------------
     m_pObjParent->Set_MOTION(this->GetRideAniPos() + PETMODE_AVATAR_ANI_ATTACK01 + +RANDOM(3));
 

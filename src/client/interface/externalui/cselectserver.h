@@ -15,21 +15,21 @@ struct ServerInfo {
 };
 
 struct ChannelInfo {
-    int m_btChannelNO; // º¸¿©ÁÙ Ã¤³Î ½½·Ô ¹øÈ£
-    int m_btLowAGE; // Á¢¼Ó °¡´ÉÇÑ ÃÖÀú ¿¬·É 0 ÀÌ¸é ÃÖÀú ¿¬·É Á¦ÇÑ ¾øÀ½
-    int m_btHighAGE; // Á¢¼Ó °¡´ÉÇÑ ÃÖ°í ¿¬·É 0 ÀÌ¸é ÃÖ°í ¿¬·É Á¦ÇÑ ¾øÀ½
+    int m_btChannelNO; // ë³´ì—¬ì¤„ ì±„ë„ ìŠ¬ë¡¯ ë²ˆí˜¸
+    int m_btLowAGE; // ì ‘ì† ê°€ëŠ¥í•œ ìµœì € ì—°ë ¹ 0 ì´ë©´ ìµœì € ì—°ë ¹ ì œí•œ ì—†ìŒ
+    int m_btHighAGE; // ì ‘ì† ê°€ëŠ¥í•œ ìµœê³  ì—°ë ¹ 0 ì´ë©´ ìµœê³  ì—°ë ¹ ì œí•œ ì—†ìŒ
 };
 
 struct t_PACKET;
 struct tagCHANNEL_SRV;
 
 /**
- * ¿ùµå¼­¹ö&Ã¤³Î ¼­¹ö ¼±ÅÃ½Ã »ç¿ëµÇ´Â ÀÎÅÍÆäÀÌ½º
+ * ì›”ë“œì„œë²„&ì±„ë„ ì„œë²„ ì„ íƒì‹œ ì‚¬ìš©ë˜ëŠ” ì¸í„°íŽ˜ì´ìŠ¤
  * - Observable : GameData/CServerList
  *
- * @Warning		ÇöÀç(2005/9/6) ÇÑ±¹ÀÇ °æ¿ì Ã¤³Î¼­¹ö°¡ 1°³ÀÌ°í Ã¤³Î ¸®½ºÆ®¸¦ º¸¿©ÁÖÁö ¾Ê´Â´Ù.±× ¿Ü
- * ±¹°¡´Â ¸ðµÎ Ã¤³Î¼­¹ö°¡ 2°³ ÀÌ»óÀ¸·Î ¼±ÅÃÀ» ÇÒ ¼ö ÀÖ´Ù.
- * @Author		ÃÖÁ¾Áø
+ * @Warning		í˜„ìž¬(2005/9/6) í•œêµ­ì˜ ê²½ìš° ì±„ë„ì„œë²„ê°€ 1ê°œì´ê³  ì±„ë„ ë¦¬ìŠ¤íŠ¸ë¥¼ ë³´ì—¬ì£¼ì§€ ì•ŠëŠ”ë‹¤.ê·¸ ì™¸
+ * êµ­ê°€ëŠ” ëª¨ë‘ ì±„ë„ì„œë²„ê°€ 2ê°œ ì´ìƒìœ¼ë¡œ ì„ íƒì„ í•  ìˆ˜ ìžˆë‹¤.
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CSelectServer: public CTDialog, public IObserver {

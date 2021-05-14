@@ -9,7 +9,7 @@ class CMAP;
 
 class CPatchManager {
 private:
-    CMAP_PATCH* m_ppPATCH[3 * PATCH_COUNT_PER_MAP_AXIS][3 * PATCH_COUNT_PER_MAP_AXIS]; // ¸Ê 3ÀåºÐ
+    CMAP_PATCH* m_ppPATCH[3 * PATCH_COUNT_PER_MAP_AXIS][3 * PATCH_COUNT_PER_MAP_AXIS]; // ë§µ 3ìž¥ë¶„
 
     CMAP_PATCH* m_ppSubPATCH[PATCH_COUNT_PER_MAP_AXIS * PATCH_COUNT_PER_MAP_AXIS * 9 * 2]; //
     short m_nSubPATCH;

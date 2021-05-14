@@ -3,9 +3,9 @@
 #include "tgamectrl/tdialog.h"
 
 /**
- * ¹ŞÀº ÂÊÁö º¸±â¿ë ´ÙÀÌ¾ó·Î±×
+ * ë°›ì€ ìª½ì§€ ë³´ê¸°ìš© ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CMemoViewDlg: public CTDialog {
@@ -27,8 +27,8 @@ private:
         IID_BTN_DELETE = 12,
     };
 
-    int m_iID; /// ¿©·¯°³ÀÇ ÂÊÁöÁß ±¸ºĞ ÀÎµ¦½º
-    std::string m_strName; /// º¸³½ »ç¶÷ ÀÌ¸§
-    std::string m_strContent; /// ÂÊÁö ³»¿ë
+    int m_iID; /// ì—¬ëŸ¬ê°œì˜ ìª½ì§€ì¤‘ êµ¬ë¶„ ì¸ë±ìŠ¤
+    std::string m_strName; /// ë³´ë‚¸ ì‚¬ëŒ ì´ë¦„
+    std::string m_strContent; /// ìª½ì§€ ë‚´ìš©
 };
 #endif

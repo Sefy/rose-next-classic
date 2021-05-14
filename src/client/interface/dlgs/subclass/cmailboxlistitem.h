@@ -3,9 +3,9 @@
 #include "tgamectrl/winctrl.h"
 
 /**
- * Ä¿¹Â´ÏÆ¼ Ã¢ÀÇ ¿ìÆíÇÔ List¿¡ »ç¿ëµÇ´Â item class
+ * ì»¤ë®¤ë‹ˆí‹° ì°½ì˜ ìš°í¸í•¨ Listì— ì‚¬ìš©ë˜ëŠ” item class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 

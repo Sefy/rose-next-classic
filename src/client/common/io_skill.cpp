@@ -65,7 +65,7 @@ CSkillLIST::LoadSkillTable(const char* pFileName) {
             m_pReloadTIME[nI] = 1.0f;
 
         if (m_pCastingAniSPEED[nI] <= 0.f) {
-            m_pCastingAniSPEED[nI] = 1.0f; // µðÆúµå·Î ¸¸µé¾î ¹ö¸²...
+            m_pCastingAniSPEED[nI] = 1.0f; // ë””í´ë“œë¡œ ë§Œë“¤ì–´ ë²„ë¦¼...
         }
 
         m_pActionAniSPEED[nI] = SKILL_ANI_ACTION_SPEED(nI) / 100.f;

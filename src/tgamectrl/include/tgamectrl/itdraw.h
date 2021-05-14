@@ -2,12 +2,12 @@
 #define _ITDRAW_
 
 /**
- * Client°¡ »ó¼Ó¹Ş¾Æ ±¸ÇöÇØ¾ßÇÒ Draw Image Interface - TGameCtrlÀº ÀÌ ÀÎÅÍÆäÀÌ½º¸¦ ÅëÇØ¼­ Image¸¦
- * DrawÇÑ´Ù.
+ * Clientê°€ ìƒì†ë°›ì•„ êµ¬í˜„í•´ì•¼í•  Draw Image Interface - TGameCtrlì€ ì´ ì¸í„°í˜ì´ìŠ¤ë¥¼ í†µí•´ì„œ Imageë¥¼
+ * Drawí•œë‹¤.
  *
- * @Warning	Client::CTDrawImpl - ÇöÀç Å¬¶óÀÌ¾ğÆ®¿¡¼­ ±¸ÇöÇÑ Å¬·¡½º
+ * @Warning	Client::CTDrawImpl - í˜„ì¬ í´ë¼ì´ì–¸íŠ¸ì—ì„œ êµ¬í˜„í•œ í´ë˜ìŠ¤
  *
- * @Author		2005/08/23 ÃÖÁ¾Áø
+ * @Author		2005/08/23 ìµœì¢…ì§„
  */
 class ITDraw {
 

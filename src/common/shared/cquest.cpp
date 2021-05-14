@@ -16,18 +16,18 @@
 
 using json = nlohmann::json;
 
-#define MAX_ASSOCIATION 20 // ÃÖ´ë Á¶ÇÕ °¹¼ö
+#define MAX_ASSOCIATION 20 // ìµœëŒ€ ì¡°í•© ê°¯ìˆ˜
 
-// ¸ÞÀÎ Äù½ºÆ® ÁøÇà ¼öÄ¡
-// Ä£ºÐ ¼öÄ¡[ MAX_ASSOCIATION ] .	Ã³À½ ½ÃÀÛ ½Ã : 0
-// Äù½ºÆ® ÁøÇà ¼öÄ¡[ MAX_ASSOCIATION ]
+// ë©”ì¸ í€˜ìŠ¤íŠ¸ ì§„í–‰ ìˆ˜ì¹˜
+// ì¹œë¶„ ìˆ˜ì¹˜[ MAX_ASSOCIATION ] .	ì²˜ìŒ ì‹œìž‘ ì‹œ : 0
+// í€˜ìŠ¤íŠ¸ ì§„í–‰ ìˆ˜ì¹˜[ MAX_ASSOCIATION ]
 /*
-// ÁøÇàÁßÀÎ Äù½ºÆ®
+// ì§„í–‰ì¤‘ì¸ í€˜ìŠ¤íŠ¸
 {
-    Äù½ºÆ® ¼öÇà º¯¼ö 10°³
-    Äù½ºÆ® ½ºÀ§Ä¡ 8°³
-    Äù½ºÆ® Å¸ÀÌ¸Ó
-    Äù½ºÆ® Á¦°øÀÚ
+    í€˜ìŠ¤íŠ¸ ìˆ˜í–‰ ë³€ìˆ˜ 10ê°œ
+    í€˜ìŠ¤íŠ¸ ìŠ¤ìœ„ì¹˜ 8ê°œ
+    í€˜ìŠ¤íŠ¸ íƒ€ì´ë¨¸
+    í€˜ìŠ¤íŠ¸ ì œê³µìž
 }
 */
 
@@ -47,7 +47,7 @@ CQUEST::CheckExpiredTIME() {
         if (QUEST_TIME_LIMIT(this->m_wID)) {
             DWORD dwNewExpired = ::Get_WorldPassTIME() + QUEST_TIME_LIMIT(this->m_wID);
             if (this->m_dwExpirationTIME > dwNewExpired) {
-                // ¼­¹ö ÅëÇÕµÇ¸é¼­ ÄÉ¸¯ÀÌÀüµÉ¶§... ¼­¹öÅ¸ÀÓÀÌ Æ²·ÁÁö´Ï±î...
+                // ì„œë²„ í†µí•©ë˜ë©´ì„œ ì¼€ë¦­ì´ì „ë ë•Œ... ì„œë²„íƒ€ìž„ì´ í‹€ë ¤ì§€ë‹ˆê¹Œ...
                 this->m_dwExpirationTIME = dwNewExpired;
             }
         }
@@ -62,9 +62,9 @@ CQUEST::SetID(WORD wID, bool bResetTimer) {
         if (QUEST_TIME_LIMIT(wID)) {
             m_dwExpirationTIME = ::Get_WorldPassTIME() + QUEST_TIME_LIMIT(wID);
         } else
-            m_dwExpirationTIME = 0; // ¹«Á¦ÇÑ..
+            m_dwExpirationTIME = 0; // ë¬´ì œí•œ..
     } else if (QUEST_TIME_LIMIT(wID)) {
-        // ¸®¼ÂÀÌ ÇÊ¿ä¾ø´Â °æ¿ìÀÎµ¥...¹Ù²î´Â°ÍÀÌ ½Ã°£ Á¦ÇÑÀÌ ÇÊ¿äÇÏ¸é...
+        // ë¦¬ì…‹ì´ í•„ìš”ì—†ëŠ” ê²½ìš°ì¸ë°...ë°”ë€ŒëŠ”ê²ƒì´ ì‹œê°„ ì œí•œì´ í•„ìš”í•˜ë©´...
         m_dwExpirationTIME = ::Get_WorldPassTIME() + QUEST_TIME_LIMIT(wID);
     }
 }
@@ -75,7 +75,7 @@ CQUEST::GetRemainTIME() {
     DWORD dwCurTime = ::Get_WorldPassTIME();
 
     if (dwCurTime >= m_dwExpirationTIME) {
-        // ³²Àº ½Ã°£ ¾ø´Ù.
+        // ë‚¨ì€ ì‹œê°„ ì—†ë‹¤.
         return 0;
     }
 
@@ -154,7 +154,7 @@ CQUEST::AddITEM(tagITEM& sITEM) {
     short nI;
 
     if (sITEM.IsEnableDupCNT()) {
-        // Áßº¹ °¡´É, °°Àº ¾ÆÀÌÅÛÀÌ ÀÖ´Â°¡ ??
+        // ì¤‘ë³µ ê°€ëŠ¥, ê°™ì€ ì•„ì´í…œì´ ìžˆëŠ”ê°€ ??
         for (nI = 0; nI < QUEST_ITEM_PER_QUEST; nI++) {
             if (this->m_ITEMs[nI].GetHEADER() == sITEM.GetHEADER()) {
                 this->m_ITEMs[nI].m_uiQuantity += sITEM.GetQuantity();
@@ -163,7 +163,7 @@ CQUEST::AddITEM(tagITEM& sITEM) {
         }
     }
 
-    // ºó°÷¿¡ Ãß°¡..
+    // ë¹ˆê³³ì— ì¶”ê°€..
     for (nI = 0; nI < QUEST_ITEM_PER_QUEST; nI++) {
         if (0 == this->m_ITEMs[nI].GetHEADER()) {
             this->m_ITEMs[nI] = sITEM;

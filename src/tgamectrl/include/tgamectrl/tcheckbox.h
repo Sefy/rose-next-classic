@@ -3,9 +3,9 @@
 #include "winctrl.h"
 
 /**
- * Ã¼Å©¹Ú½º Class
+ * ì²´í¬ë°•ìŠ¤ Class
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Date		2005/8/30
  */
@@ -30,9 +30,9 @@ public:
 protected:
     enum { CBS_UNCHECK, CBS_CHECK };
 
-    int m_iCheckState; /// Ã¼Å© Yes_or_Not
-    int m_iModuleID; /// ÀÌ¹ÌÁöµéÀÇ ¸ğµâ ID
-    int m_iCheckImageID; /// Ã¼Å© »óÅÂÀÏ°æ¿ì ÀÌ¹ÌÁö ID
-    int m_iUncheckImageID; /// Ã¼Å© ¾ÈµÈ »óÅÂÀÏ°æ¿ì ÀÌ¹ÌÁö ID
+    int m_iCheckState; /// ì²´í¬ Yes_or_Not
+    int m_iModuleID; /// ì´ë¯¸ì§€ë“¤ì˜ ëª¨ë“ˆ ID
+    int m_iCheckImageID; /// ì²´í¬ ìƒíƒœì¼ê²½ìš° ì´ë¯¸ì§€ ID
+    int m_iUncheckImageID; /// ì²´í¬ ì•ˆëœ ìƒíƒœì¼ê²½ìš° ì´ë¯¸ì§€ ID
 };
 #endif

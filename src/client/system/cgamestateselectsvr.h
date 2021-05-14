@@ -3,9 +3,9 @@
 #include "cgamestate.h"
 
 /**
- * ¼­¹ö ¼±ÅÃ State Class
+ * ì„œë²„ ì„ íƒ State Class
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/15
  */
 class CGameStateSelectSvr: public CGameState {

@@ -5,7 +5,7 @@
 #define __CD3DUTIL_H
 //-------------------------------------------------------------------------------------------------
 ///
-/// Sprite¿Í °Å¸®°ü·Ã Wrapper Class
+/// Spriteì™€ ê±°ë¦¬ê´€ë ¨ Wrapper Class
 ///
 class CD3DUtil {
 public:
@@ -23,9 +23,9 @@ public:
         FLOAT* v);
 
     /**
-     * µÎ Á¡»çÀÌÀÇ °Å¸®¸¦ ±¸ÇÔ.
-     * @param From ½ÃÀÛÁ¡
-     * @param To ³¡Á¡
+     * ë‘ ì ì‚¬ì´ì˜ ê±°ë¦¬ë¥¼ êµ¬í•¨.
+     * @param From ì‹œì‘ì 
+     * @param To ëì 
      * @see distance_square
      */
     static float distance(D3DVECTOR& From, D3DVECTOR& To) {
@@ -34,9 +34,9 @@ public:
     }
 
     /*!
-        µÎ Á¡»çÀÌÀÇ °Å¸®ÀÇ Á¦°öÀ» ±¸ÇÔ
-        \param From ½ÃÀÛÁ¡
-        \param To ³¡Á¡
+        ë‘ ì ì‚¬ì´ì˜ ê±°ë¦¬ì˜ ì œê³±ì„ êµ¬í•¨
+        \param From ì‹œì‘ì 
+        \param To ëì 
         \see distance
     */
     static float distance_square(D3DVECTOR& From, D3DVECTOR& To) {
@@ -45,14 +45,14 @@ public:
     }
 
     /*!
-        µÎ Á¡»çÀÌÀÇ °Å¸®¸¦ ±¸ÇÔ
-        \param iX1 ½ÃÀÛÁ¡ XÁÂÇ¥
-        \param iY1 ½ÃÀÛÁ¡ YÁÂÇ¥
-        \param iX2 ³¡Á¡ XÁÂÇ¥
-        \param iY2 ³¡Á¡ YÁÂÇ¥
+        ë‘ ì ì‚¬ì´ì˜ ê±°ë¦¬ë¥¼ êµ¬í•¨
+        \param iX1 ì‹œì‘ì  Xì¢Œí‘œ
+        \param iY1 ì‹œì‘ì  Yì¢Œí‘œ
+        \param iX2 ëì  Xì¢Œí‘œ
+        \param iY2 ëì  Yì¢Œí‘œ
     */
     static int distance(int iX1, int iY1, int iX2, int iY2) {
-        // ¿ÀÂ÷ 3.5%
+        // ì˜¤ì°¨ 3.5%
         iX1 = abs(iX2 - iX1);
         iY1 = abs(iY2 - iY1);
 
@@ -61,9 +61,9 @@ public:
     }
 
     /*!
-        º¤ÅÍÀÇ °Å¸®¸¦ ±¸ÇÔ
-        \param iX XÁÂÇ¥
-        \param iY YÁÂÇ¥
+        ë²¡í„°ì˜ ê±°ë¦¬ë¥¼ êµ¬í•¨
+        \param iX Xì¢Œí‘œ
+        \param iY Yì¢Œí‘œ
     */
     static int length(int iX, int iY) {
         iX = (iX < 0) ? -iX : iX;

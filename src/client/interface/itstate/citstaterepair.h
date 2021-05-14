@@ -3,9 +3,9 @@
 #include "citstate.h"
 
 /**
- * ¼ö¸®Áß(item»ç¿ë or npcÀÌ¿ë) Interface(IT_MGR) State
+ * ìˆ˜ë¦¬ì¤‘(itemì‚¬ìš© or npcì´ìš©) Interface(IT_MGR) State
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  *
  */

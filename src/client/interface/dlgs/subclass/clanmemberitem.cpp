@@ -80,12 +80,12 @@ CClanMemberItem::SetConnectStatus(int iChannelNo) {
         m_strChannel.clear();
         g_itMGR.AppendChatMsg(CStr::Printf(FSTR_FRIEND_LOGOUT, m_strName.c_str()),
             IT_MGR::CHAT_TYPE_CLAN);
-        //´ÔÀÌ Á¢¼ÓÁ¾·á ÇÏ¿´½À´Ï´Ù
+        //ë‹˜ì´ ì ‘ì†ì¢…ë£Œ í•˜ì˜€ìŠµë‹ˆë‹¤
     } else {
         m_strChannel = CStr::Printf("Channel-%d", iChannelNo);
         g_itMGR.AppendChatMsg(CStr::Printf(FSTR_FRIEND_LOGIN, m_strName.c_str()),
             IT_MGR::CHAT_TYPE_CLAN);
-        //´ÔÀÌ Á¢¼ÓÇÏ¿´½À´Ï´Ù
+        //ë‹˜ì´ ì ‘ì†í•˜ì˜€ìŠµë‹ˆë‹¤
     }
 }
 

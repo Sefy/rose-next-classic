@@ -4,11 +4,11 @@
 class CObjCHAR;
 
 /**
- * Å¬·£¸¶Å©¸¦ º¸¿©ÁÖ±â¸¦ ´ã´çÇÏ´Â Å¬·¡½º-CNameBoxÀÇ ¸É¹ö
- *  - ±âÁ¸ (BackImage + CenterImage), À¯Àú°¡ µî·ÏÇÑ Image, Client¿¡ ¾ø´Â µî·ÏµÈ ImageÀÇ ¼¼°¡Áö
- * »óÅÂ¸¦ °¡Áø´Ù.
+ * í´ëžœë§ˆí¬ë¥¼ ë³´ì—¬ì£¼ê¸°ë¥¼ ë‹´ë‹¹í•˜ëŠ” í´ëž˜ìŠ¤-CNameBoxì˜ ë§´ë²„
+ *  - ê¸°ì¡´ (BackImage + CenterImage), ìœ ì €ê°€ ë“±ë¡í•œ Image, Clientì— ì—†ëŠ” ë“±ë¡ëœ Imageì˜ ì„¸ê°€ì§€
+ * ìƒíƒœë¥¼ ê°€ì§„ë‹¤.
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Date		2005/3/23
  */

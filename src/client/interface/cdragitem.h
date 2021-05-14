@@ -8,16 +8,16 @@ class CIcon;
 class CTCommand;
 
 /**
- * µå·¡±×Nµå¶ø ½Ã½ºÅÛ¿¡¼­ µå·¡±× ½ÃÀÛ½Ã µî·ÏµÇ´Â Class
- *	- ÇöÀç CIcon¸¸ µå·¡±×Nµå¶øÀÌ µÈ´Ù
- *	- Target ¹× ÇØ´ç Å¸°Ù¿¡ µå¶ø½Ã ½ÇÇàÇÒ CTCommand¸¦ °¡Áö°í ÀÖ´Â´Ù.
+ * ë“œë˜ê·¸Në“œë ì‹œìŠ¤í…œì—ì„œ ë“œë˜ê·¸ ì‹œì‘ì‹œ ë“±ë¡ë˜ëŠ” Class
+ *	- í˜„ì¬ CIconë§Œ ë“œë˜ê·¸Në“œëì´ ëœë‹¤
+ *	- Target ë° í•´ë‹¹ íƒ€ê²Ÿì— ë“œëì‹œ ì‹¤í–‰í•  CTCommandë¥¼ ê°€ì§€ê³  ìˆëŠ”ë‹¤.
  *		-- TagetType
  *			0						: Ground,
  *			1 ~ DLG_TYPE_MAX - 1	: TDialog
- *			DLG_TYPE_MAX			: TARGETALL - Ç×»ó Ã³¸®
- *		-- CTCommand°¡ NullÀÏ°æ¿ì  CIcon::ExecuteCommandÀÌ ½ÇÇàµÈ´Ù
+ *			DLG_TYPE_MAX			: TARGETALL - í•­ìƒ ì²˜ë¦¬
+ *		-- CTCommandê°€ Nullì¼ê²½ìš°  CIcon::ExecuteCommandì´ ì‹¤í–‰ëœë‹¤
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/5
  */
 class CDragItem {
@@ -26,8 +26,8 @@ public:
     ~CDragItem(void);
 
     void AddTarget(int iTargetType,
-        CTCommand* pCmd); /// µå¶øÇÒ¼ö ÀÖ´Â Target°ú Target¿¡ µå¶ø½Ã ½ÇÇàÇÒ CTCommand
-    void SetIcon(CIcon* pIcon); /// µå·¡±×ÇÒ CIconÀÇ Clone
+        CTCommand* pCmd); /// ë“œëí• ìˆ˜ ìˆëŠ” Targetê³¼ Targetì— ë“œëì‹œ ì‹¤í–‰í•  CTCommand
+    void SetIcon(CIcon* pIcon); /// ë“œë˜ê·¸í•  CIconì˜ Clone
 
     CIcon* GetIcon();
     const std::map<int, CTCommand*>& GetTargets();

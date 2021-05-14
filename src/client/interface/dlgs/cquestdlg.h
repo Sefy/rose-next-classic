@@ -13,10 +13,10 @@
     #include "CUserData.h"
 class CQuestListItem;
 /**
- * Quest Á¤º¸¸¦ º¸¿©ÁÖ´Â ´ÙÀÌ¾ó·Î±×
+ * Quest ì •ë³´ë¥¼ ë³´ì—¬ì£¼ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Warning		NPC ´ëÈ­Ã¢ÀÌ ¿­·ÁÀÖ´Â µ¿¾È¿¡´Â Æ÷±â¸¦ ÇÒ¼ö ¾øµµ·Ï Æ÷±â ¹öÆ°À» Disable½ÃÄÑ¾ßÇÑ´Ù.
- * @Author		ÃÖÁ¾Áø
+ * @Warning		NPC ëŒ€í™”ì°½ì´ ì—´ë ¤ìˆëŠ” ë™ì•ˆì—ëŠ” í¬ê¸°ë¥¼ í• ìˆ˜ ì—†ë„ë¡ í¬ê¸° ë²„íŠ¼ì„ Disableì‹œì¼œì•¼í•œë‹¤.
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/14
  */
 class CQuestDlg: public CTDialog {
@@ -31,11 +31,11 @@ public:
     virtual void Hide();
     virtual void MoveWindow(POINT pt);
 
-    void UpdateQuestList(); /// ÇöÀç ¼öÇàÁßÀÎ Äù½ºÆ® ¸ñ·Ï °»½Å
+    void UpdateQuestList(); /// í˜„ì¬ ìˆ˜í–‰ì¤‘ì¸ í€˜ìŠ¤íŠ¸ ëª©ë¡ ê°±ì‹ 
 
     enum {
 
-        IID_BTN_ABANDON = 50, /// Äù½ºÆ® Æ÷±â ¹öÆ°
+        IID_BTN_ABANDON = 50, /// í€˜ìŠ¤íŠ¸ í¬ê¸° ë²„íŠ¼
         IID_BTN_CLOSE = 10,
         IID_BTN_ICONIZE = 11,
         IID_BTN_MINIMIZE = 113,
@@ -55,25 +55,25 @@ protected:
     bool On_LButtonUP(unsigned ID);
     bool On_LButtonDN(unsigned ID);
 
-    void DrawItems(); /// ÇØ´ç Äù½ºÆ®¿ë ¾ÆÀÌÅÛ Draw
-    void UpdateQuestDescription(); /// ¼±ÅÃµÈ Äù½ºÆ®ÀÇ ¼³¸í °»½Å
+    void DrawItems(); /// í•´ë‹¹ í€˜ìŠ¤íŠ¸ìš© ì•„ì´í…œ Draw
+    void UpdateQuestDescription(); /// ì„ íƒëœ í€˜ìŠ¤íŠ¸ì˜ ì„¤ëª… ê°±ì‹ 
     int GetSelectQuestIdx();
 
-    void Minimize(); /// ÃÖ¼ÒÈ­
-    void Maximize(); /// ÃÖ´ëÈ­
+    void Minimize(); /// ìµœì†Œí™”
+    void Maximize(); /// ìµœëŒ€í™”
     void ActiveListBoxMoveBegin();
 
     CWinCtrl* FindChildInPane(unsigned uiPaneID, unsigned uiChildID);
 
 protected:
-    ///¸®½ºÆ® ¹Ú½ºÀÇ ¼ø¼­¿¡ Quest Slot Idx¸¦ ³Ö¾îµĞ´Ù.:
-    /// CUserDATA¿¡¼­ Quest SlotÀº ¾Õ¿¡ °ÍÀÌ Áö¿öÁ®µµ ±× µÚ¿¡ °ÍÀº ±× ½½·Ô¿¡ ÀÖ´Â´Ù.
+    ///ë¦¬ìŠ¤íŠ¸ ë°•ìŠ¤ì˜ ìˆœì„œì— Quest Slot Idxë¥¼ ë„£ì–´ë‘”ë‹¤.:
+    /// CUserDATAì—ì„œ Quest Slotì€ ì•ì— ê²ƒì´ ì§€ì›Œì ¸ë„ ê·¸ ë’¤ì— ê²ƒì€ ê·¸ ìŠ¬ë¡¯ì— ìˆëŠ”ë‹¤.
 
     int m_iList2QuestIdx[QUEST_PER_PLAYER];
-    CQuestListItem* m_pSelectedQuestItem; /// ¼±ÅÃµÈ Äù½ºÆ®¾ÆÀÌÅÛ¿¡ ´ëÇÑ Æ÷ÀÎÅÍ
+    CQuestListItem* m_pSelectedQuestItem; /// ì„ íƒëœ í€˜ìŠ¤íŠ¸ì•„ì´í…œì— ëŒ€í•œ í¬ì¸í„°
 
-    int m_iPrevSelectedQuestID; /// ÀÌÀü¿¡ ¼±ÅÃµÇ¾ú´ø Äù½ºÆ® ÀÎµ¦½º
-    bool m_bMinimize; /// ÃÖ¼Ò or ÃÖ´ë
+    int m_iPrevSelectedQuestID; /// ì´ì „ì— ì„ íƒë˜ì—ˆë˜ í€˜ìŠ¤íŠ¸ ì¸ë±ìŠ¤
+    bool m_bMinimize; /// ìµœì†Œ or ìµœëŒ€
 };
 
 #endif // !defined(AFX_CQUESTDLG_H__98E8A820_E90F_4103_91BE_1D58E5862D0D__INCLUDED_)

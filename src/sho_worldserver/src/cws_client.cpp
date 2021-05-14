@@ -55,7 +55,7 @@ CWS_Client::Send_wsv_MOVE_SERVER(short nZoneNO) {
     this->m_btChannelNO = this->m_pAccount->m_btChannelNO;
     CWS_Server* pServer = g_pListSERVER->Get_ChannelSERVER(this->m_btChannelNO);
     if (NULL == pServer) {
-        // TODO:: Ã¤³Î ¼­¹ö°¡ µ¿ÀÛ ¾ÈÇÏ°í ÀÖ´Ù´Â ¸Þ¼¼Áö Àü¼Û...
+        // TODO:: ì±„ë„ ì„œë²„ê°€ ë™ìž‘ ì•ˆí•˜ê³  ìžˆë‹¤ëŠ” ë©”ì„¸ì§€ ì „ì†¡...
         g_LOG.CS_ODS(0xffff,
             "invalid CHANNEL[ %d ]: %d, %s \n",
             this->m_btChannelNO,
@@ -224,7 +224,7 @@ CWS_Client::Recv_cli_MCMD_APPEND_REQ(t_PACKET* pPacket) {
     if (NULL == pDestUSER)
         return this->Send_tag_MCMD_HEADER(MSGR_CMD_NOT_FOUND, szName);
 
-    if (this == pDestUSER) { // ÀÚ½ÅÀÌ ÀÚ½ÅÀ» Ãß°¡...
+    if (this == pDestUSER) { // ìžì‹ ì´ ìžì‹ ì„ ì¶”ê°€...
         return true;
     }
 
@@ -245,10 +245,10 @@ CWS_Client::Recv_cli_MCMD_APPEND_REQ(t_PACKET* pPacket) {
 bool
 CWS_Client::Recv_cli_MESSENGER(t_PACKET* pPacket) {
     switch (pPacket->m_tag_MCMD_HEADER.m_btCMD) {
-        case MSGR_CMD_APPEND_REQ: // »ó´ë¹æ¿¡ ¿äÃ»
+        case MSGR_CMD_APPEND_REQ: // ìƒëŒ€ë°©ì— ìš”ì²­
             return this->Recv_cli_MCMD_APPEND_REQ(pPacket);
 
-        case MSGR_CMD_APPEND_REJECT: // °ÅºÎ
+        case MSGR_CMD_APPEND_REJECT: // ê±°ë¶€
         {
             classUSER* pDestUSER =
                 (classUSER*)g_pUserLIST->GetSOCKET(pPacket->m_cli_MCMD_APPEND_REPLY.m_wUserIDX);
@@ -261,7 +261,7 @@ CWS_Client::Recv_cli_MESSENGER(t_PACKET* pPacket) {
             return true;
         }
 
-        case MSGR_CMD_APPEND_ACCEPT: // ½Ö¹æ¿¡ Ãß°¡..
+        case MSGR_CMD_APPEND_ACCEPT: // ìŒë°©ì— ì¶”ê°€..
             g_pThreadMSGR->Add_MessengerCMD(this->Get_NAME(),
                 MSGR_CMD_APPEND_ACCEPT,
                 pPacket,
@@ -386,7 +386,7 @@ CWS_Client::GuildCMD(char* szCMD) {
     classPACKET pCPacket = classPACKET();
 
     if (!_strcmpi(pArg1,
-            "invite")) { //±æµåÃÊ´ë, /ginvite <ÇÃ·¹ÀÌ¾î> - ±æµå¿¡ ÇØ´ç ÇÃ·¹ÀÌ¾î ÃÊ´ëÇÏ±â
+            "invite")) { //ê¸¸ë“œì´ˆëŒ€, /ginvite <í”Œë ˆì´ì–´> - ê¸¸ë“œì— í•´ë‹¹ í”Œë ˆì´ì–´ ì´ˆëŒ€í•˜ê¸°
         pArg2 = pStrVAR->GetTokenNext(pDelimiters);
         if (pArg2) {
             pCPacket.m_HEADER.m_wType = CLI_CLAN_COMMAND;
@@ -397,7 +397,7 @@ CWS_Client::GuildCMD(char* szCMD) {
             this->Recv_cli_CLAN_COMMAND((t_PACKET*)(pCPacket.m_pDATA));
         }
     } else if (!_strcmpi(pArg1,
-                   "remove")) { //±æµåÃß¹æ, /gremove <ÇÃ·¹ÀÌ¾î> - ±æµå¿¡¼­ ÇØ´ç ÇÃ·¹ÀÌ¾î Ãß¹æÇÏ±â
+                   "remove")) { //ê¸¸ë“œì¶”ë°©, /gremove <í”Œë ˆì´ì–´> - ê¸¸ë“œì—ì„œ í•´ë‹¹ í”Œë ˆì´ì–´ ì¶”ë°©í•˜ê¸°
         pArg2 = pStrVAR->GetTokenNext(pDelimiters);
         if (pArg2) {
             pCPacket.m_HEADER.m_wType = CLI_CLAN_COMMAND;
@@ -408,7 +408,7 @@ CWS_Client::GuildCMD(char* szCMD) {
             this->Recv_cli_CLAN_COMMAND((t_PACKET*)(pCPacket.m_pDATA));
         }
     } else if (!_strcmpi(pArg1,
-                   "promote")) { //±æµå½Â±Þ, /gpromote <ÇÃ·¹ÀÌ¾î> - ÇØ´ç ÇÃ·¹ÀÌ¾î ±æµå µî±Þ ¿Ã¸®±â
+                   "promote")) { //ê¸¸ë“œìŠ¹ê¸‰, /gpromote <í”Œë ˆì´ì–´> - í•´ë‹¹ í”Œë ˆì´ì–´ ê¸¸ë“œ ë“±ê¸‰ ì˜¬ë¦¬ê¸°
         pArg2 = pStrVAR->GetTokenNext(pDelimiters);
         if (pArg2) {
             pCPacket.m_HEADER.m_wType = CLI_CLAN_COMMAND;
@@ -419,7 +419,7 @@ CWS_Client::GuildCMD(char* szCMD) {
             this->Recv_cli_CLAN_COMMAND((t_PACKET*)(pCPacket.m_pDATA));
         }
     } else if (!_strcmpi(pArg1,
-                   "demote")) { //±æµå°­µî, /gdemote <ÇÃ·¹ÀÌ¾î> - ÇØ´ç ÇÃ·¹ÀÌ¾î ±æµå µî±Þ ³»¸®±â
+                   "demote")) { //ê¸¸ë“œê°•ë“±, /gdemote <í”Œë ˆì´ì–´> - í•´ë‹¹ í”Œë ˆì´ì–´ ê¸¸ë“œ ë“±ê¸‰ ë‚´ë¦¬ê¸°
         pArg2 = pStrVAR->GetTokenNext(pDelimiters);
         if (pArg2) {
             pCPacket.m_HEADER.m_wType = CLI_CLAN_COMMAND;
@@ -439,7 +439,7 @@ CWS_Client::GuildCMD(char* szCMD) {
             pCPacket.AppendString(pArg2);
             this->Recv_cli_CLAN_COMMAND((t_PACKET*)(pCPacket.m_pDATA));
         }
-    } else if (!_strcmpi(pArg1, "motd")) { //±æµå°øÁö, /gmotd <ÇÒ¸»> - ¿À´ÃÀÇ ±æµå ¸Þ½ÃÁö Á¤ÇÏ±â
+    } else if (!_strcmpi(pArg1, "motd")) { //ê¸¸ë“œê³µì§€, /gmotd <í• ë§> - ì˜¤ëŠ˜ì˜ ê¸¸ë“œ ë©”ì‹œì§€ ì •í•˜ê¸°
         pArg2 = pStrVAR->GetTokenNext(pDelimiters);
         if (pArg2) {
             pCPacket.m_HEADER.m_wType = CLI_CLAN_COMMAND;
@@ -449,19 +449,19 @@ CWS_Client::GuildCMD(char* szCMD) {
             pCPacket.AppendString(pArg2);
             this->Recv_cli_CLAN_COMMAND((t_PACKET*)(pCPacket.m_pDATA));
         }
-    } else if (!_strcmpi(pArg1, "quit")) { //±æµåÅ»Åð, /gquit - ±æµå¿¡¼­ Å»ÅðÇÏ±â
+    } else if (!_strcmpi(pArg1, "quit")) { //ê¸¸ë“œíƒˆí‡´, /gquit - ê¸¸ë“œì—ì„œ íƒˆí‡´í•˜ê¸°
         pCPacket.m_HEADER.m_wType = CLI_CLAN_COMMAND;
         pCPacket.m_HEADER.m_nSize = sizeof(cli_CLAN_COMMAND);
         pCPacket.m_cli_CLAN_CREATE.m_btCMD = GCMD_QUIT;
         this->Recv_cli_CLAN_COMMAND((t_PACKET*)(pCPacket.m_pDATA));
-    } else if (!_strcmpi(pArg1, "roster")) { //±æµå¸ñ·Ï, /groster - ÀüÃ¼ ±æµå¿ø ¸ñ·Ï º¸±â
+    } else if (!_strcmpi(pArg1, "roster")) { //ê¸¸ë“œëª©ë¡, /groster - ì „ì²´ ê¸¸ë“œì› ëª©ë¡ ë³´ê¸°
         pCPacket.m_HEADER.m_wType = CLI_CLAN_COMMAND;
         pCPacket.m_HEADER.m_nSize = sizeof(cli_CLAN_COMMAND);
         pCPacket.m_cli_CLAN_CREATE.m_btCMD = GCMD_ROSTER;
 
         this->Recv_cli_CLAN_COMMAND((t_PACKET*)(pCPacket.m_pDATA));
-    } else if (!_strcmpi(pArg1, "leader")) { //±æµåÀ§ÀÓ, /gleader <ÇÃ·¹ÀÌ¾î> - ´Ù¸¥ ÇÃ·¹ÀÌ¾î¿¡°Ô
-                                             //±æµåÀå À§ÀÓÇÏ±â (±æµåÀå Àü¿ë)
+    } else if (!_strcmpi(pArg1, "leader")) { //ê¸¸ë“œìœ„ìž„, /gleader <í”Œë ˆì´ì–´> - ë‹¤ë¥¸ í”Œë ˆì´ì–´ì—ê²Œ
+                                             //ê¸¸ë“œìž¥ ìœ„ìž„í•˜ê¸° (ê¸¸ë“œìž¥ ì „ìš©)
         pArg2 = pStrVAR->GetTokenNext(pDelimiters);
         if (pArg2) {
             pCPacket.m_HEADER.m_wType = CLI_CLAN_COMMAND;
@@ -594,7 +594,7 @@ CWS_Client::HandlePACKET(t_PACKETHEADER* pPacket) {
 
         case CLI_LOGOUT_REQ:
             // Recv_cli_LOGOUT_REQ( pPacket );
-            // Â©¸®µµ·Ï..
+            // ì§¤ë¦¬ë„ë¡..
             return false;
         case CLI_JOIN_SERVER_REQ:
             if (this->m_HashCHAR)
@@ -613,7 +613,7 @@ CWS_Client::HandlePACKET(t_PACKETHEADER* pPacket) {
             return g_pThreadSQL->Add_SqlPacketWithACCOUNT(this, (t_PACKET*)pPacket);
 
         case CLI_JOIN_ZONE:
-            // ÀÌ ÆÐÅ¶À» ¹ÞÀº ÀÌÈÄ¿¡´Â °ÔÀÓ ÇÃ·¹ÀÌ¿ë ÆÐÅ¶ÀÌ´Ù...
+            // ì´ íŒ¨í‚·ì„ ë°›ì€ ì´í›„ì—ëŠ” ê²Œìž„ í”Œë ˆì´ìš© íŒ¨í‚·ì´ë‹¤...
             return Recv_cli_JOIN_ZONE((t_PACKET*)pPacket);
 
         case CLI_CHATROOM: {
@@ -637,7 +637,7 @@ CWS_Client::HandlePACKET(t_PACKETHEADER* pPacket) {
             return g_pChatROOMs->Recv_cli_CHATROOM_MSG(this, (t_PACKET*)pPacket);
         }
 
-        case CLI_MEMO: // ÂÊÁö º¸³»ÀÚ...
+        case CLI_MEMO: // ìª½ì§€ ë³´ë‚´ìž...
         {
             if (!(this->m_dwPayFLAG & PLAY_FLAG_COMMUNITY))
                 return true;
@@ -721,17 +721,17 @@ CWS_ListCLIENT::ClosedClientSOCKET(iocpSOCKET* pSOCKET) {
     }
 
     this->FreeClientSOCKET(pSOCKET);
-    // ¼ÒÄÏÀÌ »èÁ¦µÆ´Ù.. ¾Ë¾Æ¼­ ¸Þ¸ð¸® ÇØÁ¦ÇÒ°Í...
+    // ì†Œì¼“ì´ ì‚­ì œëë‹¤.. ì•Œì•„ì„œ ë©”ëª¨ë¦¬ í•´ì œí• ê²ƒ...
 }
 
 //-------------------------------------------------------------------------------------------------
 bool
 CWS_ListCLIENT::SendPacketToSocketIDX(int iClientSocketIDX, const classPACKET& pCPacket) {
-    // ¹Ýµå½Ã pCPacketÀº 1 À¯Àú¿¡°Ô º¸³»´Â ÆÐÅ¶ÀÌ¾î¾ß ÇÑ´Ù.
+    // ë°˜ë“œì‹œ pCPacketì€ 1 ìœ ì €ì—ê²Œ ë³´ë‚´ëŠ” íŒ¨í‚·ì´ì–´ì•¼ í•œë‹¤.
     CWS_Client* pFindUSER = (CWS_Client*)this->GetSOCKET(iClientSocketIDX);
     if (pFindUSER) {
         if (!pFindUSER->SendPacket(pCPacket)) {
-            // º¸³»±â ½ÇÆÐ...
+            // ë³´ë‚´ê¸° ì‹¤íŒ¨...
         }
 
         return true;
@@ -775,7 +775,7 @@ bool
 CWS_ListCLIENT::Add_ACCOUNT(int iSocketIDX, t_PACKET* pRecvPket, char* szAccount) {
     CWS_Client* pUSER = (CWS_Client*)this->GetSOCKET(iSocketIDX);
     if (NULL == pUSER) {
-        // ±×»õ Á¢¼ÓÀÌ ²÷°å´Â°¡ ???
+        // ê·¸ìƒˆ ì ‘ì†ì´ ëŠê²¼ëŠ”ê°€ ???
         g_pSockLSV->Send_zws_SUB_ACCOUNT(pRecvPket->m_wls_CONFIRM_ACCOUNT_REPLY.m_dwLSID,
             szAccount);
         return false;
@@ -786,9 +786,9 @@ CWS_ListCLIENT::Add_ACCOUNT(int iSocketIDX, t_PACKET* pRecvPket, char* szAccount
         t_HASHKEY HashACCOUNT;
         HashACCOUNT = CStr::GetHASH(szAccount);
         if (Check_DupACCOUNT(szAccount, HashACCOUNT)) {
-            // ·Î±×ÀÎ ¼­¹ö°¡ È¤½Ã »»¾úÀ» °æ¿ì...Áßº¹ Á¢¼ÓÀ» ·Î±×ÀÎ¼­¹ö°¡ ¸·Áö ¸øÇÒ°æ¿ì¸¦ ´ëºñÇØ¼­
-            // ¿ùµå¿¡¼­ Áßº¹ Á¢¼ÓÀ» È®ÀÎ... ¾ÆÀÌÅÛ º¹»ç°¡ ÀÏ¾î ³¯¼ö ÀÖ±â¶§¹®¿¡...
-            // ´Ù¸¥ ¿ùµå·Î Á¢¼ÓÇÒ°æ¿ì´Â ????.
+            // ë¡œê·¸ì¸ ì„œë²„ê°€ í˜¹ì‹œ ë»£ì—ˆì„ ê²½ìš°...ì¤‘ë³µ ì ‘ì†ì„ ë¡œê·¸ì¸ì„œë²„ê°€ ë§‰ì§€ ëª»í• ê²½ìš°ë¥¼ ëŒ€ë¹„í•´ì„œ
+            // ì›”ë“œì—ì„œ ì¤‘ë³µ ì ‘ì†ì„ í™•ì¸... ì•„ì´í…œ ë³µì‚¬ê°€ ì¼ì–´ ë‚ ìˆ˜ ìžˆê¸°ë•Œë¬¸ì—...
+            // ë‹¤ë¥¸ ì›”ë“œë¡œ ì ‘ì†í• ê²½ìš°ëŠ” ????.
             g_pSockLSV->Send_zws_SUB_ACCOUNT(pRecvPket->m_wls_CONFIRM_ACCOUNT_REPLY.m_dwLSID,
                 szAccount);
             return pUSER->Send_srv_JOIN_SERVER_REPLY(RESULT_CONFIRM_ACCOUNT_ALREADY_LOGGEDIN,
@@ -854,8 +854,8 @@ CWS_ListCLIENT::Del_ACCOUNT(char* szAccount, BYTE btDelLoginBIT, CWS_Server* pCl
                 }
 
                 switch (pAccount->Sub_LoginBIT(btDelLoginBIT)) {
-                    case BIT_LOGIN_WS: // Ã¤³Î ¼­¹ö¿¡¼­ °èÁ¤ÀÌ »èÁ¦µÆ´Ù - ÄÉ¸¯ÅÍ°¡ »èÁ¦µÆ´Ù.
-                        // ¼ÒÄÏ Á¾·á...
+                    case BIT_LOGIN_WS: // ì±„ë„ ì„œë²„ì—ì„œ ê³„ì •ì´ ì‚­ì œëë‹¤ - ì¼€ë¦­í„°ê°€ ì‚­ì œëë‹¤.
+                        // ì†Œì¼“ ì¢…ë£Œ...
                         if (pAccount->m_pCLIENT) {
                             pAccount->m_pCLIENT->CloseSocket();
                             CWS_Server* pCServer;
@@ -878,24 +878,24 @@ CWS_ListCLIENT::Del_ACCOUNT(char* szAccount, BYTE btDelLoginBIT, CWS_Server* pCl
                         btRamainBIT = BIT_LOGIN_WS;
                         break;
 
-                    case BIT_LOGIN_GS: // ¼ÒÄÏÀÌ Á¾·áµÆ´Ù.
+                    case BIT_LOGIN_GS: // ì†Œì¼“ì´ ì¢…ë£Œëë‹¤.
                     {
-                        // Ã¤³Î ¼­¹ö¿¡ °èÁ¤ »èÁ¦ Åëº¸...
+                        // ì±„ë„ ì„œë²„ì— ê³„ì • ì‚­ì œ í†µë³´...
                         CWS_Server* pCServer =
                             g_pListSERVER->Get_ChannelSERVER(pAccount->m_btChannelNO);
                         if (pCServer) {
                             pCServer->Send_str_PACKET(WLS_KICK_ACCOUNT,
-                                szAccount); // GS¿¡ °èÁ¤ »èÁ¦ÇÏ¶ó°í Åëº¸....
+                                szAccount); // GSì— ê³„ì • ì‚­ì œí•˜ë¼ê³  í†µë³´....
                             pCServer->SubChannelCLIENT(pAccount->m_pCLIENT);
                             pAccount->m_pCLIENT = NULL;
-                            // ¿©±â¼­ ¸®ÅÏµÇ¸é pAccount->m_pCLIENT´Â ¸Þ¸ð¸®°¡ ÇØÁ¦µÈ´Ù.
+                            // ì—¬ê¸°ì„œ ë¦¬í„´ë˜ë©´ pAccount->m_pCLIENTëŠ” ë©”ëª¨ë¦¬ê°€ í•´ì œëœë‹¤.
                             btRamainBIT = BIT_LOGIN_GS;
                             break;
                         }
-                        // Ã¤³Î ¼­¹ö°¡ ¾ø¾î Á³´Ù...	°èÁ¤ ¹Ù·Î »èÁ¦...
+                        // ì±„ë„ ì„œë²„ê°€ ì—†ì–´ ì¡Œë‹¤...	ê³„ì • ë°”ë¡œ ì‚­ì œ...
                     }
 
-                    case 0: // °èÁ¤ »èÁ¦...
+                    case 0: // ê³„ì • ì‚­ì œ...
                         if (!m_pHashACCOUNT->Delete(HashKEY, pAccount))
                             g_LOG.CS_ODS(0xffff,
                                 "ERROR *** Sub_ACCOUNT( %s ) not found, AccountCNT:%d \n",
@@ -910,7 +910,7 @@ CWS_ListCLIENT::Del_ACCOUNT(char* szAccount, BYTE btDelLoginBIT, CWS_Server* pCl
                         }
 
                         g_pSockLSV->Send_zws_SUB_ACCOUNT(pAccount->m_dwLSID,
-                            pAccount->Get_ACCOUNT()); // LS¿¡ »èÁ¦ Àü¼Û.
+                            pAccount->Get_ACCOUNT()); // LSì— ì‚­ì œ ì „ì†¡.
 
                         SAFE_DELETE(pAccount);
                         btRamainBIT = 0;
@@ -925,8 +925,8 @@ CWS_ListCLIENT::Del_ACCOUNT(char* szAccount, BYTE btDelLoginBIT, CWS_Server* pCl
             pAccount = pHashNode ? pHashNode->m_DATA : NULL;
         }
 
-        // ·Î±×ÀÎ ¼­¹ö¿¡ »èÁ¦ ¿äÃ»ÇÑ °èÁ¤ÀÎµ¥...¾øÀ»°æ¿ì...
-        g_pSockLSV->Send_zws_SUB_ACCOUNT(0, szAccount); // LS¿¡ »èÁ¦ Àü¼Û.
+        // ë¡œê·¸ì¸ ì„œë²„ì— ì‚­ì œ ìš”ì²­í•œ ê³„ì •ì¸ë°...ì—†ì„ê²½ìš°...
+        g_pSockLSV->Send_zws_SUB_ACCOUNT(0, szAccount); // LSì— ì‚­ì œ ì „ì†¡.
     }
     m_csHashACCOUNT.Unlock();
 
@@ -943,7 +943,7 @@ CWS_ListCLIENT::Check_DupACCOUNT(char* szAccount, t_HASHKEY HashKEY) {
         pHashNode = m_pHashACCOUNT->Search(HashKEY);
         while (pHashNode) {
             if (!_strcmpi(szAccount, pHashNode->m_DATA->Get_ACCOUNT())) {
-                // Find !!! Â©¶ó¶ù !!!
+                // Find !!! ì§¤ë¼ëž !!!
                 m_csHashACCOUNT.Unlock();
                 if (pHashNode->m_DATA->m_pCLIENT) {
                     pHashNode->m_DATA->m_pCLIENT->CloseSocket();
@@ -1006,7 +1006,7 @@ void
 CWS_ListCLIENT::Del_CHAR(CWS_Client* pCLIENT) {
     g_pChatROOMs->LeftUSER(pCLIENT);
 
-    // µ¿½ÃÁ¢±Ù ºÒ°¡ ÇÔ¼ö !!!!
+    // ë™ì‹œì ‘ê·¼ ë¶ˆê°€ í•¨ìˆ˜ !!!!
     m_csHashCHAR.Lock();
     if (0 == pCLIENT->m_HashCHAR) {
         m_csHashCHAR.Unlock();
@@ -1092,7 +1092,7 @@ CWS_ListCLIENT::Send_wls_ACCOUNT_LIST() {
 }
 
 //-------------------------------------------------------------------------------------------------
-#define SOCKET_KEEP_ALIVE_TIME (5 * 60 * 1000) // 5ºÐ
+#define SOCKET_KEEP_ALIVE_TIME (5 * 60 * 1000) // 5ë¶„
 void
 CWS_ListCLIENT::Check_SocketALIVE() {
     classPACKET pCPacket = classPACKET();
@@ -1109,10 +1109,10 @@ CWS_ListCLIENT::Check_SocketALIVE() {
         pAccNODE = m_pHashACCOUNT->GetEntryNode(iL);
         while (pAccNODE) {
             if (pAccNODE->m_DATA && pAccNODE->m_DATA->m_pCLIENT) {
-                // ¸¶Áö¸·À¸·Î ÆÐÅ¶À» º¸³½ÈÄ 30ÃÊ°¡ ³Ñ¾úÀ¸¸é...
+                // ë§ˆì§€ë§‰ìœ¼ë¡œ íŒ¨í‚·ì„ ë³´ë‚¸í›„ 30ì´ˆê°€ ë„˜ì—ˆìœ¼ë©´...
                 if (dwCurTIME - pAccNODE->m_DATA->m_pCLIENT->Get_CheckTIME() >= 30 * 1000) {
                     pAccNODE->m_DATA->m_pCLIENT->SendPacket(pCPacket);
-                    // 5ºÐµ¿¾È ¾Ï°Íµµ º¸³»Áö ¸øÇßÀ¸¸é... Â©·¯~~~~
+                    // 5ë¶„ë™ì•ˆ ì•”ê²ƒë„ ë³´ë‚´ì§€ ëª»í–ˆìœ¼ë©´... ì§¤ëŸ¬~~~~
                     if (dwCurTIME - SOCKET_KEEP_ALIVE_TIME
                         > pAccNODE->m_DATA->m_pCLIENT->Get_CheckTIME())
                         pAccNODE->m_DATA->m_pCLIENT->CloseSocket();

@@ -22,7 +22,7 @@ CLS_Account::~CLS_Account() {
 void
 CLS_Account::Init() {
     m_pWorldServer = NULL;
-    m_HashACCOUNT = 0; // CLS_Account() »ı¼ºÀÚ
+    m_HashACCOUNT = 0; // CLS_Account() ìƒì„±ì
     m_dwRIGHT = 0;
     m_dwDisconnectTryTIME = 0;
     m_dwPayFLAG = 0;
@@ -61,7 +61,7 @@ CLS_AccountLIST::Insert_ACCOUNT(CLS_Account* pCAccount, CLS_Server* pWorldServer
             if (pCAccount->m_HashACCOUNT) {
                 bRet = m_pHTAcnt->Insert(pCAccount->m_HashACCOUNT, pCAccount);
                 if (!bRet) {
-                    // false¸é ¸Ş¸ğ¸®°¡ ¾ø´Ù´Â°Í...
+                    // falseë©´ ë©”ëª¨ë¦¬ê°€ ì—†ë‹¤ëŠ”ê²ƒ...
                     m_pHTLSID->Delete(pCAccount->m_dwLSID, pCAccount);
                 }
             }
@@ -116,7 +116,7 @@ CLS_AccountLIST::Search_ACCOUNT(char* szAccount) {
     return pCAccount;
 }
 
-// ¿ùµå ¼­¹ö¿¡¼­ ÄÁÆß¿äÃ»½Ã Wait list ¤¤¿¡¼­ »èÁ¦µÉ¶§ È£Ãâ...
+// ì›”ë“œ ì„œë²„ì—ì„œ ì»¨íŒìš”ì²­ì‹œ Wait list ã„´ì—ì„œ ì‚­ì œë ë•Œ í˜¸ì¶œ...
 CLS_Account*
 CLS_AccountLIST::Remove_FromLIST(DWORD dwLSID) {
     CLS_Account* pCAccount;
@@ -125,8 +125,8 @@ CLS_AccountLIST::Remove_FromLIST(DWORD dwLSID) {
     {
         pCAccount = m_pHTLSID->Delete(dwLSID);
         if (pCAccount) {
-            // 2004. 9. 21 Account¸¦ Pool_Alloc() È£ÃâÈÄ ÃÊ±âÈ­°¡ ¾ø¾ú´Ù.. ¸ğ¸¥ ¸Ş¸ğ¸®Ç®ÀÌ ¼øÈ¯ÈÄ
-            // ASSERT°¡ °É·È´ø°ÍÀ¸·Î ÆÇ´Ü...
+            // 2004. 9. 21 Accountë¥¼ Pool_Alloc() í˜¸ì¶œí›„ ì´ˆê¸°í™”ê°€ ì—†ì—ˆë‹¤.. ëª¨ë¥¸ ë©”ëª¨ë¦¬í’€ì´ ìˆœí™˜í›„
+            // ASSERTê°€ ê±¸ë ¸ë˜ê²ƒìœ¼ë¡œ íŒë‹¨...
             _ASSERT(0 == pCAccount->m_HashACCOUNT);
             // m_pHTAcnt->Delete( pCAccount->m_HashACCOUNT, pCAccount );
             // LogString (LOG_NORMAL, "Remove[%s]: %d / %d :: %s\n", m_Name.Get(),
@@ -139,7 +139,7 @@ CLS_AccountLIST::Remove_FromLIST(DWORD dwLSID) {
     return pCAccount;
 }
 
-// login list¿¡¼­ »èÁ¦µÉ¶§ È£Ãâ..
+// login listì—ì„œ ì‚­ì œë ë•Œ í˜¸ì¶œ..
 void
 CLS_AccountLIST::Delete_ACCOUNT(CLS_Account* pCAccount) {
     if (pCAccount->m_HashACCOUNT) {
@@ -171,7 +171,7 @@ CLS_AccountLIST::Delete_ACCOUNT(CLS_Account* pCAccount) {
 }
 
 //-------------------------------------------------------------------------------------------------
-// waitlist¿¡¼­¸¸ È£ÃâµÊ,,, Á¤»óÀûÀ¸·Î ¿ùµå ¼­¹ö·Î ÀÌµ¿µÇÁö ¾ÊÀº °èÁ¤µé...
+// waitlistì—ì„œë§Œ í˜¸ì¶œë¨,,, ì •ìƒì ìœ¼ë¡œ ì›”ë“œ ì„œë²„ë¡œ ì´ë™ë˜ì§€ ì•Šì€ ê³„ì •ë“¤...
 void
 CLS_AccountLIST::Delete_IdleACCOUNT(int iTimeOutSecond) {
     DWORD dwCurTIME = classTIME::GetCurrentAbsSecond();

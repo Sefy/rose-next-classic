@@ -3,7 +3,7 @@
 #include "tgamectrl/winctrl.h"
 
 //*----------------------------------------------------------------------------------/
-/// Á¸ ÁøÀÔ½Ã È¤Àº Äù½ºÆ® ½ÃÀÛ, Á¾·á½Ã È­¸é¿¡ Ç¥½ÃÇÏ´Â Class
+/// ì¡´ ì§„ì…ì‹œ í˜¹ì€ í€˜ìŠ¤íŠ¸ ì‹œì‘, ì¢…ë£Œì‹œ í™”ë©´ì— í‘œì‹œí•˜ëŠ” Class
 //*----------------------------------------------------------------------------------/
 class CIndicate: public CWinCtrl {
 public:
@@ -23,11 +23,11 @@ protected:
     std::string m_strSubTitle;
     std::list<string> m_Descriptions;
 
-    DWORD m_dwShowTime; ///º¸ÀÌ±â ½ÃÀÛÇÑ ½Ã°£
-    DWORD m_dwDisplayTime; ///º¸¿©ÁÙ ½Ã°£
+    DWORD m_dwShowTime; ///ë³´ì´ê¸° ì‹œì‘í•œ ì‹œê°„
+    DWORD m_dwDisplayTime; ///ë³´ì—¬ì¤„ ì‹œê°„
 
-    int m_iLineSpace; ///¼³¸í¿¡¼­ ¶óÀÎ°£°İ
-    int m_iLineHeight; ///¼³¸í¿¡¼­ ÇÑ¶óÀÎÀÇ ³ôÀÌ
+    int m_iLineSpace; ///ì„¤ëª…ì—ì„œ ë¼ì¸ê°„ê²©
+    int m_iLineHeight; ///ì„¤ëª…ì—ì„œ í•œë¼ì¸ì˜ ë†’ì´
     int m_iTitleHeight;
 };
 #endif

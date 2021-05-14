@@ -8,7 +8,7 @@
  */
 class CLibCrc {
 public:
-    // Crc °ªÀ» Á¶»çÇÑ´Ù
+    // Crc ê°’ì„ ì¡°ì‚¬í•œë‹¤
     static DWORD GetIcarusCrc(const unsigned char* pbtData, int iLength);
 };
 

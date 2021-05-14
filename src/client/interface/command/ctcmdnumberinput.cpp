@@ -28,7 +28,7 @@
 
 #include "../System/CGame.h"
 
-const __int64 MAX_TRADE_MONEY = 1000000000; ///±³È¯½Ã ÃÖ´ë °Å·¡ µ·
+const __int64 MAX_TRADE_MONEY = 1000000000; ///êµí™˜ì‹œ ìµœëŒ€ ê±°ëž˜ ëˆ
 
 /*----------------------------------------------------------------------------------------------------*/
 bool
@@ -181,7 +181,7 @@ CTCmdRemoveMyItemFromExchange::Exec(CTObject* pObj) {
     return true;
 }
 /*-----------------------------------------------------------------------------------------------*/
-/// °èÁ¤Ã¢°í °ü·Ã
+/// ê³„ì •ì°½ê³  ê´€ë ¨
 bool
 CTCmdMoveItemInv2Bank::Exec(CTObject* pObj) {
     if (pObj == NULL) {
@@ -198,7 +198,7 @@ CTCmdMoveItemInv2Bank::Exec(CTObject* pObj) {
 
     tagITEM Item = pItem->GetItem();
 
-    /// º¸°ü °¡´ÉÇÑ ¾ÆÀÌÅÛÀÎ°¡?
+    /// ë³´ê´€ ê°€ëŠ¥í•œ ì•„ì´í…œì¸ê°€?
     if (!Item.IsEnableKEEPING()) {
         g_itMGR.OpenMsgBox(STR_BANK_CANT_STORE_ITEM);
         return true;
@@ -220,7 +220,7 @@ CTCmdMoveItemInv2Bank::Exec(CTObject* pObj) {
         }
     }
 
-    if (bPlatinum) ///ÀÏº»ÀÌ ¾Æ´Ñ°æ¿ì ÇÃ·¡Æ¼³Ñ ÅÇÀº ÇÃ·¡Æ¼³Ñ »ç¿ëÀÚ¸¸ ¹°°ÇÀ» ³ÖÀ»¼ö ÀÖ´Ù.
+    if (bPlatinum) ///ì¼ë³¸ì´ ì•„ë‹Œê²½ìš° í”Œëž˜í‹°ë„˜ íƒ­ì€ í”Œëž˜í‹°ë„˜ ì‚¬ìš©ìžë§Œ ë¬¼ê±´ì„ ë„£ì„ìˆ˜ ìžˆë‹¤.
     {
         if (CGame::GetInstance().GetPayType() != CGame::PAY_PLATINUM) {
             g_itMGR.OpenMsgBox(STR_ONLY_PLATINUM_TAB_BANK);
@@ -228,7 +228,7 @@ CTCmdMoveItemInv2Bank::Exec(CTObject* pObj) {
         }
     }
 
-    /// ºó½½·ÔÀÌ ÀÖ´Â°¡?///ÇöÀç´Â ¸ðµÎ TrueÀÌ´Ù
+    /// ë¹ˆìŠ¬ë¡¯ì´ ìžˆëŠ”ê°€?///í˜„ìž¬ëŠ” ëª¨ë‘ Trueì´ë‹¤
     if (!CBank::GetInstance().HasEmptySlot(bPlatinum)) {
         g_itMGR.OpenMsgBox(STR_BANK_NOT_ENOUGH_SPACE);
         return true;
@@ -243,7 +243,7 @@ CTCmdMoveItemInv2Bank::Exec(CTObject* pObj) {
     int iStorageFee = CCal::Get_StorageFEE(ITEM_BASE_PRICE(Item.GetTYPE(), Item.GetItemNO()),
         ITEM_PRICE_RATE(Item.GetTYPE(), Item.GetItemNO()),
         iCount);
-    ///º¸°ü·á°¡ ÀÖ´Â°¡?
+    ///ë³´ê´€ë£Œê°€ ìžˆëŠ”ê°€?
     if (iStorageFee > g_pAVATAR->Get_MONEY()) {
         g_itMGR.OpenMsgBox(STR_BANK_NOT_ENOUGH_MONEY);
         return true;
@@ -294,7 +294,7 @@ CTCmdMoveItemBank2Inv::Exec(CTObject* pObj) {
 ///*-----------------------------------------------------------------------------------------------*/
 bool
 CTCmdAddItem2DealFromInventory::Exec(CTObject* pObj) {
-    /// pObj´Â IconÈ¤Àº ItemÀÌ ¿Ã¼ö ÀÖ´Ù.
+    /// pObjëŠ” Iconí˜¹ì€ Itemì´ ì˜¬ìˆ˜ ìžˆë‹¤.
     if (pObj == NULL) {
         assert(pObj && "pObj is NULL @CTCmdAddItem2DealFromInventory");
         return true;
@@ -354,7 +354,7 @@ CTCmdBuyItem::Exec(CTObject* pObj) {
     if (!g_itMGR.IsDlgOpened(DLG_TYPE_STORE))
         return true;
 
-    /// pObj´Â IconÈ¤Àº ItemÀÌ ¿Ã¼ö ÀÖ´Ù.
+    /// pObjëŠ” Iconí˜¹ì€ Itemì´ ì˜¬ìˆ˜ ìžˆë‹¤.
     if (pObj == NULL) {
         assert(pObj && "pObj is NULL @CTCmdSellItem");
         return true;
@@ -429,7 +429,7 @@ CTCmdSellItem::Exec(CTObject* pObj) {
     if (!g_itMGR.IsDlgOpened(DLG_TYPE_STORE))
         return true;
 
-    /// pObj´Â IconÈ¤Àº ItemÀÌ ¿Ã¼ö ÀÖ´Ù.
+    /// pObjëŠ” Iconí˜¹ì€ Itemì´ ì˜¬ìˆ˜ ìžˆë‹¤.
     if (pObj == NULL) {
         assert(pObj && "pObj is NULL @CTCmdSellItem");
         return true;
@@ -509,7 +509,7 @@ CTCmdBuyItemAtAvatarStore::Exec(CTObject* pObj) {
             g_itMGR.OpenMsgBox(STR_NOT_ENOUGH_INVENTORY_SPACE);
             return true;
         }
-        ///µ· Ã¼Å© ÇØÁÖÀÚ..
+        ///ëˆ ì²´í¬ í•´ì£¼ìž..
         __int64 i64RequireMoney = Item.m_SlotITEM.GetQuantity() * pItem->GetUnitPrice();
 
         if (g_pAVATAR->Get_MONEY() < i64RequireMoney) {

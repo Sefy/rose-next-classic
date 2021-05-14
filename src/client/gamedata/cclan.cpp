@@ -180,7 +180,7 @@ CClan::Clear() {
     m_iAlly3 = 0;
     m_strAlly3.clear();
     ClearMemberlist();
-    /// Observerµé¿¡°Ô ÇØ´ç Data»èÁ¦ÇÏµµ·Ï ¾Ë·ÁÁØ´Ù.
+    /// Observerë“¤ì—ê²Œ í•´ë‹¹ Dataì‚­ì œí•˜ë„ë¡ ì•Œë ¤ì¤€ë‹¤.
 }
 
 void

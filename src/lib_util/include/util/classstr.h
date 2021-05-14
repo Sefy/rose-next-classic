@@ -42,9 +42,9 @@ public:
     static int ParamCount(char* pStr);
     static char* ParamStr(char* pStr, int iIndex);
 
-    // ¹®ÀÚ¿­ ÆÄ½Ì.
-    // pStr :: ÆÄ½ÌÇÒ ¹®ÀÚ¿­
-    // pDelimiters :: ÅäÅ«À» ±¸ºĞÇÒ ¹®ÀÚµéÀÇ ¹è¿­, ex: char *pDelimiters = " .:,\t\n";
+    // ë¬¸ìì—´ íŒŒì‹±.
+    // pStr :: íŒŒì‹±í•  ë¬¸ìì—´
+    // pDelimiters :: í† í°ì„ êµ¬ë¶„í•  ë¬¸ìë“¤ì˜ ë°°ì—´, ex: char *pDelimiters = " .:,\t\n";
     static char* GetTokenFirst(char* pStr, char* pDelimiters);
     static char* GetTokenNext(char* pDelimiters);
 

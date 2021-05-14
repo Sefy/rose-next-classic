@@ -842,21 +842,21 @@ classCRC::DataCRC32(const void* pDATA, int iSize, bool bInitCRC) {
 }
 
 //-------------------------------------------------------------------------------------------------
-// CRC16À» °è»êÇÏ´Â ROUTINE
+// CRC16ì„ ê³„ì‚°í•˜ëŠ” ROUTINE
 /*
-½ÇÁ¦ »ç¿ë½Ã
+ì‹¤ì œ ì‚¬ìš©ì‹œ
 
-    ÇÁ·¹ÀÓ ±¸Á¶
+    í”„ë ˆì„ êµ¬ì¡°
 
     +-----------------------------------+----+----+
-    |  ½ÇÁ¦ µ¥ÀÌÅ¸                      |  CRC16  |
+    |  ì‹¤ì œ ë°ì´íƒ€                      |  CRC16  |
     +-----------------------------------+----+----+
 
     u_char		rxframe[1600];
     int			rxlen;
     u_short 	crc16;
 
-¼ö½Å½Ã:
+ìˆ˜ì‹ ì‹œ:
 
     rxlen = recvfrom(udp_sock,(char *)rxframe,sizeof(rxbuffer),0,(struct sockaddr
 *)&from,&sockaddr_len);
@@ -865,8 +865,8 @@ classCRC::DataCRC32(const void* pDATA, int iSize, bool bInitCRC) {
     if (crc16 == *((u_short*)&rxframe[rxlen-2])) return 1;  // CRC16 OK
 
 
-¼Û½Å½Ã:
-    txframe ¹æÀÇ Å©±â°¡ ÃæºĞÈ÷(2¹ÙÀÌÆ® Á¤µµ) Å¬°æ¿ì
+ì†¡ì‹ ì‹œ:
+    txframe ë°©ì˜ í¬ê¸°ê°€ ì¶©ë¶„íˆ(2ë°”ì´íŠ¸ ì •ë„) í´ê²½ìš°
 
     crc16 = calc_crc16(txframe,txlen);
     *((u_short*)txframe[txlen]) = crc16;

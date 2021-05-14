@@ -10,11 +10,11 @@
 class CObservable;
 class CDragItem;
 /**
- * ÀºÇà¿¡ »ç¿ëµÇ´Â ´ÙÀÌ¾ó·Î±×( ÀÎÅÍÆäÀÌ½º )
- *	- Observable : CBank( ÀºÇà Data Class )
+ * ì€í–‰ì— ì‚¬ìš©ë˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸( ì¸í„°í˜ì´ìŠ¤ )
+ *	- Observable : CBank( ì€í–‰ Data Class )
  *
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CBankDlg: public CTDialog, public IObserver {
@@ -32,12 +32,12 @@ public:
     virtual void Update(CObservable* pObservable, CTObject* pObj);
 
     int GetCurrentTab();
-    bool IsFullFirstTab(); /// ÇöÀç Ã¹¹øÂ° ÅÇÀÌ ²Ë Â÷ ÀÖ´Â°¡?
+    bool IsFullFirstTab(); /// í˜„ì¬ ì²«ë²ˆì§¸ íƒ­ì´ ê½‰ ì°¨ ìˆëŠ”ê°€?
 
     enum {
         IID_BTN_CLOSE = 20,
-        IID_BTN_SAVE = 21, ///ÁÙ¸® º¸°ü ¹öÆ°
-        IID_BTN_WITHDRAW = 22, ///ÁÙ¸® Ã£±â ¹öÆ°
+        IID_BTN_SAVE = 21, ///ì¤„ë¦¬ ë³´ê´€ ë²„íŠ¼
+        IID_BTN_WITHDRAW = 22, ///ì¤„ë¦¬ ì°¾ê¸° ë²„íŠ¼
         IID_RADIOBOX = 30,
         IID_BTN_TAB1 = 31,
         IID_BTN_TAB2 = 32,
@@ -51,7 +51,7 @@ private:
     void SetTabButtonText(int iID, char* szText);
 
 private:
-    int m_iCurrBankPage; /// ÇöÀç ÅÇ
+    int m_iCurrBankPage; /// í˜„ì¬ íƒ­
 
     CSlot m_Slots[g_iPageCount][g_iSlotCountPerPage];
     CDragItem* m_pDragItem;

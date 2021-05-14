@@ -20,10 +20,10 @@ class CTScrollBar;
 class ITFont;
 
 /**
- * ListBox Class : t_list_itemÀ» itemÀ¸·Î °¡Áú¼ö ÀÖ´Â ListBox
- *	- ScrollBar¸¦ ºÙÀÏ¼ö ÀÖµµ·Ï IScrollModelÀ» ImplementÇÑ´Ù.
+ * ListBox Class : t_list_itemì„ itemìœ¼ë¡œ ê°€ì§ˆìˆ˜ ìˆëŠ” ListBox
+ *	- ScrollBarë¥¼ ë¶™ì¼ìˆ˜ ìˆë„ë¡ IScrollModelì„ Implementí•œë‹¤.
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Date		2003/11/26
  */
@@ -43,7 +43,7 @@ public:
     virtual void Update(POINT ptMouse);
     virtual void Draw();
 
-    /// IScrollModel ±¸ÇöºÎ
+    /// IScrollModel êµ¬í˜„ë¶€
     virtual int GetValue();
     virtual int GetExtent();
     virtual int GetMaximum();
@@ -56,29 +56,29 @@ public:
 
     virtual RECT GetWindowRect();
     virtual bool IsLastItemDrawn();
-    ///ÅØ½ºÆ® Ãß°¡ »èÁ¦
+    ///í…ìŠ¤íŠ¸ ì¶”ê°€ ì‚­ì œ
     void AppendText(const char* szTxt, D3DCOLOR dwColor, bool bAutoIncValue = true);
     void SetText(int index, const char* text, D3DCOLOR dwColor);
     void DeleteText(int iLineNo);
     const char* GetText(int iLineNo);
     t_list_item GetItem(int iLineNo);
-    void ClearText(); ///¸ğµç ItemµéÀ» Áö¿î´Ù.
+    void ClearText(); ///ëª¨ë“  Itemë“¤ì„ ì§€ìš´ë‹¤.
     ///
     const li_item_vec& GetList() { return m_ITM; }
 
-    ///¾ÆÀÌÅÛ ¼±ÅÃ
+    ///ì•„ì´í…œ ì„ íƒ
     bool IsSelectable() { return m_bSelectable; }
     void SetSelectable(bool b) { m_bSelectable = b; }
     short GetSelectedItemID() { return m_iSelectedItem; }
     const char* GetSelectedItem();
     void SetSelectedItem(short i) { m_iSelectedItem = i; }
-    ///¶óÀÎ½ºÆäÀÌ½º ( Çà°£ )
+    ///ë¼ì¸ìŠ¤í˜ì´ìŠ¤ ( í–‰ê°„ )
     void SetLineSpace(short i) { m_iLineSpace = i; }
     short GetLineSpace() { return m_iLineSpace; }
     ///
     void SetMaxSize(int i) { m_iMaxSize = i; }
     int GetMaxSize() { return m_iMaxSize; }
-    ///ÆùÆ® Å©±â
+    ///í°íŠ¸ í¬ê¸°
     void SetCharHeight(short i) { m_iCharHeight = i; }
     short GetCharHeight() { return m_iCharHeight; }
 
@@ -88,20 +88,20 @@ public:
     void SetFont(int iFont);
 
 protected:
-    ///¸®½ºÆ®°¡ ¼±ÅÃ°¡´ÉÇÑ Å¸ÀÔÀÏ°æ¿ì ¸Ş¼¼Áö Ã³¸®ÇÏ´Â method
+    ///ë¦¬ìŠ¤íŠ¸ê°€ ì„ íƒê°€ëŠ¥í•œ íƒ€ì…ì¼ê²½ìš° ë©”ì„¸ì§€ ì²˜ë¦¬í•˜ëŠ” method
     bool ProcessSelectable(UINT uiMsg, WPARAM wParam, LPARAM lParam);
 
 protected:
-    li_item_vec m_ITM; ///¸®½ºÆ®¾ÆÀÌÅÛ
-    short m_nPutLnNum; ///ÇöÀç ÂïÀ» Ã¹¹øÂ° ¶óÀÎ¹øÈ£
-    short m_nMaxLnCnt; ///ÃÖ´ë ÂïÀ»¼ö ÀÖ´Â ¶óÀÎ¼ö
-    short m_nMaxPutChar; ///ÇÑ¶óÀÎ¿¡ÂïÀ»¼öÀÖ´Â ÃÖ´ë¹®ÀÚ¼ö
-    short m_iSelectedItem; ///¼±ÅÃµÈ ¾ÆÀÌÅÛ
-    bool m_bSelectable; ///¾ÆÀÌÅÛÀÌ ¼±ÅÃ°¡´ÉÇÑ°¡?
-    short m_iLineSpace; ///Çà°£
-    short m_iCharHeight; ///ÆùÆ® ³ôÀÌ
-    short m_iCharWidth; ///ÆùÆ® ³ĞÀÌ
-    int m_iMaxSize; ///¸®½ºÆ®¿¡ Ãß°¡µÉ¼ö ÀÖ´Â ¾ÆÀÌÅÛÀÇ ÃÖ´ë °¹¼ö
+    li_item_vec m_ITM; ///ë¦¬ìŠ¤íŠ¸ì•„ì´í…œ
+    short m_nPutLnNum; ///í˜„ì¬ ì°ì„ ì²«ë²ˆì§¸ ë¼ì¸ë²ˆí˜¸
+    short m_nMaxLnCnt; ///ìµœëŒ€ ì°ì„ìˆ˜ ìˆëŠ” ë¼ì¸ìˆ˜
+    short m_nMaxPutChar; ///í•œë¼ì¸ì—ì°ì„ìˆ˜ìˆëŠ” ìµœëŒ€ë¬¸ììˆ˜
+    short m_iSelectedItem; ///ì„ íƒëœ ì•„ì´í…œ
+    bool m_bSelectable; ///ì•„ì´í…œì´ ì„ íƒê°€ëŠ¥í•œê°€?
+    short m_iLineSpace; ///í–‰ê°„
+    short m_iCharHeight; ///í°íŠ¸ ë†’ì´
+    short m_iCharWidth; ///í°íŠ¸ ë„“ì´
+    int m_iMaxSize; ///ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€ë ìˆ˜ ìˆëŠ” ì•„ì´í…œì˜ ìµœëŒ€ ê°¯ìˆ˜
     ITFont* m_pFontMgr;
     int m_iFont;
 };

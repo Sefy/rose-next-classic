@@ -37,7 +37,7 @@ CClan::GetCurAbsSEC() {
 }
 
 //-------------------------------------------------------------------------------------------------
-// Å¬·£ ÇØÃ¼...
+// í´ëœ í•´ì²´...
 void
 CClan::Disband() {
     CWS_Client* pUSER;
@@ -49,10 +49,10 @@ CClan::Disband() {
             if (pNode->m_VALUE.m_iConnSockIDX) {
                 pUSER = (CWS_Client*)g_pUserLIST->GetSOCKET(pNode->m_VALUE.m_iConnSockIDX);
                 if (pUSER && pUSER->GetClanID() == this->m_dwClanID) {
-                    pUSER->ClanINIT(0); // Å¬·» »èÁ¦..
+                    pUSER->ClanINIT(0); // í´ë Œ ì‚­ì œ..
                     pUSER->Send_wsv_CLAN_COMMAND(RESULT_CLAN_DESTROYED, NULL);
 #ifdef __SHO_WS
-                    // GS¿¡ Åëº¸
+                    // GSì— í†µë³´
                     g_pListSERVER->Send_zws_DEL_USER_CLAN(pUSER);
 #endif
                 }
@@ -92,7 +92,7 @@ CClan::Send_MemberSTATUS(CClanUSER* pClanUser, BYTE btResult) {
     return true;
 }
 //-------------------------------------------------------------------------------------------------
-// Å¬·£ À¯Àú°¡ ·Î±×ÀÎ Çß´Ù.
+// í´ëœ ìœ ì €ê°€ ë¡œê·¸ì¸ í–ˆë‹¤.
 bool
 CClan::LogIn_ClanUSER(char* szCharName, int iSenderSockIDX, int iContribute) {
     t_HASHKEY HashName = ::StrToHashKey(szCharName);
@@ -107,13 +107,13 @@ CClan::LogIn_ClanUSER(char* szCharName, int iSenderSockIDX, int iContribute) {
                 // Find..
                 CWS_Client* pUSER = (CWS_Client*)g_pUserLIST->GetSOCKET(iSenderSockIDX);
                 if (pUSER) {
-                    pNode->m_VALUE.m_iContribute = iContribute; // ÀüÃ¼ Åëº¸ º¸´Ù ¾Õ¼­°Ô...
+                    pNode->m_VALUE.m_iContribute = iContribute; // ì „ì²´ í†µë³´ ë³´ë‹¤ ì•ì„œê²Œ...
 #ifdef __SHO_WS
                     pNode->m_VALUE.m_btChannelNo = pUSER->Get_ChannelNO();
 #else
                     pNode->m_VALUE.m_btChannelNo = (BYTE)::Get_ServerChannelNO();
 #endif
-                    // ·Î±×ÀÎµÈ ÀüÃ¼ Å¬·£¿ø¿¡°Ô ·Î±×ÀÎ Çß´Ù Åëº¸...
+                    // ë¡œê·¸ì¸ëœ ì „ì²´ í´ëœì›ì—ê²Œ ë¡œê·¸ì¸ í–ˆë‹¤ í†µë³´...
                     this->Send_MemberSTATUS(&pNode->m_VALUE, RESULT_CLAN_MEMBER_LOGIN);
 
                     pNode->m_VALUE.m_iConnSockIDX = pUSER->m_iSocketIDX;
@@ -150,7 +150,7 @@ CClan::LogIn_ClanUSER(char* szCharName, int iSenderSockIDX, int iContribute) {
     this->Unlock();
     return false;
 }
-// ±æµå À¯Àú°¡ ·Î±×¾Æ¿ô Çß´Ù.
+// ê¸¸ë“œ ìœ ì €ê°€ ë¡œê·¸ì•„ì›ƒ í–ˆë‹¤.
 bool
 CClan::LogOut_ClanUSER(char* szCharName) {
     t_HASHKEY HashName = ::StrToHashKey(szCharName);
@@ -166,7 +166,7 @@ CClan::LogOut_ClanUSER(char* szCharName) {
                 pNode->m_VALUE.m_iConnSockIDX = 0;
                 pNode->m_VALUE.m_btChannelNo = 0xff;
 
-                // ·Î±×ÀÎµÈ ÀüÃ¼ Å¬·£¿ø¿¡°Ô ·Î±×¾Æ¿ô Çß´Ù Åëº¸...
+                // ë¡œê·¸ì¸ëœ ì „ì²´ í´ëœì›ì—ê²Œ ë¡œê·¸ì•„ì›ƒ í–ˆë‹¤ í†µë³´...
                 this->Send_MemberSTATUS(&pNode->m_VALUE, RESULT_CLAN_MEMBER_LOGOUT);
 
                 this->Unlock();
@@ -187,7 +187,7 @@ CClan::FindClanSKILL(short nSkillNo1, short nSkillNo2) {
         if (this->m_ClanBIN.m_SKILL[nI].m_nSkillIDX >= nSkillNo1
             && this->m_ClanBIN.m_SKILL[nI].m_nSkillIDX <= nSkillNo2) {
             if (SKILL_NEED_LEVELUPPOINT(this->m_ClanBIN.m_SKILL[nI].m_nSkillIDX)) {
-                // ¸¸·á ³¯Â¥ Ã¼Å©...
+                // ë§Œë£Œ ë‚ ì§œ ì²´í¬...
                 if (this->GetCurAbsSEC() >= this->m_ClanBIN.m_SKILL[nI].m_dwExpiredAbsSEC) {
                     this->m_ClanBIN.m_SKILL[nI].m_nSkillIDX = 0;
                     this->m_ClanBIN.m_SKILL[nI].m_dwExpiredAbsSEC = 0;
@@ -206,14 +206,14 @@ bool
 CClan::AddClanSKILL(short nSkillNo) {
 #ifdef MAX_CLAN_SKILL_SLOT
     if (MAX_CLAN_SKILL_SLOT == this->FindClanSKILL(nSkillNo, nSkillNo)) {
-        // ÀÌ¹Ìµî·ÏµÈ ½ºÅ³ÀÌ ¾Æ´Ï´Ù...
+        // ì´ë¯¸ë“±ë¡ëœ ìŠ¤í‚¬ì´ ì•„ë‹ˆë‹¤...
         tagClanBIN ClanBIN;
         ::CopyMemory(&ClanBIN, &this->m_ClanBIN, sizeof(tagClanBIN));
 
         for (short nI = 0; nI < MAX_CLAN_SKILL_SLOT; nI++) {
             if (0 == ClanBIN.m_SKILL[nI].m_nSkillIDX) {
                 ClanBIN.m_SKILL[nI].m_nSkillIDX = nSkillNo;
-                // ÇöÀç½Ã°£ + ÀÔ·ÂµÈ ¼öÄ¡ * 10ºĞ±îÁö »ç¿ë °¡´É..
+                // í˜„ì¬ì‹œê°„ + ì…ë ¥ëœ ìˆ˜ì¹˜ * 10ë¶„ê¹Œì§€ ì‚¬ìš© ê°€ëŠ¥..
                 if (SKILL_NEED_LEVELUPPOINT(nSkillNo)) {
                     ClanBIN.m_SKILL[nI].m_dwExpiredAbsSEC =
                         this->GetCurAbsSEC() + SKILL_NEED_LEVELUPPOINT(nSkillNo) * 10 * 60;
@@ -221,7 +221,7 @@ CClan::AddClanSKILL(short nSkillNo) {
                     ClanBIN.m_SKILL[nI].m_dwExpiredAbsSEC = 0;
                 }
 
-                // ¿ùµå¼·ÀÌ³ª °³ÀÎ¼·¿¡¼­¸¸ ÀÌÇÔ¼ö°¡ È£ÃâµÈ´Ù...
+                // ì›”ë“œì„­ì´ë‚˜ ê°œì¸ì„­ì—ì„œë§Œ ì´í•¨ìˆ˜ê°€ í˜¸ì¶œëœë‹¤...
                 if (!g_pThreadGUILD->Query_UpdateClanBINARY(this->m_dwClanID,
                         (BYTE*)&ClanBIN,
                         sizeof(tagClanBIN))) {
@@ -249,7 +249,7 @@ CClan::DelClanSKILL(short nSkillNo) {
             ClanBIN.m_SKILL[nI].m_nSkillIDX = 0;
             ClanBIN.m_SKILL[nI].m_dwExpiredAbsSEC = 0;
 
-            // ¿ùµå¼·ÀÌ³ª °³ÀÎ¼·¿¡¼­¸¸ ÀÌÇÔ¼ö°¡ È£ÃâµÈ´Ù...
+            // ì›”ë“œì„­ì´ë‚˜ ê°œì¸ì„­ì—ì„œë§Œ ì´í•¨ìˆ˜ê°€ í˜¸ì¶œëœë‹¤...
             if (!g_pThreadGUILD->Query_UpdateClanBINARY(this->m_dwClanID,
                     (BYTE*)&ClanBIN,
                     sizeof(tagClanBIN))) {
@@ -314,7 +314,7 @@ CClan::SetJOBnLEV(t_HASHKEY HashCHAR, char* szCharName, short nJob, short nLev) 
 bool
 CClan::Send_SetCLAN(BYTE btCMD, CWS_Client* pMember) {
 #ifdef __SHO_WS
-    // GS¿¡ »ç¿ëÀÚ Å¬·£ ¼³Á¤ Åëº¸...
+    // GSì— ì‚¬ìš©ì í´ëœ ì„¤ì • í†µë³´...
     g_pListSERVER->Send_zws_SET_USER_CLAN(pMember);
 #endif
 
@@ -368,7 +368,7 @@ CClan::Send_SetCLAN(BYTE btCMD, CWS_Client* pMember) {
 }
 
 //-------------------------------------------------------------------------------------------------
-// ±æµå À¯Àú Ãß°¡...
+// ê¸¸ë“œ ìœ ì € ì¶”ê°€...
 bool
 CClan::Insert_MEMBER(BYTE btResult, CWS_Client* pMember, int iClanPos, char* szMaster) {
     CDLList<CClanUSER>::tagNODE* pNode;
@@ -392,7 +392,7 @@ CClan::Insert_MEMBER(BYTE btResult, CWS_Client* pMember, int iClanPos, char* szM
                 pNode->m_VALUE.m_btChannelNo = (BYTE)::Get_ServerChannelNO();
 #endif
 
-                this->m_nPosCNT[iClanPos]++; // ½Å±Ô ¸â¹ö Ãß°¡
+                this->m_nPosCNT[iClanPos]++; // ì‹ ê·œ ë©¤ë²„ ì¶”ê°€
 
                 pMember->ClanINIT(this->m_dwClanID, iClanPos);
                 pMember->SetClanMARK(this->m_dwClanMARK);
@@ -418,7 +418,7 @@ CClan::Insert_MEMBER(BYTE btResult, CWS_Client* pMember, int iClanPos, char* szM
                         strlen(szMaster) + 1,
                         szMaster,
                         NULL);
-                } // else Ã¢¼³µÊ°ú µ¿½Ã¿¡ Ãß°¡ µÇ´Â Ã¢¼³ÀÚ
+                } // else ì°½ì„¤ë¨ê³¼ ë™ì‹œì— ì¶”ê°€ ë˜ëŠ” ì°½ì„¤ì
 
                 this->Unlock();
                 return true;
@@ -429,12 +429,12 @@ CClan::Insert_MEMBER(BYTE btResult, CWS_Client* pMember, int iClanPos, char* szM
     return false;
 }
 
-// ±æµå À¯Àú »èÁ¦...
+// ê¸¸ë“œ ìœ ì € ì‚­ì œ...
 bool
 CClan::Delete_MEMBER(t_HASHKEY HashCommander, char* szCharName, BYTE btCMD, char* szKicker) {
-    // 1. Á¢¼ÓÇØ ÀÖÀ¸¸é ±æµå »èÁ¦ -> GSÅëº¸
-    // 2. ±æµå¿ø ¼ö °¨¼Ò.
-    // 3. ±æµå ¸â¹ö DB »èÁ¦.
+    // 1. ì ‘ì†í•´ ìˆìœ¼ë©´ ê¸¸ë“œ ì‚­ì œ -> GSí†µë³´
+    // 2. ê¸¸ë“œì› ìˆ˜ ê°ì†Œ.
+    // 3. ê¸¸ë“œ ë©¤ë²„ DB ì‚­ì œ.
     t_HASHKEY HashName = ::StrToHashKey(szCharName);
     CDLList<CClanUSER>::tagNODE* pNode;
     this->Lock();
@@ -444,12 +444,12 @@ CClan::Delete_MEMBER(t_HASHKEY HashCommander, char* szCharName, BYTE btCMD, char
             if (HashName == pNode->m_VALUE.m_HashName
                 && !_strcmpi(szCharName, pNode->m_VALUE.m_Name.Get())) {
                 if (HashName == HashCommander) {
-                    // ÀÚ±â ÀÚ½ÅÀº ¾ÈµÅ !!!!
+                    // ìê¸° ìì‹ ì€ ì•ˆë¼ !!!!
                     this->Unlock();
                     return false;
                 }
 
-                // µ¿·á ±æµå¿ø¿¡°Ô Åëº¸~~~
+                // ë™ë£Œ ê¸¸ë“œì›ì—ê²Œ í†µë³´~~~
                 if (szKicker) {
                     this->Send_wsv_CLAN_COMMAND(btCMD,
                         strlen(szCharName) + 1,
@@ -462,13 +462,13 @@ CClan::Delete_MEMBER(t_HASHKEY HashCommander, char* szCharName, BYTE btCMD, char
                 }
 
                 // Find..
-                // szCharNameÀÌ Á¢¼ÓµÈ »óÅÂ¶ó¸é GS¿¡ Åëº¸ ¹× Å¬·£ »èÁ¦Åëº¸
+                // szCharNameì´ ì ‘ì†ëœ ìƒíƒœë¼ë©´ GSì— í†µë³´ ë° í´ëœ ì‚­ì œí†µë³´
                 CWS_Client* pUSER = g_pUserLIST->Find_CHAR(szCharName);
                 if (pUSER) {
-                    // º¸³»°í ÃÊ±âÈ­...
+                    // ë³´ë‚´ê³  ì´ˆê¸°í™”...
                     pUSER->ClanINIT();
 #ifdef __SHO_WS
-                    // GS¿¡ Åëº¸
+                    // GSì— í†µë³´
                     g_pListSERVER->Send_zws_DEL_USER_CLAN(pUSER);
 #endif
                 }
@@ -509,11 +509,11 @@ CClan::Adjust_MEMBER(t_HASHKEY HashCommander,
             if (HashName == pNode->m_VALUE.m_HashName
                 && !_strcmpi(szCharName, pNode->m_VALUE.m_Name.Get())) {
                 if (HashName == HashCommander) {
-                    // ÀÚ±â ÀÚ½ÅÀº ¾ÈµÅ !!!!
+                    // ìê¸° ìì‹ ì€ ì•ˆë¼ !!!!
                     goto _JUMP_RETURN;
                 }
                 if (iMinPos && pNode->m_VALUE.m_iPosition < iMinPos) {
-                    // ÃÖÇÏ ÀÚ°İÀº iMinPosµÇ¾ßÇÔ~~~
+                    // ìµœí•˜ ìê²©ì€ iMinPosë˜ì•¼í•¨~~~
                     goto _JUMP_RETURN;
                 }
 
@@ -526,7 +526,7 @@ CClan::Adjust_MEMBER(t_HASHKEY HashCommander,
 
                 if (pNode->m_VALUE.m_iPosition + iAdjPos >= 0) {
                     if (bCheckPosLimit) {
-                        // µî±Şº° ÃÖ´ë ÀÎ¿ø Ã¼Å©...
+                        // ë“±ê¸‰ë³„ ìµœëŒ€ ì¸ì› ì²´í¬...
                         int iNewPos = pNode->m_VALUE.m_iPosition + iAdjPos;
                         if (this->m_nPosCNT[iNewPos] >= this->GetPositionLimitCNT(iNewPos)) {
                             goto _JUMP_RETURN;
@@ -534,19 +534,19 @@ CClan::Adjust_MEMBER(t_HASHKEY HashCommander,
                     }
 
                     if (g_pThreadGUILD->Query_AdjustClanMember(szCharName, iAdjContr, iAdjPos)) {
-                        this->m_nPosCNT[pNode->m_VALUE.m_iPosition]--; // Á÷À§ ÀÌµ¿
+                        this->m_nPosCNT[pNode->m_VALUE.m_iPosition]--; // ì§ìœ„ ì´ë™
 
                         pNode->m_VALUE.m_iContribute += iAdjContr;
                         pNode->m_VALUE.m_iPosition += iAdjPos;
                         bResult = true;
 
-                        this->m_nPosCNT[pNode->m_VALUE.m_iPosition]++; // Á÷À§ ÀÌµ¿
+                        this->m_nPosCNT[pNode->m_VALUE.m_iPosition]++; // ì§ìœ„ ì´ë™
 
-                        // Ä¸Æ¾ ÀÌ»óÀ¸·Î ½Â°İµÆÀ¸¸é.. Àü±æµå¿ø¿¡ Åëº¸
+                        // ìº¡í‹´ ì´ìƒìœ¼ë¡œ ìŠ¹ê²©ëìœ¼ë©´.. ì „ê¸¸ë“œì›ì— í†µë³´
                         this->Send_MemberSTATUS(&pNode->m_VALUE, RESULT_CLAN_MEMBER_POSITION);
 
-                        // szCharNameÀÌ Á¢¼ÓµÈ »óÅÂ¶ó¸é
-                        // TODO:: GS¿¡ Åëº¸ ¹× Å¬·£ »èÁ¦Åëº¸
+                        // szCharNameì´ ì ‘ì†ëœ ìƒíƒœë¼ë©´
+                        // TODO:: GSì— í†µë³´ ë° í´ëœ ì‚­ì œí†µë³´
                         CWS_Client* pUSER = g_pUserLIST->Find_CHAR(szCharName);
                         if (pUSER) {
                             pUSER->SetClanPOS(pNode->m_VALUE.m_iPosition);
@@ -571,7 +571,7 @@ CClan::Adjust_MEMBER(t_HASHKEY HashCommander,
     return false;
 }
 //-------------------------------------------------------------------------------------------------
-// ±æµå À¯Àú °»½Å...
+// ê¸¸ë“œ ìœ ì € ê°±ì‹ ...
 bool
 CClan::Update_MEMBER() {
     return true;
@@ -594,10 +594,10 @@ CClan::Send_UpdateInfo() {
     //	sInfo.m_btClanPOS	= xxx;
     //	sInfo.m_iClanCONT	= xxx;
 
-    // ÀüÃ¼ Å¬·£ ¸â¹ö¿¡ Àü¼Û...
+    // ì „ì²´ í´ëœ ë©¤ë²„ì— ì „ì†¡...
     this->Send_wsv_CLAN_COMMAND(RESULT_CLAN_INFO, sizeof(tag_MY_CLAN), &sInfo, NULL);
 
-    // °¢ Ã¤³Î¼­¹ö¿¡ °»½ÅµÈ ³»¿ëÀ» Àü´ŞÇØ¾ßÇØ~~~~
+    // ê° ì±„ë„ì„œë²„ì— ê°±ì‹ ëœ ë‚´ìš©ì„ ì „ë‹¬í•´ì•¼í•´~~~~
     CDLList<CClanUSER>::tagNODE* pNODE;
     CWS_Client* pUSER;
     this->Lock();
@@ -609,15 +609,15 @@ CClan::Send_UpdateInfo() {
                 DWORD	m_dwClanMARK;
                 WORD	m_wClanMARK[2];
             } ;
-            BYTE	m_btClanLEVEL;		// Å¬·£ ·¹º§
-            BYTE	m_btClanPOS;		// Å¬·£¿¡¼­ÀÇ Á÷À§
+            BYTE	m_btClanLEVEL;		// í´ëœ ë ˆë²¨
+            BYTE	m_btClanPOS;		// í´ëœì—ì„œì˜ ì§ìœ„
         } ;
         struct tag_MY_CLAN : public tag_CLAN_ID {
-            int		m_iClanSCORE;		// Å¬·£ Æ÷ÀÎÆ®
-            int		m_iClanRATE;		// Ã¢°íÈ¿À²
+            int		m_iClanSCORE;		// í´ëœ í¬ì¸íŠ¸
+            int		m_iClanRATE;		// ì°½ê³ íš¨ìœ¨
             __int64	m_biClanMONEY;
-            short	m_nMemberCNT;		// ¸â¹ö ¼ö
-            int		m_iClanCONT;		// Å¬·£ ±â¿©µµ
+            short	m_nMemberCNT;		// ë©¤ë²„ ìˆ˜
+            int		m_iClanCONT;		// í´ëœ ê¸°ì—¬ë„
             // char m_szClanName[];
             // char m_szClanDESC[];
             // char m_szClanMOTD[];
@@ -773,7 +773,7 @@ CClan::Send_wsv_CLAN_COMMAND(BYTE btCMD, ...) {
 bool
 CClan::SetClanMARK(BYTE* pMarkData, short nDataLen, WORD wMarkCRC16, CWS_Client* pReqUSER) {
     // WORD wCRC = classCRC::DataCRC16( pMarkData, nDataLen );
-    //	Å¬·£ ¸¶Å©¸¦ µğºñ¿¡ ±â·Ï....
+    //	í´ëœ ë§ˆí¬ë¥¼ ë””ë¹„ì— ê¸°ë¡....
     WORD wResult = g_pThreadGUILD->Query_UpdateClanMARK(this, wMarkCRC16, pMarkData, nDataLen);
     if (wResult) {
         classPACKET pCPacket;
@@ -802,7 +802,7 @@ CClan::SetClanMARK(BYTE* pMarkData, short nDataLen, WORD wMarkCRC16, CWS_Client*
     pCPacket.m_wsv_CLANMARK_REPLY.m_wMarkCRC16 = wMarkCRC16;
     pCPacket.AppendData(pMarkData, nDataLen);
 
-    // Å¬·£ÀÇ ¸ğµç ¸â¹ö¿¡°Ô...
+    // í´ëœì˜ ëª¨ë“  ë©¤ë²„ì—ê²Œ...
     CDLList<CClanUSER>::tagNODE* pNODE;
     CWS_Client* pUSER;
     this->Lock();
@@ -815,8 +815,8 @@ CClan::SetClanMARK(BYTE* pMarkData, short nDataLen, WORD wMarkCRC16, CWS_Client*
                     pUSER->SetClanMARK(m_dwClanMARK);
                     pUSER->SendPacket(pCPacket);
 #ifdef __SHO_WS
-                    // ¸¶Å©º¯°æµÈ Å¬·£ÁÖº¯ÀÇ »ç¿ëÀÚµéÀ» À§ÇØ¼­... GS¿¡ ¸¶Å©IDÅëº¸=>CLI¿¡ Àü¼Û=>WS¿¡
-                    // ¿äÃ»
+                    // ë§ˆí¬ë³€ê²½ëœ í´ëœì£¼ë³€ì˜ ì‚¬ìš©ìë“¤ì„ ìœ„í•´ì„œ... GSì— ë§ˆí¬IDí†µë³´=>CLIì— ì „ì†¡=>WSì—
+                    // ìš”ì²­
                     g_pListSERVER->Send_zws_SET_USER_CLAN(pUSER);
 #endif
                 }
@@ -902,7 +902,7 @@ CThreadGUILD::Add_ClanCMD(BYTE btCMD, int iSocketIDX, t_PACKET* pPacket, char* s
     pNewNODE->m_VALUE.m_btCMD = btCMD;
     pNewNODE->m_VALUE.m_iSocketIDX = iSocketIDX;
     if (pPacket) {
-        // 2005.05.10 ÆĞÅ¶ ±¸Á¶°¡ Æ²¸°°ÍÀÌ ÀÖ´Âµ¥... pPacket->m_cli_CLAN_COMMAND.m_btCMD ??????
+        // 2005.05.10 íŒ¨í‚· êµ¬ì¡°ê°€ í‹€ë¦°ê²ƒì´ ìˆëŠ”ë°... pPacket->m_cli_CLAN_COMMAND.m_btCMD ??????
         switch (btCMD) {
             case GCMD_CLANMARK_SET:
             case GCMD_CLANMARK_GET:
@@ -1049,7 +1049,7 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
 #endif
             return true;
         }
-        case GCMD_CHAT: // Å¬·£ Ãª
+        case GCMD_CHAT: // í´ëœ ì±—
         {
             char* szMsg;
             short nOffset = sizeof(cli_CLAN_CHAT);
@@ -1074,19 +1074,19 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
             }
             return true;
         }
-        case GCMD_LOGIN: // »ç¿ëÀÚ ·Î±×ÀÎ
+        case GCMD_LOGIN: // ì‚¬ìš©ì ë¡œê·¸ì¸
         {
             this->Query_LoginClanMember(pGuildCMD->m_CharNAME.Get(), pGuildCMD->m_iSocketIDX);
             return true;
         }
-        case GCMD_LOGOUT: // »ç¿ëÀÚ ·Î±×¾Æ¿ô
+        case GCMD_LOGOUT: // ì‚¬ìš©ì ë¡œê·¸ì•„ì›ƒ
         {
             CClan* pClan = this->Find_CLAN((DWORD)pGuildCMD->m_iSocketIDX);
             if (pClan)
                 pClan->LogOut_ClanUSER(pGuildCMD->m_CharNAME.Get());
             return true;
         }
-        case GCMD_CREATE: // ±æµå »ı¼º :: GS¿¡¼­ Ã³¸®
+        case GCMD_CREATE: // ê¸¸ë“œ ìƒì„± :: GSì—ì„œ ì²˜ë¦¬
         {
 #ifndef __SHO_WS
             CWS_Client* pFindUSER = (CWS_Client*)g_pUserLIST->GetSOCKET(pGuildCMD->m_iSocketIDX);
@@ -1096,8 +1096,8 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
                 if (pClan) {
                     if (pClan->Insert_MEMBER(RESULT_CLAN_CREATE_OK, pFindUSER, GPOS_MASTER)) {
                         if (!pFindUSER->CheckClanCreateCondition(
-                                1)) { // Å¬·£ »ı¼º ½Ãµµ½Ã »ı¼ºµÈ Á¶°Ç °ËÁõ...
-                            // Á¢¼Ó Á¾·áµÈ ³Ñ...
+                                1)) { // í´ëœ ìƒì„± ì‹œë„ì‹œ ìƒì„±ëœ ì¡°ê±´ ê²€ì¦...
+                            // ì ‘ì† ì¢…ë£Œëœ ë„˜...
                             this->Query_DeleteCLAN(pClan->m_Name.Get());
                             pFindUSER->UnlockSOCKET();
                             return true;
@@ -1111,16 +1111,16 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
                         pFindUSER->Send_wsv_CLAN_COMMAND(RESULT_CLAN_CREATE_NO_RIGHT, NULL);
                     }
                 } else {
-                    // ½ÇÆĞ...
+                    // ì‹¤íŒ¨...
                     pFindUSER->Send_wsv_CLAN_COMMAND(RESULT_CLAN_CREATE_DUP_NAME, NULL);
                 }
 
-                pFindUSER->CheckClanCreateCondition(2); // Å¬·£ »ı¼º ½ÇÆĞ :: °¨¼ÒµÈ Á¶°Ç º¹¿ø...
+                pFindUSER->CheckClanCreateCondition(2); // í´ëœ ìƒì„± ì‹¤íŒ¨ :: ê°ì†Œëœ ì¡°ê±´ ë³µì›...
             }
 #endif
             return true;
         }
-        case GCMD_DISBAND: // ±æµå ÇØÃ¼
+        case GCMD_DISBAND: // ê¸¸ë“œ í•´ì²´
         {
             CWS_Client* pFindUSER = (CWS_Client*)g_pUserLIST->GetSOCKET(pGuildCMD->m_iSocketIDX);
             if (pFindUSER->GetClanID() && pFindUSER->GetClanPOS() >= GPOS_MASTER) {
@@ -1134,8 +1134,8 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
             }
             return true;
         }
-        case GCMD_INVITE_REPLY_YES: // ±æµå ÃÊ´ë ½Â¶ô
-        case GCMD_INVITE_REPLY_NO: // ±æµå ÃÊ´ë °ÅºÎ
+        case GCMD_INVITE_REPLY_YES: // ê¸¸ë“œ ì´ˆëŒ€ ìŠ¹ë½
+        case GCMD_INVITE_REPLY_NO: // ê¸¸ë“œ ì´ˆëŒ€ ê±°ë¶€
         {
             short nOffset = sizeof(cli_CLAN_COMMAND);
             char* pOwnerName = Packet_GetStringPtr(pGuildCMD->m_pPacket, nOffset);
@@ -1162,12 +1162,12 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
             }
             return true;
         }
-        case GCMD_REMOVE: // ±æµå Ãß¹æ
-        case GCMD_PROMOTE: // ±æµå ½Â±Ş
-        case GCMD_DEMOTE: // ±æµå °­µî
-        case GCMD_LEADER: // ±æµå À§ÀÓ
-        case GCMD_MOTD: // ±æµå °øÁö
-        case GCMD_SLOGAN: // ±æµå ½½·Î°Ç
+        case GCMD_REMOVE: // ê¸¸ë“œ ì¶”ë°©
+        case GCMD_PROMOTE: // ê¸¸ë“œ ìŠ¹ê¸‰
+        case GCMD_DEMOTE: // ê¸¸ë“œ ê°•ë“±
+        case GCMD_LEADER: // ê¸¸ë“œ ìœ„ì„
+        case GCMD_MOTD: // ê¸¸ë“œ ê³µì§€
+        case GCMD_SLOGAN: // ê¸¸ë“œ ìŠ¬ë¡œê±´
         case GCMD_INVITE:
         case GCMD_MEMBER_JOBnLEV: {
             short nOffset = sizeof(cli_CLAN_COMMAND);
@@ -1179,7 +1179,7 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
                     CClan* pClan = this->Find_CLAN(pClanOwner->GetClanID());
                     if (pClan) {
                         switch (pGuildCMD->m_btCMD) {
-                            case GCMD_INVITE: // ±æµå ÃÊ´ë
+                            case GCMD_INVITE: // ê¸¸ë“œ ì´ˆëŒ€
                                 if (pClanOwner->GetClanPOS() >= GPOS_SUB_MASTER) {
                                     CWS_Client* pDestUSER = g_pUserLIST->Find_CHAR(pAddStr);
                                     if (pDestUSER) {
@@ -1202,9 +1202,9 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
                                             NULL);
                                 }
                                 break;
-                            case GCMD_REMOVE: // ±æµå Ãß¹æ
+                            case GCMD_REMOVE: // ê¸¸ë“œ ì¶”ë°©
                                 if (pClanOwner->GetClanPOS() >= GPOS_SUB_MASTER) {
-                                    // ÀÚ½ÅÀº ¾ÈµÊ
+                                    // ìì‹ ì€ ì•ˆë¨
                                     if (pClan->Delete_MEMBER(pClanOwner->m_HashCHAR,
                                             pAddStr,
                                             RESULT_CLAN_KICK,
@@ -1212,9 +1212,9 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
                                     }
                                 }
                                 break;
-                            case GCMD_PROMOTE: // ±æµå ½Â±Ş
+                            case GCMD_PROMOTE: // ê¸¸ë“œ ìŠ¹ê¸‰
                                 if (pClanOwner->GetClanPOS() >= GPOS_MASTER) {
-                                    // ÀÚ½ÅÀº ¾ÈµÊ.
+                                    // ìì‹ ì€ ì•ˆë¨.
                                     pClan->Adjust_MEMBER(pClanOwner->m_HashCHAR,
                                         pAddStr,
                                         0,
@@ -1225,9 +1225,9 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
                                         true);
                                 }
                                 break;
-                            case GCMD_DEMOTE: // ±æµå °­µî
+                            case GCMD_DEMOTE: // ê¸¸ë“œ ê°•ë“±
                                 if (pClanOwner->GetClanPOS() >= GPOS_MASTER) {
-                                    // ÀÚ½ÅÀº ¾ÈµÊ
+                                    // ìì‹ ì€ ì•ˆë¨
                                     pClan->Adjust_MEMBER(pClanOwner->m_HashCHAR,
                                         pAddStr,
                                         0,
@@ -1236,7 +1236,7 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
                                         GPOS_SUB_MASTER);
                                 }
                                 break;
-                            case GCMD_LEADER: // ±æµå À§ÀÓ
+                            case GCMD_LEADER: // ê¸¸ë“œ ìœ„ì„
                                 if (pClanOwner->GetClanPOS() >= GPOS_MASTER) {
                                     if (pClan->Adjust_MEMBER(pClanOwner->m_HashCHAR,
                                             pAddStr,
@@ -1245,7 +1245,7 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
                                             pClanOwner->Get_NAME(),
                                             GPOS_MASTER,
                                             GPOS_COMMANDER)) {
-                                        // À§ÀÓ ·Î±×...
+                                        // ìœ„ì„ ë¡œê·¸...
                                         pClan->Adjust_MEMBER(0,
                                             pClanOwner->Get_NAME(),
                                             0,
@@ -1255,7 +1255,7 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
                                     }
                                 }
                                 break;
-                            case GCMD_MOTD: // ±æµå °øÁö
+                            case GCMD_MOTD: // ê¸¸ë“œ ê³µì§€
                                 if (pClanOwner->GetClanPOS() >= GPOS_MASTER) {
                                     if (this->Query_UpdateClanMOTD(pClan->m_dwClanID, pAddStr)) {
                                         pClan->m_Motd.Set(pAddStr);
@@ -1270,7 +1270,7 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
                                     }
                                 }
                                 break;
-                            case GCMD_SLOGAN: // ±æµå ½½·Î°Ç
+                            case GCMD_SLOGAN: // ê¸¸ë“œ ìŠ¬ë¡œê±´
                                 if (pClanOwner->GetClanPOS() >= GPOS_MASTER) {
                                     if (this->Query_UpdateClanSLOGAN(pClan->m_dwClanID, pAddStr)) {
                                         pClan->m_Desc.Set(pAddStr);
@@ -1297,9 +1297,9 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
             }
             return true;
         }
-        case GCMD_QUIT: // ±æµå Å»Åğ
+        case GCMD_QUIT: // ê¸¸ë“œ íƒˆí‡´
         {
-            // 1. ±æµå¿ø ÀÎ°¡ ?
+            // 1. ê¸¸ë“œì› ì¸ê°€ ?
             CWS_Client* pFindUSER = (CWS_Client*)g_pUserLIST->GetSOCKET(pGuildCMD->m_iSocketIDX);
             if (pFindUSER && pFindUSER->GetClanID() && pFindUSER->GetClanPOS() < GPOS_MASTER) {
                 CClan* pClan = this->Find_CLAN(pFindUSER->GetClanID());
@@ -1310,7 +1310,7 @@ CThreadGUILD::Run_GuildPACKET(tagCLAN_CMD* pGuildCMD) {
             }
             return true;
         }
-        case GCMD_ROSTER: // ±æµå ¸ñ·Ï
+        case GCMD_ROSTER: // ê¸¸ë“œ ëª©ë¡
         {
             CWS_Client* pFindUSER = (CWS_Client*)g_pUserLIST->GetSOCKET(pGuildCMD->m_iSocketIDX);
             if (pFindUSER && pFindUSER->GetClanID()) {
@@ -1657,20 +1657,20 @@ CThreadGUILD::Query_UpdateClanSLOGAN(DWORD dwClanID, char* szMessage) {
             ;
         }
         switch (iResultSP) {
-            case 0: // ¼º°ø
+            case 0: // ì„±ê³µ
                 g_LOG.CS_ODS(0xffff, "update clan desc : %d / %s\n", dwClanID, szMessage);
                 return true;
             // case -1 :	// ????
             //	g_LOG.CS_ODS( 0xffff, "not clan user name :  %s \n", szCharName);
             //	break;
-            case -2: // µğºñ ¿À·ù
+            case -2: // ë””ë¹„ ì˜¤ë¥˜
                 g_LOG.CS_ODS(0xffff, "update clan user failed : %d / %s\n", dwClanID, szMessage);
                 break;
             default:
                 assert("invalid ws_ClanSLOGAN SP retrun value" && 0);
         }
     } else {
-        // µğºñ SP ¿À·ù...
+        // ë””ë¹„ SP ì˜¤ë¥˜...
     }
     */
     return false;
@@ -1757,20 +1757,20 @@ CThreadGUILD::Query_UpdateClanBINARY(DWORD dwClanID, BYTE* pDATA, unsigned int u
             ;
         }
         switch (iResultSP) {
-            case 1: // ¼º°ø
+            case 1: // ì„±ê³µ
                 g_LOG.CS_ODS(0xffff, "update clan binary : %d \n", dwClanID);
                 return true;
             // case -1 :	// ????
             //	g_LOG.CS_ODS( 0xffff, "not clan user name :  %s \n", szCharName);
             //	break;
-            case 0: // µğºñ ¿À·ù
+            case 0: // ë””ë¹„ ì˜¤ë¥˜
                 g_LOG.CS_ODS(0xffff, "update clan binary failed : %d \n", dwClanID);
                 break;
             default:
                 assert("invalid ws_ClanBinUPDATE SP retrun value" && 0);
         }
     } else {
-        // µğºñ SP ¿À·ù...
+        // ë””ë¹„ SP ì˜¤ë¥˜...
         g_LOG.CS_ODS(0xffff, "Query ERROR :: ws_ClanBinUPDATE( %d ) \n", dwClanID);
     }
     */

@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	IO_Motion.h
- * \brief	ÀüÃ¼ ¸ğ¼Ç µ¥ÀÌÅ¸ º¸°ü, °³°³ÀÇ ¸ğ¼Ç µ¥ÀÌÅ¸
+ * \brief	ì „ì²´ ëª¨ì…˜ ë°ì´íƒ€ ë³´ê´€, ê°œê°œì˜ ëª¨ì…˜ ë°ì´íƒ€
  */
 #ifndef __IO_MOTION_H
 #define __IO_MOTION_H
@@ -30,7 +30,7 @@ struct tagMOTION {
 
     bool LoadZMO(char* szFileName);
 
-    // dwPassTIMEµ¿¾È ÁøÇàµÉ ÇÁ·¹ÀÓ¼ö... dwPassTIME == 1000ÀÌ¸é 1ÃÊ !!
+    // dwPassTIMEë™ì•ˆ ì§„í–‰ë  í”„ë ˆì„ìˆ˜... dwPassTIME == 1000ì´ë©´ 1ì´ˆ !!
     WORD Get_TotalFRAME() { return m_wTotalFrame; }
 
     WORD Get_ReaminFRAME(WORD wCurFrame) { return (m_wTotalFrame - wCurFrame); }
@@ -39,7 +39,7 @@ struct tagMOTION {
         return ((fRatio * m_wFPS * dwPassTIME) / 1000.f);
     }
 
-    // wFrameµ¿¾È ¼Ò¿ëµÉ ½Ã°£...
+    // wFrameë™ì•ˆ ì†Œìš©ë  ì‹œê°„...
     DWORD Get_NeedTIME(WORD wFrame) { return (DWORD)((1000 * wFrame) / m_wFPS); }
     DWORD Get_NeedTIME(WORD wFrame, float fRatio) {
         return (DWORD)((1000 * wFrame) / (fRatio * m_wFPS));
@@ -50,7 +50,7 @@ struct tagMOTION {
  * \ingroup SHO_GS_LIB
  * \class	CMotionLIST
  * \author	wookSang.Jo
- * \brief	3dmax¿¡¼­ exportµÈ ÀüÃ¼ ¸ğ¼Ç µ¥ÀÌÅ¸ º¸°ü¹× Ã³¸® Å¬·¡½º
+ * \brief	3dmaxì—ì„œ exportëœ ì „ì²´ ëª¨ì…˜ ë°ì´íƒ€ ë³´ê´€ë° ì²˜ë¦¬ í´ë˜ìŠ¤
  */
 class CMotionLIST: public CFileLIST<tagMOTION*> {
 private:

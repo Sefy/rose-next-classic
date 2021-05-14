@@ -8,13 +8,13 @@
 ///
 /// class CTutorialEventUtility
 ///
-///	ÀÌº¥Æ® ÁøÇà¿¡ ÇÊ¿äÇÑ À¯Æ¿¸®Æ¼ Å¬·¡½ºÀÔ´Ï´Ù.
+///	ì´ë²¤íŠ¸ ì§„í–‰ì— í•„ìš”í•œ ìœ í‹¸ë¦¬í‹° í´ë˜ìŠ¤ì…ë‹ˆë‹¤.
 ///
 //---------------------------------------------------------------------------------------
 
 class CTutorialEventUtility: public CJSingleton<CTutorialEventUtility> {
 private:
-    STBDATA m_TblNotifyButtonEvent; /// ¾Ë¸²¹öÆ° ÀÌº¥Æ®
+    STBDATA m_TblNotifyButtonEvent; /// ì•Œë¦¼ë²„íŠ¼ ì´ë²¤íŠ¸
 
 public:
     CTutorialEventUtility(void);
@@ -23,9 +23,9 @@ public:
     bool Init();
     void Release();
 
-    /// ¾Ë¸² ¹öÆ° ÀÌº¥Æ®¸¦ »ı¼ºÇÑ´Ù.
+    /// ì•Œë¦¼ ë²„íŠ¼ ì´ë²¤íŠ¸ë¥¼ ìƒì„±í•œë‹¤.
     bool CreateNotifyEventButton(int iEventIdx);
-    /// EventButton.STB¿¡ ¼³Á¤µÈ ¾Ë¸² ¹öÆ° ÀÌº¥Æ®¸¦ ½ÇÇàÇÑ´Ù.
+    /// EventButton.STBì— ì„¤ì •ëœ ì•Œë¦¼ ë²„íŠ¼ ì´ë²¤íŠ¸ë¥¼ ì‹¤í–‰í•œë‹¤.
     bool ExecNotifyEvent(int iEventIdx);
 };
 

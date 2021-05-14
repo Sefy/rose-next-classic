@@ -22,6 +22,6 @@
 #define fGRID_SIZE g_pTerrain->fGrid_SIZE()
 #define nGRID_SIZE g_pTerrain->nGrid_SIZE()
 
-#define MANAGED_MAP_WIDTH 3 /// ÇÑ¹ø¿¡ °ü¸®µÇ´Â ¸Ê °³¼ö( °¡·ÎÅ©±â )
+#define MANAGED_MAP_WIDTH 3 /// í•œë²ˆì— ê´€ë¦¬ë˜ëŠ” ë§µ ê°œìˆ˜( ê°€ë¡œí¬ê¸° )
 
 #endif //_TERRAIN_DEF_

@@ -5,9 +5,9 @@
 #include "Chattingdlg.h"
 
 /**
- * Ã¤ÆÃÀÔ·ÂÃ¢¿¡¼­ ÀÔ·ÂÅÇº°·Î º¸¿©Áú Ã¤ÆÃ Å¸ÀÔÀ» ¼±ÅÃÇÒ¼ö ÀÖ´Â ´ÙÀÌ¾ó·Î±×
+ * ì±„íŒ…ì…ë ¥ì°½ì—ì„œ ì…ë ¥íƒ­ë³„ë¡œ ë³´ì—¬ì§ˆ ì±„íŒ… íƒ€ì…ì„ ì„ íƒí• ìˆ˜ ìˆëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CChatFilterDlg: public CTDialog {
@@ -17,7 +17,7 @@ public:
     virtual void Show();
     virtual unsigned Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam);
 
-    ChatFilter m_filter; /// ÅÇº° À¯Àú ¼±ÅÃÇÊÅÍ ÀúÀå º¯¼ö
+    ChatFilter m_filter; /// íƒ­ë³„ ìœ ì € ì„ íƒí•„í„° ì €ì¥ ë³€ìˆ˜
 
 protected:
     enum {

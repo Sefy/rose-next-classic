@@ -4,11 +4,11 @@
 #include "../../GameCommon/IObserver.h"
 
 /**
- * ÆÄÆ¼½Ã ÆÄÆ¼¿É¼ÇÀ» º¸°Å³ª ¹Ù²Ü¼ö(ÆÄÆ¼Àå¸¸) ÀÖ´Â ´ÙÀÌ¾ó·Î±×
- *	- ÆÄÆ¼Ã¢¿¡¼­ ¹öÆ°À» ´­·¯ ¿ÀÇÂÇÑ´Ù.
+ * íŒŒí‹°ì‹œ íŒŒí‹°ì˜µì…˜ì„ ë³´ê±°ë‚˜ ë°”ê¿€ìˆ˜(íŒŒí‹°ìž¥ë§Œ) ìžˆëŠ” ë‹¤ì´ì–¼ë¡œê·¸
+ *	- íŒŒí‹°ì°½ì—ì„œ ë²„íŠ¼ì„ ëˆŒëŸ¬ ì˜¤í”ˆí•œë‹¤.
  *	- Observable : CParty
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CPartyOptionDlg: public CTDialog, public IObserver {
@@ -25,11 +25,11 @@ public:
         IID_BTN_CONFIRM = 11,
 
         IID_RADIOBOX_ITEM = 34,
-        IID_RADIOBUTTON_ITEM_PICK = 35, ///ÁÝ´Â»ç¶÷ÀÌ ÀÓÀÚ ¹öÆ°
-        IID_RADIOBUTTON_ITEM_SEQUENCE = 36, ///ÀÏÁ¤¼ø¼­´ë·Î µ¹¾Æ°£´Ù( ´©°¡ ÁÝ´øÁö °£¿¡ )
+        IID_RADIOBUTTON_ITEM_PICK = 35, ///ì¤ëŠ”ì‚¬ëžŒì´ ìž„ìž ë²„íŠ¼
+        IID_RADIOBUTTON_ITEM_SEQUENCE = 36, ///ì¼ì •ìˆœì„œëŒ€ë¡œ ëŒì•„ê°„ë‹¤( ëˆ„ê°€ ì¤ë˜ì§€ ê°„ì— )
         IID_RADIOBOX_EXP = 37,
-        IID_RADIOBOX_EXP_EQUALITY = 38, ///±ÕµîÇÏ°Ô ºÐ¹è
-        IID_RADIOBOX_EXP_RATIO_LEVEL = 39, ///·¹º§º°·Î °æÇèÄ¡ ºÐ¹è
+        IID_RADIOBOX_EXP_EQUALITY = 38, ///ê· ë“±í•˜ê²Œ ë¶„ë°°
+        IID_RADIOBOX_EXP_RATIO_LEVEL = 39, ///ë ˆë²¨ë³„ë¡œ ê²½í—˜ì¹˜ ë¶„ë°°
         IID_CHECKBOX_SHOW_PARTYMEMBER_HPGUAGE = 40,
     };
 

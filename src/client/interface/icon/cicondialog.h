@@ -4,10 +4,10 @@
 class CDragItem;
 
 /**
- * ÀÎÅÍÆäÀÌ½ºÀÇ ´ÙÀÌ¾ó·Î±×°¡ ¾ÆÀÌÄÜÈ­ µÇ¾úÀ»¶§ »ç¿ëµÇ´Â Icon
+ * ì¸í„°íŽ˜ì´ìŠ¤ì˜ ë‹¤ì´ì–¼ë¡œê·¸ê°€ ì•„ì´ì½˜í™” ë˜ì—ˆì„ë•Œ ì‚¬ìš©ë˜ëŠ” Icon
  *
- * @Warning		CreateIcon¿¡¼­ ¸¸µçÈÄ ÆÄ±«´Â ¾Ë¾Æ¼­;
- * @Author		ÃÖÁ¾Áø
+ * @Warning		CreateIconì—ì„œ ë§Œë“ í›„ íŒŒê´´ëŠ” ì•Œì•„ì„œ;
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CIconDialog: public CIcon {

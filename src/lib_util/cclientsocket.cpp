@@ -203,7 +203,7 @@ void
 CClientSOCKET::OnSend(int nErrorCode) {
     if (!nErrorCode) {
         m_bWritable = true;
-        ::SetEvent(m_hThreadEvent); // æ≤∑πµÂø° ≈Î∫∏ !!!
+        ::SetEvent(m_hThreadEvent); // Ïì∞Î†àÎìúÏóê ÌÜµÎ≥¥ !!!
     }
 }
 
@@ -422,7 +422,7 @@ CClientSOCKET::Peek_Packet(t_PACKET* pPacket, bool bRemoveFromQ) {
         // pPacket = pNode->DATA;
         CopyMemory(pPacket, pNode->DATA, pNode->DATA->m_HEADER.m_nSize);
 
-        // ∆–≈∂ ªË¡¶.
+        // Ìå®ÌÇ∑ ÏÇ≠Ï†ú.
         if (bRemoveFromQ) {
             this->m_RecvPacketQ.DeleteNode(pNode);
             delete[] pNode->DATA;
@@ -465,7 +465,7 @@ CClientSOCKET::Close() {
         m_cStatus = CLIENTSOCKET_CLOSING;
 
         do {
-            ::SetEvent(m_hThreadEvent); // æ≤∑πµÂ ¡◊¿∏∂Û∞Ì ≈Î∫∏...
+            ::SetEvent(m_hThreadEvent); // Ïì∞Î†àÎìú Ï£ΩÏúºÎùºÍ≥† ÌÜµÎ≥¥...
             Sleep(100);
         } while (m_cStatus == CLIENTSOCKET_CLOSING);
 

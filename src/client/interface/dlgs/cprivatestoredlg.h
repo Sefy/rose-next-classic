@@ -9,10 +9,10 @@ const int c_iMaxSlotCount = 30;
 class CDragItem;
 
 /**
- * ÀÚ½ÅÀÌ °³¼³ÇÑ °³ÀÎ»óÁ¡À» À§ÇÑ Dialog
+ * ìì‹ ì´ ê°œì„¤í•œ ê°œì¸ìƒì ì„ ìœ„í•œ Dialog
  *	- Observable : CPrivateStore
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CPrivateStoreDlg: public CTDialog, public IObserver {
@@ -57,9 +57,9 @@ private:
 
     int m_iTab;
 
-    CSlot m_SellSlots[c_iMaxSlotCount]; /// ±¸ÀÔ Èñ¸Á ¾ÆÀÌÅÛÀÇ ¾ÆÀÌÄÜÀÌ Attach µÉ ½½·Ôµé
+    CSlot m_SellSlots[c_iMaxSlotCount]; /// êµ¬ì… í¬ë§ ì•„ì´í…œì˜ ì•„ì´ì½˜ì´ Attach ë  ìŠ¬ë¡¯ë“¤
     CSlotBuyPrivateStore
-        m_BuySlots[c_iMaxSlotCount]; /// ÆÇ¸Å Èñ¸Á ¾ÆÀÌÅÛÀÇ ¾ÆÀÌÄÜÀÌ Attach µÉ ½½·Ôµé
+        m_BuySlots[c_iMaxSlotCount]; /// íŒë§¤ í¬ë§ ì•„ì´í…œì˜ ì•„ì´ì½˜ì´ Attach ë  ìŠ¬ë¡¯ë“¤
 
     CDragItem* m_pSellDragItem;
     CDragItem* m_pBuyDragItem;

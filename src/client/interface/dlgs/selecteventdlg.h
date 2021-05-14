@@ -4,12 +4,12 @@
 #include "tgamectrl/tdialog.h"
 
 /**
- * ·ç³ªÇà¼ºÀÇ ¿öÇÁ°ÔÀÌÆ® Ã³·³ À¯ÀúÀÇ ¼±ÅÃ¸¸À» ÀÔ·Â¹Þ´Â ´ÙÀÌ¾ó·Î±×
- *	- ±âº» µ¿ÀÛÀº CDialogDlg¿Í µ¿ÀÏÇÏ´Ù
+ * ë£¨ë‚˜í–‰ì„±ì˜ ì›Œí”„ê²Œì´íŠ¸ ì²˜ëŸ¼ ìœ ì €ì˜ ì„ íƒë§Œì„ ìž…ë ¥ë°›ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
+ *	- ê¸°ë³¸ ë™ìž‘ì€ CDialogDlgì™€ ë™ì¼í•˜ë‹¤
  *
- * @Warning		´ë¸¸¹öÁ¯°ú ±¹³»¹öÁ¯°ú´Â Ç¥½Ã ¹æ½ÄÀÌ ´Ù¸£´Ù(XMLµ¥ÀÌÅ¸°¡ Æ²¸®¸ç ±¹°¡ÄÚµå·Î ÄÚµå°¡
- *±¸ºÐµÈ´Ù)
- * @Author		ÃÖÁ¾Áø
+ * @Warning		ëŒ€ë§Œë²„ì ¼ê³¼ êµ­ë‚´ë²„ì ¼ê³¼ëŠ” í‘œì‹œ ë°©ì‹ì´ ë‹¤ë¥´ë‹¤(XMLë°ì´íƒ€ê°€ í‹€ë¦¬ë©° êµ­ê°€ì½”ë“œë¡œ ì½”ë“œê°€
+ *êµ¬ë¶„ëœë‹¤)
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/14
  */
 class CSelectEventDlg: public CTDialog {

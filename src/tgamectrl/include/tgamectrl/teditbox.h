@@ -4,13 +4,13 @@
 #include "winctrl.h"
 class ITFont;
 /**
- * ¿¡µðÆ® ¹Ú½º Class
- * - ¿¬°üclass		CTIme
+ * ì—ë””íŠ¸ ë°•ìŠ¤ Class
+ * - ì—°ê´€class		CTIme
  *
- * @Warning		´Ù±¹¾î Áö¿ø ¶§¹®¿¡ º¹Àâµµ°¡ ³ô¾ÆÁ³´Ù. ¼öÁ¤½Ã ¸ðµç ¾ð¾î( ÀÏ¾î, Áß±¹¾î¿¡ ´ëÇÑ Å×½ºÆ®°¡
- * ÇÊ¿äÇÏ´Ù )
+ * @Warning		ë‹¤êµ­ì–´ ì§€ì› ë•Œë¬¸ì— ë³µìž¡ë„ê°€ ë†’ì•„ì¡Œë‹¤. ìˆ˜ì •ì‹œ ëª¨ë“  ì–¸ì–´( ì¼ì–´, ì¤‘êµ­ì–´ì— ëŒ€í•œ í…ŒìŠ¤íŠ¸ê°€
+ * í•„ìš”í•˜ë‹¤ )
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  *
  * @Date			2005/8/30
  */
@@ -28,25 +28,25 @@ public:
 
     char* get_text();
     void SetText(const char* szTxt);
-    /// IME¿¡¼­ ½ºÆ®¸µÀ» °¡Á®¿Í¼­ ¹öÆÛ¿¡ ´õÇÏ´Â Method
-    bool add_text(); // »ç¿ë¾ÈÇÔ
+    /// IMEì—ì„œ ìŠ¤íŠ¸ë§ì„ ê°€ì ¸ì™€ì„œ ë²„í¼ì— ë”í•˜ëŠ” Method
+    bool add_text(); // ì‚¬ìš©ì•ˆí•¨
     void clear_text();
     void delete_one_char(int iType);
 
     bool chk_number(const char* szText);
 
-    ///ÀÔ·ÂµÈ ¹®ÀÚÀÇ Ã³¸®
+    ///ìž…ë ¥ëœ ë¬¸ìžì˜ ì²˜ë¦¬
     bool OnKeyDown(WPARAM wParam, LPARAM lParam);
     bool OnChar(WPARAM wParam, LPARAM lParam);
 
-    void AppendText(const char* szText); // ½ºÆ®¸µÀ» ¹öÆÛ¿¡ ´õÇÑ´Ù( ÇÁ·ÒÇÁÆ®´Â ¸ÇµÚ·Î ÀÌµ¿ )
-    void Insert(const char* text); // ½ºÆ®¸µÀ» ÇöÀç ÇÁ·ÒÇÁÆ®À§Ä¡¿¡ InsertÇÑ´Ù.
-    static CTEditBox* s_pFocusEdit; // ÇöÀç Æ÷Ä¿½º¸¦ °¡Áö°í ÀÖ´Â ¿¡µðÆ® ¹Ú½ºÀÇ Æ÷ÀÎÅÍ
+    void AppendText(const char* szText); // ìŠ¤íŠ¸ë§ì„ ë²„í¼ì— ë”í•œë‹¤( í”„ë¡¬í”„íŠ¸ëŠ” ë§¨ë’¤ë¡œ ì´ë™ )
+    void Insert(const char* text); // ìŠ¤íŠ¸ë§ì„ í˜„ìž¬ í”„ë¡¬í”„íŠ¸ìœ„ì¹˜ì— Insertí•œë‹¤.
+    static CTEditBox* s_pFocusEdit; // í˜„ìž¬ í¬ì»¤ìŠ¤ë¥¼ ê°€ì§€ê³  ìžˆëŠ” ì—ë””íŠ¸ ë°•ìŠ¤ì˜ í¬ì¸í„°
 
     enum {
         TES_NONE = 0x0000,
-        TES_NUMBER = 0x0001, ///¼ýÀÚ¸¸ ÀÔ·Â°¡´É
-        TES_PASSWORD = 0x0002, /// Draw½Ã¿¡ *·Î Ç¥½Ã
+        TES_NUMBER = 0x0001, ///ìˆ«ìžë§Œ ìž…ë ¥ê°€ëŠ¥
+        TES_PASSWORD = 0x0002, /// Drawì‹œì— *ë¡œ í‘œì‹œ
         TES_HIDECURSOR = 0x0004,
     };
 
@@ -71,27 +71,27 @@ protected:
     void MoveEnd();
 
 protected:
-    int m_iMaxCharCnt; // ÀÔ·Â°¡´ÉÇÑ ÃÖ´ë¹®ÀÚ
+    int m_iMaxCharCnt; // ìž…ë ¥ê°€ëŠ¥í•œ ìµœëŒ€ë¬¸ìž
 
-    int m_iCharWidth; // Ãâ·ÂµÉ ¹®ÀÚÀÇ Width
-    int m_iCharHeight; // Ãâ·ÂµÉ ¹®ÀÚÀÇ Height
+    int m_iCharWidth; // ì¶œë ¥ë  ë¬¸ìžì˜ Width
+    int m_iCharHeight; // ì¶œë ¥ë  ë¬¸ìžì˜ Height
 
-    bool m_bShowCursor; // ÇÁ·ÒÇÁÆ®¸¦ º¸¿©ÁÙ°ÍÀÎ°¡?
-    bool m_bMultiline; // ¸ÖÆ¼¶óÀÎ ÀÔ·Â?( ½ÇÁ¦ÀûÀ¸·Î Draw½Ã¿¡ ÁÙ³Ñ±è ±â´É¸¸ÀÌ ÀÖ¾î. ÇÁ·ÒÇÁÆ®ÀÇ
-                       // À§Ä¡°¡ ÀÌ»óÇÏ´Ù )
+    bool m_bShowCursor; // í”„ë¡¬í”„íŠ¸ë¥¼ ë³´ì—¬ì¤„ê²ƒì¸ê°€?
+    bool m_bMultiline; // ë©€í‹°ë¼ì¸ ìž…ë ¥?( ì‹¤ì œì ìœ¼ë¡œ Drawì‹œì— ì¤„ë„˜ê¹€ ê¸°ëŠ¥ë§Œì´ ìžˆì–´. í”„ë¡¬í”„íŠ¸ì˜
+                       // ìœ„ì¹˜ê°€ ì´ìƒí•˜ë‹¤ )
 
-    int m_iTextAlign; // Ãâ·Â½Ã Á¤·Ä : TES_ALIGN_LEFT, TES_ALIGN_CENTER, TES_ALIGN_RIGHT
+    int m_iTextAlign; // ì¶œë ¥ì‹œ ì •ë ¬ : TES_ALIGN_LEFT, TES_ALIGN_CENTER, TES_ALIGN_RIGHT
 
-    DWORD m_dwTextColor; // ÆùÆ® »ö»ó
+    DWORD m_dwTextColor; // í°íŠ¸ ìƒ‰ìƒ
     DWORD m_dwType;
-    ITFont* m_pFontMgr; // client°¡ ±¸ÇöÇÑ FontDraw ClassÀÇ Æ÷ÀÎÅÍ
+    ITFont* m_pFontMgr; // clientê°€ êµ¬í˜„í•œ FontDraw Classì˜ í¬ì¸í„°
 
-    int m_iPromptPos; // ÇÁ·ÒÇÁÆ® À§Ä¡
+    int m_iPromptPos; // í”„ë¡¬í”„íŠ¸ ìœ„ì¹˜
 
-    int m_iViewPos; // ÀÔ·ÂµÈ ¹®ÀÚ¿­Áß ÇöÀç È­¸é¿¡ º¸¿©Áú ÃÖÃÊÀÇ ¹®ÀÚÀ§Ä¡
-    char m_pszBuffer[4096]; // ÀÔ·ÂµÈ ¹®ÀÚ°¡ ÀúÀåµÉ ¹öÆÛ
+    int m_iViewPos; // ìž…ë ¥ëœ ë¬¸ìžì—´ì¤‘ í˜„ìž¬ í™”ë©´ì— ë³´ì—¬ì§ˆ ìµœì´ˆì˜ ë¬¸ìžìœ„ì¹˜
+    char m_pszBuffer[4096]; // ìž…ë ¥ëœ ë¬¸ìžê°€ ì €ìž¥ë  ë²„í¼
 
-    int m_iFont; // ÆùÆ® ÀÎµ¦½º : Å¬¶óÀÌ¾ðÆ®¿¡¼­ ¸¸µé ÆùÆ®¿¡ µû¸¥´Ù.
+    int m_iFont; // í°íŠ¸ ì¸ë±ìŠ¤ : í´ë¼ì´ì–¸íŠ¸ì—ì„œ ë§Œë“¤ í°íŠ¸ì— ë”°ë¥¸ë‹¤.
     std::string m_strTemp;
 };
 #endif ///_TEDITBOX_

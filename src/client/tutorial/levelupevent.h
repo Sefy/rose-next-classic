@@ -14,9 +14,9 @@
 
 class CLevelUpEvent {
 private:
-    STBDATA m_TblLevelEvent; /// ·¹º§¾÷ ¾Ë¸²¹öÆ° ÀÌº¥Æ®
+    STBDATA m_TblLevelEvent; /// ë ˆë²¨ì—… ì•Œë¦¼ë²„íŠ¼ ì´ë²¤íŠ¸
 
-    std::map<int, int> m_LevelUpEventTbl; /// < ·¹º§, ¾Ë¸²¹öÆ°¹øÈ£ >
+    std::map<int, int> m_LevelUpEventTbl; /// < ë ˆë²¨, ì•Œë¦¼ë²„íŠ¼ë²ˆí˜¸ >
 
 public:
     CLevelUpEvent(void);

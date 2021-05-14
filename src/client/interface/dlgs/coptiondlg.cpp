@@ -248,7 +248,7 @@ COptionDlg::Update(POINT ptMouse) {
         return;
     CTDialog::Update(ptMouse);
 
-    ///½Ç½Ã°£À¸·Î º¼·ý Á¶Á¤
+    ///ì‹¤ì‹œê°„ìœ¼ë¡œ ë³¼ë¥¨ ì¡°ì •
     switch (m_iTab) {
         case IID_TABAUDIO: {
             CWinCtrl* pCtrl = Find(IID_TABBEDPANE);
@@ -311,7 +311,7 @@ COptionDlg::ChangeResolution(t_OptionResolution Resolution) {
     int iDepth = Resolution.iDepth;
     int iFrequency = Resolution.iFrequency;
 
-    ///º¯°æµÈ »çÇ×ÀÌ ¾ø´Ù¸é ¹Ù²ÙÁö ¾Ê´Â´Ù.
+    ///ë³€ê²½ëœ ì‚¬í•­ì´ ì—†ë‹¤ë©´ ë°”ê¾¸ì§€ ì•ŠëŠ”ë‹¤.
     if (iWidth == m_VideoOption.tResolution.iWidth && iHeight == m_VideoOption.tResolution.iHeight
         && iDepth == m_VideoOption.tResolution.iDepth
         && iFrequency == m_VideoOption.tResolution.iFrequency)
@@ -373,7 +373,7 @@ COptionDlg::ChangeKeyboardOption() {
                 case IID_RADIOBTN_NORMALCHATTING: {
                     m_KeyboardOption.iChattingMode = 1;
                     it_SetKeyboardInputType(CTControlMgr::INPUTTYPE_AUTOENTER);
-                    ///ÇöÀç Æ÷Ä¿½º¸¦ °¡Áø EditBox°¡ ¾øÀ»°æ¿ì Ã¤ÆÃÃ¢ EditBox¿¡ °­Á¦·Î Æ÷Ä¿½º¸¦ ÁØ´Ù.
+                    ///í˜„ìž¬ í¬ì»¤ìŠ¤ë¥¼ ê°€ì§„ EditBoxê°€ ì—†ì„ê²½ìš° ì±„íŒ…ì°½ EditBoxì— ê°•ì œë¡œ í¬ì»¤ìŠ¤ë¥¼ ì¤€ë‹¤.
                     CTDialog* pDlg = g_itMGR.FindDlg(DLG_TYPE_CHAT);
                     if (CTEditBox::s_pFocusEdit == NULL && pDlg != NULL)
                         pDlg->Show();
@@ -690,7 +690,7 @@ COptionDlg::GetCurrentOption() {
     if (pCtrl && pCtrl->GetControlType() == CTRL_TABBEDPANE) {
         CTabbedPane* pPane = (CTabbedPane*)pCtrl;
 
-        ///Ä¿¹Â´ÏÆ¼
+        ///ì»¤ë®¤ë‹ˆí‹°
         CJContainer* pContainer = pPane->GetTabContainer(IID_TABCOMMUNITY);
         assert(pContainer);
         if (pContainer) {
@@ -744,7 +744,7 @@ COptionDlg::GetCurrentOption() {
                     pRadioBox->SetPressedButton(IID_RADIOBTN_MESSANGER_OFF);
             }
         }
-        ///ºñµð¿À
+        ///ë¹„ë””ì˜¤
         pContainer = pPane->GetTabContainer(IID_TABVIDEO);
         assert(pContainer);
 
@@ -794,7 +794,7 @@ COptionDlg::GetCurrentOption() {
         }
         */
 
-        /// ±×¸®°í ÇØ´ç ÇØ»óµµ¿¡ ¸Â´Â ÁÖÆÄ¼ö¸¦ ³Ö¾îÁÖ°í ÀúÀåµÈ ÁÖÆÄ¼ö¸¦ ¼±ÅÃÇÑ´Ù.
+        /// ê·¸ë¦¬ê³  í•´ë‹¹ í•´ìƒë„ì— ë§žëŠ” ì£¼íŒŒìˆ˜ë¥¼ ë„£ì–´ì£¼ê³  ì €ìž¥ëœ ì£¼íŒŒìˆ˜ë¥¼ ì„ íƒí•œë‹¤.
         pCtrl = pContainer->Find(IID_SCROLLBAR_CAMERA);
         assert(pCtrl);
         if (pCtrl && pCtrl->GetControlType() == CTRL_SCROLLBAR) {
@@ -819,7 +819,7 @@ COptionDlg::GetCurrentOption() {
                 pRadioBox->SetPressedButton(IID_RADIOBUTTON_WINDOWMODE);
         }
 
-        ///»ç¿îµå º¼·ý
+        ///ì‚¬ìš´ë“œ ë³¼ë¥¨
 
         pContainer = pPane->GetTabContainer(IID_TABAUDIO);
         assert(pContainer);
@@ -902,7 +902,7 @@ COptionDlg::GetComboBox(int ComboBoxID) {
     return NULL;
 }
 
-/// Alt+Enter·Î È­¸é¸ðµå ÀüÈ¯½Ã Ã³¸®ÇÒ »çÇ×
+/// Alt+Enterë¡œ í™”ë©´ëª¨ë“œ ì „í™˜ì‹œ ì²˜ë¦¬í•  ì‚¬í•­
 void
 COptionDlg::ChangeScreenModeByHotKey() {
     CWinCtrl* pCtrl = Find(IID_TABBEDPANE);

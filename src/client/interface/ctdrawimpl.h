@@ -5,11 +5,11 @@
 #include <D3DX9.h>
 
 /**
- * ÀÎÅÍÆäÀÌ½º ¶óÀÌºê·¯¸®(TGameCtrl)¿¡°Ô ¾Ë·ÁÁÙ ITDrawÀÇ Implemented Class
- *  : TGameCtrl³»ºÎÀûÀ¸·Î 2DÀÌ¹ÌÁö¸¦ ±×¸±¶§ ÀÌ ÀÎÅÍÆäÀÌ½º¸¦ ÅëÇØ¼­ znzinÀÇ ÇØ´ç ÀÎÅÍÆäÀÌ½º¸¦
- * È£ÃâÇÑ´Ù.
+ * ì¸í„°í˜ì´ìŠ¤ ë¼ì´ë¸ŒëŸ¬ë¦¬(TGameCtrl)ì—ê²Œ ì•Œë ¤ì¤„ ITDrawì˜ Implemented Class
+ *  : TGameCtrlë‚´ë¶€ì ìœ¼ë¡œ 2Dì´ë¯¸ì§€ë¥¼ ê·¸ë¦´ë•Œ ì´ ì¸í„°í˜ì´ìŠ¤ë¥¼ í†µí•´ì„œ znzinì˜ í•´ë‹¹ ì¸í„°í˜ì´ìŠ¤ë¥¼
+ * í˜¸ì¶œí•œë‹¤.
  *
- * @Author		ÀÌµ¿Çö,ÃÖÁ¾Áø
+ * @Author		ì´ë™í˜„,ìµœì¢…ì§„
  *
  * @Date			2005/9/5
  */
@@ -26,7 +26,7 @@ public:
     virtual void Draw(float iX, float iY, float iZ, int iModuleID, int iGraphicID, D3DCOLOR color);
     virtual void Draw(float iX, float iY, float iZ, int iWidth, int iModuleID, int iGraphicID);
 
-    /// °¡·Î, ¼¼·Î ÀÚµ¿ È®´ë.
+    /// ê°€ë¡œ, ì„¸ë¡œ ìë™ í™•ëŒ€.
     virtual void
     DrawFitW(int iX, int iY, int iModuleID, int iGraphicID, int iWidth, D3DCOLOR color);
     virtual void
@@ -37,7 +37,7 @@ public:
     virtual int GetScreenWidth();
     virtual int GetScreenHeight();
 
-    /// °¡·Î, ¼¼·Î È®´ë½Ã
+    /// ê°€ë¡œ, ì„¸ë¡œ í™•ëŒ€ì‹œ
     virtual void Draw(int iX,
         int iY,
         int iModuleID,
@@ -54,11 +54,11 @@ public:
         float fScaleHeight,
         D3DCOLOR color);
 
-    /// YÃàÀ» ±âÁØÀ¸·Î È¸Àü½Ã
+    /// Yì¶•ì„ ê¸°ì¤€ìœ¼ë¡œ íšŒì „ì‹œ
     virtual void
     DrawRotateY(float fX, float fY, float fZ, float fRotateY, int iModuleID, int iGraphicID);
 
-    /// ÁøÇà °ÔÀÌÁö(ÄğÅ¸ÀÓ)°¡ ÀÖ´Â ¾ÆÀÌÄÜ
+    /// ì§„í–‰ ê²Œì´ì§€(ì¿¨íƒ€ì„)ê°€ ìˆëŠ” ì•„ì´ì½˜
     void DrawCover(int iX,
         int iY,
         int iModuleID,

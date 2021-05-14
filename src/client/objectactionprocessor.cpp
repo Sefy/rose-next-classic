@@ -110,7 +110,7 @@ CWarpObjectActionProcessor::ProcessChain(HNODE hNode) {
     if (hUserData) {
         CGameOBJ* pObj = reinterpret_cast<CGameOBJ*>(hUserData);
 
-        /// warp object ÀÎÁö °Ë»ç..
+        /// warp object ì¸ì§€ ê²€ì‚¬..
         if (pObj->IsA(OBJ_GROUND)) {
             int iSpecialData = pObj->GetSpecialUserNumericData();
 
@@ -145,18 +145,18 @@ CEventObjectActionProcessor::ProcessChain(HNODE hNode) {
     if (hUserData) {
         CGameOBJ* pObj = reinterpret_cast<CGameOBJ*>(hUserData);
 
-        /// Event object ÀÎÁö °Ë»ç..
+        /// Event object ì¸ì§€ ê²€ì‚¬..
         if (pObj->IsA(OBJ_EVENTOBJECT)) {
             CObjFixedEvent* pEventObj = (CObjFixedEvent*)pObj;
 
             //----------------------------------------------------------------------------------------
-            /// ÇÑ¹ø Ãæµ¹ÈÄ 10ÃÊµ¿¾È( 30 FPS ±âÁØ ) ´Ù½Ã Ãæµ¹ÇÏÁö ¾ÊÀ½
+            /// í•œë²ˆ ì¶©ëŒí›„ 10ì´ˆë™ì•ˆ( 30 FPS ê¸°ì¤€ ) ë‹¤ì‹œ ì¶©ëŒí•˜ì§€ ì•ŠìŒ
             //----------------------------------------------------------------------------------------
             if (pEventObj->GetCollisionCheckFrame() < (g_GameDATA.m_dwElapsedGameFrame - 1))
             /// if( pEventObj->CanCheckCollision() )
             {
 
-                /// Æ®¸®°Å°¡ ¼³Á¤µÈ ¿ÀºêÁ§Æ®¶ó¸é..
+                /// íŠ¸ë¦¬ê±°ê°€ ì„¤ì •ëœ ì˜¤ë¸Œì íŠ¸ë¼ë©´..
                 if (pEventObj->GetTriggerName() != NULL) {
                     ::QF_doQuestTrigger(pEventObj->GetTriggerName());
                     ///::setUserData( hNode, (HNODE)0 );

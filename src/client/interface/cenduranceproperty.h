@@ -25,25 +25,25 @@ typedef std::vector<CEnduranceProperty*> ENDURANCE_LIST;
 typedef std::vector<CEnduranceProperty*>::iterator ENDURANCE_LIST_ITOR;
 ///
 /// Endurance entity pack.
-/// Áö¼ÓÀûÀ¸·Î ¼öÄ¡°¡ º¯ÇÏ´Â°ÍµéÀº ÀÌ Å¬·¡½ºÀÇ proc ¿¡¼­ Ã³¸®ÇÏ°í
-/// ±âÅ¸ È­¸é Ãâ·Â¿ëÀÌ³ª Ç¥½Ã¿ëÀº ³»ºÎ ¿£Æ¼Æ¼ ¸®½ºÆ®¸¦ ÀÌ¿ëÇÑ´Ù.
+/// ì§€ì†ì ìœ¼ë¡œ ìˆ˜ì¹˜ê°€ ë³€í•˜ëŠ”ê²ƒë“¤ì€ ì´ í´ë˜ìŠ¤ì˜ proc ì—ì„œ ì²˜ë¦¬í•˜ê³ 
+/// ê¸°íƒ€ í™”ë©´ ì¶œë ¥ìš©ì´ë‚˜ í‘œì‹œìš©ì€ ë‚´ë¶€ ì—”í‹°í‹° ë¦¬ìŠ¤íŠ¸ë¥¼ ì´ìš©í•œë‹¤.
 
 class CEndurancePack {
 private:
-    /// ÇöÀç ¼³Á¤µÈ »óÅÂ ÇÃ·¡±×..
+    /// í˜„ì¬ ì„¤ì •ëœ ìƒíƒœ í”Œë˜ê·¸..
     DWORD m_dwStateFlag;
-    /// ÇöÀç º¯°æ Ãß°¡µÇ¾î¾ßÇÒ °ªµéÀ» º¸°ü..( key ´Â »óÅÂ°ª ´Ù. )
+    /// í˜„ì¬ ë³€ê²½ ì¶”ê°€ë˜ì–´ì•¼í•  ê°’ë“¤ì„ ë³´ê´€..( key ëŠ” ìƒíƒœê°’ ë‹¤. )
     int m_CurrentStateValue[ING_MAX_STATUS];
 
     DWORD m_dwUpdateCheckTime;
     DWORD m_dwElapsedUpdateTime;
 
-    /// »óÅÂº¯°æ Å¸ÀÔ¸¸Å­ À¯ÁöÇÑ´Ù.
+    /// ìƒíƒœë³€ê²½ íƒ€ì…ë§Œí¼ ìœ ì§€í•œë‹¤.
     CEnduranceProperty* m_EntityList[ING_MAX_STATUS];
     CObjCHAR* m_pObjCHAR;
 
 public:
-    /// »óÅÂ ÇÃ·¡±×°ªÀ¸·Î »óÅÂÅ¸ÀÔÀ» Ã£¾Æ³»´Â Å×ÀÌºí
+    /// ìƒíƒœ í”Œë˜ê·¸ê°’ìœ¼ë¡œ ìƒíƒœíƒ€ì…ì„ ì°¾ì•„ë‚´ëŠ” í…Œì´ë¸”
     static std::map<int, int> m_StateFlagTable;
     static std::map<int, int> m_StateSTBIDXTable;
 
@@ -79,10 +79,10 @@ public:
     void DeleteExpiredEntity();
     void Draw();
 
-    /// ÇØ´ç »óÅÂ¿¡ ´ëÇÑ ¿£Æ¼Æ¼¸¦ Á¦°ÅÇÑ´Ù.
+    /// í•´ë‹¹ ìƒíƒœì— ëŒ€í•œ ì—”í‹°í‹°ë¥¼ ì œê±°í•œë‹¤.
     void DeleteEntityByStateType(int iStateType);
 
-    /// »ó´ë°ª °ü·ÃÇÔ¼ö
+    /// ìƒëŒ€ê°’ ê´€ë ¨í•¨ìˆ˜
     void SetStateFlag(DWORD dwState) { m_dwStateFlag = dwState; }
     void AddStateFlag(DWORD dwState) { m_dwStateFlag |= dwState; }
     DWORD GetStateFlag() { return m_dwStateFlag; }
@@ -98,40 +98,40 @@ public:
         memset(m_CurrentStateValue, 0, sizeof(m_CurrentStateValue));
     }
 
-    /// »óÅÂ ÇØÁ¦
+    /// ìƒíƒœ í•´ì œ
     void DeleteEnduranceState(DWORD dwNewState);
 
-    /// À¯¸®»óÅÂ ÇØÁö, ºÒ¸®»óÅÂ ÇØÁö µî..
+    /// ìœ ë¦¬ìƒíƒœ í•´ì§€, ë¶ˆë¦¬ìƒíƒœ í•´ì§€ ë“±..
     int ProcFlushStateSkill(int iStateTableIndex);
     void ProcFlushStateSkillByIngState(int iStateType);
 
     //--------------------------------------------------------------------------------------
-    /// Æ¯Á¤ »óÈ²¿¡¼­ ÀÚµ¿À¸·Î Ç®·Á¾ß ÇÏ´Â°Íµé
+    /// íŠ¹ì • ìƒí™©ì—ì„œ ìë™ìœ¼ë¡œ í’€ë ¤ì•¼ í•˜ëŠ”ê²ƒë“¤
     //--------------------------------------------------------------------------------------
 
-    /// Ä«Æ®Å½½Â½Ã Ç®·Á¾ß µÉ ½ºÅ³
+    /// ì¹´íŠ¸íƒìŠ¹ì‹œ í’€ë ¤ì•¼ ë  ìŠ¤í‚¬
     void ClearStateByDriveCart();
 
-    /// Àåºñ±³Ã¼½Ã ÇØ´ç Àåºñ¿¡ °É·ÁÀÖ´ø »óÅÂ Á¦°Å..
+    /// ì¥ë¹„êµì²´ì‹œ í•´ë‹¹ ì¥ë¹„ì— ê±¸ë ¤ìˆë˜ ìƒíƒœ ì œê±°..
     void ClearRWeaponSkillEffect();
     void ClearLWeaponSkillEffect();
 
-    /// ¸Â¾ÒÀ»¶§ ÀÚµ¿À¸·Î Ç®·Á¾ßÇÏ´Â °Íµé
+    /// ë§ì•˜ì„ë•Œ ìë™ìœ¼ë¡œ í’€ë ¤ì•¼í•˜ëŠ” ê²ƒë“¤
     void ClearStateByHitted();
 
-    /// °ø°İ½Ã ÀÚµ¿À¸·Î Ç®·Á¾ßÇÏ´Â ½ºÅ³µé
+    /// ê³µê²©ì‹œ ìë™ìœ¼ë¡œ í’€ë ¤ì•¼í•˜ëŠ” ìŠ¤í‚¬ë“¤
     void ClearStateByAttack();
 
-    /// ÀÌµ¿½Ã ÀÚµ¿À¸·Î Ç®·Á¾ßÇÏ´Â ½ºÅ³µé
+    /// ì´ë™ì‹œ ìë™ìœ¼ë¡œ í’€ë ¤ì•¼í•˜ëŠ” ìŠ¤í‚¬ë“¤
     void ClearStateByMove();
 
     /// Check visibility
-    /// visibility °ü·Ã ½ºÅ³ÀÌ °É·ÈÀ»°æ¿ì.. ¾÷µ¥ÀÌÆ® ÇØ¾ßµÉ½Ã±â¿¡´Â( ¹«±â¸¦ ±³Ã¼ÇÑ´Ù´øÁö )
-    /// ºñÁöºô¸®Æ¼ ¾÷µ¥ÀÌÆ®
+    /// visibility ê´€ë ¨ ìŠ¤í‚¬ì´ ê±¸ë ¸ì„ê²½ìš°.. ì—…ë°ì´íŠ¸ í•´ì•¼ë ì‹œê¸°ì—ëŠ”( ë¬´ê¸°ë¥¼ êµì²´í•œë‹¤ë˜ì§€ )
+    /// ë¹„ì§€ë¹Œë¦¬í‹° ì—…ë°ì´íŠ¸
     void UpdateVisibility();
 
 public:
-    /// Ãâ·Â ¾ÆÀÌÄÜ °³¼ö..
+    /// ì¶œë ¥ ì•„ì´ì½˜ ê°œìˆ˜..
     static int m_iDrawIconCnt;
 };
 
@@ -151,7 +151,7 @@ protected:
 
     DWORD m_iStartTime;
 
-    /// »óÅÂÀ¯Çü..
+    /// ìƒíƒœìœ í˜•..
     int m_iStatusSTBNO;
 
 public:
@@ -211,7 +211,7 @@ public:
 
 class CEnduranceItem: public CEnduranceProperty {
 private:
-    /// ÇöÀç±îÁö Àû¿ëµÈ ¼öÄ¡..
+    /// í˜„ì¬ê¹Œì§€ ì ìš©ëœ ìˆ˜ì¹˜..
     int m_iTotalAppliedProperty[STATE_APPLY_ABILITY_CNT];
 
 public:

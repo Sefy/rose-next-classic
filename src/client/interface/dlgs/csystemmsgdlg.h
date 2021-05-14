@@ -5,9 +5,9 @@
 #include "tgamectrl/TSplitString.h"
 
 /**
- * °ÔÀÓÈ­¸é¿¡¼­ »ó´Ü Áß°£¿¡ ³ª¿À´Â ÆÁ¹× °øÁö»çÇ×À» º¸¿©ÁÖ±â À§ÇÑ ´ÙÀÌ¾ó·Î±×
+ * ê²Œìž„í™”ë©´ì—ì„œ ìƒë‹¨ ì¤‘ê°„ì— ë‚˜ì˜¤ëŠ” íŒë° ê³µì§€ì‚¬í•­ì„ ë³´ì—¬ì£¼ê¸° ìœ„í•œ ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/14
  */
 class CSystemMsgDlg: public CTDialog {
@@ -27,20 +27,20 @@ public:
         HNODE hFont = NULL);
 
     enum {
-        MSG_TYPE_NOTICE, /// °øÁö»çÇ×
-        MSG_TYPE_HELP /// ÆÁ
+        MSG_TYPE_NOTICE, /// ê³µì§€ì‚¬í•­
+        MSG_TYPE_HELP /// íŒ
     };
 
 protected:
-    HNODE m_hFont; /// ¹Ì¸® ¸¸µé¾îÁ® ÀÖ´Â ÆùÆ®¿¡ ´ëÇÑ ³ëµå¸¸ °¡Áö°í ÀÖ´Â´Ù.
-    CTSplitString m_Notice; /// Ãâ·ÂµÉ ³»¿ë( Á¦¸ñ + ³»¿ë )
-    D3DCOLOR m_Color; /// Ãâ·ÂµÉ »ö»ó
-    short m_iMsgType; /// °øÁö or ÆÁ
-    DWORD m_dwShowTime; /// È­¸é¿¡ º¸¿©Áú ½Ã°£
-    DWORD m_dwMsgSetTime; /// È­¸é¿¡ º¸¿©Áö±â ½ÃÀÛÇÑ ½Ã°£
+    HNODE m_hFont; /// ë¯¸ë¦¬ ë§Œë“¤ì–´ì ¸ ìžˆëŠ” í°íŠ¸ì— ëŒ€í•œ ë…¸ë“œë§Œ ê°€ì§€ê³  ìžˆëŠ”ë‹¤.
+    CTSplitString m_Notice; /// ì¶œë ¥ë  ë‚´ìš©( ì œëª© + ë‚´ìš© )
+    D3DCOLOR m_Color; /// ì¶œë ¥ë  ìƒ‰ìƒ
+    short m_iMsgType; /// ê³µì§€ or íŒ
+    DWORD m_dwShowTime; /// í™”ë©´ì— ë³´ì—¬ì§ˆ ì‹œê°„
+    DWORD m_dwMsgSetTime; /// í™”ë©´ì— ë³´ì—¬ì§€ê¸° ì‹œìž‘í•œ ì‹œê°„
 
-    std::string m_stTitle; /// Á¦¸ñ ½ºÆ®¸µ
-    std::string m_stMsg; /// ³»¿ë ½ºÆ®¸µ
-    int m_iImageIndex; /// ¹è°æ¿¡ ±×·ÁÁú ÀÌ¹ÌÁö ±×·¡ÇÈ ID
+    std::string m_stTitle; /// ì œëª© ìŠ¤íŠ¸ë§
+    std::string m_stMsg; /// ë‚´ìš© ìŠ¤íŠ¸ë§
+    int m_iImageIndex; /// ë°°ê²½ì— ê·¸ë ¤ì§ˆ ì´ë¯¸ì§€ ê·¸ëž˜í”½ ID
 };
 #endif

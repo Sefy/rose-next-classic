@@ -124,7 +124,7 @@ CLocalizing::GetCurrentCodePage() {
 }
 
 //--------------------------------------------------------------------------------
-/// !! ÁÖÀÇ inBuf ´Â º¯È¯ÈÄÀÇ ½ºÆ®¸µÀ» ´ãÀ» ¸¸Å­ ÃæºÐÈ÷ Ä¿¾ßÇÕ´Ï´Ù.
+/// !! ì£¼ì˜ inBuf ëŠ” ë³€í™˜í›„ì˜ ìŠ¤íŠ¸ë§ì„ ë‹´ì„ ë§Œí¼ ì¶©ë¶„ížˆ ì»¤ì•¼í•©ë‹ˆë‹¤.
 //--------------------------------------------------------------------------------
 int
 CLocalizing::UTF8ToMBCS(LPSTR inBuf, int iInBufSize) {
@@ -227,7 +227,7 @@ CLocalizing::MBCSToUnicode(LPSTR inBuf, int iInBufSize, WCHAR* pOutBuf, int iOut
         iOutBufSize);
 }
 
-/// iInBufSize »çÀÌÁî ±ÍÂúÀ¸¸é -1 ·Î ³ÖÀ¸¸é µË´Ï´Ù.
+/// iInBufSize ì‚¬ì´ì¦ˆ ê·€ì°®ìœ¼ë©´ -1 ë¡œ ë„£ìœ¼ë©´ ë©ë‹ˆë‹¤.
 int
 CLocalizing::UnicodeToMBCS(WCHAR* pInBuf, int iInBufSize, LPSTR OutBuf, int iOutBufSize) {
     /// Unicode -> MBCS

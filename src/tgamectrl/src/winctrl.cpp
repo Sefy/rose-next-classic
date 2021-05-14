@@ -5,14 +5,14 @@
 #include "IActionListener.h"
 #include "ActionEvent.h"
 
-CWinCtrl* CWinCtrl::m_pMouseExclusiveCtrl = NULL; ///¸¶¿ì½º¸¦ µ¶Á¡ÇÏ°í ÀÖ´Â ÄÁÆ®·Ñ
+CWinCtrl* CWinCtrl::m_pMouseExclusiveCtrl = NULL; ///ë§ˆìš°ìŠ¤ë¥¼ ë…ì í•˜ê³  ìˆëŠ” ì»¨íŠ¸ë¡¤
 CWinCtrl* CWinCtrl::m_pProcessMouseOverCtrl = NULL;
 
 bool CWinCtrl::m_bProcessMouseOver = false;
 CWinCtrl::CWinCtrl(void) {
     m_iWidth = 0;
     m_iHeight = 0;
-    m_iControlID = 0; /// ÄÁÅÍ·Ñ ¾ÆÀÌµğ
+    m_iControlID = 0; /// ì»¨í„°ë¡¤ ì•„ì´ë””
     m_iParentID = 0;
     m_sPosition.x = 0;
     m_sPosition.y = 0;

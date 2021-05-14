@@ -71,7 +71,7 @@ classListBLOCK<dType>::Insert(t_HASHKEY HashKEY,
 
     pBlockDATA = new dType;
 
-    pBlockDATA->m_dwBlockSECOND = dwBlockSecond; // 0 ÀÌ¸é ¿µ±¸ Â÷´Ü !!!
+    pBlockDATA->m_dwBlockSECOND = dwBlockSecond; // 0 ì´ë©´ ì˜êµ¬ ì°¨ë‹¨ !!!
 
     pBlockDATA->m_Tag.Set(szTag);
     pBlockDATA->m_dwAttackCOUNT = 1;
@@ -95,7 +95,7 @@ classListBLOCK<dType>::Search(t_HASHKEY HashKEY, char* szTag, bool bUpdateList) 
             DWORD dwCurTIME = classTIME::GetCurrentAbsSecond();
 
             if (bUpdateList && pBlockDATA->m_DATA->m_dwBlockSECOND) {
-                // Â÷´ÜµÆ¾îµµ ¸ñ·Ï¿¡¼­ »èÁ¦µÉ¼ö ÀÖ´Â°ÍÀÌ¸é ???
+                // ì°¨ë‹¨ëì–´ë„ ëª©ë¡ì—ì„œ ì‚­ì œë ìˆ˜ ìžˆëŠ”ê²ƒì´ë©´ ???
                 if (dwCurTIME - pBlockDATA->m_DATA->m_dwLastTryTIME
                     > pBlockDATA->m_DATA->m_dwBlockSECOND) {
                     LogString(LOG_NORMAL,
@@ -142,8 +142,8 @@ classListBLOCK<dType>::Update(dType* pBlockDATA, WORD wAttackTYPE, DWORD dwAddBl
 
 #define NAME_BLOCK_TYPE_ACCEPT IP_BLOCK_TYPE_ACCEPT
 #define NAME_BLOCK_TYPE_PACKET IP_BLOCK_TYPE_PACKET
-#define NAME_BLOCK_TYPE_ABUSE 0x04 // ¿å¼³
-#define NAME_BLOCK_TYPE_HACK 0x08 // ÇÙÅ·Åø »ç¿ë.
+#define NAME_BLOCK_TYPE_ABUSE 0x04 // ìš•ì„¤
+#define NAME_BLOCK_TYPE_HACK 0x08 // í•µí‚¹íˆ´ ì‚¬ìš©.
 
 //-------------------------------------------------------------------------------------------------
 #endif

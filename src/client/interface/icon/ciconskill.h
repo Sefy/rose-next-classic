@@ -5,8 +5,8 @@
 class CSkill;
 /**
  * Class CIconSkill
- * Skill °´Ã¼¿¡ ´ëÇÑ View Class
- * @Author		ÀÌµ¿Çö, ÃÖÁ¾Áø
+ * Skill ê°ì²´ì— ëŒ€í•œ View Class
+ * @Author		ì´ë™í˜„, ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CIconSkill: public CIcon {
@@ -37,11 +37,11 @@ public:
 
     static void AddSkillRequireJob(int iSkillNo, CInfo& ToolTip);
     static void AddSkillRequireSkill(int iSkillNo, CInfo& ToolTip);
-    static void AddSkillRequireAbility(int iSkillNo, CInfo& ToolTip); ///Á¶°Ç ´É·Â
+    static void AddSkillRequireAbility(int iSkillNo, CInfo& ToolTip); ///ì¡°ê±´ ëŠ¥ë ¥
     static void AddSkillRequireSkillPoint2Learn(int iSkillNo, CInfo& ToolTip);
 
 protected:
-    ///<- Skill Tooltip¿ë Method*
+    ///<- Skill Tooltipìš© Method*
     void AddSkillTypeTarget(int iSkillNo, CInfo& ToolTip, bool bAddTarget = true);
     void AddSkillSummon(int iSkillNo, CInfo& ToolTip);
     void AddSkillDistanceScope(int iSkillNo, CInfo& ToolTip, bool bAddScope);
@@ -53,7 +53,7 @@ protected:
     void AddSkillPower(int iSkillNo, CInfo& ToolTip);
     void AddSkillDesc(int iSkillNo, CInfo& ToolTip);
     void AddSkillUseProperty(int iSkillNo, CInfo& ToolTip);
-    void AddSkillRequireEquip(int iSkillNo, CInfo& ToolTip); ///ÇÊ¿äÀåºñ
+    void AddSkillRequireEquip(int iSkillNo, CInfo& ToolTip); ///í•„ìš”ì¥ë¹„
     void AddSkillRequireUnion(int iSkillNo, CInfo& ToolTip);
     void AddSkillStatus(int iSkillNo, CInfo& ToolTip);
     void AddSkillSuccessRateDuration(int iSkillNo, CInfo& ToolTip);

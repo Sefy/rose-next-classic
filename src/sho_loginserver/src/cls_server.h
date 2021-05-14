@@ -106,7 +106,7 @@ public:
     int m_iMaxUserCNT;
     char m_szStatusSTR[64];
 
-    // Worker Thread °¹¼ö = CPU * 1 + 1
+    // Worker Thread ê°¯ìˆ˜ = CPU * 1 + 1
     CLS_ListSERVER(UINT uiInitDataCNT, UINT uiIncDataCNT):
         IOCPSocketSERVER((char*)"CLS_ServerSOCKET", 1, 1, false), CDataPOOL<CLS_Server>(
                                                                       (char*)"CServerPOOL",
@@ -127,7 +127,7 @@ public:
     //-------------------------------------------------------------------------------------------------
     /// Inherited from IOCPSocketSERVER
     iocpSOCKET* AllocClientSOCKET() {
-        // ¸Þ¸ð¸®ÇÒ´ç
+        // ë©”ëª¨ë¦¬í• ë‹¹
         CLS_Server* pSOCKET = this->Pool_Alloc();
         if (pSOCKET) {
             pSOCKET->Init();

@@ -7,11 +7,11 @@
 class CTFrame;
 
 //---------------------------------------------------------------------------------------------------------------------
-/// 2D ¾Ö´Ï¸ŞÀÌ¼Ç Class
-///		- Å¬¶óÀÌ¾ğÆ®¿¡¼­ ¹Ì´Ï¸ÊÀÇ Indicator¿¡ »ç¿ëµÇ°í ÀÖ´Ù
-///     - ¿¬°üClass						CTFrame
+/// 2D ì• ë‹ˆë©”ì´ì…˜ Class
+///		- í´ë¼ì´ì–¸íŠ¸ì—ì„œ ë¯¸ë‹ˆë§µì˜ Indicatorì— ì‚¬ìš©ë˜ê³  ìˆë‹¤
+///     - ì—°ê´€Class						CTFrame
 ///
-/// @Author				ÃÖÁ¾Áø
+/// @Author				ìµœì¢…ì§„
 ///
 /// @Date				2005/8/30
 //---------------------------------------------------------------------------------------------------------------------
@@ -24,15 +24,15 @@ public:
     virtual void Draw();
     virtual void Update(POINT ptMouse);
 
-    void SetPosition(int x, int y); /// Draw ÇÒ È­¸é ÁÂÇ¥ Set
-    void add_frame(CTFrame* frame); /// FrameÃß°¡
-    void set_loop(bool loop); /// ¾Ö´Ï¸ŞÀÌ¼ÇÀÇ Loop ¿É¼Ç Set
-    void set_curr_frame(unsigned i); /// FrameÀÇ °­Á¦ ÀÌµ¿
+    void SetPosition(int x, int y); /// Draw í•  í™”ë©´ ì¢Œí‘œ Set
+    void add_frame(CTFrame* frame); /// Frameì¶”ê°€
+    void set_loop(bool loop); /// ì• ë‹ˆë©”ì´ì…˜ì˜ Loop ì˜µì…˜ Set
+    void set_curr_frame(unsigned i); /// Frameì˜ ê°•ì œ ì´ë™
 
 protected:
-    std::deque<CTFrame*>::size_type m_curr_frame; /// ÇöÀç DrawÇÒ FrameÀÇ ÀÎµ¦½º
-    bool m_loop; /// ¾Ö´Ï¸ŞÀÌ¼ÇÀÇ Loop On/Off
+    std::deque<CTFrame*>::size_type m_curr_frame; /// í˜„ì¬ Drawí•  Frameì˜ ì¸ë±ìŠ¤
+    bool m_loop; /// ì• ë‹ˆë©”ì´ì…˜ì˜ Loop On/Off
     std::deque<CTFrame*> m_frames; /// Frame Container
-    DWORD m_prev_update_time; /// UpdateµÈ ¹Ù·Î ÀÌÀüÀÇ ½Ã°£
+    DWORD m_prev_update_time; /// Updateëœ ë°”ë¡œ ì´ì „ì˜ ì‹œê°„
 };
 #endif

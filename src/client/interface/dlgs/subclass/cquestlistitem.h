@@ -4,9 +4,9 @@
 
 #include "tgamectrl/singlelinestring.h"
 /**
- * Äù½ºÆ®Ã¢¿¡¼­ Äù½ºÆ®¸ñ·Ï ZListBoxÀÇ item Class
+ * í€˜ìŠ¤íŠ¸ì°½ì—ì„œ í€˜ìŠ¤íŠ¸ëª©ë¡ ZListBoxì˜ item Class
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/15
  */
 class CQuestListItem: public CWinCtrl {

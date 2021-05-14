@@ -10,9 +10,9 @@ class CTDialog;
 class CMsgBox;
 
 /**
- * ¿ÜºÎ ÀÎÅÍÆäÀÌ½º( ·Î±×ÀÎ ~ Ä³¸¯ÅÍ ¼±ÅÃ, °ÔÀÓ¿¡ µé¾î°¡±âÀü±îÁö)¸¦ °ü¸®ÇÏ´Â Class
+ * ì™¸ë¶€ ì¸í„°í˜ì´ìŠ¤( ë¡œê·¸ì¸ ~ ìºë¦­í„° ì„ íƒ, ê²Œì„ì— ë“¤ì–´ê°€ê¸°ì „ê¹Œì§€)ë¥¼ ê´€ë¦¬í•˜ëŠ” Class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 
@@ -77,10 +77,10 @@ public:
     void CloseCreateAvataDlg();
     void FailCreateAvata();
 
-    // »õ·Î Ä³¸¯ »ı¼ºÈÄ ±× Ä³¸¯ÀÌ ¼±ÅÃµÉ¶§±îÁö ´ë±â..
+    // ìƒˆë¡œ ìºë¦­ ìƒì„±í›„ ê·¸ ìºë¦­ì´ ì„ íƒë ë•Œê¹Œì§€ ëŒ€ê¸°..
     bool CreateWaitJoinServerDlg();
     void CloseWaitJoinServerDlg();
-    ///°øÅë ¸Ş¼¼Áö ¹Ú½º °ü·Ã
+    ///ê³µí†µ ë©”ì„¸ì§€ ë°•ìŠ¤ ê´€ë ¨
 
     bool ShowDialog(int iType);
     bool HideDialog(int iType);

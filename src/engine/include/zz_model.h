@@ -78,7 +78,7 @@ protected:
 
 	zz_skeleton * skeleton;
 
-	zz_animatable *collision_block;   //Ãæµ¹¿ë  //test 12_14
+	zz_animatable *collision_block;   //ì¶©ëŒìš©  //test 12_14
     
 	bool apply_gravity_onoff; 
 	

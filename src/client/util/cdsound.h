@@ -78,7 +78,7 @@ public:
     //
     //	lVolume ::	DSBVOLUME_MAX ( 0 ) to DSBVOLUME_MIN ( -10,000 - silence).
     //	lPan    ::  DSBPAN_LEFT( -10,000 ),  DSBPAN_CENTER( 0 ), DSBPAN_RIGHT( 10,000 )
-    //	dwFlags ::  IDirectSoundBuffer8::Play ÀÎÀÚÀÇ dwFlags¿¡ Àü´ŞµÈ´Ù.
+    //	dwFlags ::  IDirectSoundBuffer8::Play ì¸ìì˜ dwFlagsì— ì „ë‹¬ëœë‹¤.
     //
     void PlaySound(t_sounddata* pData, long lVolume, long lPan, DWORD dwFlags);
     void StopSound(t_sounddata* pData);
@@ -119,14 +119,14 @@ public:
         GUID guid3DAlgorithm = DS3DALG_NO_VIRTUALIZATION,
         long lFilePtr = -1);
 
-    // ¸®½º³Ê °ü·Ã
+    // ë¦¬ìŠ¤ë„ˆ ê´€ë ¨
     static bool SetListenerPosition(const D3DXVECTOR3& PosWorld);
     static bool SetListenerOrientation(const D3DXVECTOR3& PosFront, const D3DXVECTOR3& PosTop);
     static bool SetListenerRolloffFactor(float fMinRolloffFactor);
     static bool UpdateListener(const CCamera* pCamera);
 
-    // 3D »ç¿îµå ¼Ó¼º °ü·Ã
-    bool Set3D(t_sounddata* pData, bool b3DMode); // 3D ¸ğµåÀÎÁö ¾Æ´ÑÁö ¿©ºÎ ¼³Á¤, µğÆúÆ®´Â 3D
+    // 3D ì‚¬ìš´ë“œ ì†ì„± ê´€ë ¨
+    bool Set3D(t_sounddata* pData, bool b3DMode); // 3D ëª¨ë“œì¸ì§€ ì•„ë‹Œì§€ ì—¬ë¶€ ì„¤ì •, ë””í´íŠ¸ëŠ” 3D
     bool SetPosition(t_sounddata* pData, const D3DXVECTOR3& posWorld);
     bool SetVelocity(t_sounddata* pData, const D3DXVECTOR3& posVelocity);
     bool SetMinDistance(t_sounddata* pData, float fMinDistance);

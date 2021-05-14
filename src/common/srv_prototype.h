@@ -6,16 +6,16 @@
 #define MAX_PARTY_MEMBERS 7
 #define MAX_PARTY_LEVEL 50
 
-// ¿ùµå ¼­¹ö ÃÖ´ë Á¢¼Ó °¡´ÉÀÚ
+// ì›”ë“œ ì„œë²„ ìµœëŒ€ ì ‘ì† ê°€ëŠ¥ìž
 #define MAX_WORLD_USER_UBFF 65535
-// Á¸ ¼­¹ö ÃÖ´ë Á¢¼Ó °¡´ÉÀÚ.
+// ì¡´ ì„œë²„ ìµœëŒ€ ì ‘ì† ê°€ëŠ¥ìž.
 #define MAX_ZONE_USER_BUFF 8192
 
-#define MAX_CHANNEL_SERVER (16 + 1) // 0¹ø Ã¤³Î Á¦¿Ü
+#define MAX_CHANNEL_SERVER (16 + 1) // 0ë²ˆ ì±„ë„ ì œì™¸
 
 #define MAX_CLAN_LEVEL 7
 enum {
-    GPOS_PENALTY = 0, // ±æµåÃª ±ÝÁö
+    GPOS_PENALTY = 0, // ê¸¸ë“œì±— ê¸ˆì§€
     GPOS_JUNIOR = 1, // "junior"
     GPOS_SENIOR = 2, // "senior"
     GPOS_RENDER = 3, // "veteran"
@@ -39,26 +39,26 @@ enum {
 
 #define MON_SERVER_ANNOUNCE 0x01f4
 
-/// ¿Â¶óÀÎ Åø - °ÔÀÓ¼­¹ö °£ ÆÐÅ¶
-#define OST_SERVER_USERLOGOUT 0x01f5 // À¯Àú °­Á¦·Î±×¾Æ¿ô
+/// ì˜¨ë¼ì¸ íˆ´ - ê²Œìž„ì„œë²„ ê°„ íŒ¨í‚·
+#define OST_SERVER_USERLOGOUT 0x01f5 // ìœ ì € ê°•ì œë¡œê·¸ì•„ì›ƒ
 #define GSV_SERVER_USERLOGOUT_REPLY 0x01f5
 
-#define OST_SERVER_ZONEINFO 0x01f6 // Áö¿ªº° Á¤º¸. Á¸¹øÈ£, Á¸ÀÌ¸§, À¯Àú¼ö
+#define OST_SERVER_ZONEINFO 0x01f6 // ì§€ì—­ë³„ ì •ë³´. ì¡´ë²ˆí˜¸, ì¡´ì´ë¦„, ìœ ì €ìˆ˜
 #define GSV_SERVER_ZONEINFO_REPLY 0x01f6
 
-#define OST_SERVER_USERINFO 0x01f7 // À¯ÀúÁ¤º¸ , ÇöÀç ÁÂÇ¥, IP
+#define OST_SERVER_USERINFO 0x01f7 // ìœ ì €ì •ë³´ , í˜„ìž¬ ì¢Œí‘œ, IP
 #define GSV_SERVER_USERINFO_REPLY 0x01f7
 
-#define OST_SERVER_CHGUSER 0x01f8 // À¯ÀúÀÇ »óÅÂ¼¼ÆÃ ( ÇöÀç´Â Ã¤ÆÃ ±ÝÁö )
+#define OST_SERVER_CHGUSER 0x01f8 // ìœ ì €ì˜ ìƒíƒœì„¸íŒ… ( í˜„ìž¬ëŠ” ì±„íŒ… ê¸ˆì§€ )
 #define GSV_SERVER_CHGUSER_REPLY 0x01f8
 
-#define OST_SERVER_MOVECHR 0x01f9 // Ä³¸¯ÅÍ¸¦ ÀÌµ¿½ÃÅ´
+#define OST_SERVER_MOVECHR 0x01f9 // ìºë¦­í„°ë¥¼ ì´ë™ì‹œí‚´
 #define GSV_SERVER_MOVECHR_REPLY 0x01f9
 
-#define OST_SERVER_ZONEANNOUNCE 0x01fa // Á¸º° °øÁö
+#define OST_SERVER_ZONEANNOUNCE 0x01fa // ì¡´ë³„ ê³µì§€
 #define GSV_SERVER_ZONEANNOUNCE_REPLY 0x01fa
 
-#define OST_SERVER_IPSEARCH 0x01fb // IP·Î °Ë»ö
+#define OST_SERVER_IPSEARCH 0x01fb // IPë¡œ ê²€ìƒ‰
 #define GSV_SERVER_IPSEARCH_REPLY 0x01fb
 /// ----------------------------------------------------
 /// < Admin Tool >	- Raven
@@ -81,7 +81,7 @@ enum {
 #define GSV_DEL_ZONE 0x0203
 
 #define WSV_DEL_ZONE 0x0204
-#define GSV_WARP_USER 0x0205 // ¿ùµå ¼­¹ö¿¡ »ç¿ëÀÚ ¿öÇÁ ÇÑ´Ù°í Åëº¸...
+#define GSV_WARP_USER 0x0205 // ì›”ë“œ ì„œë²„ì— ì‚¬ìš©ìž ì›Œí”„ í•œë‹¤ê³  í†µë³´...
 
 #define GSV_CHEAT_REQ 0x0206 // GSV->WSV
 #define WSV_CHEAT_REQ 0x0207 // WSV->GSV
@@ -98,7 +98,7 @@ enum {
 
 #define ZAS_SUB_ACCOUNT ZWS_SUB_ACCOUNT
 
-#define WLS_KICK_ACCOUNT 0x0214 // Áßº¹ Á¢¼ÓÀÌ³ª ÇØÅ·...
+#define WLS_KICK_ACCOUNT 0x0214 // ì¤‘ë³µ ì ‘ì†ì´ë‚˜ í•´í‚¹...
 
 #define GSV_BLOCK 0x0215
 
@@ -121,9 +121,9 @@ enum {
 #define GSV_LOG_DB_INFO 0x0220
 #define GSV_LOG_DB_SQL 0x0221
 
-#define ZWS_CREATE_CLAN 0x0230 // Å¬·£ »ý¼º
-#define ZWS_SET_USER_CLAN 0x0231 // »ç¿ëÀÚ Å¬·£ ¼³Á¤.
-#define ZWS_DEL_USER_CLAN 0x0232 // »ç¿ëÀÚ Å¬·£ »èÁ¦.
+#define ZWS_CREATE_CLAN 0x0230 // í´ëžœ ìƒì„±
+#define ZWS_SET_USER_CLAN 0x0231 // ì‚¬ìš©ìž í´ëžœ ì„¤ì •.
+#define ZWS_DEL_USER_CLAN 0x0232 // ì‚¬ìš©ìž í´ëžœ ì‚­ì œ.
 
 #define GSV_ADJ_CLAN_VAR 0x0233
 #define WSV_SET_CLAN_VAR 0x0233
@@ -133,24 +133,24 @@ enum {
 #define	WSV_PARTY_CMD				0x0201
 */
 
-#define GSV_SET_WORLD_VAR 0x02fa // ¿ùµå º¯¼ö ¼³Á¤
+#define GSV_SET_WORLD_VAR 0x02fa // ì›”ë“œ ë³€ìˆ˜ ì„¤ì •
 #define WSV_SET_WORLD_VAR 0x02fa
 
 /*
-#define	GSV_DO_TRIGGER_NCPOBJ		0x02fb		// Æ®¸®°Å ½ÇÇà ¸í·É
+#define	GSV_DO_TRIGGER_NCPOBJ		0x02fb		// íŠ¸ë¦¬ê±° ì‹¤í–‰ ëª…ë ¹
 #define	WSV_DO_TRIGGER_NPCOBJ		0x02fb
 
 #define	GSV_DO_TRIGGER_EVENTOBJ		0x02fc
 #define	WSV_DO_TRIGGER_EVENTOBJ		0x02fc
 
-#define	GSV_SET_NPCOBJ_VAR			0x02fd		// º¯¼ö ¼³Á¤
+#define	GSV_SET_NPCOBJ_VAR			0x02fd		// ë³€ìˆ˜ ì„¤ì •
 #define	WSV_SET_NPCOBJ_VAR			0x02fd
 
 #define	GSV_SET_EVENTOBJ_VAR		0x02fe
 #define	WSV_SET_EVENTOBJ_VAR		0x02fe
 */
 
-#define SQL_ZONE_DATA 0x02ff // DB¿¡¼­ Á¸ µ¥ÀÌÅ¸ I/O..
+#define SQL_ZONE_DATA 0x02ff // DBì—ì„œ ì¡´ ë°ì´íƒ€ I/O..
 
 //-------------------------------------------------------------------------------------------------
 /*
@@ -196,14 +196,14 @@ struct mon_SERVER_STATUS_REQ: public t_PACKETHEADER {
     DWORD m_dwTIME;
 };
 
-// ·Î±×ÀÎ/¿ùµå ¼­¹ö Á¤º¸
+// ë¡œê·¸ì¸/ì›”ë“œ ì„œë²„ ì •ë³´
 struct wls_SERVER_STATUS_REPLY: public t_PACKETHEADER {
     DWORD m_dwTIME;
     short m_nServerCNT;
     int m_iUserCNT;
 };
 
-// Ã¤³Î ¼­¹ö Á¤º¸
+// ì±„ë„ ì„œë²„ ì •ë³´
 struct tag_ZONE_STATUS {
     short m_nZoneNO;
     short m_nUserCNT;
@@ -292,14 +292,14 @@ struct zas_SERVER_TYPE: public t_PACKETHEADER {
     BYTE m_btServerTYPE;
 };
 
-// @btTYPEÀº gsv_BILLING_MESSAGE°ú µ¿ÀÏ...
+// @btTYPEì€ gsv_BILLING_MESSAGEê³¼ ë™ì¼...
 struct zas_MESSAGE: public t_PACKETHEADER {
     BYTE m_btTYPE;
     // char m_szAccount[]
     // char m_szMsg[]
 };
 
-// gsv_BILLING_MESSAGE_EXT¿Í °°À¸³ª gsv_BILLING_MESSAGE_EXTÀÇ szMsg¾Õ¿¡ szAccount°¡ ¿Â´Ù
+// gsv_BILLING_MESSAGE_EXTì™€ ê°™ìœ¼ë‚˜ gsv_BILLING_MESSAGE_EXTì˜ szMsgì•žì— szAccountê°€ ì˜¨ë‹¤
 struct zas_MESSAGE_EXT: public gsv_BILLING_MESSAGE_EXT {
     // char m_szAccount[]
     // char m_szMsg[]
@@ -309,7 +309,7 @@ struct zas_KICK_ACCOUNT: public t_PACKETHEADER {
     BYTE m_btWHY;
 };
 
-#define ZAS_CHECK_DISCONNECT 0x01 // GUMS¿¡¼­ timeout °É·È´Ù... Ã¤³Î ¼·¿¡¼­ Á¢¼Ó¿©ºÎ Ã¼Å©..
+#define ZAS_CHECK_DISCONNECT 0x01 // GUMSì—ì„œ timeout ê±¸ë ¸ë‹¤... ì±„ë„ ì„­ì—ì„œ ì ‘ì†ì—¬ë¶€ ì²´í¬..
 #define ZAS_CHECK_RELOGIN 0x02
 struct zas_CHECK_ACCOUNT: public t_PACKETHEADER {
     BYTE m_btType;
@@ -407,22 +407,22 @@ struct wsv_DEL_ZONE	: public t_PACKETHEADER {
 */
 
 /*
-    Á¸ ¿öÇÁ Ã³¸® ¼ø¼­..
-    1. CLI => GSV ¿öÇÁ ¿äÃ»
-    2. ·ÎÄÃ / ¿ø°Ý ÆÇ´Ü
-       a. ·ÎÄÃÀÏ °æ¿ì
-          . send_gsv_teleport_reply Àü¼Û
-          . ³¡
-       b. ¿ø°ÝÀÏ °æ¿ì
-          . DB¿¡ ÄÉ¸¯ÅÍ ±â·Ï
-          . WSV¿¡ ¿öÇÁ Àü¼Û
-          . WSV => CLI¿¡ move_server Àü¼Û
-          . CLI => GSV Á¢¼Ó
-          . GSV => send_join_zone Àü¼Û.
-          . ³¡.
+    ì¡´ ì›Œí”„ ì²˜ë¦¬ ìˆœì„œ..
+    1. CLI => GSV ì›Œí”„ ìš”ì²­
+    2. ë¡œì»¬ / ì›ê²© íŒë‹¨
+       a. ë¡œì»¬ì¼ ê²½ìš°
+          . send_gsv_teleport_reply ì „ì†¡
+          . ë
+       b. ì›ê²©ì¼ ê²½ìš°
+          . DBì— ì¼€ë¦­í„° ê¸°ë¡
+          . WSVì— ì›Œí”„ ì „ì†¡
+          . WSV => CLIì— move_server ì „ì†¡
+          . CLI => GSV ì ‘ì†
+          . GSV => send_join_zone ì „ì†¡.
+          . ë.
 */
 /*
-// ¿öÇÁ½Ã À¯ÁöÇÒ °ªµé...
+// ì›Œí”„ì‹œ ìœ ì§€í•  ê°’ë“¤...
 struct gsv_WARP_USER : public t_PACKETHEADER {
     DWORD		m_dwWSID;
     short		m_nZoneNO;
@@ -430,7 +430,7 @@ struct gsv_WARP_USER : public t_PACKETHEADER {
     BYTE		m_btRideMODE;
     union {
         DWORD	m_dwIngStatusFLAG;
-        BYTE	m_IngSTATUS[1];			// ÁøÇà »óÅÂ°ªÀÌ ÀÖÀ»°æ¿ì... Áï... 0 != m_dwIngStatusFLAG
+        BYTE	m_IngSTATUS[1];			// ì§„í–‰ ìƒíƒœê°’ì´ ìžˆì„ê²½ìš°... ì¦‰... 0 != m_dwIngStatusFLAG
     } ;
 } ;
 */
@@ -456,7 +456,7 @@ struct zws_SET_USER_CLAN: public tag_ZWS_CLAN_PACKET {
     //	char		m_szClanNAME[0];
 };
 
-// Å¬·£ ¸í·É ÆÐÅ¶°ú ÇÔ²² »ç¿ëµÊ....
+// í´ëžœ ëª…ë ¹ íŒ¨í‚·ê³¼ í•¨ê»˜ ì‚¬ìš©ë¨....
 #define CLVAR_INC_LEV 0x01
 #define CLVAR_ADD_SCORE 0x02
 #define CLVAR_ADD_ZULY 0x03
@@ -498,23 +498,23 @@ struct wsv_PARTY_CMD : public t_PACKETHEADER {
     BYTE		m_btOP;
     WORD		m_wPartyWSID;
     union {
-        WORD	m_wGSIDs[ 2 ];			// ÆÄÆ¼ »ý¼º½Ã.. ¸¸µç³Ñ, ´ë»ó
+        WORD	m_wGSIDs[ 2 ];			// íŒŒí‹° ìƒì„±ì‹œ.. ë§Œë“ ë„˜, ëŒ€ìƒ
         struct {
             WORD	m_wGSID;
             short	m_nAvgLEV;
         } ;
     } ;
 } ;
-#define PARTY_OP_CREATE			0x01	// ÆÄÆ¼ »ý¼º
-#define PARTY_OP_DESTROY		0x02	// ÆÄÆ¼ »Ç°³¶ó~
-#define	PARTY_OP_JOIN			0x03	// ÆÄÆ¼¿øÀÌ Âü°¡ Çß´Ù.
-#define	PARTY_OP_LEFT			0x04	// ÆÄÆ¼¿øÀÌ ³ª°¬´Ù.
-#define	PARTY_OP_USER_LEVELUP	0x05	// ÆÄÆ¼¿øÀÌ ·¾¾÷Çß´Ù.
+#define PARTY_OP_CREATE			0x01	// íŒŒí‹° ìƒì„±
+#define PARTY_OP_DESTROY		0x02	// íŒŒí‹° ë½€ê°œë¼~
+#define	PARTY_OP_JOIN			0x03	// íŒŒí‹°ì›ì´ ì°¸ê°€ í–ˆë‹¤.
+#define	PARTY_OP_LEFT			0x04	// íŒŒí‹°ì›ì´ ë‚˜ê°”ë‹¤.
+#define	PARTY_OP_USER_LEVELUP	0x05	// íŒŒí‹°ì›ì´ ë ™ì—…í–ˆë‹¤.
 */
 
 //-------------------------------------------------------------------------------------------------
 struct srv_SET_WORLD_VAR: public t_PACKETHEADER {
-    short m_nVarIDX; // À½¼öÀÏ°æ¿ì ÀüÃ¼
+    short m_nVarIDX; // ìŒìˆ˜ì¼ê²½ìš° ì „ì²´
     short m_nValue[1];
 };
 
@@ -526,30 +526,30 @@ struct sql_ZONE_DATA: public t_PACKETHEADER {
 };
 
 //-------------------------------------------------------------------------------------------------
-/// À¯Àú °­Á¦·Î±×¾Æ¿ô
+/// ìœ ì € ê°•ì œë¡œê·¸ì•„ì›ƒ
 struct ost_SERVER_USERLOGOUT: public t_PACKETHEADER {
-    // char [] (°èÁ¤¸í)
+    // char [] (ê³„ì •ëª…)
 };
 struct gsv_SERVER_USERLOGOUT_REPLY: public t_PACKETHEADER {
-    BYTE m_btRESULT; // 1 : ·Î±×¾Æ¿ô , 0 : ½ÇÆÐ
-    // char [] (Ä³¸¯¸í, NULL Æ÷ÇÔ)
-    // char [] (°èÁ¤¸í, NULL Æ÷ÇÔ)
+    BYTE m_btRESULT; // 1 : ë¡œê·¸ì•„ì›ƒ , 0 : ì‹¤íŒ¨
+    // char [] (ìºë¦­ëª…, NULL í¬í•¨)
+    // char [] (ê³„ì •ëª…, NULL í¬í•¨)
 };
 
 struct ost_ZoneINFO {
     short m_nZoneNO;
     short m_nUserCNT;
 };
-/// Áö¿ªº° Á¤º¸. Á¸¹øÈ£, Á¸ÀÌ¸§, À¯Àú¼ö
+/// ì§€ì—­ë³„ ì •ë³´. ì¡´ë²ˆí˜¸, ì¡´ì´ë¦„, ìœ ì €ìˆ˜
 struct ost_SERVER_ZONEINFO: public t_PACKETHEADER {};
 struct gsv_SERVER_ZONEINFO_REPLY: public t_PACKETHEADER {
     short m_nZoneCOUNT;
     // ost_ZoneINFO	m_ZoneINFO[  ];
 };
 
-/// À¯ÀúÁ¤º¸ , ÇöÀç ÁÂÇ¥, IP
+/// ìœ ì €ì •ë³´ , í˜„ìž¬ ì¢Œí‘œ, IP
 struct ost_SERVER_USERINFO: public t_PACKETHEADER {
-    // char [] ( °èÁ¤¸í ) AppendString À¸·Î ºÙÀÏ °Í
+    // char [] ( ê³„ì •ëª… ) AppendString ìœ¼ë¡œ ë¶™ì¼ ê²ƒ
 };
 struct gsv_SERVER_USERINFO_REPLY: public t_PACKETHEADER {
     BYTE m_btEXIST;
@@ -557,55 +557,55 @@ struct gsv_SERVER_USERINFO_REPLY: public t_PACKETHEADER {
     short m_nX;
     short m_nY;
     unsigned long m_ulIP;
-    // char [] ( Ä³¸¯ÅÍ¸í ) , char [] ( °èÁ¤¸í )
+    // char [] ( ìºë¦­í„°ëª… ) , char [] ( ê³„ì •ëª… )
 };
 
-#define OST_CHGUSER_BLOCKCHAT 0x000000001 // Ã¤ÆÃ±ÝÁö
-// À¯ÀúÀÇ »óÅÂ¼¼ÆÃ ( ÇöÀç´Â Ã¤ÆÃ ±ÝÁö )
+#define OST_CHGUSER_BLOCKCHAT 0x000000001 // ì±„íŒ…ê¸ˆì§€
+// ìœ ì €ì˜ ìƒíƒœì„¸íŒ… ( í˜„ìž¬ëŠ” ì±„íŒ… ê¸ˆì§€ )
 struct ost_SERVER_CHGUSER: public t_PACKETHEADER {
-    DWORD m_dwSTATUS; // Àû¿ëÇÒ Ç×¸ñ
-    DWORD m_dwCMD; // Àû¿ëÇÒ Ç×¸ñ¿¡ ´ëÇÑ On(1), Onff(0)
-    // char [] ( °èÁ¤¸í ) AppendString À¸·Î ºÙÀÏ °Í
+    DWORD m_dwSTATUS; // ì ìš©í•  í•­ëª©
+    DWORD m_dwCMD; // ì ìš©í•  í•­ëª©ì— ëŒ€í•œ On(1), Onff(0)
+    // char [] ( ê³„ì •ëª… ) AppendString ìœ¼ë¡œ ë¶™ì¼ ê²ƒ
 };
 struct gsv_SERVER_CHGUSER_REPLY: public t_PACKETHEADER {
-    DWORD m_dwSTATUS; // Àû¿ëµÈ Ç×¸ñ
-    DWORD m_dwCMD; // Àû¿ëµÈ Ç×¸ñ¿¡ ´ëÇÑ »óÅÂ °ª
-    // char [] ( Ä³¸¯ÅÍ¸í ) , char [] ( °èÁ¤¸í )
+    DWORD m_dwSTATUS; // ì ìš©ëœ í•­ëª©
+    DWORD m_dwCMD; // ì ìš©ëœ í•­ëª©ì— ëŒ€í•œ ìƒíƒœ ê°’
+    // char [] ( ìºë¦­í„°ëª… ) , char [] ( ê³„ì •ëª… )
 };
 
-// Ä³¸¯ÅÍ¸¦ ÀÌµ¿½ÃÅ´
+// ìºë¦­í„°ë¥¼ ì´ë™ì‹œí‚´
 struct ost_SERVER_MOVECHR: public t_PACKETHEADER {
     short m_nZoneNO;
     short m_nX;
     short m_nY;
-    // °èÁ¤¸í
+    // ê³„ì •ëª…
 };
 
 struct gsv_SERVER_MOVECHR_REPLY: public t_PACKETHEADER {
-    BYTE m_btMOVED; // 1 : ÀÌµ¿¼º°ø, 0 : ÀÌµ¿½ÇÆÐ
-    // Ä³¸¯ÅÍ¸í
-    // °èÁ¤¸í
+    BYTE m_btMOVED; // 1 : ì´ë™ì„±ê³µ, 0 : ì´ë™ì‹¤íŒ¨
+    // ìºë¦­í„°ëª…
+    // ê³„ì •ëª…
 };
 
 struct ost_SERVER_ZONEANNOUNCE: public t_PACKETHEADER {
     short m_nZoneNO;
-    // ¸Þ½ÃÁö
-    // º¸³»´Â »ç¶÷ °èÁ¤
+    // ë©”ì‹œì§€
+    // ë³´ë‚´ëŠ” ì‚¬ëžŒ ê³„ì •
 };
 
 struct gsv_SERVER_ZONEANNOUNCE_REPLY: public t_PACKETHEADER {
     short m_nZoneNO;
-    // ¸Þ½ÃÁö
+    // ë©”ì‹œì§€
 };
 
-// ¾ÆÀÌÇÇ·Î °Ë»ö
+// ì•„ì´í”¼ë¡œ ê²€ìƒ‰
 struct ost_SERVER_IPSEARCH: public t_PACKETHEADER {
-    // ¾ÆÀÌÇÇ , AppendString µÈ ¹®ÀÚ¿­. "211." ÀÏ °æ¿ì 211·Î ½ÃÀÛÇÏ´Â ¸ðµç ip¸¦ °Ë»ö
+    // ì•„ì´í”¼ , AppendString ëœ ë¬¸ìžì—´. "211." ì¼ ê²½ìš° 211ë¡œ ì‹œìž‘í•˜ëŠ” ëª¨ë“  ipë¥¼ ê²€ìƒ‰
 };
 
 struct gsv_SERVER_IPSEARCH_REPLY: public t_PACKETHEADER {
-    short m_nCOUNT; // °¹¼ö
-    // Ä³¸¯¸í1, °èÁ¤¸í1, Ä³¸¯¸í2, °èÁ¤¸í2, ...
+    short m_nCOUNT; // ê°¯ìˆ˜
+    // ìºë¦­ëª…1, ê³„ì •ëª…1, ìºë¦­ëª…2, ê³„ì •ëª…2, ...
 };
 //-------------------------------------------------------------------------------------------------
 

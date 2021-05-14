@@ -5,9 +5,9 @@
 
 class CUpgradeDlg;
 /**
- * Á¦·ÃÀÎÅÍÆäÀÌ½º Ã¢ÀÇ State Class : »ç¿ëÀÚ°¡ ¾ÆÀÌÅÛ¹× Àç·á¸¦ ÁØºñÇÏ´Â »óÅÂ
+ * ì œë ¨ì¸í„°í˜ì´ìŠ¤ ì°½ì˜ State Class : ì‚¬ìš©ìê°€ ì•„ì´í…œë° ì¬ë£Œë¥¼ ì¤€ë¹„í•˜ëŠ” ìƒíƒœ
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CUpgradeDlgStateNormal: public CUpgradeDlgState {

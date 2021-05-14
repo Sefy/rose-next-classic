@@ -18,10 +18,10 @@ const int MAX_PASSWORD_LENGTH = 30;
 struct t_PACKET;
 
 /**
- * ·Î±×ÀÎ½Ã »ç¿ëµÇ´Â ÀÎÅÍÆäÀÌ½º
+ * ë¡œê·¸ì¸ì‹œ ì‚¬ìš©ë˜ëŠ” ì¸í„°íŽ˜ì´ìŠ¤
  *
- * @Warning		ÀÏº»ÀÇ °æ¿ì ÆÄÆ®³Ê»ç ¼±ÅÃÄÞº¸¹Ú½º°¡ ÇÑ°³ ´õ ÀÖ´Ù
- * @Author		ÃÖÁ¾Áø
+ * @Warning		ì¼ë³¸ì˜ ê²½ìš° íŒŒíŠ¸ë„ˆì‚¬ ì„ íƒì½¤ë³´ë°•ìŠ¤ê°€ í•œê°œ ë” ìžˆë‹¤
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CLogin: public CTDialog {
@@ -66,7 +66,7 @@ public:
         IID_BTN_OK = 4,
         IID_BTN_CANCEL = 5,
         IID_CHECKBOX_SAVE_LASTCONECTID = 10,
-        IID_COMBOBOX_ROUTE = 20 /// ÀÏº» ÆÄÆ®³Ê»ç ±¸ºÐÀ» À§ÇÑ ÄÞº¸¹Ú½º
+        IID_COMBOBOX_ROUTE = 20 /// ì¼ë³¸ íŒŒíŠ¸ë„ˆì‚¬ êµ¬ë¶„ì„ ìœ„í•œ ì½¤ë³´ë°•ìŠ¤
 
     };
     enum { MSG_TYPE_EXIT, MSG_TYPE_NORMAL };

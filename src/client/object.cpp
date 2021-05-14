@@ -73,7 +73,7 @@ CObjectMANAGER::~CObjectMANAGER() {
         SAFE_DELETE(m_pOBJECTS[iL]);
     }
 
-    //¹ÚÁöÈ£::¾Æ·Î¾Æ µ¥ÀÌÅÍ ÃÊ±âÈ­
+    //ë°•ì§€í˜¸::ì•„ë¡œì•„ ë°ì´í„° ì´ˆê¸°í™”
     goddessMgr.Release();
 }
 CObjectMANAGER*
@@ -185,7 +185,7 @@ CObjectMANAGER::Set_EmptySlot(short nSlotNO, WORD wServerObjectIndex, CGameOBJ* 
 
         m_wClient2ServerOBJ[nSlotNO] = wServerObjectIndex;
         if (wServerObjectIndex) {
-            // 0ÀÌ¸é ¼­¹ö¿¡¼­ ¹ŞÀº °´Ã¼°¡ ¾Æ´Ï°Å³ª ¾ÆÁ÷ ¹ŞÁö ¸øÇÑ°Í..
+            // 0ì´ë©´ ì„œë²„ì—ì„œ ë°›ì€ ê°ì²´ê°€ ì•„ë‹ˆê±°ë‚˜ ì•„ì§ ë°›ì§€ ëª»í•œê²ƒ..
             m_nServer2ClientOBJ[wServerObjectIndex] = nSlotNO;
         }
 
@@ -474,7 +474,7 @@ CObjectMANAGER::Add_MobCHAR(WORD wServerObjectIndex,
     short nQuestIDX,
     bool bRunMODE) {
     /*
-        if ( nCharIdx == 46 )	// Àå±º °í¸±¶ó-->½ºÅä´Ï
+        if ( nCharIdx == 46 )	// ì¥êµ° ê³ ë¦´ë¼-->ìŠ¤í† ë‹ˆ
             nCharIdx = 48;
     */
 
@@ -513,7 +513,7 @@ CObjectMANAGER::Add_MobCHAR(WORD wServerObjectIndex,
     return iObjSlot;
 }
 
-/// Warp object Ãß°¡
+/// Warp object ì¶”ê°€
 int
 CObjectMANAGER::Add_WARP(short nEventID,
     D3DVECTOR& Position,
@@ -550,7 +550,7 @@ CObjectMANAGER::Add_WARP(short nEventID,
     return iObjSlot;
 }
 
-/// Collision object Ãß°¡
+/// Collision object ì¶”ê°€
 int
 CObjectMANAGER::Add_CollisionBox(int iReserved,
     D3DVECTOR& Position,
@@ -625,8 +625,8 @@ CObjectMANAGER::Add_NpcCHAR(WORD wServerObjectIndex,
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief user char, avt char °øÅëÀ¸·Î ¿©±â¼­ »ı¼ºÀ» ÇÏÁö ¾Ê±â ¶§¹®¿¡ ¸ğµ¨¿¡ userdata ¼¼ÆÃÀÌ
-/// ºÒ°¡´ÉÇÏ´Ù.
+/// @brief user char, avt char ê³µí†µìœ¼ë¡œ ì—¬ê¸°ì„œ ìƒì„±ì„ í•˜ì§€ ì•Šê¸° ë•Œë¬¸ì— ëª¨ë¸ì— userdata ì„¸íŒ…ì´
+/// ë¶ˆê°€ëŠ¥í•˜ë‹¤.
 //----------------------------------------------------------------------------------------------------
 
 CObjUSER*
@@ -655,8 +655,8 @@ CObjectMANAGER::New_UserCHAR(WORD wServerObjectIndex, char* szName) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief user char, avt char °øÅëÀ¸·Î ¿©±â¼­ »ı¼ºÀ» ÇÏÁö ¾Ê±â ¶§¹®¿¡ ¸ğµ¨¿¡ userdata ¼¼ÆÃÀÌ
-/// ºÒ°¡´ÉÇÏ´Ù.
+/// @brief user char, avt char ê³µí†µìœ¼ë¡œ ì—¬ê¸°ì„œ ìƒì„±ì„ í•˜ì§€ ì•Šê¸° ë•Œë¬¸ì— ëª¨ë¸ì— userdata ì„¸íŒ…ì´
+/// ë¶ˆê°€ëŠ¥í•˜ë‹¤.
 //----------------------------------------------------------------------------------------------------
 CObjAVT*
 CObjectMANAGER::New_AvtCHAR(WORD wServerObjectIndex, char* szName) {
@@ -684,8 +684,8 @@ CObjectMANAGER::New_AvtCHAR(WORD wServerObjectIndex, char* szName) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief user char, avt char °øÅëÀ¸·Î ¿©±â¼­ »ı¼ºÀ» ÇÏÁö ¾Ê±â ¶§¹®¿¡ ¸ğµ¨¿¡ userdata ¼¼ÆÃÀÌ
-/// ºÒ°¡´ÉÇÏ´Ù.
+/// @brief user char, avt char ê³µí†µìœ¼ë¡œ ì—¬ê¸°ì„œ ìƒì„±ì„ í•˜ì§€ ì•Šê¸° ë•Œë¬¸ì— ëª¨ë¸ì— userdata ì„¸íŒ…ì´
+/// ë¶ˆê°€ëŠ¥í•˜ë‹¤.
 //----------------------------------------------------------------------------------------------------
 CObjCART*
 CObjectMANAGER::Add_CartCHAR(int iPetType, CObjAVT* pOwner, WORD wServerObjectIndex) {
@@ -721,7 +721,7 @@ CObjectMANAGER::Add_CartCHAR(int iPetType, CObjAVT* pOwner, WORD wServerObjectIn
 }
 
 //-------------------------------------------------------------------------------------------------
-/// Event object Ãß°¡
+/// Event object ì¶”ê°€
 //-------------------------------------------------------------------------------------------------
 int
 CObjectMANAGER::Add_FixedEvent(int iEventID,
@@ -777,8 +777,8 @@ CObjectMANAGER::Add_AvtCHAR(CObjAVT* pAvtCHAR, D3DVECTOR& Position, BYTE btCharR
         return true;
     }
 
-    // ¾Æ¸¶µµ... Áßº¹µÈ ÄÉ¸¯ÅÍ ÀÌ¸§À¸·Î ÀÎÇØ ¿£Áø¿¡¼­ hModelNODE°¡ »ı¼º ¾ÈµÈ °æ¿ì...
-    g_itMGR.OpenMsgBox("Áßº¹µÈ Ä³¸¯ÅÍ ÀÌ¸§");
+    // ì•„ë§ˆë„... ì¤‘ë³µëœ ì¼€ë¦­í„° ì´ë¦„ìœ¼ë¡œ ì¸í•´ ì—”ì§„ì—ì„œ hModelNODEê°€ ìƒì„± ì•ˆëœ ê²½ìš°...
+    g_itMGR.OpenMsgBox("ì¤‘ë³µëœ ìºë¦­í„° ì´ë¦„");
 
     return false;
 }
@@ -828,7 +828,7 @@ CObjectMANAGER::Get_ClientCharOBJByName(const char* szName) {
     for (int i = MIN_OBJECTS; i < MAX_CLIENT_OBJECTS; ++i) {
         pObject = (CObjCHAR*)g_pObjMGR->m_pOBJECTS[i];
         if (pObject && pObject->IsCHAR()) {
-            ///´ë¼Ò¹®ÀÚ ±¸º°ÇÏÁö ¾Ê°í ºñ±³ÇÑ´Ù.
+            ///ëŒ€ì†Œë¬¸ì êµ¬ë³„í•˜ì§€ ì•Šê³  ë¹„êµí•œë‹¤.
             if (pObject->Get_NAME() && stricmp(pObject->Get_NAME(), szName) == 0)
                 return pObject;
         }
@@ -974,7 +974,7 @@ CObjectMANAGER::ProcOBJECT() {
         pNode = m_CharLIST.GetNextNode(pNode);
     }
 
-    // 05.05.19 icarus:: Äù½ºÆ® ¾÷µ¥ÀÌÆ®µÈ°Í¿¡ ´ëÇÑ Ã³¸®°¡ ¿Ï·á µÆÀ¸¹Ç·Î..
+    // 05.05.19 icarus:: í€˜ìŠ¤íŠ¸ ì—…ë°ì´íŠ¸ëœê²ƒì— ëŒ€í•œ ì²˜ë¦¬ê°€ ì™„ë£Œ ëìœ¼ë¯€ë¡œ..
     g_pAVATAR->m_bQuestUpdate = false;
 
     //----------------------------------------------------------------------------------------------------
@@ -982,7 +982,7 @@ CObjectMANAGER::ProcOBJECT() {
     //----------------------------------------------------------------------------------------------------
     g_pViewMSG->ResetItemInfoView();
 
-    /// alt- Å°°¡ ´­·ÈÀ»°æ¿ì
+    /// alt- í‚¤ê°€ ëˆŒë ¸ì„ê²½ìš°
     if (g_GameDATA.m_bShowDropItemInfo) {
         pNode = m_ItemLIST.GetHeadNode();
         while (pNode) {
@@ -996,10 +996,10 @@ CObjectMANAGER::ProcOBJECT() {
 }
 
 //--------------------------------------------------------------------------------
-/// @param const CMAP* pMap	  - npc¿¡ ·ÎµåµÈ CMAPÀÇ ¸Ş¸ğ¸® Æ÷ÀÎÅÍ
-/// @param const int iNpcNo   - NPCÀÇ STB No
-/// @param D3DVECTOR Position - À§Ä¡Á¤º¸
-/// @brief  : ¹Ì´Ï¸Ê¿¡ Ç¥½ÃÇÒ NPCÁ¤º¸¸¦ ¸®½ºÆ®¿¡ Ãß°¡ÇÑ´Ù.
+/// @param const CMAP* pMap	  - npcì— ë¡œë“œëœ CMAPì˜ ë©”ëª¨ë¦¬ í¬ì¸í„°
+/// @param const int iNpcNo   - NPCì˜ STB No
+/// @param D3DVECTOR Position - ìœ„ì¹˜ì •ë³´
+/// @brief  : ë¯¸ë‹ˆë§µì— í‘œì‹œí•  NPCì •ë³´ë¥¼ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•œë‹¤.
 //--------------------------------------------------------------------------------
 
 void
@@ -1011,8 +1011,8 @@ CObjectMANAGER::AddNpcInfo(CMAP* pMap, int iNpcNo, D3DVECTOR Position) {
     m_listNpcInfo.push_back(Info);
 }
 //--------------------------------------------------------------------------------
-/// @param const CMAP* pMap	  - npc¿¡ ·ÎµåµÈ CMAPÀÇ ¸Ş¸ğ¸® Æ÷ÀÎÅÍ
-/// @brief  : CMAP::Free½Ã¿¡ ÀÚ½Å¿¡°Ô¼­ ·ÎµåµÈ NPCµéÀ» Áö¿î´Ù.
+/// @param const CMAP* pMap	  - npcì— ë¡œë“œëœ CMAPì˜ ë©”ëª¨ë¦¬ í¬ì¸í„°
+/// @brief  : CMAP::Freeì‹œì— ìì‹ ì—ê²Œì„œ ë¡œë“œëœ NPCë“¤ì„ ì§€ìš´ë‹¤.
 //--------------------------------------------------------------------------------
 void
 CObjectMANAGER::RemoveNpcInfo(CMAP* pMap) {
@@ -1025,15 +1025,15 @@ CObjectMANAGER::RemoveNpcInfo(CMAP* pMap) {
     }
 }
 //--------------------------------------------------------------------------------
-/// @brief  : ¸ğµç npc info list¸¦ Áö¿î´Ù.
+/// @brief  : ëª¨ë“  npc info listë¥¼ ì§€ìš´ë‹¤.
 //--------------------------------------------------------------------------------
 void
 CObjectMANAGER::ClearNpcInfoList() {
     m_listNpcInfo.clear();
 }
 //--------------------------------------------------------------------------------
-/// @return : npc info listÀÇ const reference
-/// @brief  : npc info listÀÇ const reference¸¦ returnÇÑ´Ù.
+/// @return : npc info listì˜ const reference
+/// @brief  : npc info listì˜ const referenceë¥¼ returní•œë‹¤.
 //--------------------------------------------------------------------------------
 const std::list<NpcInfoInMap>&
 CObjectMANAGER::GetNpcInfoList() {
@@ -1041,7 +1041,7 @@ CObjectMANAGER::GetNpcInfoList() {
 }
 
 //-------------------------------------------------------------------------------------------------
-/// ÀÌº¥Æ® ¿ÀºêÁ§Æ® °ü·Ã
+/// ì´ë²¤íŠ¸ ì˜¤ë¸Œì íŠ¸ ê´€ë ¨
 //--------------------------------------------------------------------------------
 CObjFixedEvent*
 CObjectMANAGER::GetEventObject(int iEventID) {
@@ -1052,7 +1052,7 @@ CObjectMANAGER::GetEventObject(int iEventID) {
     return NULL;
 }
 //-------------------------------------------------------------------------------------------------
-/// ¸ğµç CObjAVTÀÇ Å¬·£¸¶Å© Á¤º¸¸¦ °»½ÅÇÑ´Ù.
+/// ëª¨ë“  CObjAVTì˜ í´ëœë§ˆí¬ ì •ë³´ë¥¼ ê°±ì‹ í•œë‹¤.
 //--------------------------------------------------------------------------------
 void
 CObjectMANAGER::ResetClanMarkInfo(DWORD dwClanID, WORD crc16) {

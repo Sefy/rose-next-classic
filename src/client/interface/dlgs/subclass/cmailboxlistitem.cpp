@@ -28,7 +28,7 @@ CMailBoxListItem::Draw() {
     D3DXMatrixTranslation(&mat, (float)m_sPosition.x, (float)m_sPosition.y, 0.0f);
     ::setTransformSprite(mat);
 
-    ///Èû
+    ///íž˜
     if (IsSelected())
         ::drawFont(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
             true,

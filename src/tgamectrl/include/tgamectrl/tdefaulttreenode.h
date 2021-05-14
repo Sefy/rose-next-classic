@@ -29,7 +29,7 @@ public:
 
     void clear();
     void setAllowsChildren(bool bAllowChildren);
-    int getLevel(); /// root Node∑Œ ∫Œ≈Õ¿« Level, if( this == root ) return 0;
+    int getLevel(); /// root NodeÎ°ú Î∂ÄÌÑ∞Ïùò Level, if( this == root ) return 0;
     void add(ITreeNode* pNode);
     void setParent(CTDefaultTreeNode* pNode);
 

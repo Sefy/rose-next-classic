@@ -34,7 +34,7 @@ CExchange::GetInstance() {
     return s_Instance;
 }
 
-///±³È¯À» ¿äÃ»ÇÏ´Â Packet
+///êµí™˜ì„ ìš”ì²­í•˜ëŠ” Packet
 bool
 CExchange::SendCliTradeReq(WORD wObjSvrIdx) {
     return g_pNet->Send_cli_TRADE_P2P(wObjSvrIdx, RESULT_TRADE_REQUEST);
@@ -84,7 +84,7 @@ CExchange::IsReadyAll() {
 }
 
 /////////////////////////////////////////////////////////////////
-/// @brief ±³È¯ÀÌ ½ÃÀÛµÉ¶§¿Í ±³È¯ÀÌ ³¡³µÀ»¶§ Data¸¦ Clear
+/// @brief êµí™˜ì´ ì‹œì‘ë ë•Œì™€ êµí™˜ì´ ëë‚¬ì„ë•Œ Dataë¥¼ Clear
 /////////////////////////////////////////////////////////////////
 void
 CExchange::Clear() {
@@ -133,7 +133,7 @@ CExchange::EndExchange() {
     m_strTargetAvatarName.clear();
 }
 //////////////////////////////////////////////////////////////////////////////
-/// @brief ÇöÀç ±³È¯ÁßÀÎ°¡?
+/// @brief í˜„ì¬ êµí™˜ì¤‘ì¸ê°€?
 bool
 CExchange::IsExchange() {
     return m_bExchange;
@@ -163,7 +163,7 @@ CExchange::SendTradePacket(BYTE btResult, char cSlotIdx) {
 //}
 //
 
-///ÀÎº¥Å¸ÀÔº°·Î »ó´ë¹æÀÇ ¾ÆÀÌÅÛ°¹¼ö¿¡¼­ ³»¾ÆÀÌÅÛ °¹¼ö( ItemNo°¡ °°À»°æ¿ì¸¸ )»«´Ù
+///ì¸ë²¤íƒ€ì…ë³„ë¡œ ìƒëŒ€ë°©ì˜ ì•„ì´í…œê°¯ìˆ˜ì—ì„œ ë‚´ì•„ì´í…œ ê°¯ìˆ˜( ItemNoê°€ ê°™ì„ê²½ìš°ë§Œ )ëº€ë‹¤
 int
 CExchange::GetCountTradeItem(t_InvTYPE InvenType) {
     int iCount = 0;
@@ -185,7 +185,7 @@ CExchange::GetCountTradeItem(t_InvTYPE InvenType) {
     return iCount;
 }
 
-/// ÀÎº¥Åä¸®ÀÇ ºó½½·Ô - ³»±³È¯¾ÆÀÌÅÛ°¹¼ö >= »ó´ë¹æ±³È¯¾ÆÀÌÅÛ°¹¼ö°¡ µÇ´Â°¡?
+/// ì¸ë²¤í† ë¦¬ì˜ ë¹ˆìŠ¬ë¡¯ - ë‚´êµí™˜ì•„ì´í…œê°¯ìˆ˜ >= ìƒëŒ€ë°©êµí™˜ì•„ì´í…œê°¯ìˆ˜ê°€ ë˜ëŠ”ê°€?
 // bool	CExchange::IsEnoughEmptyInvenSlots( tagITEM& item )
 //{
 //	t_InvTYPE InvType = CInventory::GetInvPageTYPE( item );
@@ -221,7 +221,7 @@ CExchange::AddMyItem(CItem* pItem, int iQuantity) {
     // if( CInventory::GetInvPageTYPE( Item ) == INV_WEAPON )
     //{
     int iSlot = 0;
-    ///°°Àº ¾ÆÀÌÅÛÀÏ°æ¿ì ¹«½Ã
+    ///ê°™ì€ ì•„ì´í…œì¼ê²½ìš° ë¬´ì‹œ
     for (iSlot = 0; iSlot < TOTAL_EXCHANGE_INVENTORY; ++iSlot)
         if (m_MyItems[iSlot] && m_MyItems[iSlot]->GetIndex() == pItem->GetIndex())
             return;
@@ -248,7 +248,7 @@ CExchange::AddMyItem(CItem* pItem, int iQuantity) {
     // else
     //{
     //	int i;
-    //	///°°Àº Á¾·ùÀÇ ¾ÆÀÌÅÛÀÌ ÀÖÀ»°æ¿ì
+    //	///ê°™ì€ ì¢…ë¥˜ì˜ ì•„ì´í…œì´ ìˆì„ê²½ìš°
     //	for( i = 0; i < TOTAL_EXCHANGE_INVENTORY ; ++i)
     //	{
     //		if( pExchangeDlg->m_MySlots[i].m_nInvenIdx == m_ExchangeItem.m_nInvenIdx )
@@ -294,7 +294,7 @@ CExchange::RemoveMyItemBySlotIndex(int iSlotIndex, bool bSendPacket) {
     }
 
     if (m_MyItems[iSlotIndex] == NULL) {
-        assert(m_MyItems[iSlotIndex] && "ºó½½·ÔÀÇ ¾ÆÀÌÅÛÀ» »©·Á°í ÇÕ´Ï´Ù @CExchange::RemoveMyItem");
+        assert(m_MyItems[iSlotIndex] && "ë¹ˆìŠ¬ë¡¯ì˜ ì•„ì´í…œì„ ë¹¼ë ¤ê³  í•©ë‹ˆë‹¤ @CExchange::RemoveMyItem");
         return;
     }
 
@@ -302,7 +302,7 @@ CExchange::RemoveMyItemBySlotIndex(int iSlotIndex, bool bSendPacket) {
     m_pEventExchange->SetSlotIndex(iSlotIndex);
 
     SetChanged();
-    NotifyObservers(m_pEventExchange); ///È¤Àº Event»ç¿ë
+    NotifyObservers(m_pEventExchange); ///í˜¹ì€ Eventì‚¬ìš©
 
     if (bSendPacket)
         g_pNet->Send_cli_TRADE_P2P_ITEM((char)iSlotIndex, m_MyItems[iSlotIndex]->GetIndex(), 0);
@@ -316,7 +316,7 @@ CExchange::UpdateOtherItem(int iIndex, tagITEM& item) {
     if (iIndex < 0 || iIndex >= MAX_TRADE_ITEM_SLOT)
         return false;
 
-    if (iIndex == TRADE_MONEY_SLOT_NO) //µ·
+    if (iIndex == TRADE_MONEY_SLOT_NO) //ëˆ
     {
         if (item.GetTYPE() == 0)
             m_i64OtherTradeMoney = 0;
@@ -324,9 +324,9 @@ CExchange::UpdateOtherItem(int iIndex, tagITEM& item) {
             m_i64OtherTradeMoney = item.GetMoney();
     } else {
         if (item.GetTYPE() == 0) {
-            ///»èÁ¦
+            ///ì‚­ì œ
             if (m_OtherItems[iIndex]) {
-                /// UI¿¡°Ô ¾Ë¸°´Ù
+                /// UIì—ê²Œ ì•Œë¦°ë‹¤
                 m_pEventExchange->SetID(CTEventExchange::EID_REMOVE_OTHERITEM);
                 m_pEventExchange->SetSlotIndex(iIndex);
                 SetChanged();
@@ -336,12 +336,12 @@ CExchange::UpdateOtherItem(int iIndex, tagITEM& item) {
                 m_OtherItems[iIndex] = NULL;
             } else {
                 assert(m_OtherItems[iIndex]
-                    && "¾ø´Â ¾ÆÀÌÅÛÀ» »©·Á°í ÇÕ´Ï´Ù @CExchange::UpdateOtherItem ");
+                    && "ì—†ëŠ” ì•„ì´í…œì„ ë¹¼ë ¤ê³  í•©ë‹ˆë‹¤ @CExchange::UpdateOtherItem ");
             }
         } else {
             if (m_OtherItems[iIndex]) {
                 assert(m_OtherItems[iIndex]
-                    && "ºñ¾î ÀÖÁö ¾ÊÀº ½½·Ô¿¡ ¾ÆÀÌÅÛÀ» ³ÖÀ¸·Á°í ÇÕ´Ï´Ù "
+                    && "ë¹„ì–´ ìˆì§€ ì•Šì€ ìŠ¬ë¡¯ì— ì•„ì´í…œì„ ë„£ìœ¼ë ¤ê³  í•©ë‹ˆë‹¤ "
                        "@CExchange::UpdateOtherItem ");
             } else {
                 CItem* pItem = new CItem;
@@ -349,7 +349,7 @@ CExchange::UpdateOtherItem(int iIndex, tagITEM& item) {
                 pItem->SetIndex(iIndex);
 
                 m_OtherItems[iIndex] = pItem;
-                /// UI¿¡°Ô ¾Ë¸°´Ù.
+                /// UIì—ê²Œ ì•Œë¦°ë‹¤.
                 m_pEventExchange->SetID(CTEventExchange::EID_ADD_OTHERITEM);
                 m_pEventExchange->SetItem(pItem);
                 m_pEventExchange->SetSlotIndex(iIndex);
@@ -357,9 +357,9 @@ CExchange::UpdateOtherItem(int iIndex, tagITEM& item) {
                 SetChanged();
                 NotifyObservers(m_pEventExchange);
 
-                ///¸¸¾à »ó´ë¹æÀÌ ¿Ã¸° Ç°¸ñÀÇ °¹¼ö - ³»°¡ ¿Ã¸° Ç°¸ñÀÇ °¹¼ö°¡ ÇöÀç ÀÎº¥Åä¸®ÀÇ ºó
-                ///½½·Ô°¹¼öº¸´Ù Å¬°æ¿ì »ó´ë¹æ¿¡°Ô ³» ÀÎº¥ÀÌ ²ËÃ¡´Ù°í ¾Ë·ÁÁÖ°í ÀÌ¹Ì ¿Ã¸°°ÍÀ» »©¶ó°í
-                ///ÇÑ´Ù.
+                ///ë§Œì•½ ìƒëŒ€ë°©ì´ ì˜¬ë¦° í’ˆëª©ì˜ ê°¯ìˆ˜ - ë‚´ê°€ ì˜¬ë¦° í’ˆëª©ì˜ ê°¯ìˆ˜ê°€ í˜„ì¬ ì¸ë²¤í† ë¦¬ì˜ ë¹ˆ
+                ///ìŠ¬ë¡¯ê°¯ìˆ˜ë³´ë‹¤ í´ê²½ìš° ìƒëŒ€ë°©ì—ê²Œ ë‚´ ì¸ë²¤ì´ ê½‰ì°¼ë‹¤ê³  ì•Œë ¤ì£¼ê³  ì´ë¯¸ ì˜¬ë¦°ê²ƒì„ ë¹¼ë¼ê³ 
+                ///í•œë‹¤.
                 //				if( !(CExchange::GetInstance().IsEnoughEmptyInvenSlots( item )) )
 
                 std::list<tagITEM> appendItems;
@@ -372,7 +372,7 @@ CExchange::UpdateOtherItem(int iIndex, tagITEM& item) {
             }
         }
     }
-    /// SetOtherReadyState( false ); Èì ÀÌ°É ÇØÁÖ¾î¾ß ÇÏ³ª ??????
+    /// SetOtherReadyState( false ); í  ì´ê±¸ í•´ì£¼ì–´ì•¼ í•˜ë‚˜ ??????
     return true;
 }
 //

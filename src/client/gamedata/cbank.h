@@ -5,16 +5,16 @@
 #include "citem.h"
 
 #include <map>
-const int g_iSlotCountPerPage = 40; ///ÆäÀÌÁö´ç ½½·Ô °¹¼ö
+const int g_iSlotCountPerPage = 40; ///í˜ì´ì§€ë‹¹ ìŠ¬ë¡¯ ê°¯ìˆ˜
 const int g_iPageCount = 4;
 class CItem;
 
 /**
- * °èÁ¤Ã¢°í¿¡ ´ëÇÑ µ¥ÀÌÅ¸ Class
- *	- ½Ì±ÛÅæ
+ * ê³„ì •ì°½ê³ ì— ëŒ€í•œ ë°ì´íƒ€ Class
+ *	- ì‹±ê¸€í†¤
  *	- Observer : CBankDlg
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CBank: public CObservable {

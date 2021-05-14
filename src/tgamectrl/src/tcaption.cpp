@@ -39,8 +39,8 @@ CTCaption::Create(int iScrX, int iScrY, int iWidth, int iHeight) {
     Init(CTRL_CAPTION, iScrX, iScrY, iWidth, iHeight);
     return true;
 }
-/// CAPTIONÀÇ °æ¿ì ´Ù¸¥ ÄÁÆ®·ÑµéÀÌ Ä¸¼ÇÀ§¿¡ ÀÖÀ»¼ö ÀÖ´Ù. ±×·¯¹Ç·Î Ç×»ó ¸Ş¼¼Áö Ã³¸®¸¦ °è¼ÓÇÏµµ·Ï
-/// 0À» ¸®ÅÏÇÑ´Ù.
+/// CAPTIONì˜ ê²½ìš° ë‹¤ë¥¸ ì»¨íŠ¸ë¡¤ë“¤ì´ ìº¡ì…˜ìœ„ì— ìˆì„ìˆ˜ ìˆë‹¤. ê·¸ëŸ¬ë¯€ë¡œ í•­ìƒ ë©”ì„¸ì§€ ì²˜ë¦¬ë¥¼ ê³„ì†í•˜ë„ë¡
+/// 0ì„ ë¦¬í„´í•œë‹¤.
 unsigned int
 CTCaption::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
     if (!IsVision())

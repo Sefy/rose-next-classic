@@ -34,7 +34,7 @@ CGameStateReLogin::Update(bool bLostFocus) {
 
 int
 CGameStateReLogin::Enter(int iPrevStateID) {
-    /// ¹è°æÀ¸·Î »ç¿ëÇÒ Á¸ ¹øÈ£¸¦ ¾ò¾î¿Â´Ù.
+    /// ë°°ê²½ìœ¼ë¡œ ì‚¬ìš©í•  ì¡´ ë²ˆí˜¸ë¥¼ ì–»ì–´ì˜¨ë‹¤.
     m_iBackGroundZone = SC_GetBGZoneNO();
 
     //	m_hThread = (HANDLE)_beginthreadex( NULL, 0, &ThreadFunc, NULL, CREATE_SUSPENDED, NULL );
@@ -44,7 +44,7 @@ CGameStateReLogin::Enter(int iPrevStateID) {
     //	{
     //		ResumeThread( m_hThread );
     //	}
-    //	else///Thread »ý¼º ½ÇÆÐ½Ã ¸ÞÀÎ¾²·¹µå¿¡¼­ ·ÎµùÇÏ°í State¸¦ ¹Ù²Ù¾î ÁØ´Ù.
+    //	else///Thread ìƒì„± ì‹¤íŒ¨ì‹œ ë©”ì¸ì“°ë ˆë“œì—ì„œ ë¡œë”©í•˜ê³  Stateë¥¼ ë°”ê¾¸ì–´ ì¤€ë‹¤.
     {
         g_pCamera->Detach();
         g_pTerrain->FreeZONE();
@@ -52,9 +52,9 @@ CGameStateReLogin::Enter(int iPrevStateID) {
 
         Draw();
 
-        /// Clear ½Ã Äü½½·Ô¿¡ ÀÖ´Â Data ¸¦ ¸ÕÀú »èÁ¦ÇØÁÖ¾î¾ß ÇÑ´Ù.
-        /// ItemÀÌ³ª ½ºÅ³ÀÌ Áö¿öÁú¶§ ÀúÀåµÇ¾î ÀÖ´ø ¾ÆÀÌÅÛ(½ºÅ³)µîÀ» ÀÚµ¿À¸·Î
-        /// ¼­¹ö¿¡ ÆÐÅ¶À» º¸³»¼­ »«´Ù. 2004/8/20
+        /// Clear ì‹œ í€µìŠ¬ë¡¯ì— ìžˆëŠ” Data ë¥¼ ë¨¼ì € ì‚­ì œí•´ì£¼ì–´ì•¼ í•œë‹¤.
+        /// Itemì´ë‚˜ ìŠ¤í‚¬ì´ ì§€ì›Œì§ˆë•Œ ì €ìž¥ë˜ì–´ ìžˆë˜ ì•„ì´í…œ(ìŠ¤í‚¬)ë“±ì„ ìžë™ìœ¼ë¡œ
+        /// ì„œë²„ì— íŒ¨í‚·ì„ ë³´ë‚´ì„œ ëº€ë‹¤. 2004/8/20
         CClan::GetInstance().Clear();
         CPrivateStore::GetInstance().Clear();
         CParty::GetInstance().Leave();
@@ -109,7 +109,7 @@ CGameStateReLogin::Enter(int iPrevStateID) {
         ZeroMemory(&time, sizeof(SYSTEMTIME));
         CClan::GetInstance().SetClanMarkRegTime(time);
 
-        //·Î±ä µÇ³ª? ¾ÈµÇ³ª?
+        //ë¡œê¸´ ë˜ë‚˜? ì•ˆë˜ë‚˜?
         CGame::GetInstance().ChangeState(CGame::GS_LOGIN);
     }
 
@@ -123,7 +123,7 @@ CGameStateReLogin::Leave(int iNextStateID) {
     ::setDelayedLoad(0);
     g_pTerrain->LoadZONE(CGameStateReLogin::m_iBackGroundZone);
     ///
-    /// Ä«¸Þ¶ó ¸ð¼ÇÀº 32_32 ±âÁØÀ¸·Î ¸¸µé¾îÁ³´Ù.. ¸ð¼ÇÀû¿ëÀ» À§ÇØ¼­ º¸Á¤ÇÑ´Ù.
+    /// ì¹´ë©”ë¼ ëª¨ì…˜ì€ 32_32 ê¸°ì¤€ìœ¼ë¡œ ë§Œë“¤ì–´ì¡Œë‹¤.. ëª¨ì…˜ì ìš©ì„ ìœ„í•´ì„œ ë³´ì •í•œë‹¤.
     ///
     D3DVECTOR PosENZIN;
     PosENZIN.x = 520000.0f;
@@ -162,7 +162,7 @@ unsigned __stdcall CGameStateReLogin::ThreadFunc(void* pArguments) {
 void
 CGameStateReLogin::Draw() {
     if (g_pCApp->IsActive()) {
-        if (!::beginScene()) //  µð¹ÙÀÌ½º°¡ ¼Õ½ÇµÈ »óÅÂ¶ó¸é 0À» ¸®ÅÏÇÏ¹Ç·Î, ¸ðµç ·»´õ¸µ ½ºÅµ
+        if (!::beginScene()) //  ë””ë°”ì´ìŠ¤ê°€ ì†ì‹¤ëœ ìƒíƒœë¼ë©´ 0ì„ ë¦¬í„´í•˜ë¯€ë¡œ, ëª¨ë“  ë Œë”ë§ ìŠ¤í‚µ
         {
             return;
         }

@@ -56,7 +56,7 @@ __fastcall CZoneFILE::~CZoneFILE() {
 
 BYTE
 CZoneFILE::Is_DAY() {
-    // ≥∑¿Ã≥ƒ?
+    // ÎÇÆÏù¥ÎÉê?
     int iMOD = ::Get_WorldTIME() % ZONE_DAY_CYCLE(m_nZoneNO);
     if (iMOD >= m_nDayTimeFROM && iMOD <= m_nDayTimeTO)
         return 1;
@@ -99,7 +99,7 @@ CZoneFILE::Get_RevivePOS(tPOINTF PosCUR) {
     }
 
     if (NULL == pNearstPos) {
-        // ∫Œ»∞ ¿ßƒ°∏¶ √£¡ˆ ∏¯«ﬂ¥Ÿ∏È ±◊≥… Ω√¿€ ∫Œ»∞ ¿Âº“∑Œ «œ¿⁄...
+        // Î∂ÄÌôú ÏúÑÏπòÎ•º Ï∞æÏßÄ Î™ªÌñàÎã§Î©¥ Í∑∏ÎÉ• ÏãúÏûë Î∂ÄÌôú Ïû•ÏÜåÎ°ú ÌïòÏûê...
         return this->m_PosSTART;
     }
 
@@ -139,7 +139,7 @@ CZoneFILE::ReadObjINFO(FILE* fp, long lOffset, int iLumpType, short nMapXIDX, sh
             szName[0] = 0;
             // HashEVENT = 0;
         }
-        fread(&nShort, sizeof(short), 1, fp); // ≈¨∂Û¿Ãæ∆ÆøÎ warpID
+        fread(&nShort, sizeof(short), 1, fp); // ÌÅ¥ÎùºÏù¥Ïñ∏Ìä∏Ïö© warpID
         fread(&nShort, sizeof(short), 1, fp);
         iEventID = nShort;
 
@@ -236,7 +236,7 @@ CZoneFILE::ReadObjINFO(FILE* fp, long lOffset, int iLumpType, short nMapXIDX, sh
                     }
 
                     g_pZoneLIST->Add_LocalNPC(pNewCHAR);
-                    // NPC¥¬ π´¿˚ ∏µÂ∑Œ..
+                    // NPCÎäî Î¨¥Ï†Å Î™®ÎìúÎ°ú..
                     pNewCHAR->m_IngSTATUS.SetSubFLAG(FLAG_CHEAT_INVINCIBLE);
                 } else {
                     continue;
@@ -399,8 +399,8 @@ CZoneFILE::ReadZoneINFO(FILE* fp, long lOffset) {
     m_nGridSIZE = (short)fValue;
     m_nPatchSIZE = m_nGridSIZE * m_nGridPerPATCH;
 
-    // ¿¸√º ∏  ≈©±‚ default : m_nGridPerPATCH=4,  m_nGridSIZE=250
-    // ∞°∑Œ 64¿Â(MAP_COUNT_PER_ZONE_AXIS) * 16∞≥ ∆–ƒ°(PATCH_COUNT_PER_MAP_AXIS) * m_nPatchSIZE
+    // Ï†ÑÏ≤¥ Îßµ ÌÅ¨Í∏∞ default : m_nGridPerPATCH=4,  m_nGridSIZE=250
+    // Í∞ÄÎ°ú 64Ïû•(MAP_COUNT_PER_ZONE_AXIS) * 16Í∞ú Ìå®Ïπò(PATCH_COUNT_PER_MAP_AXIS) * m_nPatchSIZE
     int iZoneSIZE = MAP_COUNT_PER_ZONE_AXIS * PATCH_COUNT_PER_MAP_AXIS * m_nPatchSIZE;
 
     short nX, nY;
@@ -412,7 +412,7 @@ CZoneFILE::ReadZoneINFO(FILE* fp, long lOffset) {
     ::ZeroMemory(m_ppSECTOR, sizeof(CZoneSECTOR*) * m_iSectorYCnt);
     for (nY = 0; nY < m_iSectorYCnt; nY++) {
         if (this->is_clan_zone()) {
-            // æ∆¡ˆ∆Æ¡∏
+            // ÏïÑÏßÄÌä∏Ï°¥
             m_ppSECTOR[nY] = new CAgitSECTOR[m_iSectorXCnt];
         } else
             m_ppSECTOR[nY] = new CNormalSECTOR[m_iSectorXCnt];
@@ -523,7 +523,7 @@ CZoneFILE::ReadEventObjINFO(FILE* fp, long lOffset) {
     m_HashKeyRevivePOS = ::StrToHashKey(ZONE_REVIVE_POS(m_nZoneNO));
     assert(m_HashKeyRevivePOS && "NULL == ZONE_REVIVE_POS( m_nZoneNO )");
 
-    // ∞¢¡∏¿« ∫Œ»∞ ¿ßƒ°¥¬ π›µÂΩ√ ¡∏¿Á«ÿæﬂ «—¥Ÿ...
+    // Í∞ÅÏ°¥Ïùò Î∂ÄÌôú ÏúÑÏπòÎäî Î∞òÎìúÏãú Ï°¥Ïû¨Ìï¥Ïïº ÌïúÎã§...
     m_PosREVIVE = this->Get_RevivePOS(m_PosSTART);
     if (m_nZoneNO != 98)
         assert(m_PosREVIVE.x != 0 && m_PosREVIVE.y != 0);
@@ -550,8 +550,8 @@ CZoneFILE::GetMapFILE(short nMapX, short nMapY) {
 bool
 CZoneFILE::LoadZONE(char* szBaseDIR, short nZoneNO) {
     /*
-    ∞‘¿”ªÛ ≥∑ : ¡∏≈∏¿”¿Ã [ (≥∑Ω√∞£/2) ~ (¿˙≥·Ω√∞£ + π„Ω√∞£)/2 ] ªÁ¿Ãø° ¿÷¿ª ∂ß
-    ∞‘¿”ªÛ π„ : (≥∑Ω√∞£/2) ∫∏¥Ÿ ¿€¿ª ∂ß,  [ (¿˙≥·Ω√∞£ + π„Ω√∞£)/2 ] ∫∏¥Ÿ ≈¨ ∂ß
+    Í≤åÏûÑÏÉÅ ÎÇÆ : Ï°¥ÌÉÄÏûÑÏù¥ [ (ÎÇÆÏãúÍ∞Ñ/2) ~ (Ï†ÄÎÖÅÏãúÍ∞Ñ + Î∞§ÏãúÍ∞Ñ)/2 ] ÏÇ¨Ïù¥Ïóê ÏûàÏùÑ Îïå
+    Í≤åÏûÑÏÉÅ Î∞§ : (ÎÇÆÏãúÍ∞Ñ/2) Î≥¥Îã§ ÏûëÏùÑ Îïå,  [ (Ï†ÄÎÖÅÏãúÍ∞Ñ + Î∞§ÏãúÍ∞Ñ)/2 ] Î≥¥Îã§ ÌÅ¥ Îïå
     */
     m_nDayTimeFROM = ZONE_DAY_TIME(nZoneNO) / 2;
     m_nDayTimeTO = (ZONE_EVENING_TIME(nZoneNO) + ZONE_NIGHT_TIME(nZoneNO)) / 2;
@@ -636,7 +636,7 @@ CZoneFILE::LoadZONE(char* szBaseDIR, short nZoneNO) {
 
     this->m_iAgitCNT = 0;
     if (this->is_clan_zone()) {
-        // æ∆¡ˆ∆Æ ¡∏¿Ã∏È... ∫Œ»∞¿ßƒ°∏¶ ±‚¡ÿ¿∏∑Œ... æ∆¡ˆ∆Æ ±∏º∫...
+        // ÏïÑÏßÄÌä∏ Ï°¥Ïù¥Î©¥... Î∂ÄÌôúÏúÑÏπòÎ•º Í∏∞Ï§ÄÏúºÎ°ú... ÏïÑÏßÄÌä∏ Íµ¨ÏÑ±...
         tagEVENTPOS* pRevivePos;
 
         tagHASH<tagEVENTPOS*>* pHashNode;
@@ -672,7 +672,7 @@ CZoneFILE::FreeZONE(void) {
     tagEVENTPOS* pEventPOS;
 
     while (m_pPosLIST->GetFirst(&HashKEY, &pEventPOS)) {
-        // SAFE_DELETE( pEventPOS ); <-- zonelistø°º≠ ªË¡¶µ»¥Ÿ !!
+        // SAFE_DELETE( pEventPOS ); <-- zonelistÏóêÏÑú ÏÇ≠Ï†úÎêúÎã§ !!
         m_pPosLIST->Delete(HashKEY);
     }
 

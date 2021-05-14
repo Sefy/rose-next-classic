@@ -6,9 +6,9 @@
 #include <vector>
 #include <map>
 
-/// ÄÁÆ®·ÑÀÇ ¸®¼Ò½º°ü¸®¿Í µå·Î¿ì
+/// ì»¨íŠ¸ë¡¤ì˜ ë¦¬ì†ŒìŠ¤ê´€ë¦¬ì™€ ë“œë¡œìš°
 struct stTexture {
-    char m_szName[MAX_PATH]; //ÀÌ¸§
+    char m_szName[MAX_PATH]; //ì´ë¦„
     DWORD m_dwColorKey;
     HNODE m_Texture;
     short m_nTXID;
@@ -52,11 +52,11 @@ public:
     short GetSpriteCount() { return m_nSpriteCNT; }
 };
 
-/// °ÔÀÓ³»ºÎ¿¡¼­ »ç¿ëµÇ´Â ÀÌ¹ÌÁö ¸®¼Ò½ºµé..
+/// ê²Œì„ë‚´ë¶€ì—ì„œ ì‚¬ìš©ë˜ëŠ” ì´ë¯¸ì§€ ë¦¬ì†ŒìŠ¤ë“¤..
 enum {
     IMAGE_RES_UI = 0,
     IMAGE_RES_ITEM = 1,
-    IMAGE_RES_NPCFACE = 2, ///¾ø¾îÁü .EXUIÀÇ XML¿¡¼­ÀÇ MODULE INDEX¶§¹®¿¡ ±×´ë·Î µÒ.
+    IMAGE_RES_NPCFACE = 2, ///ì—†ì–´ì§ .EXUIì˜ XMLì—ì„œì˜ MODULE INDEXë•Œë¬¸ì— ê·¸ëŒ€ë¡œ ë‘ .
     IMAGE_RES_EXUI = 3,
     IMAGE_RES_SKILL_ICON = 4,
     IMAGE_RES_STATE_ICON = 5,
@@ -80,7 +80,7 @@ private:
     CImageRes m_ImageRes[IMAGE_RES_MAX];
 
     void ReleaseResource(short i);
-    /// list_npcfaceÀÇ Á¤º¸¸¦ ÀúÀå
+    /// list_npcfaceì˜ ì •ë³´ë¥¼ ì €ì¥
     LIST_INDEX_STRING m_NpcFaceFiles;
 
 public:
@@ -92,7 +92,7 @@ public:
 
     CImageRes* GetImageRes(int iType);
 
-    /// NPC Face Image °ü·Ã
+    /// NPC Face Image ê´€ë ¨
     bool Add_NpcFaceFileInfo(int index, const char* filename);
     HNODE Load_NpcFace(int index);
     HNODE Load_NpcFace(const char* szName_);

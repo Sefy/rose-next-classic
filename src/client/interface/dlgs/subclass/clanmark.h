@@ -3,9 +3,9 @@
 #include "tgamectrl/winctrl.h"
 
 /**
- * Å¬·£ Ã¢¼³½Ã À¯Àú°¡ ¼±ÅÃÇÒ¼ö ÀÖ´Â Å¬·£¸¶Å©Ç¥½Ã class
+ * í´ëœ ì°½ì„¤ì‹œ ìœ ì €ê°€ ì„ íƒí• ìˆ˜ ìˆëŠ” í´ëœë§ˆí¬í‘œì‹œ class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CClanMark: public CWinCtrl {

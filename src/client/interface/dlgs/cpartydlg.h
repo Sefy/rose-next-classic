@@ -13,12 +13,12 @@ typedef list<CPartyMember*> LIST_PARTY_MEMBER;
 typedef LIST_PARTY_MEMBER::iterator LIST_PARTY_MEMBER_ITER;
 
 /**
- * ÆÄÆ¼½Ã ÆÄÆ¼Á¤º¸¹× ÆÄÆ¼¿øÀ» º¸¿©ÁÖ´Â ´ÙÀÌ¾ó·Î±×
- *	- ÆÄÆ¼ÀåÀº Ç×»ó ¸®½ºÆ®ÀÇ ¸Ç¾ÕNode·Î
+ * íŒŒí‹°ì‹œ íŒŒí‹°ì •ë³´ë° íŒŒí‹°ì›ì„ ë³´ì—¬ì£¼ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
+ *	- íŒŒí‹°ìž¥ì€ í•­ìƒ ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ì•žNodeë¡œ
  *	- Observable : CParty
  *
- * @Todo		ÀÏÁ¤½Ã°£¸¶´Ù °æÇèÄ¡¸¦ ±ï´Â ºÎºÐ Ãß°¡ ÇÊ¿ä
- * @Author	ÃÖÁ¾Áø
+ * @Todo		ì¼ì •ì‹œê°„ë§ˆë‹¤ ê²½í—˜ì¹˜ë¥¼ ê¹ëŠ” ë¶€ë¶„ ì¶”ê°€ í•„ìš”
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/12
  */
 class CPartyDlg: public CTDialog, public IObserver {
@@ -43,23 +43,23 @@ protected:
     WORD GetSelectedMemberSvrIdx();
     DWORD GetSelectedMemberUserTag();
 
-    void ResetMemberPositions(); /// ÆÄÆ¼¿øÀÌ ÇÑ¸í ºüÁú¶§¸¶´Ù Ç¥½Ã À§Ä¡µéÀ» Àç °è»êÇØÁØ´Ù.
+    void ResetMemberPositions(); /// íŒŒí‹°ì›ì´ í•œëª… ë¹ ì§ˆë•Œë§ˆë‹¤ í‘œì‹œ ìœ„ì¹˜ë“¤ì„ ìž¬ ê³„ì‚°í•´ì¤€ë‹¤.
 
     CPartyMember* FindMember(WORD wObjSvrIdx);
     CPartyMember* GetSelectedMember();
 
 protected:
     enum {
-        IID_BTN_CLOSE = 10, /// ÆÄÆ¼Ã¢ ´Ý±â == IID_BTN_LEAVE¿Í °°Àº Ã³¸®
-        IID_BTN_ENTRUST = 11, /// ÆÄÆ¼ÀåÀ¸·Î À§ÀÓ
-        IID_BTN_BAN = 12, /// ÆÄÆ¼¿¡¼­ Ãß¹æ
-        IID_BTN_LEAVE = 13, /// ÆÄÆ¼ ¶°³ª±â
-        IID_BTN_OPTION = 14, /// ÆÄÆ¼ ¿É¼ÇÃ¢ ¿­±â
+        IID_BTN_CLOSE = 10, /// íŒŒí‹°ì°½ ë‹«ê¸° == IID_BTN_LEAVEì™€ ê°™ì€ ì²˜ë¦¬
+        IID_BTN_ENTRUST = 11, /// íŒŒí‹°ìž¥ìœ¼ë¡œ ìœ„ìž„
+        IID_BTN_BAN = 12, /// íŒŒí‹°ì—ì„œ ì¶”ë°©
+        IID_BTN_LEAVE = 13, /// íŒŒí‹° ë– ë‚˜ê¸°
+        IID_BTN_OPTION = 14, /// íŒŒí‹° ì˜µì…˜ì°½ ì—´ê¸°
     };
 
-    LIST_PARTY_MEMBER m_listPartyMember; /// ÆÄÆ¼¿øµé Á¤º¸ ÄÁÅ×ÀÌ³Ê
+    LIST_PARTY_MEMBER m_listPartyMember; /// íŒŒí‹°ì›ë“¤ ì •ë³´ ì»¨í…Œì´ë„ˆ
 
-    int m_iGuagePartyExpIdx; /// ÆÄÆ¼ °æÇèÁö °ÔÀÌÁö ±×·¡ÇÈ ID
-    int m_iGuagePartyExpBGIdx; /// ÆÄÆ¼ °æÇèÄ¡ °ÔÀÌÁö ¹è°æ ±×·¡ÇÈ ID
+    int m_iGuagePartyExpIdx; /// íŒŒí‹° ê²½í—˜ì§€ ê²Œì´ì§€ ê·¸ëž˜í”½ ID
+    int m_iGuagePartyExpBGIdx; /// íŒŒí‹° ê²½í—˜ì¹˜ ê²Œì´ì§€ ë°°ê²½ ê·¸ëž˜í”½ ID
 };
 #endif

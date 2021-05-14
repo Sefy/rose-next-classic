@@ -12,11 +12,11 @@ struct S_ClanMember {
 struct tagClanSKILL;
 
 /**
- * Å¬·£Á¤º¸¸¦ °¡Áö°í ÀÖ´Â µ¥ÀÌÅ¸ Class
- *	- ½Ì±ÛÅæ
+ * í´ëœì •ë³´ë¥¼ ê°€ì§€ê³  ìˆëŠ” ë°ì´íƒ€ Class
+ *	- ì‹±ê¸€í†¤
  *	- Observer : CClanDlg
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 
@@ -107,7 +107,7 @@ private:
     short m_nMarkBack;
     short m_nLevel;
     int m_iPoint;
-    int m_iClass; ///Å¬·£¿¡¼­ÀÇ ³ªÀÇ Á÷À§
+    int m_iClass; ///í´ëœì—ì„œì˜ ë‚˜ì˜ ì§ìœ„
 
     int m_iAlly1;
     std::string m_strAlly1;

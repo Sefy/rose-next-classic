@@ -17,13 +17,13 @@ class CItemFragment;
 class CTEventManufacture;
 
 /**
- * Á¦Á¶ °ü·Ã Data Class
- *	- ½Ì±ÛÅæ
+ * ì œì¡° ê´€ë ¨ Data Class
+ *	- ì‹±ê¸€í†¤
  *	- Observer		: CMakeDLg
  *	- Observable	: CItemSlot
  *
- * @Warning		ÀÏº» »ó¿ëÈ­ ÀÌº¥Æ® °ÇÀ¸·Î 2´Ü°èºÎÅÍ Á¦Á¶°¡ °¡´ÉÇÑ º¸¼®¿¡ ´ëÇÑ ÄÚµå Ãß°¡
- * @Author		ÃÖÁ¾Áø
+ * @Warning		ì¼ë³¸ ìƒìš©í™” ì´ë²¤íŠ¸ ê±´ìœ¼ë¡œ 2ë‹¨ê³„ë¶€í„° ì œì¡°ê°€ ê°€ëŠ¥í•œ ë³´ì„ì— ëŒ€í•œ ì½”ë“œ ì¶”ê°€
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CManufacture: public CObservable, public IObserver {
@@ -48,8 +48,8 @@ public:
     CRequireMaterial& GetRequireMaterial(int iIndex);
 
     bool IsRequireMaterialItem(
-        int iInvenIdx); ///ÇöÀç Á¦Á¶¸¦ À§ÇØ¼­ ÇÊ¿äÇÑ ¾ÆÀÌÅÛÀÎ°¡? Á¦Á¶Ã¢¿¡ ¿Ã·ÁÁ® ÀÖÁö¾ÊÀº °Íµµ Ã¼Å©
-    void SubItemsAfterRecvResult(int iSlotNum); ///°á°ú¸¦ ¹ŞÀºÈÄ Àç·á½½·Ô¿¡¼­ Àç·áµéÀ» »©´Â Method
+        int iInvenIdx); ///í˜„ì¬ ì œì¡°ë¥¼ ìœ„í•´ì„œ í•„ìš”í•œ ì•„ì´í…œì¸ê°€? ì œì¡°ì°½ì— ì˜¬ë ¤ì ¸ ìˆì§€ì•Šì€ ê²ƒë„ ì²´í¬
+    void SubItemsAfterRecvResult(int iSlotNum); ///ê²°ê³¼ë¥¼ ë°›ì€í›„ ì¬ë£ŒìŠ¬ë¡¯ì—ì„œ ì¬ë£Œë“¤ì„ ë¹¼ëŠ” Method
     int GetMaterialIndex(CItem* pItem);
 
     void SetMakeClass(int iClass);
@@ -67,22 +67,22 @@ public:
     int GetMakeType();
 
     enum MAKE_TYPE {
-        SWORD_TYPE = 11, /// °Ë
-        BLUNT_TYPE, /// µĞ±â
-        BOW_TYPE, /// È°
-        PISTOL_TYPE, /// ÃÑ
-        MAGICWEAPON_TYPE, /// ¸ÅÁ÷¹«±â
-        SUBEQUIP_TYPE, /// º¸Á¶Àåºñ
-        BATTLEARMOR_TYPE, /// ÀüÅõº¹Àå
-        MAGICARMOR_TYPE, /// ¸ÅÁ÷º¹Àå
-        NORMALARMOR_TYPE, /// ÀÏ¹İº¹Àå
-        CART_TYPE = 21, /// Ä«µå
-        CASTLEGEAR_TYPE, /// Ä³½½±â¾î
-        ALCHEMY_TYPE, /// ¿¬±İ¼ú
-        ACCESSORY_TYPE = 31, /// Àå½Å±¸
-        ART_TYPE, /// ¿¹¼úÇ°
-        GEM_TYPE = 35, /// º¸¼®
-        INDUSTRY_TYPE = 41, /// °ø»êÇ°
+        SWORD_TYPE = 11, /// ê²€
+        BLUNT_TYPE, /// ë‘”ê¸°
+        BOW_TYPE, /// í™œ
+        PISTOL_TYPE, /// ì´
+        MAGICWEAPON_TYPE, /// ë§¤ì§ë¬´ê¸°
+        SUBEQUIP_TYPE, /// ë³´ì¡°ì¥ë¹„
+        BATTLEARMOR_TYPE, /// ì „íˆ¬ë³µì¥
+        MAGICARMOR_TYPE, /// ë§¤ì§ë³µì¥
+        NORMALARMOR_TYPE, /// ì¼ë°˜ë³µì¥
+        CART_TYPE = 21, /// ì¹´ë“œ
+        CASTLEGEAR_TYPE, /// ìºìŠ¬ê¸°ì–´
+        ALCHEMY_TYPE, /// ì—°ê¸ˆìˆ 
+        ACCESSORY_TYPE = 31, /// ì¥ì‹ êµ¬
+        ART_TYPE, /// ì˜ˆìˆ í’ˆ
+        GEM_TYPE = 35, /// ë³´ì„
+        INDUSTRY_TYPE = 41, /// ê³µì‚°í’ˆ
 
     };
 
@@ -96,18 +96,18 @@ private:
     short GetRandShort(short iMin, short iMax);
     int GetSuccessPoint(int iSlot, int iItemDif, int iItemQuality, int iNumMat);
 
-    /// ½ºÅ³ÀÎµ¦½º¿Í ·¹º§·Î Á¦Á¶°¡ °¡´ÉÇÑ ¾ÆÀÌÅÛ Á¾·ù¸¦ STB¿¡¼­ ·ÎµåÇÑ´Ù.
+    /// ìŠ¤í‚¬ì¸ë±ìŠ¤ì™€ ë ˆë²¨ë¡œ ì œì¡°ê°€ ê°€ëŠ¥í•œ ì•„ì´í…œ ì¢…ë¥˜ë¥¼ STBì—ì„œ ë¡œë“œí•œë‹¤.
     bool LoadMakableClasses(int iSkillNo, int iSkillLv);
 
-    /// À¯Àú°¡ ¼±ÅÃÇÑ ¾ÆÀÌÅÛ Á¾·ù¿Í ½ºÅ³ÀÎµ¦½º, ·¹º§·Î Á¦Á¶ °¡´ÉÇÑ ¾ÆÀÌÅÛµéÀ» STB¿¡¼­ ·ÎµåÇÑ´Ù.
+    /// ìœ ì €ê°€ ì„ íƒí•œ ì•„ì´í…œ ì¢…ë¥˜ì™€ ìŠ¤í‚¬ì¸ë±ìŠ¤, ë ˆë²¨ë¡œ ì œì¡° ê°€ëŠ¥í•œ ì•„ì´í…œë“¤ì„ STBì—ì„œ ë¡œë“œí•œë‹¤.
     bool LoadMakableItem(int iClass, int iSkillNo, int iSkillLv);
 
-    /// STB¿¡¼­ ¾ÆÀÌÅÛ Á¾·ù¸¦ ·ÎµåÇÏ´Â Method
+    /// STBì—ì„œ ì•„ì´í…œ ì¢…ë¥˜ë¥¼ ë¡œë“œí•˜ëŠ” Method
     int LoadClassesFromSTB(t_eITEM itemType, int iMakeNo, int iSkillLv);
-    /// STB¿¡¼­ ¾ÆÀÌÅÛÀ» ·ÎµåÇÏ´Â Method
+    /// STBì—ì„œ ì•„ì´í…œì„ ë¡œë“œí•˜ëŠ” Method
     int LoadItemsFromSTB(t_eITEM itemType, int iClass, int iMakeNo, int iSkillLv);
 
-    /// º¸¼®ÀÇ °æ¿ì Á¤ÇØÁø ±ÔÄ¢¿¡ µû¶ó ·ÎµåÇÏ´Â ¹æ½ÄÀÌ ´Ù¸¥ ¾ÆÀÌÅÛµé°ú ´Ù¸£´Ù
+    /// ë³´ì„ì˜ ê²½ìš° ì •í•´ì§„ ê·œì¹™ì— ë”°ë¼ ë¡œë“œí•˜ëŠ” ë°©ì‹ì´ ë‹¤ë¥¸ ì•„ì´í…œë“¤ê³¼ ë‹¤ë¥´ë‹¤
     int LoadGemClassesFromSTB(t_eITEM itemType, int iMakeNo, int iSkillLv);
     int LoadGemItemsFromSTB(t_eITEM itemType, int iLineNo, int iMakeNo, int iSkillLv);
 
@@ -117,30 +117,30 @@ private:
     // CItem*	CreateItem( tagITEM& Item );
 
 private:
-    /// 0. Á¦Á¶ÇÒ¼ö ÀÖ´Â ¾ÆÀÌÅÛÀÇ ¸®½ºÆ® - UI¿¡¼­ º¸°ü( ItemType°ú ItemNo )
+    /// 0. ì œì¡°í• ìˆ˜ ìˆëŠ” ì•„ì´í…œì˜ ë¦¬ìŠ¤íŠ¸ - UIì—ì„œ ë³´ê´€( ItemTypeê³¼ ItemNo )
     int m_iSkillSlotIndex;
     int m_iSkillIndex;
     int m_iSkillLevel;
 
-    /// 4. ¼º°øÈ®·ü						 - 1,3¹øÀÌ ¹Ù²ğ¶§¸¶´Ù ¼öÁ¤µÊ
+    /// 4. ì„±ê³µí™•ë¥ 						 - 1,3ë²ˆì´ ë°”ë€”ë•Œë§ˆë‹¤ ìˆ˜ì •ë¨
     int m_iSuccessRate;
 
-    /// 5. ¼Ò¸ğMP						 - SetSkillSlotIndex¿¡¼­ ¹Ù²ï´Ù( ½ºÅ³¹øÈ£¿¡ µû¶ó ¹Ù²ï´Ù. )
+    /// 5. ì†Œëª¨MP						 - SetSkillSlotIndexì—ì„œ ë°”ë€ë‹¤( ìŠ¤í‚¬ë²ˆí˜¸ì— ë”°ë¼ ë°”ë€ë‹¤. )
     int m_iConsumeMP;
 
-    /// 1. Á¦Á¶ÇÒ(¼±ÅÃµÈ) ¾ÆÀÌÅÛ		 - UI¿¡¼­ ¼±ÅÃ½Ã ¹Ù²ï´Ù.
+    /// 1. ì œì¡°í• (ì„ íƒëœ) ì•„ì´í…œ		 - UIì—ì„œ ì„ íƒì‹œ ë°”ë€ë‹¤.
     CItem* m_pMakeItem;
 
-    /// 2. Á¦Á¶¿¡ ÇÊ¿äÇÑ ¾ÆÀÌÅÛ ¸®½ºÆ®   - 1¹øÀÌ º¯°æµÉ¶§¸¶´Ù. ¹Ù²ï´Ù.
+    /// 2. ì œì¡°ì— í•„ìš”í•œ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸   - 1ë²ˆì´ ë³€ê²½ë ë•Œë§ˆë‹¤. ë°”ë€ë‹¤.
     CRequireMaterial m_RequireMaterials[g_iMaxCountMaterial];
 
-    /// 3. ÀÎº¥Åä¸®¿¡¼­ ¿Å°ÜÁø ¾ÆÀÌÅÛ ¸®½ºÆ® - À¯Àú ÀÔ·Â¿¡ µû¶ó µ¿ÀÛ
+    /// 3. ì¸ë²¤í† ë¦¬ì—ì„œ ì˜®ê²¨ì§„ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ - ìœ ì € ì…ë ¥ì— ë”°ë¼ ë™ì‘
     CItemFragment* m_pFragmentItems[g_iMaxCountMaterial];
 
-    ///¼º°øÁ¡( ÃÖ¼Ò:0 ~ ÃÖ´ë:1000 )
+    ///ì„±ê³µì ( ìµœì†Œ:0 ~ ìµœëŒ€:1000 )
     int m_iSuccessPoints[g_iMaxCountMaterial];
 
-    ///¿¹»óÈ®·ü°è»ê¿¡ »ç¿ëµÇ´Â º¯¼öµé
+    ///ì˜ˆìƒí™•ë¥ ê³„ì‚°ì— ì‚¬ìš©ë˜ëŠ” ë³€ìˆ˜ë“¤
     int m_iItemDif;
     int m_iItemQuality;
     int m_iNumMat;
@@ -148,7 +148,7 @@ private:
     short m_nPRO_POINT[g_iMaxCountMaterial];
 
     std::list<int> m_MakableClasses;
-    std::list<tagITEM> m_MakableItems; ///ÇöÀç ½ºÅ³·Î Á¦Á¶ÇÒ¼ö ÀÖ´Â ¾ÆÀÌÅÛµéÀÇ ¸®½ºÆ®
+    std::list<tagITEM> m_MakableItems; ///í˜„ì¬ ìŠ¤í‚¬ë¡œ ì œì¡°í• ìˆ˜ ìˆëŠ” ì•„ì´í…œë“¤ì˜ ë¦¬ìŠ¤íŠ¸
 
     CTEventManufacture* m_pEvent;
 

@@ -14,7 +14,7 @@ CLiveCheck::CLiveCheck(void) {
 CLiveCheck::~CLiveCheck(void) {}
 
 //----------------------------------------------------------------------------------------------
-/// 2ºĞ¿¡ ÇÑ¹ø¾¿ ¼­¹ö¿¡ ÆĞÅ¶ ¼Û½Å
+/// 2ë¶„ì— í•œë²ˆì”© ì„œë²„ì— íŒ¨í‚· ì†¡ì‹ 
 //----------------------------------------------------------------------------------------------
 void
 CLiveCheck::Check() {
@@ -25,7 +25,7 @@ CLiveCheck::Check() {
     //--------------------------------------------------------------------------------
     DWORD dwCurrentTime = g_GameDATA.GetGameTime();
     DWORD dwFrameElapsedTime = dwCurrentTime
-        - m_dwLastRecoveryUpdateTime; /// ÀÌÀüÇÁ·¹ÀÓ¿¡¼­ ÇöÀç ÇÁ·¹ÀÓ »çÀÌ¿¡ Èå¸¥½Ã°£À» ´õÇØÁØ´Ù.
+        - m_dwLastRecoveryUpdateTime; /// ì´ì „í”„ë ˆì„ì—ì„œ í˜„ì¬ í”„ë ˆì„ ì‚¬ì´ì— íë¥¸ì‹œê°„ì„ ë”í•´ì¤€ë‹¤.
     m_dwLastRecoveryUpdateTime = dwCurrentTime;
 
     m_dwElapsedTime += dwFrameElapsedTime;

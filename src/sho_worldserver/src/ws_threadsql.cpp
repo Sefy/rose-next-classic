@@ -54,7 +54,7 @@ CWS_ThreadSQL::CWS_ThreadSQL(): CSqlTHREAD(true) {
             m_pDefaultINV[nR].Clear();
             m_pDefaultINV[nR].m_i64Money = AVATAR_MONEY(nR);
 
-            // √ ±‚ ¿Â¿€ æ∆¿Ã≈€...
+            // Ï¥àÍ∏∞ Ïû•Ïûë ÏïÑÏù¥ÌÖú...
             m_pDefaultINV[nR].SetInventory(EQUIP_IDX_FACE_ITEM, AVATAR_FACEITEM(nR));
             m_pDefaultINV[nR].SetInventory(EQUIP_IDX_HELMET, AVATAR_HELMET(nR));
             m_pDefaultINV[nR].SetInventory(EQUIP_IDX_ARMOR, AVATAR_ARMOR(nR));
@@ -64,20 +64,20 @@ CWS_ThreadSQL::CWS_ThreadSQL(): CSqlTHREAD(true) {
             m_pDefaultINV[nR].SetInventory(EQUIP_IDX_WEAPON_R, AVATAR_WEAPON(nR));
             m_pDefaultINV[nR].SetInventory(EQUIP_IDX_WEAPON_L, AVATAR_SUBWPN(nR));
 
-            // √ ±‚ ¿Â∫Ò æ∆¿Ã≈€
+            // Ï¥àÍ∏∞ Ïû•ÎπÑ ÏïÑÏù¥ÌÖú
             for (nJ = 0; nJ < 10; nJ++)
                 m_pDefaultINV[nR].SetInventory(
                     (INV_WEAPON * INVENTORY_PAGE_SIZE) + nJ + MAX_EQUIP_IDX,
                     AVATAR_ITEM_WEAPON(nR, nJ));
 
-            // √ ±‚ º“∏ æ∆¿Ã≈€
+            // Ï¥àÍ∏∞ ÏÜåÎ™® ÏïÑÏù¥ÌÖú
             for (nJ = 0; nJ < 5; nJ++) {
                 m_pDefaultINV[nR].SetInventory((INV_USE * INVENTORY_PAGE_SIZE) + nJ + MAX_EQUIP_IDX,
                     AVATAR_ITEM_USE(nR, nJ),
                     AVATAR_ITEM_USECNT(nR, nJ));
             }
 
-            // √ ±‚ ±‚≈∏ æ∆¿Ã≈€
+            // Ï¥àÍ∏∞ Í∏∞ÌÉÄ ÏïÑÏù¥ÌÖú
             for (nJ = 0; nJ < 5; nJ++) {
                 m_pDefaultINV[nR].SetInventory((INV_ETC * INVENTORY_PAGE_SIZE) + nJ + MAX_EQUIP_IDX,
                     AVATAR_ITEM_ETC(nR, nJ),

@@ -60,10 +60,10 @@ CObjMOB::Init(CZoneTHREAD* pZONE,
 
     if (NULL == this->GetZONE()) {
         CObjAI::SetCMD_STOP();
-        return pZONE->Add_OBJECT(this); // ¸÷ »ı¼º
+        return pZONE->Add_OBJECT(this); // ëª¹ ìƒì„±
     }
 
-    // Á¤Áö ¸í·ÉÈÄ Àü¼Û...
+    // ì •ì§€ ëª…ë ¹í›„ ì „ì†¡...
     SetCMD_STOP();
 
     return true;
@@ -72,12 +72,12 @@ CObjMOB::Init(CZoneTHREAD* pZONE,
 //-------------------------------------------------------------------------------------------------
 int
 CObjMOB::Get_AttackRange(short nSkillIDX) {
-    /// ½ºÅ³¿¡ °ø°İ °Å¸®°¡ ÀÔ·ÂµÇ¾î ÀÖ´Ù¸é ½ºÅ³°Å¸® ¾Æ´Ï¸é ¹«±â °Å¸®..
+    /// ìŠ¤í‚¬ì— ê³µê²© ê±°ë¦¬ê°€ ì…ë ¥ë˜ì–´ ìˆë‹¤ë©´ ìŠ¤í‚¬ê±°ë¦¬ ì•„ë‹ˆë©´ ë¬´ê¸° ê±°ë¦¬..
     if (nSkillIDX && SKILL_DISTANCE(nSkillIDX)) {
         return SKILL_DISTANCE(nSkillIDX);
     }
 
-    // ¸÷Àº ÀÔ·ÂµÈ µ¥ÀÌÅ¸·Î...
+    // ëª¹ì€ ì…ë ¥ëœ ë°ì´íƒ€ë¡œ...
     return (int)(Def_AttackRange() + (this->Get_SCALE() * 120));
 }
 
@@ -140,7 +140,7 @@ CObjMOB::SetCMD_Skill2OBJ(int iTargetObjIDX, short nSkillIDX, short nMotion) {
 bool
 CObjMOB::Make_gsv_SUB_OBJECT(classPACKET* pCPacket) {
     if (this->Get_HP() <= 0) {
-        // ¸Â¾Æ Á×À»°æ¿ì´Â Å¬¶óÀÌ¾ğÆ®¿¡¼­ ¾Ë¾Æ¼­ »¬¼ö ÀÖÀ¸´Ï±î...
+        // ë§ì•„ ì£½ì„ê²½ìš°ëŠ” í´ë¼ì´ì–¸íŠ¸ì—ì„œ ì•Œì•„ì„œ ëº„ìˆ˜ ìˆìœ¼ë‹ˆê¹Œ...
         return false;
     }
 
@@ -184,13 +184,13 @@ CObjMOB::Dead(CObjCHAR* pKiller) {
         classDLLNODE<CObjAVT*>* pTargetNODE;
 
         if (this->GetCallerUsrIDX()) {
-            // ¼ÒÈ¯¼ö°¡ ÀÖÀ¸¸é °¹¼ö °¨¼Ò
+            // ì†Œí™˜ìˆ˜ê°€ ìˆìœ¼ë©´ ê°¯ìˆ˜ ê°ì†Œ
             CObjCHAR* pOwner = g_pObjMGR->Get_CharOBJ(this->GetCallerUsrIDX(), true);
             if (pOwner && pOwner->IsUSER()) {
                 if (this->GetCallerHASH() == pOwner->Get_CharHASH()) {
                     short nNeedValue = NPC_NEED_SUMMON_CNT(this->Get_CharNO());
                     pOwner->Sub_SummonCNT(nNeedValue);
-                    // pOwner->Send_gsv_SET_SUMMON_COUNT (); damage·Î ³¯¶ó°¨...
+                    // pOwner->Send_gsv_SET_SUMMON_COUNT (); damageë¡œ ë‚ ë¼ê°...
                 }
             }
         }
@@ -232,7 +232,7 @@ CObjMOB::Save_Damage(int iAttackerIDX, int iDamage) {
 
         if (dwCurTIME - this->m_SavedDAMAGED[nI].m_dwUpdateTIME >= EXPIRED_DAMAGED_TIME) {
             if (this->m_SavedDAMAGED[nI].m_dwUpdateTIME < dwElderTime) {
-                // °¡Àå ¿À·¡µÈ °ø°İÀÚ¸¦ »èÁ¦..
+                // ê°€ì¥ ì˜¤ë˜ëœ ê³µê²©ìë¥¼ ì‚­ì œ..
                 dwElderTime = this->m_SavedDAMAGED[nI].m_dwUpdateTIME;
                 nElderSlot = nI;
             }
@@ -314,20 +314,20 @@ CObjMOB::Give_EXP() {
     for (nI = 0; nI < this->m_nSavedDamageCNT; nI++) {
         if (this->m_SavedDAMAGED[nI].m_dwInsertTIME) {
             if (dwCurTIME - this->m_SavedDAMAGED[nI].m_dwUpdateTIME > IGNORE_DAMAGED_TIME) {
-                // ¿À·¡µÈ ´©Àû µ¥ÀÌ¹ÌÁö´Â °æÇèÄ¡ ÁÖÁö ¾Ê´Â´Ù.
+                // ì˜¤ë˜ëœ ëˆ„ì  ë°ì´ë¯¸ì§€ëŠ” ê²½í—˜ì¹˜ ì£¼ì§€ ì•ŠëŠ”ë‹¤.
                 this->m_SavedDAMAGED[nI].m_iObjectIDX = 0;
                 continue;
             }
 
             pHitterCHAR = g_pObjMGR->Get_CharOBJ(this->m_SavedDAMAGED[nI].m_iObjectIDX, true);
-            if (NULL == pHitterCHAR /* || !pHitterCHAR->IsUSER() */) { // 05.02.17 ºÎºĞ ÁÖ¼®Ã³¸®..
+            if (NULL == pHitterCHAR /* || !pHitterCHAR->IsUSER() */) { // 05.02.17 ë¶€ë¶„ ì£¼ì„ì²˜ë¦¬..
                 this->m_SavedDAMAGED[nI].m_iObjectIDX = 0;
                 continue;
             }
             pHitterUSER = (classUSER*)pHitterCHAR->Get_CALLER();
 
             // if ( !pHitterCHAR->IsUSER() ) {
-            //	// »ç¿ëÀÚ¿¡ ÀÇÇØ ¼ÒÈ¯µÈ NPC³Ä ????
+            //	// ì‚¬ìš©ìì— ì˜í•´ ì†Œí™˜ëœ NPCëƒ ????
             //	pHitterUSER = g_pObjMGR->Get_UserOBJ( pHitterCHAR->GetOwnerOBJ() );
             //	this->m_SavedDAMAGED[ nI ].m_iObjectIDX = pHitterCHAR->GetOwnerOBJ();
             //} else
@@ -335,17 +335,17 @@ CObjMOB::Give_EXP() {
 
             if (pHitterUSER && pHitterUSER->GetZONE() == this->GetZONE()) {
                 this->m_SavedDAMAGED[nI].m_iObjectIDX =
-                    pHitterUSER->Get_INDEX(); // 2004. 9. 30 Ãß°¡...
+                    pHitterUSER->Get_INDEX(); // 2004. 9. 30 ì¶”ê°€...
                 if (dwCurTIME - this->m_SavedDAMAGED[nI].m_dwUpdateTIME < EXPIRED_DAMAGED_TIME
                     && this->m_SavedDAMAGED[nI].m_dwInsertTIME < dwElderTIME) {
-                    // EXPIRED_DAMAGED_TIMEÀÌ Áö³ªÁö ¾ÊÀº À¯ÀúÁß ¸ÕÀú ¶§¸°³ÑÀ¸·Î..
+                    // EXPIRED_DAMAGED_TIMEì´ ì§€ë‚˜ì§€ ì•Šì€ ìœ ì €ì¤‘ ë¨¼ì € ë•Œë¦°ë„˜ìœ¼ë¡œ..
                     dwElderTIME = this->m_SavedDAMAGED[nI].m_dwInsertTIME;
                     pOwner = pHitterUSER;
                 }
 
                 iEXP = CCal::Get_EXP(pHitterUSER, this, this->m_SavedDAMAGED[nI].m_iDamage);
                 // if ( !pHitterCHAR->IsUSER() ) {
-                //	// ¼ÒÈ¯ NPC·Î ºÎÅÍ ¾òÀº °æÄ¡´Â 50% ...
+                //	// ì†Œí™˜ NPCë¡œ ë¶€í„° ì–»ì€ ê²½ì¹˜ëŠ” 50% ...
                 //	nEXP /= 2;
                 //}
 
@@ -355,7 +355,7 @@ CObjMOB::Give_EXP() {
                     continue;
                 }
                 if (iEXP > 0) {
-                    // ÆÄÆ¼ ¾øÀ¸¸é ¹Ù·Î °æÇèÄ¡ ¿Ã¸².
+                    // íŒŒí‹° ì—†ìœ¼ë©´ ë°”ë¡œ ê²½í—˜ì¹˜ ì˜¬ë¦¼.
                     pHitterUSER->Add_EXP(iEXP, true, this->Get_INDEX());
                 }
             }
@@ -364,7 +364,7 @@ CObjMOB::Give_EXP() {
         }
     }
 
-    // ÆÄÆ¼ °æÇèÄ¡ ºĞ¹è...
+    // íŒŒí‹° ê²½í—˜ì¹˜ ë¶„ë°°...
     if (bPartyUser) {
         classUSER* pPartyUSER;
         short nJ;
@@ -373,7 +373,7 @@ CObjMOB::Give_EXP() {
             if (this->m_SavedDAMAGED[nI].m_iObjectIDX && this->m_SavedDAMAGED[nI].m_dwInsertTIME) {
                 pHitterUSER = g_pObjMGR->Get_UserOBJ(this->m_SavedDAMAGED[nI].m_iObjectIDX);
                 if (!pHitterUSER
-                    || !pHitterUSER->GetPARTY()) // 0x00061abb ¿À·ù... ¼ÒÈ¯¸÷ÀÏ°æ¿ì »¶³ª³ª???
+                    || !pHitterUSER->GetPARTY()) // 0x00061abb ì˜¤ë¥˜... ì†Œí™˜ëª¹ì¼ê²½ìš° ë»‘ë‚˜ë‚˜???
                     continue;
 
                 for (nJ = nI + 1; nJ < this->m_nSavedDamageCNT; nJ++) {
@@ -381,7 +381,7 @@ CObjMOB::Give_EXP() {
                         && this->m_SavedDAMAGED[nJ].m_dwInsertTIME) {
                         pPartyUSER = g_pObjMGR->Get_UserOBJ(this->m_SavedDAMAGED[nJ].m_iObjectIDX);
                         if (pPartyUSER && pHitterUSER->GetPARTY() == pPartyUSER->GetPARTY()) {
-                            // °°Àº ÆÄÆ¼¿øÀÇ °æÇèÄ¡¸¦ ¸ô¾Æ¼­ ¾ò´Â´Ù.
+                            // ê°™ì€ íŒŒí‹°ì›ì˜ ê²½í—˜ì¹˜ë¥¼ ëª°ì•„ì„œ ì–»ëŠ”ë‹¤.
                             this->m_SavedDAMAGED[nI].m_iDamage +=
                                 this->m_SavedDAMAGED[nJ].m_iDamage;
                             this->m_SavedDAMAGED[nJ].m_iObjectIDX = 0;
@@ -389,12 +389,12 @@ CObjMOB::Give_EXP() {
                     }
                 }
 
-                // ´©ÀûµÈ °æÇèÄ¡¸¦ ÆÄÆ¼¸¦ ÅëÇØ Àü¼Û.
+                // ëˆ„ì ëœ ê²½í—˜ì¹˜ë¥¼ íŒŒí‹°ë¥¼ í†µí•´ ì „ì†¡.
                 if (!pHitterUSER->m_pPartyBUFF->AddEXP(this,
                         this->m_SavedDAMAGED[nI].m_iDamage,
                         ZONE_PARTY_EXP_A(this->GetZONE()->Get_ZoneNO()),
                         ZONE_PARTY_EXP_B(this->GetZONE()->Get_ZoneNO()))) {
-                    // ÆÄÆ¼ °æÇèÄ¡ Àû¿ë¾ÈµÆ´Ù.
+                    // íŒŒí‹° ê²½í—˜ì¹˜ ì ìš©ì•ˆëë‹¤.
                     pHitterUSER->Add_EXP(this->m_SavedDAMAGED[nI].m_iDamage,
                         true,
                         this->Get_INDEX());
@@ -414,11 +414,11 @@ CObjMOB::Run_AWAY(int iDistance) {
     fX = (float)(RANDOM(iDistance * 2) - iDistance);
     fY = (float)(RANDOM(iDistance * 2) - iDistance);
     if (m_pRegenPOINT) {
-        // ¸®Á¨ Æ÷ÀÎÆ®¸¦ Áß½ÉÀ¸·Î iDistance¸¸Å­ ÀÌµ¿...
+        // ë¦¬ì   í¬ì¸íŠ¸ë¥¼ ì¤‘ì‹¬ìœ¼ë¡œ iDistanceë§Œí¼ ì´ë™...
         fX += m_pRegenPOINT->m_fXPos;
         fY += m_pRegenPOINT->m_fYPos;
     } else {
-        // ¼ÒÈ¯µÈ ¸÷ÀÌ´Ù..
+        // ì†Œí™˜ëœ ëª¹ì´ë‹¤..
         fX += m_PosBORN.x;
         fY += m_PosBORN.y;
     }
@@ -433,12 +433,12 @@ CObjMOB::Drop_ITEM(short nDropITEM, BYTE btToOwner) {
     tagITEM sITEM;
     sITEM.Init(nDropITEM);
 
-    // ¾ÆÀÌÅÛ ¼öÄ¡°¡ ¸Â°Ô ÀÔ·ÂµÇ¾î ÀÖ´Â°¡ ??
+    // ì•„ì´í…œ ìˆ˜ì¹˜ê°€ ë§ê²Œ ì…ë ¥ë˜ì–´ ìˆëŠ”ê°€ ??
     if (sITEM.GetTYPE() && sITEM.GetItemNO()) {
         CObjITEM* pObjITEM = new CObjITEM;
         if (pObjITEM) {
             tPOINTF DropPOS = this->m_PosCUR;
-            DropPOS.x += (RANDOM(1001) - 500); // ·£´ı 5¹ÌÅÍ..
+            DropPOS.x += (RANDOM(1001) - 500); // ëœë¤ 5ë¯¸í„°..
             DropPOS.y += (RANDOM(1001) - 500);
 
             if (btToOwner) {
@@ -450,7 +450,7 @@ CObjMOB::Drop_ITEM(short nDropITEM, BYTE btToOwner) {
                     if (this->m_SavedDAMAGED[nI].m_dwInsertTIME) {
                         if (dwCurTIME - this->m_SavedDAMAGED[nI].m_dwUpdateTIME
                             > IGNORE_DAMAGED_TIME) {
-                            // ¿À·¡µÈ ´©Àû µ¥ÀÌ¹ÌÁö´Â °æÇèÄ¡ ÁÖÁö ¾Ê´Â´Ù.
+                            // ì˜¤ë˜ëœ ëˆ„ì  ë°ì´ë¯¸ì§€ëŠ” ê²½í—˜ì¹˜ ì£¼ì§€ ì•ŠëŠ”ë‹¤.
                             // this->m_SavedDAMAGED[ nI ].m_iObjectIDX = 0;
                             continue;
                         }
@@ -463,11 +463,11 @@ CObjMOB::Drop_ITEM(short nDropITEM, BYTE btToOwner) {
                         pHitterUSER = (classUSER*)pHitterCHAR->Get_CALLER();
                         if (pHitterUSER && pHitterUSER->GetZONE() == this->GetZONE()) {
                             // this->m_SavedDAMAGED[ nI ].m_iObjectIDX = pHitterUSER->Get_INDEX();
-                            // // 2004. 9. 30 Ãß°¡...
+                            // // 2004. 9. 30 ì¶”ê°€...
                             if (dwCurTIME - this->m_SavedDAMAGED[nI].m_dwUpdateTIME
                                     < EXPIRED_DAMAGED_TIME
                                 && this->m_SavedDAMAGED[nI].m_dwInsertTIME < dwElderTIME) {
-                                // EXPIRED_DAMAGED_TIMEÀÌ Áö³ªÁö ¾ÊÀº À¯ÀúÁß ¸ÕÀú ¶§¸°³ÑÀ¸·Î..
+                                // EXPIRED_DAMAGED_TIMEì´ ì§€ë‚˜ì§€ ì•Šì€ ìœ ì €ì¤‘ ë¨¼ì € ë•Œë¦°ë„˜ìœ¼ë¡œ..
                                 dwElderTIME = this->m_SavedDAMAGED[nI].m_dwInsertTIME;
                                 pMobOWNER = pHitterUSER;
                             }
@@ -481,18 +481,18 @@ CObjMOB::Drop_ITEM(short nDropITEM, BYTE btToOwner) {
                         sITEM,
                         pMobOWNER,
                         true,
-                        pMobOWNER->GetPARTY()); // Á×À»¶§ ¶³±À
+                        pMobOWNER->GetPARTY()); // ì£½ì„ë•Œ ë–¨êµ¼
                 else
                     pObjITEM->InitItemOBJ(NULL, DropPOS, this->m_PosSECTOR, sITEM);
             } else
                 pObjITEM->InitItemOBJ(NULL, DropPOS, this->m_PosSECTOR, sITEM);
 
-            this->GetZONE()->Add_DIRECT(pObjITEM); // AI¿¡¼­ ¶³±À ¾ÆÀÌÅÛ
+            this->GetZONE()->Add_DIRECT(pObjITEM); // AIì—ì„œ ë–¨êµ¼ ì•„ì´í…œ
             /*
                 if ( sITEM.m_cType != ITEM_TYPE_MONEY )
-                    LogString( LOG_NORMAL, "Zone: %d :: ¾ÆÀÌÅÛ %s µå·Ó Type: %d, NO: %d \n",
+                    LogString( LOG_NORMAL, "Zone: %d :: ì•„ì´í…œ %s ë“œë¡­ Type: %d, NO: %d \n",
                pObjITEM->GetZONE()->Get_ZoneNO(), ITEM_NAME( sITEM.m_cType, sITEM.m_nItemNo ),
-               sITEM.m_cType, sITEM.m_nItemNo ); else LogString( LOG_NORMAL, "Zone: %d :: µ· µå·Ó %d
+               sITEM.m_cType, sITEM.m_nItemNo ); else LogString( LOG_NORMAL, "Zone: %d :: ëˆ ë“œë¡­ %d
                \n", pObjITEM->GetZONE()->Get_ZoneNO(), sITEM.m_nItemNo);
             */
         }
@@ -514,8 +514,8 @@ CObjMOB::Change_CHAR(int iCharIDX) {
 
     Packet_ReleaseNUnlock(pCPacket);
 
-    // ÀÌ°Å¸¸ ÇØµµ µÉ·Á³ª ???
-    // ¸ğµ¨ µ¥ÀÌÅ¸ !!!! ¾ÈÇØ¼­ »¶~~~
+    // ì´ê±°ë§Œ í•´ë„ ë ë ¤ë‚˜ ???
+    // ëª¨ë¸ ë°ì´íƒ€ !!!! ì•ˆí•´ì„œ ë»‘~~~
     this->m_nCharIdx = iCharIDX;
     this->m_pCharMODEL = g_pCharDATA->GetMODEL(iCharIDX);
     this->m_fScale = NPC_SCALE(iCharIDX) / 100.f;
@@ -544,8 +544,8 @@ CObjMOB::update_speed() {
 int
 CObjMOB::Proc() {
     if (this->Get_HP() <= 0 && CMD_DIE != this->Get_COMMAND()) {
-        // HP°¡ DEAD_HPÀÎ³ÑÀÌ CMD°¡ STOPÀÌµÇ¾î ¸®Á¦Æ÷ÀÎÆ®¿¡¼­ ºüÁöÁö ¾Ê¾Æ
-        // ¸®Á¨ÀÌ µÇÁö ¾Ê´Â°æ¿ì°¡ ÀÖ´Ù... ¾î¶² °æ¿ì³Ä ???
+        // HPê°€ DEAD_HPì¸ë„˜ì´ CMDê°€ STOPì´ë˜ì–´ ë¦¬ì œí¬ì¸íŠ¸ì—ì„œ ë¹ ì§€ì§€ ì•Šì•„
+        // ë¦¬ì  ì´ ë˜ì§€ ì•ŠëŠ”ê²½ìš°ê°€ ìˆë‹¤... ì–´ë–¤ ê²½ìš°ëƒ ???
         LogString(0xffff,
             ">>Warnning:: DeadMOB( %s ), Zone%d:%s, HP: %d, CMD: %x\n",
             this->Get_NAME(),
@@ -676,17 +676,17 @@ CObjNPC::Get_SellITEM(short nSellTAB, short nSellCOL, tagITEM& OutITEM) {
 void
 CObjNPC::VSet_SHOW(BYTE btShowMode) {
     switch (btShowMode) {
-        case 0: // ¼û±â±â
+        case 0: // ìˆ¨ê¸°ê¸°
             if (!this->m_bShow)
                 return;
             this->m_bShow = false;
             break;
-        case 1: // º¸ÀÌ±â
+        case 1: // ë³´ì´ê¸°
             if (this->m_bShow)
                 return;
             this->m_bShow = true;
             break;
-        case 2: // Åä±Û
+        case 2: // í† ê¸€
             if (this->m_bShow) {
                 this->m_bShow = false;
             } else {
@@ -713,7 +713,7 @@ CObjNPC::VSet_SHOW(BYTE btShowMode) {
 int
 CObjNPC::Proc() {
     if (CObjVAR::ProcVAR((this->GetZONE())->GetPassTIME())) {
-        // ´ÙÀ½ ÀÌº¥Æ® Ã³¸®...
+        // ë‹¤ìŒ ì´ë²¤íŠ¸ ì²˜ë¦¬...
         // m_HashCurrentTrigger = m_HashNextTrigger;
         g_QuestList.CheckQUEST(NULL, m_HashNextTrigger, true, 0, this);
         m_HashNextTrigger = 0;

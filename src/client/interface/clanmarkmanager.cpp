@@ -52,7 +52,7 @@ CClanMarkManager::ReloadTexture(const char* FileName, WORD wCRC16) {
     }
 }
 //------------------------------------------------------------------
-/// Æ¯Á¤ÇÑ ½Ã°£µ¿¾È »ç¿ëµÇÁö ¾ÊÀº ³ëµåµéÀ» Á¤¸®
+/// íŠ¹ì •í•œ ì‹œê°„ë™ì•ˆ ì‚¬ìš©ë˜ì§€ ì•Šì€ ë…¸ë“œë“¤ì„ ì •ë¦¬
 //------------------------------------------------------------------
 const int GC_BOUNDARY_TIME = 100000;
 void
@@ -66,7 +66,7 @@ CClanMarkManager::UpdatePool() {
 
         DWORD dwLastUsedTime = pUserDefinedMark->GetLastUsedTime();
 
-        /// °ÔÀÓ¿¡¼­ ¼³Á¤ÇÑ Á¤¸® ´ë»ó Å¸ÀÓÀ» ÃÊ°úÇÑ °Íµé¿¡ ´ëÇØ¼­´Â..
+        /// ê²Œì„ì—ì„œ ì„¤ì •í•œ ì •ë¦¬ ëŒ€ìƒ íƒ€ì„ì„ ì´ˆê³¼í•œ ê²ƒë“¤ì— ëŒ€í•´ì„œëŠ”..
         if (pUserDefinedMark->GetRefCount() <= 0
             && dwCurrentTime - dwLastUsedTime > GC_BOUNDARY_TIME) {
             iter = m_TextureNodePool.erase(iter);
@@ -74,7 +74,7 @@ CClanMarkManager::UpdatePool() {
             continue;
         }
 
-        /// ·ÎµåÇØ¾ßÇÒ ÅØ½ºÃÄ°¡ ÀÖ´Ù¸é ·Îµå...
+        /// ë¡œë“œí•´ì•¼í•  í…ìŠ¤ì³ê°€ ìˆë‹¤ë©´ ë¡œë“œ...
         if (pUserDefinedMark->IsLoaded() == false) {
             LoadRealTexture(pUserDefinedMark);
         }
@@ -84,14 +84,14 @@ CClanMarkManager::UpdatePool() {
 }
 
 //------------------------------------------------------------------
-/// ÅØ½ºÃÄ ·Îµå ÇÃ·¡±×°¡ ÄÑÁø ³ëµåµé¿¡ ´ëÇÑ ÅØ½ºÃÄ ·Îµù..
+/// í…ìŠ¤ì³ ë¡œë“œ í”Œë˜ê·¸ê°€ ì¼œì§„ ë…¸ë“œë“¤ì— ëŒ€í•œ í…ìŠ¤ì³ ë¡œë”©..
 //------------------------------------------------------------------
 void
 CClanMarkManager::LoadRealTexture(CClanMarkUserDefined* pUserDefinedMark) {
     HNODE hNode =
         LoadNewTexture(pUserDefinedMark->GetName().c_str(), pUserDefinedMark->GetFileCRC());
     if (hNode == 0) {
-        /// ¼­¹ö¿¡ ¿äÃ»..
+        /// ì„œë²„ì— ìš”ì²­..
         CClanMarkTransfer::GetSingleton().RequestMarkFromServer(pUserDefinedMark->GetClanID());
     }
 
@@ -115,7 +115,7 @@ CClanMarkManager::SearchTexture(const char* pstrName) {
 
 //--------------------------------------------------------------------
 /// Load new texture form HDD.
-/// ÀÌ¸§À¸·Î ÇØ´ç È­ÀÏÀÌ ÀÖ´ÂÁö¸¦ Ã£°í ¿øÇÏ´Â Æ÷¸Ë¿¡ ¸Â´ÂÁö¸¦ Ã¼Å©ÇÑ´Ù.
+/// ì´ë¦„ìœ¼ë¡œ í•´ë‹¹ í™”ì¼ì´ ìˆëŠ”ì§€ë¥¼ ì°¾ê³  ì›í•˜ëŠ” í¬ë§·ì— ë§ëŠ”ì§€ë¥¼ ì²´í¬í•œë‹¤.
 //--------------------------------------------------------------------
 HNODE
 CClanMarkManager::LoadNewTexture(const char* pstrName, WORD crc16) {

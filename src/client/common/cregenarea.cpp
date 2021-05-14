@@ -143,7 +143,7 @@ CRegenPOINT::RegenCharacter(int iIndex, int iCount) {
     float fXPos, fYPos;
 
     #if defined(_DEBUG)
-    g_itMGR.AppendChatMsg(CStr::Printf("      %s  %d¸¶¸® »ı¼º", NPC_NAME(iIndex), iCount),
+    g_itMGR.AppendChatMsg(CStr::Printf("      %s  %dë§ˆë¦¬ ìƒì„±", NPC_NAME(iIndex), iCount),
         IT_MGR::CHAT_TYPE_SYSTEM);
     #endif
     for (int iC = 0; iC < iCount; iC++) {
@@ -194,74 +194,74 @@ CRegenPOINT::Proc(DWORD dwCurTIME) {
     m_dwCheckTIME = dwCurTIME;
 
     if (m_iLiveCNT > m_iLimitCNT) {
-        // Àü¼ú Æ÷ÀÎÆ® 1 °¨¼Ò
+        // ì „ìˆ  í¬ì¸íŠ¸ 1 ê°ì†Œ
         if (m_iCurTactics > 1)
             m_iCurTactics--;
         return;
     }
 
-    // ¸®Á¨º¯¼ö = { ( ÇÑ°è¸÷¼ö*2 - ÇöÀç¸÷¼ö ) * ÇöÀçÀü¼úP * 50 } / { ÇÑ°è¸÷¼ö * Àü¼úPÁÖ±â }
+    // ë¦¬ì  ë³€ìˆ˜ = { ( í•œê³„ëª¹ìˆ˜*2 - í˜„ì¬ëª¹ìˆ˜ ) * í˜„ì¬ì „ìˆ P * 50 } / { í•œê³„ëª¹ìˆ˜ * ì „ìˆ Pì£¼ê¸° }
     int iVar =
         ((m_iLimitCNT * 2 - m_iLiveCNT) * m_iCurTactics * 50) / (m_iLimitCNT * m_iTacticsPOINT);
     if (iVar <= 10) {
-        // 0 ~ 10	1¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ı	Àü¼úÆ÷ÀÎÆ® + 12
+        // 0 ~ 10	1ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒ	ì „ìˆ í¬ì¸íŠ¸ + 12
         m_iCurTactics += 12;
         if (m_iBasicCNT > SLOT0)
             this->RegenCharacter(m_pBasicMOB[SLOT0].m_iMobIDX, m_pBasicMOB[SLOT0].m_iMobCNT);
     } else if (iVar <= 15) {
-        // 11 ~ 15	1¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ (ÁöÁ¤ °³¼ö-2) ¸¸Å­ ¹ß»ıÇÏ°í,
-        ///			2¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ı.	Àü¼úÆ÷ÀÎÆ® + 15
+        // 11 ~ 15	1ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ (ì§€ì • ê°œìˆ˜-2) ë§Œí¼ ë°œìƒí•˜ê³ ,
+        ///			2ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒ.	ì „ìˆ í¬ì¸íŠ¸ + 15
         m_iCurTactics += 15;
         if (m_iBasicCNT > SLOT0)
             this->RegenCharacter(m_pBasicMOB[SLOT0].m_iMobIDX, m_pBasicMOB[SLOT0].m_iMobCNT - 2);
         if (m_iBasicCNT > SLOT1)
             this->RegenCharacter(m_pBasicMOB[SLOT1].m_iMobIDX, m_pBasicMOB[SLOT1].m_iMobCNT);
     } else if (iVar <= 25) {
-        // 16 ~ 25	3¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ı	Àü¼úÆ÷ÀÎÆ® + 12
+        // 16 ~ 25	3ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒ	ì „ìˆ í¬ì¸íŠ¸ + 12
         m_iCurTactics += 12;
         if (m_iBasicCNT > SLOT2)
             this->RegenCharacter(m_pBasicMOB[SLOT2].m_iMobIDX, m_pBasicMOB[SLOT2].m_iMobCNT);
     } else if (iVar <= 30) {
-        // 26 ~ 30	1¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ (ÁöÁ¤ °³¼ö-1) ¸¸Å­ ¹ß»ıÇÏ°í,
-        //			3¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ı	Àü¼úÆ÷ÀÎÆ® + 15
+        // 26 ~ 30	1ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ (ì§€ì • ê°œìˆ˜-1) ë§Œí¼ ë°œìƒí•˜ê³ ,
+        //			3ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒ	ì „ìˆ í¬ì¸íŠ¸ + 15
         m_iCurTactics += 15;
         if (m_iBasicCNT > SLOT0)
             this->RegenCharacter(m_pBasicMOB[SLOT0].m_iMobIDX, m_pBasicMOB[SLOT0].m_iMobCNT - 1);
         if (m_iBasicCNT > SLOT2)
             this->RegenCharacter(m_pBasicMOB[SLOT2].m_iMobIDX, m_pBasicMOB[SLOT2].m_iMobCNT);
     } else if (iVar <= 40) {
-        // 31 ~ 40	4¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ı	Àü¼úÆ÷ÀÎÆ® + 12
+        // 31 ~ 40	4ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒ	ì „ìˆ í¬ì¸íŠ¸ + 12
         m_iCurTactics += 12;
         if (m_iBasicCNT > SLOT3)
             this->RegenCharacter(m_pBasicMOB[SLOT3].m_iMobIDX, m_pBasicMOB[SLOT3].m_iMobCNT);
     } else if (iVar <= 50) {
-        // 41 ~ 50	2¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ıÇÏ°í,
-        //			3¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ (ÁöÁ¤ °³¼ö-2) ¸¸Å­ ¹ß»ı	Àü¼úÆ÷ÀÎÆ® + 12
+        // 41 ~ 50	2ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒí•˜ê³ ,
+        //			3ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ (ì§€ì • ê°œìˆ˜-2) ë§Œí¼ ë°œìƒ	ì „ìˆ í¬ì¸íŠ¸ + 12
         m_iCurTactics += 12;
         if (m_iBasicCNT > SLOT1)
             this->RegenCharacter(m_pBasicMOB[SLOT1].m_iMobIDX, m_pBasicMOB[SLOT1].m_iMobCNT);
         if (m_iBasicCNT > SLOT2)
             this->RegenCharacter(m_pBasicMOB[SLOT2].m_iMobIDX, m_pBasicMOB[SLOT2].m_iMobCNT - 2);
     } else if (iVar <= 65) {
-        // 51 ~ 65	3¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ıÇÏ°í,
-        //			4¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ (ÁöÁ¤ °³¼ö-2) ¸¸Å­ ¹ß»ı	Àü¼úÆ÷ÀÎÆ® + 20
+        // 51 ~ 65	3ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒí•˜ê³ ,
+        //			4ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ (ì§€ì • ê°œìˆ˜-2) ë§Œí¼ ë°œìƒ	ì „ìˆ í¬ì¸íŠ¸ + 20
         m_iCurTactics += 20;
         if (m_iBasicCNT > SLOT2)
             this->RegenCharacter(m_pBasicMOB[SLOT2].m_iMobIDX, m_pBasicMOB[SLOT2].m_iMobCNT);
         if (m_iBasicCNT > SLOT3)
             this->RegenCharacter(m_pBasicMOB[SLOT3].m_iMobIDX, m_pBasicMOB[SLOT3].m_iMobCNT - 2);
     } else if (iVar <= 73) {
-        // 66 ~ 73	4¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ıÇÏ°í,
-        //			5¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ı	Àü¼úÆ÷ÀÎÆ® + 15
+        // 66 ~ 73	4ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒí•˜ê³ ,
+        //			5ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒ	ì „ìˆ í¬ì¸íŠ¸ + 15
         m_iCurTactics += 15;
         if (m_iBasicCNT > SLOT3)
             this->RegenCharacter(m_pBasicMOB[SLOT3].m_iMobIDX, m_pBasicMOB[SLOT3].m_iMobCNT);
         if (m_iBasicCNT > SLOT4)
             this->RegenCharacter(m_pBasicMOB[SLOT4].m_iMobIDX, m_pBasicMOB[SLOT4].m_iMobCNT);
     } else if (iVar <= 85) {
-        // 74 ~ 85	1¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ıÇÏ°í,
-        //			4¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ (ÁöÁ¤ °³¼ö-1) ¸¸Å­ ¹ß»ıÇÏ°í,
-        //			5¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ (ÁöÁ¤ °³¼ö-2) ¸¸Å­ ¹ß»ı	Àü¼úÆ÷ÀÎÆ® + 15
+        // 74 ~ 85	1ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒí•˜ê³ ,
+        //			4ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ (ì§€ì • ê°œìˆ˜-1) ë§Œí¼ ë°œìƒí•˜ê³ ,
+        //			5ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ (ì§€ì • ê°œìˆ˜-2) ë§Œí¼ ë°œìƒ	ì „ìˆ í¬ì¸íŠ¸ + 15
         m_iCurTactics += 15;
         if (m_iBasicCNT > SLOT0)
             this->RegenCharacter(m_pBasicMOB[SLOT0].m_iMobIDX, m_pBasicMOB[SLOT0].m_iMobCNT);
@@ -273,8 +273,8 @@ CRegenPOINT::Proc(DWORD dwCurTIME) {
         if (m_iBasicCNT > SLOT4)
             this->RegenCharacter(m_pBasicMOB[SLOT4].m_iMobIDX, m_pBasicMOB[SLOT4].m_iMobCNT - 2);
     } else if (iVar <= 92) {
-        // 85 ~ 92	6¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ıÇÏ°í,
-        //			7¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ı	Àü¼úÆ÷ÀÎÆ®¸¦ 1·Î ÁöÁ¤
+        // 85 ~ 92	6ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒí•˜ê³ ,
+        //			7ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒ	ì „ìˆ í¬ì¸íŠ¸ë¥¼ 1ë¡œ ì§€ì •
         m_iCurTactics = 1;
 
         if (m_iBasicCNT > SLOT1)
@@ -286,9 +286,9 @@ CRegenPOINT::Proc(DWORD dwCurTIME) {
         if (m_iTacticsCNT > SLOT1)
             this->RegenCharacter(m_pTacticsMOB[SLOT1].m_iMobIDX, m_pTacticsMOB[SLOT1].m_iMobCNT);
     } else {
-        // 93 ~ 	2¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ıÇÏ°í,
-        //			6¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ıÇÏ°í,
-        //			7¹øÄ­ÀÇ ¸ó½ºÅÍ¸¦ ÁöÁ¤ °³¼ö ¸¸Å­ ¹ß»ı	Àü¼úÆ÷ÀÎÆ®¸¦ 7·Î ÁöÁ¤
+        // 93 ~ 	2ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒí•˜ê³ ,
+        //			6ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒí•˜ê³ ,
+        //			7ë²ˆì¹¸ì˜ ëª¬ìŠ¤í„°ë¥¼ ì§€ì • ê°œìˆ˜ ë§Œí¼ ë°œìƒ	ì „ìˆ í¬ì¸íŠ¸ë¥¼ 7ë¡œ ì§€ì •
         m_iCurTactics = 7;
 
         if (m_iBasicCNT > SLOT4)
@@ -306,7 +306,7 @@ CRegenPOINT::Proc(DWORD dwCurTIME) {
 
     //#ifdef	_DEBUG
     //	if ( m_iLastCurTactics != m_iCurTactics ) {
-    //		//AddMsgToChatWND(CStr::Printf (">>>> Àü¼úÆ÷ÀÎÆ® º¯È­: %d => %d", m_iLastCurTactics,
+    //		//AddMsgToChatWND(CStr::Printf (">>>> ì „ìˆ í¬ì¸íŠ¸ ë³€í™”: %d => %d", m_iLastCurTactics,
     // m_iCurTactics ), g_dwBLUE ); 		m_iLastCurTactics = m_iCurTactics;
     //	}
     //#endif

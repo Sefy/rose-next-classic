@@ -15,7 +15,7 @@ CTargetObjectDLG::~CTargetObjectDLG() {}
 
 void
 CTargetObjectDLG::Draw() {
-    /// ¼±ÅÃµÈ Å¸°Ù Ãâ·Â.
+    /// ì„ íƒëœ íƒ€ê²Ÿ ì¶œë ¥.
     if (g_UserInputSystem.GetCurrentTarget()) {
 
         CResourceMgr* pResourceMgr = CResourceMgr::GetInstance();
@@ -25,7 +25,7 @@ CTargetObjectDLG::Draw() {
 
         CObjCHAR* pObj =
             (CObjCHAR*)g_pObjMGR->Get_CharOBJ(g_UserInputSystem.GetCurrentTarget(), true);
-        /// À¯È¿ÇÏÁö ¾ÊÀº Å¸°ÙÀÌ´Ù.. ¸¶¿ì½º ÄÄ¸Çµå ÃÊ±âÈ­
+        /// ìœ íš¨í•˜ì§€ ì•Šì€ íƒ€ê²Ÿì´ë‹¤.. ë§ˆìš°ìŠ¤ ì»´ë§¨ë“œ ì´ˆê¸°í™”
         if (pObj == NULL) {
             g_UserInputSystem.ClearMouseState();
             return;
@@ -39,7 +39,7 @@ CTargetObjectDLG::Draw() {
                 d3Color = g_dwGREEN; // D3DCOLOR_XRGB( 0,255,0 );
                 break;
             case OBJ_MOB: {
-                ///¸÷°ú ¾Æ¹ÙÅ¸ÀÇ ·¹º§Â÷¿¡ µû¶ó »ö±ò Æ²¸®°Ô Ç¥½Ã
+                ///ëª¹ê³¼ ì•„ë°”íƒ€ì˜ ë ˆë²¨ì°¨ì— ë”°ë¼ ìƒ‰ê¹” í‹€ë¦¬ê²Œ í‘œì‹œ
                 /*int iMobLv = pObj->Get_LEVEL();
                 int iAvatarLv = g_pAVATAR->Get_LEVEL();
                 int iDiffLv =  iAvatarLv - iMobLv;
@@ -70,7 +70,7 @@ CTargetObjectDLG::Draw() {
                 break;
         }
 
-        /// Ä³¸¯ÅÍ ¾ó±¼ ¾ÆÀÌÄÜ..
+        /// ìºë¦­í„° ì–¼êµ´ ì•„ì´ì½˜..
         // if( ( pObj->Get_TYPE() == OBJ_NPC || pObj->Get_TYPE() == OBJ_MOB )  )
         //{
         //	short nFaceIcon = NPC_FACE_ICON( pObj->Get_CharNO() );

@@ -5,10 +5,10 @@
 class CTButton;
 
 /**
- * ¾Ë¸²¹öÆ°µéÀ» º¸¿©ÁÖ±â À§ÇÑ ÀÎÅÍÆäÀÌ½º
- *	- CTDialog¸¦ »ó¼Ó¹Þ¾ÒÁö¸¸ TDialogÀÇ ±â´ÉÀº °ÅÀÇ ¾È¾²°í ÀÖ´Ù
+ * ì•Œë¦¼ë²„íŠ¼ë“¤ì„ ë³´ì—¬ì£¼ê¸° ìœ„í•œ ì¸í„°íŽ˜ì´ìŠ¤
+ *	- CTDialogë¥¼ ìƒì†ë°›ì•˜ì§€ë§Œ TDialogì˜ ê¸°ëŠ¥ì€ ê±°ì˜ ì•ˆì“°ê³  ìžˆë‹¤
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CNotifyButtonDlg: public CTDialog {

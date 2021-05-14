@@ -9,9 +9,9 @@ class CItem;
 class CItemFragment;
 class CRequireMaterial;
 /**
- * Á¦·Ã¿ë Data Class
+ * ì œë ¨ìš© Data Class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 
@@ -46,10 +46,10 @@ public:
 
     enum {
         ALL_OK,
-        NOTENOUGH_MP, /// MP ºÎÁ·.
-        NOTENOUGH_MATERIAL, /// Àç·á¾ÆÀÌÅÛÀÇ °³¼ö ºÎÁ·.
-        INVALID_MATERIAL, /// ÇÊ¿äÇÑ Àç·á¾ÆÀÌÅÛÀÌ ¾ø´Ù.
-        INVALID_TARGETITEM, /// Á¦·ÃÇÒ ¾ÆÀÌÅÛÀÌ ¾ø°Å³ª Àß¸øµÈ ¾ÆÀÌÅÛÀÌ´Ù.
+        NOTENOUGH_MP, /// MP ë¶€ì¡±.
+        NOTENOUGH_MATERIAL, /// ì¬ë£Œì•„ì´í…œì˜ ê°œìˆ˜ ë¶€ì¡±.
+        INVALID_MATERIAL, /// í•„ìš”í•œ ì¬ë£Œì•„ì´í…œì´ ì—†ë‹¤.
+        INVALID_TARGETITEM, /// ì œë ¨í•  ì•„ì´í…œì´ ì—†ê±°ë‚˜ ì˜ëª»ëœ ì•„ì´í…œì´ë‹¤.
         NOTENOUGH_MONEY,
         INVALID_TYPE,
     };
@@ -78,9 +78,9 @@ private:
     int ComputeSuccessProb();
 
 private:
-    CItemFragment* m_pTargetItem; /// Á¦·ÃÇÏ°íÀÚ ÇÏ´Â Å¸°Ù ¾ÆÀÌÅÛ
-    CItemFragment* m_pMaterialItems[3]; /// À¯Àú°¡ ÀÎº¥Åä¸®¿¡¼­ ¿Ã·Á³õÀº Àç·á¾ÆÀÌÅÛ¸®½ºÆ®
-    CRequireMaterial* m_pRequireMaterialItems[3]; /// Á¦·Ã¿¡ ¿ä±¸µÇ´Â ¾ÆÀÌÅÛ¸®½ºÆ®
+    CItemFragment* m_pTargetItem; /// ì œë ¨í•˜ê³ ì í•˜ëŠ” íƒ€ê²Ÿ ì•„ì´í…œ
+    CItemFragment* m_pMaterialItems[3]; /// ìœ ì €ê°€ ì¸ë²¤í† ë¦¬ì—ì„œ ì˜¬ë ¤ë†“ì€ ì¬ë£Œì•„ì´í…œë¦¬ìŠ¤íŠ¸
+    CRequireMaterial* m_pRequireMaterialItems[3]; /// ì œë ¨ì— ìš”êµ¬ë˜ëŠ” ì•„ì´í…œë¦¬ìŠ¤íŠ¸
 
     std::list<tag_SET_INVITEM> m_ResultItemSet;
     BYTE m_btResult;

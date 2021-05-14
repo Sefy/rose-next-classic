@@ -76,7 +76,7 @@ CDragNDropMgr::IsDraging() {
 
 /**
  *
- * ÇöÀç Observalble - CItemSlot, CAvatarStoreDlg
+ * í˜„ìž¬ Observalble - CItemSlot, CAvatarStoreDlg
  *
  */
 void

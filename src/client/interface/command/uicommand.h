@@ -8,7 +8,7 @@
 class CMakeDLG;
 class CItem;
 /*--------------------------------------------------------------------------------------------------------*/
-/// ÀÎº¥Åä¸®¿¡¼­ Á¦Á¶Ã¢À¸·Î ¾ÆÀÌÅÛ ÀÌµ¿
+/// ì¸ë²¤í† ë¦¬ì—ì„œ ì œì¡°ì°½ìœ¼ë¡œ ì•„ì´í…œ ì´ë™
 class CTCmdTakeInItem2MakeDlg: public CTCommand {
 public:
     CTCmdTakeInItem2MakeDlg() {}
@@ -16,7 +16,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// Á¦Á¶Ã¢¿¡¼­ ÀÎº¥Åä¸®·Î ¾ÆÀÌÅÛÀ» »«´Ù.
+/// ì œì¡°ì°½ì—ì„œ ì¸ë²¤í† ë¦¬ë¡œ ì•„ì´í…œì„ ëº€ë‹¤.
 class CTCmdTakeOutItemFromMakeDlg: public CTCommand {
 public:
     CTCmdTakeOutItemFromMakeDlg() {}
@@ -24,7 +24,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// ºĞ¸®/ºĞÇØÃ¢¿¡¼­ ¾ÆÀÌÅÛÀ» »«´Ù.
+/// ë¶„ë¦¬/ë¶„í•´ì°½ì—ì„œ ì•„ì´í…œì„ ëº€ë‹¤.
 class CTCmdTakeOutItemFromSeparateDlg: public CTCommand {
 public:
     CTCmdTakeOutItemFromSeparateDlg() {}
@@ -32,7 +32,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// Pat¾ÆÀÌÅÛ ÀåÂø
+/// Patì•„ì´í…œ ì¥ì°©
 class CTCmdAssembleRideItem: public CTCommand {
 public:
     CTCmdAssembleRideItem(void){};
@@ -40,7 +40,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// Pat¾ÆÀÌÅÛ Å»Âø
+/// Patì•„ì´í…œ íƒˆì°©
 class CTCmdDisAssembleRideItem: public CTCommand {
 public:
     CTCmdDisAssembleRideItem(void) {}
@@ -48,7 +48,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 ///*-----------------------------------------------------------------------------------------
-/// ¼ıÀÚ ÀÔ·Â±â ¿ÀÇÂ
+/// ìˆ«ì ì…ë ¥ê¸° ì˜¤í”ˆ
 class CTCmdNumberInput;
 class CTCmdOpenNumberInputDlg: public CTCommand {
 public:
@@ -64,7 +64,7 @@ protected:
     __int64 m_i64Maximum;
 };
 
-/// ¾ÆÀÌÅÛÃ¢¿¡¼­ ´Ù¸¥ À¯ÀúÀÇ °³ÀÎ»óÁ¡¿¡ ¹°Ç®À» ÆÈ¶§ »ç¿ëµÇ´Â Command
+/// ì•„ì´í…œì°½ì—ì„œ ë‹¤ë¥¸ ìœ ì €ì˜ ê°œì¸ìƒì ì— ë¬¼í’€ì„ íŒ”ë•Œ ì‚¬ìš©ë˜ëŠ” Command
 class CTCmdDragItem2AvatarStoreDlg: public CTCmdOpenNumberInputDlg {
 public:
     CTCmdDragItem2AvatarStoreDlg(void) {}
@@ -72,7 +72,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// Ä£±¸ µî·Ï ¿äÃ» ¼ö¶ô
+/// ì¹œêµ¬ ë“±ë¡ ìš”ì²­ ìˆ˜ë½
 class CTCmdAcceptAddFriend: public CTCommand {
 public:
     CTCmdAcceptAddFriend(WORD wUserIdx, BYTE btStatus, const char* pszName);
@@ -85,7 +85,7 @@ protected:
     std::string m_strName;
 };
 
-/// Ä£±¸ µî·Ï ¿äÃ» °ÅºÎ
+/// ì¹œêµ¬ ë“±ë¡ ìš”ì²­ ê±°ë¶€
 class CTCmdRejectAddFriend: public CTCommand {
 public:
     CTCmdRejectAddFriend(WORD wUserIdx, const char* pszName);
@@ -97,7 +97,7 @@ protected:
     std::string m_strName;
 };
 
-/// Ä£±¸ ¸®½ºÆ®¿¡¼­ Ä£±¸ »èÁ¦
+/// ì¹œêµ¬ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì¹œêµ¬ ì‚­ì œ
 class CTCmdRemoveFriend: public CTCommand {
 public:
     CTCmdRemoveFriend(DWORD dwUserTag);
@@ -107,7 +107,7 @@ public:
 protected:
     DWORD m_dwUserTag;
 };
-/// Äù½ºÆ® Æ÷±â
+/// í€˜ìŠ¤íŠ¸ í¬ê¸°
 class CTCmdAbandonQuest: public CTCommand {
 public:
     CTCmdAbandonQuest(int iQuestSlotIdx, int iQuestID);
@@ -119,7 +119,7 @@ protected:
     int m_iQuestID;
 };
 
-/// ¾ÆÀÌÅÛÀ» ¹ö¸®´Â ÆĞÅ¶ Àü¼Û
+/// ì•„ì´í…œì„ ë²„ë¦¬ëŠ” íŒ¨í‚· ì „ì†¡
 class CTCmdSendPacketDropItem: public CTCommand {
 public:
     CTCmdSendPacketDropItem(short nInvenIdx, int iQuantity);
@@ -131,7 +131,7 @@ protected:
     int m_iQuantity;
 };
 
-/// Dialog IconÀ» ¸Ş´ºÃ¢¿¡¼­ µå·¡±×½ÃÀÛ
+/// Dialog Iconì„ ë©”ë‰´ì°½ì—ì„œ ë“œë˜ê·¸ì‹œì‘
 class CTCmdMoveDialogIcon2GroundFromMenu: public CTCommand {
 public:
     CTCmdMoveDialogIcon2GroundFromMenu() {}
@@ -139,7 +139,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// Dialog IconÀ» ¹ÙÅÁÈ­¸é¿¡¼­ µå·¡±×½ÃÀÛ
+/// Dialog Iconì„ ë°”íƒ•í™”ë©´ì—ì„œ ë“œë˜ê·¸ì‹œì‘
 class CTCmdMoveDialogIcon2Ground: public CTCommand {
 public:
     CTCmdMoveDialogIcon2Ground() {}
@@ -147,7 +147,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// Dialog IconÀ» ¹ÙÅÁÈ­¸é¿¡¼­ Äü¹Ù¿¡ µî·Ï
+/// Dialog Iconì„ ë°”íƒ•í™”ë©´ì—ì„œ í€µë°”ì— ë“±ë¡
 class CTCmdRegistDialogIcon2QuickBar: public CTCommand {
 public:
     CTCmdRegistDialogIcon2QuickBar() {}
@@ -155,7 +155,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// Dilaog IconsÀ» It_MgrÀÇ Container¿¡¼­ »©´Â Command
+/// Dilaog Iconsì„ It_Mgrì˜ Containerì—ì„œ ë¹¼ëŠ” Command
 class CTCmdRemoveDialogIcon: public CTCommand {
 public:
     CTCmdRemoveDialogIcon(int iDialogType);
@@ -166,7 +166,7 @@ protected:
     int m_iDialogType;
 };
 
-/// ÇØ´ç ¾ÆÀÌÅÛÀ» Wish List¿¡ Ãß°¡ÇÏ´Â Command
+/// í•´ë‹¹ ì•„ì´í…œì„ Wish Listì— ì¶”ê°€í•˜ëŠ” Command
 class CTCmdAddItem2WishList: public CTCommand {
 public:
     CTCmdAddItem2WishList(tagITEM& Item);
@@ -177,7 +177,7 @@ protected:
     tagITEM m_Item;
 };
 
-/// ÇØ´ç ¾ÆÀÌÅÛÀ» Wish List¿¡ Ãß°¡ÇÏ´Â Command
+/// í•´ë‹¹ ì•„ì´í…œì„ Wish Listì— ì¶”ê°€í•˜ëŠ” Command
 class CTCmdChangeStateUpgradeDlg: public CTCommand {
 public:
     CTCmdChangeStateUpgradeDlg(int iState);
@@ -188,8 +188,8 @@ protected:
     int m_iState;
 };
 
-/// ActionListener¿¡¼­ Á÷Á¢ EndRepair/EndAppraisal¸¦ È£Ãâ½Ã ¿¡·¯³² .. ºñµ¿±âÀûÀ¸·Î ³¡³»±â À§ÇÑ
-/// Ä¿¸àµå ¼ö¸® Á¾·á
+/// ActionListenerì—ì„œ ì§ì ‘ EndRepair/EndAppraisalë¥¼ í˜¸ì¶œì‹œ ì—ëŸ¬ë‚¨ .. ë¹„ë™ê¸°ì ìœ¼ë¡œ ëë‚´ê¸° ìœ„í•œ
+/// ì»¤ë©˜ë“œ ìˆ˜ë¦¬ ì¢…ë£Œ
 class CTCmdEndRepair: public CTCommand {
 public:
     CTCmdEndRepair() {}
@@ -197,7 +197,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// ¾ÆÀÌÅÛ °¨Á¤ Á¾·á
+/// ì•„ì´í…œ ê°ì • ì¢…ë£Œ
 class CTCmdEndAppraisal: public CTCommand {
 public:
     CTCmdEndAppraisal() {}
@@ -205,7 +205,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// °¨Á¤¿äÃ»
+/// ê°ì •ìš”ì²­
 class CTCmdSendAppraisalReq: public CTCommand {
 public:
     CTCmdSendAppraisalReq(int iIndex);
@@ -216,7 +216,7 @@ protected:
     int m_iIndex;
 };
 
-/// ´Ù¸¥ À¯ÀúÀÇ °³ÀÎ»óÁ¡¿¡¼­ ÆÄ´Â ¹°Ç° ¸®½ºÆ® ¿äÃ»
+/// ë‹¤ë¥¸ ìœ ì €ì˜ ê°œì¸ìƒì ì—ì„œ íŒŒëŠ” ë¬¼í’ˆ ë¦¬ìŠ¤íŠ¸ ìš”ì²­
 class CTCmdQuerySellItem2PrivateStore: public CTCommand {
 public:
     CTCmdQuerySellItem2PrivateStore(WORD wSellerSvrIdx, int iItemCount, tagSELL_ITEM& Item);
@@ -229,7 +229,7 @@ protected:
     tagSELL_ITEM m_SellItem;
 };
 
-/// ´Ù¸¥ À¯ÀúÀÇ °³ÀÎ»óÁ¡¿¡¼­ »ç´Â ¹°Ç° ¸®½ºÆ® ¿äÃ»
+/// ë‹¤ë¥¸ ìœ ì €ì˜ ê°œì¸ìƒì ì—ì„œ ì‚¬ëŠ” ë¬¼í’ˆ ë¦¬ìŠ¤íŠ¸ ìš”ì²­
 class CTCmdQueryBuyItemFromPrivateStore: public CTCommand {
 public:
     CTCmdQueryBuyItemFromPrivateStore(WORD wSellerSvrIdx, int iItemCount, tagPS_SLOT_ITEM& Item);
@@ -242,7 +242,7 @@ protected:
     tagPS_SLOT_ITEM m_BuyItem;
 };
 
-/// Å¬·£ °¡ÀÔ ¿äÃ» ½Â³«
+/// í´ëœ ê°€ì… ìš”ì²­ ìŠ¹ë‚™
 class CTCmdAcceptReqJoinClan: public CTCommand {
 public:
     CTCmdAcceptReqJoinClan(const char* pszMasterName);
@@ -253,7 +253,7 @@ protected:
     std::string m_strMasterName;
 };
 
-/// Å¬·£ °¡ÀÔ ¿äÃ» °ÅºÎ
+/// í´ëœ ê°€ì… ìš”ì²­ ê±°ë¶€
 class CTCmdRejectReqJoinClan: public CTCommand {
 public:
     CTCmdRejectReqJoinClan(const char* pszMasterName);
@@ -264,7 +264,7 @@ protected:
     std::string m_strMasterName;
 };
 
-/// ¼­¹ö·Î Å¬·£ ¸í·É¾î Àü¼Û
+/// ì„œë²„ë¡œ í´ëœ ëª…ë ¹ì–´ ì „ì†¡
 class CTCmdClanCommand: public CTCommand {
 public:
     CTCmdClanCommand(BYTE btCmd, const char* pszMsg);
@@ -276,7 +276,7 @@ protected:
     std::string m_strMsg;
 };
 
-/// ¼­¹ö¿ÍÀÇ Á¢¼Ó Á¾·á ´ë±âÁß Ãë¼Ò
+/// ì„œë²„ì™€ì˜ ì ‘ì† ì¢…ë£Œ ëŒ€ê¸°ì¤‘ ì·¨ì†Œ
 class CTCmdCancelWaitDisconnect: public CTCommand {
 public:
     CTCmdCancelWaitDisconnect() {}
@@ -284,7 +284,7 @@ public:
     virtual bool Exec(CTObject* pObj);
 };
 
-/// ÀÌ¸§ ÀÔ·ÂÀ» ¹ŞÀ»¶§ ¾²ÀÌ´Â Ä¿¸ÇµåÀÇ ±âº» Å¬·¡½º
+/// ì´ë¦„ ì…ë ¥ì„ ë°›ì„ë•Œ ì“°ì´ëŠ” ì»¤ë§¨ë“œì˜ ê¸°ë³¸ í´ë˜ìŠ¤
 class CTCmdInputName: public CTCommand {
 public:
     CTCmdInputName() {}
@@ -296,7 +296,7 @@ protected:
     std::string m_name;
 };
 
-/// Å¬·£¸¶Å©¸¦ µî·ÏÇÑ´Ù.( ¼­¹ö·Î )
+/// í´ëœë§ˆí¬ë¥¼ ë“±ë¡í•œë‹¤.( ì„œë²„ë¡œ )
 class CTCmdRegisterClanMark: public CTCommand {
 public:
     CTCmdRegisterClanMark(int clan_id, const char* filename);
@@ -308,7 +308,7 @@ protected:
     std::string m_filename;
 };
 
-/// IT_MGRÀÇ STATE¸¦ º¯°æÇÑ´Ù.
+/// IT_MGRì˜ STATEë¥¼ ë³€ê²½í•œë‹¤.
 class CTCmdChangeStateInterface: public CTCommand {
 public:
     CTCmdChangeStateInterface(int state);

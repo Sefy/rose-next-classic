@@ -8,7 +8,7 @@
 #include "IO_Effect.h"
 
 ///
-/// °Ç¹°, ³ª¹«, Ç®, ¹ÙÀ§, ÃÑ¾Ë.....
+/// ê±´ë¬¼, ë‚˜ë¬´, í’€, ë°”ìœ„, ì´ì•Œ.....
 /// inherited from CGameOBJ
 ///
 
@@ -21,8 +21,8 @@ protected:
     CEffect** m_ppEFFECT;
 
     ///
-    /// ..txt ÆÄÀÏ¿¡¼­ ºÎ¸ğ, Â÷ÀÏµå. .. µî.. Á¤·ÄµÈ ¶óÀÌÆ®¸Ê µ¥ÀÌÅÍ¿¡ µû¸¥ ¼ø¼­¿¡ ÀÔ°¢ÇÏ¿©, ½ÇÁ¦
-    /// ÆÄÆ®¸¦ ±¸ÇÑ´Ù.
+    /// ..txt íŒŒì¼ì—ì„œ ë¶€ëª¨, ì°¨ì¼ë“œ. .. ë“±.. ì •ë ¬ëœ ë¼ì´íŠ¸ë§µ ë°ì´í„°ì— ë”°ë¥¸ ìˆœì„œì— ì…ê°í•˜ì—¬, ì‹¤ì œ
+    /// íŒŒíŠ¸ë¥¼ êµ¬í•œë‹¤.
     ///
     short GetPartIndex(short nPartSeq);
     bool CreatePart(int iCreateOrder, D3DVECTOR& Position, short nPartIdx);
@@ -44,7 +44,7 @@ public:
     /////////////////////////////////////////////////////////////////////////////////////////
     /// < Inherited form GameObj virtual functions
 
-    /// ÇöÀç view frustum ¾È¿¡ ÀÖ´Â°¡?
+    /// í˜„ì¬ view frustum ì•ˆì— ìˆëŠ”ê°€?
     /*override*/ virtual bool IsInViewFrustum();
     /*override*/ virtual void InsertToScene(void);
     /*override*/ virtual void RemoveFromScene(bool bIncludeEFFECT = true);
@@ -53,7 +53,7 @@ public:
     //////////////////////////////////////////////////////////////////////////////////////////
 
     //////////////////////////////////////////////////////////////////////////////////////////
-    /// > item ÀÌ³ª ±âÅ¸ ÇÏÀ§ °´Ã¼µé¿¡¼­ ¹º°¡ Ãß°¡ÀûÀ¸·Î ÇÒÀÏÀÌ ÀÖ´Ù.
+    /// > item ì´ë‚˜ ê¸°íƒ€ í•˜ìœ„ ê°ì²´ë“¤ì—ì„œ ë­”ê°€ ì¶”ê°€ì ìœ¼ë¡œ í• ì¼ì´ ìˆë‹¤.
     ///
     virtual char* Make_ZNAME(int iCreateOrder, short nPartIdx) = 0 { *(int*)0 = 10; };
 
@@ -62,7 +62,7 @@ public:
     /// > end
     //////////////////////////////////////////////////////////////////////////////////////////
 
-    /// ·çÆ® ³ëµå ÇÚµéÀ» ±¸ÇÑ´Ù.
+    /// ë£¨íŠ¸ ë…¸ë“œ í•¸ë“¤ì„ êµ¬í•œë‹¤.
     HNODE GetRootZNODE() { return m_pHNODES[m_pMODEL->m_nRootPART]; }
 
     void LinkNODE(HNODE hTarget, CPointPART* pDummyPoint);
@@ -76,7 +76,7 @@ public:
     bool IsIntersect(float& fCurDistance);
     bool IsIntersectForCamera(float& fCurDistance);
 
-    /// ¶óÀÌÆ®¸Ê ¼¼ÆÃ..
+    /// ë¼ì´íŠ¸ë§µ ì„¸íŒ…..
     void SetLightMap(short nPartIdx,
         char* szLightMapFile,
         int iXPos,
@@ -84,7 +84,7 @@ public:
         int iWidth,
         int iHeight);
 
-    /// ÀÌº¥Æ® ¿ÀºêÁ§Æ®µîÀº ¿À¹ö¶óÀÌµù ÇÑ´Ù.
+    /// ì´ë²¤íŠ¸ ì˜¤ë¸Œì íŠ¸ë“±ì€ ì˜¤ë²„ë¼ì´ë”© í•œë‹¤.
     virtual void SetPOSITION(D3DVECTOR& Position);
     virtual bool
     Create(CMODEL<CFixedPART>* pMODEL, D3DVECTOR& Position, bool bCreateEffect = false);

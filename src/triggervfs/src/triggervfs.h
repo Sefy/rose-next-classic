@@ -26,39 +26,39 @@
 #define VHANDLE void*
 typedef void(__stdcall* VCALLBACK_CLEARBLANKALL)(int);
 
-/// ÆÄÀÏ¿£Æ®¸®¸¦ ÀúÀåÇÏ°í. ÀÌ ÆÄÀÏÀº vfsÆÄÀÏ ¾ÕºÎºÐ¿¡ ÀÖÀ½
+/// íŒŒì¼ì—”íŠ¸ë¦¬ë¥¼ ì €ìž¥í•˜ê³ . ì´ íŒŒì¼ì€ vfsíŒŒì¼ ì•žë¶€ë¶„ì— ìžˆìŒ
 struct FileEntry {
-    std::string sFileName; /// ÆÄÀÏÀÌ¸§; ±æÀÌ:¹®ÀÚ¿­(NULLÆ÷ÇÔ) ÇüÅÂ·Î ÀúÀåµÊ
-    long lFileOffset; /// ÆÄÀÏ¿ÀÇÁ¼Â
-    long lFileLength; /// ÆÄÀÏÀÌ Â÷ÁöÇÏ°í ÀÖ´Â ½ÇÁ¦ ±æÀÌ
-    long lBlockSize; /// Â÷ÁöÇÏ°í ÀÖ´Â ºí¸¤ÀÇ Å©±â			(2003.11.19 Ãß°¡)
-    BYTE cDeleted; /// »èÁ¦¿©ºÎ: 0 = »èÁ¦ ¾È µÊ. 1 = »èÁ¦	(2003.11.19 Ãß°¡)
-    BYTE btCompressType; /// ¾ÐÃàÇüÅÂ. 0 = ¾ÐÃà¾ÈÇÔ, 1= ZIP ...
-    BYTE btEncType; /// Encryption Å¸ÀÔ. 0 = Ecryption ¾È ÇÔ. 1 = Encryption Å¸ÀÔ(1) ...
-    DWORD dwVersion; /// ÆÄÀÏÀÇ ¹öÁ¯
-    DWORD dwCRC; /// CRC°ª
+    std::string sFileName; /// íŒŒì¼ì´ë¦„; ê¸¸ì´:ë¬¸ìžì—´(NULLí¬í•¨) í˜•íƒœë¡œ ì €ìž¥ë¨
+    long lFileOffset; /// íŒŒì¼ì˜¤í”„ì…‹
+    long lFileLength; /// íŒŒì¼ì´ ì°¨ì§€í•˜ê³  ìžˆëŠ” ì‹¤ì œ ê¸¸ì´
+    long lBlockSize; /// ì°¨ì§€í•˜ê³  ìžˆëŠ” ë¸”ë¥µì˜ í¬ê¸°			(2003.11.19 ì¶”ê°€)
+    BYTE cDeleted; /// ì‚­ì œì—¬ë¶€: 0 = ì‚­ì œ ì•ˆ ë¨. 1 = ì‚­ì œ	(2003.11.19 ì¶”ê°€)
+    BYTE btCompressType; /// ì••ì¶•í˜•íƒœ. 0 = ì••ì¶•ì•ˆí•¨, 1= ZIP ...
+    BYTE btEncType; /// Encryption íƒ€ìž…. 0 = Ecryption ì•ˆ í•¨. 1 = Encryption íƒ€ìž…(1) ...
+    DWORD dwVersion; /// íŒŒì¼ì˜ ë²„ì ¼
+    DWORD dwCRC; /// CRCê°’
 };
 
 /// #define	SIZEOF_FILEENTRY_EXCPTSTRING	(sizeof (short) + sizeof (long) * 3 + sizeof (BYTE) * 3
 /// + sizeof (short) + sizeof (DWORD))
 
 /********************************************************************************
- * VFileInfo ÆÄÀÏ¿¡ ´ëÇÑ Version Á¤º¸¿Í CRC°ªÀ» ¾Ë¾Æ³¿
+ * VFileInfo íŒŒì¼ì— ëŒ€í•œ Version ì •ë³´ì™€ CRCê°’ì„ ì•Œì•„ëƒ„
  */
 struct VFileInfo {
-    DWORD dwVersion; /// ¹öÁ¯ °ª
-    DWORD dwCRC; /// CRC °ª
+    DWORD dwVersion; /// ë²„ì ¼ ê°’
+    DWORD dwCRC; /// CRC ê°’
 };
 
-/// vfsÆÄÀÏ¾È¿¡ ÀÖ´Â ÆÄÀÏÀÛ¾÷À» ÇÏ±â À§ÇÑ Æ÷ÀÎÅÍ
+/// vfsíŒŒì¼ì•ˆì— ìžˆëŠ” íŒŒì¼ìž‘ì—…ì„ í•˜ê¸° ìœ„í•œ í¬ì¸í„°
 struct VFileHandle {
-    FILE* fp; /// vfsÆÄÀÏÀÇ ÆÄÀÏÇÚµé. VFile¿¡¼­ ±×´ë·Î Ä«ÇÇÇÑ´Ù
+    FILE* fp; /// vfsíŒŒì¼ì˜ íŒŒì¼í•¸ë“¤. VFileì—ì„œ ê·¸ëŒ€ë¡œ ì¹´í”¼í•œë‹¤
     char* pData; // Memory Mapped IO data
     int iAllocOffset; // pData + iAllocOffset = Read Data Address
-    std::string sFileName; /// ÇöÀç ¿ÀÇÂÇÑ ÆÄÀÏÀÌ¸§. vfsÆÄÀÏ³»ÀÇ ÆÄÀÏÀÌ¸§.
-    long lStartOff; /// ÇöÀçÆÄÀÏÀÇ ½ÃÀÛ Offset
-    long lEndOff; /// ÇöÀçÆÄÀÏÀÇ ¸¶Áö¸· Offset. dwEndOff + 1 ÀÌ End Of File ÀÌ´Ù.
-    long lCurrentOffset; /// ÇöÀç File Indicator Offset. ÀÚ±âÀÇ Start ¿ÀÇÁ¼Â ±âÁØÀ¸·Î
+    std::string sFileName; /// í˜„ìž¬ ì˜¤í”ˆí•œ íŒŒì¼ì´ë¦„. vfsíŒŒì¼ë‚´ì˜ íŒŒì¼ì´ë¦„.
+    long lStartOff; /// í˜„ìž¬íŒŒì¼ì˜ ì‹œìž‘ Offset
+    long lEndOff; /// í˜„ìž¬íŒŒì¼ì˜ ë§ˆì§€ë§‰ Offset. dwEndOff + 1 ì´ End Of File ì´ë‹¤.
+    long lCurrentOffset; /// í˜„ìž¬ File Indicator Offset. ìžê¸°ì˜ Start ì˜¤í”„ì…‹ ê¸°ì¤€ìœ¼ë¡œ
     BYTE btFileType; /// 0 = Packed File , 1 = Normal File outside
     BYTE btEncrypted; // 0 = normal data , 1 = data encryption used
     VHANDLE hVFS;
@@ -75,26 +75,26 @@ extern "C" {
 #endif
 
 /**
- * vfseek¸¦ À§ÇÑ Constant
+ * vfseekë¥¼ ìœ„í•œ Constant
  */
-#define VFSEEK_CUR SEEK_CUR /// ÇöÀç À§Ä¡
-#define VFSEEK_END SEEK_END /// ÆÄÀÏÀÇ ³¡
-#define VFSEEK_SET SEEK_SET /// ÆÄÀÏÀÇ ¾Õ
+#define VFSEEK_CUR SEEK_CUR /// í˜„ìž¬ ìœ„ì¹˜
+#define VFSEEK_END SEEK_END /// íŒŒì¼ì˜ ë
+#define VFSEEK_SET SEEK_SET /// íŒŒì¼ì˜ ì•ž
 
 TRIGGERVFS_API bool __stdcall InitVFS(DWORD key);
 
 TRIGGERVFS_API bool __stdcall __ConvertPath(const char* path, char* path2);
 
-/// Index File°ú VFSÆÄÀÏÀ» ¿¬´Ù. °¡´ÉÇÑ ¸ðµå : "w+", "r+", "r"
+/// Index Fileê³¼ VFSíŒŒì¼ì„ ì—°ë‹¤. ê°€ëŠ¥í•œ ëª¨ë“œ : "w+", "r+", "r"
 TRIGGERVFS_API VHANDLE __stdcall OpenVFS(const char* FileName, const char* Mode = "r");
 
-/// Index File°ú VFSÆÄÀÏÀ» ´Ý´Â´Ù
+/// Index Fileê³¼ VFSíŒŒì¼ì„ ë‹«ëŠ”ë‹¤
 TRIGGERVFS_API void __stdcall CloseVFS(VHANDLE hVFS);
 
-/// IndexÆÄÀÏ¿¡ PackÆÄÀÏÀ» Ãß°¡ÇÑ´Ù.
+/// IndexíŒŒì¼ì— PackíŒŒì¼ì„ ì¶”ê°€í•œë‹¤.
 TRIGGERVFS_API bool __stdcall VAddVfs(VHANDLE hVFS, const char* VfsName);
 
-/// ÆÄÀÏÀ» Ãß°¡ÇÑ´Ù
+/// íŒŒì¼ì„ ì¶”ê°€í•œë‹¤
 TRIGGERVFS_API short __stdcall VAddFile(VHANDLE hVFS,
     const char* VfsName,
     const char* FileName,
@@ -105,85 +105,85 @@ TRIGGERVFS_API short __stdcall VAddFile(VHANDLE hVFS,
     BYTE btCompress,
     bool bUseDel);
 
-/// ÆÄÀÏÀ» Á¦°ÅÇÑ´Ù. °ø¹éÃ³¸®ÇÏ´Â ¹öÁ¯ÀÓ. ÆÄÀÏÀ» Á¤¸®ÇÏ±â À§ÇØ¼­´Â VClearBlankAll ¸¦ È£ÃâÇÒ°Í
-/// PackÆÄÀÏÀ» ÁöÁ¤ÇÏÁö ¾Ê°í Áö¿ò
+/// íŒŒì¼ì„ ì œê±°í•œë‹¤. ê³µë°±ì²˜ë¦¬í•˜ëŠ” ë²„ì ¼ìž„. íŒŒì¼ì„ ì •ë¦¬í•˜ê¸° ìœ„í•´ì„œëŠ” VClearBlankAll ë¥¼ í˜¸ì¶œí• ê²ƒ
+/// PackíŒŒì¼ì„ ì§€ì •í•˜ì§€ ì•Šê³  ì§€ì›€
 TRIGGERVFS_API short __stdcall VRemoveFile(VHANDLE hVFS, const char* FileName);
 
-/// index¿¡ Æ÷ÇÔµÈ ¸ðµç PackÆÄÀÏÀÇ °ø¹éÀ» Á¦°ÅÇÑ´Ù
+/// indexì— í¬í•¨ëœ ëª¨ë“  PackíŒŒì¼ì˜ ê³µë°±ì„ ì œê±°í•œë‹¤
 TRIGGERVFS_API void __stdcall VClearBlankAll(VHANDLE hVFS,
     VCALLBACK_CLEARBLANKALL CallBackProc = NULL);
 
-/// ÆÄÀÏ¿¡ ´ëÇÑ Á¤º¸¸¦ °¡Á®¿Â´Ù
+/// íŒŒì¼ì— ëŒ€í•œ ì •ë³´ë¥¼ ê°€ì ¸ì˜¨ë‹¤
 TRIGGERVFS_API void __stdcall VGetFileInfo(VHANDLE hVFS,
     const char* FileName,
     VFileInfo* FileInfo,
     bool bCalCrc);
 
-/// ÆÄÀÏ Á¤º¸¸¦ °»½ÅÇÑ´Ù
+/// íŒŒì¼ ì •ë³´ë¥¼ ê°±ì‹ í•œë‹¤
 TRIGGERVFS_API bool __stdcall VSetFileInfo(VHANDLE hVFS, const char* FileName, VFileInfo* FileInfo);
 
-/// ÀÎµ¦½ºÆÄÀÏ³»¿¡ ÀÖ´Â PackÆÄÀÏÀÇ °¹¼ö¸¦ ¾Ë¾Æ³½´Ù
+/// ì¸ë±ìŠ¤íŒŒì¼ë‚´ì— ìžˆëŠ” PackíŒŒì¼ì˜ ê°¯ìˆ˜ë¥¼ ì•Œì•„ë‚¸ë‹¤
 TRIGGERVFS_API int __stdcall VGetVfsCount(VHANDLE hVFS);
 
-/// ÀÎµ¦½ºÆÄÀÏ¿¡¼­ PackÆÄÀÏ ¸®½ºÆ®¸¦ °¡Á®¿Â´Ù
+/// ì¸ë±ìŠ¤íŒŒì¼ì—ì„œ PackíŒŒì¼ ë¦¬ìŠ¤íŠ¸ë¥¼ ê°€ì ¸ì˜¨ë‹¤
 TRIGGERVFS_API int __stdcall VGetVfsNames(VHANDLE hVFS,
     char** ppFiles,
     DWORD dwNum,
     short dwMaxPath);
 
-/// VfsÆÄÀÏ³»¿¡ ÀÖ´Â ÆÄÀÏÀÇ °¹¼ö¸¦ ¾Ë¾Æ³½´Ù
+/// VfsíŒŒì¼ë‚´ì— ìžˆëŠ” íŒŒì¼ì˜ ê°¯ìˆ˜ë¥¼ ì•Œì•„ë‚¸ë‹¤
 TRIGGERVFS_API int __stdcall VGetFileCount(VHANDLE hVFS, const char* VfsName);
-/// ÀÎµ¦½ºÆÄÀÏ¿¡ ÀÖ´Â ÃÑ ÆÄÀÏ°¹¼ö¸¦ ¾Ë¾Æ³½´Ù.
+/// ì¸ë±ìŠ¤íŒŒì¼ì— ìžˆëŠ” ì´ íŒŒì¼ê°¯ìˆ˜ë¥¼ ì•Œì•„ë‚¸ë‹¤.
 TRIGGERVFS_API int __stdcall VGetTotFileCount(VHANDLE hVFS);
 
-/// PackÆÄÀÏ¿¡¼­ ÆÄÀÏÀÌ¸§À» °¡Á®¿Â´Ù
+/// PackíŒŒì¼ì—ì„œ íŒŒì¼ì´ë¦„ì„ ê°€ì ¸ì˜¨ë‹¤
 TRIGGERVFS_API int __stdcall VGetFileNames(VHANDLE hVFS,
     const char* VfsName,
     char** FileName,
     int nNum,
     int nMax);
 
-/// ±âÁØ¹öÁ¯À» °¡Á®¿È
+/// ê¸°ì¤€ë²„ì ¼ì„ ê°€ì ¸ì˜´
 TRIGGERVFS_API DWORD __stdcall VGetStdVersion(VHANDLE hVFS);
 
-/// ÀÎµ¦½ºÆÄÀÏÀÇ ±âÁØ¹öÁ¯À» ¼³Á¤ÇÔ
+/// ì¸ë±ìŠ¤íŒŒì¼ì˜ ê¸°ì¤€ë²„ì ¼ì„ ì„¤ì •í•¨
 TRIGGERVFS_API void __stdcall VSetStdVersion(VHANDLE hVFS, DWORD dwVersion);
 
-/// ÇöÀç¹öÁ¯À» °¡Á®¿È
+/// í˜„ìž¬ë²„ì ¼ì„ ê°€ì ¸ì˜´
 TRIGGERVFS_API DWORD __stdcall VGetCurVersion(VHANDLE hVFS);
 
-/// ÀÎµ¦½ºÆÄÀÏÀÇ ÇöÀç¹öÁ¯À» ¼³Á¤ÇÔ
+/// ì¸ë±ìŠ¤íŒŒì¼ì˜ í˜„ìž¬ë²„ì ¼ì„ ì„¤ì •í•¨
 TRIGGERVFS_API void __stdcall VSetCurVersion(VHANDLE hVFS, DWORD dwVersion);
 
-/// ÆÄÀÏÀ» ¿ÀÇÂÇÑ´Ù
+/// íŒŒì¼ì„ ì˜¤í”ˆí•œë‹¤
 TRIGGERVFS_API VFileHandle* __stdcall VOpenFile(const char* FileName, VHANDLE hVFS);
 
-/// ÆÄÀÏÀ» ´Ý´Â´Ù
+/// íŒŒì¼ì„ ë‹«ëŠ”ë‹¤
 TRIGGERVFS_API void __stdcall VCloseFile(VFileHandle* hVFH);
 
-/// ÆÄÀÏ ÀÐÀ»¶§
+/// íŒŒì¼ ì½ì„ë•Œ
 TRIGGERVFS_API size_t __stdcall vfread(void* buffer, size_t size, size_t count, VFileHandle* pVFH);
 
-/// ÆÄÀÏ ÀüÃ¼ ³»¿ëÀÇ Æ÷ÀÎÅÍ ¾ò¾î¿À±â
+/// íŒŒì¼ ì „ì²´ ë‚´ìš©ì˜ í¬ì¸í„° ì–»ì–´ì˜¤ê¸°
 TRIGGERVFS_API void* __stdcall vfgetdata(size_t* psize, VFileHandle* pVFH);
 
-/// ÆÄÀÏ indicatorÀÇ À§Ä¡¸¦ ÀÌµ¿
+/// íŒŒì¼ indicatorì˜ ìœ„ì¹˜ë¥¼ ì´ë™
 TRIGGERVFS_API int __stdcall vfseek(VFileHandle* pVFH, long offset, int origin);
 
-/// ¿ÀÇÂÇÑ ÆÄÀÏÀÇ indicator À§Ä¡°ªÀ» ¸®ÅÏ. ½ÇÁ¦·Î File OffsetÀº vftellÀÌ ¸®ÅÏÇÏ´Â °ªÀÌ ¾Æ´Ò¼ö ÀÖ´Ù.
+/// ì˜¤í”ˆí•œ íŒŒì¼ì˜ indicator ìœ„ì¹˜ê°’ì„ ë¦¬í„´. ì‹¤ì œë¡œ File Offsetì€ vftellì´ ë¦¬í„´í•˜ëŠ” ê°’ì´ ì•„ë‹ìˆ˜ ìžˆë‹¤.
 TRIGGERVFS_API long __stdcall vftell(VFileHandle* pVFH);
 
-/// ÆÄÀÏÀÇ ³¡¿¡ ¿Ô´ÂÁö È®ÀÎ
+/// íŒŒì¼ì˜ ëì— ì™”ëŠ”ì§€ í™•ì¸
 TRIGGERVFS_API int __stdcall vfeof(VFileHandle* pVFH);
 
-/// ÆÄÀÏÀÇ Å©±â ±¸ÇÏ±â
+/// íŒŒì¼ì˜ í¬ê¸° êµ¬í•˜ê¸°
 TRIGGERVFS_API size_t __stdcall vfgetsize(VFileHandle* pVFH);
 TRIGGERVFS_API size_t __stdcall VGetFileLength(VHANDLE hVFS, const char* FileName);
 
-/// ÆÄÀÏÀÌ Á¸ÀçÇÏ´ÂÁö Á¶»çÇÑ´Ù
+/// íŒŒì¼ì´ ì¡´ìž¬í•˜ëŠ”ì§€ ì¡°ì‚¬í•œë‹¤
 TRIGGERVFS_API bool __stdcall VFileExists(VHANDLE hVFS, const char* FileName);
 
-/// PackÆÄÀÏ¾È¿¡¼­¸¸ ÆÄÀÏÀÌ Á¸ÀçÀ¯¹«¸¦ °Ë»çÇÑ´Ù
+/// PackíŒŒì¼ì•ˆì—ì„œë§Œ íŒŒì¼ì´ ì¡´ìž¬ìœ ë¬´ë¥¼ ê²€ì‚¬í•œë‹¤
 TRIGGERVFS_API bool __stdcall VFileExistsInVfs(VHANDLE hVFS, const char* FileName);
 
 /***************************************************************
@@ -191,13 +191,13 @@ TRIGGERVFS_API bool __stdcall VFileExistsInVfs(VHANDLE hVFS, const char* FileNam
  * Error Dealing
  *
  */
-// ¸¶Áö¸· ¿¡·¯»óÅÂ¸¦ °¡Á®¿Â´Ù
+// ë§ˆì§€ë§‰ ì—ëŸ¬ìƒíƒœë¥¼ ê°€ì ¸ì˜¨ë‹¤
 TRIGGERVFS_API short __stdcall VGetError(void);
 
-/// FileName¿¡ ´ëÇÑ ÀÎµ¦½º Á¤º¸¿Í VFS³»ÀÇ ½ÇÁ¦ µ¥ÀÌÅÍ°¡ ÀÏÄ¡ÇÏ´ÂÁö Ã¼Å©ÇÑ´Ù
+/// FileNameì— ëŒ€í•œ ì¸ë±ìŠ¤ ì •ë³´ì™€ VFSë‚´ì˜ ì‹¤ì œ ë°ì´í„°ê°€ ì¼ì¹˜í•˜ëŠ”ì§€ ì²´í¬í•œë‹¤
 TRIGGERVFS_API short __stdcall VTestFile(VHANDLE hVFS, const char* FileName);
 
-/// VFS³»ÀÇ ÆÄÀÏÀ» ÀÐ¾î¼­ Crc°ªÀ» °è»êÇÑ´Ù
+/// VFSë‚´ì˜ íŒŒì¼ì„ ì½ì–´ì„œ Crcê°’ì„ ê³„ì‚°í•œë‹¤
 TRIGGERVFS_API DWORD __stdcall ComputeCrc(VHANDLE hVFS, const char* FileName);
 
 #ifdef __cplusplus
@@ -211,53 +211,53 @@ extern short g_nLastErr;
 #define VERR_MEM_ALLOCFAIL 2
 
 /***************************************************************
- * VTestFile ¿¡ ´ëÇÑ ¸®ÅÏ°ª
+ * VTestFile ì— ëŒ€í•œ ë¦¬í„´ê°’
  */
 #define VTEST_SUCCESS 0
-#define VTEST_INVALIDHANDLE 1 // VFS HandleÀÌ À¯È¿ÇÏÁö ¾Ê´Ù.
-#define VTEST_CANTOPEN 2 // ÆÄÀÏÀ» ¿ÀÇÂÇÒ¼ö ¾ø´Ù
-#define VTEST_NOTENOUGHMEM 3 // Å×½ºÆ®¸¦ À§ÇÑ ¸Þ¸ð¸®¸¦ È®º¸ ½ÇÆÐ
-#define VTEST_LENGTHNOTMATCH 4 // ÆÄÀÏ Å©±â°¡ ÀÎµ¦½º Á¤º¸¿Í ½ÇÁ¦ ÀÐÀº Å©±â¿Í ÀÏÄ¡ÇÏÁö ¾Ê´Â´Ù
-#define VTEST_CRCNOTMATCH 5 // CRC °ªÀÌ ÀÏÄ¡ÇÏÁö ¾Ê´Â´Ù.
-#define VTEST_FILENOTEXISTS 6 // ÀÎµ¦½º³»¿¡ È¤Àº ¿ÜºÎÆÄÀÏ·Î  Á¸ÀçÇÏÁö ¾Ê´Â´Ù
-#define VTEST_INVALIDRANGE 7 // ÆÄÀÏÀÇ À§Ä¡°¡ VFSÆÄÀÏ Å©±âº¸´Ù Å©´Ù
-#define VTEST_OUTFILE 8 // ¿ÜºÎ ÆÄÀÏ·Î Á¸ÀçÇÑ´Ù
-#define VTEST_CANTKNOWVFSINFO 9 // VFS ÆÄÀÏ Á¤º¸¸¦ ¾Ë¾Æ ³¾¼ö ¾ø´Ù
-#define VTEST_ZEROLENGTH 10 // ÀÎµ¦½ºÆÄÀÏ³»¿¡¼­ ÆÄÀÏÀÇ ±æÀÌ°¡ 0ÀÌ´Ù
+#define VTEST_INVALIDHANDLE 1 // VFS Handleì´ ìœ íš¨í•˜ì§€ ì•Šë‹¤.
+#define VTEST_CANTOPEN 2 // íŒŒì¼ì„ ì˜¤í”ˆí• ìˆ˜ ì—†ë‹¤
+#define VTEST_NOTENOUGHMEM 3 // í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•œ ë©”ëª¨ë¦¬ë¥¼ í™•ë³´ ì‹¤íŒ¨
+#define VTEST_LENGTHNOTMATCH 4 // íŒŒì¼ í¬ê¸°ê°€ ì¸ë±ìŠ¤ ì •ë³´ì™€ ì‹¤ì œ ì½ì€ í¬ê¸°ì™€ ì¼ì¹˜í•˜ì§€ ì•ŠëŠ”ë‹¤
+#define VTEST_CRCNOTMATCH 5 // CRC ê°’ì´ ì¼ì¹˜í•˜ì§€ ì•ŠëŠ”ë‹¤.
+#define VTEST_FILENOTEXISTS 6 // ì¸ë±ìŠ¤ë‚´ì— í˜¹ì€ ì™¸ë¶€íŒŒì¼ë¡œ  ì¡´ìž¬í•˜ì§€ ì•ŠëŠ”ë‹¤
+#define VTEST_INVALIDRANGE 7 // íŒŒì¼ì˜ ìœ„ì¹˜ê°€ VFSíŒŒì¼ í¬ê¸°ë³´ë‹¤ í¬ë‹¤
+#define VTEST_OUTFILE 8 // ì™¸ë¶€ íŒŒì¼ë¡œ ì¡´ìž¬í•œë‹¤
+#define VTEST_CANTKNOWVFSINFO 9 // VFS íŒŒì¼ ì •ë³´ë¥¼ ì•Œì•„ ë‚¼ìˆ˜ ì—†ë‹¤
+#define VTEST_ZEROLENGTH 10 // ì¸ë±ìŠ¤íŒŒì¼ë‚´ì—ì„œ íŒŒì¼ì˜ ê¸¸ì´ê°€ 0ì´ë‹¤
 
 struct VfsInfo {
-    long lStartOff; // 0ºÎÅÍ ½ÃÀÛÇÏÁö ¾ÊÀ» ¼öµµ ÀÖ´Ù.
+    long lStartOff; // 0ë¶€í„° ì‹œìž‘í•˜ì§€ ì•Šì„ ìˆ˜ë„ ìžˆë‹¤.
     long lEndOff;
 };
 
 /******************************************************************
  * VAddFile  Error Code
  */
-#define VADDFILE_SUCCESS 0 // ¼º°ø
-#define VADDFILE_INVALIDHANDLE 1 // ÇÚµéÀÌ À¯È¿ÇÏÁö ¾Ê´Ù OpenVFSÀÇ ¸®ÅÏ°ªÀÌ À¯È¿ÇÏÁö ¾Ê¾ÒÀ½.
-#define VADDFILE_INVALIDVFS 2 // VFS ÆÄÀÏÀ» Ã£À» ¼ö ¾ø´Ù
-#define VADDFILE_CANTOPENFILE 3 // ¼Ò½º ÆÄÀÏÀ» ¿ÀÇÂÇÒ¼ö ¾ø´Ù
-#define VADDFILE_EXISTSALREADY 4 // Å¸°Ù ÆÄÀÏÀÌ VFS¾È¿¡ ÀÌ¹Ì Á¸ÀçÇÑ´Ù VRemoveFile ÀÌ ½ÇÆÐÇÑ °æ¿ì
-#define VADDFILE_DONTEXIST 5 // ¼Ò½º ÆÄÀÏÀÌ ¾ø´Ù
-#define VADDFILE_MEMALLOCFAIL 6 // ¸Þ¸ð¸® ÇÒ´ç ½ÇÆÐ
-#define VADDFILE_CANTWRITE 7 // VFS¿¡ fwrite ÇÒ¼ö ¾ø°Å³ª fflush ÇÒ¼ö ¾ø´Ù
-#define VADDFILE_CANTFLUSH 8 // VFS¿¡ fwrite ÇÒ¼ö ¾ø°Å³ª fflush ÇÒ¼ö ¾ø´Ù
-#define VADDFILE_CVFS_AddFile_FAILURE 9 // VFS¿¡ fwrite ÇÒ¼ö ¾ø°Å³ª fflush ÇÒ¼ö ¾ø´Ù
-#define VADDFILE_ZEROFILESIZE 10 // ÆÄÀÏ Å©±â°¡ 0
+#define VADDFILE_SUCCESS 0 // ì„±ê³µ
+#define VADDFILE_INVALIDHANDLE 1 // í•¸ë“¤ì´ ìœ íš¨í•˜ì§€ ì•Šë‹¤ OpenVFSì˜ ë¦¬í„´ê°’ì´ ìœ íš¨í•˜ì§€ ì•Šì•˜ìŒ.
+#define VADDFILE_INVALIDVFS 2 // VFS íŒŒì¼ì„ ì°¾ì„ ìˆ˜ ì—†ë‹¤
+#define VADDFILE_CANTOPENFILE 3 // ì†ŒìŠ¤ íŒŒì¼ì„ ì˜¤í”ˆí• ìˆ˜ ì—†ë‹¤
+#define VADDFILE_EXISTSALREADY 4 // íƒ€ê²Ÿ íŒŒì¼ì´ VFSì•ˆì— ì´ë¯¸ ì¡´ìž¬í•œë‹¤ VRemoveFile ì´ ì‹¤íŒ¨í•œ ê²½ìš°
+#define VADDFILE_DONTEXIST 5 // ì†ŒìŠ¤ íŒŒì¼ì´ ì—†ë‹¤
+#define VADDFILE_MEMALLOCFAIL 6 // ë©”ëª¨ë¦¬ í• ë‹¹ ì‹¤íŒ¨
+#define VADDFILE_CANTWRITE 7 // VFSì— fwrite í• ìˆ˜ ì—†ê±°ë‚˜ fflush í• ìˆ˜ ì—†ë‹¤
+#define VADDFILE_CANTFLUSH 8 // VFSì— fwrite í• ìˆ˜ ì—†ê±°ë‚˜ fflush í• ìˆ˜ ì—†ë‹¤
+#define VADDFILE_CVFS_AddFile_FAILURE 9 // VFSì— fwrite í• ìˆ˜ ì—†ê±°ë‚˜ fflush í• ìˆ˜ ì—†ë‹¤
+#define VADDFILE_ZEROFILESIZE 10 // íŒŒì¼ í¬ê¸°ê°€ 0
 #define VADDFILE_FIOERROR_ETC \
-    11 // fwrite³ª fflush¿¡¼­ ¹ß»ýÇÑ ¿¡·¯ÀÎµ¥ CErrorInfo::GetLastError °ªÀÌ short °ªÀ» ³Ñ¾î °¥¶§
+    11 // fwriteë‚˜ fflushì—ì„œ ë°œìƒí•œ ì—ëŸ¬ì¸ë° CErrorInfo::GetLastError ê°’ì´ short ê°’ì„ ë„˜ì–´ ê°ˆë•Œ
 #define VADDFILE_CVFS_AddFile_NONOE 12
 
-#define VADDFILE_FIXEVALUE_CANTWRITE 15000 // fwrite °¡ ½ÇÆÐÇÑ °æ¿ì
-#define VADDFILE_FIXEVALUE_CANTFLUSH 20000 // fflush °¡ ½ÇÆÐÇÑ °æ¿ì
+#define VADDFILE_FIXEVALUE_CANTWRITE 15000 // fwrite ê°€ ì‹¤íŒ¨í•œ ê²½ìš°
+#define VADDFILE_FIXEVALUE_CANTFLUSH 20000 // fflush ê°€ ì‹¤íŒ¨í•œ ê²½ìš°
 
 /******************************************************************
  * VRemoveFile  Error Code
  */
-#define VRMVFILE_SUCCESS 0 // ¼º°ø
-#define VRMVFILE_INVALIDVFS 1 // VFS ÆÄÀÏÀ» Ã£À» ¼ö ¾ø´Ù
-#define VRMVFILE_MEMALLOCFAIL 2 // Memory ÇÒ´ç ½ÇÆÐ
-#define VRMVFILE_DONTEXIST 3 // »èÁ¦ÇÒ·Á´Â ÆÄÀÏÀ» Ã£À» ¼ö°¡ ¾ø´Ù
-#define VRMVFILE_INVALIDHANDLE 4 // VHANDLEÀÌ À¯È¿ÇÏÁö ¾Ê´Ù
+#define VRMVFILE_SUCCESS 0 // ì„±ê³µ
+#define VRMVFILE_INVALIDVFS 1 // VFS íŒŒì¼ì„ ì°¾ì„ ìˆ˜ ì—†ë‹¤
+#define VRMVFILE_MEMALLOCFAIL 2 // Memory í• ë‹¹ ì‹¤íŒ¨
+#define VRMVFILE_DONTEXIST 3 // ì‚­ì œí• ë ¤ëŠ” íŒŒì¼ì„ ì°¾ì„ ìˆ˜ê°€ ì—†ë‹¤
+#define VRMVFILE_INVALIDHANDLE 4 // VHANDLEì´ ìœ íš¨í•˜ì§€ ì•Šë‹¤
 
 #endif

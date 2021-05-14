@@ -8,7 +8,7 @@ CGuage::CGuage(int iGuageImageID, int iBGImageID, int iModuleID, int iWidth) {
     m_iBGImageID = iBGImageID;
     m_iGuageImageID = iGuageImageID;
     m_bAutoIncrement = false;
-    m_iAutoIncrementValue = 0; ///ÃÊ´ç Áõ°¡ÇÒ % ( 1 ~ 100 )
+    m_iAutoIncrementValue = 0; ///ì´ˆë‹¹ ì¦ê°€í•  % ( 1 ~ 100 )
     m_iAutoIncrementMaxValue = 0;
     m_iValue = 0;
     m_iWidth = iWidth;
@@ -53,7 +53,7 @@ CGuage::Draw() {
 /// RETURN VALUE
 ///  0: NORMAL
 /// -1: DELETE
-///  1: UPDATE¿¡¼­ ÇÒÀÏÀ» ³¡³Â´Ù. ´ÙÀ½Ã³¸®ÇØ¶ó.
+///  1: UPDATEì—ì„œ í• ì¼ì„ ëëƒˆë‹¤. ë‹¤ìŒì²˜ë¦¬í•´ë¼.
 int
 CGuage::Update(POINT ptMouse, DWORD dwPrevTime, DWORD dwCurrTime) {
     if (m_bAutoIncrement) {

@@ -55,7 +55,7 @@ CSkillLIST::LoadSkillTable(const char* pFileName) {
     ::ZeroMemory(m_pReloadTIME, sizeof(DWORD) * m_SkillDATA.row_count);
 #endif
 
-    // 0¹ø ½ºÅ³ »ç¿ë¾ÈÇÔ...
+    // 0ë²ˆ ìŠ¤í‚¬ ì‚¬ìš©ì•ˆí•¨...
     for (short nI = 1; nI < m_SkillDATA.row_count; nI++) {
         if (SKILL_ANI_CASTING_REPEAT_CNT(nI)) {
             if (SKILL_ANI_CASTING_REPEAT(nI) < 1) {
@@ -69,7 +69,7 @@ CSkillLIST::LoadSkillTable(const char* pFileName) {
             DWORD dwTotTime;
             WORD wTotFrame;
             short nMotionTYPE = 0;
-            // ¹İº¹ ¸ğ¼Ç
+            // ë°˜ë³µ ëª¨ì…˜
             for (short nM = 0; nM < g_TblAniTYPE.col_count; nM++) {
                 if (FILE_MOTION(nM, SKILL_ANI_CASTING_REPEAT(nI))) {
                     nMotionTYPE = nM;
@@ -82,18 +82,18 @@ CSkillLIST::LoadSkillTable(const char* pFileName) {
                     0);
             wTotFrame = pMOTION->Get_TotalFRAME() * SKILL_ANI_CASTING_REPEAT_CNT(nI);
 
-            // ¸ğ¼Ç ¼Óµµ
+            // ëª¨ì…˜ ì†ë„
             fSpeed = SKILL_ANI_CASTING_SPEED(nI) / 100.f;
 
-            // ÃÑ ¹İº¹½Ã ¼Ò¿äµÉ ½Ã°£...
+            // ì´ ë°˜ë³µì‹œ ì†Œìš”ë  ì‹œê°„...
             dwTotTime = pMOTION->Get_NeedTIME(wTotFrame, fSpeed);
 
-            // ÄÉ½ºÆÃ ¸ğ¼Ç
+            // ì¼€ìŠ¤íŒ… ëª¨ì…˜
             pMOTION =
                 g_MotionFILE.IDX_GetMOTION(FILE_MOTION(nMotionTYPE, SKILL_ANI_CASTING(nI)), 0);
             wTotFrame = pMOTION->Get_TotalFRAME();
 
-            // ÀüÃ¼ ¼Ò¿äµÉ ½Ã°£..
+            // ì „ì²´ ì†Œìš”ë  ì‹œê°„..
             dwTotTime += pMOTION->Get_NeedTIME(wTotFrame, fSpeed);
 
             m_pCastingAniSPEED[nI] = (1000.f * wTotFrame) / (dwTotTime * pMOTION->m_wFPS);
@@ -101,11 +101,11 @@ CSkillLIST::LoadSkillTable(const char* pFileName) {
             m_pCastingAniSPEED[nI] = SKILL_ANI_CASTING_SPEED(nI) / 100.f;
         }
 
-        // ½ºÅ³ ¹İº¹°¡´É µô·¹ÀÌ ½Ã°£( ´ÜÀ§ 1´ç 0.2ÃÊ )
-        m_pReloadTIME[nI] = SKILL_RELOAD_TIME(nI) * 200 - 100; // 0.2f * 1000 :: 0.1ÃÊ À¯¿¹~;
+        // ìŠ¤í‚¬ ë°˜ë³µê°€ëŠ¥ ë”œë ˆì´ ì‹œê°„( ë‹¨ìœ„ 1ë‹¹ 0.2ì´ˆ )
+        m_pReloadTIME[nI] = SKILL_RELOAD_TIME(nI) * 200 - 100; // 0.2f * 1000 :: 0.1ì´ˆ ìœ ì˜ˆ~;
 
         if (m_pCastingAniSPEED[nI] <= 0.f) {
-            m_pCastingAniSPEED[nI] = 1.0f; // µğÆúµå·Î ¸¸µé¾î ¹ö¸²...
+            m_pCastingAniSPEED[nI] = 1.0f; // ë””í´ë“œë¡œ ë§Œë“¤ì–´ ë²„ë¦¼...
         }
 
         if (SKILL_RELOAD_TYPE(nI) < 0)

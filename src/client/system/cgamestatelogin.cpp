@@ -44,7 +44,7 @@ CGameStateLogin::Update(bool bLostFocus) {
 
     // processing  ...
     if (g_ClientStorage.m_VideoOption.background_render || !bLostFocus) {
-        if (!::beginScene()) //  µğ¹ÙÀÌ½º°¡ ¼Õ½ÇµÈ »óÅÂ¶ó¸é 0À» ¸®ÅÏÇÏ¹Ç·Î, ¸ğµç ·»´õ¸µ ½ºÅµ
+        if (!::beginScene()) //  ë””ë°”ì´ìŠ¤ê°€ ì†ì‹¤ëœ ìƒíƒœë¼ë©´ 0ì„ ë¦¬í„´í•˜ë¯€ë¡œ, ëª¨ë“  ë Œë”ë§ ìŠ¤í‚µ
         {
             return 0;
         }
@@ -152,7 +152,7 @@ CGameStateLogin::ServerDisconnected() {
 void
 CGameStateLogin::AcceptedConnectLoginSvr() {
     CGame::GetInstance().ProcWndMsg(WM_USER_CLOSE_MSGBOX, 0, 0);
-    ///Á¢¼ÓµÇ¾ú´Ù ID¿Í ÆĞ½º¿öµå¸¦ ³¯¸®ÀÚ.
+    ///ì ‘ì†ë˜ì—ˆë‹¤ IDì™€ íŒ¨ìŠ¤ì›Œë“œë¥¼ ë‚ ë¦¬ì.
 
     CTDialog* pDlg = g_EUILobby.GetEUI(EUI_LOGIN);
     assert(pDlg);

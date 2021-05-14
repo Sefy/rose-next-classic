@@ -1,9 +1,9 @@
-/// ´ÙÀ½ ifdef ºí·ÏÀº DLL¿¡¼­ ³»º¸³»±âÇÏ´Â ÀÛ¾÷À» ½±°Ô ÇØ ÁÖ´Â ¸ÅÅ©·Î¸¦ ¸¸µå´Â
-/// Ç¥ÁØ ¹æ½ÄÀÔ´Ï´Ù. ÀÌ DLL¿¡ µé¾î ÀÖ´Â ÆÄÀÏÀº ¸ðµÎ ¸í·ÉÁÙ¿¡ Á¤ÀÇµÈ TGAMECTRL_EXPORTS ±âÈ£·Î
-/// ÄÄÆÄÀÏµÇ¸ç, µ¿ÀÏÇÑ DLLÀ» »ç¿ëÇÏ´Â ´Ù¸¥ ÇÁ·ÎÁ§Æ®¿¡¼­´Â ÀÌ ±âÈ£¸¦ Á¤ÀÇÇÒ ¼ö ¾ø½À´Ï´Ù.
-/// ÀÌ·¸°Ô ÇÏ¸é ¼Ò½º ÆÄÀÏ¿¡ ÀÌ ÆÄÀÏÀÌ µé¾î ÀÖ´Â ´Ù¸¥ ¸ðµç ÇÁ·ÎÁ§Æ®¿¡¼­´Â
-/// TGAMECTRL_API ÇÔ¼ö¸¦ DLL¿¡¼­ °¡Á®¿À´Â °ÍÀ¸·Î º¸°í,
-/// ÀÌ DLLÀº ÇØ´ç ¸ÅÅ©·Î·Î Á¤ÀÇµÈ ±âÈ£°¡ ³»º¸³»Áö´Â °ÍÀ¸·Î º¾´Ï´Ù.
+/// ë‹¤ìŒ ifdef ë¸”ë¡ì€ DLLì—ì„œ ë‚´ë³´ë‚´ê¸°í•˜ëŠ” ìž‘ì—…ì„ ì‰½ê²Œ í•´ ì£¼ëŠ” ë§¤í¬ë¡œë¥¼ ë§Œë“œëŠ”
+/// í‘œì¤€ ë°©ì‹ìž…ë‹ˆë‹¤. ì´ DLLì— ë“¤ì–´ ìžˆëŠ” íŒŒì¼ì€ ëª¨ë‘ ëª…ë ¹ì¤„ì— ì •ì˜ëœ TGAMECTRL_EXPORTS ê¸°í˜¸ë¡œ
+/// ì»´íŒŒì¼ë˜ë©°, ë™ì¼í•œ DLLì„ ì‚¬ìš©í•˜ëŠ” ë‹¤ë¥¸ í”„ë¡œì íŠ¸ì—ì„œëŠ” ì´ ê¸°í˜¸ë¥¼ ì •ì˜í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+/// ì´ë ‡ê²Œ í•˜ë©´ ì†ŒìŠ¤ íŒŒì¼ì— ì´ íŒŒì¼ì´ ë“¤ì–´ ìžˆëŠ” ë‹¤ë¥¸ ëª¨ë“  í”„ë¡œì íŠ¸ì—ì„œëŠ”
+/// TGAMECTRL_API í•¨ìˆ˜ë¥¼ DLLì—ì„œ ê°€ì ¸ì˜¤ëŠ” ê²ƒìœ¼ë¡œ ë³´ê³ ,
+/// ì´ DLLì€ í•´ë‹¹ ë§¤í¬ë¡œë¡œ ì •ì˜ëœ ê¸°í˜¸ê°€ ë‚´ë³´ë‚´ì§€ëŠ” ê²ƒìœ¼ë¡œ ë´…ë‹ˆë‹¤.
 #pragma warning(disable : 4251)
 #pragma warning(disable : 4100)
 //#pragma warning( disable : 4786 )
@@ -20,7 +20,7 @@
 class ITDraw;
 class ITSound;
 class ITFont;
-/// ÃÊ±âÈ­
+/// ì´ˆê¸°í™”
 TGAMECTRL_API bool it_Init(HWND hWnd, ITDraw* pDrawMgr, ITSound* pSoundMgr, ITFont* pFontMgr);
 
 TGAMECTRL_API void it_Destroy();

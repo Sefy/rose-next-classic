@@ -149,7 +149,7 @@ CItem::GetQuantity() {
     return Item.GetQuantity();
 }
 
-/// StateLocation ÀÌ LS_NONEÀÏ°æ¿ì »ç¿ëµÉ m_Item Set
+/// StateLocation ì´ LS_NONEì¼ê²½ìš° ì‚¬ìš©ë  m_Item Set
 void
 CItem::SetItem(tagITEM& Item) {
     if (GetIndexType() == IT_INVENTORY)
@@ -168,9 +168,9 @@ CItem::GetLastExecTime() {
 }
 
 ///*------------------------------------------------------------------------------------/
-/// @return ½ÇÁ¦ »©¸é ³²´Â °³¼ö
-/// @brief ¾ÆÀÌÅÛÀÇ °³¼ö¸¦ »©´Â Method, Client´Â ±âº»ÀûÀ¸·Î Subtract½Ã ¾ÆÀÌÅÛ »èÁ¦¸¦ ÇÒ¼ö ¾ø´Ù.
-///        ¿¹¿Ü) Á¦Á¶
+/// @return ì‹¤ì œ ë¹¼ë©´ ë‚¨ëŠ” ê°œìˆ˜
+/// @brief ì•„ì´í…œì˜ ê°œìˆ˜ë¥¼ ë¹¼ëŠ” Method, ClientëŠ” ê¸°ë³¸ì ìœ¼ë¡œ Subtractì‹œ ì•„ì´í…œ ì‚­ì œë¥¼ í• ìˆ˜ ì—†ë‹¤.
+///        ì˜ˆì™¸) ì œì¡°
 ///*------------------------------------------------------------------------------------/
 // int	CItem::SubItemQuantity( int iQuantity )
 //{
@@ -307,7 +307,7 @@ void
 CItem::AddItemPatClass(tagITEM& sItem, CInfo& Info) {
     int iClass = ITEM_TYPE(sItem.GetTYPE(), sItem.GetItemNO());
 
-    //ºĞ·ù,¸íÁß·Â
+    //ë¶„ë¥˜,ëª…ì¤‘ë ¥
     if (iClass == TUNING_PART_WEAPON_CASTLEGEAR) {
         Info.AddString(CStr::Printf("%s:%s %s:%d",
             STR_ITEM_TYPE,
@@ -354,31 +354,31 @@ CItem::GetToolTipRidePart_BattleCart(CInfo& ToolTip, DWORD dwDialogType, DWORD d
     short nItemType = sItem.GetTYPE();
     short nItemIdx = sItem.GetItemNO();
 
-    // 1 ¾ÆÀÌÅÛ ¸íÄª
+    // 1 ì•„ì´í…œ ëª…ì¹­
     AddItemName(sItem, ToolTip);
 
-    // 2 ¾ÆÀÌÅÛ ºĞ·ù
+    // 2 ì•„ì´í…œ ë¶„ë¥˜
     AddItemPatClass(sItem, ToolTip);
 
-    // 3, 4 ITEM_DURABITY : ¼ö¸í, ³»±¸µµ
+    // 3, 4 ITEM_DURABITY : ìˆ˜ëª…, ë‚´êµ¬ë„
     AddItemLifeDuration(sItem, ToolTip);
 
-    // 5 ITEM_RESISTENCE : ¿¬·á¼ÒºñÀ²
+    // 5 ITEM_RESISTENCE : ì—°ë£Œì†Œë¹„ìœ¨
     AddItemPatUseFuelRate(sItem, ToolTip);
 
-    // 6, 7 °ø°İ·Â, °ø°İ¼Óµµ
+    // 6, 7 ê³µê²©ë ¥, ê³µê²©ì†ë„
     AddItemPatAttackPowSpeed(sItem, ToolTip);
 
-    // 8 ºÎÇ°¹öÀü
+    // 8 ë¶€í’ˆë²„ì „
     AddItemPatVer(sItem, ToolTip);
 
-    // 9 °ø°İ °Å¸®
+    // 9 ê³µê²© ê±°ë¦¬
     AddItemPatAttackRange(sItem, ToolTip);
 
-    // 10 ÀÌµ¿¼Óµµ
+    // 10 ì´ë™ì†ë„
     AddItemMoveSpeed(sItem, ToolTip);
 
-    // 11 Ä«Æ® °ÔÀÌÁö.
+    // 11 ì¹´íŠ¸ ê²Œì´ì§€.
     AddItemPatCartGauage(sItem, ToolTip);
 
     if (!(INFO_STATUS_DETAIL & dwType)) {
@@ -392,15 +392,15 @@ CItem::GetToolTipRidePart_BattleCart(CInfo& ToolTip, DWORD dwDialogType, DWORD d
     // 16,17 ITEM_NEED_DATA_TYPE, ITEM_NEED_DATA_VALUE
     AddItemEquipRequireCondition(sItem, ToolTip);
 
-    // 18 ÇØ´ç Á÷¾÷±º
+    // 18 í•´ë‹¹ ì§ì—…êµ°
     AddItemPatEquipRequireJob(sItem, ToolTip);
 
-    // 19 °¡°İ : ´Ù¸¥ ¾ÆÀÌÅÛ°ú È£È¯¼º¶§¹®¿¡ ¸Ç ¸¶Á÷¸·¿¡ ³ÖÀ½.
+    // 19 ê°€ê²© : ë‹¤ë¥¸ ì•„ì´í…œê³¼ í˜¸í™˜ì„±ë•Œë¬¸ì— ë§¨ ë§ˆì§ë§‰ì— ë„£ìŒ.
 
-    // 20 ITEM_WEIGHT ¹«°Ô
+    // 20 ITEM_WEIGHT ë¬´ê²Œ
     AddItemWeight(sItem, ToolTip);
 
-    // desc : ¹®¼­¿¡´Â ¾øÁö¸¸ ÇÊ¿äÇÒ°Í °°¾Æ ³ÖÀ½.
+    // desc : ë¬¸ì„œì—ëŠ” ì—†ì§€ë§Œ í•„ìš”í• ê²ƒ ê°™ì•„ ë„£ìŒ.
     AddItemPatDesc(sItem, ToolTip);
 
     return;
@@ -427,14 +427,14 @@ CItem::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
     // sItem.IsEquipITEM() )
     //{
     //	ToolTip.AddString( ITEM_NAME( sItem.GetTYPE(), sItem.GetItemNO() ) );
-    //	ToolTip.AddString( CStr::Printf("ÇöÀç¼ö¸í: %d", sItem.GetLife() / 10 ) ) );
-    //	ToolTip.AddString( CStr::Printf("Ç°Áúµî±Ş: %d", sItem.GetGrade() ) );
-    //	ToolTip.AddString( CStr::Printf("¼ö¸®ºñ¿ë: %d", sItem.GetRepairPrice() ) );
+    //	ToolTip.AddString( CStr::Printf("í˜„ì¬ìˆ˜ëª…: %d", sItem.GetLife() / 10 ) ) );
+    //	ToolTip.AddString( CStr::Printf("í’ˆì§ˆë“±ê¸‰: %d", sItem.GetGrade() ) );
+    //	ToolTip.AddString( CStr::Printf("ìˆ˜ë¦¬ë¹„ìš©: %d", sItem.GetRepairPrice() ) );
     //	return;
     //}
     switch (nItemType) {
         case ITEM_TYPE_WEAPON: {
-            //ÀÌ¸§
+            //ì´ë¦„
             if (sItem.GetGrade())
                 ToolTip.AddString(CStr::Printf("%s (%d)",
                                       (char*)ITEM_NAME(nItemType, nItemIdx),
@@ -446,7 +446,7 @@ CItem::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
                     GetItemNameColor(sItem.GetTYPE(), sItem.GetItemNO()),
                     g_GameDATA.m_hFONT[FONT_NORMAL_BOLD]);
 
-            //ºĞ·ù,¸íÁß·Â
+            //ë¶„ë¥˜,ëª…ì¤‘ë ¥
             std::string strTemp;
             strTemp = CStr::Printf("%s:%s %s:",
                 STR_ITEM_TYPE,
@@ -465,13 +465,13 @@ CItem::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
 
             std::string strAttackSpeed;
             GetAttackSpeedString(WEAPON_ATTACK_SPEED(nItemIdx), strAttackSpeed);
-            //°ø°İ·Â,°ø°İ¼Óµµ
+            //ê³µê²©ë ¥,ê³µê²©ì†ë„
             ToolTip.AddString(CStr::Printf("%s:%d  %s:%s",
                 CStringManager::GetSingleton().GetAbility(AT_ATK),
                 GetAttackPower(sItem) + ITEMGRADE_ATK(sItem.GetGrade()),
                 CStringManager::GetSingleton().GetAbility(AT_ATK_SPD),
                 strAttackSpeed.c_str()));
-            //°ø°İ°Å¸®
+            //ê³µê²©ê±°ë¦¬
             ToolTip.AddString(
                 CStr::Printf("%s%dM", STR_ATTACK_RANGE, WEAPON_ATTACK_RANGE(nItemIdx) / 100),
                 g_dwWHITE);
@@ -490,7 +490,7 @@ CItem::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
             break;
         }
         case ITEM_TYPE_SUBWPN: {
-            //¹æÆĞÀÏ°æ¿ì
+            //ë°©íŒ¨ì¼ê²½ìš°
             if (ITEM_TYPE(nItemType, nItemIdx) == 261) {
                 AddItemDefaultTopTextDefenceItem(sItem, ToolTip);
                 AddItemLifeDuration(sItem, ToolTip);
@@ -517,7 +517,7 @@ CItem::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
             AddItemDefence(sItem, ToolTip);
 
             if (bIsDetail) {
-                ///ÀçÁú
+                ///ì¬ì§ˆ
                 AddItemSpecialJob(sItem, ToolTip);
                 AddItemSpecialUnion(sItem, ToolTip);
                 AddItemOption(sItem, ToolTip);
@@ -612,7 +612,7 @@ CItem::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
             AddItemDefaultTopText(sItem, ToolTip);
 
             for (int i = 0; i < 2; i++) {
-                /// ¼Ò¼ÓÁ¶°Ç¾øÀÌ ¿Ã¶ó°¡´Â ´É·ÂÄ¡°¡ ÀÖ´Ù¸é
+                /// ì†Œì†ì¡°ê±´ì—†ì´ ì˜¬ë¼ê°€ëŠ” ëŠ¥ë ¥ì¹˜ê°€ ìˆë‹¤ë©´
                 if (GEMITEM_ADD_DATA_TYPE(nItemIdx, i) != 0) {
                     if (GEMITEM_ADD_DATA_TYPE(nItemIdx, i) == AT_SAVE_MP) {
                         ToolTip.AddString(CStr::Printf("[%s %d%%]",
@@ -667,12 +667,12 @@ CItem::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
                 }
                 case USE_ITEM_SKILL_DOING: {
                     int iSkillNo = USEITEM_SCROLL_USE_SKILL(nItemIdx);
-                    ///¿öÇÁ½ºÅ³»ç¿ë ¸ÅÁ÷¾ÆÀÌÅÛÀÏ°æ¿ì
+                    ///ì›Œí”„ìŠ¤í‚¬ì‚¬ìš© ë§¤ì§ì•„ì´í…œì¼ê²½ìš°
                     if (iSkillNo) {
                         DWORD dwColor;
                         if (SKILL_TYPE(iSkillNo) == SKILL_TYPE_18) {
 
-                            ///<-MP Ã¼Å©
+                            ///<-MP ì²´í¬
                             int iRequireMp = (int)(g_pAVATAR->GetCur_WEIGHT() * 0.05);
 
                             if (g_pAVATAR->Get_AbilityValue(AT_MP) >= iRequireMp)
@@ -685,9 +685,9 @@ CItem::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
                                                   iRequireMp),
                                 dwColor);
                             ///->
-                        } else ///±×¿Ü ½ºÅ³»ç¿ë ¸ÅÁ÷¾ÆÀÌÅÛÀÏ°æ¿ì
+                        } else ///ê·¸ì™¸ ìŠ¤í‚¬ì‚¬ìš© ë§¤ì§ì•„ì´í…œì¼ê²½ìš°
                         {
-                            ///¼Ò¸ğ´É·ÂÄ¡¿Í ¼Ò¸ğ ¼öÄ¡¸¦ Ç¥½ÃÇÑ´Ù.
+                            ///ì†Œëª¨ëŠ¥ë ¥ì¹˜ì™€ ì†Œëª¨ ìˆ˜ì¹˜ë¥¼ í‘œì‹œí•œë‹¤.
                             int iUseValue;
 
                             for (int iUseProperty = 0; iUseProperty < SKILL_USE_PROPERTY_CNT;
@@ -720,7 +720,7 @@ CItem::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
                     }
                     break;
                 }
-                case USE_ITEM_MAINTAIN_ITEM: ///½Ã°£Á¦ ÄíÆù ¾ÆÀÌÅÛ
+                case USE_ITEM_MAINTAIN_ITEM: ///ì‹œê°„ì œ ì¿ í° ì•„ì´í…œ
                     if (USEITEM_ADD_DATA_TYPE(nItemIdx))
                         ToolTip.AddString(CStr::Printf("[%s %d %s]",
                             CStringManager::GetSingleton().GetAbility(
@@ -734,7 +734,7 @@ CItem::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
                     }
                     break;
                 default: {
-                    /// ±â´É
+                    /// ê¸°ëŠ¥
                     if (USEITEM_ADD_DATA_TYPE(nItemIdx)) {
                         if (USEITEM_ADD_DATA_TYPE(nItemIdx) == AT_SAVE_MP)
                             ToolTip.AddString(CStr::Printf("[%s %d%%]",
@@ -782,7 +782,7 @@ CItem::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
                         dwTextColor,
                         g_GameDATA.m_hFONT[FONT_NORMAL_BOLD]);
 
-                //ºĞ·ù,¸íÁß·Â
+                //ë¶„ë¥˜,ëª…ì¤‘ë ¥
                 if (iClass == TUNING_PART_WEAPON_CASTLEGEAR) {
                     ToolTip.AddString(CStr::Printf("%s:%s %s:%d",
                         STR_ITEM_TYPE,
@@ -849,15 +849,15 @@ CItem::GetToolTip(CInfo& ToolTip, DWORD dwDialogType, DWORD dwType) {
             ToolTip.AddString(
                 CStr::Printf("%s: %d", STR_RIDE_PART_VER, PAT_ITEM_PART_VER(sItem.GetItemNO())));
 
-            /// AddItemDefaultBottomText( sItem, ToolTip );2004/7/30 - ÇöÀç ¼³¸íÀ» º¸ÀÌ·Á°í ÇÒ¶§
-            /// ¿¡·¯³².
+            /// AddItemDefaultBottomText( sItem, ToolTip );2004/7/30 - í˜„ì¬ ì„¤ëª…ì„ ë³´ì´ë ¤ê³  í• ë•Œ
+            /// ì—ëŸ¬ë‚¨.
             break;
         }
         default:
             break;
     }
 
-    // °¡°İÀ» Ç¥½ÃÇÏ³ª?
+    // ê°€ê²©ì„ í‘œì‹œí•˜ë‚˜?
     if ((dwType & INFO_ADD_PRICE) || (dwType & INFO_ADD_PRICE_SELL)
         || (dwType & INFO_ADD_PRICE_STORAGE_FEE) || (dwType & INFO_ADD_PRICE_PRIVATESTORE)
         || (dwType & INFO_ADD_PRICE_AVATARSTORE_BUYTAB)
@@ -871,11 +871,11 @@ void
 CItem::SubQuantity(int iQuantity) {
     tagITEM* pItem = &(g_pAVATAR->m_Inventory.m_ItemLIST[m_iIndex]);
     if (pItem->IsEmpty()) {
-        assert(0 && "ºó ¾ÆÀÌÅÛÀ» »©·Á°í ÇÕ´Ï´Ù@CItem::SubQuantity:");
+        assert(0 && "ë¹ˆ ì•„ì´í…œì„ ë¹¼ë ¤ê³  í•©ë‹ˆë‹¤@CItem::SubQuantity:");
         return;
     }
     if (!pItem->IsEnableDupCNT()) {
-        assert(0 && "°³¼ö°¡ ¾ø´Â ¾ÆÀÌÅÛÀÇ °³¼ö¸¦ »©·Á°í ÇÕ´Ï´Ù @CItem::SubQuantity:");
+        assert(0 && "ê°œìˆ˜ê°€ ì—†ëŠ” ì•„ì´í…œì˜ ê°œìˆ˜ë¥¼ ë¹¼ë ¤ê³  í•©ë‹ˆë‹¤ @CItem::SubQuantity:");
         return;
     }
 
@@ -898,10 +898,10 @@ CItem::GetUnitPrice() {
 }
 
 ///*---------------------------------------------------------------------------------------------------------------*/
-/// ÀÌÇÏ ÅøÆÁ¿ë Method
+/// ì´í•˜ íˆ´íŒìš© Method
 void
 CItem::AddItemDefaultTopTextDefenceItem(tagITEM& sItem, CInfo& Info) {
-    //ÀÌ¸§
+    //ì´ë¦„
     //	DWORD dwTextColor;
     //	if( sItem.GetLife() < 1 )
     //		dwTextColor = g_dwRED;
@@ -921,7 +921,7 @@ CItem::AddItemDefaultTopTextDefenceItem(tagITEM& sItem, CInfo& Info) {
             GetItemNameColor(sItem.GetTYPE(), sItem.GetItemNO()),
             g_GameDATA.m_hFONT[FONT_NORMAL_BOLD]);
 
-    //ºĞ·ù,È¸ÇÇ·Â
+    //ë¶„ë¥˜,íšŒí”¼ë ¥
 
     std::string stdTemp;
     // stdTemp.append( STR_ITEM_TYPE );
@@ -954,7 +954,7 @@ CItem::AddItemDefaultTopTextDefenceItem(tagITEM& sItem, CInfo& Info) {
 
 void
 CItem::AddItemDefaultTopText(tagITEM& sItem, CInfo& Info) {
-    ///ÀÌ¸§
+    ///ì´ë¦„
     // DWORD dwTextColor;
     // if( sItem.IsEquipITEM() && sItem.GetLife() < 1 )
     //	dwTextColor = g_dwRED;
@@ -965,7 +965,7 @@ CItem::AddItemDefaultTopText(tagITEM& sItem, CInfo& Info) {
     Info.AddString((char*)(ITEM_NAME(sItem.GetTYPE(), sItem.GetItemNO())),
         GetItemNameColor(sItem.GetTYPE(), sItem.GetItemNO()),
         g_GameDATA.m_hFONT[FONT_NORMAL_BOLD]);
-    ///ºĞ·ù,¹«°Ô
+    ///ë¶„ë¥˜,ë¬´ê²Œ
     char* pszBuf = CStr::Printf("%s:%s %s:%d",
         STR_ITEM_TYPE,
         CStringManager::GetSingleton().GetItemType(ITEM_TYPE(sItem.GetTYPE(), sItem.GetItemNO())),
@@ -977,13 +977,13 @@ CItem::AddItemDefaultTopText(tagITEM& sItem, CInfo& Info) {
 
 void
 CItem::AddItemDefaultBottomText(tagITEM& sItem, CInfo& Info) {
-    // ¹«°Ô
+    // ë¬´ê²Œ
     char* pszBuf =
         CStr::Printf("%s:%d", STR_WEIGHT, ITEM_WEIGHT(sItem.GetTYPE(), sItem.GetItemNO()));
 
     Info.AddString(pszBuf);
 
-    ///º¼µå¶ó¼­
+    ///ë³¼ë“œë¼ì„œ
     CSplitHangul splitHAN((char*)ITEM_DESC(sItem.GetTYPE(), sItem.GetItemNO()),
         INFO_TEXT_WIDTH - 2,
         CLocalizing::GetSingleton().GetCurrentCodePageNO());
@@ -1232,7 +1232,7 @@ CItem::AddItemMoveSpeed(tagITEM& sItem, CInfo& Info) {
 }
 void
 CItem::AddItemOption(tagITEM& sItem, CInfo& Info) {
-    //¹«±â¿¡ Á¦¹ÖµÈ º¸¼®È¤Àº ¿É¼Ç¿¡ µû¸¥ ¹«±âÀÇ È¿°ú»ó½Â Ç¥½Ã
+    //ë¬´ê¸°ì— ì œë°ëœ ë³´ì„í˜¹ì€ ì˜µì…˜ì— ë”°ë¥¸ ë¬´ê¸°ì˜ íš¨ê³¼ìƒìŠ¹ í‘œì‹œ
     char* pszBuf = NULL;
     short nOption = sItem.GetOption();
 
@@ -1240,7 +1240,7 @@ CItem::AddItemOption(tagITEM& sItem, CInfo& Info) {
         if (nOption <= 300 && sItem.IsAppraisal() == false) {
             Info.AddString(STR_REQUIRE_IDENTIFY, g_dwRED);
         } else {
-            if (nOption > 300) ///Á¦¹ÖµÈ°æ¿ì
+            if (nOption > 300) ///ì œë°ëœê²½ìš°
                 Info.AddString(ITEM_NAME(ITEM_TYPE_GEM, nOption), g_dwYELLOW);
 
             for (int j = 0; j < 2; j++) {
@@ -1274,7 +1274,7 @@ CItem::AddItemPrice(tagITEM& sItem, DWORD dwDlgType, DWORD dwType, CInfo& Info) 
     if (dwType & INFO_ADD_PRICE_STORAGE_FEE) {
         unsigned short ItemType = sItem.GetTYPE();
         unsigned short ItemNo = sItem.GetItemNO();
-        if (sItem.IsEnableKEEPING()) ///º¸°ü·á Ç¥½Ã
+        if (sItem.IsEnableKEEPING()) ///ë³´ê´€ë£Œ í‘œì‹œ
         {
             int iCount = 1;
 
@@ -1285,7 +1285,7 @@ CItem::AddItemPrice(tagITEM& sItem, DWORD dwDlgType, DWORD dwType, CInfo& Info) 
 
             CGameUtil::ConvertMoney2String(iStorageFee, money_buffer, money_buffer_size);
             pszBuf = CStr::Printf("%s:%s", STR_BANK_STORAGE_FEE, money_buffer);
-        } else ///º¸°üÇÒ¼ö ¾ø´Â ¾ÆÀÌÅÛ
+        } else ///ë³´ê´€í• ìˆ˜ ì—†ëŠ” ì•„ì´í…œ
         {
             pszBuf = STR_BANK_CANT_STORE;
         }
@@ -1401,7 +1401,7 @@ CItem::AddItemLifeDuration(tagITEM& sItem, CInfo& Info) {
 void
 CItem::GetAttackSpeedString(short nSpeed, std::string& strMsg) {
     if (nSpeed < 0) {
-        strMsg = "½ºÇÇµå < 0";
+        strMsg = "ìŠ¤í”¼ë“œ < 0";
         return;
     }
 
@@ -1420,7 +1420,7 @@ CItem::GetAttackSpeedString(short nSpeed, std::string& strMsg) {
 }
 
 short
-CItem::GetAttackSpeedType(short nSpeed) // ¾îÅØ ½ºÇÇµå Å¸ÀÔ( ¸Å¿ìºü¸§, ºü¸§... )
+CItem::GetAttackSpeedType(short nSpeed) // ì–´í… ìŠ¤í”¼ë“œ íƒ€ì…( ë§¤ìš°ë¹ ë¦„, ë¹ ë¦„... )
 {
     if (nSpeed <= 9)
         return ATTACK_SPEED_FASTEST;
@@ -1498,7 +1498,7 @@ CItem::GetAttackPower(tagITEM& sItem) {
     return WEAPON_ATTACK_POWER(sItem.GetItemNO());
 }
 //*---------------------------------------------------------------------------------------*/
-/// @brief »óÁ¡¿¡¼­ ÆÄ´Â ¾ÆÀÌÅÛÀÏ°æ¿ì¿¡´Â Ç×»ó false°¡ µÉ¼ö ¾ø´Ù.
+/// @brief ìƒì ì—ì„œ íŒŒëŠ” ì•„ì´í…œì¼ê²½ìš°ì—ëŠ” í•­ìƒ falseê°€ ë ìˆ˜ ì—†ë‹¤.
 //*---------------------------------------------------------------------------------------*/
 void
 CItem::SetDisable() {
@@ -1546,12 +1546,12 @@ DWORD
 CItem::GetItemNameColor(int type, int no) {
     int iRareType = GetItemRareType(type, no);
 
-    DWORD color = D3DCOLOR_ARGB(255, 0xFF, 0xFF, 0); //³ë¶õ»ö
+    DWORD color = D3DCOLOR_ARGB(255, 0xFF, 0xFF, 0); //ë…¸ë€ìƒ‰
 
     if (iRareType == 21)
-        color = D3DCOLOR_ARGB(255, 255, 128, 255); ///ºĞÈ«»ö
+        color = D3DCOLOR_ARGB(255, 255, 128, 255); ///ë¶„í™ìƒ‰
     else if (iRareType >= 1 && iRareType <= 20)
-        color = D3DCOLOR_ARGB(0xFF, 0, 0xFF, 0xFF); ///ÇÏ´Ã»ö
+        color = D3DCOLOR_ARGB(0xFF, 0, 0xFF, 0xFF); ///í•˜ëŠ˜ìƒ‰
     else if (iRareType == 22)
         color = D3DCOLOR_ARGB(255, 179, 0, 0); /// Red- Prefix 21
     else if (iRareType == 23)
@@ -1592,12 +1592,12 @@ DWORD
 CItem::GetItemNameColor(int type, int no) {
     int iRareType = GetItemRareType(type, no);
 
-    DWORD color = D3DCOLOR_ARGB(255, 0xFF, 0xFF, 0); //³ë¶õ»ö
+    DWORD color = D3DCOLOR_ARGB(255, 0xFF, 0xFF, 0); //ë…¸ë€ìƒ‰
 
     if (iRareType == 21)
-        color = D3DCOLOR_ARGB(255, 255, 128, 255); ///ºĞÈ«»ö
+        color = D3DCOLOR_ARGB(255, 255, 128, 255); ///ë¶„í™ìƒ‰
     else if (iRareType >= 1 && iRareType <= 20)
-        color = D3DCOLOR_ARGB(0xFF, 0, 0xFF, 0xFF); ///ÇÏ´Ã»ö
+        color = D3DCOLOR_ARGB(0xFF, 0, 0xFF, 0xFF); ///í•˜ëŠ˜ìƒ‰
 
     return color;
 }
@@ -1654,7 +1654,7 @@ CItemFragment::GetIndex() {
     return m_pItem->GetIndex();
 }
 //*----------------------------------------------------------------------------------*/
-/// @brief CItemFragment´Â Ç×»ó EnableÀÌ´Ù.
+/// @brief CItemFragmentëŠ” í•­ìƒ Enableì´ë‹¤.
 //*----------------------------------------------------------------------------------*/
 bool
 CItemFragment::IsEnable() {

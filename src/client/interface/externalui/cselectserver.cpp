@@ -142,13 +142,13 @@ CSelectServer::RecvSelectServer(t_PACKET* recvPacket) {
                     true,
                     GetDialogType());
                 break;
-            case RESULT_SELECT_SERVER_CHANNEL_NOT_ACTIVE: ///Á¡°ËÁß
+            case RESULT_SELECT_SERVER_CHANNEL_NOT_ACTIVE: ///ì ê²€ì¤‘
                 g_EUILobby.ShowMsgBox(STR_RESULT_SELECT_SERVER_CHANNEL_NOT_ACTIVE,
                     CTMsgBox::BT_OK,
                     true,
                     GetDialogType());
                 break;
-            case RESUTL_SELECT_SERVER_INVALID_AGE: //		0x05	// ¿¬·ÉÀÌ ¸ÂÁö ¾Ê´Â´Ù..
+            case RESUTL_SELECT_SERVER_INVALID_AGE: //		0x05	// ì—°ë ¹ì´ ë§žì§€ ì•ŠëŠ”ë‹¤..
                 g_EUILobby.ShowMsgBox(STR_RESUTL_SELECT_SERVER_INVALID_AGE,
                     CTMsgBox::BT_OK,
                     true,
@@ -414,7 +414,7 @@ CSelectServer::Update(CObservable* pObservable, CTObject* pObj) {
                             std::string strTemp(iter->strServerName.c_str());
 
                             CTListBox* pListBox = (CTListBox*)pCtrl;
-                            if (info.m_user_percent <= 20) ///´ë¸¸ ¿äÃ»À¸·Î 25->20À¸·Î ¼öÁ¤ :
+                            if (info.m_user_percent <= 20) ///ëŒ€ë§Œ ìš”ì²­ìœ¼ë¡œ 25->20ìœ¼ë¡œ ìˆ˜ì • :
                             {
                                 dwColor = g_dwGREEN;
                                 strTemp.append(STR_SERVERSTATE_SMOOTH);

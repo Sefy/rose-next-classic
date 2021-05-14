@@ -2,7 +2,7 @@
 #define _CMenuDlg_
 #include "tgamectrl/tdialog.h"
 
-/// Æ©Åä¸®¾ó ½ºÅ©¸³Æ®¿¡¼­ ÇØ´ç ¹öÆ°ÀÇ ÀÎµ¦½º¸¦ ÂüÁ¶ÇÏ±â À§ÇÏ¿© Àü¿ªÀ¸·Î ¿­°ÅÇÔ
+/// íŠœí† ë¦¬ì–¼ ìŠ¤í¬ë¦½íŠ¸ì—ì„œ í•´ë‹¹ ë²„íŠ¼ì˜ ì¸ë±ìŠ¤ë¥¼ ì°¸ì¡°í•˜ê¸° ìœ„í•˜ì—¬ ì „ì—­ìœ¼ë¡œ ì—´ê±°í•¨
 enum {
     MENU_BTN_CHAR = 10,
     MENU_BTN_ITEM,
@@ -17,9 +17,9 @@ enum {
 };
 
 /**
- * À©µµ¿ìÁî ½ºÅ¸ÀÏÀÇ ¸Þ´º¸¦ À§ÇÑ ´ÙÀÌ¾ó·Î±×
+ * ìœˆë„ìš°ì¦ˆ ìŠ¤íƒ€ì¼ì˜ ë©”ë‰´ë¥¼ ìœ„í•œ ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CMenuDlg: public CTDialog {
@@ -68,9 +68,9 @@ private:
         _CLOSE,
     };
 
-    int m_uiClickedButtonID; /// ´­·ÁÁø ¹öÆ°ÀÇ ID
-    POINT m_ptClickedButton; /// ¹öÆ° Å¬¸¯½Ã ¸¶¿ì½º Æ÷ÀÎÅÍ( ¸Þ´º¿¡¼­ ¹Ù·Î ÀÎÅÍÆäÀÌ½ºÃ¢ ¾ÆÀÌÄÜÀ»
-                             /// µå·¡±× ÇÏ¿© ¹ÙÅÁÈ­¸é¿¡ »©³»±â À§ÇÏ¿© »ç¿ë)
+    int m_uiClickedButtonID; /// ëˆŒë ¤ì§„ ë²„íŠ¼ì˜ ID
+    POINT m_ptClickedButton; /// ë²„íŠ¼ í´ë¦­ì‹œ ë§ˆìš°ìŠ¤ í¬ì¸í„°( ë©”ë‰´ì—ì„œ ë°”ë¡œ ì¸í„°íŽ˜ì´ìŠ¤ì°½ ì•„ì´ì½˜ì„
+                             /// ë“œëž˜ê·¸ í•˜ì—¬ ë°”íƒ•í™”ë©´ì— ë¹¼ë‚´ê¸° ìœ„í•˜ì—¬ ì‚¬ìš©)
 
     bool m_bIsOpen;
     POINT m_ptOpenPos;

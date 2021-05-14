@@ -9,8 +9,8 @@ VCALLBACK_CLEARBLANKALL CBlankInfo::procCallBack = NULL;
 
 /****************************************************************
  *
- * ClearBlankAll ÁøÇà µÉ¶§¸¶´Ù ÇÑ¹ø¾¿ Call ÇØ¼­ »óÅÂ¸¦ ÀúÀåÇÏ°í
- * Callbakc ÇÔ¼ö°¡ ÀÖÀ¸¸é call ÇØ¼­ user¿¡°Ô º¸¿© ÁÙ¼ö ÀÖµµ·Ï ÇÑ´Ù
+ * ClearBlankAll ì§„í–‰ ë ë•Œë§ˆë‹¤ í•œë²ˆì”© Call í•´ì„œ ìƒíƒœë¥¼ ì €ìž¥í•˜ê³ 
+ * Callbakc í•¨ìˆ˜ê°€ ìžˆìœ¼ë©´ call í•´ì„œ userì—ê²Œ ë³´ì—¬ ì¤„ìˆ˜ ìžˆë„ë¡ í•œë‹¤
  *
  */
 void

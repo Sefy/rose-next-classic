@@ -8,19 +8,19 @@ private:
 
 public:
     void InitStartTime();
-    // InitStartTime() È£ÃâÈÄ ÇöÀç±îÁö °æ°úµÈ 1/100 ÃÊ¸¦ ±¸ÇÑ´Ù.
-    // InitStartTime() È£ÃâÈÄ ÃÖ´ë 497 Day¸¦ °æ°úÇÏ¸é ¾ÈµÈ´Ù.
+    // InitStartTime() í˜¸ì¶œí›„ í˜„ìž¬ê¹Œì§€ ê²½ê³¼ëœ 1/100 ì´ˆë¥¼ êµ¬í•œë‹¤.
+    // InitStartTime() í˜¸ì¶œí›„ ìµœëŒ€ 497 Dayë¥¼ ê²½ê³¼í•˜ë©´ ì•ˆëœë‹¤.
     DWORD GetPassAbsMilliSecond(void);
 
-    // st³¯Â¥ÀÇ Àý´ë ³¯Â¥¸¦ ±¸ÇÑ´Ù. 1601³â 1¿ù 1ÀÏÀ» ±âÁØ(0)À¸·Î °æ°úÇÑ ³¯Â¥ ¼ö¸¦ ¼¼ÁØ´Ù.
+    // stë‚ ì§œì˜ ì ˆëŒ€ ë‚ ì§œë¥¼ êµ¬í•œë‹¤. 1601ë…„ 1ì›” 1ì¼ì„ ê¸°ì¤€(0)ìœ¼ë¡œ ê²½ê³¼í•œ ë‚ ì§œ ìˆ˜ë¥¼ ì„¸ì¤€ë‹¤.
     static DWORD GetAbsDay(SYSTEMTIME& st);
-    // Àý´ë ³¯Â¥¸¦ ½Ã½ºÅÛ Å¸ÀÓÀ¸·Î ¹Ù²Û´Ù.
+    // ì ˆëŒ€ ë‚ ì§œë¥¼ ì‹œìŠ¤í…œ íƒ€ìž„ìœ¼ë¡œ ë°”ê¾¼ë‹¤.
     static void AbsDayToSystem(DWORD dwABS, SYSTEMTIME& st);
 
-    // st ³¯Â¥ÀÇ Àý´ë ÃÊ¸¦ ±¸ÇÑ´Ù. 2000³â 1¿ù 1ÀÏ ÀÚÁ¤±âÁØ
+    // st ë‚ ì§œì˜ ì ˆëŒ€ ì´ˆë¥¼ êµ¬í•œë‹¤. 2000ë…„ 1ì›” 1ì¼ ìžì •ê¸°ì¤€
     static DWORD GetAbsSecond(SYSTEMTIME& st);
 
-    // Àý´ëÃÊ¸¦ ½Ã½ºÅÛ Å¸ÀÓÀ¸·Î ¹Ù²Û´Ù
+    // ì ˆëŒ€ì´ˆë¥¼ ì‹œìŠ¤í…œ íƒ€ìž„ìœ¼ë¡œ ë°”ê¾¼ë‹¤
     static void AbsSecondToSystem(DWORD dwABS, SYSTEMTIME& st);
 
     static DWORD GetCurrentAbsSecond(void);

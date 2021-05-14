@@ -100,7 +100,7 @@ CIcon::GetSlot() {
 }
 
 /**
- * @Warning Icon¸¶´Ù ¸®ÅÏµÇ´Â °ªÀÌ Æ²¸®´Ù
+ * @Warning Iconë§ˆë‹¤ ë¦¬í„´ë˜ëŠ” ê°’ì´ í‹€ë¦¬ë‹¤
  *		1. CIconStatus  - return 0
  *		2. CIconDialog  - return DialogType;
  *		3. CIconItem	- return Inventory Index

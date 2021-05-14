@@ -48,7 +48,7 @@ public:
     CSoundSYSTEM(HWND hWND);
     ~CSoundSYSTEM();
 
-    bool KEY_PlaySound(unsigned int uiKEY); // false°æ¿ì ÆÄÀÏÀ» Á÷Á¢ ·Îµå ÇØ¾ß ÇÑ´Ù.
+    bool KEY_PlaySound(unsigned int uiKEY); // falseê²½ìš° íŒŒì¼ì„ ì§ì ‘ ë¡œë“œ í•´ì•¼ í•œë‹¤.
     bool IDX_PlaySound(short nIndex);
     bool PlaySoundFile(char* szFileName);
 };

@@ -8,10 +8,10 @@
 class CItem;
 
 /**
- * È­¸é ¿ÞÂÊÀ§ ³» ¾ÆÅ¸¹Ù¿¡ ´ëÇÑ Á¤º¸¸¦ Ç¥½ÃÇÏ´Â ÀÎÅÍÆäÀÌ½º
+ * í™”ë©´ ì™¼ìª½ìœ„ ë‚´ ì•„íƒ€ë°”ì— ëŒ€í•œ ì •ë³´ë¥¼ í‘œì‹œí•˜ëŠ” ì¸í„°íŽ˜ì´ìŠ¤
  *	- Observable : CItemSlot
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CAvatarInfoDlg: public CTDialog, public IObserver {
@@ -37,19 +37,19 @@ public:
     void SetMiniMapPos();
 
     enum {
-        IID_GUAGE_HP = 6, /// Ã¼·Â°ÔÀÌÁö
-        IID_GUAGE_MP, /// ¸¶³ª°ÔÀÌÁö
-        IID_GUAGE_EXP, /// °æÇèÄ¡°ÔÀÌÁö
-        IID_BTN_SELFTARGET = 10, /// Å¬¸¯½Ã ÀÚ½Å¼±ÅÃ - NOIMAGE
-        IID_BTN_MENU, /// ¸Þ´ºÃ¢À» ¿©´Â ¹öÆ°
-        IID_BTN_DIALOG2ICON, /// ¸ðµç Dialog IconÈ­ ¹öÆ°, IconÈ­ ºÒ°¡´ÉÇÑ Dialog´Â ´ç±Ù µ¿ÀÛ
-                             /// ¾ÈÇÑ´Ù.(TGameCtrl¿¡¼­ Ã³¸®ÇÒ°Í, ¸â¹ö·Î iconÈ­ °¡´ÉÇÑÁö SettingÇÒ°Í
+        IID_GUAGE_HP = 6, /// ì²´ë ¥ê²Œì´ì§€
+        IID_GUAGE_MP, /// ë§ˆë‚˜ê²Œì´ì§€
+        IID_GUAGE_EXP, /// ê²½í—˜ì¹˜ê²Œì´ì§€
+        IID_BTN_SELFTARGET = 10, /// í´ë¦­ì‹œ ìžì‹ ì„ íƒ - NOIMAGE
+        IID_BTN_MENU, /// ë©”ë‰´ì°½ì„ ì—¬ëŠ” ë²„íŠ¼
+        IID_BTN_DIALOG2ICON, /// ëª¨ë“  Dialog Iconí™” ë²„íŠ¼, Iconí™” ë¶ˆê°€ëŠ¥í•œ DialogëŠ” ë‹¹ê·¼ ë™ìž‘
+                             /// ì•ˆí•œë‹¤.(TGameCtrlì—ì„œ ì²˜ë¦¬í• ê²ƒ, ë©¤ë²„ë¡œ iconí™” ê°€ëŠ¥í•œì§€ Settingí• ê²ƒ
                              /// )
     };
 
 private:
-    CSlot m_Slot; /// ÀåÂøµÈ ¹«±â¿¡ ´ëÇÑ ¾ÆÀÌÄÜÀÌ µé¾î°¥ ½½·Ô
-    CItem* m_pRepresentBullet; /// ÀåÂøµÈ ¹«±â¿¡ ´ëÇÑ ¼Ò¸ðÅº
-    bool m_bIsMaxView; /// È®´ë or Ãà¼Ò
+    CSlot m_Slot; /// ìž¥ì°©ëœ ë¬´ê¸°ì— ëŒ€í•œ ì•„ì´ì½˜ì´ ë“¤ì–´ê°ˆ ìŠ¬ë¡¯
+    CItem* m_pRepresentBullet; /// ìž¥ì°©ëœ ë¬´ê¸°ì— ëŒ€í•œ ì†Œëª¨íƒ„
+    bool m_bIsMaxView; /// í™•ëŒ€ or ì¶•ì†Œ
 };
 #endif

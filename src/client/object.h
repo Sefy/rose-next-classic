@@ -17,10 +17,10 @@
 class CMAP;
 class CObjFixedEvent;
 
-/// CMap::Load¿¡¼­ ÀĞÀº NPCÁ¤º¸
+/// CMap::Loadì—ì„œ ì½ì€ NPCì •ë³´
 
 struct NpcInfoInMap {
-    CMAP* m_pMap; /// npc°¡ ·ÎµåµÈ CMAPÀÇ ¸Ş¸ğ¸® Æ÷ÀÎÅÍ
+    CMAP* m_pMap; /// npcê°€ ë¡œë“œëœ CMAPì˜ ë©”ëª¨ë¦¬ í¬ì¸í„°
     int m_iNpcID; /// stb No
     D3DVECTOR m_Position;
 };
@@ -32,21 +32,21 @@ class CObjectMANAGER {
 private:
     classDLLNODE<int>* m_pFindNODE;
 
-    int m_iEmptySlotNo; /// < ÇöÀç ºñ¾îÀÖ´Â ½½·Ô ½ÃÀÛ ¹øÈ£.
-    short m_nServer2ClientOBJ[MAX_SERVER_OBJECTS]; /// < ¼­¹ö¿¡¼­ ÀÌ ÀÎµ¦½ºÀÇ ¿ÀºêÁ§Æ®°¡
-                                                   /// Å¬¶óÀÌ¾ğÆ®ÀÇ ¾î¶² ½½·ÔÀÎ°¡?
-    WORD m_wClient2ServerOBJ[MAX_CLIENT_OBJECTS]; /// < ¼­¹ö·Î ºÎÅÍ ¹ŞÀº ÀÎµ¦½º ¹øÈ£ ÀúÀå.
+    int m_iEmptySlotNo; /// < í˜„ì¬ ë¹„ì–´ìˆëŠ” ìŠ¬ë¡¯ ì‹œì‘ ë²ˆí˜¸.
+    short m_nServer2ClientOBJ[MAX_SERVER_OBJECTS]; /// < ì„œë²„ì—ì„œ ì´ ì¸ë±ìŠ¤ì˜ ì˜¤ë¸Œì íŠ¸ê°€
+                                                   /// í´ë¼ì´ì–¸íŠ¸ì˜ ì–´ë–¤ ìŠ¬ë¡¯ì¸ê°€?
+    WORD m_wClient2ServerOBJ[MAX_CLIENT_OBJECTS]; /// < ì„œë²„ë¡œ ë¶€í„° ë°›ì€ ì¸ë±ìŠ¤ ë²ˆí˜¸ ì €ì¥.
 
-    int m_iObjectCNT[OBJ_MAX_TYPE]; /// < ¿ÀºêÁ§Æ® Å¸ÀÔ´ç ¿ÀºêÁ§Æ® °³¼ö.
-    int m_iTotalObjCNT; /// < ÀüÃ¼ ¿ÀºêÁ§Æ® °³¼ö
+    int m_iObjectCNT[OBJ_MAX_TYPE]; /// < ì˜¤ë¸Œì íŠ¸ íƒ€ì…ë‹¹ ì˜¤ë¸Œì íŠ¸ ê°œìˆ˜.
+    int m_iTotalObjCNT; /// < ì „ì²´ ì˜¤ë¸Œì íŠ¸ ê°œìˆ˜
 
     DWORD m_dwCurTIME;
     DWORD m_dwPassTIME;
 
     //----------------------------------------------------------------------------------------------------
-    /// ¹Ì´Ï¸ÊÀÇ Ç¥½Ã¸¦ À§ÇÑ ¸®½ºÆ®..
+    /// ë¯¸ë‹ˆë§µì˜ í‘œì‹œë¥¼ ìœ„í•œ ë¦¬ìŠ¤íŠ¸..
     std::vector<int> m_ViewObjectList;
-    /// MAP¿¡¼­ ·ÎµåµÈ NPC¸¦ ¹Ì´Ï¸Ê¿¡ Ç¥½ÃÇÏ±â À§ÇÏ¿© ÀÓ½Ã ÀúÀåÇÏ´Â List
+    /// MAPì—ì„œ ë¡œë“œëœ NPCë¥¼ ë¯¸ë‹ˆë§µì— í‘œì‹œí•˜ê¸° ìœ„í•˜ì—¬ ì„ì‹œ ì €ì¥í•˜ëŠ” List
     std::list<NpcInfoInMap> m_listNpcInfo;
     //----------------------------------------------------------------------------------------------------
 
@@ -55,12 +55,12 @@ private:
     ~CObjectMANAGER();
 
 public:
-    CGameOBJ* m_pOBJECTS[MAX_CLIENT_OBJECTS]; ///< ¿ÀºêÁ§Æ® ¹è¿­.
-    classDLLIST<int> m_CharLIST; ///< Ä³¸¯ÅÍ ¿ÀºêÅØÆ® ¹øÈ£( ¿ÀºêÁ§Æ® ¹è¿­³»ÀÇ ÀÎµ¦½º) ¸®½ºÆ®
-    classDLLIST<int> m_CnstLIST; ///< °Ç¹°, ³ª¹«, ±âÅ¸ ¿ÀºêÁ§Æ® ¹øÈ£ ¸®½ºÆ®
-    classDLLIST<int> m_ItemLIST; ///< ¾ÆÀÌÅÛ ¿ÀºêÁ§Æ® ¹øÈ£ ¸®½ºÆ®
+    CGameOBJ* m_pOBJECTS[MAX_CLIENT_OBJECTS]; ///< ì˜¤ë¸Œì íŠ¸ ë°°ì—´.
+    classDLLIST<int> m_CharLIST; ///< ìºë¦­í„° ì˜¤ë¸Œí…íŠ¸ ë²ˆí˜¸( ì˜¤ë¸Œì íŠ¸ ë°°ì—´ë‚´ì˜ ì¸ë±ìŠ¤) ë¦¬ìŠ¤íŠ¸
+    classDLLIST<int> m_CnstLIST; ///< ê±´ë¬¼, ë‚˜ë¬´, ê¸°íƒ€ ì˜¤ë¸Œì íŠ¸ ë²ˆí˜¸ ë¦¬ìŠ¤íŠ¸
+    classDLLIST<int> m_ItemLIST; ///< ì•„ì´í…œ ì˜¤ë¸Œì íŠ¸ ë²ˆí˜¸ ë¦¬ìŠ¤íŠ¸
 
-    std::map<int, CObjFixedEvent*> m_EventObjectList; ///< ÀÌº¥Æ® ¿ÀºêÁ§Æ® ¸®½ºÆ®.
+    std::map<int, CObjFixedEvent*> m_EventObjectList; ///< ì´ë²¤íŠ¸ ì˜¤ë¸Œì íŠ¸ ë¦¬ìŠ¤íŠ¸.
 
     static CObjectMANAGER* Instance();
     static void Destroy();
@@ -70,7 +70,7 @@ public:
         m_dwPassTIME = 0;
     }
 
-    /// ¹Ì´Ï¸ÊÀÇ Ç¥½Ã¸¦ À§ÇÑ ¸®½ºÆ®..
+    /// ë¯¸ë‹ˆë§µì˜ í‘œì‹œë¥¼ ìœ„í•œ ë¦¬ìŠ¤íŠ¸..
     void ReserverViewObjectList(int iReserveCnt = 100) { m_ViewObjectList.reserve(100); }
     void ClearViewObjectList() { /*m_ViewObjectList.clear()*/
         m_ViewObjectList.erase(m_ViewObjectList.begin(), m_ViewObjectList.end());
@@ -79,61 +79,61 @@ public:
     int GetViewObjectCnt() { return m_ViewObjectList.size(); }
     int GetViewObjectIndex(int Index) { return m_ViewObjectList[Index]; }
 
-    /// ¿ÀºêÁ§Æ®¸¦ ½Å±×·¡ÇÁ¿¡ ³Ö´Â´Ù.
+    /// ì˜¤ë¸Œì íŠ¸ë¥¼ ì‹ ê·¸ë˜í”„ì— ë„£ëŠ”ë‹¤.
     void InsertToScene();
-    /// ½Å±×·¡ÇÁ·ÎºÎÅÍ ¿ÀºêÁ§Æ® Á¦°Å.
+    /// ì‹ ê·¸ë˜í”„ë¡œë¶€í„° ì˜¤ë¸Œì íŠ¸ ì œê±°.
     void RemoveFromScene();
 
-    /// ºó ½½·Ô ÇÒ´ç( ¸¶Áö¸· ÇÒ´ç ½½·Ô µÚÂÊºÎÅÍ °Ë»ö )
+    /// ë¹ˆ ìŠ¬ë¡¯ í• ë‹¹( ë§ˆì§€ë§‰ í• ë‹¹ ìŠ¬ë¡¯ ë’¤ìª½ë¶€í„° ê²€ìƒ‰ )
     int Get_EmptySlot();
-    /// ÇØ´ç ½½·Ô¿¡ ¿ÀºêÁ§Æ® ÇÒ´ç
-    /// @param wServerObjectIndex ¼­¹ö¿¡¼­ÀÇ ¿ÀºêÁ§Æ® ÀÎµ¦½º..
+    /// í•´ë‹¹ ìŠ¬ë¡¯ì— ì˜¤ë¸Œì íŠ¸ í• ë‹¹
+    /// @param wServerObjectIndex ì„œë²„ì—ì„œì˜ ì˜¤ë¸Œì íŠ¸ ì¸ë±ìŠ¤..
     bool Set_EmptySlot(short nSlotNO, WORD wServerObjectIndex, CGameOBJ* pObject);
 
-    /// ¸ğµç ¸É¹ö ¸®½ºÆ® Å¬¸®¾î.
+    /// ëª¨ë“  ë§´ë²„ ë¦¬ìŠ¤íŠ¸ í´ë¦¬ì–´.
     void Clear(short nExceptObjIndex);
-    /// ÇØ´ç ÀÎµ¦½ºÀÇ ¿ÀºêÁ§Æ® Á¦°Å.
+    /// í•´ë‹¹ ì¸ë±ìŠ¤ì˜ ì˜¤ë¸Œì íŠ¸ ì œê±°.
     void Del_Object(short nIndex);
-    /// ÇØ´ç ¿ÀºêÁ§Æ® Á¦°Å.
+    /// í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ ì œê±°.
     void Del_Object(CGameOBJ* pObject);
 
-    /// ³ª¹« Ãß°¡.
+    /// ë‚˜ë¬´ ì¶”ê°€.
     int Add_GndTREE(short nObjID, D3DVECTOR& Position, D3DXQUATERNION& Rotate, D3DVECTOR& Scale);
-    /// °Ç¹° Ãß°¡.
+    /// ê±´ë¬¼ ì¶”ê°€.
     int Add_GndCNST(short nObjID, D3DVECTOR& Position, D3DXQUATERNION& Rotate, D3DVECTOR& Scale);
-    /// ¾ÆÀÌÅÛ Ãß°¡
+    /// ì•„ì´í…œ ì¶”ê°€
     int Add_GndITEM(WORD wServerObjectIndex,
         tagITEM& sITEM,
         tPOINTF& Position,
         float fRefZPos = 0.0f,
         bool bUseRefZPos = false);
-    /// ¸ğÆÛ Ãß°¡
+    /// ëª¨í¼ ì¶”ê°€
     int Add_MORPHER(short nObjID, D3DVECTOR& Position, D3DXQUATERNION& Rotate, D3DVECTOR& Scale);
-    /// Warp object Ãß°¡
+    /// Warp object ì¶”ê°€
     int Add_WARP(short nObjID, D3DVECTOR& Position, D3DXQUATERNION& Rotate, D3DVECTOR& Scale);
-    /// Collision object Ãß°¡
+    /// Collision object ì¶”ê°€
     int
     Add_CollisionBox(int iReserved, D3DVECTOR& Position, D3DXQUATERNION& Rotate, D3DVECTOR& Scale);
 
-    /// ¸÷ Ãß°¡
+    /// ëª¹ ì¶”ê°€
     int Add_MobCHAR(WORD wServerObjectIndex,
         short nMobIdx,
         const D3DVECTOR& Position,
         short nQuestIDX,
         bool bRunMODE);
-    /// NPC Ä³¸¯ÅÍ Ãß°¡
+    /// NPC ìºë¦­í„° ì¶”ê°€
     int Add_NpcCHAR(WORD wServerObjectIndex,
         short nNpcIdx,
         const D3DVECTOR& Position,
         short nQuestIDX,
         float fModelDIR);
-    /// ¾Æ¹ÙÅ¸ Ä³¸¯ÅÍ Ãß°¡.
+    /// ì•„ë°”íƒ€ ìºë¦­í„° ì¶”ê°€.
     bool Add_AvtCHAR(CObjAVT* pAvtCHAR, D3DVECTOR& Position, BYTE btCharRACE);
 
-    /// Cart Ãß°¡
+    /// Cart ì¶”ê°€
     CObjCART* Add_CartCHAR(int iPetType, CObjAVT* pOwner, WORD wServerObjectIndex);
 
-    /// Event object Ãß°¡
+    /// Event object ì¶”ê°€
     int Add_FixedEvent(int iEventID,
         short nObjID,
         const char* pTriggerFileName,
@@ -142,39 +142,39 @@ public:
         D3DXQUATERNION& Rotate,
         D3DVECTOR& Scale);
 
-    /// »õ·Î¿î À¯Á® Ä³¸¯ÅÍ Ãß°¡.
+    /// ìƒˆë¡œìš´ ìœ ì ¸ ìºë¦­í„° ì¶”ê°€.
     CObjUSER* New_UserCHAR(WORD wServerObjectIndex, char* szName);
-    /// »õ·Î¿î ¾Æ¹ÙÅ¸ Ãß°¡.
+    /// ìƒˆë¡œìš´ ì•„ë°”íƒ€ ì¶”ê°€.
     CObjAVT* New_AvtCHAR(WORD wServerObjectIndex, char* szName);
 
-    /// ¼­¹öÀÎµ¦½º¿Í Å¬¶óÀÌ¾ğÆ® ÀÎµ¦½º µî·Ï
+    /// ì„œë²„ì¸ë±ìŠ¤ì™€ í´ë¼ì´ì–¸íŠ¸ ì¸ë±ìŠ¤ ë“±ë¡
     void Set_ServerObjectIndex(short nClientObjectIndex, WORD wServerObjectIndex);
-    /// ¼­¹ö ÀÎµ¦½º·Î Å¬¶óÀÌ¾ğÆ® ÀÎµ¦½º¸¦ ±¸ÇÔ.
+    /// ì„œë²„ ì¸ë±ìŠ¤ë¡œ í´ë¼ì´ì–¸íŠ¸ ì¸ë±ìŠ¤ë¥¼ êµ¬í•¨.
     short Get_ClientObjectIndex(WORD wServerObjectIndex) {
         return m_nServer2ClientOBJ[wServerObjectIndex];
     }
-    /// Å¬¶óÀÌ¾ğÆ® ÀÎµ¦½º·Î ¼­¹ö ÀÎµ¦½º¸¦ ±¸ÇÔ.
+    /// í´ë¼ì´ì–¸íŠ¸ ì¸ë±ìŠ¤ë¡œ ì„œë²„ ì¸ë±ìŠ¤ë¥¼ êµ¬í•¨.
     WORD Get_ServerObjectIndex(short nClientObjectIndex) {
         return m_wClient2ServerOBJ[nClientObjectIndex];
     }
 
-    /// ¼­¹ö ÀÎµ¦½º·Î Å¬¶óÀÌ¾ğÆ® ¿ÀºêÁ§Æ®¸¦ ¾ò´Â´Ù.
+    /// ì„œë²„ ì¸ë±ìŠ¤ë¡œ í´ë¼ì´ì–¸íŠ¸ ì˜¤ë¸Œì íŠ¸ë¥¼ ì–»ëŠ”ë‹¤.
     inline CGameOBJ* Get_ClientOBJECT(WORD wServerObjectIndex, t_ObjTAG ObjTYPE = OBJ_NULL) {
         return this->Get_OBJECT(this->Get_ClientObjectIndex(wServerObjectIndex), ObjTYPE);
     }
-    /// ¼­¹ö ÀÎµ¦½º·Î Ä³¸¯ÅÍ ¿ÀºêÁ§Æ®¸¦ ¾ò´Â´Ù.
+    /// ì„œë²„ ì¸ë±ìŠ¤ë¡œ ìºë¦­í„° ì˜¤ë¸Œì íŠ¸ë¥¼ ì–»ëŠ”ë‹¤.
     inline CObjCHAR* Get_ClientCharOBJ(WORD wServerObjectIndex, bool bCheckHP) {
         return this->Get_CharOBJ(this->Get_ClientObjectIndex(wServerObjectIndex), bCheckHP);
     }
 
-    ///Ä³¸¯ÅÍÀÌ¸§À¸·Î Ä³¸¯ÅÍ ¿ÀºêÁ§Æ®¸¦ ¾ò´Â´Ù.
+    ///ìºë¦­í„°ì´ë¦„ìœ¼ë¡œ ìºë¦­í„° ì˜¤ë¸Œì íŠ¸ë¥¼ ì–»ëŠ”ë‹¤.
     CObjCHAR* Get_ClientCharOBJByName(const char* szName);
 
-    /// ¼­¹ö ÀÎµ¦½º·Î ¾Æ¹ÙÀÚ ¿ÀºêÁ§Æ®¸¦ ¾ò´Â´Ù.
+    /// ì„œë²„ ì¸ë±ìŠ¤ë¡œ ì•„ë°”ì ì˜¤ë¸Œì íŠ¸ë¥¼ ì–»ëŠ”ë‹¤.
     inline CObjAVT* Get_ClientCharAVT(WORD wServerObjectIndex, bool bCheckHP) {
         return this->Get_CharAVT(this->Get_ClientObjectIndex(wServerObjectIndex), bCheckHP);
     }
-    /// ¼­¹ö ÀÎµ¦½º·Î ¾ÆÀÌÅÛ ¿ÀºêÁ§Æ®¸¦ ¾ò´Â´Ù.
+    /// ì„œë²„ ì¸ë±ìŠ¤ë¡œ ì•„ì´í…œ ì˜¤ë¸Œì íŠ¸ë¥¼ ì–»ëŠ”ë‹¤.
     inline CObjITEM* Get_ClientItemOBJ(WORD wServerObjectIndex) {
         return this->Get_ItemOBJ(this->Get_ClientObjectIndex(wServerObjectIndex));
     }
@@ -202,7 +202,7 @@ public:
     const std::list<NpcInfoInMap>& GetNpcInfoList();
 
     //-------------------------------------------------------------------------------------------------
-    /// ÀÌº¥Æ® ¿ÀºêÁ§Æ® °ü·Ã
+    /// ì´ë²¤íŠ¸ ì˜¤ë¸Œì íŠ¸ ê´€ë ¨
     CObjFixedEvent* GetEventObject(int iEventID);
 
     void ResetClanMarkInfo(DWORD dwClanID, WORD crc16);

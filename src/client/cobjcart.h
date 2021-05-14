@@ -72,14 +72,14 @@ public:
     int GetPetParts(int iPartIDX) { return m_nPartItemIDX[iPartIDX]; }
 
     ///
-    /// Ä«Æ®¿¡ ÀÌÆåÆ® ¼³Á¤
+    /// ì¹´íŠ¸ì— ì´í™íŠ¸ ì„¤ì •
     ///
     void SetEffect();
     void SetPartEffect(int iPart);
     void SetEffectByMoveState(bool bShow = true);
 
     ///
-    /// Ä«Æ®¿¡ »ç¿îµå ¼³Á¤
+    /// ì¹´íŠ¸ì— ì‚¬ìš´ë“œ ì„¤ì •
     ///
     void PlaySound(int iCurrentState);
     void PlayPartSound(int iPart, int iCurrentState);
@@ -131,9 +131,9 @@ public:
     /*override*/ int Get_R_WEAPON() { return 0; }
     /*override*/ int Get_L_WEAPON() { return 0; }
 
-    /// ÃÖ´ë »ı¸í·Â
+    /// ìµœëŒ€ ìƒëª…ë ¥
     /*override*/ int Get_MaxHP() { return m_pObjParent->Get_MaxHP(); }
-    /// ÃÖ´ë ¸¶³ª
+    /// ìµœëŒ€ ë§ˆë‚˜
     /*override*/ int Get_MaxMP() { return m_pObjParent->Get_MaxMP(); }
 
     /*override*/ virtual int Def_AttackRange() { return 0; }
@@ -177,12 +177,12 @@ public:
     int GetRideAniPos();
 
     virtual bool Create(CObjCHAR* pParent, int iCartType, D3DVECTOR& Position);
-    /// Ãæµ¹¿¡ ÇÊ¿äÇÑ À§Ä¡Á¤º¸¸¦ º¹»çÇÑ´Ù.
+    /// ì¶©ëŒì— í•„ìš”í•œ ìœ„ì¹˜ì •ë³´ë¥¼ ë³µì‚¬í•œë‹¤.
     void CopyCollisionInformation(bool bRiding = true);
 
     //------------------------------------------------------------------------------
-    //¹ÚÁöÈ£::...
-    CObjCHAR* m_pRideUser; // 2ÀÎ½Â Å¾½ÂÀÚ
+    //ë°•ì§€í˜¸::...
+    CObjCHAR* m_pRideUser; // 2ì¸ìŠ¹ íƒ‘ìŠ¹ì
 
     bool Create(CObjCHAR* pTarget);
     void SetCartPartVisible(float fv);

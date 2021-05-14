@@ -8,7 +8,7 @@ class CWS_Party;
 class CWS_Server;
 class CMessenger;
 
-#define RIGHT_MASTER 0x00800 // ¸¶½ºÅ¸..
+#define RIGHT_MASTER 0x00800 // ë§ˆìŠ¤íƒ€..
 #define IS_HACKING(pUSER, fn) pUSER->IsHacking(fn, __FILE__, __LINE__)
 
 class CWS_Client: public iocpSOCKET {
@@ -215,7 +215,7 @@ private:
     CDLList<CWS_Client*> m_SockLIST;
 
 public:
-    // Worker Thread °¹¼ö = CPU * 2 + 2
+    // Worker Thread ê°¯ìˆ˜ = CPU * 2 + 2
     CWS_ListCLIENT(UINT uiInitDataCNT, UINT uiIncDataCNT):
         IOCPSocketSERVER((char*)"CWS_ClientSOCKET", 2, 2, true), CDataPOOL<CWS_Client>(
                                                                      (char*)"CClientPOOL",
@@ -251,7 +251,7 @@ public:
     //-------------------------------------------------------------------------------------------------
     /// Inherited from IOCPSocketSERVER
     iocpSOCKET* AllocClientSOCKET() {
-        // ¸Þ¸ð¸®ÇÒ´ç
+        // ë©”ëª¨ë¦¬í• ë‹¹
         CWS_Client* pSOCKET = this->Pool_Alloc();
         if (pSOCKET) {
             pSOCKET->Init();
@@ -274,7 +274,7 @@ public:
             m_SockLIST.DeleteNFree(pClient->m_pNodeSockLIST);
         this->m_CS.Unlock();
 
-        // °ËÁõ¾øÀÌ ¸Þ¸ð¸® ÇØÁ¦
+        // ê²€ì¦ì—†ì´ ë©”ëª¨ë¦¬ í•´ì œ
         pClient->Free();
         this->Pool_Free(pClient);
     }

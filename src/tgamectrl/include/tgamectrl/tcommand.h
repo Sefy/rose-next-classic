@@ -5,10 +5,10 @@
 class CTObject;
 
 /**
- * ÀÎÅÍÆäÀÌ½º Àü¹İÀûÀ¸·Î »ç¿ëµÇ´Â Command Pattern¿¡¼­ »ç¿ëµÇ´Â CommandÀÇ Base Class
- * - ¿¬°üClass				CTMacroCommand, CTCommandQ
+ * ì¸í„°í˜ì´ìŠ¤ ì „ë°˜ì ìœ¼ë¡œ ì‚¬ìš©ë˜ëŠ” Command Patternì—ì„œ ì‚¬ìš©ë˜ëŠ” Commandì˜ Base Class
+ * - ì—°ê´€Class				CTMacroCommand, CTCommandQ
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Date		2005/8/30
  */
@@ -21,20 +21,20 @@ public:
     bool IsWaitExecSucceed() { return m_bWaitExec; }
 
 protected:
-    /// Execute½ÇÆĞ½Ã¿¡ º¸Åë TCommand´Â Å¥ÀÇ ¸ÇµÚ·Î ÀÌµ¿ÇÑ´Ù.
-    /// ±×·¯³ª m_bWaitExec°¡ trueÀÏ°æ¿ì¿¡´Â »èÁ¦ÇÏÁö ¾Ê°í Å¥ÀÇ ¸Ç ¾Õ¿¡ ±×·¡µµ ´ë±âÇÏ¿© ½ÇÇàÀÌ
-    /// ¼º°øÇÒ¶§ ±îÁö ¹İº¹ÇÏ°Ô ÇÑ´Ù. Default´Â false;
-    /// => ÃÖÁ¾¿¡´Â Command¸¶´Ù ¿ì¼±¼øÀ§¸¦ µÎ°í ¿ì¼±¼øÀ§ Å¥¸¦ ±¸ÇöÇØ¾ß ÇÑ´Ù.
+    /// Executeì‹¤íŒ¨ì‹œì— ë³´í†µ TCommandëŠ” íì˜ ë§¨ë’¤ë¡œ ì´ë™í•œë‹¤.
+    /// ê·¸ëŸ¬ë‚˜ m_bWaitExecê°€ trueì¼ê²½ìš°ì—ëŠ” ì‚­ì œí•˜ì§€ ì•Šê³  íì˜ ë§¨ ì•ì— ê·¸ë˜ë„ ëŒ€ê¸°í•˜ì—¬ ì‹¤í–‰ì´
+    /// ì„±ê³µí• ë•Œ ê¹Œì§€ ë°˜ë³µí•˜ê²Œ í•œë‹¤. DefaultëŠ” false;
+    /// => ìµœì¢…ì—ëŠ” Commandë§ˆë‹¤ ìš°ì„ ìˆœìœ„ë¥¼ ë‘ê³  ìš°ì„ ìˆœìœ„ íë¥¼ êµ¬í˜„í•´ì•¼ í•œë‹¤.
     bool m_bWaitExec;
 };
 
 #include <list>
 //----------------------------------------------------------------------------------------------------------
-/// @Brief					CTCommand¸¦ º¹¼ö·Î ½ÇÇàÇÏ±â À§ÇÑ Multi Command Class
+/// @Brief					CTCommandë¥¼ ë³µìˆ˜ë¡œ ì‹¤í–‰í•˜ê¸° ìœ„í•œ Multi Command Class
 ///
-/// @Warning				MacroCommand´Â ExecÀÎÀÚ·Î Ç×»ó NULLÀÌ °¡´Ï±î ÁÖÀÇÇÒ²¯
+/// @Warning				MacroCommandëŠ” Execì¸ìë¡œ í•­ìƒ NULLì´ ê°€ë‹ˆê¹Œ ì£¼ì˜í• ê»
 ///
-/// @Author					2005/8/30 ÃÖÁ¾Áø
+/// @Author					2005/8/30 ìµœì¢…ì§„
 //----------------------------------------------------------------------------------------------------------
 class TGAMECTRL_API CTMacroCommand: public CTCommand {
 public:

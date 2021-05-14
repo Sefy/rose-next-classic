@@ -2,9 +2,9 @@
 #define _AddFriendDlg_
 #include "tgamectrl/tdialog.h"
 /**
- * Ä£±¸Ãß°¡½Ã ÀÌ¸§ ÀÔ·Â ´ÙÀÌ¾ó·Î±×
+ * ì¹œêµ¬ì¶”ê°€ì‹œ ì´ë¦„ ì…ë ¥ ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CAddFriendDlg: public CTDialog {
@@ -18,6 +18,6 @@ protected:
     enum { IID_BTN_CLOSE = 10, IID_BTN_CONFIRM = 11, IID_EDITBOX = 20 };
 
 protected:
-    bool SendReqAddFriend(); /// ¼­¹ö·Î Ä£±¸ Ãß°¡ ¿äÃ»
+    bool SendReqAddFriend(); /// ì„œë²„ë¡œ ì¹œêµ¬ ì¶”ê°€ ìš”ì²­
 };
 #endif

@@ -7,9 +7,9 @@
 class CTComboBox;
 
 /**
- * а╕а╤юнемфДюл╫╨ ц╒юг State Class : а╕а╤гр ╬фюлешюг ╪╠ец╧в юГ╥А╦╕ аь╨Яго╢б ╩Себ
+ * Л═°Л║╟Л²╦М└╟М▌≤Л²╢Л┼╓ Л╟╫Л²≤ State Class : Л═°Л║╟М∙═ Л∙└Л²╢М┘°Л²≤ Л└═М┐²К╟▐ Л·╛Кё▄К╔╪ Л╓─К╧└М∙≤К┼■ Л┐│М┐°
  *
- * @Author		цжа╬аЬ
+ * @Author		Л╣°Л╒┘Л╖└
  * @Date			2005/9/15
  */
 class CMakeStateNormal: public CMakeState {

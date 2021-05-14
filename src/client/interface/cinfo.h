@@ -12,7 +12,7 @@ const D3DCOLOR g_dwBlueToolTip = D3DCOLOR_ARGB(255, 100, 200, 255);
 #define INFO_STATUS_SIMPLE 0x00010000
 #define INFO_STATUS_DETAIL 0x00100000
 #define INFO_STATUS_FEW \
-    0x01000000 /// SIMPLEº¸´Ù ´õ ÀûÀº Á¤º¸ ( ´ÜÃàÅ°¹Ù,È°¼ºÈ­ ½½·Ô¿¡¼­ÀÇ ½ºÅ³ Á¤º¸ Ç¥½Ã½Ã »ç¿ë )
+    0x01000000 /// SIMPLEë³´ë‹¤ ë” ì ì€ ì •ë³´ ( ë‹¨ì¶•í‚¤ë°”,í™œì„±í™” ìŠ¬ë¡¯ì—ì„œì˜ ìŠ¤í‚¬ ì •ë³´ í‘œì‹œì‹œ ì‚¬ìš© )
 
 #define INFO_ADD_PRICE 0x00000001
 #define INFO_ADD_PRICE_SELL 0x00000002
@@ -25,11 +25,11 @@ const D3DCOLOR g_dwBlueToolTip = D3DCOLOR_ARGB(255, 100, 200, 255);
 #define INFO_ADD_PRICE_APPRAISAL 0x20000000
 
 /**
- * ÅøÆÁ½Ã½ºÅÛ¹× µå¶øµÇ¾î ÀÖ´Â ¾ÆÀÌÅÛÀÇ ÀÌ¸§Ç¥½Ã( CTRLÅ°°¡ ´­·ÈÀ»¶§ )¿¡ »ç¿ëµÇ´Â ½ºÆ®¸µ Ç¥½Ã Class
- *	- È­¸é¹ÛÀ¸·Î Ç¥½Ã°¡ ³ª°¡Áö ¾Êµµ·Ï À§Ä¡ Á¶Á¤ ±â´É
- *	- ±ÛÀÚÇ¥½Ã¿¡ µû¶ó ÀÌ¹ÌÁöÀÇ ³Êºñ¸¦ Á¶Á¤ÇÏ´Â ±â´É
+ * íˆ´íŒì‹œìŠ¤í…œë° ë“œëžë˜ì–´ ìžˆëŠ” ì•„ì´í…œì˜ ì´ë¦„í‘œì‹œ( CTRLí‚¤ê°€ ëˆŒë ¸ì„ë•Œ )ì— ì‚¬ìš©ë˜ëŠ” ìŠ¤íŠ¸ë§ í‘œì‹œ Class
+ *	- í™”ë©´ë°–ìœ¼ë¡œ í‘œì‹œê°€ ë‚˜ê°€ì§€ ì•Šë„ë¡ ìœ„ì¹˜ ì¡°ì • ê¸°ëŠ¥
+ *	- ê¸€ìží‘œì‹œì— ë”°ë¼ ì´ë¯¸ì§€ì˜ ë„ˆë¹„ë¥¼ ì¡°ì •í•˜ëŠ” ê¸°ëŠ¥
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/5
  */
 class CInfo {
@@ -60,7 +60,7 @@ protected:
     POINT m_ptPosition;
     int m_iWidth;
     int m_iHeight;
-    UINT m_uMaxSizeString; ///ÃÖ´ë ±ÛÀÚ¼ö
+    UINT m_uMaxSizeString; ///ìµœëŒ€ ê¸€ìžìˆ˜
     std::vector<CTString> m_listString;
     std::string m_strTitle;
 };

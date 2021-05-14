@@ -26,7 +26,7 @@ CAcceptTHREAD::Execute() {
 
     //    Synchronize( LogSTART );
 
-    // m_ListenSocketÀÌ INVALID_SOCKETÀÌ µÇ¸é ·çÇÁ¸¦ Å»ÃâÇÑ´Ù.
+    // m_ListenSocketì´ INVALID_SOCKETì´ ë˜ë©´ ë£¨í”„ë¥¼ íƒˆì¶œí•œë‹¤.
     while (INVALID_SOCKET != m_ListenSocket && false == this->Terminated) {
         iAddrLEN = sizeof(SockADDR);
         ClientSocket = ::accept(m_ListenSocket, (sockaddr*)&SockADDR, &iAddrLEN);
@@ -42,7 +42,7 @@ CAcceptTHREAD::Execute() {
         }
 
         if (!this->AcceptSOCKET(ClientSocket, SockADDR)) {
-            // ´õÀÌ»ó ¹ÞÀ»¼ö ¾ø°Å³ª ºí·°µÈ IP´Ù.
+            // ë”ì´ìƒ ë°›ì„ìˆ˜ ì—†ê±°ë‚˜ ë¸”ëŸ­ëœ IPë‹¤.
             struct linger li = {0, 0}; // Default: SO_DONTLINGER
 
             ::shutdown(ClientSocket, SD_BOTH);
@@ -59,7 +59,7 @@ CAcceptTHREAD::Execute() {
 //---------------------------------------------------------------------------
 bool
 CAcceptTHREAD::Init(int iTCPPort, int iKeepAliveSec) {
-    //----------------------- Accept socket »ý¼º
+    //----------------------- Accept socket ìƒì„±
     int iRet;
     WSADATA wsaData;
 
@@ -120,10 +120,10 @@ CAcceptTHREAD::Init(int iTCPPort, int iKeepAliveSec) {
        retransmitted before the connection is terminated. The retransmission timeout itself is
        adaptive and will vary according to link conditions. The default is 5.
 
-        // MS»ç´Â 300,000(5ºÐ)À¸·Î ¼³Á¤ÇÏµµ·Ï ±ÇÀåÇÏ°í ÀÖ´Ù.
+        // MSì‚¬ëŠ” 300,000(5ë¶„)ìœ¼ë¡œ ì„¤ì •í•˜ë„ë¡ ê¶Œìž¥í•˜ê³  ìžˆë‹¤.
         #define IOCP_KEEPALIVE_TIME			300000
-        #define IOCP_KEEPALIVE_INTERVAL		3000	//ÀÀ´äÀÌ ¾øÀ»½Ã ´Ù½Ã º¸³¾ ½Ã°£ °£°Ý 3ÃÊ(±âº» 5È¸
-       ½ÃµµÈÄ Â©¸§)
+        #define IOCP_KEEPALIVE_INTERVAL		3000	//ì‘ë‹µì´ ì—†ì„ì‹œ ë‹¤ì‹œ ë³´ë‚¼ ì‹œê°„ ê°„ê²© 3ì´ˆ(ê¸°ë³¸ 5íšŒ
+       ì‹œë„í›„ ì§¤ë¦„)
 
         tcp_keepalive	KeepAlive;
         KeepAlive.onoff				= TRUE;
@@ -156,16 +156,16 @@ CAcceptTHREAD::Free(void) {
     }
 
     // 2003. 11. 05
-    // Á¾·á½Ã wait±â´É Ãß°¡... wait¾øÀÌ Á¾·áÇÑÈÄ
-    // ¹Ù·Î delete threadµÇ¸é socket list¿Í ²¿ÀÓ...
+    // ì¢…ë£Œì‹œ waitê¸°ëŠ¥ ì¶”ê°€... waitì—†ì´ ì¢…ë£Œí•œí›„
+    // ë°”ë¡œ delete threadë˜ë©´ socket listì™€ ê¼¬ìž„...
     while (!this->IsFinished()) {
         ::Sleep(10);
     }
 
     ::WSACleanup();
 
-    // ThreadWORKER¿Í ´Þ¸® m_ListenSocket¸¦ °øÀ¯ÇÏÁö ¾ÊÀ¸¹Ç·Î
-    // º» ÇÔ¼ö°¡ È£ÃâµÈÈÄ¿¡´Â ¾²·¹µå°¡ Á¾·áµÈ´Ù.
+    // ThreadWORKERì™€ ë‹¬ë¦¬ m_ListenSocketë¥¼ ê³µìœ í•˜ì§€ ì•Šìœ¼ë¯€ë¡œ
+    // ë³¸ í•¨ìˆ˜ê°€ í˜¸ì¶œëœí›„ì—ëŠ” ì“°ë ˆë“œê°€ ì¢…ë£Œëœë‹¤.
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -176,7 +176,7 @@ bool CAcceptTHREAD::AcceptSOCKET (SOCKET hSocket, sockaddr_in &SockADDR)
 
     pNode = g_CUserLIST.AddUser (ClientSocket);
     if ( pNode == NULL ) {
-        // »ç¿ëÀÚ ¸®½ºÆ®¿¡ ´õÀÌ»ó µî·ÏÇÒ¼ö ¾ø´Ù..
+        // ì‚¬ìš©ìž ë¦¬ìŠ¤íŠ¸ì— ë”ì´ìƒ ë“±ë¡í• ìˆ˜ ì—†ë‹¤..
         ::closesocket (ClientSocket);
     } else
     if ( !pServer->_AddSocket (ClientSocket, (DWORD)&pNode->DATA) ) {

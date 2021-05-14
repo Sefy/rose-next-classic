@@ -11,51 +11,51 @@ public:
     NetworkController(void);
     ~NetworkController(void);
 
-    // ÃÊ±âÈ­ Ã³¸®
+    // ì´ˆê¸°í™” ì²˜ë¦¬
     BOOL Init(const int Port = 15000);
-    // RECV ¿äÃ»
+    // RECV ìš”ì²­
     BOOL RecvPost(PPerSocketContext pPerSocketCtx);
-    // Send ¿äÃ»
+    // Send ìš”ì²­
     BOOL SendPost(PPerSocketContext pPerSocketCtx);
-    // Accept ÀÛ¾÷ Ã³¸®
+    // Accept ì‘ì—… ì²˜ë¦¬
     void AcceptProcess(void);
-    // ¼­¹ö Áß´Ü
+    // ì„œë²„ ì¤‘ë‹¨
     void ServerClose(void);
 
 private:
-    // Per Io Context ¸Ş¸ğ¸® ÇÒ´ç
+    // Per Io Context ë©”ëª¨ë¦¬ í• ë‹¹
     PPerIoContext AllocPerIoContextForRecv(void);
     PPerIoContext AllocPerIoContextForSend(void);
-    // Per Socket Context ¸Ş¸ğ¸® ÇÒ´ç
+    // Per Socket Context ë©”ëª¨ë¦¬ í• ë‹¹
     PPerSocketContext AllocPerSocketContext(SOCKET clientSocket);
-    // ¿Ï·á ÆĞÅ¶ Ã³¸® ÇÔ¼ö
+    // ì™„ë£Œ íŒ¨í‚· ì²˜ë¦¬ í•¨ìˆ˜
     void ProcessingThread(void);
-    // PerIoContext ¸Ş¸ğ¸® Á¦°Å
+    // PerIoContext ë©”ëª¨ë¦¬ ì œê±°
     void DeallocPerIoContextForSend(PPerIoContext pPerIoCtx);
     void DeallocPerIoContextForRecv(PPerIoContext pPerIoCtx);
-    // PerSocketContext ¸Ş¸ğ¸® Á¦°Å
+    // PerSocketContext ë©”ëª¨ë¦¬ ì œê±°
     void DeallocPerSocketContext(PPerSocketContext pPerSocketCtx);
-    // ¸®½Ãºê ÀÌº¥Æ® Ã³¸® ÇÚµé·¯ ÇÔ¼ö
+    // ë¦¬ì‹œë¸Œ ì´ë²¤íŠ¸ ì²˜ë¦¬ í•¸ë“¤ëŸ¬ í•¨ìˆ˜
     BOOL RecvCompleteEvent(PPerSocketContext pPerSocketCtx, DWORD dwBytesTransferred);
-    // Send ¿Ï·á ÆĞÅ¶ Ã³¸® ÇÚµé·¯ ÇÔ¼ö
+    // Send ì™„ë£Œ íŒ¨í‚· ì²˜ë¦¬ í•¸ë“¤ëŸ¬ í•¨ìˆ˜
     BOOL SendCompleteEvent(PPerSocketContext pPerSocketCtx, DWORD dwBytesTransferred);
-    // Recv, Send ¿Ï·á µ¿ÀÛ ¿ÜÀÇ Ã³¸® ÇÚµé·¯ ÇÔ¼ö
+    // Recv, Send ì™„ë£Œ ë™ì‘ ì™¸ì˜ ì²˜ë¦¬ í•¸ë“¤ëŸ¬ í•¨ìˆ˜
     BOOL OtherCompleteEvent(PPerSocketContext pPerSocketCtx, DWORD dwBytesTransferred);
-    // Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ ÄÁÅØ½ºÆ® Á¦°ÅÇÏ°í ¼ÒÄÏ ´İÀ½
+    // í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ì»¨í…ìŠ¤íŠ¸ ì œê±°í•˜ê³  ì†Œì¼“ ë‹«ìŒ
     void CloseClient(PPerSocketContext pPerSocketCtx, bool bGraceful);
 
 private:
-    // ¸®½¼ ¼ÒÄÏ
+    // ë¦¬ìŠ¨ ì†Œì¼“
     SOCKET m_listenSocket;
-    // IOCP ÇÚµé·¯
+    // IOCP í•¸ë“¤ëŸ¬
     IocpHandler m_IocpHandler;
 
 #ifdef STATISTICS
-    // Åë°è Ç¥½Ã¸¦ À§ÇÑ Å¬·¡½º ÀÎ½ºÅÏ½º
+    // í†µê³„ í‘œì‹œë¥¼ ìœ„í•œ í´ë˜ìŠ¤ ì¸ìŠ¤í„´ìŠ¤
     Statistics m_state;
 #endif
 
-    // µ¿±âÈ­¸¦ À§ÇÑ º¯¼ö( ÀÌ·¸°Ô ÇÏ´Â°Å º¸´Ü ´Ù¸¥ ¹æ¹ıÀÌ ´õ ³ªÀ» °Í °°À½)
+    // ë™ê¸°í™”ë¥¼ ìœ„í•œ ë³€ìˆ˜( ì´ë ‡ê²Œ í•˜ëŠ”ê±° ë³´ë‹¨ ë‹¤ë¥¸ ë°©ë²•ì´ ë” ë‚˜ì„ ê²ƒ ê°™ìŒ)
     CRITICAL_SECTION m_cs;
 
     MemPooler<PerSocketContext>* m_pPerSocketCtxMemPool;

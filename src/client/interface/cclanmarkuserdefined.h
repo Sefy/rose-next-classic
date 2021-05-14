@@ -2,12 +2,12 @@
 #define _CClanMarkUserDefined_
 
 /**
- * À¯Àú°¡ µî·ÏÇÑ Å¬·£¸¶Å© ÀÌ¹ÌÁö Å¬·¡½º
- *	- CClanMarkManager°¡ °³Ã¼¸¦ °¡Áö°í ÀÖ°í, CObjCHAR°¡ °³Ã¼Æ÷ÀÎÅÍ¸¦ °¡Áö°í ÀÖ´Â´Ù
+ * ìœ ì €ê°€ ë“±ë¡í•œ í´ëžœë§ˆí¬ ì´ë¯¸ì§€ í´ëž˜ìŠ¤
+ *	- CClanMarkManagerê°€ ê°œì²´ë¥¼ ê°€ì§€ê³  ìžˆê³ , CObjCHARê°€ ê°œì²´í¬ì¸í„°ë¥¼ ê°€ì§€ê³  ìžˆëŠ”ë‹¤
  *
- * @Warning		·¹ÆÛ·±½º Ä«¿îÆÃ¿¡ À¯ÀÇ
+ * @Warning		ë ˆí¼ëŸ°ìŠ¤ ì¹´ìš´íŒ…ì— ìœ ì˜
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  *
  * @Date			2005/9/5
  */

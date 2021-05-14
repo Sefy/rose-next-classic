@@ -23,6 +23,6 @@ public:
 
 protected:
     CItem* m_pItem;
-    int m_iIndex; ///Àç·á ¾ÆÀÌÅÛÀÏ°æ¿ì Index( 0 ~ 2 )
+    int m_iIndex; ///ì¬ë£Œ ì•„ì´í…œì¼ê²½ìš° Index( 0 ~ 2 )
 };
 #endif

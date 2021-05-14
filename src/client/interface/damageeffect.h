@@ -36,7 +36,7 @@ private:
     HNODE m_hMesh;
 
     /// Digit texture
-    /// °¢ Å¸ÀÔ´ç 0 ~ 9 ±îÁö
+    /// ê° íƒ€ì…ë‹¹ 0 ~ 9 ê¹Œì§€
     HNODE m_DigitTex[MAX_DIGIT_TYPE][10];
     HNODE m_DigitClearTex;
     HNODE m_DigitMissTex;
@@ -52,7 +52,7 @@ public:
 
     void Refresh();
 
-    /// ÇöÀç »ç¿ëµÇ°í ÀÖÁö ¾Ê´Â ³ëµå¸¦ ¾ò´Â´Ù..( ¾Ö´Ï¸ÅÀÌ¼ÇÀÌ ³¡³µ°Å³ª, ¾Æ¿¹ ¾ÆÁ÷ »ı¼ºµÇÁö ¾ÊÀº°Í )
+    /// í˜„ì¬ ì‚¬ìš©ë˜ê³  ìˆì§€ ì•ŠëŠ” ë…¸ë“œë¥¼ ì–»ëŠ”ë‹¤..( ì• ë‹ˆë§¤ì´ì…˜ì´ ëë‚¬ê±°ë‚˜, ì•„ì˜ˆ ì•„ì§ ìƒì„±ë˜ì§€ ì•Šì€ê²ƒ )
     int GetEmptyNode();
 
     void CreateDigitEffect(int iPoint, float x, float y, float z, bool bIsUSER);

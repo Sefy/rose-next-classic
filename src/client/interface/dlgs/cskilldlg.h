@@ -10,10 +10,10 @@
 class CZListBox;
 
 /**
- * ÇöÀç ¹è¿î ½ºÅ³¿¡ ´ëÇÑ Á¤º¸¸¦ º¸¿©ÁÖ´Â ´ÙÀÌ¾ó·Î±×
+ * í˜„ì¬ ë°°ìš´ ìŠ¤í‚¬ì— ëŒ€í•œ ì •ë³´ë¥¼ ë³´ì—¬ì£¼ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Warning		½ºÅ³Æ®¸®Ã¢À» ¿©´Â ¹öÆ°Àº ´ë¸¸ÆÇ¿¡¼­´Â Á¦°ÅµÇ¾î ÀÖ´Ù( XML Data )
- * @Author		ÃÖÁ¾Áø
+ * @Warning		ìŠ¤í‚¬íŠ¸ë¦¬ì°½ì„ ì—¬ëŠ” ë²„íŠ¼ì€ ëŒ€ë§ŒíŒì—ì„œëŠ” ì œê±°ë˜ì–´ ìˆë‹¤( XML Data )
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/14
  */
 class CSkillDLG: public CTDialog, public IObserver {
@@ -53,11 +53,11 @@ public:
 protected:
     bool On_LButtonUP(unsigned iProcID, WPARAM wParam, LPARAM lParam);
     void DrawTexts();
-    bool IsValidLevelUp(int iSkillSlotIdx); /// ·¹º§¾÷ÀÌ °¡´ÉÇÑ »óÅÂÀÎ°¡?
+    bool IsValidLevelUp(int iSkillSlotIdx); /// ë ˆë²¨ì—…ì´ ê°€ëŠ¥í•œ ìƒíƒœì¸ê°€?
     void RemoveSkillListItem(CZListBox* pListBox, int iSkillSlotIndex);
     void UpdateSkillListBySkillLevelUp(
-        CZListBox* pListBox); /// ½ºÅ³ÀÇ ·¹º§¾÷½Ã ½ºÅ³ÀÇ Á¤º¸Ç¥½Ã °»½Å
-    void UpdateSkillLists(); /// ½ºÅ³¿¡ ´ëÇÑ ¼Ò¸ğ ´É·ÂÄ¡¹× ±âÅ¸ º¯°æ»çÇ× °»½Å
+        CZListBox* pListBox); /// ìŠ¤í‚¬ì˜ ë ˆë²¨ì—…ì‹œ ìŠ¤í‚¬ì˜ ì •ë³´í‘œì‹œ ê°±ì‹ 
+    void UpdateSkillLists(); /// ìŠ¤í‚¬ì— ëŒ€í•œ ì†Œëª¨ ëŠ¥ë ¥ì¹˜ë° ê¸°íƒ€ ë³€ê²½ì‚¬í•­ ê°±ì‹ 
 };
 
 #endif //_SKILLDLG_

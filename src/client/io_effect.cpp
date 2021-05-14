@@ -223,7 +223,7 @@ CEffectDATA::Load(char* szFileName) {
             &m_pParticle[iL].m_Transform.z);
 
         // rotation.. x,y,z,w
-        // ÄõÅÍ´Ï¾ğÀÌ ¾Æ´Ñ Yaw, Pitch, Roll ·Î µé¾î¿Â´Ù.. º¯È¯ ÇÊ¿ä
+        // ì¿¼í„°ë‹ˆì–¸ì´ ì•„ë‹Œ Yaw, Pitch, Roll ë¡œ ë“¤ì–´ì˜¨ë‹¤.. ë³€í™˜ í•„ìš”
         float x, y, z, w;
 
         pFileSystem->ReadFloat4(&x, &y, &z, &w);
@@ -321,7 +321,7 @@ CEffectDATA::Load(char* szFileName) {
             &(m_pMeshAni[iL].m_Transform.z));
 
         // rotation.. x,y,z,w
-        // ÄõÅÍ´Ï¾ğÀÌ ¾Æ´Ñ Yaw, Pitch, Roll ·Î µé¾î¿Â´Ù.. º¯È¯ ÇÊ¿ä
+        // ì¿¼í„°ë‹ˆì–¸ì´ ì•„ë‹Œ Yaw, Pitch, Roll ë¡œ ë“¤ì–´ì˜¨ë‹¤.. ë³€í™˜ í•„ìš”
         float x, y, z, w;
 
         pFileSystem->ReadFloat4(&x, &y, &z, &w);
@@ -382,7 +382,7 @@ CEffect::CEffect(CEffectDATA* pEffectDATA) {
 
     m_pParent = NULL;
 
-    m_bNightEffect = false; /// ¹ã¿¡¸¸ ³ª¿À´Â ÀÌÆåÆ® ÀÎ°¡?
+    m_bNightEffect = false; /// ë°¤ì—ë§Œ ë‚˜ì˜¤ëŠ” ì´í™íŠ¸ ì¸ê°€?
 }
 
 CEffect::~CEffect() {
@@ -463,7 +463,7 @@ CEffect::Create(CEffectDATA* pEffectDATA) {
             m_pEffectDATA->m_pParticle[iC].m_Rotate.y,
             m_pEffectDATA->m_pParticle[iC].m_Rotate.z);
 
-        /// particle ÀÚÃ¼°¡ ( hVisible <- hparticle )±¸Á¶ÀÌ´Ù.
+        /// particle ìì²´ê°€ ( hVisible <- hparticle )êµ¬ì¡°ì´ë‹¤.
         if (m_pEffectDATA->m_pParticle[iC].m_iIsLink)
             ::linkNode(m_hRootNODEs[0], m_pParticle[iC].GetVISIBLE());
         else
@@ -517,7 +517,7 @@ CEffect::Create(CEffectDATA* pEffectDATA) {
                 m_pEffectDATA->m_pMeshAni[iC].m_Rotate.y,
                 m_pEffectDATA->m_pMeshAni[iC].m_Rotate.z);
 
-            /// link ±¸Á¶( hVisible <- hAnimatable <- hMorpher )
+            /// link êµ¬ì¡°( hVisible <- hAnimatable <- hMorpher )
             if (m_pEffectDATA->m_pMeshAni[iC].m_iIsLink)
                 ::linkNode(m_hRootNODEs[0], m_pMeshEffect[iC].GetVISIBLE());
             else
@@ -564,7 +564,7 @@ CEffect::RemoveFromScene() {
     }
 
     //----------------------------------------------------------------------------------------------------
-    /// @brief CHILDÀÇremoveFromSceneÁ¦°Å
+    /// @brief CHILDì˜removeFromSceneì œê±°
     //----------------------------------------------------------------------------------------------------
     ::removeFromScene(m_hRootNODEs[0]);
     ::removeFromScene(m_hRootNODEs[1]);
@@ -576,7 +576,7 @@ CEffect::RemoveFromScene() {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÀÌÆåÆ® ¾Ö´Ï¸ÅÀÌ¼Ç ½ÃÀÛ
+/// @brief ì´í™íŠ¸ ì• ë‹ˆë§¤ì´ì…˜ ì‹œì‘
 //----------------------------------------------------------------------------------------------------
 void
 CEffect::StartEffect() {
@@ -586,7 +586,7 @@ CEffect::StartEffect() {
             ::controlAnimatable(m_pMeshEffect[iC].GetANIMATABLE(), 1);
             ::controlAnimatable(m_pMeshEffect[iC].GetMORPHER(), 1);
             //----------------------------------------------------------------------------------------------------
-            /// @brief CHILDÀÇInsertToSceneÁ¦°Å
+            /// @brief CHILDì˜InsertToSceneì œê±°
             //----------------------------------------------------------------------------------------------------
             //::insertToScene    ( m_pMeshEffect[ iC ].GetMORPHER () );
             //::insertToScene    ( m_pMeshEffect[ iC ].GetANIMATABLE () );
@@ -602,12 +602,12 @@ CEffect::StartEffect() {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÀÌÆåÆ® ¾Ö´Ï¸ÅÀÌ¼Ç ½ºÅ¾
+/// @brief ì´í™íŠ¸ ì• ë‹ˆë§¤ì´ì…˜ ìŠ¤íƒ‘
 //----------------------------------------------------------------------------------------------------
 void
 CEffect::StopEffect() {
     //----------------------------------------------------------------------------------------------------
-    /// @brief ¸ğµç µ¿ÀÛ Á¤Áö..
+    /// @brief ëª¨ë“  ë™ì‘ ì •ì§€..
     //----------------------------------------------------------------------------------------------------
     int iC;
     if (m_pEffectDATA->m_iMeshAniCNT) {
@@ -623,7 +623,7 @@ CEffect::StopEffect() {
 }
 
 //-------------------------------------------------------------------------------------------------
-/// Ãæµ¹ Á¶»ç´Â ¹İµå½Ã ¸Ş½Ã°¡ ÀÖ¾î¾ß ÇÑ´Ù.
+/// ì¶©ëŒ ì¡°ì‚¬ëŠ” ë°˜ë“œì‹œ ë©”ì‹œê°€ ìˆì–´ì•¼ í•œë‹¤.
 bool
 CEffect::IsIntersect(HNODE hMODEL) {
     for (int iC = 0; iC < m_pEffectDATA->m_iMeshAniCNT; iC++) {
@@ -638,7 +638,7 @@ CEffect::IsIntersect(HNODE hMODEL) {
 }
 
 //-------------------------------------------------------------------------------------------------
-/// ¸ğµç ¾Ö´Ï¸ÅÀÌ¼ÇÀÌ Á¾·á µÇ¾ú´Â°¡?( It's time to end. )
+/// ëª¨ë“  ì• ë‹ˆë§¤ì´ì…˜ì´ ì¢…ë£Œ ë˜ì—ˆëŠ”ê°€?( It's time to end. )
 bool
 CEffect::IsFinish(void) {
     if (m_pEffectDATA == NULL)
@@ -708,7 +708,7 @@ CEffectLIST::CEffectLIST(char* szFileEFFECT) {
                 if ((CVFSManager::GetSingleton()).IsExistFile(szFileName) == true) {
                     m_pHashKEY[nI] = this->Add_EffectFILE(szFileName);
                 } else {
-                    LogString(LOG_DEBUG_, "EffectFile:: %s ¾ø´Ù.\n", szFileName);
+                    LogString(LOG_DEBUG_, "EffectFile:: %s ì—†ë‹¤.\n", szFileName);
                 }
             }
         }
@@ -730,7 +730,7 @@ CEffectLIST::~CEffectLIST() {
 }
 
 //-------------------------------------------------------------------------------------------------
-/// @ bug \\   /  \ µî ÆĞ½º¸¦ ÁöÁ¤ÇÏ´Â ¹æ¹ı¿¡µû¶ó Hash°ªÀÌ Æ²¸®°Ô ³ª¿Â´Ù ¤Ñ,.¤Ñ
+/// @ bug \\   /  \ ë“± íŒ¨ìŠ¤ë¥¼ ì§€ì •í•˜ëŠ” ë°©ë²•ì—ë”°ë¼ Hashê°’ì´ í‹€ë¦¬ê²Œ ë‚˜ì˜¨ë‹¤ ã…¡,.ã…¡
 ///				char *aa[] = { "3ddata\\effect\\smoke_01.eft", "3ddata\Effect\smoke_01.eft" };
 ///
 t_HASHKEY
@@ -809,7 +809,7 @@ CEffectLIST::Add_EFFECT(t_HASHKEY uiHashKEY, bool bAdd2LIST) {
     return pEffect;
 }
 
-/// Hash table ¿¡¼­´Â »©Áö ¾Ê´Â´Ù.. ÀÌ°ÍÀÌ ±âº» ½Ã½ºÅÛÀÌ´Ù.
+/// Hash table ì—ì„œëŠ” ë¹¼ì§€ ì•ŠëŠ”ë‹¤.. ì´ê²ƒì´ ê¸°ë³¸ ì‹œìŠ¤í…œì´ë‹¤.
 void
 CEffectLIST::Del_EFFECT(CEffect* pCEffect, bool bUpdateParent) {
     if (pCEffect) {
@@ -818,7 +818,7 @@ CEffectLIST::Del_EFFECT(CEffect* pCEffect, bool bUpdateParent) {
 
             if (bUpdateParent) {
                 CObjCHAR* pChar = pCEffect->GetParentCHAR();
-                /// ³»°Ô ºÎ¸ğ°¡ ÀÖ´Ù¸é.. ºÎ¸ğÀÇ ÀÌÆåÆ® ¸®½ºÆ®¸¦ °»½ÅÇÏ¶ó..
+                /// ë‚´ê²Œ ë¶€ëª¨ê°€ ìˆë‹¤ë©´.. ë¶€ëª¨ì˜ ì´í™íŠ¸ ë¦¬ìŠ¤íŠ¸ë¥¼ ê°±ì‹ í•˜ë¼..
                 if (pChar) {
                     pChar->DeleteExternalEffect(pCEffect);
                 }
@@ -846,7 +846,7 @@ CEffectLIST::Proc() {
             pDelNode = pNode;
             pNode = m_LIST.GetNextNode(pNode);
 
-            /// ºÎ¸ğ°¡ ÀÖ´Ù¸é ºÎ¸ğÀÇ ·¹ÆÛ·±½º °»½Å
+            /// ë¶€ëª¨ê°€ ìˆë‹¤ë©´ ë¶€ëª¨ì˜ ë ˆí¼ëŸ°ìŠ¤ ê°±ì‹ 
             if (pDelNode->DATA->GetParentCHAR() != NULL)
                 Del_EFFECT(pDelNode->DATA, true);
             else

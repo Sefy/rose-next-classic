@@ -9,33 +9,33 @@ class CItem;
 class CItemFragment;
 struct t_PACKET;
 /**
- * °³ÀÎ»óÁ¡¿ë Data Class
- * - °³ÀÎ»óÁ¡¿ë UI´Â Show½Ã¿¡ Observer·Î µî·ÏÇÏ°í Hide½Ã¿¡ ÇØÁ¦ÇÑ´Ù.
- * - Observer·Î µî·ÏÀü¿¡ WishList¸¦ °¡Á®°¡¼­ ¸ÅÀÔ¸®½ºÆ®¿¡ Ãß°¡ÇÏ°í, BuyList, SellList( in UI )´Â
- *ClearÇÑ´Ù.
- * - CPrivateStoreÀÇ Buy, Sell List´Â UI°¡ Show or Hide½Ã¿¡ º°µµ·Î ClearÇØÁØ´Ù.
- * - ÆÇ¸Å¹°Ç°ÀÌ ÆÈ·È°Å³ª, ¸ÅÀÔ¹°Ç°ÀÌ ±¸ÀÔÀÌ ¿Ï·áµÇ¾úÀ» °æ¿ì¸¦ °í·ÁÇÏÀÚ
- * - ÆÇ¸Å¹°Ç°ÀÌ ÆÈ·È´Ù¸é ÆÇ¸Å¸®½ºÆ®¿¡¼­ »©°í ¸ÅÀÔ¹°Ç°ÀÌ ±¸ÀÔµÈ´Ù¸é °³¼ö¿¡ µû¶ó¼­ ¸ÅÀÔ¸®½ºÆ®¿¡¼­
- *»«´Ù.
- *		-- CTEventItem : EID_DEL_ITEM,EID_CHANGE_ITEM¸¦ Ã³¸®ÇÏ°í CItemSlot¿¡ Observer·Î Open½Ã¿¡
- *µî·Ï, Close½Ã¿¡ ÇØÁ¦ÇÑ´Ù.
- * - ¸®½ºÆ®¿¡ ÀÖ´Â ¾ÆÀÌÅÛÀÇ °³¼ö°¡ ÁÖ´Â °æ¿ì¿Í ¾ø¾îÁö´Â °æ¿ì¿¡ ´ëÇØ¼­µµ »ı°¢ÇØº¸ÀÚ
+ * ê°œì¸ìƒì ìš© Data Class
+ * - ê°œì¸ìƒì ìš© UIëŠ” Showì‹œì— Observerë¡œ ë“±ë¡í•˜ê³  Hideì‹œì— í•´ì œí•œë‹¤.
+ * - Observerë¡œ ë“±ë¡ì „ì— WishListë¥¼ ê°€ì ¸ê°€ì„œ ë§¤ì…ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•˜ê³ , BuyList, SellList( in UI )ëŠ”
+ *Clearí•œë‹¤.
+ * - CPrivateStoreì˜ Buy, Sell ListëŠ” UIê°€ Show or Hideì‹œì— ë³„ë„ë¡œ Clearí•´ì¤€ë‹¤.
+ * - íŒë§¤ë¬¼í’ˆì´ íŒ”ë ¸ê±°ë‚˜, ë§¤ì…ë¬¼í’ˆì´ êµ¬ì…ì´ ì™„ë£Œë˜ì—ˆì„ ê²½ìš°ë¥¼ ê³ ë ¤í•˜ì
+ * - íŒë§¤ë¬¼í’ˆì´ íŒ”ë ¸ë‹¤ë©´ íŒë§¤ë¦¬ìŠ¤íŠ¸ì—ì„œ ë¹¼ê³  ë§¤ì…ë¬¼í’ˆì´ êµ¬ì…ëœë‹¤ë©´ ê°œìˆ˜ì— ë”°ë¼ì„œ ë§¤ì…ë¦¬ìŠ¤íŠ¸ì—ì„œ
+ *ëº€ë‹¤.
+ *		-- CTEventItem : EID_DEL_ITEM,EID_CHANGE_ITEMë¥¼ ì²˜ë¦¬í•˜ê³  CItemSlotì— Observerë¡œ Openì‹œì—
+ *ë“±ë¡, Closeì‹œì— í•´ì œí•œë‹¤.
+ * - ë¦¬ìŠ¤íŠ¸ì— ìˆëŠ” ì•„ì´í…œì˜ ê°œìˆ˜ê°€ ì£¼ëŠ” ê²½ìš°ì™€ ì—†ì–´ì§€ëŠ” ê²½ìš°ì— ëŒ€í•´ì„œë„ ìƒê°í•´ë³´ì
  *
- * - °³ÀÎ»óÁ¡À» ÀÚ½ÅÀÌ ¿­¶§¿Í ÀÌ¿ëÇÒ¶§¸¦ ±¸ºĞÇØ¾ß ÇÑ´Ù.( Data or UI ?)
- *		-- ÀÏ´Ü Dialog´Â 2°³¸¦ º°µµ·Î ÀÛ¼ºÇÑ´Ù.( °³¼³°ú ÀÌ¿ë 2°¡Áö )
- *		-- Data´Â CPrivateStore¸¦ ¾²´Â°ÍÀ¸·Î ÇÏ°í ÀÌ¿ë¿¡ ÁÖÀÇÇÏÀÚ.( WishList´Â Ç×»ó À¯ÁöÇÏ°í,
- *BuyList¿Í SellList¸¦ ClearÇØÁØ´Ù.)
+ * - ê°œì¸ìƒì ì„ ìì‹ ì´ ì—´ë•Œì™€ ì´ìš©í• ë•Œë¥¼ êµ¬ë¶„í•´ì•¼ í•œë‹¤.( Data or UI ?)
+ *		-- ì¼ë‹¨ DialogëŠ” 2ê°œë¥¼ ë³„ë„ë¡œ ì‘ì„±í•œë‹¤.( ê°œì„¤ê³¼ ì´ìš© 2ê°€ì§€ )
+ *		-- DataëŠ” CPrivateStoreë¥¼ ì“°ëŠ”ê²ƒìœ¼ë¡œ í•˜ê³  ì´ìš©ì— ì£¼ì˜í•˜ì.( WishListëŠ” í•­ìƒ ìœ ì§€í•˜ê³ ,
+ *BuyListì™€ SellListë¥¼ Clearí•´ì¤€ë‹¤.)
  *
- * - ³×Æ®¿öÅ©( 2004 / 6 / 9 )
- *		-- °³ÀÎ»óÁ¡°³¼³½Ã ÆÇ¸Å¹°Ç°
- *			--- ±¸¸ÅÀÚ¿¡°Ô´Â gsv_SET_MONEYnINV ¿Í gsv_P_STORE_RESULT°¡ ¿Â´Ù.
- *			--- °³ÀÎ»óÁ¡°³¼³ÀÚ¿¡°Ô´Â gsv_P_STORE_RESULT¸¸ ¿Â´Ù. ->¿©±â¼­ ÀÎº¥Åä¸®¿¡¼­ »©ÀÚ, ¹°·Ğ
- *ÆÇ¸Å¸®½ºÆ®¿¡¼­µµ
- *		-- °³ÀÎ»óÁ¡°³¼³½Ã ¸ÅÀÔ¹°Ç°
- *			--- ÀÌ¿ëÀÚ¿Í °³¼³ÀÚ¿¡°Ô gsv_SET_MOENYnINV°ú gsv_P_STORE_RESULT°¡ ¸ğµÎ ¿Â´Ù.
+ * - ë„¤íŠ¸ì›Œí¬( 2004 / 6 / 9 )
+ *		-- ê°œì¸ìƒì ê°œì„¤ì‹œ íŒë§¤ë¬¼í’ˆ
+ *			--- êµ¬ë§¤ìì—ê²ŒëŠ” gsv_SET_MONEYnINV ì™€ gsv_P_STORE_RESULTê°€ ì˜¨ë‹¤.
+ *			--- ê°œì¸ìƒì ê°œì„¤ìì—ê²ŒëŠ” gsv_P_STORE_RESULTë§Œ ì˜¨ë‹¤. ->ì—¬ê¸°ì„œ ì¸ë²¤í† ë¦¬ì—ì„œ ë¹¼ì, ë¬¼ë¡ 
+ *íŒë§¤ë¦¬ìŠ¤íŠ¸ì—ì„œë„
+ *		-- ê°œì¸ìƒì ê°œì„¤ì‹œ ë§¤ì…ë¬¼í’ˆ
+ *			--- ì´ìš©ìì™€ ê°œì„¤ìì—ê²Œ gsv_SET_MOENYnINVê³¼ gsv_P_STORE_RESULTê°€ ëª¨ë‘ ì˜¨ë‹¤.
  *
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CPrivateStore: public CObservable, public IObserver {
@@ -79,10 +79,10 @@ private:
 private:
     std::string m_strTitle;
 
-    std::vector<CItemFragment*> m_SellItems; ///ÆÇ¸Å ¾ÆÀÌÅÛ ¸®½ºÆ®
-    /// ±¸ÀÔ ¾ÆÀÌÅÛ ¸®½ºÆ®
+    std::vector<CItemFragment*> m_SellItems; ///íŒë§¤ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸
+    /// êµ¬ì… ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸
     std::list<CItemFragment*> m_BuyItems;
-    CItem* m_WishItems[MAX_WISH_ITEMS]; ///Âò¸®½ºÆ® - Ç×»ó À¯Áö
-    bool m_bOpened; ///ÇöÀç »óÁ¡ÀÌ ¿­·ÁÀÖ´Â°¡?
+    CItem* m_WishItems[MAX_WISH_ITEMS]; ///ì°œë¦¬ìŠ¤íŠ¸ - í•­ìƒ ìœ ì§€
+    bool m_bOpened; ///í˜„ì¬ ìƒì ì´ ì—´ë ¤ìˆëŠ”ê°€?
 };
 #endif

@@ -9,18 +9,18 @@ CLoadingImageManager::CLoadingImageManager(void) {
 }
 
 CLoadingImageManager::~CLoadingImageManager(void) {
-    /// Çà¼ºº° ·Îµù ÀÌ¹ÌÁö Å×ÀÌºí
+    /// í–‰ì„±ë³„ ë¡œë”© ì´ë¯¸ì§€ í…Œì´ë¸”
     m_LoadingImageTableByEvent.clear();
 
-    /// Çà¼ºº° ·Îµù ÀÌ¹ÌÁö Å×ÀÌºí
+    /// í–‰ì„±ë³„ ë¡œë”© ì´ë¯¸ì§€ í…Œì´ë¸”
     m_LoadingImageTableByPlanet.clear();
 
-    /// Á¸º° ·Îµù ÀÌ¹ÌÁö Å×ÀÌºí
+    /// ì¡´ë³„ ë¡œë”© ì´ë¯¸ì§€ í…Œì´ë¸”
     m_LoadingImageTableByZone.clear();
 }
 
 //------------------------------------------------------------------------
-/// List_Loading.sTB ·Î ºÎÅÍ ÀÌ¹ÌÁö Å×ÀÌºíÀ» »ı¼ºÇÑ´Ù.
+/// List_Loading.sTB ë¡œ ë¶€í„° ì´ë¯¸ì§€ í…Œì´ë¸”ì„ ìƒì„±í•œë‹¤.
 //------------------------------------------------------------------------
 bool
 CLoadingImageManager::LoadImageTable(char* strSTBName) {
@@ -30,7 +30,7 @@ CLoadingImageManager::LoadImageTable(char* strSTBName) {
     if (fSTB.Open(strSTBName)) {
         int iImageCNT = fSTB.GetRowCount();
 
-        /// ÀÌº¥Æ®¿ë ·Îµù ÀÌ¹ÌÁö¸¦ Ãâ·ÂÇØ¾ßÇÏ´Â°¡?
+        /// ì´ë²¤íŠ¸ìš© ë¡œë”© ì´ë¯¸ì§€ë¥¼ ì¶œë ¥í•´ì•¼í•˜ëŠ”ê°€?
         int iIsEventLoading = fSTB.GetInteger(1, 0);
         if (iIsEventLoading == 0 && fSTB.GetString(0, 0)) {
             m_bDisplayEventLoadingImage = true;
@@ -40,17 +40,17 @@ CLoadingImageManager::LoadImageTable(char* strSTBName) {
             iImageZoneNO = fSTB.GetInteger(1, i);
             const char* szFileName = fSTB.GetString(0, i);
             if (szFileName) {
-                /// ÀÌº¥Æ®¿ë Ãâ·Â ÀÌ¹ÌÁö¶ó¸é..
+                /// ì´ë²¤íŠ¸ìš© ì¶œë ¥ ì´ë¯¸ì§€ë¼ë©´..
                 if (m_bDisplayEventLoadingImage) {
                     m_LoadingImageTableByEvent.push_back(szFileName);
                 } else {
-                    /// Çà¼º
+                    /// í–‰ì„±
                     if (iImageZoneNO > 500) {
 
                         m_LoadingImageTableByPlanet.insert(
                             std::make_pair(iImageZoneNO - 500, szFileName));
                     } else {
-                        /// Á¸
+                        /// ì¡´
                         m_LoadingImageTableByZone.insert(std::make_pair(iImageZoneNO, szFileName));
                     }
                 }
@@ -67,13 +67,13 @@ CLoadingImageManager::LoadImageTable(char* strSTBName) {
 }
 
 //------------------------------------------------------------------------
-/// ÇØ´ç Á¸¿¡¼­ Ãâ·ÂÇØ¾ßÇÒ ·ÎµùÀÌ¹ÌÁö¸¦ ÆÇ´ÜÇØ¼­ ¸®ÅÏÇÑ´Ù.
+/// í•´ë‹¹ ì¡´ì—ì„œ ì¶œë ¥í•´ì•¼í•  ë¡œë”©ì´ë¯¸ì§€ë¥¼ íŒë‹¨í•´ì„œ ë¦¬í„´í•œë‹¤.
 //------------------------------------------------------------------------
 HNODE
 CLoadingImageManager::GetLoadingImage(int iZoneNO, int iPlanetNO) {
     HNODE hTexture = 0;
 
-    /// ÀÌº¥Æ®¿ë ÀÌ¹ÌÁö¸¦ Ãâ·ÂÇØ¾ßÇÏ´Â°¡?
+    /// ì´ë²¤íŠ¸ìš© ì´ë¯¸ì§€ë¥¼ ì¶œë ¥í•´ì•¼í•˜ëŠ”ê°€?
     if (m_bDisplayEventLoadingImage) {
         int iImageCount = m_LoadingImageTableByEvent.size();
         int iRefNO = RANDOM(iImageCount);
@@ -86,13 +86,13 @@ CLoadingImageManager::GetLoadingImage(int iZoneNO, int iPlanetNO) {
         return hTexture;
     }
 
-    /// ¸ÕÀú Á¸Å×ÀÌºí¿¡ ÀÖ´ÂÁö Ã£´Â´Ù.
+    /// ë¨¼ì € ì¡´í…Œì´ë¸”ì— ìˆëŠ”ì§€ ì°¾ëŠ”ë‹¤.
     if (m_LoadingImageTableByZone.find(iZoneNO) != m_LoadingImageTableByZone.end()) {
         hTexture = GetLoadingImageFromTable(m_LoadingImageTableByZone, iZoneNO);
         return hTexture;
     }
 
-    /// Á¸Å×ÀÌºí¿¡ ¾ø´Ù¸é Çà¼º Å×ÀÌºíÀ» Ã£´Â´Ù.
+    /// ì¡´í…Œì´ë¸”ì— ì—†ë‹¤ë©´ í–‰ì„± í…Œì´ë¸”ì„ ì°¾ëŠ”ë‹¤.
     if (m_LoadingImageTableByPlanet.find(iPlanetNO) != m_LoadingImageTableByPlanet.end()) {
         hTexture = GetLoadingImageFromTable(m_LoadingImageTableByPlanet, iPlanetNO);
         return hTexture;

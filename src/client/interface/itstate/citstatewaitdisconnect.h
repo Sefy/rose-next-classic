@@ -3,9 +3,9 @@
 #include "citstate.h"
 
 /**
- * ¼­¹ö¿¡°Ô ·Î±×¾Æ¿ôÀ» ¾Ë¸®°í Disconnect µÉ¶§±îÁö ´ë±âÇÏ´Â Interface State Class
+ * ì„œë²„ì—ê²Œ ë¡œê·¸ì•„ì›ƒì„ ì•Œë¦¬ê³  Disconnect ë ë•Œê¹Œì§€ ëŒ€ê¸°í•˜ëŠ” Interface State Class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CITStateWaitDisconnect: public CITState {

@@ -73,14 +73,14 @@ GS_lsvSOCKET::Send_zws_SERVER_INFO() {
     pCPacket->m_zws_SERVER_INFO.m_Channel.m_btLowAGE = pGSV->GetLowAGE();
     pCPacket->m_zws_SERVER_INFO.m_Channel.m_btHighAGE = pGSV->GetHighAGE();
 
-    pCPacket->AppendString((char*)pGSV->config.gameserver.server_name.c_str()); // Ã¤³ÎÀÌ¸§ÀÌ´Ù!!!
+    pCPacket->AppendString((char*)pGSV->config.gameserver.server_name.c_str()); // ì±„ë„ì´ë¦„ì´ë‹¤!!!
     pCPacket->AppendString((char*)pGSV->config.gameserver.ip.c_str());
 
     m_SockLSV.Packet_Register2SendQ(pCPacket);
     Packet_ReleaseNUnlock(pCPacket);
 
-    // ·Î±×ÀÎ ¼­¹ö°¡ µµÁß¿¡ »»¾òÀ»°æ¿ì ´ëºñ...
-    // ÇöÀç Á¢¼ÓµÇ¾î ÀÖ´Â »ç¿ëÀÚ ¸®½ºÆ®¸¦ Àü¼Û...
+    // ë¡œê·¸ì¸ ì„œë²„ê°€ ë„ì¤‘ì— ë»£ì–»ì„ê²½ìš° ëŒ€ë¹„...
+    // í˜„ìž¬ ì ‘ì†ë˜ì–´ ìžˆëŠ” ì‚¬ìš©ìž ë¦¬ìŠ¤íŠ¸ë¥¼ ì „ì†¡...
     g_pUserLIST->Send_zws_ACCOUNT_LIST(&this->m_SockLSV, false);
 }
 
@@ -110,13 +110,13 @@ GS_lsvSOCKET::Recv_srv_SET_WORLD_VAR() {
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-// ·Î±×ÀÎ/¿ùµå ¼­¹ö·Î °èÁ¤ ÀÎÁõ ¿äÃ»...
+// ë¡œê·¸ì¸/ì›”ë“œ ì„œë²„ë¡œ ê³„ì • ì¸ì¦ ìš”ì²­...
 void
 GS_lsvSOCKET::Send_zws_CONFIRM_ACCOUNT_REQ(DWORD dwSocketID, t_PACKET* pPacket) {
     classPACKET* pCPacket = Packet_AllocNLock();
     if (!pCPacket)
         return;
-    // ·Î±×ÀÎ ¼­¹ö¿¡ GSV_ADD_USER_REQ Àü¼Û ÇÑ´Ù...
+    // ë¡œê·¸ì¸ ì„œë²„ì— GSV_ADD_USER_REQ ì „ì†¡ í•œë‹¤...
     pCPacket->m_HEADER.m_wType = ZWS_CONFIRM_ACCOUNT_REQ;
     pCPacket->m_HEADER.m_nSize = sizeof(zws_CONFIRM_ACCOUNT_REQ);
 
@@ -171,7 +171,7 @@ GS_lsvSOCKET::Recv_wls_CONFIRM_ACCOUNT_REPLY() {
     if (!g_pUserLIST->Add_ACCOUNT(m_pRecvPket->m_wls_CONFIRM_ACCOUNT_REPLY.m_dwGSID,
             m_pRecvPket,
             szAccount)) {
-        // ±×»õ Á¢¼ÓÀÌ ²÷°å´Â°¡ ???
+        // ê·¸ìƒˆ ì ‘ì†ì´ ëŠê²¼ëŠ”ê°€ ???
         this->Send_zws_SUB_ACCOUNT(m_pRecvPket->m_wls_CONFIRM_ACCOUNT_REPLY.m_dwWSID, szAccount);
     }
 }
@@ -195,7 +195,7 @@ GS_lsvSOCKET::Send_gsv_CHEAT_REQ(classUSER* pUSER,
     DWORD dwReqWSID,
     DWORD dwReplyWSID,
     char* szCheatCode) {
-    // ¿ùµå ¼­¹ö¿¡ Ä¡Æ®ÄÚµå ¿äÃ»
+    // ì›”ë“œ ì„œë²„ì— ì¹˜íŠ¸ì½”ë“œ ìš”ì²­
     classPACKET* pCPacket = Packet_AllocNLock();
     if (!pCPacket)
         return;
@@ -220,7 +220,7 @@ GS_lsvSOCKET::Send_gsv_CHEAT_REQ(classUSER* pUSER,
 }
 
 //-------------------------------------------------------------------------------------------------
-// ¿ùµå ¼­¹ö°¡ ´Ù¸¥ Á¸ ¼­¹ö·Î ºÎÅÍ ¹ÞÀº Ä¡Æ® ÄÚµå¸¦ ¿äÃ»Çß´Ù.
+// ì›”ë“œ ì„œë²„ê°€ ë‹¤ë¥¸ ì¡´ ì„œë²„ë¡œ ë¶€í„° ë°›ì€ ì¹˜íŠ¸ ì½”ë“œë¥¼ ìš”ì²­í–ˆë‹¤.
 void
 GS_lsvSOCKET::Recv_wsv_CHEAT_REQ() {
     short nOffset = sizeof(srv_CHEAT);
@@ -240,7 +240,7 @@ GS_lsvSOCKET::Recv_wsv_CHEAT_REQ() {
             if (!pArg2)
                 return;
 
-            // ¿Ã·ÁÁÙ ´ë»óÀÌ ÀÖ´Â°¡ ?
+            // ì˜¬ë ¤ì¤„ ëŒ€ìƒì´ ìžˆëŠ”ê°€ ?
             classUSER* pUSER =
                 (classUSER*)g_pUserLIST->GetSOCKET(m_pRecvPket->m_wsv_CHEAT_REQ.m_dwReplyUSER);
             // pArg3 = m_TmpSTR.GetTokenNext (pDelimiters);
@@ -272,7 +272,7 @@ GS_lsvSOCKET::Recv_wsv_CHEAT_REQ() {
                     pUSER->SetCur_BonusPOINT(9999);
             } else if (!strcmpi(pArg1, "MONEY")) {
                 pUSER->Add_CurMONEY(iValue);
-            } else if (!strcmpi(pArg1, "SKILL")) { // ½ºÅ³À» ¹è¿î°ÍÀ¸·Î...
+            } else if (!strcmpi(pArg1, "SKILL")) { // ìŠ¤í‚¬ì„ ë°°ìš´ê²ƒìœ¼ë¡œ...
                 if (iValue >= 1 && iValue < g_SkillList.Get_SkillCNT()) {
                     if (SKILL_ICON_NO(iValue)) {
                         pUSER->Send_gsv_SKILL_LEARN_REPLY(iValue);
@@ -333,8 +333,8 @@ GS_lsvSOCKET::Recv_wsv_CHEAT_REQ() {
             classUSER* pUSER =
                 (classUSER*)g_pUserLIST->GetSOCKET(m_pRecvPket->m_wsv_CHEAT_REQ.m_dwReplyUSER);
             if (pUSER && pUSER->GetZONE()) {
-                // pUSERÀÇ ÁÂÇ¥·Î m_pRecvPket->m_wsv_CHEAT_REQ.m_dwWSID°¡ ÀÌµ¿ÇÏ·Á ÇÑ´Ù.
-                // ¿ùµå ¼­¹ö¿¡ pUSERÀÇ Á¸°ú ¼­¹ö¸¦ Åëº¸..
+                // pUSERì˜ ì¢Œí‘œë¡œ m_pRecvPket->m_wsv_CHEAT_REQ.m_dwWSIDê°€ ì´ë™í•˜ë ¤ í•œë‹¤.
+                // ì›”ë“œ ì„œë²„ì— pUSERì˜ ì¡´ê³¼ ì„œë²„ë¥¼ í†µë³´..
                 this->Send_gsv_CHEAT_REQ(pUSER,
                     m_pRecvPket->m_wsv_CHEAT_REQ.m_dwReqUSER,
                     m_pRecvPket->m_wsv_CHEAT_REQ.m_dwReplyUSER,
@@ -504,7 +504,7 @@ GS_lsvSOCKET::Proc_SocketMSG(WPARAM wParam, LPARAM lParam) {
         case FD_READ: {
             m_SockLSV.OnReceive(nErrorCode);
 
-            // ¹ÞÀº ÆÐÅ¶ Ã³¸®..
+            // ë°›ì€ íŒ¨í‚· ì²˜ë¦¬..
             while (m_SockLSV.Peek_Packet(m_pRecvPket, true)) {
                 // LogString( LOG_DEBUG_, "Handle LS Packet: Type[ 0x%x ], Size[ %d ]\n",
                 // m_pRecvPket->m_HEADER.m_wType, m_pRecvPket->m_HEADER.m_nSize);
@@ -529,7 +529,7 @@ GS_lsvSOCKET::Proc_SocketMSG(WPARAM wParam, LPARAM lParam) {
                         Recv_srv_SET_WORLD_VAR();
                         break;
 
-                    case WSV_CHEAT_REQ: // Ä¡Æ® ÄÚµå ÆÄ½ÌÇØ¼­ °á°ú ¸®ÅÏ...
+                    case WSV_CHEAT_REQ: // ì¹˜íŠ¸ ì½”ë“œ íŒŒì‹±í•´ì„œ ê²°ê³¼ ë¦¬í„´...
                         Recv_wsv_CHEAT_REQ();
                         break;
 
@@ -542,7 +542,7 @@ GS_lsvSOCKET::Proc_SocketMSG(WPARAM wParam, LPARAM lParam) {
                             && (0 == pUSER->m_HashCHAR
                                 || pUSER->m_HashCHAR
                                     == m_pRecvPket->m_zws_DEL_USER_CLAN.m_HashCHAR)) {
-                            // 0 == pUSER->m_HashCHAR ÀÏ°æ¿ì´Â ÄÉ¸¯ÀÌ µðºñ¿¡¼­ ¿Ã¶ó¿À´Â ÁßÀÌ´Ù...
+                            // 0 == pUSER->m_HashCHAR ì¼ê²½ìš°ëŠ” ì¼€ë¦­ì´ ë””ë¹„ì—ì„œ ì˜¬ë¼ì˜¤ëŠ” ì¤‘ì´ë‹¤...
                             pUSER->Add_SrvRecvPacket(m_pRecvPket);
                         }
                         break;
@@ -550,8 +550,8 @@ GS_lsvSOCKET::Proc_SocketMSG(WPARAM wParam, LPARAM lParam) {
 
                         /*
                             case WSV_DEL_ZONE :
-                                // TODO:: ÇöÀç ½ÇÇàÁßÀÎ Á¸À» »èÁ¦ÇÏ¶õ´Ù...
-                                // »èÁ¦ÇÏÁö ¾Ê°í °ÁµÎ¸é ¼­¹ö ¼Óµµ µþ¸®°ÚÁö...
+                                // TODO:: í˜„ìž¬ ì‹¤í–‰ì¤‘ì¸ ì¡´ì„ ì‚­ì œí•˜ëž€ë‹¤...
+                                // ì‚­ì œí•˜ì§€ ì•Šê³  ê±ë‘ë©´ ì„œë²„ ì†ë„ ë”¸ë¦¬ê² ì§€...
                                 break;
 
                             case WSV_PARTY_CMD :
@@ -601,7 +601,7 @@ GS_lsvSOCKET::Proc_SocketMSG(WPARAM wParam, LPARAM lParam) {
             }
             break;
         }
-        case FD_CLOSE: // Close()ÇÔ¼ö¸¦ È£ÃâÇØ¼­ Á¾·áµÉ¶§´Â ¹ß»ý ¾ÈÇÑ´Ù.
+        case FD_CLOSE: // Close()í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•´ì„œ ì¢…ë£Œë ë•ŒëŠ” ë°œìƒ ì•ˆí•œë‹¤.
         {
             m_SockLSV.OnClose(nErrorCode);
 

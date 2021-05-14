@@ -13,7 +13,7 @@ void
 CBasePAN::Update(POINT ptMouse) {
     CTDialog::Update(ptMouse);
 
-    ///ÀÌÇÏ ÅøÆÁ Ç¥½Ã
+    ///ì´í•˜ íˆ´íŒ í‘œì‹œ
     CTDialog* pDlg = CTDialog::GetProcessMouseOverDialog();
     if (pDlg && pDlg != this)
         return;
@@ -56,24 +56,24 @@ CBasePAN::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
 bool
 CBasePAN::On_LButtonUP(unsigned iProcID) {
     switch (iProcID) {
-        case BASE_BTN_CHAR_OPEN: // Ä³¸¯ÅÍÃ¢À» ¿¬´Ù
+        case BASE_BTN_CHAR_OPEN: // ìºë¦­í„°ì°½ì„ ì—°ë‹¤
             g_itMGR.OpenDialog(DLG_TYPE_CHAR);
             return true;
-        case BASE_BTN_INV_OPEN: // ÀÎº¥Åä¸®Ã¢À» ¿¬´Ù
+        case BASE_BTN_INV_OPEN: // ì¸ë²¤í† ë¦¬ì°½ì„ ì—°ë‹¤
             return true;
-        case BASE_BTN_SKILL_OPEN: // ½ºÅ³Ã¢À» ¿¬´Ù
+        case BASE_BTN_SKILL_OPEN: // ìŠ¤í‚¬ì°½ì„ ì—°ë‹¤
             g_itMGR.OpenDialog(DLG_TYPE_SKILL);
             return true;
-        case BASE_BTN_QUEST_OPEN: // Äù½ºÆ®Ã¢À» ¿¬´Ù
+        case BASE_BTN_QUEST_OPEN: // í€˜ìŠ¤íŠ¸ì°½ì„ ì—°ë‹¤
             g_itMGR.OpenDialog(DLG_TYPE_QUEST);
             return true;
         case BASE_BTN_OPTION_OPEN:
             g_itMGR.OpenDialog(DLG_TYPE_OPTION);
             break;
-        case BASE_BTN_COMMUNITY_OPEN: // Ä¿¹Â´ÏÆ¼Ã¢À» ¿¬´Ù
+        case BASE_BTN_COMMUNITY_OPEN: // ì»¤ë®¤ë‹ˆí‹°ì°½ì„ ì—°ë‹¤
             /// REMARK TEST CODE
             return true;
-        case BASE_BTN_SYS_OPEN: // ½Ã½ºÅÛ Ã¢À» ¿¬´Ù
+        case BASE_BTN_SYS_OPEN: // ì‹œìŠ¤í…œ ì°½ì„ ì—°ë‹¤
             g_itMGR.OpenDialog(DLG_TYPE_SYSTEM);
             return true;
     }

@@ -140,7 +140,7 @@ set_global(lua_State* L, const char* variable_name, const char* value) {
 
 //-------------------------------------------------------------------------------------------------
 //
-// ·ç¾Æ ÇÔ¼ö È£ÃâÈÄ ¸®ÅÏµÈ °á°ú°ª °¹¼ö¸¦ ¸®ÅÏÇÑ´Ù.
+// ë£¨ì•„ í•¨ìˆ˜ í˜¸ì¶œí›„ ë¦¬í„´ëœ ê²°ê³¼ê°’ ê°¯ìˆ˜ë¥¼ ë¦¬í„´í•œë‹¤.
 int
 lua_CallFUNC(lua_State* L, const char* function_name, va_list va) {
     int param_count = 0;
@@ -250,7 +250,7 @@ lua_CallIntFUNC(lua_State* pLUA, const char* szFuncName, ...) {
     va_end(va);
 
     if (iResultCnt > 0) {
-        // ¸®ÅÏµÈ °á°ú°¡ ÀÖÀ¸¹Ç·Î °á°ú °ªÀ» ¾ò¾î¿Â´Ù.
+        // ë¦¬í„´ëœ ê²°ê³¼ê°€ ìžˆìœ¼ë¯€ë¡œ ê²°ê³¼ ê°’ì„ ì–»ì–´ì˜¨ë‹¤.
         lua_GetRETURN(pLUA, iResultCnt);
 
         LogString(LOG_DEBUG_, "lua function( %s ) return %d ... \n", szFuncName, iResultCnt);

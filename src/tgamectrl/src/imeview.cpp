@@ -26,7 +26,7 @@ CImeView::~CImeView() {}
 
 void
 CImeView::InitIme(HWND hwnd) {
-    char ga[] = "°¡";
+    char ga[] = "ê°€";
     SIZE size;
     HFONT hFont;
     LOGFONT lf;
@@ -570,27 +570,27 @@ CImeView::IsYouMessage(UINT msg, WPARAM wparam, LPARAM lparam) {
         return FALSE;
     switch (msg) {
 
-        case WM_IME_STARTCOMPOSITION: // ±ÛÀÚ Á¶ÇÕÀÇ ½ÃÀÛ. WM_IME_COMPOSITION ¸Þ½ÃÁö¸¦           //
-                                      // ¹ÞÀ» ÁØºñ¸¦ ÇÑ´Ù.
+        case WM_IME_STARTCOMPOSITION: // ê¸€ìž ì¡°í•©ì˜ ì‹œìž‘. WM_IME_COMPOSITION ë©”ì‹œì§€ë¥¼           //
+                                      // ë°›ì„ ì¤€ë¹„ë¥¼ í•œë‹¤.
             OnIMEStartComposition(wparam, lparam);
             return TRUE;
-        case WM_IME_ENDCOMPOSITION: // ±ÛÀÚ Á¶ÇÕÀÇ ³¡. Á¶ÇÕµÈ ¹®ÀÚ¿­ Ã³¸®¸¦ ³¡³½´Ù          break;
+        case WM_IME_ENDCOMPOSITION: // ê¸€ìž ì¡°í•©ì˜ ë. ì¡°í•©ëœ ë¬¸ìžì—´ ì²˜ë¦¬ë¥¼ ëë‚¸ë‹¤          break;
             OnIMEEndComposition(wparam, lparam);
-            ///¹öÆ° Å¬¸¯½Ã ÇöÀç Á¶ÇÕÁßÀÌ´ø ±ÛÀÚ°¡ ³¯¶ó°¡ ¹ö¸®´Â Çö»óÀ» ¸·±â À§ÇØ
-            ///ÇöÀç Focus¸¦ °¡ÁöÁø EditBox¿¡ Á¶ÇÕÁßÀÌ´ø ±ÛÀÚ¸¦ º¸³»ÁÖ°í Ã³¸®ÇÏµµ·Ï ÇÑ´Ù.
+            ///ë²„íŠ¼ í´ë¦­ì‹œ í˜„ìž¬ ì¡°í•©ì¤‘ì´ë˜ ê¸€ìžê°€ ë‚ ë¼ê°€ ë²„ë¦¬ëŠ” í˜„ìƒì„ ë§‰ê¸° ìœ„í•´
+            ///í˜„ìž¬ Focusë¥¼ ê°€ì§€ì§„ EditBoxì— ì¡°í•©ì¤‘ì´ë˜ ê¸€ìžë¥¼ ë³´ë‚´ì£¼ê³  ì²˜ë¦¬í•˜ë„ë¡ í•œë‹¤.
             memset(m_TextComp, 0, 3);
             return TRUE;
-        case WM_IME_COMPOSITION: // ÇöÀç Á¶ÇÕÁßÀÎ ¹®ÀÚ¿­ÀÌ³ª ¿Ï¼ºµÈ ¹®ÀÚ¿­À» ¾ò¾î¼­ È­¸é Ãâ·Â
+        case WM_IME_COMPOSITION: // í˜„ìž¬ ì¡°í•©ì¤‘ì¸ ë¬¸ìžì—´ì´ë‚˜ ì™„ì„±ëœ ë¬¸ìžì—´ì„ ì–»ì–´ì„œ í™”ë©´ ì¶œë ¥
             OnIMEComposition(wparam, lparam);
             InvalidateRect(m_hWnd, NULL, TRUE);
             return TRUE;
-        case WM_IME_SETCONTEXT: // ±ÛÀÚ Á¶ÇÕ À©µµ¿ì¿Í ÇÑÀÚ º¯È¯ À©µµ¿ì¸¦ Ç¥½ÃÇÏÁö ¾Ê°Ô ¹Ù²Þ
+        case WM_IME_SETCONTEXT: // ê¸€ìž ì¡°í•© ìœˆë„ìš°ì™€ í•œìž ë³€í™˜ ìœˆë„ìš°ë¥¼ í‘œì‹œí•˜ì§€ ì•Šê²Œ ë°”ê¿ˆ
             OnIMESetContext(wparam, lparam);
             return TRUE;
         case WM_IME_NOTIFY:
             OnIMENotify(wparam, lparam);
             return TRUE;
-        case WM_INPUTLANGCHANGE: // Å°º¸µå ·¹ÀÌ¾Æ¿ôÀÌ ¹Ù²î´Â °æ¿ì IME¸¦ ÃÊ±âÈ­
+        case WM_INPUTLANGCHANGE: // í‚¤ë³´ë“œ ë ˆì´ì•„ì›ƒì´ ë°”ë€ŒëŠ” ê²½ìš° IMEë¥¼ ì´ˆê¸°í™”
             OnInputLangChange(wparam, lparam);
             return TRUE;
         case WM_IME_CONTROL:

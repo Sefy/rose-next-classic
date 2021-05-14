@@ -58,19 +58,19 @@ CUseItemDelay g_UseSkillDelay, g_CurSkillDelayTick, g_SoloSkillDelayTick;
 //	}
 //}
 
-//»ı¼ºÀÚ
+//ìƒì„±ì
 CUseItemDelay::CUseItemDelay() {
 
     m_nCount = 0;
 }
 
-//¼Ò¸êÀÚ
+//ì†Œë©¸ì
 CUseItemDelay::~CUseItemDelay() {
 
     Release();
 }
 
-//ÀÚ¿ø ÇØÁ¦
+//ìì› í•´ì œ
 void
 CUseItemDelay::Release(void) {
 

@@ -12,8 +12,8 @@ typedef TABLE_IMAGE_ID::iterator TABLE_IMAGE_ID_ITER;
 typedef map<int, TABLE_IMAGE_ID> TABLE_MODULE;
 typedef TABLE_MODULE::iterator TABLE_MODULE_ITER;
 ////////////////////////////////////////////////////////////////////////////////////////////
-/// 2003 / 11 /28 / ÃÖÁ¾Áø
-/// ¹®ÀÚ¿­ÀÏ ±×·¡ÇÈID¿Í ¼ıÀÚ ±×·¡ÇÈID¸¦ ¸ÊÇÎ½ÃÄÑÁÖ´Â Å¬·¡½º
+/// 2003 / 11 /28 / ìµœì¢…ì§„
+/// ë¬¸ìì—´ì¼ ê·¸ë˜í”½IDì™€ ìˆ«ì ê·¸ë˜í”½IDë¥¼ ë§µí•‘ì‹œì¼œì£¼ëŠ” í´ë˜ìŠ¤
 ////////////////////////////////////////////////////////////////////////////////////////////
 class TGAMECTRL_API CImageIDMgr {
 private:
@@ -25,9 +25,9 @@ public:
     static CImageIDMgr* GetInstance();
     void Destroy();
 
-    int GetImageNID(int iModuleID, const char* szSID); ///¹®ÀÚ¿­ID¿Í ModuleID·Î ¼ıÀÚID¸¦ Ã£´Â´Ù.
+    int GetImageNID(int iModuleID, const char* szSID); ///ë¬¸ìì—´IDì™€ ModuleIDë¡œ ìˆ«ìIDë¥¼ ì°¾ëŠ”ë‹¤.
     bool AddResource(char* szFileName,
-        int iModuleID); /// Client¿¡¼­ Table¿¡ µî·ÏÀ» ¿äÃ»ÇÒ¶§ »ç¿ëµÇ´Â operation
+        int iModuleID); /// Clientì—ì„œ Tableì— ë“±ë¡ì„ ìš”ì²­í• ë•Œ ì‚¬ìš©ë˜ëŠ” operation
 
 protected:
     void LoadResourceFile(char* szFileName, int iModuleID);

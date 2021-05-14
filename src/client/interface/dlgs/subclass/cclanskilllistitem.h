@@ -7,9 +7,9 @@ class CIconSkillClan;
 class CDragItem;
 
 /**
- * Å¬·£Ã¢¿¡¼­ Å¬·£ ½ºÅ³ ¸®½ºÆ®ÀÇ item class
+ * í´ëœì°½ì—ì„œ í´ëœ ìŠ¤í‚¬ ë¦¬ìŠ¤íŠ¸ì˜ item class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 

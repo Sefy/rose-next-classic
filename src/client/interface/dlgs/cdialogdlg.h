@@ -4,10 +4,10 @@
 #include "tgamectrl/JStringParser.h"
 
 /**
- * NPC ¿ÍÀÇ ´ëÈ­½Ã »ç¿ëµÇ´Â ´ÙÀÌ¾ó·Î±×
+ * NPC ì™€ì˜ ëŒ€í™”ì‹œ ì‚¬ìš©ë˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Warning		ÇöÀç( 2005/9/12 ) ´ë¸¸(New)¹öÁ¯°ú ±âÁ¸ ¹öÁ¯°ú Ãâ·Â ¹æ¹ıÀÌ Æ²¸®´Ù.
- * @Author		ÃÖÁ¾Áø
+ * @Warning		í˜„ì¬( 2005/9/12 ) ëŒ€ë§Œ(New)ë²„ì ¼ê³¼ ê¸°ì¡´ ë²„ì ¼ê³¼ ì¶œë ¥ ë°©ë²•ì´ í‹€ë¦¬ë‹¤.
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CDialogDlg: public CTDialog {
@@ -22,15 +22,15 @@ public:
     virtual void Show();
     virtual unsigned Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam);
 
-    void SetScript(char* pszScript); /// NPC ´ë»ç
+    void SetScript(char* pszScript); /// NPC ëŒ€ì‚¬
     void AddAnswerExample(char* pszScript,
         int iEventID,
-        void (*fpEventHandle)(int iEventID)); /// ¼±ÅÃ¹® Ãß°¡
+        void (*fpEventHandle)(int iEventID)); /// ì„ íƒë¬¸ ì¶”ê°€
 
     void SetTargetNpcClientObjectIndex(short iIndex);
     short GetTargetNpcClientObjectIndex();
 
-    int IsInValidShow(); /// È­¸é¿¡ º¸¿©Áú¼ö ÀÖ´Â°¡?
+    int IsInValidShow(); /// í™”ë©´ì— ë³´ì—¬ì§ˆìˆ˜ ìˆëŠ”ê°€?
     void SetNpcFace(HNODE hNode_);
     void SetNpcName(std::string strName);
     void SetNpctalkinterfaceHide(float fTime);
@@ -44,16 +44,16 @@ protected:
         IID_ZLISTBOX_ANSWER_EXAMPLE = 21
     };
 
-    short m_nTargetClientIdx; /// NPCÀÇ Å¬¶óÀÌ¾ğÆ® ÀÎµ¦½º
+    short m_nTargetClientIdx; /// NPCì˜ í´ë¼ì´ì–¸íŠ¸ ì¸ë±ìŠ¤
 
-    std::string m_strNpcName; /// NPCÀÌ¸§
-    std::string m_strTempScript; /// ÀÓ½Ã º¯¼ö
+    std::string m_strNpcName; /// NPCì´ë¦„
+    std::string m_strTempScript; /// ì„ì‹œ ë³€ìˆ˜
 
-    HNODE m_hNpcFace; /// ´ëÈ­Ã¢¿¡ º¸¿©Áú NPCÀÇ¾ó±¼ ÅØ½ºÃÄ ³ëµå
-    int m_widthNpcFace; /// ÅØ½ºÃÄÀÇ ³Êºñ
-    int m_heightNpcFace; /// ÅØ½ºÃÄÀÇ ³ôÀÌ
+    HNODE m_hNpcFace; /// ëŒ€í™”ì°½ì— ë³´ì—¬ì§ˆ NPCì˜ì–¼êµ´ í…ìŠ¤ì³ ë…¸ë“œ
+    int m_widthNpcFace; /// í…ìŠ¤ì³ì˜ ë„ˆë¹„
+    int m_heightNpcFace; /// í…ìŠ¤ì³ì˜ ë†’ì´
 
-    CJStringParser m_Script; /// NPC´ë»ç
+    CJStringParser m_Script; /// NPCëŒ€ì‚¬
 
     float m_fNpctalkinterfaceHideTime;
 };

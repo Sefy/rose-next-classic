@@ -6,31 +6,31 @@
 
 #include "Quest_FUNC.h"
 #include "tgamectrl/TGameCtrl.h"
-#include "OBJECT.h" /* <=== ÀÌ ÆÄÀÏÀ» ÀÎÅ¬·çµå ½ÃÄÑ »ç¿ëÇÒ °Í */
+#include "OBJECT.h" /* <=== ì´ íŒŒì¼ì„ ì¸í´ë£¨ë“œ ì‹œì¼œ ì‚¬ìš©í•  ê²ƒ */
 #include "IO_Basic.h"
 
-//---------------------------------[ ¾Æ¹ÙÅ¸ ¼ÒÁö Çö±İ °ü·Ã ]------------------------------------
-/* ¾Æ¹ÙÅ¸ ¼ÒÁöÇö±İ °¡Á®¿À±â */
+//---------------------------------[ ì•„ë°”íƒ€ ì†Œì§€ í˜„ê¸ˆ ê´€ë ¨ ]------------------------------------
+/* ì•„ë°”íƒ€ ì†Œì§€í˜„ê¸ˆ ê°€ì ¸ì˜¤ê¸° */
 int
 GF_checkUserMoney(void) {
     return (int)::g_pAVATAR->Get_MONEY();
 }
 
-/* ¾Æ¹ÙÅ¸ ¼ÒÁöÇö±İ °¡Á®¿À±â */
+/* ì•„ë°”íƒ€ ì†Œì§€í˜„ê¸ˆ ê°€ì ¸ì˜¤ê¸° */
 void
 GF_addUserMoney(int iAmount) {
     ::g_pAVATAR->Add_MONEY(iAmount);
 }
 
-/* ¾Æ¹ÙÅ¸ ¼ÒÁöÇö±İ °¡Á®¿À±â */
+/* ì•„ë°”íƒ€ ì†Œì§€í˜„ê¸ˆ ê°€ì ¸ì˜¤ê¸° */
 void
 GF_takeUserMoney(int iAmount) {
     ::g_pAVATAR->Add_MONEY(-iAmount);
 }
 
-//------------------------------------[ ¾Æ¹ÙÅ¸ ¾ÆÀÌÅÛ °ü·Ã ]---------------------------------------
+//------------------------------------[ ì•„ë°”íƒ€ ì•„ì´í…œ ê´€ë ¨ ]---------------------------------------
 
-/* ¾Æ¹ÙÅ¸ ¾ÆÀÌÅÛ ÀåÂø/ÇØÁ¦ÇÏ±â bWear : 1(ÀåÂø), 0(ÇØÁ¦) , ÀÎº¥Åä¸®¿Í »ó°ü ¾øÀ½ */
+/* ì•„ë°”íƒ€ ì•„ì´í…œ ì¥ì°©/í•´ì œí•˜ê¸° bWear : 1(ì¥ì°©), 0(í•´ì œ) , ì¸ë²¤í† ë¦¬ì™€ ìƒê´€ ì—†ìŒ */
 void
 GF_setEquipedItem(int nPartIDX, int iItemIDX, int bWear) {
     /*	BODY_PART_FACE = 0,
@@ -63,7 +63,7 @@ GF_setEquipedItem(int nPartIDX, int iItemIDX, int bWear) {
 }
 
 //====================================================================================
-// ÀÎº¥Åä¸®¿¡ ¾ÆÀÌÅÛ Ãß°¡ / Á¦°Å / °¹¼ö ¾Ë¾Æ³»±â
+// ì¸ë²¤í† ë¦¬ì— ì•„ì´í…œ ì¶”ê°€ / ì œê±° / ê°¯ìˆ˜ ì•Œì•„ë‚´ê¸°
 //====================================================================================
 int
 GF_getIDXOfInvItem(int nItemNo, int nItemType) {
@@ -171,9 +171,9 @@ GF_giveEquipItemIntoInv(int cQuality,
     //{ g_pAVATAR->Add_ITEM(nEmptyInv, Item); }
 }
 
-/* ÀÎº¥¿¡¼­ ¾ÆÀÌÅÛ °¹¼ö °¨¼Ò½ÃÅ°±â */
+/* ì¸ë²¤ì—ì„œ ì•„ì´í…œ ê°¯ìˆ˜ ê°ì†Œì‹œí‚¤ê¸° */
 void
-GF_takeItemFromInv(int nNum /* +2ÀÌ¸é 2°³ Á¦°Å */, int nItemNo, int cType) {
+GF_takeItemFromInv(int nNum /* +2ì´ë©´ 2ê°œ ì œê±° */, int nItemNo, int cType) {
     int iIDX = 0;
     CInventory* pInv = ::g_pAVATAR->GetInventory();
 
@@ -222,7 +222,7 @@ GF_giveUsableItemIntoInv(int iQuantity, int iItemNo, int iItemType) {
     }
 }
 
-/* ÀÎº¥Åä¸® <===> ÀåÂø */
+/* ì¸ë²¤í† ë¦¬ <===> ì¥ì°© */
 void
 GF_putoffItem(int iPartIDX, int iType) {
     tagITEM Item;
@@ -236,10 +236,10 @@ GF_putoffItem(int iPartIDX, int iType) {
     Item.m_nItemNo = ::g_pAVATAR->GetPartITEM(iPartIDX);
     Item.m_cType = iType;
 
-    // ÀåºñÀåÂøÃ¢(ÀÎº¥³»¿¡ ÀÖÀ½)¿¡¼­ ¾ø¾Ú
+    // ì¥ë¹„ì¥ì°©ì°½(ì¸ë²¤ë‚´ì— ìˆìŒ)ì—ì„œ ì—†ì•°
     short wListNO = GF_getIDXOfEquipItem(Item.m_nItemNo, Item.m_cType);
     g_pAVATAR->ClearITEM(wListNO);
-    // ¾Æ¹ÙÅ¸¸ö¿¡¼­ Á¦°Å
+    // ì•„ë°”íƒ€ëª¸ì—ì„œ ì œê±°
     GF_setEquipedItem(iPartIDX, 0, 0);
 
     GF_giveEquipItemIntoInv(0, 0, 0, 0, 0, Item.m_nItemNo, Item.m_cType);

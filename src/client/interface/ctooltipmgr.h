@@ -2,7 +2,7 @@
 #define _CToolTipMgr_
 #include "CInfo.h"
 
-///<- ÀÌÇÏ defineÀº »ç¿ëµÇÁö ¾Ê´Â°Í °°´Ù 2005/9/5 ÃÖÁ¾Áø
+///<- ì´í•˜ defineì€ ì‚¬ìš©ë˜ì§€ ì•ŠëŠ”ê²ƒ ê°™ë‹¤ 2005/9/5 ìµœì¢…ì§„
 #define INFO_STATUS_DEF 0x00000001
 #define INFO_STATUS_ATK 0x00000002
 #define INFO_STATUS_ACC 0x00000004
@@ -12,10 +12,10 @@
 //->
 
 /**
- * ÅøÆÁ ½Ã½ºÅÛ¿¡¼­ÀÇ °ü¸®ÀÚ Class
- *	- ÇöÀç ÅøÆÁÀº ¸ÅÇÁ·¹ÀÓ´ç CInfo¹× stringÀ» »õ·Î µî·ÏÇÏ°í DrawÇÏ´Â ºñÈ¿À²Àû ±¸Á¶ÀÌ´Ù.
+ * íˆ´íŒ ì‹œìŠ¤í…œì—ì„œì˜ ê´€ë¦¬ì Class
+ *	- í˜„ì¬ íˆ´íŒì€ ë§¤í”„ë ˆì„ë‹¹ CInfoë° stringì„ ìƒˆë¡œ ë“±ë¡í•˜ê³  Drawí•˜ëŠ” ë¹„íš¨ìœ¨ì  êµ¬ì¡°ì´ë‹¤.
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/5
  */
 
@@ -26,12 +26,12 @@ public:
     ~CToolTipMgr(void);
     static CToolTipMgr& GetInstance();
 
-    /// ÅøÆÁ µî·Ï Methods
+    /// íˆ´íŒ ë“±ë¡ Methods
     void RegUIInfo(const int x, const int y, const DWORD dwDlgType, const int iToolTipID);
     void RegistInfo(const CInfo& Info);
     void RegToolTip(int x, int y, const char* pszMsg);
 
-    /// µî·ÏµÈ ÅøÆÁ Draw
+    /// ë“±ë¡ëœ íˆ´íŒ Draw
     void Draw();
 
 private:

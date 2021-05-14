@@ -4,9 +4,9 @@
 #include "tgamectrl/iactionlistener.h"
 
 /**
- * 1:1´ëÈ­½Ã »ç¿ëµÇ´Â ´ÙÀÌ¾ó·Î±×
+ * 1:1ëŒ€í™”ì‹œ ì‚¬ìš©ë˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CPrivateChatDlg: public CTDialog, public IActionListener {
@@ -36,8 +36,8 @@ private:
         IID_SCROLLBAR = 31,
     };
 
-    DWORD m_dwUserTag; /// »ó´ë¹æÀÇ ¼­¹ö ÅÂ±×
-    std::string m_strName; /// »ó´ë¹æÀÇ ÀÌ¸§
-    BYTE m_btStatus; /// »ó´ë¹æÀÇ »óÅÂ
+    DWORD m_dwUserTag; /// ìƒëŒ€ë°©ì˜ ì„œë²„ íƒœê·¸
+    std::string m_strName; /// ìƒëŒ€ë°©ì˜ ì´ë¦„
+    BYTE m_btStatus; /// ìƒëŒ€ë°©ì˜ ìƒíƒœ
 };
 #endif

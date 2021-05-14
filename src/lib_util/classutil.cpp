@@ -99,7 +99,7 @@ CUtil::Is_FileExist(char* szFileName) {
 }
 
 //-------------------------------------------------------------------------------------------------
-//  ÁÖ¹Îµî·Ï ¹øÈ£ °ËÁõ.
+//  ì£¼ë¯¼ë“±ë¡ ë²ˆí˜¸ ê²€ì¦.
 bool
 CUtil::Check_PersonalNumber(char* szNumber) {
     const int nWeight[] = {2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5};
@@ -118,7 +118,7 @@ CUtil::Check_PersonalNumber(char* szNumber) {
 }
 
 //-------------------------------------------------------------------------------------------------
-//  »ç¾÷ÀÚ µî·Ï¹øÈ£ °ËÁõ.
+//  ì‚¬ì—…ì ë“±ë¡ë²ˆí˜¸ ê²€ì¦.
 bool
 CUtil::Check_BussinessNumber(char* szNumber) {
     const int nWeight[] = {1, 3, 7, 1, 3, 7, 1, 3};

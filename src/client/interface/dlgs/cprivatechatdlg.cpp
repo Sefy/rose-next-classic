@@ -52,27 +52,27 @@ CPrivateChatDlg::Draw() {
 
     char* pszStatus;
     switch (m_btStatus) {
-        case FRIEND_STATUS_HUNT: // »ç³ÉÁß
+        case FRIEND_STATUS_HUNT: // ì‚¬ëƒ¥ì¤‘
             pszStatus = STR_MYSTATE_IN_HUNT;
             break;
-        case FRIEND_STATUS_STORE: // Àå»çÁß
+        case FRIEND_STATUS_STORE: // ì¥ì‚¬ì¤‘
             pszStatus = STR_MYSTATE_IN_TRADE;
             break;
-        case FRIEND_STATUS_QUEST: // Äù½ºÆ®Áß
+        case FRIEND_STATUS_QUEST: // í€˜ìŠ¤íŠ¸ì¤‘
             pszStatus = STR_MYSTATE_IN_QUEST;
             break;
-        case FRIEND_STATUS_EAT: // ½Ä»çÁß
+        case FRIEND_STATUS_EAT: // ì‹ì‚¬ì¤‘
             pszStatus = STR_MYSTATE_IN_EAT;
             break;
-        case FRIEND_STATUS_REST: // ÈŞ½ÄÁß
+        case FRIEND_STATUS_REST: // íœ´ì‹ì¤‘
             pszStatus = STR_MYSTATE_IN_BREAK;
             break;
-        case FRIEND_STATUS_REFUSED: ///´ëÈ­°ÅÀı
-        case FRIEND_STATUS_DELETED: ///»ó´ë¹æÀÌ ³ª¸¦ Ä£±¸¸ñ·Ï¿¡¼­ Á¦¿ÜÇß´Ù.
-        case FRIEND_STATUS_OFFLINE: // Á¢¼Ó²÷±è		: Ä£±¸¸ñ·ÏÀÇ m_dwUserTAG°¡ Á¢¼Ó²÷±è
+        case FRIEND_STATUS_REFUSED: ///ëŒ€í™”ê±°ì ˆ
+        case FRIEND_STATUS_DELETED: ///ìƒëŒ€ë°©ì´ ë‚˜ë¥¼ ì¹œêµ¬ëª©ë¡ì—ì„œ ì œì™¸í–ˆë‹¤.
+        case FRIEND_STATUS_OFFLINE: // ì ‘ì†ëŠê¹€		: ì¹œêµ¬ëª©ë¡ì˜ m_dwUserTAGê°€ ì ‘ì†ëŠê¹€
             pszStatus = "OffLine";
             break;
-        case FRIEND_STATUS_ONLINE: // Á¢¼ÓµÊ		: Ä£±¸¸ñ·ÏÀÇ m_dwUserTAG°¡ Á¢¼ÓÇß´Ù.
+        case FRIEND_STATUS_ONLINE: // ì ‘ì†ë¨		: ì¹œêµ¬ëª©ë¡ì˜ m_dwUserTAGê°€ ì ‘ì†í–ˆë‹¤.
         case FRIEND_STATUS_NORMAL:
         default:
             pszStatus = "OnLine";
@@ -112,8 +112,8 @@ CPrivateChatDlg::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
     return 0;
 }
 
-///¸Ş¼¼Áö¸¦ º¸³¾¶§¸¶´Ù »ó´ë¹æÀÇ »óÅÂ¸¦ Ã¼Å©ÇØ¼­ m_btStatus¸¦ UpdateÇÑ´Ù.¸¸¾à ¸®½ºÆ®¿¡¼­ »èÁ¦µÇ¾ú´Ù¸é
-///Ã¢À» ´İ´Â´Ù.
+///ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ë•Œë§ˆë‹¤ ìƒëŒ€ë°©ì˜ ìƒíƒœë¥¼ ì²´í¬í•´ì„œ m_btStatusë¥¼ Updateí•œë‹¤.ë§Œì•½ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì‚­ì œë˜ì—ˆë‹¤ë©´
+///ì°½ì„ ë‹«ëŠ”ë‹¤.
 void
 CPrivateChatDlg::SendChatMsg() {
     CTDialog* pDlg = g_itMGR.FindDlg(DLG_TYPE_COMMUNITY);
@@ -133,10 +133,10 @@ CPrivateChatDlg::SendChatMsg() {
     m_btStatus = pItem->GetStatus();
 
     switch (m_btStatus) {
-        case FRIEND_STATUS_REFUSED: ///´ëÈ­°ÅÀı
-        case FRIEND_STATUS_DELETED: ///»ó´ë¹æÀÌ ³ª¸¦ Ä£±¸¸ñ·Ï¿¡¼­ Á¦¿ÜÇß´Ù.
-        case FRIEND_STATUS_OFFLINE: // Á¢¼Ó²÷±è		: Ä£±¸¸ñ·ÏÀÇ m_dwUserTAG°¡ Á¢¼Ó²÷±è
-            ///´ëÈ­°ÅÀı
+        case FRIEND_STATUS_REFUSED: ///ëŒ€í™”ê±°ì ˆ
+        case FRIEND_STATUS_DELETED: ///ìƒëŒ€ë°©ì´ ë‚˜ë¥¼ ì¹œêµ¬ëª©ë¡ì—ì„œ ì œì™¸í–ˆë‹¤.
+        case FRIEND_STATUS_OFFLINE: // ì ‘ì†ëŠê¹€		: ì¹œêµ¬ëª©ë¡ì˜ m_dwUserTAGê°€ ì ‘ì†ëŠê¹€
+            ///ëŒ€í™”ê±°ì ˆ
             break;
         default: {
             CWinCtrl* pCtrl = Find(IID_EDITBOX);
@@ -189,7 +189,7 @@ void
 CPrivateChatDlg::RecvChatMsg(DWORD dwUserTag, const char* pszMsg) {
     assert(m_dwUserTag == dwUserTag);
     if (m_dwUserTag != dwUserTag)
-        return; ///°°ÀºÃ¢¿¡ 2¸íÀÌ Áßº¹µÉ¼ö´Â ¾ø´Ù.
+        return; ///ê°™ì€ì°½ì— 2ëª…ì´ ì¤‘ë³µë ìˆ˜ëŠ” ì—†ë‹¤.
 
     assert(pszMsg);
     if (pszMsg == NULL)

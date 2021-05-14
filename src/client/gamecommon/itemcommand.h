@@ -1,6 +1,6 @@
 #ifndef _ItemCommand_
 #define _ItemCommand_
-/// ÀÎº¥Åä¸®¿¡¼­ ÀåÂø ¾ÆÀÌÅÛÀÇ ±âº» Action Command
+/// ì¸ë²¤í† ë¦¬ì—ì„œ ì¥ì°© ì•„ì´í…œì˜ ê¸°ë³¸ Action Command
 #include "tgamectrl/tcommand.h"
 
 struct tagBaseITEM;

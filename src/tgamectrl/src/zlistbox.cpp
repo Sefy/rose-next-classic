@@ -106,7 +106,7 @@ CZListBox::Add(CWinCtrl* pCtrl) {
     if (pCtrl) {
         pCtrl->SetParent(this);
         m_Items.push_back(pCtrl);
-        SetValue(m_Items.size() - 1); ///¸Ç¹ØÀ¸·Î ÀÌµ¿, ±×·¸Áö ¾ÊÀ»½Ã °æ¿ì¿¡ µû¶ó À§Ä¡ ÀçÁ¶Á¤ ÇÊ¿ä
+        SetValue(m_Items.size() - 1); ///ë§¨ë°‘ìœ¼ë¡œ ì´ë™, ê·¸ë ‡ì§€ ì•Šì„ì‹œ ê²½ìš°ì— ë”°ë¼ ìœ„ì¹˜ ì¬ì¡°ì • í•„ìš”
     }
 }
 void
@@ -191,7 +191,7 @@ CZListBox::GetSelectedItemIndex() {
     return -1;
 }
 
-///¾ğÁ¨°¡´Â EventHandler¸¦ ±¸ÇöÇØ¾ß ÇÒÅÙÅ× ¾ğÁ¦ ±îÁö ÀÌ·¸°Ô ÀÛ¼ºÇØ¾ß ÇÒÁö..
+///ì–¸ì  ê°€ëŠ” EventHandlerë¥¼ êµ¬í˜„í•´ì•¼ í• í…í…Œ ì–¸ì œ ê¹Œì§€ ì´ë ‡ê²Œ ì‘ì„±í•´ì•¼ í• ì§€..
 void
 CZListBox::DeselectAll() {
     std::deque<CWinCtrl*>::iterator iter;

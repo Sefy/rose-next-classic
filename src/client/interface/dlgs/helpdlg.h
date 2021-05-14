@@ -11,10 +11,10 @@ class CTDefaultTreeNode;
 class CTDefaultTreeNodeRenderer;
 class CTree;
 /**
- * µµ¿ò¸»Ã¢¿¡ »ç¿ëµÇ´Â ´ÙÀÌ¾ó·Î±×
- *	- Åø¿¡¼­ UTF8·Î ÀúÀåµÈ Data¸¦ ·ÎµåÇÏ¿© Tree¿¡ Ãß°¡ÇÑ´Ù.
+ * ë„ì›€ë§ì°½ì— ì‚¬ìš©ë˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
+ *	- íˆ´ì—ì„œ UTF8ë¡œ ì €ì¥ëœ Dataë¥¼ ë¡œë“œí•˜ì—¬ Treeì— ì¶”ê°€í•œë‹¤.
  *
- * @Author		ÀÌµ¿Çö, ÃÖÁ¾Áø
+ * @Author		ì´ë™í˜„, ìµœì¢…ì§„
  * @Date			2005/9/14
  */
 class CHelpDlg: public CTDialog {
@@ -51,7 +51,7 @@ public:
     };
 };
 
-/// CHelpDlgÀÇ CTree¿¡¼­ ÇÏ³ªÀÇ Node¿¡ ÇØ´çÇÏ´Â class
+/// CHelpDlgì˜ CTreeì—ì„œ í•˜ë‚˜ì˜ Nodeì— í•´ë‹¹í•˜ëŠ” class
 class CHelpPage: public CTObject {
 private:
     std::string m_strPageName;

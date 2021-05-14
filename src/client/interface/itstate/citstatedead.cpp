@@ -28,7 +28,7 @@ CITStateDead::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
     if (uiMsg == WM_LBUTTONUP)
         CWinCtrl::SetMouseExclusiveCtrl(NULL);
 
-    ///Ã¤ÆÃ°ú ¸®½ºÅ¸Æ® ´ÙÀÌ¾ó·Î±×¸¸ Ã³¸®ÇÑ´Ù.³ª¸ÓÁö´Â ¹«½ÃÇÑ´Ù.
+    ///ì±„íŒ…ê³¼ ë¦¬ìŠ¤íƒ€íŠ¸ ë‹¤ì´ì–¼ë¡œê·¸ë§Œ ì²˜ë¦¬í•œë‹¤.ë‚˜ë¨¸ì§€ëŠ” ë¬´ì‹œí•œë‹¤.
     CTDialog* pDlg = NULL;
 
     if (pDlg = g_itMGR.FindDlg(DLG_TYPE_RESTART))

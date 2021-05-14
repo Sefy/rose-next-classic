@@ -531,7 +531,7 @@ void zz_scene_octree::render_shadowmap_objects (vector<zz_visible*>& nodes, cons
 		vis = nodes[i];
 		if (!vis) continue;
 
-		if (IS_A(vis, zz_model) && vis->get_shadow_onoff())   //modelµµ Shadow On/Off Ãß°¡ 
+		if (IS_A(vis, zz_model) && vis->get_shadow_onoff())   //modelë„ Shadow On/Off ì¶”ê°€ 
 		{
 			vis->get_position_world(world_position);
 			dist_square = world_position.distance_square(compare_pos);
@@ -732,10 +732,10 @@ int zz_scene_octree::update_receive_shadow (zz_model * target)
 		cminmax = vis->get_minmax();
 		assert(cminmax);
 		if (target_top < cminmax[0].z) continue;
-        if (vis->is_a(ZZ_RUNTIME_TYPE(zz_terrain_block)))   //test  ÁöÇü¿¡¸¸ ±×¸²
+        if (vis->is_a(ZZ_RUNTIME_TYPE(zz_terrain_block)))   //test  ì§€í˜•ì—ë§Œ ê·¸ë¦¼
 		vis->set_receive_shadow_now(true);         //test 
 		count++;
-	    //Á¶¼ºÇö 2005 11 - 18 Test
+	    //ì¡°ì„±í˜„ 2005 11 - 18 Test
 /*		zz_bvolume *bv = vis->get_bvolume();
 		if(bv)
 			input_scene_obb(bv->get_obb()); */
@@ -1170,7 +1170,7 @@ void zz_scene_octree::render ()
     draw_scene_line();
 	draw_scene_axis();
 
-//	if(znzin->camera_sfx.get_play_onoff())   //Á¶¼ºÇö 2006 10/23 ¿ÉÀú¹ö Ä«¸Þ¶ó ÃÔ¿µ¸ðµå.
+//	if(znzin->camera_sfx.get_play_onoff())   //ì¡°ì„±í˜„ 2006 10/23 ì˜µì €ë²„ ì¹´ë©”ë¼ ì´¬ì˜ëª¨ë“œ.
 //    znzin->camera_sfx.draw_camera();
 	
 	// render viewfrustum

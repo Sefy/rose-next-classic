@@ -92,7 +92,7 @@ WS_lsvSOCKET::Send_zws_SERVER_INFO() {
         pCPacket->m_zws_SERVER_INFO.m_wPortNO = (short)pGSV->GetListenPort();
         pCPacket->m_zws_SERVER_INFO.m_dwSeed = pGSV->GetRandomSeed();
         /*
-                ·Î±×ÀÎ ¼­¹ö¿¡´Â Àü¼ÛÇÒ ÇÊ¿ä ¾ø´Ù.
+                ë¡œê·¸ì¸ ì„œë²„ì—ëŠ” ì „ì†¡í•  í•„ìš” ì—†ë‹¤.
                 pCPacket->m_zws_SERVER_INFO.m_Channel.m_btChannelNO	= (short)pGSV->GetChannelNO();
                 pCPacket->m_zws_SERVER_INFO.m_Channel.m_btLowAGE	= pGSV->GetLowAGE ();
                 pCPacket->m_zws_SERVER_INFO.m_Channel.m_btHighAGE	= pGSV->SetHighAGE ();
@@ -102,8 +102,8 @@ WS_lsvSOCKET::Send_zws_SERVER_INFO() {
 
         m_SockLSV.Packet_Register2SendQ(pCPacket);
 
-        // ·Î±×ÀÎ ¼­¹ö°¡ µµÁß¿¡ »»¾òÀ»°æ¿ì ´ëºñ...
-        // ÇöÀç Á¢¼ÓµÇ¾î ÀÖ´Â »ç¿ëÀÚ ¸®½ºÆ®¸¦ Àü¼Û...
+        // ë¡œê·¸ì¸ ì„œë²„ê°€ ë„ì¤‘ì— ë»£ì–»ì„ê²½ìš° ëŒ€ë¹„...
+        // í˜„ìž¬ ì ‘ì†ë˜ì–´ ìžˆëŠ” ì‚¬ìš©ìž ë¦¬ìŠ¤íŠ¸ë¥¼ ì „ì†¡...
     }
     //	this->Unlock ();
     Packet_ReleaseNUnlock(pCPacket);
@@ -119,7 +119,7 @@ WS_lsvSOCKET::Send_wls_CHANNEL_LIST() {
     if (!pCPacket)
         return;
 
-    // ·Î±×ÀÎ ¼­¹ö¿¡ Ã¤³Î ¼­¹ö Á¤º¸ Àü¼Û.
+    // ë¡œê·¸ì¸ ì„œë²„ì— ì±„ë„ ì„œë²„ ì •ë³´ ì „ì†¡.
     g_pListSERVER->Make_wls_CHANNEL_LIST(pCPacket);
     m_SockLSV.Packet_Register2SendQ(pCPacket);
 
@@ -134,7 +134,7 @@ WS_lsvSOCKET::Send_zws_CONFIRM_ACCOUNT_REQ(DWORD dwSocketID, t_PACKET* pPacket) 
         return;
     //	this->Lock ();
     {
-        // ·Î±×ÀÎ ¼­¹ö¿¡ GSV_ADD_USER_REQ Àü¼Û ÇÑ´Ù...
+        // ë¡œê·¸ì¸ ì„œë²„ì— GSV_ADD_USER_REQ ì „ì†¡ í•œë‹¤...
         pCPacket->m_HEADER.m_wType = ZWS_CONFIRM_ACCOUNT_REQ;
         pCPacket->m_HEADER.m_nSize = sizeof(zws_CONFIRM_ACCOUNT_REQ);
 
@@ -144,7 +144,7 @@ WS_lsvSOCKET::Send_zws_CONFIRM_ACCOUNT_REQ(DWORD dwSocketID, t_PACKET* pPacket) 
         ::CopyMemory(pCPacket->m_zws_CONFIRM_ACCOUNT_REQ.password,
             pPacket->m_cli_JOIN_SERVER_REQ.password,
             sizeof(DWORD) * 16);
-        // pCPacket->AppendString ( szAccount ) szAccont ±¸ÇÒ¼ö ¾ø´Ù.
+        // pCPacket->AppendString ( szAccount ) szAccont êµ¬í• ìˆ˜ ì—†ë‹¤.
 
         m_SockLSV.Packet_Register2SendQ(pCPacket);
     }
@@ -155,7 +155,7 @@ WS_lsvSOCKET::Send_zws_CONFIRM_ACCOUNT_REQ(DWORD dwSocketID, t_PACKET* pPacket) 
 //-------------------------------------------------------------------------------------------------
 void
 WS_lsvSOCKET::Send_zws_SUB_ACCOUNT(DWORD dwLSID, char* szAccount) {
-    // if ( !dwLSID )	LS¿¡¼­ »èÁ¦¿äÃ»µÈ °èÁ¤À» WS°¡ ¸øÃ£À»°æ¿ì dwLSID = 0ÀÌ´Ù.
+    // if ( !dwLSID )	LSì—ì„œ ì‚­ì œìš”ì²­ëœ ê³„ì •ì„ WSê°€ ëª»ì°¾ì„ê²½ìš° dwLSID = 0ì´ë‹¤.
     //	return;
 
     classPACKET* pCPacket = Packet_AllocNLock();
@@ -173,7 +173,7 @@ WS_lsvSOCKET::Send_zws_SUB_ACCOUNT(DWORD dwLSID, char* szAccount) {
 //-------------------------------------------------------------------------------------------------
 void
 WS_lsvSOCKET::Send_wls_ACCOUNT_LIST() {
-    // ÇöÀç Á¢¼ÓµÇ¾î ÀÖ´Â ¸ðµç °èÁ¤À» ·Î±×ÀÎ ¼­¹ö¿¡ º¸³½´Ù.
+    // í˜„ìž¬ ì ‘ì†ë˜ì–´ ìžˆëŠ” ëª¨ë“  ê³„ì •ì„ ë¡œê·¸ì¸ ì„œë²„ì— ë³´ë‚¸ë‹¤.
     g_pUserLIST->Send_wls_ACCOUNT_LIST();
 }
 
@@ -197,7 +197,7 @@ WS_lsvSOCKET::Recv_lsv_CHECK_ALIVE() {
 //-------------------------------------------------------------------------------------------------
 void
 WS_lsvSOCKET::Recv_wls_CONFIRM_ACCOUNT_REPLY() {
-    // ·Î±×ÀÎ ¼­¹ö·Î ºÎÅÍ ÀÀ´äÀ» ¹Þ¾Ò´Ù.
+    // ë¡œê·¸ì¸ ì„œë²„ë¡œ ë¶€í„° ì‘ë‹µì„ ë°›ì•˜ë‹¤.
     short nOffset = sizeof(wls_CONFIRM_ACCOUNT_REPLY);
     char* szAccount = Packet_GetStringPtr(m_pRecvPket, nOffset);
 
@@ -215,7 +215,7 @@ WS_lsvSOCKET::Recv_lsv_ANNOUNCE_CHAT() {
 }
 
 //-------------------------------------------------------------------------------------------------
-// ´Ù¸¥ »ç¿ëÀÚ¿¡ ÀÇÇØ ·Î±×ÀÎµÆ´Ù... °­Á¦ Á¾·á ½ÃÅ´...
+// ë‹¤ë¥¸ ì‚¬ìš©ìžì— ì˜í•´ ë¡œê·¸ì¸ëë‹¤... ê°•ì œ ì¢…ë£Œ ì‹œí‚´...
 void
 WS_lsvSOCKET::Recv_wls_KICK_ACCOUNT() {
     short nOffset = sizeof(t_PACKETHEADER);
@@ -223,10 +223,10 @@ WS_lsvSOCKET::Recv_wls_KICK_ACCOUNT() {
 
     CWS_Client* pUSER = (CWS_Client*)g_pUserLIST->Find_ACCOUNT(szAccount);
     if (pUSER) {
-        // ¿ùµå¼­¹ö¿¡ ¼ÒÄÏÀÌ »ì¾Æ ÀÖ´Ù..
+        // ì›”ë“œì„œë²„ì— ì†Œì¼“ì´ ì‚´ì•„ ìžˆë‹¤..
         pUSER->CloseSocket();
     } else {
-        // ¸ðµç Ã¤³Î ¼­¹ö¿¡ Â©¶ó¶ó Àü¼Û...
+        // ëª¨ë“  ì±„ë„ ì„œë²„ì— ì§¤ë¼ë¼ ì „ì†¡...
         classPACKET pCPacket = classPACKET();
         pCPacket.m_HEADER.m_wType = WLS_KICK_ACCOUNT;
         pCPacket.m_HEADER.m_nSize = sizeof(wls_KICK_ACCOUNT);
@@ -246,7 +246,7 @@ WS_lsvSOCKET::Proc_SocketMSG(WPARAM wParam, LPARAM lParam) {
         case FD_READ: {
             m_SockLSV.OnReceive(nErrorCode);
 
-            // ¹ÞÀº ÆÐÅ¶ Ã³¸®..
+            // ë°›ì€ íŒ¨í‚· ì²˜ë¦¬..
             while (m_SockLSV.Peek_Packet(m_pRecvPket, true)) {
                 // LogString( LOG_DEBUG_, "Handle LS Packet: Type[ 0x%x ], Size[ %d ]\n",
                 // m_pRecvPket->m_HEADER.m_wType, m_pRecvPket->m_HEADER.m_nSize);
@@ -309,7 +309,7 @@ WS_lsvSOCKET::Proc_SocketMSG(WPARAM wParam, LPARAM lParam) {
             }
             break;
         }
-        case FD_CLOSE: // Close()ÇÔ¼ö¸¦ È£ÃâÇØ¼­ Á¾·áµÉ¶§´Â ¹ß»ý ¾ÈÇÑ´Ù.
+        case FD_CLOSE: // Close()í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•´ì„œ ì¢…ë£Œë ë•ŒëŠ” ë°œìƒ ì•ˆí•œë‹¤.
         {
             m_SockLSV.OnClose(nErrorCode);
 

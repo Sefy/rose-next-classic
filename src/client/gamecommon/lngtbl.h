@@ -4,13 +4,13 @@
     #include "StringManager.h"
     #include "Util\\VFSManager.h"
 
-    // AI ½ºÆ®¸µ Å×ÀÌºí ÆÄÀÏ
+    // AI ìŠ¤íŠ¸ë§ í…Œì´ë¸” íŒŒì¼
     #define LANGSTB_AI_NAME "3Ddata\\AI\\ulngtb_ai.ltb"
 
-    // Event (´ëÈ­Åø¿¡¼­ ¸¸µç µ¥ÀÌÅÍ) ½ºÆ®¸µ Å×ÀÌºí ÆÄÀÏ
+    // Event (ëŒ€í™”íˆ´ì—ì„œ ë§Œë“  ë°ì´í„°) ìŠ¤íŠ¸ë§ í…Œì´ë¸” íŒŒì¼
     #define LANGSTB_CON_NAME "3Ddata\\Event\\ulngtb_con.ltb"
 
-    // Quest ½ºÆ®¸µ Å×ÀÌºí ÆÄÀÏ
+    // Quest ìŠ¤íŠ¸ë§ í…Œì´ë¸” íŒŒì¼
     #define LANGSTB_QST_NAME "3Ddata\\QuestData\\ulngtb_qst.ltb"
 
 enum LTB_TYPE { LTB_AI = 0, LTB_QUEST = 1, LTB_EVENT = 2 };
@@ -26,7 +26,7 @@ struct tagStrTblDATA {
     ~tagStrTblDATA();
 };
 
-    // ÆÄÀÏÀ» ÀúÀåÇÒ¶§´Â ¾Æ·¡ Pre DefineÀ» Á¦°ÅÇØ¾ß ÇÑ´Ù.
+    // íŒŒì¼ì„ ì €ìž¥í• ë•ŒëŠ” ì•„ëž˜ Pre Defineì„ ì œê±°í•´ì•¼ í•œë‹¤.
     #define __USEBLOCK__
 
 class AStringTable {
@@ -43,7 +43,7 @@ private:
     WCHAR* m_pData;
 
     //
-    // MBCS String ¿ë ¹öÆÛ¿Í ¹öÆÛ ±æÀÌ
+    // MBCS String ìš© ë²„í¼ì™€ ë²„í¼ ê¸¸ì´
     //
     char* m_szMbcBuffer;
     short m_nMbcsTmpStrLen;
@@ -53,60 +53,60 @@ public:
     ~AStringTable();
 
     /*******************************************************************
-     * »ç¿ëµÈ ¸Þ¸ð¸® ¸®¼Ò½º¸¦ ÇØÁ¦ÇÑ´Ù
+     * ì‚¬ìš©ëœ ë©”ëª¨ë¦¬ ë¦¬ì†ŒìŠ¤ë¥¼ í•´ì œí•œë‹¤
      */
     void Clear();
 
     /*******************************************************************
-     * ÆÄÀÏÀ» ¿ÀÇÂÇÏ°í, ÆÄÀÏ¾ÕÂÊ¿¡ ÀÖ´Â ÇÒ´çÅ×ÀÌºíÀ» ÀÐ´Â´Ù
-     * ÆÄÀÏÀº Close ÇÏÁö ¾Ê´Â´Ù
+     * íŒŒì¼ì„ ì˜¤í”ˆí•˜ê³ , íŒŒì¼ì•žìª½ì— ìžˆëŠ” í• ë‹¹í…Œì´ë¸”ì„ ì½ëŠ”ë‹¤
+     * íŒŒì¼ì€ Close í•˜ì§€ ì•ŠëŠ”ë‹¤
      */
     bool Open(const char* szFileName);
 
     /*******************************************************************
-     * ÆÄÀÏÀÌ ¿ÀÇÂµÇ¾úÀ¸¸é Close(fclose) ÇÑ´Ù
+     * íŒŒì¼ì´ ì˜¤í”ˆë˜ì—ˆìœ¼ë©´ Close(fclose) í•œë‹¤
      */
     void Close();
 
     /*******************************************************************
-     * ÁÖ¾îÁø À§Ä¡¿¡ ÀÖ´Â ½ºÆ®¸µÀÇ ±æÀÌ¸¦ Á¶»çÇÑ´Ù. ±æÀÌ°¡ 0ÀÌ¸é ºñ¾î ÀÖÀ½
+     * ì£¼ì–´ì§„ ìœ„ì¹˜ì— ìžˆëŠ” ìŠ¤íŠ¸ë§ì˜ ê¸¸ì´ë¥¼ ì¡°ì‚¬í•œë‹¤. ê¸¸ì´ê°€ 0ì´ë©´ ë¹„ì–´ ìžˆìŒ
      * wColIDX : Column Index
      * wRowIDX : Row Index
-     * Return : ±æÀÌ°¡ 0ÀÌ¸é ºñ¾î ÀÖÀ½. 0º¸´Ù ÀÛÀ¸¸é Column°ú Row°¡ ¹üÀ§
-     * ¸¦ ¹þ¾î ³µÀ½
+     * Return : ê¸¸ì´ê°€ 0ì´ë©´ ë¹„ì–´ ìžˆìŒ. 0ë³´ë‹¤ ìž‘ìœ¼ë©´ Columnê³¼ Rowê°€ ë²”ìœ„
+     * ë¥¼ ë²—ì–´ ë‚¬ìŒ
      */
     short GetLength(WORD wColIDX, WORD wRowIDX);
 
     /*******************************************************************
-     * ÁÖ¾îÁø À§Ä¡¿¡ ÀÖ´Â ½ºÆ®¸µÀ» ÆÄÀÏ·ÎºÎÅÍ ÀÐ¾î¿Â´Ù
+     * ì£¼ì–´ì§„ ìœ„ì¹˜ì— ìžˆëŠ” ìŠ¤íŠ¸ë§ì„ íŒŒì¼ë¡œë¶€í„° ì½ì–´ì˜¨ë‹¤
      * wColIDX : Column Index
      * wRowIDX : Row Index
-     * Return : ¹üÀ§¸¦ ¹þ¾î³­ °æ¿ì NULL ¸®ÅÏ, ¹®ÀÚ¿­ÀÇ ±æÀÌ 0ÀÎ °æ¿ì
-     * "\0"À» ¸®ÅÏ
+     * Return : ë²”ìœ„ë¥¼ ë²—ì–´ë‚œ ê²½ìš° NULL ë¦¬í„´, ë¬¸ìžì—´ì˜ ê¸¸ì´ 0ì¸ ê²½ìš°
+     * "\0"ì„ ë¦¬í„´
      */
     char* ReadString(WORD wColIDX, WORD wRowIDX);
 
     /*******************************************************************
-     * ÆÄÀÏ¿¡¼­ ½ºÆ®¸µÀ» ÀÐ¾î¼­ ¸Þ¸ð¸®¿¡ ¿Ã·Á ³õ´Â´Ù.
-     * ÆÄÀÏÀº Close µÈ ´ÙÀ½ ¸®ÅÏµÈ´Ù. Load ()·Î ÆÄÀÏÀ» ¿ÀÇÂÇÑ °æ¿ì,
-     * GetString () À» »ç¿ëÇØ¼­ ½ºÆ®¸µÀ» ÂüÁ¶ ÇÒ °Í.
+     * íŒŒì¼ì—ì„œ ìŠ¤íŠ¸ë§ì„ ì½ì–´ì„œ ë©”ëª¨ë¦¬ì— ì˜¬ë ¤ ë†“ëŠ”ë‹¤.
+     * íŒŒì¼ì€ Close ëœ ë‹¤ìŒ ë¦¬í„´ëœë‹¤. Load ()ë¡œ íŒŒì¼ì„ ì˜¤í”ˆí•œ ê²½ìš°,
+     * GetString () ì„ ì‚¬ìš©í•´ì„œ ìŠ¤íŠ¸ë§ì„ ì°¸ì¡° í•  ê²ƒ.
      *
-     * Return : ½ÇÆÐÇÏ¸é false
+     * Return : ì‹¤íŒ¨í•˜ë©´ false
      */
     bool Load(const char* szFileName);
 
     /*******************************************************************
-     * ¸Þ¸ð¸®»óÀÇ ½ºÆ®¸µ Å×ÀÌºíÀÇ ÁÙ¼ö¸¦ Á¶»çÇÑ´Ù
+     * ë©”ëª¨ë¦¬ìƒì˜ ìŠ¤íŠ¸ë§ í…Œì´ë¸”ì˜ ì¤„ìˆ˜ë¥¼ ì¡°ì‚¬í•œë‹¤
      */
     int GetRowCNT(void);
 
     /*******************************************************************
-     * ÄÃ·³¼ö¸¦ Á¶»çÇÑ´Ù
+     * ì»¬ëŸ¼ìˆ˜ë¥¼ ì¡°ì‚¬í•œë‹¤
      */
     int GetClmnCNT(void);
 
     /*******************************************************************
-     * ¸Þ¸ð¸®»óÀÇ ½ºÆ®¸µÅ×ÀÌºí¿¡¼­ ¹®ÀÚ¿­À» Á¶»çÇÑ´Ù.
+     * ë©”ëª¨ë¦¬ìƒì˜ ìŠ¤íŠ¸ë§í…Œì´ë¸”ì—ì„œ ë¬¸ìžì—´ì„ ì¡°ì‚¬í•œë‹¤.
      * wColIDX : Column Index
      * wRowIDX : Row Index
      */
@@ -114,28 +114,28 @@ public:
     char* GetMbcsString(WORD wColIDX, WORD wRowIDX);
 
     /*******************************************************************
-     * ¸Þ¸ð¸®»óÀÇ ½ºÆ®¸µÅ×ÀÌºí¿¡¼­ ¹®ÀÚ¿­À» Áö¿î´Ù.
+     * ë©”ëª¨ë¦¬ìƒì˜ ìŠ¤íŠ¸ë§í…Œì´ë¸”ì—ì„œ ë¬¸ìžì—´ì„ ì§€ìš´ë‹¤.
      * wColIDX : Column Index
      * wRowIDX : Row Index
      */
     bool ClearString(WORD wColIDX, WORD wRowIDX);
 
     /*******************************************************************
-     * ¸Þ¸ð¸®»óÀÇ ½ºÆ®¸µÅ×ÀÌºí¿¡¼­ ÇàÀ» Áö¿î´Ù.
+     * ë©”ëª¨ë¦¬ìƒì˜ ìŠ¤íŠ¸ë§í…Œì´ë¸”ì—ì„œ í–‰ì„ ì§€ìš´ë‹¤.
      * wRowIDX : Row Index
      */
     bool ClearRow(WORD wRowIDX);
 
     /*******************************************************************
-     * ¸Þ¸ð¸®»óÀÇ ½ºÆ®¸µÅ×ÀÌºí¿¡¼­ ºóÇàÀ» Ã£´Â´Ù
-     * iClmnIDX : °Ë»çÇÒ ÄÃ·³
-     * Return : Row Index , Ã£Áö ¸øÇÏ¸é -1¸¦ ¸®ÅÏÇÑ´Ù
+     * ë©”ëª¨ë¦¬ìƒì˜ ìŠ¤íŠ¸ë§í…Œì´ë¸”ì—ì„œ ë¹ˆí–‰ì„ ì°¾ëŠ”ë‹¤
+     * iClmnIDX : ê²€ì‚¬í•  ì»¬ëŸ¼
+     * Return : Row Index , ì°¾ì§€ ëª»í•˜ë©´ -1ë¥¼ ë¦¬í„´í•œë‹¤
      */
     int FindEmptyClmn(int iClmnIDX);
 
     /*******************************************************************
-     * ¸Þ¸ð¸®»óÀÇ ½ºÆ®¸µÅ×ÀÌºí¿¡¼­ ºó¿­À» Ã£´Â´Ù
-     * Return : Row Index , Ã£Áö ¸øÇÏ¸é -1¸¦ ¸®ÅÏÇÑ´Ù
+     * ë©”ëª¨ë¦¬ìƒì˜ ìŠ¤íŠ¸ë§í…Œì´ë¸”ì—ì„œ ë¹ˆì—´ì„ ì°¾ëŠ”ë‹¤
+     * Return : Row Index , ì°¾ì§€ ëª»í•˜ë©´ -1ë¥¼ ë¦¬í„´í•œë‹¤
      */
     int FindEmptyRow(void);
 };

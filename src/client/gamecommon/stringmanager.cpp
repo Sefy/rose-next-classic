@@ -61,18 +61,18 @@ const char* _QuestTypeTable[MAX_QUEST_TYPE_TB] = {
 
 const int _ItemTypeToItemTable[ITEM_TYPE_RIDE_PART + 1] = {
     0,
-    LIST_FACEITEM_S_TB, // ITEM_TYPE_FACE_ITEM = 1,		// 1	LIST_FACEITEM.stb	¾ó±¼ Àå½Ä
+    LIST_FACEITEM_S_TB, // ITEM_TYPE_FACE_ITEM = 1,		// 1	LIST_FACEITEM.stb	ì–¼êµ´ ì¥ì‹
     LIST_CAP_S_TB, // ITEM_TYPE_HELMET,				// 2	LIST_CAP.stb
     LIST_BODY_S_TB, // ITEM_TYPE_ARMOR,				// 3	LIST_BODY.stb
     LIST_ARMS_S_TB, // ITEM_TYPE_GAUNTLET,			// 4	LIST_ARMS.stb
     LIST_FOOT_S_TB, // ITEM_TYPE_BOOTS,				// 5	LIST_FOOT.stb
     LIST_BACK_S_TB, // ITEM_TYPE_KNAPSACK,			// 6	LIST_BACK.stb
-    LIST_JEWEL_S_TB, // ITEM_TYPE_JEWEL,				// 7	LIST_JEWEL.stb		Àå½Å±¸ : ¸ñ°ÉÀÌ
-                     // ¹İÁö
-    LIST_WEAPON_S_TB, // ITEM_TYPE_WEAPON,				// 8	LIST_WEAPON.stb		¹«±â
+    LIST_JEWEL_S_TB, // ITEM_TYPE_JEWEL,				// 7	LIST_JEWEL.stb		ì¥ì‹ êµ¬ : ëª©ê±¸ì´
+                     // ë°˜ì§€
+    LIST_WEAPON_S_TB, // ITEM_TYPE_WEAPON,				// 8	LIST_WEAPON.stb		ë¬´ê¸°
     LIST_SUBWPN_S_TB, // ITEM_TYPE_SUBWPN,				// 9	LIST_SUBWPN.stb
-    LIST_USEITEM_S_TB, // ITEM_TYPE_USE,					// 10	LIST_USEITEM.stb	¼Ò¸ğ
-    LIST_JEMITEM_S_TB, // ITEM_TYPE_GEM = ITEM_TYPE_ETC,	// 11	LIST_JEMITEM.stb	±âÅ¸ : º¸¼®
+    LIST_USEITEM_S_TB, // ITEM_TYPE_USE,					// 10	LIST_USEITEM.stb	ì†Œëª¨
+    LIST_JEMITEM_S_TB, // ITEM_TYPE_GEM = ITEM_TYPE_ETC,	// 11	LIST_JEMITEM.stb	ê¸°íƒ€ : ë³´ì„
     LIST_NATURAL_S_TB, // ITEM_TYPE_NATURAL,				// 12	LIST_NATURAL.stb
     LIST_QUESTITEM_S_TB, // ITEM_TYPE_QUEST,				// 13	LIST_QUESTITEM.stb
     LIST_PAT_S_TB // ITEM_TYPE_RIDE_PART=14,
@@ -136,7 +136,7 @@ CStringManager::GetFontNameByCharSet(int iCharSet) {
 }
 
 //-----------------------------------------------------------------------------------------------
-/// ½ºÆ®¸µÅ×ÀÌºí ÃÊ±âÈ­
+/// ìŠ¤íŠ¸ë§í…Œì´ë¸” ì´ˆê¸°í™”
 //-----------------------------------------------------------------------------------------------
 void
 CStringManager::InitStringTables() {
@@ -160,7 +160,7 @@ CStringManager::ClearStringTables() {
 }
 
 //------------------------------------------------------------------------------------------
-// Noraml Type TableÁß Item Type Table¿¡ »ç¿ëµÇ´Â Data°¡ ÀÖ´Ù.. ¸ÕÀú LoadingÇÒ°Í - 2005/1/11 - nAvy
+// Noraml Type Tableì¤‘ Item Type Tableì— ì‚¬ìš©ë˜ëŠ” Dataê°€ ìˆë‹¤.. ë¨¼ì € Loadingí• ê²ƒ - 2005/1/11 - nAvy
 //------------------------------------------------------------------------------------------
 bool
 CStringManager::LoadTables(int iCharSet) {
@@ -203,9 +203,9 @@ CStringManager::LoadTables(int iCharSet) {
 }
 
 //---------------------------------------------------------------------------------------------
-/// ¸ğµç ·ÎµåµÈ Å×ÀÌºí ÇÁ¸®..
-/// ÇöÀç ¸ğµç ½ºÆ®¸µ Å×ÀÌºí ±¸Á¶Å×´Â ¸®¼Ò½º ÄÁÅ×ÀÌ³ÊÀÇ ¸Ş¸ğ¸® Ç®·Î ºÎÅÍ ³ª¿Â´Ù.
-/// ÇÒ´ç¹× ÇØÁ¦¿¡´ëÇÑ ¸ğµç Ã¥ÀÓÀº ¸®¼Ò½º ÄÁÅ×ÀÌ³Ê¿¡°Ô ÀÖ´Ù.
+/// ëª¨ë“  ë¡œë“œëœ í…Œì´ë¸” í”„ë¦¬..
+/// í˜„ì¬ ëª¨ë“  ìŠ¤íŠ¸ë§ í…Œì´ë¸” êµ¬ì¡°í…ŒëŠ” ë¦¬ì†ŒìŠ¤ ì»¨í…Œì´ë„ˆì˜ ë©”ëª¨ë¦¬ í’€ë¡œ ë¶€í„° ë‚˜ì˜¨ë‹¤.
+/// í• ë‹¹ë° í•´ì œì—ëŒ€í•œ ëª¨ë“  ì±…ì„ì€ ë¦¬ì†ŒìŠ¤ ì»¨í…Œì´ë„ˆì—ê²Œ ìˆë‹¤.
 //---------------------------------------------------------------------------------------------
 void
 CStringManager::ClearTables() {
@@ -235,7 +235,7 @@ CStringManager::ClearTables() {
 }
 
 //---------------------------------------------------------------------------------------------
-// ÇÑ Å¸ÀÔ Å×ÀÌºí ÇÁ¸®
+// í•œ íƒ€ì… í…Œì´ë¸” í”„ë¦¬
 //---------------------------------------------------------------------------------------------
 void
 CStringManager::ClearTypeTable() {}
@@ -301,7 +301,7 @@ CStringManager::LoadTypeTable(LANGUAGE_TYPE languageType,
     int iIndex = 0;
     pFileSystem->ReadInt32(&iKeyCount);
 
-    /// µÚ¿¡¼­ Å° ½ÅÄö½º ÀÎµ¦½º¿¡ ´ëÀÀÇÏ´Â ¾ÆÀÌÅÛÅ¸ÀÔ°´Ã¼
+    /// ë’¤ì—ì„œ í‚¤ ì‹ í€€ìŠ¤ ì¸ë±ìŠ¤ì— ëŒ€ì‘í•˜ëŠ” ì•„ì´í…œíƒ€ì…ê°ì²´
     stTypeTable** pTempTypeList = NULL;
     try {
         pTempTypeList = new stTypeTable*[iKeyCount];
@@ -376,19 +376,19 @@ CStringManager::LoadTypeTable(LANGUAGE_TYPE languageType,
     int iTargetLangPos = 0;
     pFileSystem->ReadInt32(&iTargetLangPos);
 
-    /// ÇØ´ç ¾ğ´õ ºí¶ôÀ¸·Î ÀÌµ¿..
+    /// í•´ë‹¹ ì–¸ë” ë¸”ë½ìœ¼ë¡œ ì´ë™..
     pFileSystem->Seek(iTargetLangPos, FILE_POS_SET);
 
     //--------------------------------------------------------
     // Language set data
     //--------------------------------------------------------
-    /// ½ºÆ®¸µÀ» ºí¶ôÀ¸·Î ÀĞ¾úÀ»¶§ ÂüÁ¶ÇÒ ¿É¼Â.
+    /// ìŠ¤íŠ¸ë§ì„ ë¸”ë½ìœ¼ë¡œ ì½ì—ˆì„ë•Œ ì°¸ì¡°í•  ì˜µì…‹.
     for (i = 0; i < iKeyCount; i++) {
         int iDataOffset = 0;
         pFileSystem->ReadInt32(&iDataOffset);
     }
 
-    /// ½ÇÁ¦ ½ºÆ®¸µµé..
+    /// ì‹¤ì œ ìŠ¤íŠ¸ë§ë“¤..
     for (i = 0; i < iKeyCount; i++) {
         switch (iTableType) {
             case ITEM_TYPE_ST: {
@@ -620,7 +620,7 @@ CStringManager::GetStatusStartMsg(int iStatusNo) {
     if (pQuestTypeTable == NULL)
         return m_strNull.c_str();
 
-    ///Àß¸øµÈ°Í ¾Æ´Ô.. 2¹øÂ° ÄÃ·³¿¡ Setting Msg°¡ µé¾î°¡ ÀÖ´Ù.
+    ///ì˜ëª»ëœê²ƒ ì•„ë‹˜.. 2ë²ˆì§¸ ì»¬ëŸ¼ì— Setting Msgê°€ ë“¤ì–´ê°€ ìˆë‹¤.
     return pQuestTypeTable->strDesc.c_str();
 }
 
@@ -630,7 +630,7 @@ CStringManager::GetStatusEndMsg(int iStatusNo) {
     if (pQuestTypeTable == NULL)
         return m_strNull.c_str();
 
-    ///Àß¸øµÈ°Í ¾Æ´Ô.. 3¹øÂ° ÄÃ·³¿¡ Delete Msg°¡ µé¾îÀÖ´Ù.
+    ///ì˜ëª»ëœê²ƒ ì•„ë‹˜.. 3ë²ˆì§¸ ì»¬ëŸ¼ì— Delete Msgê°€ ë“¤ì–´ìˆë‹¤.
     return pQuestTypeTable->strStartMsg.c_str();
 }
 

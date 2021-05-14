@@ -42,7 +42,7 @@ bool zz_morpher::apply_motion (void)
 	if (mesh->get_timestamp() == znzin->get_current_time()) {
 		
 		if(!forced_visibility_mode)
-			set_visibility(mesh->alpha);  // Á¶¼ºÇö 2005 11 - 12 effect ¼û±â±â
+			set_visibility(mesh->alpha);  // ì¡°ì„±í˜„ 2005 11 - 12 effect ìˆ¨ê¸°ê¸°
 		return false; // mesh was already updated
 	   
 	}

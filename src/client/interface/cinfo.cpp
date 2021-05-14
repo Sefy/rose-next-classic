@@ -11,9 +11,9 @@ CInfo::CInfo(void) {
 CInfo::~CInfo(void) {}
 void
 CInfo::Draw() {
-    ///¹è°æ ÀÌ¹ÌÁö ±×¸®±â
-    /// Width´Â g_DrawImpl½Ã¿¡ Size¸¦ ÁÖ°í
-    /// Height´Â Text±×¸®±â Àü¿¡ ±×·ÁÁÖÀÚ.
+    ///ë°°ê²½ ì´ë¯¸ì§€ ê·¸ë¦¬ê¸°
+    /// WidthëŠ” g_DrawImplì‹œì— Sizeë¥¼ ì£¼ê³ 
+    /// HeightëŠ” Textê·¸ë¦¬ê¸° ì „ì— ê·¸ë ¤ì£¼ìž.
 
     RECT rcDraw = {2, 2, m_iWidth, 17};
 

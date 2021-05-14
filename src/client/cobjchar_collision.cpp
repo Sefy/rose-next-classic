@@ -86,7 +86,7 @@ CObjCHAR_Collision::UpdateHeight(CObjCHAR* pObj)
             CObjCART* pCart = (CObjCART*)pObj;
             CObjCHAR* pParent = pCart->GetParent();
             if (pParent) {
-                /// ³» ¾Æ¹ÙÅ¸ÀÏ°æ¿ì
+                /// ë‚´ ì•„ë°”íƒ€ì¼ê²½ìš°
                 if (pParent->IsA(OBJ_USER))
                     AdjustHeight_AvatarCart();
                 else
@@ -99,7 +99,7 @@ CObjCHAR_Collision::UpdateHeight(CObjCHAR* pObj)
             CObjCastleGear* pCgear = (CObjCastleGear*)pObj;
             CObjCHAR* pParent = pCgear->GetParent();
             if (pParent) {
-                /// ³» ¾Æ¹ÙÅ¸ÀÏ°æ¿ì
+                /// ë‚´ ì•„ë°”íƒ€ì¼ê²½ìš°
                 if (pParent->IsA(OBJ_USER))
                     AdjustHeight_AvatarCgear();
                 else
@@ -145,7 +145,7 @@ CObjCHAR_Collision::AdjustHeight_AvatarCart(void)
 
 //--------------------------------------------------------------------------
 #if defined(_GBC)
-    //¹ÚÁöÈ£::Æê¸ðµå ÀÏ¶§ ¾Æ¹ÙÅ¸¸¦ Á¤Áö ½ÃÅ²´Ù.
+    //ë°•ì§€í˜¸::íŽ«ëª¨ë“œ ì¼ë•Œ ì•„ë°”íƒ€ë¥¼ ì •ì§€ ì‹œí‚¨ë‹¤.
     if ((m_State == CS_BODY_FRONT) || (m_State == CS_FOOT_FRONT)) {
         if (m_pObj->IsPET()) {
             CObjCART* pCart = (CObjCART*)m_pObj;
@@ -414,19 +414,19 @@ CObjCHAR_Collision::InitializePC(bool bIsAvatar)
 
         float fResetPosZ;
 
-        if (m_pObj->GetResetPosZ(fResetPosZ)) { // ³ôÀÌ°ªÀÌ °»½ÅµÇ¾î¾ß ÇÒ Å¸ÀÌ¹ÖÀÎ°¡?
+        if (m_pObj->GetResetPosZ(fResetPosZ)) { // ë†’ì´ê°’ì´ ê°±ì‹ ë˜ì–´ì•¼ í•  íƒ€ì´ë°ì¸ê°€?
             D3DXVECTOR3 vCurPos = m_pObj->Get_CurPOS();
 
-            vCurPos.z = fResetPosZ; // ³ôÀÌ °ª¸¸ º¯°æ
+            vCurPos.z = fResetPosZ; // ë†’ì´ ê°’ë§Œ ë³€ê²½
 
-            m_pObj->SetResetPosZ(false, 0); // ÃÊ±âÈ­½ÃÅ´
+            m_pObj->SetResetPosZ(false, 0); // ì´ˆê¸°í™”ì‹œí‚´
 
-            m_pObj->ResetCUR_POS(vCurPos); // ÇöÀç À§Ä¡ °»½Å
-            //		return false; // Ãæµ¹Ã¼Å© ÈÄ ³ôÀÌ ÀçÁ¶Á¤ ÀÛ¾÷ ÇÊ¿ä ¾øÀ½.   //test
+            m_pObj->ResetCUR_POS(vCurPos); // í˜„ìž¬ ìœ„ì¹˜ ê°±ì‹ 
+            //		return false; // ì¶©ëŒì²´í¬ í›„ ë†’ì´ ìž¬ì¡°ì • ìž‘ì—… í•„ìš” ì—†ìŒ.   //test
         }
     }
 
-    // ÀÏ¹Ý Ãæµ¹ ¸ðµå ÃÊ±âÈ­
+    // ì¼ë°˜ ì¶©ëŒ ëª¨ë“œ ì´ˆê¸°í™”
     Initialize();
     return true;
 }
@@ -1113,7 +1113,7 @@ CObjCHAR_Collision::ApplySliding(void)
     float angle;
 
     const float fMinDampHeight =
-        1.0f; // ÃÖ¼Ò 1 cm ÀÌÇÏ ¾Æ·¡·Î ³»·Á°¥ ½Ã¿¡´Â ¿òÁ÷ÀÌ´Â °Å¸® º¸Á¤ ¾È ÇÔ.
+        1.0f; // ìµœì†Œ 1 cm ì´í•˜ ì•„ëž˜ë¡œ ë‚´ë ¤ê°ˆ ì‹œì—ëŠ” ì›€ì§ì´ëŠ” ê±°ë¦¬ ë³´ì • ì•ˆ í•¨.
 
     if (g_pTerrain->GetNormal(m_vCOM.x, m_vCOM.y, vTerrainNormal)) {
 
@@ -1149,9 +1149,9 @@ CObjCHAR_Collision::ApplySliding(void)
             return false;
         }
 
-        /*		if (0) { // °æ»çµµ¿¡ µû¸¥ ¼Óµµ º¯È­ ÄÚµå ¹«½Ã. ¼­¹ö¿Í µ¿±â°¡ ¾È ¸Â¾Æ¼­ ¿©·¯ ¹®Á¦
-           »ý±è. fSliding = 1.f + fSlopeDot; // ÆòÁö¿¡¼­´Â 1. °æ»ç°¡ À§·Î ±ÞÇÒ¼ö·Ï 0, ¾Æ·¡·Î
-           ±ÞÇÒ¼ö·Ï 2°¡ µÈ´Ù.
+        /*		if (0) { // ê²½ì‚¬ë„ì— ë”°ë¥¸ ì†ë„ ë³€í™” ì½”ë“œ ë¬´ì‹œ. ì„œë²„ì™€ ë™ê¸°ê°€ ì•ˆ ë§žì•„ì„œ ì—¬ëŸ¬ ë¬¸ì œ
+           ìƒê¹€. fSliding = 1.f + fSlopeDot; // í‰ì§€ì—ì„œëŠ” 1. ê²½ì‚¬ê°€ ìœ„ë¡œ ê¸‰í• ìˆ˜ë¡ 0, ì•„ëž˜ë¡œ
+           ê¸‰í• ìˆ˜ë¡ 2ê°€ ëœë‹¤.
 
                     // slope check, not to do too-fast climbing.
                     if ( m_vNext.z > m_vPrevious.z - fMinDampHeight ) {

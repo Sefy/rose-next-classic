@@ -25,11 +25,11 @@ struct AvatarSelectItem {
 };
 
 /**
- * Ä³¸¯ÅÍ »ı¼º½Ã »ç¿ëµÇ´Â ÀÎÅÍÆäÀÌ½º
+ * ìºë¦­í„° ìƒì„±ì‹œ ì‚¬ìš©ë˜ëŠ” ì¸í„°í˜ì´ìŠ¤
  *
  *
- * @Warning		½ºÅ©¸³Æ®¿Í °°ÀÌ µ¿ÀÛÇÑ´Ù.( SystemFunc.lua )
- * @Author		ÃÖÁ¾Áø
+ * @Warning		ìŠ¤í¬ë¦½íŠ¸ì™€ ê°™ì´ ë™ì‘í•œë‹¤.( SystemFunc.lua )
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  *
  */
@@ -37,16 +37,16 @@ class CCreateAvata: public CTDialog {
 public:
     CExternalUIManager* m_pEUIManager;
 
-    /// ½ºÅ©¸³Æ®»ó¿¡¼­ Ãß°¡µÇ¾î Áø´Ù.
-    std::deque<AvatarSelectItem> m_mapSex; /// Ä³¸¯ÅÍ»ı¼º½Ã ¼±ÅÃÇÒ¼ö ÀÖ´Â ¼ºº°
-    std::deque<AvatarSelectItem> m_mapFace; /// Ä³¸¯ÅÍ»ı¼º½Ã ¼±ÅÃÇÒ¼ö ÀÖ´Â ¾ó±¼Çü
-    std::deque<AvatarSelectItem> m_mapHair; /// Ä³¸¯ÅÍ»ı¼º½Ã ¼±ÅÃÇÒ¼ö ÀÖ´Â ¸Ó¸®¸ğ¾ç
-    std::deque<AvatarSelectItem> m_mapJob; /// ½ÃÀÛÀ§Ä¡
+    /// ìŠ¤í¬ë¦½íŠ¸ìƒì—ì„œ ì¶”ê°€ë˜ì–´ ì§„ë‹¤.
+    std::deque<AvatarSelectItem> m_mapSex; /// ìºë¦­í„°ìƒì„±ì‹œ ì„ íƒí• ìˆ˜ ìˆëŠ” ì„±ë³„
+    std::deque<AvatarSelectItem> m_mapFace; /// ìºë¦­í„°ìƒì„±ì‹œ ì„ íƒí• ìˆ˜ ìˆëŠ” ì–¼êµ´í˜•
+    std::deque<AvatarSelectItem> m_mapHair; /// ìºë¦­í„°ìƒì„±ì‹œ ì„ íƒí• ìˆ˜ ìˆëŠ” ë¨¸ë¦¬ëª¨ì–‘
+    std::deque<AvatarSelectItem> m_mapJob; /// ì‹œì‘ìœ„ì¹˜
 
-    int m_iSelectedSex; /// ¼±ÅÃÇÑ ¼ºº°
-    int m_iSelectedFace; /// ¼±ÅÃÇÑ ¾ó±¼
-    int m_iSelectedHair; /// ¼±ÅÃÇÑ ¸Ó¸®¸ğ¾ç
-    int m_iSelectedJob; /// ½ÃÀÛÀ§Ä¡
+    int m_iSelectedSex; /// ì„ íƒí•œ ì„±ë³„
+    int m_iSelectedFace; /// ì„ íƒí•œ ì–¼êµ´
+    int m_iSelectedHair; /// ì„ íƒí•œ ë¨¸ë¦¬ëª¨ì–‘
+    int m_iSelectedJob; /// ì‹œì‘ìœ„ì¹˜
 public:
     CCreateAvata();
     ~CCreateAvata();

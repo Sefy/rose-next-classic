@@ -2,9 +2,9 @@
 #define _MemoDlg_
 #include "tgamectrl/tdialog.h"
 /**
- * ¿ÀÇÁ¶óÀÎÀÎ Ä£±¸¿¡°Ô ¸Ş¸ğº¸³»±â¿ë ´ÙÀÌ¾ó·Î±×
+ * ì˜¤í”„ë¼ì¸ì¸ ì¹œêµ¬ì—ê²Œ ë©”ëª¨ë³´ë‚´ê¸°ìš© ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CMemoDlg: public CTDialog {

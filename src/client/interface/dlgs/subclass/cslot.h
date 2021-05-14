@@ -8,13 +8,13 @@ class CTCommand;
 class CDragItem;
 
 /**
- *  CIconÀ» AttachÇÏ¿© °¡Áö°í ÀÖ´Â Class
- *	- ÇÑ¹ø¿¡ ÇÑ°³¾¿¸¸ °¡Áú¼ö ÀÖ´Ù.
- *	- Detach½Ã¿¡ IconÀ» deleteÇÑ´Ù.
- *	- CTCommand¸¦ °¡Áú¼ö ÀÖ´Ù.
- *	- CDragItemÀ» °¡Áö¸é IconÀÇ Drag&DropÀ» ½ÃÀÛ½ÃÅ²´Ù
+ *  CIconì„ Attachí•˜ì—¬ ê°€ì§€ê³  ìˆëŠ” Class
+ *	- í•œë²ˆì— í•œê°œì”©ë§Œ ê°€ì§ˆìˆ˜ ìˆë‹¤.
+ *	- Detachì‹œì— Iconì„ deleteí•œë‹¤.
+ *	- CTCommandë¥¼ ê°€ì§ˆìˆ˜ ìˆë‹¤.
+ *	- CDragItemì„ ê°€ì§€ë©´ Iconì˜ Drag&Dropì„ ì‹œì‘ì‹œí‚¨ë‹¤
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/15
  */
 //-------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ public:
 
     virtual void Draw();
     virtual unsigned int Process(UINT uiMsg, WPARAM wParam, LPARAM lParam);
-    virtual void MoveWindow(POINT pt); /// Parent DialogÀÇ Left-Top Point
+    virtual void MoveWindow(POINT pt); /// Parent Dialogì˜ Left-Top Point
     virtual void Update(POINT ptMouse);
 
     CIcon* GetIcon() { return m_pIcon; }
@@ -51,17 +51,17 @@ protected:
 
 protected:
     CIcon* m_pIcon;
-    int m_iParentID; /// SlotÀÇ Parent ID( ÇöÀç´Â TDialog¸¸ °¡´É ..)
-    bool m_bDragAvailable; /// Slot¿¡ ItemÀÌ ÀÖÀ»¶§ Drag°¡´ÉÇÑ°¡?
+    int m_iParentID; /// Slotì˜ Parent ID( í˜„ì¬ëŠ” TDialogë§Œ ê°€ëŠ¥ ..)
+    bool m_bDragAvailable; /// Slotì— Itemì´ ìˆì„ë•Œ Dragê°€ëŠ¥í•œê°€?
     CDragItem* m_pDragItem;
-    CTCommand* m_pCommand; /// SlotÀÌ ºñ¾îÀÖÀ»°æ¿ì¿¡ ½ÇÇàµÇ´Â Command
+    CTCommand* m_pCommand; /// Slotì´ ë¹„ì–´ìˆì„ê²½ìš°ì— ì‹¤í–‰ë˜ëŠ” Command
     bool m_bClicked;
     POINT m_ptClicked;
     DWORD m_dwTooltipType;
 };
 
 /*
- * ¾ÆÀÌÅÛ Ã¢ÀÇ Pat ÅÇ¿¡¼­ ÀåÂøµÈ ÆÄÃ÷¸¦ º¸¿©ÁÖ´Â °÷ÀÇ ½½·Ô( »ç¿ëÇÏÁö ¾Ê°í ÀÖ´Ù )
+ * ì•„ì´í…œ ì°½ì˜ Pat íƒ­ì—ì„œ ì¥ì°©ëœ íŒŒì¸ ë¥¼ ë³´ì—¬ì£¼ëŠ” ê³³ì˜ ìŠ¬ë¡¯( ì‚¬ìš©í•˜ì§€ ì•Šê³  ìˆë‹¤ )
  */
 // class CSlotPatEquip : public CSlot
 //{
@@ -73,7 +73,7 @@ protected:
 //};
 
 /**
- * CPrivateStoreDlg¿¡¼­ ¸ÅÀÔÅÇ¿¡ »ç¿ëµÇ´Â Slot
+ * CPrivateStoreDlgì—ì„œ ë§¤ì…íƒ­ì— ì‚¬ìš©ë˜ëŠ” Slot
  */
 class CSlotBuyPrivateStore: public CSlot {
 public:
@@ -88,7 +88,7 @@ public:
     void SetSelected();
 
 protected:
-    bool m_bExhibition; ///Âò¸ñ·Ï¿¡¼­ ¼±ÅÃÇØ¼­ ¸ÅÀÔ ¸®½ºÆ®¿¡ ¿Ã·ÁÁø ¾ÆÀÌÅÛÀ» °¡Áö°í ÀÖ´Â°¡?
+    bool m_bExhibition; ///ì°œëª©ë¡ì—ì„œ ì„ íƒí•´ì„œ ë§¤ì… ë¦¬ìŠ¤íŠ¸ì— ì˜¬ë ¤ì§„ ì•„ì´í…œì„ ê°€ì§€ê³  ìˆëŠ”ê°€?
     static CSlotBuyPrivateStore* s_pSelectedSlot;
 };
 #endif

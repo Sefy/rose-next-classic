@@ -7,9 +7,9 @@ class CIcon;
 class CHotICONS;
 
 /**
- * CItemSlot°ú °°Àº ÀÌÀ¯·Î ¸¸µé¾îÁø ´ÜÃàÃ¢¾ÆÀÌÅÛ ÄÁÅ×ÀÌ³Ê Å¬·¡½º
+ * CItemSlotê³¼ ê°™ì€ ì´ìœ ë¡œ ë§Œë“¤ì–´ì§„ ë‹¨ì¶•ì°½ì•„ì´í…œ ì»¨í…Œì´ë„ˆ í´ëž˜ìŠ¤
  *
- * @Author		ÀÌµ¿Çö, ÃÖÁ¾Áø
+ * @Author		ì´ë™í˜„, ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CHotIconSlot {

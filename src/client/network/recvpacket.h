@@ -128,7 +128,7 @@ public:
     /// result of skill
     ///
     void Recv_gsv_EFFECT_OF_SKILL();
-    void Recv_gsv_DAMAGE_OF_SKILL(); // 7,17¹ø Å¸ÀÔÀÇ °æ¿ì.
+    void Recv_gsv_DAMAGE_OF_SKILL(); // 7,17ë²ˆ íƒ€ìž…ì˜ ê²½ìš°.
     void Recv_gsv_RESULT_OF_SKILL();
 
     void Recv_gsv_CLEAR_STATUS();
@@ -143,11 +143,11 @@ public:
     void Recv_gsv_P_STORE_RESULT();
     void Recv_gsv_QUEST_REPLY();
 
-    ///Æ®·¹ÀÌµå °ü·Ã
+    ///íŠ¸ë ˆì´ë“œ ê´€ë ¨
     void Recv_gsv_TRADE_P2P();
     void Recv_gsv_TRADE_P2P_ITEM();
 
-    ///ÆÄÆ¼ °ü·Ã
+    ///íŒŒí‹° ê´€ë ¨
     void Recv_gsv_PARTY_REQ();
     void Recv_gsv_PARTY_REPLY();
     void Recv_gsv_PARTY_MEMBER();
@@ -155,19 +155,19 @@ public:
     void Recv_gsv_PARTY_ITEM();
     void Recv_gsv_PARTY_RULE();
     void Recv_gsv_CHANGE_OBJIDX();
-    ///Á¦Á¶°ü·Ã
+    ///ì œì¡°ê´€ë ¨
     void Recv_gsv_CREATE_ITEM_REPLY();
-    ///¹ðÅ©( °èÁ¤Ã¢°í) °ü·Ã
+    ///ë±…í¬( ê³„ì •ì°½ê³ ) ê´€ë ¨
     void Recv_gsv_BANK_LIST_REPLY();
     void Recv_gsv_MOVE_ITEM();
-    ///¼Ò¸ðÅº °ü·Ã
+    ///ì†Œëª¨íƒ„ ê´€ë ¨
     void Recv_gsv_SET_BULLET();
 
     void Recv_gsv_SERVER_DATA();
-    /// PAT °ü·Ã
+    /// PAT ê´€ë ¨
     void Recv_gsv_ASSEMBLE_RIDE_ITEM();
 
-    /// ½Ç½Ã°£ ¼öÁ¤µÇ´Â ÀÌº¥Æ® °ª( m_nEventSTATUS ) Àü¼Û
+    /// ì‹¤ì‹œê°„ ìˆ˜ì •ë˜ëŠ” ì´ë²¤íŠ¸ ê°’( m_nEventSTATUS ) ì „ì†¡
     void Recv_GSV_SET_EVENT_STATUS();
 
     void Recv_GSV_SET_ITEM_LIFE();
@@ -186,7 +186,7 @@ public:
     void Recv_gsv_APPRAISAL_REPLY();
     //----------------------------------------------------------------------------------------------------
     ///
-    /// @brief Àç¹Ö Àç·Ã°ü·Ã
+    /// @brief ìž¬ë° ìž¬ë ¨ê´€ë ¨
     ///
     //----------------------------------------------------------------------------------------------------
     void Recv_gsv_CRAFT_ITEM_REPLY();
@@ -195,7 +195,7 @@ public:
 
     //----------------------------------------------------------------------------------------------------
     ///
-    /// @brief Äù½ºÆ® º¸»ó°ü·Ã
+    /// @brief í€˜ìŠ¤íŠ¸ ë³´ìƒê´€ë ¨
     ///
     //----------------------------------------------------------------------------------------------------
     void Recv_gsv_REWARD_ITEM();
@@ -206,21 +206,21 @@ public:
 
     //----------------------------------------------------------------------------------------------------
     ///
-    /// @brief ÀÌº¥Æ® ¿ÀºêÁ§Æ® Ã³¸® °ü·Ã
+    /// @brief ì´ë²¤íŠ¸ ì˜¤ë¸Œì íŠ¸ ì²˜ë¦¬ ê´€ë ¨
     ///
     //----------------------------------------------------------------------------------------------------
     void Recv_gsv_ADD_EVENTOBJ();
 
     //----------------------------------------------------------------------------------------------------
     ///
-    /// @brief HP, MP ¹°¾à Á¾·á ÆÐÅ¶.
+    /// @brief HP, MP ë¬¼ì•½ ì¢…ë£Œ íŒ¨í‚·.
     ///
     //----------------------------------------------------------------------------------------------------
     void Recv_gsv_SET_HPnMP();
 
     //----------------------------------------------------------------------------------------------------
     ///
-    /// @brief Do_DeadEvent ¿¡¼­ È£ÃâÇÏ´ø°ÍÀ» ¼­¹ö¿¡¼­ ¿äÃ»½Ã Ã³¸®ÇÏ°Ô º¯°æ..
+    /// @brief Do_DeadEvent ì—ì„œ í˜¸ì¶œí•˜ë˜ê²ƒì„ ì„œë²„ì—ì„œ ìš”ì²­ì‹œ ì²˜ë¦¬í•˜ê²Œ ë³€ê²½..
     ///
     //----------------------------------------------------------------------------------------------------
     void Recv_gsv_CHECK_NPC_EVENT();
@@ -249,21 +249,21 @@ public:
 
     //----------------------------------------------------------------------------------------------------
     ///
-    /// ¹Ú ÁöÈ£    ¿©½Å ¼ÒÈ¯ ÆÐÅ¶Ã³¸®
+    /// ë°• ì§€í˜¸    ì—¬ì‹  ì†Œí™˜ íŒ¨í‚·ì²˜ë¦¬
     ///
     //----------------------------------------------------------------------------------------------------
     void Recv_gsv_GODDNESS_MODE();
     //----------------------------------------------------------------------------------------------------
-    /// ¹èÆ²Ä«Æ® °ü·Ã
+    /// ë°°í‹€ì¹´íŠ¸ ê´€ë ¨
     void Recv_gsv_PATSTATE_CHANGE();
 
-    // ÄÉ¸¯ÅÍ »óÅÂ º¯È¯ (Åõ¸í)
+    // ì¼€ë¦­í„° ìƒíƒœ ë³€í™˜ (íˆ¬ëª…)
     void Recv_gsv_CHARSTATE_CHANGE();
 
-    // 2ÀÎ½Â Ä«Æ®.
+    // 2ì¸ìŠ¹ ì¹´íŠ¸.
     void Recv_gsv_CART_RIDE();
 
-    //½º¼¦°ü·Ã..
+    //ìŠ¤ìƒ·ê´€ë ¨..
     void Recv_gsv_SCREEN_SHOT_TIME();
 
     // Updates a player name

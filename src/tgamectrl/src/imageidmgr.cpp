@@ -35,7 +35,7 @@ CImageIDMgr::GetImageNID(int iModuleID, const char* szSID) {
     if (iterModule == m_ResourceTable.end())
         return -1;
 
-    ///´ë¹®ÀÚ·Î º¯°æÇÏ¿© °Ë»öÇÑ´Ù.
+    ///ëŒ€ë¬¸ìë¡œ ë³€ê²½í•˜ì—¬ ê²€ìƒ‰í•œë‹¤.
     string SID;
     char Buff[256] = {0};
     int iSize = (int)strlen(szSID);
@@ -84,7 +84,7 @@ CImageIDMgr::LoadResourceFile(char* szFileName, int iModuleID) {
     string SID;
     int NID;
     while (NULL != fgets(Buff, sizeof(Buff), pFile)) {
-        p = strtok(Buff, sep); ///¹®ÀÚ¿­ ImageID;
+        p = strtok(Buff, sep); ///ë¬¸ìì—´ ImageID;
 
         int iSize = (int)strlen(p);
         for (int i = 0; i < iSize; ++i)

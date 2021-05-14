@@ -11,8 +11,8 @@ CDropItemManager::CDropItemManager(void) {
 
 CDropItemManager::~CDropItemManager(void) {}
 
-/// Drop item Á¤º¸°¡ ¼ö½ÅµÇ¾ú´Ù.
-/// @return ¾ÆÀÌÅÛ µå¶øÇÑ ´ç»çÀÚ, 0ÀÌ¶ó¸é ¾Æ¹ÙÅ¸
+/// Drop item ì •ë³´ê°€ ìˆ˜ì‹ ë˜ì—ˆë‹¤.
+/// @return ì•„ì´í…œ ë“œëí•œ ë‹¹ì‚¬ì, 0ì´ë¼ë©´ ì•„ë°”íƒ€
 int
 CDropItemManager::UpdateDropItemList(int iDropItemIndex) {
     assert(m_DropItemList.size() < 20);

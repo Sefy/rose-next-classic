@@ -6,9 +6,9 @@
 
 CEncryptDecrypt g_EncryptDecrypt;
 
-const unsigned int MAXKEY = 15; // ÃÖ´ë Å°°³¼ö ¼³Á¤.
+const unsigned int MAXKEY = 15; // ìµœëŒ€ í‚¤ê°œìˆ˜ ì„¤ì •.
 
-// KEY - ½ÇÁ¦ Å° º¯È¯¿ë, KEY2 - Å° »çÀÌÁî º¯È¯¿ë, KEY3 - ¾²·¹±âµ¥ÀÌÅÍ º¯È¯¿ë
+// KEY - ì‹¤ì œ í‚¤ ë³€í™˜ìš©, KEY2 - í‚¤ ì‚¬ì´ì¦ˆ ë³€í™˜ìš©, KEY3 - ì“°ë ˆê¸°ë°ì´í„° ë³€í™˜ìš©
 static KEY[MAXKEY] =
     {0x34, 0x5c, 0x3d, 0x52, 0xce, 0xf3, 0x12, 0xd4, 0x05, 0x91, 0xee, 0xff, 0x49, 0xc2, 0xd2};
 static KEY2[3] = {0x94, 0x20, 0x5f};
@@ -27,7 +27,7 @@ CEncryptDecrypt::Encrypt(std::string pEncrypt) {
     int iSizeEncrpt = (int)pEncrypt.size();
 
     unsigned int count = 0;
-    unsigned int CharCount = KEYPOSITION; // Å°°¡ µé¾î°¥ ÃÖÃÊ À§Ä¡.
+    unsigned int CharCount = KEYPOSITION; // í‚¤ê°€ ë“¤ì–´ê°ˆ ìµœì´ˆ ìœ„ì¹˜.
 
     std::string conclusion;
     conclusion.clear();
@@ -202,23 +202,23 @@ CEncryptDecrypt::EncryptDataLoad(char* filename) {
 
     if (encryptData) {
 
-        // ÆÄÀÏÀÇ Å©±â¸¦ ¾Ë¾Æ³»¼­ ³»°¡ ±Ü¾î¾ßÇÏ´Â ÃÖ¼Ò ´ÜÀ§º¸´Ù ÀÛÀ¸¸é ¸®ÅÏ~
+        // íŒŒì¼ì˜ í¬ê¸°ë¥¼ ì•Œì•„ë‚´ì„œ ë‚´ê°€ ê¸ì–´ì•¼í•˜ëŠ” ìµœì†Œ ë‹¨ìœ„ë³´ë‹¤ ì‘ìœ¼ë©´ ë¦¬í„´~
         fseek(encryptData, 0, SEEK_END);
         pos = ftell(encryptData);
         if (pos < MAXSTRING) {
             //			char temp1[MAXSTRING];
             //			sprintf(temp1, "Size of file which try to read is smaller then MAXSTRING %d
-            //.", MAXSTRING); 			MessageBox(NULL, temp1, "¿¡·¯", MB_OK);
+            //.", MAXSTRING); 			MessageBox(NULL, temp1, "ì—ëŸ¬", MB_OK);
             return s_Key;
         }
 
-        // fseek´Â ¼º°øÀ» ÇÏ¸é 0À» ¸®ÅÏÇÑ´Ù..
+        // fseekëŠ” ì„±ê³µì„ í•˜ë©´ 0ì„ ë¦¬í„´í•œë‹¤..
         if (0 != fseek(encryptData, -MAXSTRING, SEEK_CUR)) {
             //			MessageBox(NULL, "File Seek Error~", "Error", MB_OK);
             return s_Key;
         }
 
-        //±Ü¾î!!
+        //ê¸ì–´!!
         size_t ddd = fread(temp, sizeof(char), MAXSTRING, encryptData);
 
         std::string KeyFile;
@@ -229,8 +229,8 @@ CEncryptDecrypt::EncryptDataLoad(char* filename) {
         if (KeyFile[3] == 'B' && KeyFile[4] == 'o' && KeyFile[5] == 'x')
             s_Key.bKeyJudgment = true;
 
-        s_Key.sCyrptKey = DecryptFromFile(KeyFile); // ³ª¿Â Å°
-        s_Key.size = KeyPositionInformation(KeyFile); // Å° Å©±â
+        s_Key.sCyrptKey = DecryptFromFile(KeyFile); // ë‚˜ì˜¨ í‚¤
+        s_Key.size = KeyPositionInformation(KeyFile); // í‚¤ í¬ê¸°
     }
 
     fclose(encryptData);
@@ -256,7 +256,7 @@ CEncryptDecrypt::EncryptDataLoad_Server(char* filename) {
 
         fclose(fp);
     } else {
-        strcpy(szKey, "1234567890123456"); // µğÆúÆ® Å°°ª »ç¿ë.
+        strcpy(szKey, "1234567890123456"); // ë””í´íŠ¸ í‚¤ê°’ ì‚¬ìš©.
         nKeyLen = 16;
     }
 

@@ -24,13 +24,13 @@ enum enumSKILL_APPLY_TYPE {
 ///
 
 enum enumSKILL_TARGET_TYPE {
-    SKILL_TARGET_NONE = 0, ///< Å¸°Ù ºñÁöÁ¤
-    SKILL_TARGET_OBJECT, ///< ¿ÀºêÁ§Æ® Å¸°Ù ¼³Á¤
-    SKILL_TARGET_GROUND, ///< ±×¶ó¿îµå Å¸°Ù( ¸¶¿ì½º ¹Ù´ÚÅ¬¸¯ )
-    SKILL_TARGET_PB, ///< ÀÚ±âÀÚ½Å »ç¿ë or.. ³¯¾¾¸éÈ­?
-    SKILL_TARGET_SCREEN, ///< ½ºÅ©¸°ÀüÃ¼
-    SKILL_TARGET_ZONE, ///< Á¸ÀüÃ¼.
-    SKILL_TARGET_SERVER, ///< ¼­¹öÀüÃ¼
+    SKILL_TARGET_NONE = 0, ///< íƒ€ê²Ÿ ë¹„ì§€ì •
+    SKILL_TARGET_OBJECT, ///< ì˜¤ë¸Œì íŠ¸ íƒ€ê²Ÿ ì„¤ì •
+    SKILL_TARGET_GROUND, ///< ê·¸ë¼ìš´ë“œ íƒ€ê²Ÿ( ë§ˆìš°ìŠ¤ ë°”ë‹¥í´ë¦­ )
+    SKILL_TARGET_PB, ///< ìê¸°ìì‹  ì‚¬ìš© or.. ë‚ ì”¨ë©´í™”?
+    SKILL_TARGET_SCREEN, ///< ìŠ¤í¬ë¦°ì „ì²´
+    SKILL_TARGET_ZONE, ///< ì¡´ì „ì²´.
+    SKILL_TARGET_SERVER, ///< ì„œë²„ì „ì²´
     SKILL_TARGET_MAX,
 };
 
@@ -39,28 +39,28 @@ enum enumSKILL_TARGET_TYPE {
 ///
 
 enum enumSKILL_ACTION_TYPE {
-    SKILL_BASE_ACTION = 1, ///< ±âº» ¸í·É( ¾É±â, ¼­±â, Áİ±â... ), °¨Á¤Ç¥Çö
-    SKILL_CREATE_WINDOW = 2, ///< Ã¢»ı¼º( Á¦Á¶, ÆÄÆ¼, °³ÀÎ»óÁ¡... )
-    SKILL_ACTION_IMMEDIATE = 3, ///< ±ÙÁ¢ Áï½Ã ¹ßµ¿.( Áï½Ã ¸ğ¼Ç ±³Ã¼ )
-    SKILL_ACTION_ENFORCE_WEAPON = 4, ///< ¹«±â»óÅÂ º¯°æ( °­È­, È¿°ú ¿¬Ãâ( Á¤·ÉÅº? ) )
+    SKILL_BASE_ACTION = 1, ///< ê¸°ë³¸ ëª…ë ¹( ì•‰ê¸°, ì„œê¸°, ì¤ê¸°... ), ê°ì •í‘œí˜„
+    SKILL_CREATE_WINDOW = 2, ///< ì°½ìƒì„±( ì œì¡°, íŒŒí‹°, ê°œì¸ìƒì ... )
+    SKILL_ACTION_IMMEDIATE = 3, ///< ê·¼ì ‘ ì¦‰ì‹œ ë°œë™.( ì¦‰ì‹œ ëª¨ì…˜ êµì²´ )
+    SKILL_ACTION_ENFORCE_WEAPON = 4, ///< ë¬´ê¸°ìƒíƒœ ë³€ê²½( ê°•í™”, íš¨ê³¼ ì—°ì¶œ( ì •ë ¹íƒ„? ) )
     SKILL_ACTION_ENFORCE_BULLET =
-        5, ///< °­È­ÃÑ¾Ë º¯°æ ¹ß»ç. ( ¾ÆÀÌ½º ¾Ö·Î¿ì.. ½ÇÁ¦ È­»ìÀÌ º¯ÇÏ´Â.. )
-    SKILL_ACTION_FIRE_BULLET = 6, ///< ¹ß»ç.( ÆÄÀÌ¾îº¼ )
-    SKILL_ACTION_AREA_TARGET = 7, ///< Áö¿ª °ø°İ¸¶¹ı( ´ç±Ù ¹üÀ§.. )
-    SKILL_ACTION_SELF_BOUND_DURATION = 8, ///< ÀÚ½Å¿¡°Ô ¹ßµ¿ Áö¼Ó ¸¶¹ı.( Ä³½ºÆÃ À¯ ) ´É·ÂÄ¡
-    SKILL_ACTION_TARGET_BOUND_DURATION = 9, ///< Å¸°Ù¿¡°Ô ¹ßµ¿ Áö¼Ó ¸¶¹ı.( Ä³½ºÆÃ À¯ ) ´É·ÂÄ¡
-    SKILL_ACTION_SELF_BOUND = 10, ///< ÀÚ½Å¿¡°Ô ¹ßµ¿ ¹Ù·Î ¾÷ ¸¶¹ı.( Ä³½ºÆÃ À¯ ) ´É·ÂÄ¡
-    SKILL_ACTION_TARGET_BOUND = 11, ///< Å¸°Ù¿¡°Ô ¹ßµ¿ ¹Ù·Î ¾÷ ¸¶¹ı.( Ä³½ºÆÃ À¯ ) ´É·ÂÄ¡
-    SKILL_ACTION_SELF_STATE_DURATION = 12, ///< ÀÚ½Å¿¡°Ô ¹ßµ¿ Áö¼Ó ¸¶¹ı.( Ä³½ºÆÃ À¯ ) »óÅÂ°ü·Ã
-    SKILL_ACTION_TARGET_STATE_DURATION = 13, ///< »ó´ë¿¡°Ô ¹ßµ¿ Áö¼Ó ¸¶¹ı.( Ä³½ºÆÃ À¯ ) »óÅÂ°ü·Ã
-    SKILL_ACTION_SUMMON_PET = 14, ///< ÆÖ ¼ÒÈ¯ ½ºÅ³
-    SKILL_ACTION_PASSIVE = 15, ///< ÆĞ½Ãºê..
-    SKILL_EMOTION_ACTION = 16, ///< °¨Á¤ Ç¥Çö
+        5, ///< ê°•í™”ì´ì•Œ ë³€ê²½ ë°œì‚¬. ( ì•„ì´ìŠ¤ ì• ë¡œìš°.. ì‹¤ì œ í™”ì‚´ì´ ë³€í•˜ëŠ”.. )
+    SKILL_ACTION_FIRE_BULLET = 6, ///< ë°œì‚¬.( íŒŒì´ì–´ë³¼ )
+    SKILL_ACTION_AREA_TARGET = 7, ///< ì§€ì—­ ê³µê²©ë§ˆë²•( ë‹¹ê·¼ ë²”ìœ„.. )
+    SKILL_ACTION_SELF_BOUND_DURATION = 8, ///< ìì‹ ì—ê²Œ ë°œë™ ì§€ì† ë§ˆë²•.( ìºìŠ¤íŒ… ìœ  ) ëŠ¥ë ¥ì¹˜
+    SKILL_ACTION_TARGET_BOUND_DURATION = 9, ///< íƒ€ê²Ÿì—ê²Œ ë°œë™ ì§€ì† ë§ˆë²•.( ìºìŠ¤íŒ… ìœ  ) ëŠ¥ë ¥ì¹˜
+    SKILL_ACTION_SELF_BOUND = 10, ///< ìì‹ ì—ê²Œ ë°œë™ ë°”ë¡œ ì—… ë§ˆë²•.( ìºìŠ¤íŒ… ìœ  ) ëŠ¥ë ¥ì¹˜
+    SKILL_ACTION_TARGET_BOUND = 11, ///< íƒ€ê²Ÿì—ê²Œ ë°œë™ ë°”ë¡œ ì—… ë§ˆë²•.( ìºìŠ¤íŒ… ìœ  ) ëŠ¥ë ¥ì¹˜
+    SKILL_ACTION_SELF_STATE_DURATION = 12, ///< ìì‹ ì—ê²Œ ë°œë™ ì§€ì† ë§ˆë²•.( ìºìŠ¤íŒ… ìœ  ) ìƒíƒœê´€ë ¨
+    SKILL_ACTION_TARGET_STATE_DURATION = 13, ///< ìƒëŒ€ì—ê²Œ ë°œë™ ì§€ì† ë§ˆë²•.( ìºìŠ¤íŒ… ìœ  ) ìƒíƒœê´€ë ¨
+    SKILL_ACTION_SUMMON_PET = 14, ///< íŒ» ì†Œí™˜ ìŠ¤í‚¬
+    SKILL_ACTION_PASSIVE = 15, ///< íŒ¨ì‹œë¸Œ..
+    SKILL_EMOTION_ACTION = 16, ///< ê°ì • í‘œí˜„
     SKILL_ACTION_SELF_DAMAGE =
-        17, ///< ÀÚ½ÅÁÖÀ§·Î µ¥¹ÌÁö¸¦ ÁÖ´Â ½ºÅ³..( ÀÌ°Ç ¼¿ÇÁ·Î ¾ÈµÇ³ª? ) ¹°·Ğ ¹üÀ§..
-    SKILL_ACTION_WARP = 18, ///< ¿öÇÁ ½ºÅ³..( ¼­¹ö¿¡¼­ »ç¿ë )
-    SKILL_ACTION_SELF_AND_TARGET = 19, ///< Å¸°Ù¿¡°Ô ¿µÇâÀ» ÁÖ´Âµ¿½Ã¿¡ ³ª¿¡°Ô ¿µÇâÀ» ÁÜ
-    SKILL_ACTION_RESURRECTION = 20, ///< ºÎÈ°..
+        17, ///< ìì‹ ì£¼ìœ„ë¡œ ë°ë¯¸ì§€ë¥¼ ì£¼ëŠ” ìŠ¤í‚¬..( ì´ê±´ ì…€í”„ë¡œ ì•ˆë˜ë‚˜? ) ë¬¼ë¡  ë²”ìœ„..
+    SKILL_ACTION_WARP = 18, ///< ì›Œí”„ ìŠ¤í‚¬..( ì„œë²„ì—ì„œ ì‚¬ìš© )
+    SKILL_ACTION_SELF_AND_TARGET = 19, ///< íƒ€ê²Ÿì—ê²Œ ì˜í–¥ì„ ì£¼ëŠ”ë™ì‹œì— ë‚˜ì—ê²Œ ì˜í–¥ì„ ì¤Œ
+    SKILL_ACTION_RESURRECTION = 20, ///< ë¶€í™œ..
 };
 
 class CObjCHAR;
@@ -76,11 +76,11 @@ enum SKILL_SLOT_TYPE {
 //////////////////////////////////////////////////////////////////////////////////////
 class CSkill: public CTObject {
 protected:
-    bool m_bEnable; ///È°¼ºÈ­ / ºñÈ°¼ºÈ­
-    short m_nClanSkillIndex; ///Å¬·£½ºÅ³ÀÏ°æ¿ì SkillIndex, ¸ŞÀÎ ½ºÅ³ÀÏ°æ¿ì¿¡´Â CSkillSlot¿¡¼­
-                             ///°¡Á®¿Â´Ù.
+    bool m_bEnable; ///í™œì„±í™” / ë¹„í™œì„±í™”
+    short m_nClanSkillIndex; ///í´ëœìŠ¤í‚¬ì¼ê²½ìš° SkillIndex, ë©”ì¸ ìŠ¤í‚¬ì¼ê²½ìš°ì—ëŠ” CSkillSlotì—ì„œ
+                             ///ê°€ì ¸ì˜¨ë‹¤.
     int m_iSkillLevel;
-    int m_iSkillDelayTimer; ///< Áö¿¬½Ã°£..
+    int m_iSkillDelayTimer; ///< ì§€ì—°ì‹œê°„..
 
     int m_iSkillSlotType;
     int m_iSkillSlot;
@@ -134,7 +134,7 @@ public:
 
     //----------------------------------------------------------------------------------------------------
     /// @param
-    /// @brief Skill Level.. ÇöÀç´Â ½ºÅ³ÀÌ ¿ÏÀüÈ÷ ¹Ù²î´Â°ü°è·Î »ç¿ëÇÏÁö ¾Ê´Â´Ù.
+    /// @brief Skill Level.. í˜„ì¬ëŠ” ìŠ¤í‚¬ì´ ì™„ì „íˆ ë°”ë€ŒëŠ”ê´€ê³„ë¡œ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
     //----------------------------------------------------------------------------------------------------
     short GetSkillLevel();
 
@@ -148,12 +148,12 @@ public:
 
     //----------------------------------------------------------------------------------------------------
     /// @param
-    /// @brief ½ºÅ³Å¸ÀÔÀº ( target type, action type, filter type ÀÇ Á¶ÇÕÀ¸·Î »ı¼º )
+    /// @brief ìŠ¤í‚¬íƒ€ì…ì€ ( target type, action type, filter type ì˜ ì¡°í•©ìœ¼ë¡œ ìƒì„± )
     //----------------------------------------------------------------------------------------------------
     bool Create(int iSkillType, short nSkillIdx, short nSkillType, short nSkillLevel = 0);
 
     //----------------------------------------------------------------------------------------------------
-    /// @brief Å¬·£ ½ºÅ³°ü·ÃÇØ¼­ Á¦ÇÑ°É¸° ½ºÅ³À» À§ÇÑ Methods
+    /// @brief í´ëœ ìŠ¤í‚¬ê´€ë ¨í•´ì„œ ì œí•œê±¸ë¦° ìŠ¤í‚¬ì„ ìœ„í•œ Methods
     //----------------------------------------------------------------------------------------------------
     bool HasExpiredTime();
     DWORD GetExpiredTime();
@@ -235,7 +235,7 @@ public:
 class CFireSkill: public CSkill {
 private:
     /// Bullet list
-    /// ¾îÂ¥ÇÇ Bullet List ¿¡ µî·Ï µÉ²¨±â¿¡ º°·Î ÇÊ¿ä ¾øÀ»°Í °°±º..
+    /// ì–´ì§œí”¼ Bullet List ì— ë“±ë¡ ë êº¼ê¸°ì— ë³„ë¡œ í•„ìš” ì—†ì„ê²ƒ ê°™êµ°..
     std::list<CBullet*> m_BulletList;
 
 public:
@@ -259,7 +259,7 @@ public:
 class CFireToPositionSkill: public CSkill {
 private:
     /// Bullet list
-    /// ¾îÂ¥ÇÇ Bullet List ¿¡ µî·Ï µÉ²¨±â¿¡ º°·Î ÇÊ¿ä ¾øÀ»°Í °°±º..
+    /// ì–´ì§œí”¼ Bullet List ì— ë“±ë¡ ë êº¼ê¸°ì— ë³„ë¡œ í•„ìš” ì—†ì„ê²ƒ ê°™êµ°..
     std::list<CBullet*> m_BulletList;
 
 public:
@@ -279,9 +279,9 @@ public:
 
 //////////////////////////////////////////////////////////////////////////////////////
 /// Self Bound Skill
-/// SKILL_ACTION_SELF_BOUND_DURATION = 8,	///< ÀÚ½Å¿¡°Ô ¹ßµ¿ Áö¼Ó ¸¶¹ı.( Ä³½ºÆÃ À¯ ) ´É·ÂÄ¡
-/// SKILL_ACTION_SELF_BOUND = 10,			///< ÀÚ½Å¿¡°Ô ¹ßµ¿ ¹Ù·Î ¾÷ ¸¶¹ı.( Ä³½ºÆÃ À¯ ) ´É·ÂÄ¡
-/// SKILL_ACTION_SELF_STATE_DURATION = 12,		///< ÀÚ½Å¿¡°Ô ¹ßµ¿ Áö¼Ó ¸¶¹ı.( Ä³½ºÆÃ À¯ ) »óÅÂ°ü·Ã
+/// SKILL_ACTION_SELF_BOUND_DURATION = 8,	///< ìì‹ ì—ê²Œ ë°œë™ ì§€ì† ë§ˆë²•.( ìºìŠ¤íŒ… ìœ  ) ëŠ¥ë ¥ì¹˜
+/// SKILL_ACTION_SELF_BOUND = 10,			///< ìì‹ ì—ê²Œ ë°œë™ ë°”ë¡œ ì—… ë§ˆë²•.( ìºìŠ¤íŒ… ìœ  ) ëŠ¥ë ¥ì¹˜
+/// SKILL_ACTION_SELF_STATE_DURATION = 12,		///< ìì‹ ì—ê²Œ ë°œë™ ì§€ì† ë§ˆë²•.( ìºìŠ¤íŒ… ìœ  ) ìƒíƒœê´€ë ¨
 //////////////////////////////////////////////////////////////////////////////////////
 class CSelfBoundSkill: public CSkill {
 private:
@@ -302,9 +302,9 @@ public:
 
 //////////////////////////////////////////////////////////////////////////////////////
 /// Self Bound Skill
-/// SKILL_ACTION_TARGET_BOUND_DURATION = 9,	///< Å¸°Ù¿¡°Ô ¹ßµ¿ Áö¼Ó ¸¶¹ı.( Ä³½ºÆÃ À¯ ) ´É·ÂÄ¡
-/// SKILL_ACTION_TARGET_BOUND = 11,			///< Å¸°Ù¿¡°Ô ¹ßµ¿ ¹Ù·Î ¾÷ ¸¶¹ı.( Ä³½ºÆÃ À¯ ) ´É·ÂÄ¡
-/// SKILL_ACTION_TARGET_STATE_DURATION = 13,	///< »ó´ë¿¡°Ô ¹ßµ¿ Áö¼Ó ¸¶¹ı.( Ä³½ºÆÃ À¯ ) »óÅÂ°ü·Ã
+/// SKILL_ACTION_TARGET_BOUND_DURATION = 9,	///< íƒ€ê²Ÿì—ê²Œ ë°œë™ ì§€ì† ë§ˆë²•.( ìºìŠ¤íŒ… ìœ  ) ëŠ¥ë ¥ì¹˜
+/// SKILL_ACTION_TARGET_BOUND = 11,			///< íƒ€ê²Ÿì—ê²Œ ë°œë™ ë°”ë¡œ ì—… ë§ˆë²•.( ìºìŠ¤íŒ… ìœ  ) ëŠ¥ë ¥ì¹˜
+/// SKILL_ACTION_TARGET_STATE_DURATION = 13,	///< ìƒëŒ€ì—ê²Œ ë°œë™ ì§€ì† ë§ˆë²•.( ìºìŠ¤íŒ… ìœ  ) ìƒíƒœê´€ë ¨
 //////////////////////////////////////////////////////////////////////////////////////
 class CTargetBoundSkill: public CSkill {
 private:
@@ -343,67 +343,67 @@ public:
     static int GetSkillActionType(int iSkillIndex) { return SKILL_TYPE(iSkillIndex); }
     static int GetSkillFilterType(int iSkillIndex) { return SKILL_CLASS_FILTER(iSkillIndex); }
 
-    /// ½ºÅ³Å¸ÀÔÀº ( target type, action type, filter type ÀÇ Á¶ÇÕÀ¸·Î »ı¼º )
+    /// ìŠ¤í‚¬íƒ€ì…ì€ ( target type, action type, filter type ì˜ ì¡°í•©ìœ¼ë¡œ ìƒì„± )
     CSkill* CreateNewSkill(int iSkillSlotType, short nSkillIdx, char cSkillLevel = 0);
 
-    /// ÀÏ´Ü °¡ÀÚ.. XP ¿© ¿µ¿øÇÏ¶ó.. !!!
+    /// ì¼ë‹¨ ê°€ì.. XP ì—¬ ì˜ì›í•˜ë¼.. !!!
     static bool ActionSkill(short nSkillIdx,
         CObjCHAR* pSrc,
         CObjCHAR* pTarget,
         D3DXVECTOR3 PosTo = D3DXVECTOR3(0.0f, 0.0f, 0.0f),
         bool bTargetPos = false);
 
-    /// ½ºÅ³ ¹ßµ¿ Á¶°Ç Ã¼Å©..
+    /// ìŠ¤í‚¬ ë°œë™ ì¡°ê±´ ì²´í¬..
     static bool CheckConditionForFireSkill(int iSkillIDX, int iCurrentTarget);
-    /// ½ºÅ³ ¹ßµ¿..
+    /// ìŠ¤í‚¬ ë°œë™..
     static bool FireSkill(int iSkillSlotIDX,
         int iTargetObj,
         D3DXVECTOR3& PosTO = D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-    /// ÇöÀç È°¼ºÈ­µÈ ½ºÅ³ ¹ßµ¿..
+    /// í˜„ì¬ í™œì„±í™”ëœ ìŠ¤í‚¬ ë°œë™..
     static bool ActionActiveSkill(int iTargetObj,
         D3DXVECTOR3& PosTO = D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-    /// ¼Ò¸ğµÈ ¼Ó¼º
+    /// ì†Œëª¨ëœ ì†ì„±
     static void UpdateUseProperty(CObjAI* pObjAI, int iSkillIdx);
 
     ///
-    ///	½ºÅ³ »ç¿ë°¡´É ¿©ºÎ Ã¼Å©..
+    ///	ìŠ¤í‚¬ ì‚¬ìš©ê°€ëŠ¥ ì—¬ë¶€ ì²´í¬..
     ///
 
     static bool CheckCastingCondition(int iSkillIDX, CObjCHAR* pCaster, int iTargetObjIDX);
 
-    /// Å¸ÀÌ¸Ó Ã¼Å©( ¿¬¼Ó »ç¿ë¿©ºÎ°ü·Ã )..
+    /// íƒ€ì´ë¨¸ ì²´í¬( ì—°ì† ì‚¬ìš©ì—¬ë¶€ê´€ë ¨ )..
     static bool CheckSkillTimer(int iSkillIDX);
-    /// Å¸°ÙÀÇ À¯È¿¼º °Ë»ç..
+    /// íƒ€ê²Ÿì˜ ìœ íš¨ì„± ê²€ì‚¬..
     static bool CheckCastingTarget(int iSkillIDX, CObjCHAR* pCaster, int iTargetObjIDX);
 
-    /// Å¸°Ù ÇÊÅÍ¸µ °Ë»ç
+    /// íƒ€ê²Ÿ í•„í„°ë§ ê²€ì‚¬
     static bool CheckCastingTargetFilter(int iSkillIDX, CObjCHAR* pCaster, int iTargetObjIDX);
 
-    /// ¼ÒÈ¯¸÷ capacity °Ë»ç
+    /// ì†Œí™˜ëª¹ capacity ê²€ì‚¬
     static bool CheckSummonCapacity(int iSkillIDX, CObjCHAR* pCaster, int iTargetObjIDX);
 
-    /// ÇÊ¿ä ´É·ÂÄ¡ Ã¼Å©..
+    /// í•„ìš” ëŠ¥ë ¥ì¹˜ ì²´í¬..
     static bool CheckNeedProperty(int iSkillIDX, CObjCHAR* pCaster);
-    /// ÇÊ¿äÀåºñ Ã¼Å©..
+    /// í•„ìš”ì¥ë¹„ ì²´í¬..
     static bool CheckNeedWeapon(int iSkillIDX, CObjCHAR* pCaster);
-    /// Áßº¹Àû¿ë °¡´É Ã¼Å©...
+    /// ì¤‘ë³µì ìš© ê°€ëŠ¥ ì²´í¬...
     static bool CheckDuplicatable(int iSkillIDX, CObjCHAR* pCaster, int iTargetObjIDX);
 
     ///
-    ///	½ºÅ³ ½Àµæ°¡´É ¿©ºÎ Ã¼Å©..
+    ///	ìŠ¤í‚¬ ìŠµë“ê°€ëŠ¥ ì—¬ë¶€ ì²´í¬..
     ///
 
-    /// ½ºÅ³À» ¹è¿ì±â¿¡ À¯È¿ÇÑ Á÷¾÷ÀÎ°¡?
+    /// ìŠ¤í‚¬ì„ ë°°ìš°ê¸°ì— ìœ íš¨í•œ ì§ì—…ì¸ê°€?
     static bool CheckJobForStudy(int iSkillIDX);
-    /// ½ºÅ³À» ¹è¿ì±â À§ÇÑ ¼±Çà ½ºÅ³ÀÌ ¸¸Á·ÇÏ´Â°¡?
+    /// ìŠ¤í‚¬ì„ ë°°ìš°ê¸° ìœ„í•œ ì„ í–‰ ìŠ¤í‚¬ì´ ë§Œì¡±í•˜ëŠ”ê°€?
     static bool CheckProSkillForStudy(int iSkillIDX);
-    /// ½ºÅ³À» ¹è¿ì±â À§ÇÑ ±âº» ´É·ÂÄ¡¸¦ ¸¸Á·ÇÏ´Â°¡?
+    /// ìŠ¤í‚¬ì„ ë°°ìš°ê¸° ìœ„í•œ ê¸°ë³¸ ëŠ¥ë ¥ì¹˜ë¥¼ ë§Œì¡±í•˜ëŠ”ê°€?
     static bool CheckPropertyForStudy(int iSkillIDX);
 
     ///
-    ///	½ºÅ³ »ç¿ëÀ» À§ÇÑ Å¸°Ù ±¸ÇÏ±â
-    /// ÀÏ¹İ ½ºÅ³ÀÏ°æ¿ì hpÃ¼Å©¸¦ ÇÏÁö¸¸ ¸®Á°·º¼Ç°°Àº ½ºÅ³ÀÇ °æ¿ì hp Ã¼Å©¸¦ ÇÏÁö ¾Ê´Â´Ù.
+    ///	ìŠ¤í‚¬ ì‚¬ìš©ì„ ìœ„í•œ íƒ€ê²Ÿ êµ¬í•˜ê¸°
+    /// ì¼ë°˜ ìŠ¤í‚¬ì¼ê²½ìš° hpì²´í¬ë¥¼ í•˜ì§€ë§Œ ë¦¬ì¡€ë ‰ì…˜ê°™ì€ ìŠ¤í‚¬ì˜ ê²½ìš° hp ì²´í¬ë¥¼ í•˜ì§€ ì•ŠëŠ”ë‹¤.
     ///
     static CObjCHAR* GetSkillTarget(int iServerObjIDX, int iSkillIDX);
 };

@@ -12,14 +12,14 @@
 class CSmoothVisibility {
 private:
     float m_fCurrentVisibility;
-    bool m_bToDisappear; /// »ç¶óÁö´Â ÁßÀÌ³Ä? ³ªÅ¸³ª´Â ÁßÀÌ³Ä?
-    DWORD m_dwTransitionTime; /// º¯È­¿¡ °É¸®´Â ½Ã°£
+    bool m_bToDisappear; /// ì‚¬ë¼ì§€ëŠ” ì¤‘ì´ëƒ? ë‚˜íƒ€ë‚˜ëŠ” ì¤‘ì´ëƒ?
+    DWORD m_dwTransitionTime; /// ë³€í™”ì— ê±¸ë¦¬ëŠ” ì‹œê°„
 
     DWORD m_dwStartTime;
     DWORD m_dwProgressTime; /// It's time to finishing the change
     DWORD m_dwTotalElapsedTime; /// Elapsed time until now.
 
-    bool m_bTransitionActivity; ///	ÇöÀç ÁøÇàÁßÀÎ°¡?
+    bool m_bTransitionActivity; ///	í˜„ì¬ ì§„í–‰ì¤‘ì¸ê°€?
 
 public:
     CSmoothVisibility(void);
@@ -42,7 +42,7 @@ public:
 
 class CSmoothVisibilityCombo {
 private:
-    /// ÇöÀçÀÇ visibility
+    /// í˜„ì¬ì˜ visibility
     float m_fCurrentVisibility;
 
     DWORD m_dwStartTime;

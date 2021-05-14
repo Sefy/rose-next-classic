@@ -56,7 +56,7 @@ CVFSManager::InitVFS(int iVFSType, int iReserveCount /*=10*/) {
 
     if (iVFSType == VFS_TRIGGER_VFS && m_hVFile == NULL) {
         if (g_pCApp)
-            g_pCApp->ErrorBOX("¸ÕÀú VFS¸¦ ¼³Á¤ÇÏ½Ã¿À", "ERROR");
+            g_pCApp->ErrorBOX("ë¨¼ì € VFSë¥¼ ì„¤ì •í•˜ì‹œì˜¤", "ERROR");
         return false;
     }
 

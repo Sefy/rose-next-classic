@@ -93,9 +93,9 @@ CResourceMgr::LoadResourceFile(char* szFileName, int iModuleID) {
     const char sep[] = "\t ";
     int NID;
     while (NULL != fgets(Buff, sizeof(Buff), pFile)) {
-        ///´ë¹®ÀÚ·Î º¯°æ
+        ///ëŒ€ë¬¸ìë¡œ ë³€ê²½
         strupr(Buff);
-        p = strtok(Buff, sep); ///¹®ÀÚ¿­ ImageID;
+        p = strtok(Buff, sep); ///ë¬¸ìì—´ ImageID;
 
         ZeroMemory(szBuf, sizeof(szBuf));
         strncpy(szBuf, p, strlen(p));

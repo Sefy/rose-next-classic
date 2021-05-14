@@ -4,16 +4,16 @@
 #include <string>
 
 /**
- * TObject¸¦ ItemÀ¸·Î °¡Áö´Â Container¿¡ ItemÀ¸·Î ³Ö±â À§ÇÑ Class
- *	- Ç¥½ÃÇÏ°íÀÚ ÇÏ´Â °ª°ú ½ÇÁ¦ °ªÀ» std::stringÀ¸·Î °¡Áö°í ÀÖ´Ù
+ * TObjectë¥¼ Itemìœ¼ë¡œ ê°€ì§€ëŠ” Containerì— Itemìœ¼ë¡œ ë„£ê¸° ìœ„í•œ Class
+ *	- í‘œì‹œí•˜ê³ ì í•˜ëŠ” ê°’ê³¼ ì‹¤ì œ ê°’ì„ std::stringìœ¼ë¡œ ê°€ì§€ê³  ìˆë‹¤
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Date		2005/8/30
  */
 class TGAMECTRL_API CTContainerItem: public CTObject {
-    std::string m_strIdentify; ///Ç¥½Ã¿¡ »ç¿ëµÇ´Â string
-    std::string m_strValue; ///°ªÀ» ÀúÀåÇÏ´Â string
+    std::string m_strIdentify; ///í‘œì‹œì— ì‚¬ìš©ë˜ëŠ” string
+    std::string m_strValue; ///ê°’ì„ ì €ì¥í•˜ëŠ” string
 public:
     CTContainerItem(void);
     virtual ~CTContainerItem(void);

@@ -1,4 +1,4 @@
-// IocpQueue.cpp : ÄÜ¼Ö ÀÀ¿ë ÇÁ·Î±×·¥¿¡ ´ëÇÑ ÁøÀÔÁ¡À» Á¤ÀÇÇÕ´Ï´Ù.
+// IocpQueue.cpp : ì½˜ì†” ì‘ìš© í”„ë¡œê·¸ë¨ì— ëŒ€í•œ ì§„ì…ì ì„ ì •ì˜í•©ë‹ˆë‹¤.
 //
 
 #include "stdafx.h"
@@ -35,7 +35,7 @@ DWORD __stdcall PopingThread(PVOID param) {
 int
 _tmain(int argc, _TCHAR* argv[]) {
     /*
-    // °¢ Á¾·ùº° push, pop Å×½ºÆ® ÄÚµå
+    // ê° ì¢…ë¥˜ë³„ push, pop í…ŒìŠ¤íŠ¸ ì½”ë“œ
     IocpQueue<int,5> queue;
     ///////////////////////////////////////////////////////
     cout<<"Blocking Queueing Test"<<endl;
@@ -89,13 +89,13 @@ _tmain(int argc, _TCHAR* argv[]) {
     }
     */
 
-    // ¾²·¹µå Å×½ºÆ® ÄÚµå
+    // ì“°ë ˆë“œ í…ŒìŠ¤íŠ¸ ì½”ë“œ
     HANDLE hThreads[5] = {NULL};
     DWORD dwThreadId = 0;
-    // Çª½Ì ¾²·¹µå
+    // í‘¸ì‹± ì“°ë ˆë“œ
     hThreads[0] = CreateThread(NULL, 0, PushingThread, NULL, 0, &dwThreadId);
     hThreads[2] = CreateThread(NULL, 0, PushingThread, (LPVOID)2000, 0, &dwThreadId);
-    // ÆËÇÎ ¾²·¹µå
+    // íŒí•‘ ì“°ë ˆë“œ
     hThreads[1] = CreateThread(NULL, 0, PopingThread, NULL, 0, &dwThreadId);
     hThreads[3] = CreateThread(NULL, 0, PopingThread, NULL, 0, &dwThreadId);
     hThreads[4] = CreateThread(NULL, 0, PopingThread, NULL, 0, &dwThreadId);

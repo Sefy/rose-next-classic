@@ -51,7 +51,7 @@ CCamera::Init(HNODE hNODE) {
     m_Angle.y = 180.f;
     m_Angle.z = 0.f;
 
-    m_bFollowMode = false; // 1 : ╣з©║╪╜ ╣Ш╤С╟║╢б ╦П╣Е, 0 : 3юнд╙ ╦П╣Е
+    m_bFollowMode = false; // 1 : К▓╓Л≈░Л└° К■╟К²╪Й╟─К┼■ К╙╗К⌠°, 0 : 3Л²╦Л╧╜ К╙╗К⌠°
 
     if (m_hMotion != NULL) {
         ::unloadMotion(m_hMotion);

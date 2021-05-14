@@ -20,7 +20,7 @@ enum PLAYER_TYPE {
 
 class CMusicMgr: public CJSingleton<CMusicMgr> {
 private:
-    /// ÇöÀç ¹ÂÁ÷ ÇÃ·¹ÀÌ¾î.
+    /// í˜„ì¬ ë®¤ì§ í”Œë ˆì´ì–´.
     CMusicPlayer* m_pPlayer;
     bool m_bReadyDevice;
 

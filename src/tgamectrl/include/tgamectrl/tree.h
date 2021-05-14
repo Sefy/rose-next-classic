@@ -37,7 +37,7 @@ public:
 
     ITreeNode* GetSelectNode();
 
-    ///ÇöÀç ¼±ÅÃµÈ Node¿¡¼­ÀÇ ÀÌµ¿ Ã³¸®
+    ///í˜„ì¬ ì„ íƒëœ Nodeì—ì„œì˜ ì´ë™ ì²˜ë¦¬
     void MoveParent();
     void MoveFirstChild();
 

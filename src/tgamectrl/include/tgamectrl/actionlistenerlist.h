@@ -7,14 +7,14 @@
 class IActionListener;
 
 //---------------------------------------------------------------------------------------------------
-/// Client¿¡¼­ CWinCtrl¿¡ IActionListener¸¦ Ãß°¡½Ã º¸°üÇÏ´Â Class
+/// Clientì—ì„œ CWinCtrlì— IActionListenerë¥¼ ì¶”ê°€ì‹œ ë³´ê´€í•˜ëŠ” Class
 ///
-///	* Client¿¡¼­ CWinCtrlÀÇ ActionListenerList¿¡ IActionListener¸¦ Ãß°¡ÇØ¼­
-///		CWinCtrl::Process¿¡¼­ Á÷Á¢ ClientÀÇ Ã³¸® ·çÆ¾À» È£ÃâÇÒ¼ö ÀÖµµ·Ï ÇÏ±â À§ÇÑ System¿¡ »ç¿ë
+///	* Clientì—ì„œ CWinCtrlì˜ ActionListenerListì— IActionListenerë¥¼ ì¶”ê°€í•´ì„œ
+///		CWinCtrl::Processì—ì„œ ì§ì ‘ Clientì˜ ì²˜ë¦¬ ë£¨í‹´ì„ í˜¸ì¶œí• ìˆ˜ ìˆë„ë¡ í•˜ê¸° ìœ„í•œ Systemì— ì‚¬ìš©
 ///
-/// * °ü·Ã Class : CActionListenerList, IActionListener, CActionEvent
+/// * ê´€ë ¨ Class : CActionListenerList, IActionListener, CActionEvent
 ///
-/// @Author ÃÖÁ¾Áø
+/// @Author ìµœì¢…ì§„
 /// @Date 2005/8/19
 //---------------------------------------------------------------------------------------------------
 class TGAMECTRL_API CActionListenerList {

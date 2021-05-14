@@ -54,8 +54,8 @@ CNotifyDlg::Hide() {
 
 void
 CNotifyDlg::SetAdjPos() {
-    // 20050728 ȫ�� â ��� �ػ󵵿� ���� ���� : TCtrl�� ���ľ� �ϴµ� ���� Ŀ���� ���⸸ �ӽ÷�
-    // ��ħ.
+    // 20050728 홍근 창 모드 해상도에 따른 버그 : TCtrl을 고쳐야 하는데 일이 커져서 여기만 임시로
+    // 고침.
     if (getScreenWidth() < m_sPosition.x + GetWidth()) {
         m_sPosition.x = (getScreenWidth() - GetWidth());
         MoveWindow(m_sPosition);

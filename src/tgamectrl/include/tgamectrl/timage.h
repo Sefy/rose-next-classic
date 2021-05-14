@@ -5,7 +5,7 @@
 /**
  * Image Class
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Date		2005/8/30
  */
@@ -28,11 +28,11 @@ public:
     void SetBlinkSwapTime(DWORD swap_time);
 
 protected:
-    int m_iModuleID; // º¸Åë»óÅÂÀÇ ¸ğµâ ID
-    int m_iGraphicID; // º¸Åë»óÅÂÀÇ ±×·¡ÇÈ ID
+    int m_iModuleID; // ë³´í†µìƒíƒœì˜ ëª¨ë“ˆ ID
+    int m_iGraphicID; // ë³´í†µìƒíƒœì˜ ê·¸ë˜í”½ ID
 
-    int m_iBlinkGraphicID; // ±ô¹ÚÀÏ¶§ÀÇ ±×·¡ÇÈ ID
-    int m_iBlinkModuleID; // ±ô¹ÚÀÏ¶§ÀÇ ¸ğµâ ID
+    int m_iBlinkGraphicID; // ê¹œë°•ì¼ë•Œì˜ ê·¸ë˜í”½ ID
+    int m_iBlinkModuleID; // ê¹œë°•ì¼ë•Œì˜ ëª¨ë“ˆ ID
 
     bool m_bBlink;
     bool m_bBlinkEnable;

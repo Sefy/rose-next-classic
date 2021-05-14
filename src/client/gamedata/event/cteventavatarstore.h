@@ -7,7 +7,7 @@ public:
     virtual ~CTEventAvatarStore(void);
     enum {
         EID_NONE,
-        EID_DELETE_ITEM_SELLLIST, ///фг╦еег©║ юж╢б ╬фюлешюл ╬Ь╬НаЁ╢ы.
+        EID_DELETE_ITEM_SELLLIST, ///М▄░К╖╓М┐╜Л≈░ Л·┬К┼■ Л∙└Л²╢М┘°Л²╢ Л≈├Л√╢Л║▄К▀╓.
     };
     void SetIndex(int iIndex);
     int GetIndex();

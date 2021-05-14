@@ -70,7 +70,7 @@ CGameStateWarp::Enter(int iPrevStateID) {
     if (m_hThread) {
         tDone = false;
         ResumeThread(m_hThread);
-    } else /// Thread »ı¼º ½ÇÆĞ½Ã ¸ŞÀÎ¾²·¹µå¿¡¼­ ·ÎµùÇÏ°í State¸¦ ¹Ù²Ù¾î ÁØ´Ù.
+    } else /// Thread ìƒì„± ì‹¤íŒ¨ì‹œ ë©”ì¸ì“°ë ˆë“œì—ì„œ ë¡œë”©í•˜ê³  Stateë¥¼ ë°”ê¾¸ì–´ ì¤€ë‹¤.
 #endif
     {
 #ifndef __THREADED_LOADING
@@ -111,7 +111,7 @@ CGameStateWarp::Leave(int iNextStateID) {
     g_pAVATAR->m_btMoveMODE = Reply.m_btRideMODE;
 
 //-------------------------------------------------------------------------------------------------
-//¹ÚÁöÈ£::2ÀÎ½ÂÀÏ¶§ ÀÚ½ÅÀÇ Ä«Æ®¸¦ »ı¼ºÇÏÁö ¾Êµµ·Ï ÇÑ´Ù.
+//ë°•ì§€í˜¸::2ì¸ìŠ¹ì¼ë•Œ ìì‹ ì˜ ì¹´íŠ¸ë¥¼ ìƒì„±í•˜ì§€ ì•Šë„ë¡ í•œë‹¤.
 #if defined(_GBC)
     if (g_pAVATAR->m_btMoveMODE == MOVE_MODE_DRIVE) {
 #else if
@@ -133,7 +133,7 @@ void
 CGameStateWarp::Draw() /// Test Code
 {
     if (g_pCApp->IsActive()) {
-        if (!::beginScene()) //  µğ¹ÙÀÌ½º°¡ ¼Õ½ÇµÈ »óÅÂ¶ó¸é 0À» ¸®ÅÏÇÏ¹Ç·Î, ¸ğµç ·»´õ¸µ ½ºÅµ
+        if (!::beginScene()) //  ë””ë°”ì´ìŠ¤ê°€ ì†ì‹¤ëœ ìƒíƒœë¼ë©´ 0ì„ ë¦¬í„´í•˜ë¯€ë¡œ, ëª¨ë“  ë Œë”ë§ ìŠ¤í‚µ
         {
             return;
         }
@@ -164,7 +164,7 @@ unsigned __stdcall CGameStateWarp::ThreadFunc(void* pArguments) {
     g_pTerrain->LoadZONE(Reply.m_nZoneNO);
     g_pTerrain->InitZONE(Reply.m_PosWARP.x, Reply.m_PosWARP.y);
 
-    /// °³ÀÎ»óÁ¡ ¸®½ºÆ® Å¬¸®¾î
+    /// ê°œì¸ìƒì  ë¦¬ìŠ¤íŠ¸ í´ë¦¬ì–´
     g_UIMed.ResetPersonalStore();
 
     CMinimapDLG* pDlg = g_itMGR.GetMinimapDLG();

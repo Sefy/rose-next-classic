@@ -14,13 +14,13 @@ typedef map<int, TABLE_IMAGE_ID> TABLE_MODULE;
 typedef TABLE_MODULE::iterator TABLE_MODULE_ITER;
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-/// ¹®ÀÚ¿­ÀÏ ±×·¡ÇÈID¿Í ¼ýÀÚ ±×·¡ÇÈID¸¦ ¸ÊÇÎ½ÃÄÑÁÖ´Â Å¬·¡½º
-///		- ½ºÇÁ¶óÀÌÆ® ¿¡µðÅÍ¿¡¼­ ÀÔ·ÂÇÑ ¹®ÀÚ¿­ ID¿Í »ý¼ºµÈ ¼ýÀÚ ID¸¦ ÀúÀåÇÏ°í Client¿¡¼­´Â ÇØ´ç
-/// Sprite»ç¿ë½Ã ¹®ÀÚ¿­ ID·Î ÀÌ¿ëÇÒ¼ö ÀÖµµ·Ï µµ¿ÍÁØ´Ù.
-///		- Moduleº°·Î º°µµ·Î ¸Ê¿¡ ÀúÀåÇÑ´Ù.
-///		- °¡»óÈ­ÀÏ½Ã½ºÅÛ(TriggerVFS)¸¦ »ç¿ëÇÏÁö ¾Ê±â ¶§¹®¿¡ ¹èÆ÷ÆÇ¿¡¼­ ¹ÛÀ¸·Î ³ëÃâµÇ¾î ÀÖ´Ù.
+/// ë¬¸ìžì—´ì¼ ê·¸ëž˜í”½IDì™€ ìˆ«ìž ê·¸ëž˜í”½IDë¥¼ ë§µí•‘ì‹œì¼œì£¼ëŠ” í´ëž˜ìŠ¤
+///		- ìŠ¤í”„ë¼ì´íŠ¸ ì—ë””í„°ì—ì„œ ìž…ë ¥í•œ ë¬¸ìžì—´ IDì™€ ìƒì„±ëœ ìˆ«ìž IDë¥¼ ì €ìž¥í•˜ê³  Clientì—ì„œëŠ” í•´ë‹¹
+/// Spriteì‚¬ìš©ì‹œ ë¬¸ìžì—´ IDë¡œ ì´ìš©í• ìˆ˜ ìžˆë„ë¡ ë„ì™€ì¤€ë‹¤.
+///		- Moduleë³„ë¡œ ë³„ë„ë¡œ ë§µì— ì €ìž¥í•œë‹¤.
+///		- ê°€ìƒí™”ì¼ì‹œìŠ¤í…œ(TriggerVFS)ë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šê¸° ë•Œë¬¸ì— ë°°í¬íŒì—ì„œ ë°–ìœ¼ë¡œ ë…¸ì¶œë˜ì–´ ìžˆë‹¤.
 ///
-/// @Author			ÃÖÁ¾Áø
+/// @Author			ìµœì¢…ì§„
 /// @Date			2003/11/28
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 class TGAMECTRL_API CResourceMgr {
@@ -33,9 +33,9 @@ public:
     static CResourceMgr* GetInstance();
     void Destroy();
 
-    int GetImageNID(int iModuleID, const char* szSID); /// ¹®ÀÚ¿­ID¿Í ModuleID·Î ¼ýÀÚID¸¦ Ã£´Â´Ù.
-    bool AddResource(char* szFileName, int iModuleID); /// Client¿¡¼­ ½ºÇÁ¶óÀÌÆ® Á¤º¸ Ãß°¡
-    void UnLoadResource(int iModuleID); /// ÇØ´ç Module¿¡ ´ëÇÑ Á¤º¸¸¦ Unload
+    int GetImageNID(int iModuleID, const char* szSID); /// ë¬¸ìžì—´IDì™€ ModuleIDë¡œ ìˆ«ìžIDë¥¼ ì°¾ëŠ”ë‹¤.
+    bool AddResource(char* szFileName, int iModuleID); /// Clientì—ì„œ ìŠ¤í”„ë¼ì´íŠ¸ ì •ë³´ ì¶”ê°€
+    void UnLoadResource(int iModuleID); /// í•´ë‹¹ Moduleì— ëŒ€í•œ ì •ë³´ë¥¼ Unload
 
 protected:
     void LoadResourceFile(char* szFileName, int iModuleID);

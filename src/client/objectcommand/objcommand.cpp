@@ -80,7 +80,7 @@ CObjCommandManager::GetCommandCount() {
 void
 CObjCommandManager::PushCommand(CObjCommand* pObjCommand) {
     //----------------------------------------------------------------------------------------------------
-    /// Skill_of_skill À» ¸ø¹ŞÀº ¸í·ÉµéÀº ¸ğµÎ Á¦°Å
+    /// Skill_of_skill ì„ ëª»ë°›ì€ ëª…ë ¹ë“¤ì€ ëª¨ë‘ ì œê±°
     //----------------------------------------------------------------------------------------------------
     std::list<CObjCommand*>::iterator begin = m_ObjCommandList.begin();
 
@@ -88,7 +88,7 @@ CObjCommandManager::PushCommand(CObjCommand* pObjCommand) {
         if ((*begin)->m_iType == OBJECT_COMMAND_Skill2SELF
             || (*begin)->m_iType == OBJECT_COMMAND_Skill2OBJ
             || (*begin)->m_iType == OBJECT_COMMAND_Skill2POS) {
-            /// ¾ÆÁ÷ °á°ú¸¦ ¹ŞÁö ¸øÇÑ..
+            /// ì•„ì§ ê²°ê³¼ë¥¼ ë°›ì§€ ëª»í•œ..
             if ((*begin)->m_bGetResultOfSkill == false) {
                 begin = m_ObjCommandList.erase(begin);
                 continue;
@@ -106,16 +106,16 @@ CObjCommandManager::PushCommand(CObjCommand* pObjCommand) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief °¡Àå ÃÖ±Ù¿¡ µé¾î¿Â ½ºÅ³ ¸í·ÉÀ» Ã£´Â´Ù. ¿Ö³Ä.. Skill start ¸¦ ¹Ş¾ÒÀ» °æ¿ì¿¡´Â °¡Àå ÃÖ½Å¿¡
-/// ¹ŞÀº
-///		   ½ºÅ³¸í·ÉÀÇ °ÍÀÌ´Ù.
+/// @brief ê°€ì¥ ìµœê·¼ì— ë“¤ì–´ì˜¨ ìŠ¤í‚¬ ëª…ë ¹ì„ ì°¾ëŠ”ë‹¤. ì™œëƒ.. Skill start ë¥¼ ë°›ì•˜ì„ ê²½ìš°ì—ëŠ” ê°€ì¥ ìµœì‹ ì—
+/// ë°›ì€
+///		   ìŠ¤í‚¬ëª…ë ¹ì˜ ê²ƒì´ë‹¤.
 //----------------------------------------------------------------------------------------------------
 
 CObjCommand*
 CObjCommandManager::GetLastInvalidSkillCommand() {
     CObjCommand* pObjCommand = NULL;
-    bool bClearDummyCmd = false; /// Áß°£¿¡ Ãë¼ÒµÇ¾ßÇÒ ¸í·Éµé( start_of_skill ÀÌ ¿ÔÀ»¶§ ÀÌÀü¿¡
-                                 /// ¸í·É¸¸ÀÖ´Â°ÍµéÀº ¸ğµÎ Á¦°Å )
+    bool bClearDummyCmd = false; /// ì¤‘ê°„ì— ì·¨ì†Œë˜ì•¼í•  ëª…ë ¹ë“¤( start_of_skill ì´ ì™”ì„ë•Œ ì´ì „ì—
+                                 /// ëª…ë ¹ë§ŒìˆëŠ”ê²ƒë“¤ì€ ëª¨ë‘ ì œê±° )
 
     std::list<CObjCommand*>::reverse_iterator rbegin = m_ObjCommandList.rbegin();
 
@@ -123,7 +123,7 @@ CObjCommandManager::GetLastInvalidSkillCommand() {
         if ((*rbegin)->m_iType == OBJECT_COMMAND_Skill2SELF
             || (*rbegin)->m_iType == OBJECT_COMMAND_Skill2OBJ
             || (*rbegin)->m_iType == OBJECT_COMMAND_Skill2POS) {
-            /// ¾ÆÁ÷ À¯È¿ÇÏÁö ¾ÊÀº ¸¶Áö¸· ½ºÅ³..
+            /// ì•„ì§ ìœ íš¨í•˜ì§€ ì•Šì€ ë§ˆì§€ë§‰ ìŠ¤í‚¬..
             if ((*rbegin)->m_bValid == false) {
                 pObjCommand = (*rbegin);
                 bClearDummyCmd = true;
@@ -133,7 +133,7 @@ CObjCommandManager::GetLastInvalidSkillCommand() {
     }
 
     if (pObjCommand != NULL) {
-        /// ¸¶Áö¸· ½ºÅ³¿¡ ÇÃ·¡±×¼¼ÆÃ ¿Ï·áµÇ¾ú´Ù.. ¾ÕÂÊÀÇ À¯È¿ÇÏÁö ¾ÊÀº°Ç ¸ğµÎ Áö¿ö¶ó..
+        /// ë§ˆì§€ë§‰ ìŠ¤í‚¬ì— í”Œë˜ê·¸ì„¸íŒ… ì™„ë£Œë˜ì—ˆë‹¤.. ì•ìª½ì˜ ìœ íš¨í•˜ì§€ ì•Šì€ê±´ ëª¨ë‘ ì§€ì›Œë¼..
         if (bClearDummyCmd) {
             std::list<CObjCommand*>::iterator begin = m_ObjCommandList.begin();
 
@@ -156,8 +156,8 @@ CObjCommandManager::GetLastInvalidSkillCommand() {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÇöÀç Skill_Start  ÆĞÅ¶¿¡¼­¸¸ »ç¿ëµÈ´Ù. °á±¹ Skill_Start °¡ ¿À¸é Å¥¿¡ ÀÖ´Â ¸í·ÉÁß
-///			°¡Àå ÃÖ½Å¿¡ ¹ŞÀº ½ºÅ³ÄÄ¸ÇµåÀÇ ÇÃ·¡±×¸¦ ¼¼ÆÃ..
+/// @brief í˜„ì¬ Skill_Start  íŒ¨í‚·ì—ì„œë§Œ ì‚¬ìš©ëœë‹¤. ê²°êµ­ Skill_Start ê°€ ì˜¤ë©´ íì— ìˆëŠ” ëª…ë ¹ì¤‘
+///			ê°€ì¥ ìµœì‹ ì— ë°›ì€ ìŠ¤í‚¬ì»´ë§¨ë“œì˜ í”Œë˜ê·¸ë¥¼ ì„¸íŒ…..
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -174,9 +174,9 @@ CObjCommandManager::SetValidFlag() {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÇöÀç Result_of_Skill  ÆĞÅ¶¿¡¼­¸¸ »ç¿ëµÈ´Ù.
-///			Å¥¿¡ µé¾î°£ ½ºÅ³¸í·ÉÀº °á°ú¸¦ ¹ŞÀºÈÄ ±× ÇÃ·¡±×°¡ ÇÏ³ª¹Û¿¡ ¾ø¾î ÀÌÀü ½ºÅ³ÀÌ ÀÌ°É
-///¸®¼ÂÇÒ¼öÀÖ´Ù ±×·¡¼­ ÀúÀå..
+/// @brief í˜„ì¬ Result_of_Skill  íŒ¨í‚·ì—ì„œë§Œ ì‚¬ìš©ëœë‹¤.
+///			íì— ë“¤ì–´ê°„ ìŠ¤í‚¬ëª…ë ¹ì€ ê²°ê³¼ë¥¼ ë°›ì€í›„ ê·¸ í”Œë˜ê·¸ê°€ í•˜ë‚˜ë°–ì— ì—†ì–´ ì´ì „ ìŠ¤í‚¬ì´ ì´ê±¸
+///ë¦¬ì…‹í• ìˆ˜ìˆë‹¤ ê·¸ë˜ì„œ ì €ì¥..
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -186,12 +186,12 @@ CObjCommandManager::SetValidResultOfSkill() {
     std::list<CObjCommand*>::iterator begin = m_ObjCommandList.begin();
 
     for (; begin != m_ObjCommandList.end(); ++begin) {
-        ///  Ã³À½ À¯È¿ÇÑ¸í·É( ´ç¿¬ ½ºÅ³¸í·É )ÀÌ¸í ±× ¸í·É¿¡ °á°ú ÀúÀå..
+        ///  ì²˜ìŒ ìœ íš¨í•œëª…ë ¹( ë‹¹ì—° ìŠ¤í‚¬ëª…ë ¹ )ì´ëª… ê·¸ ëª…ë ¹ì— ê²°ê³¼ ì €ì¥..
         if ((*begin)->m_bValid == true) {
             if ((*begin)->m_iType == OBJECT_COMMAND_Skill2SELF
                 || (*begin)->m_iType == OBJECT_COMMAND_Skill2OBJ
                 || (*begin)->m_iType == OBJECT_COMMAND_Skill2POS) {
-                /// start of skill Àº ¹Ş¾Ò´Âµ¥ result ¸¦ ¸ø¹ŞÀº Ã¹³ğÀ»..
+                /// start of skill ì€ ë°›ì•˜ëŠ”ë° result ë¥¼ ëª»ë°›ì€ ì²«ë†ˆì„..
                 if ((*begin)->m_bGetResultOfSkill == false) {
                     (*begin)->m_bGetResultOfSkill = true;
                     return;
@@ -204,7 +204,7 @@ CObjCommandManager::SetValidResultOfSkill() {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief À¯È¿ÇÑ Ã¹¹øÂ° ¸í·ÉÀ» ²¨³»¿Â´Ù. ÇöÀç´Â ½ºÅ³¸í·ÉÀÇ °æ¿ì START_OF_SKILL ÀÌ µé¾î¿Â°Í.
+/// @brief ìœ íš¨í•œ ì²«ë²ˆì§¸ ëª…ë ¹ì„ êº¼ë‚´ì˜¨ë‹¤. í˜„ì¬ëŠ” ìŠ¤í‚¬ëª…ë ¹ì˜ ê²½ìš° START_OF_SKILL ì´ ë“¤ì–´ì˜¨ê²ƒ.
 //----------------------------------------------------------------------------------------------------
 
 CObjCommand*
@@ -212,12 +212,12 @@ CObjCommandManager::PopCommand(bool& bSkillCommand) {
     if (IsEmpty())
         return NULL;
 
-    /// ¸¶Áö¸· ¸í·ÉÀ» ÀúÀåÇØµĞÈÄ¿¡..
-    /// ¿Ö????
+    /// ë§ˆì§€ë§‰ ëª…ë ¹ì„ ì €ì¥í•´ë‘”í›„ì—..
+    /// ì™œ????
     CObjCommand* pObjCommand = NULL; /// = m_ObjCommandList.back();
     /// m_ObjCommandList.pop_back();
 
-    /// ¸®½ºÆ® Áß°£¿¡ À¯È¿ÇÑ ½ºÅ³¸í·ÉÀÌ ÀÖ´Â Áö¸¦ È®ÀÎÇÏ°í..
+    /// ë¦¬ìŠ¤íŠ¸ ì¤‘ê°„ì— ìœ íš¨í•œ ìŠ¤í‚¬ëª…ë ¹ì´ ìˆëŠ” ì§€ë¥¼ í™•ì¸í•˜ê³ ..
     std::list<CObjCommand*>::iterator begin = m_ObjCommandList.begin();
 
     for (; begin != m_ObjCommandList.end();) {
@@ -225,11 +225,11 @@ CObjCommandManager::PopCommand(bool& bSkillCommand) {
             delete *begin;
             begin = m_ObjCommandList.erase(begin);
         } else {
-            /// ±â¾ïµÈ ¸¶Áö¸· ¸í·ÉÀ» ´Ù½Ã ¸®½ºÆ®ÀÇ ¸¶Áö¸·¿¡ ³ÖÀ½
-            /// ¿Ö?
+            /// ê¸°ì–µëœ ë§ˆì§€ë§‰ ëª…ë ¹ì„ ë‹¤ì‹œ ë¦¬ìŠ¤íŠ¸ì˜ ë§ˆì§€ë§‰ì— ë„£ìŒ
+            /// ì™œ?
             /// m_ObjCommandList.push_back( pObjCommand );
 
-            /// ±×¸®°í ÇöÀç ¼±ÅÃµÈ À¯È¿ÇÑ ¸í·ÉÀ» ¸®ÅÏ( ´ë·« Result_of_Skill À» ¹ŞÀº ½ºÅ³¸í·É )
+            /// ê·¸ë¦¬ê³  í˜„ì¬ ì„ íƒëœ ìœ íš¨í•œ ëª…ë ¹ì„ ë¦¬í„´( ëŒ€ëµ Result_of_Skill ì„ ë°›ì€ ìŠ¤í‚¬ëª…ë ¹ )
             pObjCommand = *begin;
             m_ObjCommandList.erase(begin);
 
@@ -245,7 +245,7 @@ CObjCommandManager::PopCommand(bool& bSkillCommand) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief Ã³¸®ÇØ¾ßÇÒ ¸¶Áö¸· ÄÄ¸Çµå.. Áß°£¿¡ È°¼ºÈ­µÈ ½ºÅ³ ¸í·ÉÀÌ ÀÖ´Ù¸é ½ºÅ³¸í·É ¼öÇà..
+/// @brief ì²˜ë¦¬í•´ì•¼í•  ë§ˆì§€ë§‰ ì»´ë§¨ë“œ.. ì¤‘ê°„ì— í™œì„±í™”ëœ ìŠ¤í‚¬ ëª…ë ¹ì´ ìˆë‹¤ë©´ ìŠ¤í‚¬ëª…ë ¹ ìˆ˜í–‰..
 //----------------------------------------------------------------------------------------------------
 
 CObjCommand*
@@ -253,7 +253,7 @@ CObjCommandManager::PopLastCommand(bool& bSkillCommand) {
     if (IsEmpty())
         return NULL;
 
-    /// ¸®½ºÆ® ³»ºÎ¿¡ À¯È¿ÇÑ ½ºÅ³ ÄÄ¸Çµå°¡ ÀÖ´Ù¸é.. ±× ¸í·ÉÀ» ¸®ÅÏ..
+    /// ë¦¬ìŠ¤íŠ¸ ë‚´ë¶€ì— ìœ íš¨í•œ ìŠ¤í‚¬ ì»´ë§¨ë“œê°€ ìˆë‹¤ë©´.. ê·¸ ëª…ë ¹ì„ ë¦¬í„´..
     CObjCommand* pValidSkillCommand = PopCommand(bSkillCommand);
     if (pValidSkillCommand) {
         return pValidSkillCommand;

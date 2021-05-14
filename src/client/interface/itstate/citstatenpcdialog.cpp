@@ -12,12 +12,12 @@ void
 CITStateNpcDialog::Enter() {
     // g_GameDATA.m_bNoUI = true;
     setClearColor(0.15f, 0.15f, 0.15f);
-    CSFXManager::GetSingleton().StartWideScreenEffect(); /// ¿ÍÀÌµå ½ºÅ©¸°À¸·Î º¯°æ
+    CSFXManager::GetSingleton().StartWideScreenEffect(); /// ì™€ì´ë“œ ìŠ¤í¬ë¦°ìœ¼ë¡œ ë³€ê²½
 }
 void
 CITStateNpcDialog::Leave() {
     // g_GameDATA.m_bNoUI = false;
-    CSFXManager::GetSingleton().StopWideScreenEffect(); /// ±âº» È­¸éÀ¸·Î º¯°æ
+    CSFXManager::GetSingleton().StopWideScreenEffect(); /// ê¸°ë³¸ í™”ë©´ìœ¼ë¡œ ë³€ê²½
     setClearColor(1.0f, 1.0f, 1.0f);
 }
 

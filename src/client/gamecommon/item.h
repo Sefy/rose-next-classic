@@ -65,7 +65,7 @@ public:
     };
 
 protected:
-    ///<-ToolTip»ý¼º¿ë Method
+    ///<-ToolTipìƒì„±ìš© Method
     void AddItemName(tagITEM& sItem, CInfo& Info);
     void AddItemWeight(tagITEM& sItem, CInfo& Info);
     void AddItemPatUseFuelRate(tagITEM& sItem, CInfo& Info);
@@ -93,7 +93,7 @@ protected:
     void AddItemLifeDuration(tagITEM& sItem, CInfo& Info);
     void AddItemPatAddAbility(tagITEM& sItem, CInfo& Info);
 
-    short GetAttackSpeedType(short nSpeed); // ¾îÅØ ½ºÇÇµå Å¸ÀÔ( ¸Å¿ìºü¸§, ºü¸§... )
+    short GetAttackSpeedType(short nSpeed); // ì–´í… ìŠ¤í”¼ë“œ íƒ€ìž…( ë§¤ìš°ë¹ ë¦„, ë¹ ë¦„... )
 
     void GetAttackSpeedString(short nSpeed, std::string& strMsg);
     int GetAttackPower(tagITEM& sItem);
@@ -114,19 +114,19 @@ protected:
     CIcon* m_pDefaultIcon;
     int m_iStateLocation;
     int m_iStateAction;
-    tagITEM m_Item; /// Location State°¡ LS_NONEÀÏ°æ¿ì »ç¿ëµÈ´Ù.
+    tagITEM m_Item; /// Location Stateê°€ LS_NONEì¼ê²½ìš° ì‚¬ìš©ëœë‹¤.
 
-    ///ÀÎº¥Åä¸®¿¡ ÀÖ´Â ¾ÆÀÌÅÛÁß ´Ù¸¥°÷¿¡¼­ ºÎºÐÀûÀ¸·Î »ç¿ëÁßÀÌ¶ó¸é »ç¿ëºÒ°¡·Î ÇÑ´Ù.
-    /// ItemCommand, IconCommand, SlotCommand¸¦ ¸ðµÎ ¸·´Â´Ù.
+    ///ì¸ë²¤í† ë¦¬ì— ìžˆëŠ” ì•„ì´í…œì¤‘ ë‹¤ë¥¸ê³³ì—ì„œ ë¶€ë¶„ì ìœ¼ë¡œ ì‚¬ìš©ì¤‘ì´ë¼ë©´ ì‚¬ìš©ë¶ˆê°€ë¡œ í•œë‹¤.
+    /// ItemCommand, IconCommand, SlotCommandë¥¼ ëª¨ë‘ ë§‰ëŠ”ë‹¤.
     bool m_bEnable;
     int m_iUnitPrice;
 };
 
 ///*----------------------------------------------------------------------------------/
-/// ÀÎº¥Åä¸®¿¡¼­ °³¼ö¸¸À» º°µµ·Î °¡Áö´Â ¾ÆÀÌÅÛ( ¿¹: ¸Å¸Å, ±³È¯, Á¦Á¶Ã¢¿¡ ¿Ã·ÁÁø ¾ÆÀÌÅÛ )
-/// ´ëºÎºÐÀÇ ±â´ÉÀº ³»ºÎÀûÀ¸·Î °¡Áø ¸â¹ö º¯¼ö·Î Ã³¸®ÇÏ°í ÀÏ´Ü °³¼ö¸¸
-/// ÇöÀç ¸Å¿ì ºÒ¾ÈÇÑ Å¬·¡½º ÀÌ´Ù. »óÈ²¿¡ µû¶ó CItemÀÇ ´Ù¸¥ MethodµéÀ» ÀçÁ¤ÀÇÇØÁÖ¾î¾ß ÇÒ°ÍÀÌ´Ù.
-/// . Constructor¿¡¼­ paramÀ¸·Î µé¾î¿Â CItemÀ» SetDisableÇÏ°í Destuctor¿¡¼­ SetEnable½ÃÅ²´Ù.
+/// ì¸ë²¤í† ë¦¬ì—ì„œ ê°œìˆ˜ë§Œì„ ë³„ë„ë¡œ ê°€ì§€ëŠ” ì•„ì´í…œ( ì˜ˆ: ë§¤ë§¤, êµí™˜, ì œì¡°ì°½ì— ì˜¬ë ¤ì§„ ì•„ì´í…œ )
+/// ëŒ€ë¶€ë¶„ì˜ ê¸°ëŠ¥ì€ ë‚´ë¶€ì ìœ¼ë¡œ ê°€ì§„ ë©¤ë²„ ë³€ìˆ˜ë¡œ ì²˜ë¦¬í•˜ê³  ì¼ë‹¨ ê°œìˆ˜ë§Œ
+/// í˜„ìž¬ ë§¤ìš° ë¶ˆì•ˆí•œ í´ëž˜ìŠ¤ ì´ë‹¤. ìƒí™©ì— ë”°ë¼ CItemì˜ ë‹¤ë¥¸ Methodë“¤ì„ ìž¬ì •ì˜í•´ì£¼ì–´ì•¼ í• ê²ƒì´ë‹¤.
+/// . Constructorì—ì„œ paramìœ¼ë¡œ ë“¤ì–´ì˜¨ CItemì„ SetDisableí•˜ê³  Destuctorì—ì„œ SetEnableì‹œí‚¨ë‹¤.
 class CItemFragment: public CItem {
 public:
     CItemFragment(CItem* pItem);

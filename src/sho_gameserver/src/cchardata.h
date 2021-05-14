@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	CCharData.h
- * \brief	mob/npc ÄÉ¸¯ÅÍ ÆÄÀÏÀ» ÀĞ¾î º¸°ü
+ * \brief	mob/npc ì¼€ë¦­í„° íŒŒì¼ì„ ì½ì–´ ë³´ê´€
  */
 #ifndef __CCharDATA_H
 #define __CCharDATA_H
@@ -13,7 +13,7 @@
  * \ingroup SHO_GS_LIB
  * \class	CCharDATA
  * \author	wookSang.Jo
- * \brief	npc/mobÀÇ ±âº» µ¥ÀÌÅ¸¸¦ Æ÷ÇÔÇÏ°íÀÖ´Â Å¬·¡½º
+ * \brief	npc/mobì˜ ê¸°ë³¸ ë°ì´íƒ€ë¥¼ í¬í•¨í•˜ê³ ìˆëŠ” í´ë˜ìŠ¤
  */
 class CCharDATA {
 private:
@@ -42,7 +42,7 @@ public:
  * \ingroup SHO_GS_LIB
  * \class	CCharDatLIST
  * \author	wookSang.Jo
- * \brief	list_npc.stbÀÇ ÀüÃ¼ npc/mobÀÇ µ¥ÀÌÅ¸¸¦ °ü¸®ÇÏ´Â Å¬·¡½º
+ * \brief	list_npc.stbì˜ ì „ì²´ npc/mobì˜ ë°ì´íƒ€ë¥¼ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤
  */
 class CCharDatLIST {
 private:

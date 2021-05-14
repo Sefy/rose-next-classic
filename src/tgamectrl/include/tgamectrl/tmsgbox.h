@@ -10,11 +10,11 @@ class CTImage;
 class CTCaption;
 
 /**
- * °ÔÀÓ³»¿¡¼­ ¸Ş¼¼Áö¹Ú½º·Î »ç¿ëµÉ Æ¯Á¤ Dialog
- *	- TDialog¸¦ »ó¼Ó ¹Ş¾Æ¼­ ¸ğµç TDialogÀÇ ±â´ÉÀ» °¡Áö°í ÀÖÀ¸¸ç, Ok,Cancel¹öÆ°, 3°³·Î ³ª´©¾îÁø
- *ÀÌ¹ÌÁö ºÎºĞÀÌ Ãß°¡µÇ¾î ÀÖ´Ù.
+ * ê²Œì„ë‚´ì—ì„œ ë©”ì„¸ì§€ë°•ìŠ¤ë¡œ ì‚¬ìš©ë  íŠ¹ì • Dialog
+ *	- TDialogë¥¼ ìƒì† ë°›ì•„ì„œ ëª¨ë“  TDialogì˜ ê¸°ëŠ¥ì„ ê°€ì§€ê³  ìˆìœ¼ë©°, Ok,Cancelë²„íŠ¼, 3ê°œë¡œ ë‚˜ëˆ„ì–´ì§„
+ *ì´ë¯¸ì§€ ë¶€ë¶„ì´ ì¶”ê°€ë˜ì–´ ìˆë‹¤.
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Data		2005/8/30
  */
@@ -54,17 +54,17 @@ protected:
     CTButton* m_pButtonOk; // Ok Button
     CTButton* m_pButtonCancel; // Cancel Button
 
-    CTImage* m_pImageTop; // ¹è°æÀÌ¹ÌÁöÁß »ó´Ü
-    CTImage* m_pImageMiddle; // ¹è°æÀÌ¹ÌÁöÁß °¡¿îµ¥( ¸Ş¼¼Áö ¹Ú½º¿¡ Ç¥½ÃµÉ ½ºÆ®¸µÀÇ ±æÀÌ¿¡ µû¶ó¼­
-                             // ÀÚµ¿À¸·Î ¹İº¹µÇ¾î ±×·ÁÁø´Ù )
-    CTImage* m_pImageBottom; // ¹è°æÀÌ¹ÌÁöÁß ÇÏ´Ü
+    CTImage* m_pImageTop; // ë°°ê²½ì´ë¯¸ì§€ì¤‘ ìƒë‹¨
+    CTImage* m_pImageMiddle; // ë°°ê²½ì´ë¯¸ì§€ì¤‘ ê°€ìš´ë°( ë©”ì„¸ì§€ ë°•ìŠ¤ì— í‘œì‹œë  ìŠ¤íŠ¸ë§ì˜ ê¸¸ì´ì— ë”°ë¼ì„œ
+                             // ìë™ìœ¼ë¡œ ë°˜ë³µë˜ì–´ ê·¸ë ¤ì§„ë‹¤ )
+    CTImage* m_pImageBottom; // ë°°ê²½ì´ë¯¸ì§€ì¤‘ í•˜ë‹¨
 
     short int m_iButtonType; // BT_NONE, BT_OK, BT_CANCEL
 
     unsigned int m_iMsgType;
-    int m_iExtraHeight; // Ãß°¡ÀûÀÎ ¿©À¯°ø°£
+    int m_iExtraHeight; // ì¶”ê°€ì ì¸ ì—¬ìœ ê³µê°„
     int m_iExtraHeightStartPoint;
 
-    CJStringParser m_message_parser; // ¸Ş¼¼Áö ¹Ú½º¿¡ Ãâ·ÂµÉ ½ºÆ®¸µ
+    CJStringParser m_message_parser; // ë©”ì„¸ì§€ ë°•ìŠ¤ì— ì¶œë ¥ë  ìŠ¤íŠ¸ë§
 };
 #endif

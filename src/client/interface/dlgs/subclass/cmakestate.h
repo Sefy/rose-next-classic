@@ -3,9 +3,9 @@
 
 class CMakeDLG;
 /**
- * Á¦Á¶ÀÎÅÍÆäÀÌ½º Ã¢ÀÇ State Base Class :
+ * ì œì¡°ì¸í„°í˜ì´ìŠ¤ ì°½ì˜ State Base Class :
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CMakeState {

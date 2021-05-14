@@ -1,9 +1,9 @@
 #ifndef _CGUAGE_
 #define _CGUAGE_
 /**
- *	Á¦Á¶¿Í Á¦·Ã¿¡ »ç¿ëµÇ´Â °ÔÀÌÁö Ãâ·Âclass : TGameCtrlÀÇ TGauge¿Í Áßº¹µÇ´Â ±â´ÉÀÌ ÀÖ´Ù.
+ *	ì œì¡°ì™€ ì œë ¨ì— ì‚¬ìš©ë˜ëŠ” ê²Œì´ì§€ ì¶œë ¥class : TGameCtrlì˜ TGaugeì™€ ì¤‘ë³µë˜ëŠ” ê¸°ëŠ¥ì´ ìˆë‹¤.
  *
- *	@Author		ÃÖÁ¾Áø
+ *	@Author		ìµœì¢…ì§„
  *	@Date		2005/9/15
  */
 class CGuage {
@@ -15,9 +15,9 @@ public:
     int Update(POINT ptMouse, DWORD dwPrevTime, DWORD dwCurrTime);
     void SetAutoIncrement(int iAutoIncrementValue, int iAutoIncrementMaxValue);
     void SetAutoIncrementMaxValue(int iAutoIncrementMaxValue);
-    void SetPosition(POINT ptPos); /// OffsetÀ» ¹«½ÃÇÑ °­Á¦ ÀÌµ¿
-    void SetOffset(POINT ptOffset); /// Parent DialogÀÇ Left-Top°úÀÇ °£°İ
-    void MoveWindow(POINT pt); /// OffsetÀÌ Àû¿ëµÈ À§Ä¡ ÀÌµ¿
+    void SetPosition(POINT ptPos); /// Offsetì„ ë¬´ì‹œí•œ ê°•ì œ ì´ë™
+    void SetOffset(POINT ptOffset); /// Parent Dialogì˜ Left-Topê³¼ì˜ ê°„ê²©
+    void MoveWindow(POINT pt); /// Offsetì´ ì ìš©ëœ ìœ„ì¹˜ ì´ë™
     void SetWidth(int iWidth);
     void SetHeight(int iHeight);
 
@@ -29,9 +29,9 @@ public:
 
     void SetGuageImageID(int iImageID);
     enum {
-        UPDATE_DELETE, /// PARENT¿¡°Ô Áö¿ö´Ş¶ó°í ¿äÃ» ( »ç¿ë¿¡ ÁÖÀÇ )
+        UPDATE_DELETE, /// PARENTì—ê²Œ ì§€ì›Œë‹¬ë¼ê³  ìš”ì²­ ( ì‚¬ìš©ì— ì£¼ì˜ )
         UPDATE_NORMAL,
-        UPDATE_END /// UPDATE¿¡¼­ ÇÒÀÏÀ» ´Ù ³¡³Â´Ù( PARENT°¡ ¾Ë¾Æ¼­ ´ÙÀ½¿¡ ÇØ¾ßÇÒ°ÍµéÀ» Ã³¸® )
+        UPDATE_END /// UPDATEì—ì„œ í• ì¼ì„ ë‹¤ ëëƒˆë‹¤( PARENTê°€ ì•Œì•„ì„œ ë‹¤ìŒì— í•´ì•¼í• ê²ƒë“¤ì„ ì²˜ë¦¬ )
     };
 
 protected:
@@ -42,17 +42,17 @@ protected:
     /// Data
     std::string m_strText;
 
-    ///¼Ó¼º
+    ///ì†ì„±
     bool m_bAutoIncrement;
-    int m_iAutoIncrementValue; ///ÃÊ´ç Áõ°¡ÇÒ % ( 1 ~ 100 )
+    int m_iAutoIncrementValue; ///ì´ˆë‹¹ ì¦ê°€í•  % ( 1 ~ 100 )
     int m_iAutoIncrementMaxValue;
 
-    ///À§Ä¡
+    ///ìœ„ì¹˜
     POINT m_ptOffset;
     POINT m_ptPosition;
     int m_iWidth;
     int m_iHeight;
-    /// Guage¸¦ ±×¸± Width
-    int m_iValue; ///ÇöÀç °ÔÀÌÁö°¡ ±×·ÁÁ®¾ßÇÒ %(0 ~ 100)
+    /// Guageë¥¼ ê·¸ë¦´ Width
+    int m_iValue; ///í˜„ì¬ ê²Œì´ì§€ê°€ ê·¸ë ¤ì ¸ì•¼í•  %(0 ~ 100)
 };
 #endif

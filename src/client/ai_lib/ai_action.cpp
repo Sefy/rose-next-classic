@@ -14,7 +14,7 @@ F_AIACT00(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     return;
 #endif
     /*
-        Á¤Áö µ¿ÀÛÀ¸·Î..
+        ì •ì§€ ë™ìž‘ìœ¼ë¡œ..
     */
     AIACT00* pAct = (AIACT00*)pActDATA;
     pEVENT->m_pSourCHAR->SetCMD_STOP();
@@ -26,12 +26,12 @@ F_AIACT01(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     /*
     struct		AIACT01
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
-        BYTE			cAction ;					// µ¿ÀÛ¹øÈ£
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
+        BYTE			cAction ;					// ë™ìž‘ë²ˆí˜¸
     } ;
 
-        cAction : °¨Á¤ Ç¥Çöµ¿ÀÛ.
+        cAction : ê°ì • í‘œí˜„ë™ìž‘.
     */
     AIACT01* pAct = (AIACT01*)pActDATA;
     pEVENT->m_pSourCHAR->Set_EMOTION(pAct->cAction);
@@ -43,9 +43,9 @@ F_AIACT02(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     /*
     struct		AIACT02
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
-        char			szCon[1] ;					// ´ë»ç µ¥ÀÌÅÍ
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
+        char			szCon[1] ;					// ëŒ€ì‚¬ ë°ì´í„°
     } ;
     */
     //	AIACT02 *pAct = (AIACT02*)pActDATA;
@@ -60,13 +60,13 @@ F_AIACT03(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 #endif
 
     /*
-    // ÀÚ½ÅÀÇ ÇöÀçÀ§Ä¡¿¡¼­ ÀÓÀÇ ÀÌµ¿...
+    // ìžì‹ ì˜ í˜„ìž¬ìœ„ì¹˜ì—ì„œ ìž„ì˜ ì´ë™...
     struct		AIACT03
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
-        int				iDistance ;					// °Å¸®
-        BYTE			cSpeed ;					// ÃµÃµÈ÷ , º¸Åë , ºü¸£°Ô
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
+        int				iDistance ;					// ê±°ë¦¬
+        BYTE			cSpeed ;					// ì²œì²œížˆ , ë³´í†µ , ë¹ ë¥´ê²Œ
     } ;
     */
     AIACT03* pAct = (AIACT03*)pActDATA;
@@ -87,13 +87,13 @@ F_AIACT04(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 #endif
 
     /*
-    // ÀÚ½ÅÀÇ ÃâÇöÀ§Ä¡¿¡¼­ ÀÓÀÇ ÀÌµ¿...
+    // ìžì‹ ì˜ ì¶œí˜„ìœ„ì¹˜ì—ì„œ ìž„ì˜ ì´ë™...
     struct		AIACT04
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
-        int				iDistance ;					// °Å¸®
-        BYTE			cSpeed ;					// ÃµÃµÈ÷ , º¸Åë , ºü¸£°Ô
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
+        int				iDistance ;					// ê±°ë¦¬
+        BYTE			cSpeed ;					// ì²œì²œížˆ , ë³´í†µ , ë¹ ë¥´ê²Œ
     } ;
     */
     AIACT04* pAct = (AIACT04*)pActDATA;
@@ -117,10 +117,10 @@ F_AIACT05(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     /*
     struct		AIACT05
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
-        BYTE			cSpeed ;					// ÃµÃµÈ÷ , º¸Åë , ºü¸£°Ô
-        //BYTE			cAttackOrMove ;				// °ø°Ý , ÀÌµ¿
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
+        BYTE			cSpeed ;					// ì²œì²œížˆ , ë³´í†µ , ë¹ ë¥´ê²Œ
+        //BYTE			cAttackOrMove ;				// ê³µê²© , ì´ë™
     } ;
     */
     if (NULL == pEVENT->m_pFindCHAR)
@@ -130,7 +130,7 @@ F_AIACT05(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 
     float fPosX, fPosY;
 
-    // 2003. 1. 2 ÁÖº¯ 2m ·£´ý À§Ä¡·Î..
+    // 2003. 1. 2 ì£¼ë³€ 2m ëžœë¤ ìœ„ì¹˜ë¡œ..
     fPosX = pEVENT->m_pFindCHAR->Get_CurXPOS() + AI_SysRANDOM(400) - 200;
     fPosY = pEVENT->m_pFindCHAR->Get_CurYPOS() + AI_SysRANDOM(400) - 200;
 
@@ -144,14 +144,14 @@ F_AIACT06(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 #endif
 
     /*
-    // °Å¸®³»ÀÇ ¾Æ¹ÙÅ¸Áß ´É·ÂÄ¡°¡ °¡ÀåÀå xÇÑ °ÍÀ» °ø°Ý.
+    // ê±°ë¦¬ë‚´ì˜ ì•„ë°”íƒ€ì¤‘ ëŠ¥ë ¥ì¹˜ê°€ ê°€ìž¥ìž¥ xí•œ ê²ƒì„ ê³µê²©.
     struct		AIACT06
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
-        int				iDistance ;					// °Å¸®
-        BYTE			cAbType ;					// ´É·ÂÄ¡ Å¸ÀÔ
-        BYTE			cMoreLess ;					// Å«°¡ , ÀÛÀº°¡
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
+        int				iDistance ;					// ê±°ë¦¬
+        BYTE			cAbType ;					// ëŠ¥ë ¥ì¹˜ íƒ€ìž…
+        BYTE			cMoreLess ;					// í°ê°€ , ìž‘ì€ê°€
     } ;
     */
     AIACT06* pAct = (AIACT06*)pActDATA;
@@ -179,11 +179,11 @@ F_AIACT06(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     }
 
     if (pAct->cMoreLess) {
-        // ÀÛÀº
+        // ìž‘ì€
         if (pMinCHAR)
             pEVENT->m_pSourCHAR->SetCMD_RUNnATTACK(pMinCHAR->Get_TAG());
     } else {
-        // Å«
+        // í°
         if (pMaxCHAR)
             pEVENT->m_pSourCHAR->SetCMD_RUNnATTACK(pMaxCHAR->Get_TAG());
     }
@@ -198,9 +198,9 @@ F_AIACT07(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     /*
     struct		AIACT07
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
-                                                    // µ¥ÀÌÅÍ ÇÊ¿ä ¾øÀ½
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
+                                                    // ë°ì´í„° í•„ìš” ì—†ìŒ
     } ;
     */
     pEVENT->m_pSourCHAR->Special_ATTACK();
@@ -215,10 +215,10 @@ F_AIACT08(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     /*
     struct		AIACT08
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
-        int				iDistance ;					// °Å¸®
-        BYTE			cSpeed ;					// ÃµÃµÈ÷ , º¸Åë , ºü¸£°Ô
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
+        int				iDistance ;					// ê±°ë¦¬
+        BYTE			cSpeed ;					// ì²œì²œížˆ , ë³´í†µ , ë¹ ë¥´ê²Œ
     } ;
     */
     AIACT08* pAct = (AIACT08*)pActDATA;
@@ -248,9 +248,9 @@ F_AIACT09(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     /*
     typedef struct		tagAIACT09
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
-        WORD			wMonster ;					// ¸ó½ºÅÍ¹øÈ£
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
+        WORD			wMonster ;					// ëª¬ìŠ¤í„°ë²ˆí˜¸
     } AIACT09 , AIACT10 ;
     */
 
@@ -267,9 +267,9 @@ F_AIACT10(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     /*
     typedef struct		tagAIACT09
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
-        WORD			wMonster ;					// ¸ó½ºÅÍ¹øÈ£
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
+        WORD			wMonster ;					// ëª¬ìŠ¤í„°ë²ˆí˜¸
     } AIACT09 , AIACT10 ;
     */
     AIACT10* pAct = (AIACT10*)pActDATA;
@@ -288,13 +288,13 @@ F_AIACT11(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 #endif
 
     /*
-    // idistance¾ÈÀÇ ºñÀüÅõÁßÀÎ µ¿·á numofmons ¼ö¸¸Å­ ÀÚ½ÅÀÇ
-    // °ø°Ý Å¸°ÙÀ» Çù°øÇÏ¶ó°í ¸í·É.
+    // idistanceì•ˆì˜ ë¹„ì „íˆ¬ì¤‘ì¸ ë™ë£Œ numofmons ìˆ˜ë§Œí¼ ìžì‹ ì˜
+    // ê³µê²© íƒ€ê²Ÿì„ í˜‘ê³µí•˜ë¼ê³  ëª…ë ¹.
     struct		AIACT11
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
-        int				iDistance ;					// °Å¸®
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
+        int				iDistance ;					// ê±°ë¦¬
         int				iNumOfMonster;
     } ;
     */
@@ -327,11 +327,11 @@ F_AIACT12(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 #endif
 
     /*
-    // °¡ÀÛ °¡±îÀÌ ÀÖ´Â Ä³¸¯ÅÍ¸¦ °ø°Ý Å¸°ÙÀ¸·Î...
+    // ê°€ìž‘ ê°€ê¹Œì´ ìžˆëŠ” ìºë¦­í„°ë¥¼ ê³µê²© íƒ€ê²Ÿìœ¼ë¡œ...
     struct		AIACT12
     {
-            DWORD			dwSize ;		// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-            AITYPE			Type ;			// Á¶°Ç Å¸ÀÔ
+            DWORD			dwSize ;		// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+            AITYPE			Type ;			// ì¡°ê±´ íƒ€ìž…
     } ;
     */
     pEVENT->m_pSourCHAR->SetCMD_RUNnATTACK(pEVENT->m_pNearCHAR->Get_TAG());
@@ -344,11 +344,11 @@ F_AIACT13(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 #endif
 
     /*
-    // Á¶°Ç¿¡¼­ Ã¼Å©µÈ ÄÉ¸¯ÅÍ¸¦ °ø°Ý Å¸°ÙÀ¸·Î...
+    // ì¡°ê±´ì—ì„œ ì²´í¬ëœ ì¼€ë¦­í„°ë¥¼ ê³µê²© íƒ€ê²Ÿìœ¼ë¡œ...
     struct		AIACT13
     {
-            DWORD			dwSize ;		// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-            AITYPE			Type ;			// Á¶°Ç Å¸ÀÔ
+            DWORD			dwSize ;		// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+            AITYPE			Type ;			// ì¡°ê±´ íƒ€ìž…
     } ;
     */
     pEVENT->m_pSourCHAR->SetCMD_RUNnATTACK(pEVENT->m_pFindCHAR->Get_TAG());
@@ -361,13 +361,13 @@ F_AIACT14(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 #endif
 
     /*
-    // ±ÙÃ³ distance³»ÀÇ °°Àº Á¾·ùÀÇ µ¿·á¿¡°Ô ÀÚ½ÅÀÇ °ø°Ý Å¸°ÙÀ»
-    // °ø°ÝÇÏ¶ó°í ¸í·ÉÇÑ´Ù.
+    // ê·¼ì²˜ distanceë‚´ì˜ ê°™ì€ ì¢…ë¥˜ì˜ ë™ë£Œì—ê²Œ ìžì‹ ì˜ ê³µê²© íƒ€ê²Ÿì„
+    // ê³µê²©í•˜ë¼ê³  ëª…ë ¹í•œë‹¤.
     struct		AIACT14
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
-        int				iDistance ;					// °Å¸®
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
+        int				iDistance ;					// ê±°ë¦¬
     } ;
     */
     CAI_OBJ* pTarget = pEVENT->m_pSourCHAR->Get_TARGET();
@@ -396,11 +396,11 @@ F_AIACT15(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 #endif
 
     /*
-    // °ø°Ý Å¸°ÙÀ» ÇöÀç ÀÚ½ÅÀ» °ø°ÝÇÑ ÄÉ¸¯ÅÍ·Î ¹Ù²Û´Ù.
+    // ê³µê²© íƒ€ê²Ÿì„ í˜„ìž¬ ìžì‹ ì„ ê³µê²©í•œ ì¼€ë¦­í„°ë¡œ ë°”ê¾¼ë‹¤.
     struct		AIACT15
     {
-        DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
+        DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
     } ;
     */
     pEVENT->m_pSourCHAR->SetCMD_RUNnATTACK(pEVENT->m_pDestCHAR->Get_TAG());
@@ -416,9 +416,9 @@ F_AIACT16(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     /*
     struct AIACT16
     {
-        DWORD	dwSize;		/// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE	Type;		/// Type = AIACT_16 . µµ¸Á
-        int		iDistance ;	/// ¸®Á¨À» Áß½ÉÀ¸·Î ¸î ¹ÌÅÍ ÀÌ³»·Î µµ¸Á
+        DWORD	dwSize;		/// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE	Type;		/// Type = AIACT_16 . ë„ë§
+        int		iDistance ;	/// ë¦¬ì  ì„ ì¤‘ì‹¬ìœ¼ë¡œ ëª‡ ë¯¸í„° ì´ë‚´ë¡œ ë„ë§
     };
     */
     AIACT16* pAct = (AIACT16*)pActDATA;
@@ -436,13 +436,13 @@ F_AIACT17(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     /*
     struct AIACT17
     {
-        DWORD	dwSize;		/// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE	Type;		/// Type = AIACT_16 . µµ¸Á
-        short	item0;		/// ¾ÆÀÌÅÛ ¹øÈ£ 0  . ¸¸¾à ¾ÆÀÌÅÛ¹øÈ£°¡ ¾øÀ¸¸é -1À» Áý¾î ³Ö´Â´Ù
-        short	item1;		/// ¾ÆÀÌÅÛ ¹øÈ£ 1
-        short	item2;		/// ¾ÆÀÌÅÛ ¹øÈ£ 2
-        short	item3;		/// ¾ÆÀÌÅÛ ¹øÈ£ 3
-        short	item4;		/// ¾ÆÀÌÅÛ ¹øÈ£ 4
+        DWORD	dwSize;		/// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE	Type;		/// Type = AIACT_16 . ë„ë§
+        short	item0;		/// ì•„ì´í…œ ë²ˆí˜¸ 0  . ë§Œì•½ ì•„ì´í…œë²ˆí˜¸ê°€ ì—†ìœ¼ë©´ -1ì„ ì§‘ì–´ ë„£ëŠ”ë‹¤
+        short	item1;		/// ì•„ì´í…œ ë²ˆí˜¸ 1
+        short	item2;		/// ì•„ì´í…œ ë²ˆí˜¸ 2
+        short	item3;		/// ì•„ì´í…œ ë²ˆí˜¸ 3
+        short	item4;		/// ì•„ì´í…œ ë²ˆí˜¸ 4
     };
     */
     AIACT17* pAct = (AIACT17*)pActDATA;
@@ -460,17 +460,17 @@ F_AIACT18(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 #endif
 
     /*
-     * Struct Name : AIACT18 - <<2004.1.29 Ãß°¡>>
-     * ÁöÁ¤µÈ ¹øÈ£ÀÇ ºñÀüÅõÁßÀÎ ¸÷¿¡°Ô °ø°ÝÈ£Ãâ ¸í·É. (¸ó½ºÅÍ¹øÈ£, °Å¸®, ¸¶¸®¼ö)
-     * Ãß°¡ ¼³¸í : ÁöÁ¤µÈ °Å¸®¾È¿¡ ÁöÁ¤µÈ ¸¶¸®¼ö¸¸Å­ÀÇ ÁöÁ¤µÈ ¹øÈ£ÀÇ ¸ó½ºÅÍ¿¡°Ô °ø°ÝÈ£Ãâ ¸í·É
+     * Struct Name : AIACT18 - <<2004.1.29 ì¶”ê°€>>
+     * ì§€ì •ëœ ë²ˆí˜¸ì˜ ë¹„ì „íˆ¬ì¤‘ì¸ ëª¹ì—ê²Œ ê³µê²©í˜¸ì¶œ ëª…ë ¹. (ëª¬ìŠ¤í„°ë²ˆí˜¸, ê±°ë¦¬, ë§ˆë¦¬ìˆ˜)
+     * ì¶”ê°€ ì„¤ëª… : ì§€ì •ëœ ê±°ë¦¬ì•ˆì— ì§€ì •ëœ ë§ˆë¦¬ìˆ˜ë§Œí¼ì˜ ì§€ì •ëœ ë²ˆí˜¸ì˜ ëª¬ìŠ¤í„°ì—ê²Œ ê³µê²©í˜¸ì¶œ ëª…ë ¹
     struct AIACT18
     {
-        DWORD		dwSize;			/// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE		Type;			/// Type°ªÀº AIACT_18
+        DWORD		dwSize;			/// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE		Type;			/// Typeê°’ì€ AIACT_18
 
-        WORD		cMonster ;		// ¸ó½ºÅÍ¹øÈ£
-        WORD		wHowMany ;		// ¸î¸¶¸®
-        int			iDistance ;		// °Å¸®
+        WORD		cMonster ;		// ëª¬ìŠ¤í„°ë²ˆí˜¸
+        WORD		wHowMany ;		// ëª‡ë§ˆë¦¬
+        int			iDistance ;		// ê±°ë¦¬
     };
     */
     CAI_OBJ* pTarget = pEVENT->m_pSourCHAR->Get_TARGET();
@@ -504,14 +504,14 @@ F_AIACT19(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     return;
 #endif
     /*
-     * Struct Name : AIACT19 - <<2004.1.29 Ãß°¡>>
-     * °¡Àå °¡±îÀÌ ÀÖ´Â ¾Æ¹ÙÅ¸¸¦ °ø°ÝÅ¸°ÙÀ¸·Î ÁöÁ¤
+     * Struct Name : AIACT19 - <<2004.1.29 ì¶”ê°€>>
+     * ê°€ìž¥ ê°€ê¹Œì´ ìžˆëŠ” ì•„ë°”íƒ€ë¥¼ ê³µê²©íƒ€ê²Ÿìœ¼ë¡œ ì§€ì •
     struct AIACT19
     {
-        DWORD		dwSize;				/// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE		Type;				/// Type°ªÀº AIACT_19
+        DWORD		dwSize;				/// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE		Type;				/// Typeê°’ì€ AIACT_19
 
-        /// Ãß°¡ Á¶°Ç ÇÊ¿ä
+        /// ì¶”ê°€ ì¡°ê±´ í•„ìš”
     };
     */
     if (pEVENT->m_pNearCHAR) {
@@ -526,26 +526,26 @@ F_AIACT20(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     return;
 #endif
     /*
-     * Struct Name : AIACT20 - <<2004.1.29 Ãß°¡>>
-     * ÁöÁ¤µÈ ¸ó½ºÅÍ¸¦ ¼ÒÈ¯½ÃÅ²´Ù. ÀÚ½Å/°ø°ÝÀÚ(ÀÚ½ÅÀ» °ø°ÝÇÑ Ä³¸¯ÅÍ)/°ø°ÝÅ¸°Ù(ÀÚ½ÅÀÌ °ø°ÝÇÏ´Â
-    Ä³¸¯ÅÍ).
-     * ±ÙÃ³ ?¹ÌÅÍ ÀÌ³»¿¡ ¼ÒÈ¯
-     * Ãß°¡¼³¸í : ¸¶¸®¼ö´Â 1¸¶¸®ÀÌ´Ù.
+     * Struct Name : AIACT20 - <<2004.1.29 ì¶”ê°€>>
+     * ì§€ì •ëœ ëª¬ìŠ¤í„°ë¥¼ ì†Œí™˜ì‹œí‚¨ë‹¤. ìžì‹ /ê³µê²©ìž(ìžì‹ ì„ ê³µê²©í•œ ìºë¦­í„°)/ê³µê²©íƒ€ê²Ÿ(ìžì‹ ì´ ê³µê²©í•˜ëŠ”
+    ìºë¦­í„°).
+     * ê·¼ì²˜ ?ë¯¸í„° ì´ë‚´ì— ì†Œí™˜
+     * ì¶”ê°€ì„¤ëª… : ë§ˆë¦¬ìˆ˜ëŠ” 1ë§ˆë¦¬ì´ë‹¤.
     struct AIACT20
     {
-        DWORD		dwSize;				/// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-        AITYPE		Type;				/// Type°ªÀº AIACT_20
+        DWORD		dwSize;				/// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+        AITYPE		Type;				/// Typeê°’ì€ AIACT_20
 
-        WORD		cMonster;			/// ¸ó½ºÅÍ¹øÈ£
-        BYTE		btPos;				/// ¼ÒÈ¯À§Ä¡ : 0 = ÀÚ½Å ÁÖÀ§,  1 = °ø°ÝÀÚ ÁÖÀ§(ÀÚ½ÅÀ»
-    °ø°ÝÇÑ), 2 = °ø°ÝÅ¸°Ù ÁÖÀ§(ÀÚ½ÅÀÌ °ø°ÝÇÏ°í ÀÖ´Â) int			iDistance ;			// °Å¸® . ÀÌ
-    °Å¸® ÀÌ³»¿¡ ¼ÒÈ¯
+        WORD		cMonster;			/// ëª¬ìŠ¤í„°ë²ˆí˜¸
+        BYTE		btPos;				/// ì†Œí™˜ìœ„ì¹˜ : 0 = ìžì‹  ì£¼ìœ„,  1 = ê³µê²©ìž ì£¼ìœ„(ìžì‹ ì„
+    ê³µê²©í•œ), 2 = ê³µê²©íƒ€ê²Ÿ ì£¼ìœ„(ìžì‹ ì´ ê³µê²©í•˜ê³  ìžˆëŠ”) int			iDistance ;			// ê±°ë¦¬ . ì´
+    ê±°ë¦¬ ì´ë‚´ì— ì†Œí™˜
     };
     */
 
     AIACT20* pAct = (AIACT20*)pActDATA;
     switch (pAct->btPos) {
-        case 0: // ÀÚ½Å ÁÖÀ§...
+        case 0: // ìžì‹  ì£¼ìœ„...
         {
             pEVENT->m_pSourCHAR->Create_PET(pAct->cMonster,
                 pEVENT->m_pSourCHAR->Get_CurXPOS(),
@@ -556,7 +556,7 @@ F_AIACT20(stActHead* pActDATA, t_AIPARAM* pEVENT) {
             break;
         }
 
-        case 1: // ÀÚ½ÅÀ» °ø°ÝÇÑ...
+        case 1: // ìžì‹ ì„ ê³µê²©í•œ...
         {
             if (pEVENT->m_pDestCHAR) {
                 pEVENT->m_pSourCHAR->Create_PET(pAct->cMonster,
@@ -569,7 +569,7 @@ F_AIACT20(stActHead* pActDATA, t_AIPARAM* pEVENT) {
             break;
         }
 
-        case 2: // ÀÚ½ÅÀÌ °ø°ÝÁßÀÎ...
+        case 2: // ìžì‹ ì´ ê³µê²©ì¤‘ì¸...
         {
             CAI_OBJ* pTarget = pEVENT->m_pSourCHAR->Get_TARGET();
             if (pTarget) {
@@ -587,16 +587,16 @@ F_AIACT20(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 
 void
 F_AIACT21(stActHead* pActDATA, t_AIPARAM* pEVENT) {
-    // »ç¿ë ¾ÈÇÔ.
+    // ì‚¬ìš© ì•ˆí•¨.
 }
 void
 F_AIACT22(stActHead* pActDATA, t_AIPARAM* pEVENT) {
-    // »ç¿ë ¾ÈÇÔ.
+    // ì‚¬ìš© ì•ˆí•¨.
 }
 void
 F_AIACT23(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 /*
-// ÀÚ»ì½ÃÅ²´Ù
+// ìžì‚´ì‹œí‚¨ë‹¤
 struct AIACT23
 {
     DWORD	dwSize;
@@ -610,15 +610,15 @@ struct AIACT23
 void
 F_AIACT24(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 /*
-/// ½ºÅ³°ú µ¿ÀÛÀ» ´ë»óÀ» ÇâÇØ »ç¿ë
+/// ìŠ¤í‚¬ê³¼ ë™ìž‘ì„ ëŒ€ìƒì„ í–¥í•´ ì‚¬ìš©
 struct AIACT24
 {
-    DWORD		dwSize;			/// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
+    DWORD		dwSize;			/// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
     AITYPE		Type;			/// Type
 
-    BYTE		btTarget;		// 0=Á¶°Ç¿¡ Ã¼Å©µÈ Ä³¸¯ÅÍ, 1=ÇöÀç °ø°ÝÅ¸°Ù, 2=ÀÚ±âÀÚ½Å(¼¿ÇÁ½ºÅ³)
-    short		nSkill;			// ½ºÅ³¹øÈ£
-    short		nMotion;		// µ¿ÀÛ¹øÈ£ -1 = µ¿ÀÛ¾øÀ½
+    BYTE		btTarget;		// 0=ì¡°ê±´ì— ì²´í¬ëœ ìºë¦­í„°, 1=í˜„ìž¬ ê³µê²©íƒ€ê²Ÿ, 2=ìžê¸°ìžì‹ (ì…€í”„ìŠ¤í‚¬)
+    short		nSkill;			// ìŠ¤í‚¬ë²ˆí˜¸
+    short		nMotion;		// ë™ìž‘ë²ˆí˜¸ -1 = ë™ìž‘ì—†ìŒ
 };
 */
 #ifdef __SERVER
@@ -646,17 +646,17 @@ struct AIACT24
 void
 F_AIACT25(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 /*
-// NPC º¯¼ö Ã¼Å©	- AICOND14
+// NPC ë³€ìˆ˜ ì²´í¬	- AICOND14
 typedef struct	tagValue
 {
     DWORD			dwSize;
     AITYPE			Type;
 
-    short			nVarNo;	// º¯¼ö ¹øÈ£ : 0 ~ , Á¸ÀÇ °æÁ¦µ¥ÀÌÅÍ º¯¼ö
-    int				iValue;	// ºñ±³ÇÒ µ¥ÀÌÅÍ°ª (iTypeÀÇ ´É·ÂÄ¡ Op iValue)
-    BYTE			btOp;	// iValue°ª¿¡ ´ëÇÑ ºñ±³¹æ¹ý. 0 = °°´Ù, 1 = Å©´Ù, 2 = Å©°Å³ª °°´Ù.
-3=ÀÛ´Ù, 4=ÀÛ°Å³ª °°´Ù.
-                            // (¾×¼ÇÂÊ) 5 = °ª¹Ù²Þ, 6 = Áõ°¡, 7 = °¨¼Ò
+    short			nVarNo;	// ë³€ìˆ˜ ë²ˆí˜¸ : 0 ~ , ì¡´ì˜ ê²½ì œë°ì´í„° ë³€ìˆ˜
+    int				iValue;	// ë¹„êµí•  ë°ì´í„°ê°’ (iTypeì˜ ëŠ¥ë ¥ì¹˜ Op iValue)
+    BYTE			btOp;	// iValueê°’ì— ëŒ€í•œ ë¹„êµë°©ë²•. 0 = ê°™ë‹¤, 1 = í¬ë‹¤, 2 = í¬ê±°ë‚˜ ê°™ë‹¤.
+3=ìž‘ë‹¤, 4=ìž‘ê±°ë‚˜ ê°™ë‹¤.
+                            // (ì•¡ì…˜ìª½) 5 = ê°’ë°”ê¿ˆ, 6 = ì¦ê°€, 7 = ê°ì†Œ
 } AICOND14, AICOND15, AICOND16, AIACT25, AIACT26, AIACT27;
 */
 #ifdef __SERVER
@@ -674,17 +674,17 @@ typedef struct	tagValue
 void
 F_AIACT26(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 /*
-// ¿ùµåº¯¼ö Ã¼Å©	- AICOND15
+// ì›”ë“œë³€ìˆ˜ ì²´í¬	- AICOND15
 typedef struct	tagValue
 {
     DWORD			dwSize;
     AITYPE			Type;
 
-    short			nVarNo;	// º¯¼ö ¹øÈ£ : 0 ~ , Á¸ÀÇ °æÁ¦µ¥ÀÌÅÍ º¯¼ö
-    int				iValue;	// ºñ±³ÇÒ µ¥ÀÌÅÍ°ª (iTypeÀÇ ´É·ÂÄ¡ Op iValue)
-    BYTE			btOp;	// iValue°ª¿¡ ´ëÇÑ ºñ±³¹æ¹ý. 0 = °°´Ù, 1 = Å©´Ù, 2 = Å©°Å³ª °°´Ù.
-3=ÀÛ´Ù, 4=ÀÛ°Å³ª °°´Ù.
-                            // (¾×¼ÇÂÊ) 5 = °ª¹Ù²Þ, 6 = Áõ°¡, 7 = °¨¼Ò
+    short			nVarNo;	// ë³€ìˆ˜ ë²ˆí˜¸ : 0 ~ , ì¡´ì˜ ê²½ì œë°ì´í„° ë³€ìˆ˜
+    int				iValue;	// ë¹„êµí•  ë°ì´í„°ê°’ (iTypeì˜ ëŠ¥ë ¥ì¹˜ Op iValue)
+    BYTE			btOp;	// iValueê°’ì— ëŒ€í•œ ë¹„êµë°©ë²•. 0 = ê°™ë‹¤, 1 = í¬ë‹¤, 2 = í¬ê±°ë‚˜ ê°™ë‹¤.
+3=ìž‘ë‹¤, 4=ìž‘ê±°ë‚˜ ê°™ë‹¤.
+                            // (ì•¡ì…˜ìª½) 5 = ê°’ë°”ê¿ˆ, 6 = ì¦ê°€, 7 = ê°ì†Œ
 } AICOND14, AICOND15, AICOND16, AIACT25, AIACT26, AIACT27;
 */
 #ifdef __SERVER
@@ -699,17 +699,17 @@ typedef struct	tagValue
 void
 F_AIACT27(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 /*
-// °æÁ¦ µ¥ÀÌÅÍ Ã¼Å© - AICOND16
+// ê²½ì œ ë°ì´í„° ì²´í¬ - AICOND16
 typedef struct	tagValue
 {
     DWORD			dwSize;
     AITYPE			Type;
 
-    short			nVarNo;	// º¯¼ö ¹øÈ£ : 0 ~ , Á¸ÀÇ °æÁ¦µ¥ÀÌÅÍ º¯¼ö
-    int				iValue;	// ºñ±³ÇÒ µ¥ÀÌÅÍ°ª (iTypeÀÇ ´É·ÂÄ¡ Op iValue)
-    BYTE			btOp;	// iValue°ª¿¡ ´ëÇÑ ºñ±³¹æ¹ý. 0 = °°´Ù, 1 = Å©´Ù, 2 = Å©°Å³ª °°´Ù.
-3=ÀÛ´Ù, 4=ÀÛ°Å³ª °°´Ù.
-                            // (¾×¼ÇÂÊ) 5 = °ª¹Ù²Þ, 6 = Áõ°¡, 7 = °¨¼Ò
+    short			nVarNo;	// ë³€ìˆ˜ ë²ˆí˜¸ : 0 ~ , ì¡´ì˜ ê²½ì œë°ì´í„° ë³€ìˆ˜
+    int				iValue;	// ë¹„êµí•  ë°ì´í„°ê°’ (iTypeì˜ ëŠ¥ë ¥ì¹˜ Op iValue)
+    BYTE			btOp;	// iValueê°’ì— ëŒ€í•œ ë¹„êµë°©ë²•. 0 = ê°™ë‹¤, 1 = í¬ë‹¤, 2 = í¬ê±°ë‚˜ ê°™ë‹¤.
+3=ìž‘ë‹¤, 4=ìž‘ê±°ë‚˜ ê°™ë‹¤.
+                            // (ì•¡ì…˜ìª½) 5 = ê°’ë°”ê¿ˆ, 6 = ì¦ê°€, 7 = ê°ì†Œ
 } AICOND14, AICOND15, AICOND16, AIACT25, AIACT26, AIACT27;
 */
 #ifdef __SERVER
@@ -726,12 +726,12 @@ F_AIACT28(stActHead* pActDATA, t_AIPARAM* pEVENT) {
     /*
     struct AIACT28
     {
-        DWORD		dwSize;			/// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
+        DWORD		dwSize;			/// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
         AITYPE		Type;			/// Type
 
-        BYTE		btMsgType;		/// 0 = ÇöÀçÇÊµå, 1 = ÇöÀçÁ¸, 2=ÀüÃ¼¿ùµå
-        short		nMsgLength;		/// ´ë»çÀÇ ±æÀÌ NULLÆ÷ÇÔ
-        char		szMsg[ 1 ];		/// ´ë»ç
+        BYTE		btMsgType;		/// 0 = í˜„ìž¬í•„ë“œ, 1 = í˜„ìž¬ì¡´, 2=ì „ì²´ì›”ë“œ
+        short		nMsgLength;		/// ëŒ€ì‚¬ì˜ ê¸¸ì´ NULLí¬í•¨
+        char		szMsg[ 1 ];		/// ëŒ€ì‚¬
     };
     */
     //	AIACT28 *pAct = (AIACT28*)pActDATA;
@@ -790,7 +790,7 @@ F_AIACT30(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 void
 F_AIACT31(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 /*
-// ÁÖÀÎÀÌ °¡Áö°í ÀÖ´Â °ø°ÝÅ¸°Ù °øÀ¯
+// ì£¼ì¸ì´ ê°€ì§€ê³  ìžˆëŠ” ê³µê²©íƒ€ê²Ÿ ê³µìœ 
 struct AIACT31
 {
     DWORD		dwSize;
@@ -804,7 +804,7 @@ struct AIACT31
     if (pOwner) {
         CAI_OBJ* pTarget = pOwner->Get_TARGET();
         if (pTarget) {
-            // °ø°Ý
+            // ê³µê²©
             if (!pEVENT->m_pSourCHAR->Is_ALLIED(pTarget))
                 pEVENT->m_pSourCHAR->SetCMD_RUNnATTACK(pTarget->Get_TAG());
         }
@@ -815,13 +815,13 @@ struct AIACT31
 void
 F_AIACT32(stActHead* pActDATA, t_AIPARAM* pEVENT) {
 /*
-// PK ¸ðµå On/Off. NPC°¡ Á¸ÀçÇÏ´Â Á¸¿¡.
+// PK ëª¨ë“œ On/Off. NPCê°€ ì¡´ìž¬í•˜ëŠ” ì¡´ì—.
 struct AIACT32
 {
     DWORD		dwSize;
     AITYPE		Type;
 
-    short		nZoneNo;	// Á¸¹øÈ£, ÇöÀç´Â ¹«Á¶°Ç 0
+    short		nZoneNo;	// ì¡´ë²ˆí˜¸, í˜„ìž¬ëŠ” ë¬´ì¡°ê±´ 0
     BYTE		btOnOff;	// 0 = Off , 1 = On
 };
 */
@@ -829,7 +829,7 @@ struct AIACT32
     AIACT32* pAct = (AIACT32*)pActDATA;
 
     if (0 == pAct->nZoneNo) {
-        // ÇöÀç Á¸...
+        // í˜„ìž¬ ì¡´...
         g_pZoneLIST->Set_PK_FLAG(pEVENT->m_pSourCHAR, pAct->btOnOff);
     } else {
         g_pZoneLIST->Set_PK_FLAG(pAct->nZoneNo, pAct->btOnOff);

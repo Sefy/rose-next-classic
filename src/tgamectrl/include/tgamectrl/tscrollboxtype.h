@@ -3,9 +3,9 @@
 #include <crtdbg.h>
 
 /**
- * CTScrollBarÀÇ Type¿¡ µû¸¥ Strategy Class( ¼öÆò/¼öÁ÷ )
+ * CTScrollBarì˜ Typeì— ë”°ë¥¸ Strategy Class( ìˆ˜í‰/ìˆ˜ì§ )
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/8/30
  */
 
@@ -33,8 +33,8 @@ public:
     void SetTickMove(bool bTickMove);
 
 protected:
-    POINT m_ptOffset; ///¸¶¿ì½º·Î LButtonDn½Ã ¸¶¿ì½ºÆ÷ÀÎÅÍ¿Í ½ºÅ©·Ñ¹Ú½ºÀÇ Left-Top°úÀÇ °Å¸® ÀúÀå
-    bool m_bTickMove; ///½ºÅ©·Ñ¹Ú½º ÀÌµ¿½Ã °¡Àå °¡±î¿î TickÀ¸·Î ÀÌµ¿ÇÒ°ÍÀÎ°¡?
+    POINT m_ptOffset; ///ë§ˆìš°ìŠ¤ë¡œ LButtonDnì‹œ ë§ˆìš°ìŠ¤í¬ì¸í„°ì™€ ìŠ¤í¬ë¡¤ë°•ìŠ¤ì˜ Left-Topê³¼ì˜ ê±°ë¦¬ ì €ì¥
+    bool m_bTickMove; ///ìŠ¤í¬ë¡¤ë°•ìŠ¤ ì´ë™ì‹œ ê°€ì¥ ê°€ê¹Œìš´ Tickìœ¼ë¡œ ì´ë™í• ê²ƒì¸ê°€?
 };
 
 class CTScrollBoxTypeVertical: public CTScrollBoxType {

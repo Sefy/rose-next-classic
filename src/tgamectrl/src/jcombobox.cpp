@@ -48,13 +48,13 @@ CJComboBox::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
     if (m_pDropButton && m_pDropButton->Process(uiMsg, wParam, lParam)) {
         if (uiMsg == WM_LBUTTONUP) {
             ToggleShowDropBox();
-            return 0; ///´Ù¸¥ ¿­·ÁÀÖ´Â ÄÞº¸µéÀ» ´Ý±âÀ§ÇÏ¿© ¸Þ¼¼Áö Àü´Þ
+            return 0; ///ë‹¤ë¥¸ ì—´ë ¤ìžˆëŠ” ì½¤ë³´ë“¤ì„ ë‹«ê¸°ìœ„í•˜ì—¬ ë©”ì„¸ì§€ ì „ë‹¬
         }
 
         return m_pDropButton->GetControlID();
     }
 
-    ///µå¶ø¹Ú½º ¿­·Á ÀÖÀ»¶§ ÀÚµ¿À¸·Î ´Ý±â
+    ///ë“œëžë°•ìŠ¤ ì—´ë ¤ ìžˆì„ë•Œ ìžë™ìœ¼ë¡œ ë‹«ê¸°
     if (uiMsg == WM_LBUTTONUP && m_pListBox && m_pListBox->IsVision())
         ToggleShowDropBox();
     return 0;
@@ -259,7 +259,7 @@ CJComboBox::DrawDropBoxImage() {
     if (m_pListBox && m_pDropBoxTopImage && m_pDropBoxMiddleImage && m_pDropBoxBottomImage) {
         int iMaximum = m_pListBox->GetSize();
 
-        if (iMaximum < 1) ///¾ÆÀÌÅÛÀÌ ¾øÀ»°æ¿ì´Â ±×¸±°ÍÀÌ ¾ø´Ù.
+        if (iMaximum < 1) ///ì•„ì´í…œì´ ì—†ì„ê²½ìš°ëŠ” ê·¸ë¦´ê²ƒì´ ì—†ë‹¤.
             return;
 
         POINT ptNew = GetPosition();
@@ -269,7 +269,7 @@ CJComboBox::DrawDropBoxImage() {
         ptNew = m_pDropBoxTopImage->GetPosition();
         ptNew.y += m_pDropBoxTopImage->GetHeight();
 
-        /// ¸®½ºÆ® ¹Ú½º À§Ä¡ Á¶Á¤
+        /// ë¦¬ìŠ¤íŠ¸ ë°•ìŠ¤ ìœ„ì¹˜ ì¡°ì •
         POINT ptListBox = ptNew;
         ptListBox.x += 3;
         m_pListBox->MoveWindow(ptListBox);

@@ -21,7 +21,7 @@
 #include "CMinimapDLG.h"
 #include "Network\CNetwork.h"
 
-///¿Â¬¯µ» ø¯∞≈∏Æπ´±‚ø° ¿˚«’«— º“∏≈∫¿ª ¿Â¬¯«œ¡ˆ æ æ“¿ª∞ÊøÏ ¥ÎΩ≈ æ∆¿Ãƒ‹ «•Ω√«“ æ∆¿Ã≈€ π¯»£
+///Ïû•Ï∞©Îêú ÏõêÍ±∞Î¶¨Î¨¥Í∏∞Ïóê Ï†ÅÌï©Ìïú ÏÜåÎ™®ÌÉÑÏùÑ Ïû•Ï∞©ÌïòÏßÄ ÏïäÏïòÏùÑÍ≤ΩÏö∞ ÎåÄÏã† ÏïÑÏù¥ÏΩò ÌëúÏãúÌï† ÏïÑÏù¥ÌÖú Î≤àÌò∏
 const int c_iRepresentBulletItemNo[MAX_SHOT_TYPE] = {301, 321, 341};
 
 CAvatarInfoDlg::CAvatarInfoDlg(int iType) {
@@ -73,7 +73,7 @@ CAvatarInfoDlg::Draw() {
     ::setTransformSprite(mat);
 
 #ifdef _NEWUI
-    // ¿Ã∏ß
+    // Ïù¥Î¶Ñ
     RECT rt;
     SetRect(&rt, 28, 6, 150, 25);
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_OUTLINE],
@@ -94,7 +94,7 @@ CAvatarInfoDlg::Draw() {
     if (ctrl) {
         ((CTStatic*)ctrl)
             ->SetString(CStr::Printf(
-                "°·LEVEL  %d    °·%s    °·WEIGHT  %d / %d    °·EXP  %d / %d    °·ZULY  %s",
+                "‚ñ†LEVEL  %d    ‚ñ†%s    ‚ñ†WEIGHT  %d / %d    ‚ñ†EXP  %d / %d    ‚ñ†ZULY  %s",
                 g_pAVATAR->Get_LEVEL(), // LEVEL
                 CStringManager::GetSingleton().GetJobName(g_pAVATAR->Get_JOB()), // JOB
                 g_pAVATAR->GetCur_WEIGHT(),
@@ -106,7 +106,7 @@ CAvatarInfoDlg::Draw() {
     }
 
 #else
-    // ¿Ã∏ß
+    // Ïù¥Î¶Ñ
     RECT rt;
     SetRect(&rt, 15, 8, 150, 25);
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL_BOLD],
@@ -201,7 +201,7 @@ CAvatarInfoDlg::Update(POINT ptMouse) {
             pGuage->SetValue((int)i64Per);
 
 #ifdef _NEWUI
-            // »´±Ÿ : ∆˘∆Æ∞° Ω∫ƒ…¿œ¿Ã ∏‘¥¬¥Ÿ.
+            // ÌôçÍ∑º : Ìè∞Ìä∏Í∞Ä Ïä§ÏºÄÏùºÏù¥ Î®πÎäîÎã§.
             pGuage->SetText("");
 #else
             pszBuf = CStr::Printf("%.2f%%", i64Value * 100 / (float)i64Max);
@@ -211,7 +211,7 @@ CAvatarInfoDlg::Update(POINT ptMouse) {
     }
 
 #ifdef _NEWUI
-    // exp ø≠∞≥∑Œ ≥™¥©æÓ ª—∏≤
+    // exp Ïó¥Í∞úÎ°ú ÎÇòÎàÑÏñ¥ ÎøåÎ¶º
     if (GetIsMaxView()) {
         int i = 0;
         CTGuage* pGuageLast = NULL;
@@ -233,7 +233,7 @@ CAvatarInfoDlg::Update(POINT ptMouse) {
     }
 #endif
 
-    ///¿Ã«œ ≈¯∆¡ «•Ω√
+    ///Ïù¥Ìïò Ìà¥ÌåÅ ÌëúÏãú
     CTDialog* pDlg = CTDialog::GetProcessMouseOverDialog();
     if (pDlg && pDlg != this)
         return;
@@ -315,26 +315,26 @@ CAvatarInfoDlg::Update(CObservable* pObservable, CTObject* pObj) {
         int iIndex = pEvent->GetIndex();
 
         switch (pEvent->GetID()) {
-            case CTEventItem::EID_ADD_ITEM: /// ¿Œ∫•≈‰∏Æø° æ∆¿Ã≈€¿Ã √ﬂ∞°/¿Â¬¯ µ«æ˙¿ª∂ß
+            case CTEventItem::EID_ADD_ITEM: /// Ïù∏Î≤§ÌÜ†Î¶¨Ïóê ÏïÑÏù¥ÌÖúÏù¥ Ï∂îÍ∞Ä/Ïû•Ï∞© ÎêòÏóàÏùÑÎïå
             {
                 CItem* pAddItem = pEvent->GetItem();
-                if (iIndex == EQUIP_IDX_WEAPON_R) /// ø¿∏•º’ π´±‚∞° ¿Â¬¯µ«æ˙¿ª∞ÊøÏ
+                if (iIndex == EQUIP_IDX_WEAPON_R) /// Ïò§Î•∏ÏÜê Î¨¥Í∏∞Í∞Ä Ïû•Ï∞©ÎêòÏóàÏùÑÍ≤ΩÏö∞
                 {
                     m_Slot.DetachIcon();
                     tagITEM& AddItem = pAddItem->GetItem();
                     if (AddItem.GetShotTYPE()
-                        == MAX_SHOT_TYPE) /// º“∏≈∫¿ª ªÁøÎ«œ¥¬ π´±‚∞° æ∆¥“∞ÊøÏ
+                        == MAX_SHOT_TYPE) /// ÏÜåÎ™®ÌÉÑÏùÑ ÏÇ¨Ïö©ÌïòÎäî Î¨¥Í∏∞Í∞Ä ÏïÑÎãêÍ≤ΩÏö∞
                     {
                         m_Slot.AttachIcon(pAddItem->CreateItemIcon());
-                    } else ///º“∏≈∫¿Ã ¿Â¬¯µ«æÓ ¿÷¥Ÿ∏È ±◊∞Õ¿ª ±◊∏Æ∞Ì æ∆¥œ∂Û∏È ¥Î«•¿ÃπÃ¡ˆ∏¶ ±◊∏∞¥Ÿ.
+                    } else ///ÏÜåÎ™®ÌÉÑÏù¥ Ïû•Ï∞©ÎêòÏñ¥ ÏûàÎã§Î©¥ Í∑∏Í≤ÉÏùÑ Í∑∏Î¶¨Í≥† ÏïÑÎãàÎùºÎ©¥ ÎåÄÌëúÏù¥ÎØ∏ÏßÄÎ•º Í∑∏Î¶∞Îã§.
                     {
                         CItemSlot* pItemSlot = g_pAVATAR->GetItemSlot();
                         CItem* pBullet =
                             pItemSlot->GetItem(INVENTORY_SHOT_ITEM0 + AddItem.GetShotTYPE());
-                        if (pBullet) /// «ÿ¥Á º“∏≈∫¿Ã ¿Â¬¯µ«æÓ ¿÷¿ª∞ÊøÏ
+                        if (pBullet) /// Ìï¥Îãπ ÏÜåÎ™®ÌÉÑÏù¥ Ïû•Ï∞©ÎêòÏñ¥ ÏûàÏùÑÍ≤ΩÏö∞
                         {
                             m_Slot.AttachIcon(pBullet->CreateItemIcon());
-                        } else /// «ÿ¥Á º“∏≈∫¿Ã ¿Â¬¯µ«æÓ ¿÷¡ˆ æ ¿ª∞ÊøÏ : ¥Î«• ¿ÃπÃ¡ˆ
+                        } else /// Ìï¥Îãπ ÏÜåÎ™®ÌÉÑÏù¥ Ïû•Ï∞©ÎêòÏñ¥ ÏûàÏßÄ ÏïäÏùÑÍ≤ΩÏö∞ : ÎåÄÌëú Ïù¥ÎØ∏ÏßÄ
                         {
                             tagITEM TempBullet;
                             TempBullet.Clear();
@@ -347,7 +347,7 @@ CAvatarInfoDlg::Update(CObservable* pObservable, CTObject* pObj) {
                         }
                     }
                 } else if (iIndex >= INVENTORY_SHOT_ITEM0
-                    && iIndex < INVENTORY_SHOT_ITEM0 + MAX_SHOT_TYPE) /// º“∏≈∫¿Ã ¿Â¬¯µ«æ˙¿ª ∞ÊøÏ
+                    && iIndex < INVENTORY_SHOT_ITEM0 + MAX_SHOT_TYPE) /// ÏÜåÎ™®ÌÉÑÏù¥ Ïû•Ï∞©ÎêòÏóàÏùÑ Í≤ΩÏö∞
                 {
                     CIcon* pPrevIcon = m_Slot.GetIcon();
                     if (pPrevIcon) {
@@ -376,24 +376,24 @@ CAvatarInfoDlg::Update(CObservable* pObservable, CTObject* pObj) {
                 }
                 break;
             }
-            case CTEventItem::EID_DEL_ITEM: /// ¿Œ∫•≈‰∏Æø°º≠  æ∆¿Ã≈€¿ª πˆ∏Æ∞≈≥™ ≈ª¬¯«œø¥¿ª∂ß
+            case CTEventItem::EID_DEL_ITEM: /// Ïù∏Î≤§ÌÜ†Î¶¨ÏóêÏÑú  ÏïÑÏù¥ÌÖúÏùÑ Î≤ÑÎ¶¨Í±∞ÎÇò ÌÉàÏ∞©ÌïòÏòÄÏùÑÎïå
             {
-                if (iIndex == EQUIP_IDX_WEAPON_R) /// ø¿∏•º’ π´±‚¿« ∞ÊøÏ
+                if (iIndex == EQUIP_IDX_WEAPON_R) /// Ïò§Î•∏ÏÜê Î¨¥Í∏∞Ïùò Í≤ΩÏö∞
                 {
                     m_Slot.DetachIcon();
                 } else if (iIndex >= INVENTORY_SHOT_ITEM0
-                    && iIndex < INVENTORY_SHOT_ITEM0 + MAX_SHOT_TYPE) ///º“∏≈∫¿œ∞ÊøÏ
+                    && iIndex < INVENTORY_SHOT_ITEM0 + MAX_SHOT_TYPE) ///ÏÜåÎ™®ÌÉÑÏùºÍ≤ΩÏö∞
                 {
                     CIcon* pIcon = m_Slot.GetIcon();
                     if (pIcon) {
                         CIconItem* pItemIcon = (CIconItem*)pIcon;
 
-                        if (pItemIcon->GetIndex() == EQUIP_IDX_WEAPON_R) ///¿Â¬¯µ»π´±‚∞° ¿÷¿ª∞ÊøÏ
+                        if (pItemIcon->GetIndex() == EQUIP_IDX_WEAPON_R) ///Ïû•Ï∞©ÎêúÎ¨¥Í∏∞Í∞Ä ÏûàÏùÑÍ≤ΩÏö∞
                         {
                             tagITEM& EquipItem = pItemIcon->GetItem();
                             if (EquipItem.GetShotTYPE()
                                 == iIndex
-                                    - INVENTORY_SHOT_ITEM0) /// ¿Â¬¯µ«æÓ ¿÷¥¬ π´±‚¿« º“∏≈∫¿œ∞ÊøÏ
+                                    - INVENTORY_SHOT_ITEM0) /// Ïû•Ï∞©ÎêòÏñ¥ ÏûàÎäî Î¨¥Í∏∞Ïùò ÏÜåÎ™®ÌÉÑÏùºÍ≤ΩÏö∞
                             {
                                 tagITEM TempBullet;
                                 TempBullet.Clear();
@@ -404,13 +404,13 @@ CAvatarInfoDlg::Update(CObservable* pObservable, CTObject* pObj) {
                                 m_pRepresentBullet->SetIndex(EquipItem.GetShotTYPE());
                                 m_pRepresentBullet->SetItem(TempBullet);
 
-                                m_Slot.DetachIcon(); ///±‚¡∏ æ∆¿Ãƒ‹¿ª ª©∞Ì
+                                m_Slot.DetachIcon(); ///Í∏∞Ï°¥ ÏïÑÏù¥ÏΩòÏùÑ ÎπºÍ≥†
                                 m_Slot.AttachIcon(
                                     m_pRepresentBullet
-                                        ->CreateItemIcon()); ///¥Î«• Item¿« Icon¿ª Attach«—¥Ÿ.
+                                        ->CreateItemIcon()); ///ÎåÄÌëú ItemÏùò IconÏùÑ AttachÌïúÎã§.
                             }
                         } else if (pItemIcon->GetIndex()
-                            == iIndex) /// º“∏≈∫¿Ã ≈ª¬¯µ«æÓ ¡ˆ¥¬ ∞ÊøÏ «—π¯¥ı √º≈©
+                            == iIndex) /// ÏÜåÎ™®ÌÉÑÏù¥ ÌÉàÏ∞©ÎêòÏñ¥ ÏßÄÎäî Í≤ΩÏö∞ ÌïúÎ≤àÎçî Ï≤¥ÌÅ¨
                         {
                             CItemSlot* pItemSlot = g_pAVATAR->GetItemSlot();
                             CItem* pEquipItem = pItemSlot->GetItem(EQUIP_IDX_WEAPON_R);
@@ -435,7 +435,7 @@ CAvatarInfoDlg::Update(CObservable* pObservable, CTObject* pObj) {
                         }
                     }
                 } else {
-                    ///≥™∏”¡ˆ¥¬ π´Ω√
+                    ///ÎÇòÎ®∏ÏßÄÎäî Î¨¥Ïãú
                 }
                 break;
             }
@@ -460,7 +460,7 @@ CAvatarInfoDlg::RefreshDlg() {
     if (ctrl) {
         ctrl->Hide();
 
-        // exp ø≠∞≥ ¿ßƒ° ºº∆√
+        // exp Ïó¥Í∞ú ÏúÑÏπò ÏÑ∏ÌåÖ
         int i = 0;
         CTGuage* pGuage = NULL;
         float fPosUnit = (float)(getScreenWidth() - ctrl->GetPosition().x) / 10.0f;
@@ -478,11 +478,11 @@ CAvatarInfoDlg::RefreshDlg() {
 
     ctrl = Find("Exp_BG");
     if (ctrl) {
-        ctrl->SetScaleWidth(200); //√Ê∫–»˜ ≈©∞‘.
+        ctrl->SetScaleWidth(200); //Ï∂©Î∂ÑÌûà ÌÅ¨Í≤å.
     }
     ctrl = Find("Info_bg");
     if (ctrl) {
-        ctrl->SetScaleWidth(200); //√Ê∫–»˜ ≈©∞‘.
+        ctrl->SetScaleWidth(200); //Ï∂©Î∂ÑÌûà ÌÅ¨Í≤å.
     }
 
     POINT pt;

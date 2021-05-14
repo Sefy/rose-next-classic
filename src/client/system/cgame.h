@@ -16,11 +16,11 @@ extern bool g_bDontDeleteCapFile;
 #define WM_USER_CLOSE_MSGBOX WM_USER + 1
 #define WM_USER_SERVER_DISCONNECTED WM_USER + 2
 #define WM_USER_WORLDSERVER_DISCONNECTED WM_USER + 3
-#define CHEAT_MM 32 // ¸ğ´ÏÅÍ È¸¿ø
-#define CHEAT_GM 256 // GM È¸¿ø
-#define CHEAT_DEV 1024 // °³¹ßÀÚ È¸¿ø
+#define CHEAT_MM 32 // ëª¨ë‹ˆí„° íšŒì›
+#define CHEAT_GM 256 // GM íšŒì›
+#define CHEAT_DEV 1024 // ê°œë°œì íšŒì›
 
-// Japan °ü·Ã
+// Japan ê´€ë ¨
 enum {
     BILL_FLAG_JP_BATTLE = 0,
     BILL_FLAG_JP_COMMUNITY,
@@ -37,10 +37,10 @@ class CGameState;
 class CInfo;
 
 /**
- * Å¬¶óÀÌ¾ğÆ®ÀÇ ¸ŞÀÎ Å¬·¡½º
- *	- °¢ »óÅÂ( ·Î±×ÀÎ, ¼­¹ö¼±ÅÃ µîµî)¿¡ µû¶ó »óÅÂ ÆĞÅÏÀ¸·Î ±¸ºĞµÇ¾î ÀÖ´Ù.
+ * í´ë¼ì´ì–¸íŠ¸ì˜ ë©”ì¸ í´ë˜ìŠ¤
+ *	- ê° ìƒíƒœ( ë¡œê·¸ì¸, ì„œë²„ì„ íƒ ë“±ë“±)ì— ë”°ë¼ ìƒíƒœ íŒ¨í„´ìœ¼ë¡œ êµ¬ë¶„ë˜ì–´ ìˆë‹¤.
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CGame {
@@ -98,19 +98,19 @@ public:
 
     enum eREPAIR_TYPE {
         REPAIR_NONE,
-        REPAIR_NPC, /// NPC¿¡ ÀÇÇÑ ¼ö¸®
-        REPAIR_ITEM, /// ¾ÆÀÌÅÛ¿¡ ÀÇÇÑ ¼ö¸®
+        REPAIR_NPC, /// NPCì— ì˜í•œ ìˆ˜ë¦¬
+        REPAIR_ITEM, /// ì•„ì´í…œì— ì˜í•œ ìˆ˜ë¦¬
     };
 
     enum { APPRAISAL_NONE, APPRAISAL_NPC };
-    ///ÇöÀç MouseÀ§Ä¡¸¦ ±¸ÇÏ´Â Method
-    ///ÇöÀç MousePositionÀº WM_MOUSEMOVE°¡ ÀÏ¾î³µÀ»¶§ °»½ÅÇØÁÖ´Â°ÍÀ¸·Î ¼öÁ¤
+    ///í˜„ì¬ Mouseìœ„ì¹˜ë¥¼ êµ¬í•˜ëŠ” Method
+    ///í˜„ì¬ MousePositionì€ WM_MOUSEMOVEê°€ ì¼ì–´ë‚¬ì„ë•Œ ê°±ì‹ í•´ì£¼ëŠ”ê²ƒìœ¼ë¡œ ìˆ˜ì •
     short Get_XPos(); //					{ return (short)m_ptMouse.x; }
     short Get_YPos(); //					{ return (short)m_ptMouse.y; }
     void Get_MousePos(POINT& ptMouse) { ptMouse = m_ptCurrMouse; }
     void Get_PrevMousePos(POINT& ptMouse) { ptMouse = m_ptPrevMouse; }
 
-    /// Mouse »óÅÂ¹× Image º¯°æ¿¡ »ç¿ëµÇ´Â Method
+    /// Mouse ìƒíƒœë° Image ë³€ê²½ì— ì‚¬ìš©ë˜ëŠ” Method
     //	void	ToggleUserMouseFlag(){ m_bUseUserMouse = !m_bUseUserMouse; };
     //	bool	GetUseUserMouseFlag(){ return m_bUseUserMouse; }
     void ResetCheckFrame() { m_iCheckFrame = 0; }
@@ -120,7 +120,7 @@ public:
     int GetCheckFrame() { return m_iCheckFrame; }
 
     ///*----------------------------------------------------------------------------------------
-    /// °¢ »óÅÂº¯°æ½Ã ÀÌÀü »óÅÂ¿Í ´ÙÀ½ »óÅÂ°£¿¡ DataÀÌµ¿À» À§ÇÑ ÀÓ½Ã ÀúÀå º¯¼ö&Method
+    /// ê° ìƒíƒœë³€ê²½ì‹œ ì´ì „ ìƒíƒœì™€ ë‹¤ìŒ ìƒíƒœê°„ì— Dataì´ë™ì„ ìœ„í•œ ì„ì‹œ ì €ì¥ ë³€ìˆ˜&Method
     void SetLoadingData(const gsv_TELEPORT_REPLY& Reply) { m_gsv_TELEPORT_REPLY = Reply; }
     void GetLoadingData(gsv_TELEPORT_REPLY& Reply) { Reply = m_gsv_TELEPORT_REPLY; }
 
@@ -159,7 +159,7 @@ public:
     void SetAppraisalNpcSvrIdx(WORD wNpcSvrIdx);
     WORD GetAppraisalNpcSvrIdx();
     //----------------------------------------------------------------------------------------------
-    /// ¸¶¿ì½º Å¸°ÙÁöÁ¡ ÀÌÆåÆ®
+    /// ë§ˆìš°ìŠ¤ íƒ€ê²Ÿì§€ì  ì´í™íŠ¸
     //----------------------------------------------------------------------------------------------
     void SetMouseTargetEffect(float x, float y, float z) { m_MouseTargetEffect.Start(x, y, z); }
 
@@ -199,7 +199,7 @@ public:
 
     bool IsActiveRouteComboBox();
 
-    /// Å¬¶óÀÌ¾ğÆ® È­ÀÏ¹öÁ¯
+    /// í´ë¼ì´ì–¸íŠ¸ í™”ì¼ë²„ì ¼
     std::string& GetClientFileVersion();
 
     //
@@ -211,16 +211,16 @@ private:
     void Exit();
     void Load_NewVersionData();
     bool Load_BasicDATA();
-    bool Load_BasicDATA2(); //½Ã°£ÀÌ ¸¹ÀÌ °É¸®´Â Data Loading( CGameLoadSelectAvatarState¿¡¼­
-                            // Loading ÇÑ´Ù.)
-    bool Load_DataNotUseThread(); ///¾²·¹µå¸¦ »ç¿ëÇØ¼­ ÀĞÀ¸¸é ¾ÈµÇ´Â Data¸¦ LoadÇÏ´Â Method: ¼ø¼­»ó
-                                  ///Á¦ÀÏ¸ÕÀúÇØ¾ßÇÑ´Ù.
+    bool Load_BasicDATA2(); //ì‹œê°„ì´ ë§ì´ ê±¸ë¦¬ëŠ” Data Loading( CGameLoadSelectAvatarStateì—ì„œ
+                            // Loading í•œë‹¤.)
+    bool Load_DataNotUseThread(); ///ì“°ë ˆë“œë¥¼ ì‚¬ìš©í•´ì„œ ì½ìœ¼ë©´ ì•ˆë˜ëŠ” Dataë¥¼ Loadí•˜ëŠ” Method: ìˆœì„œìƒ
+                                  ///ì œì¼ë¨¼ì €í•´ì•¼í•œë‹¤.
     void Free_BasicDATA();
     void MakeFont();
 
     // void	LoadUserCursor();
 
-    void ProcInput(); /// Mouse¿Í KeyboardÀÔ·Â Ã³¸®
+    void ProcInput(); /// Mouseì™€ Keyboardì…ë ¥ ì²˜ë¦¬
 
     CGameState* MakeState(int iState);
 
@@ -238,12 +238,12 @@ private:
     // int				m_iCurrentCursorType;
     // bool			m_bUseUserMouse;
 
-    POINT m_ptCurrMouse; ///ÇöÀç Frame½ÃÀÛ½ÃÀÇ ¸¶¿ì½º À§Ä¡
-    POINT m_ptPrevMouse; ///ÀÌÀü FrameÀÇ ¸¶¿ì½º À§Ä¡
-    // CInfo			m_MouseInfo;///¸¶¿ì½º »óÅÂ¿¡ µû¶ó¼­ º¸¿©Áö´Â ÅøÆÁÀúÀå
+    POINT m_ptCurrMouse; ///í˜„ì¬ Frameì‹œì‘ì‹œì˜ ë§ˆìš°ìŠ¤ ìœ„ì¹˜
+    POINT m_ptPrevMouse; ///ì´ì „ Frameì˜ ë§ˆìš°ìŠ¤ ìœ„ì¹˜
+    // CInfo			m_MouseInfo;///ë§ˆìš°ìŠ¤ ìƒíƒœì— ë”°ë¼ì„œ ë³´ì—¬ì§€ëŠ” íˆ´íŒì €ì¥
 
     //----------------------------------------------------------------------------------------------
-    /// ¸¶¿ì½º Å¸°ÙÁöÁ¡ ÀÌÆåÆ®
+    /// ë§ˆìš°ìŠ¤ íƒ€ê²Ÿì§€ì  ì´í™íŠ¸
     //----------------------------------------------------------------------------------------------
     CMouseTargetEffect m_MouseTargetEffect;
 
@@ -255,13 +255,13 @@ private:
     DWORD m_dwDebugFlag;
 
     int m_iRepairMode;
-    int m_iUsingRepairItemInvenIdx; ///¼ö¸®¿ë¾ÆÀÌÅÛ »ç¿ë½Ã ÀúÀåÇØµÑ º¯¼ö
-    WORD m_wRepairNpc; ///¼ö¸®¸¦ ÇØÁÖ´Â NpcÀÇ ServerObject Index
+    int m_iUsingRepairItemInvenIdx; ///ìˆ˜ë¦¬ìš©ì•„ì´í…œ ì‚¬ìš©ì‹œ ì €ì¥í•´ë‘˜ ë³€ìˆ˜
+    WORD m_wRepairNpc; ///ìˆ˜ë¦¬ë¥¼ í•´ì£¼ëŠ” Npcì˜ ServerObject Index
 
     WORD m_wAppraisalNpc;
     int m_iAppraisalMode;
 
-    DWORD m_dwRight; ///±ÇÇÑ
+    DWORD m_dwRight; ///ê¶Œí•œ
     __int64 m_i64AppraisalCost;
 
     bool m_bLoadedBasicData2;

@@ -80,7 +80,7 @@ CEventLIST::Run_EVENT(int iOwnerObjIDX, char* szQuestFILE, short nEventIDX, int 
 }
 
 //-------------------------------------------------------------------------------------------------
-/// @param bool bItemEvent : ¾ÆÀÌÅÛ¿¡ ÀÇÇØ ¹ß»ıÇÑ ÀÌº¥Æ® ÀÎ°¡?
+/// @param bool bItemEvent : ì•„ì´í…œì— ì˜í•´ ë°œìƒí•œ ì´ë²¤íŠ¸ ì¸ê°€?
 //-------------------------------------------------------------------------------------------------
 bool
 CEventLIST::Run_EVENT(int iOwnerObjIDX, short nQuestIDX, short nEventIDX, int iEventDlgType) {

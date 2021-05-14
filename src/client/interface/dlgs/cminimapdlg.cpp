@@ -1,17 +1,17 @@
 /*
  *
  * Revision 1.2	2004/5/12	nAvy
- *	½Ã¾ß°Å¸®¿¡ µé¾î¿Â NPCÀÇ °æ¿ì ±âÁ¸ ÄÚµå»ç¿ëÇØ¼­ ±×¸®°í ¸Ö¸®ÀÖÀ»¶§¸¸ Map¿¡¼­ LoadµÈ Á¤º¸ »ç¿ë
+ *	ì‹œì•¼ê±°ë¦¬ì— ë“¤ì–´ì˜¨ NPCì˜ ê²½ìš° ê¸°ì¡´ ì½”ë“œì‚¬ìš©í•´ì„œ ê·¸ë¦¬ê³  ë©€ë¦¬ìˆì„ë•Œë§Œ Mapì—ì„œ Loadëœ ì •ë³´ ì‚¬ìš©
  *
  * Revision 1.1	2004/5/11	nAvy
- *	npc ÀÌ¹ÌÁö ±×¸®±â ¹æ½Ä ¼öÁ¤, map load½Ã Ãß°¡µÈ Info·Î ±×¸°´Ù.±âÁ¸ ·çÆ¾Àº È¤½Ã ´ÙÀ½¿¡ ÇÊ¿äÇÒ¼öµµ
- *ÀÖÀ»°Í °°¾Æ¼­ ³²°ÜµĞ´Ù( ¿òÁ÷ÀÌ´Â NPC ÀÇ °æ¿ì map¿¡¼­ ·ÎµåµÈ À§Ä¡Á¤º¸·Î¸¸ Ç¥½ÃÇÒ¼ö ¾ø´Ù );
+ *	npc ì´ë¯¸ì§€ ê·¸ë¦¬ê¸° ë°©ì‹ ìˆ˜ì •, map loadì‹œ ì¶”ê°€ëœ Infoë¡œ ê·¸ë¦°ë‹¤.ê¸°ì¡´ ë£¨í‹´ì€ í˜¹ì‹œ ë‹¤ìŒì— í•„ìš”í• ìˆ˜ë„
+ *ìˆì„ê²ƒ ê°™ì•„ì„œ ë‚¨ê²¨ë‘”ë‹¤( ì›€ì§ì´ëŠ” NPC ì˜ ê²½ìš° mapì—ì„œ ë¡œë“œëœ ìœ„ì¹˜ì •ë³´ë¡œë§Œ í‘œì‹œí• ìˆ˜ ì—†ë‹¤ );
  *
  * Revision 1.0	2004/4/xx
- *	1. ÇöÀç ¹Ì´Ï¸ÊÀÇ Áß¾ÓÀ¸·Î Ç¥½ÃµÇ´Â World ÁÂÇ¥·ÎºÎÅÍ ±×·ÁÁú Object°£ÀÇ °Å¸®¸¦ ±¸ÇÑ´Ù.
- *	2. ¹Ì´Ï¸ÊÀÇ Áß¾ÓÀÌ ±×·ÁÁö´Â Screen ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
- *	3. 1,2¹ø°ú ÇöÀç Scale¹× World/Screen ´ëºñ,ÀÌ¹ÌÁö»çÀÌÁî¿¡ µû¶ó ±×·ÁÁú Left-Top ScreenÁÂÇ¥¸¦
- *±¸ÇÑ´Ù.
+ *	1. í˜„ì¬ ë¯¸ë‹ˆë§µì˜ ì¤‘ì•™ìœ¼ë¡œ í‘œì‹œë˜ëŠ” World ì¢Œí‘œë¡œë¶€í„° ê·¸ë ¤ì§ˆ Objectê°„ì˜ ê±°ë¦¬ë¥¼ êµ¬í•œë‹¤.
+ *	2. ë¯¸ë‹ˆë§µì˜ ì¤‘ì•™ì´ ê·¸ë ¤ì§€ëŠ” Screen ì¢Œí‘œë¥¼ êµ¬í•œë‹¤.
+ *	3. 1,2ë²ˆê³¼ í˜„ì¬ Scaleë° World/Screen ëŒ€ë¹„,ì´ë¯¸ì§€ì‚¬ì´ì¦ˆì— ë”°ë¼ ê·¸ë ¤ì§ˆ Left-Top Screenì¢Œí‘œë¥¼
+ *êµ¬í•œë‹¤.
  *
  */
 #include "stdafx.h"
@@ -59,11 +59,11 @@ CMinimapDLG::CMinimapDLG() {
     m_fMinimapCenterWorldPosX = 0;
     m_fMinimapCenterWorldPosY = 0;
 
-    m_fMinMinimapWorldPosX = 0; // ¹Ì´Ï¸ÊÀÇ ½ÃÀÛÁÂÇ¥ÀÇ  ¿ùµå ÁÂÇ¥( °¡·Î )
-    m_fMaxMinimapWorldPosY = 0; // ¹Ì´Ï¸ÊÀÇ ½ÃÀÛÁÂÇ¥ÀÇ  ¿ùµå ÁÂÇ¥( ¼¼·Î )
+    m_fMinMinimapWorldPosX = 0; // ë¯¸ë‹ˆë§µì˜ ì‹œì‘ì¢Œí‘œì˜  ì›”ë“œ ì¢Œí‘œ( ê°€ë¡œ )
+    m_fMaxMinimapWorldPosY = 0; // ë¯¸ë‹ˆë§µì˜ ì‹œì‘ì¢Œí‘œì˜  ì›”ë“œ ì¢Œí‘œ( ì„¸ë¡œ )
 
-    m_fMaxMinimapWorldPosX = 0; /// ¹Ì´Ï¸Ê TextureÀÇ Size·Î ÀÌµ¿°¡´ÉÇÑ ÃÖ´ë ¿ùµå XÁÂÇ¥¸¦ ±¸ÇÑ °ª
-    m_fMinMinimapWorldPosY = 0; /// ¹Ì´Ï¸Ê TextureÀÇ Size·Î ÀÌµ¿°¡´ÉÇÑ ÃÖ¼Ò ¿ùµå YÁÂÇ¥¸¦ ±¸ÇÑ °ª
+    m_fMaxMinimapWorldPosX = 0; /// ë¯¸ë‹ˆë§µ Textureì˜ Sizeë¡œ ì´ë™ê°€ëŠ¥í•œ ìµœëŒ€ ì›”ë“œ Xì¢Œí‘œë¥¼ êµ¬í•œ ê°’
+    m_fMinMinimapWorldPosY = 0; /// ë¯¸ë‹ˆë§µ Textureì˜ Sizeë¡œ ì´ë™ê°€ëŠ¥í•œ ìµœì†Œ ì›”ë“œ Yì¢Œí‘œë¥¼ êµ¬í•œ ê°’
 
     m_hMiniMap = NULL;
     m_hArrow = NULL;
@@ -77,8 +77,8 @@ CMinimapDLG::CMinimapDLG() {
     m_iAvatarImageID = 0;
     m_iPartyImageID = 0;
 
-    m_bExpand = false; ///ÇöÀç Å©°Ô º¸ÀÌ´Â°¡?
-    m_bMinimize = false; ///ÇöÀç Ä¸¼Ç¸¸ º¸ÀÌ´Â°¡?
+    m_bExpand = false; ///í˜„ì¬ í¬ê²Œ ë³´ì´ëŠ”ê°€?
+    m_bMinimize = false; ///í˜„ì¬ ìº¡ì…˜ë§Œ ë³´ì´ëŠ”ê°€?
 
     m_indicator = new CTAnimation;
 
@@ -105,11 +105,11 @@ CMinimapDLG::~CMinimapDLG() {
 }
 
 ///
-///	Á¸ Á¤º¸¿¡ ¸ÂÃç¼­ ÇØ´ç ¹Ì´Ï¸Ê ÅØ½ºÃÄ¸¦ ÀĞ°í °¢ º¸Á¤ÁÂÇ¥µéÀ» ¼¼ÆÃÇÑ´Ù..
+///	ì¡´ ì •ë³´ì— ë§ì¶°ì„œ í•´ë‹¹ ë¯¸ë‹ˆë§µ í…ìŠ¤ì³ë¥¼ ì½ê³  ê° ë³´ì •ì¢Œí‘œë“¤ì„ ì„¸íŒ…í•œë‹¤..
 ///
-///	iMapStartX : ÇöÀç Á¸¿¡¼­ ¹Ì´Ï¸ÊÀÌ ½ÃÀÛÇÏ´Â ¸ÊÀÇ À§Ä¡
+///	iMapStartX : í˜„ì¬ ì¡´ì—ì„œ ë¯¸ë‹ˆë§µì´ ì‹œì‘í•˜ëŠ” ë§µì˜ ìœ„ì¹˜
 ///
-/// Arrow¸¦ Àç»ç¿ëÇÏ°í MinimapÀº »èÁ¦ÇÏ°í ´Ù½Ã LoadÇÑ´Ù.
+/// Arrowë¥¼ ì¬ì‚¬ìš©í•˜ê³  Minimapì€ ì‚­ì œí•˜ê³  ë‹¤ì‹œ Loadí•œë‹¤.
 
 bool
 CMinimapDLG::SetMinimap(const char* pFname,
@@ -131,7 +131,7 @@ CMinimapDLG::SetMinimap(const char* pFname,
 
     CalculateDisplayPos();
 
-    ///Ä³¸¯ÅÍÀÇ Type¿¡µû¶ó ±×·ÁÁö´Â ÀÌ¹ÌÁö ID¸¦  Load;
+    ///ìºë¦­í„°ì˜ Typeì—ë”°ë¼ ê·¸ë ¤ì§€ëŠ” ì´ë¯¸ì§€ IDë¥¼  Load;
     m_iAvatarImageID = CResourceMgr::GetInstance()->GetImageNID(IMAGE_RES_UI, "ID_OTHER_AVATAR");
     m_iPartyImageID =
         CResourceMgr::GetInstance()->GetImageNID(IMAGE_RES_UI, "ID_MINIMAP_PARTYMEMBER");
@@ -156,17 +156,17 @@ CMinimapDLG::FreeMinimap() {
 void
 CMinimapDLG::CalculateDisplayPos() {
     m_fMinMinimapWorldPosX = (float)(PATCH_COUNT_PER_MAP_AXIS * m_dwMinimapStartX)
-        * ((float)GRID_COUNT_PER_PATCH_AXIS * nGRID_SIZE); // ¹Ì´Ï¸ÊÀÇ ½ÃÀÛ ¿ùµå ÁÂÇ¥( °¡·Î )
+        * ((float)GRID_COUNT_PER_PATCH_AXIS * nGRID_SIZE); // ë¯¸ë‹ˆë§µì˜ ì‹œì‘ ì›”ë“œ ì¢Œí‘œ( ê°€ë¡œ )
     m_fMaxMinimapWorldPosY =
         (float)(PATCH_COUNT_PER_MAP_AXIS * (MAP_COUNT_PER_ZONE_AXIS - m_dwMinimapStartY + 1))
-        * ((float)GRID_COUNT_PER_PATCH_AXIS * nGRID_SIZE); // ¹Ì´Ï¸ÊÀÇ ½ÃÀÛ ¿ùµå ÁÂÇ¥( ¼¼·Î )
+        * ((float)GRID_COUNT_PER_PATCH_AXIS * nGRID_SIZE); // ë¯¸ë‹ˆë§µì˜ ì‹œì‘ ì›”ë“œ ì¢Œí‘œ( ì„¸ë¡œ )
 
     int iTextureHeight = 0;
     int iTextureWidth = 0;
 
     getTextureSize(m_hMiniMap,
         iTextureWidth,
-        iTextureHeight); /// setDelayedLoad(1)ÀÇ °æ¿ì Size°¡ Á¦´ë·Î ¹İÈ¯ ¾ÈµÉ¼ö ÀÖ´Ù.
+        iTextureHeight); /// setDelayedLoad(1)ì˜ ê²½ìš° Sizeê°€ ì œëŒ€ë¡œ ë°˜í™˜ ì•ˆë ìˆ˜ ìˆë‹¤.
 
     int iMapRowCount = iTextureHeight / MINIMAP_RESOLUTION_PER_MAP - 2;
     int iMapColCount = iTextureWidth / MINIMAP_RESOLUTION_PER_MAP - 2;
@@ -192,7 +192,7 @@ CMinimapDLG::Draw() {
 
     if (m_bMinimize == false && m_hMiniMap && m_hArrow) {
         if (m_bExploreMode) {
-            /// Explore¸ğµåÀÏ°æ¿ì ³» ¾Æ¹ÙÅ¸¸¦ ¿òÁ÷¿´À»°æ¿ì NormalMode·Î ÀüÈ¯µÈ´Ù.
+            /// Exploreëª¨ë“œì¼ê²½ìš° ë‚´ ì•„ë°”íƒ€ë¥¼ ì›€ì§ì˜€ì„ê²½ìš° NormalModeë¡œ ì „í™˜ëœë‹¤.
             if (m_fPrevUserPosX != g_pAVATAR->Get_CurPOS().x
                 || m_fPrevUserPosY != g_pAVATAR->Get_CurPOS().y)
                 m_bExploreMode = false;
@@ -204,9 +204,9 @@ CMinimapDLG::Draw() {
         }
 
         //------------------------------------------------------------------------------------------------
-        // ¹Ì´Ï¸Ê Ãâ·Â..
+        // ë¯¸ë‹ˆë§µ ì¶œë ¥..
         //------------------------------------------------------------------------------------------------
-        /// 1. ±×·ÁÁú Sprite ¹üÀ§ÀÇ ÁßÁ¡À» ±¸ÇÑ´Ù.
+        /// 1. ê·¸ë ¤ì§ˆ Sprite ë²”ìœ„ì˜ ì¤‘ì ì„ êµ¬í•œë‹¤.
         float fSpriteCenterX =
             (m_fMinimapCenterWorldPosX - m_fMinMinimapWorldPosX) / fGetWorldDistancePerPixel()
             + MINIMAP_RESOLUTION_PER_MAP;
@@ -214,7 +214,7 @@ CMinimapDLG::Draw() {
             (m_fMaxMinimapWorldPosY - m_fMinimapCenterWorldPosY) / fGetWorldDistancePerPixel()
             + MINIMAP_RESOLUTION_PER_MAP;
 
-        /// 2. ÀÏÁ¤ ¹üÀ§ ¸¸Å­ Rect¸¦ ±¸ÇÑ´Ù.
+        /// 2. ì¼ì • ë²”ìœ„ ë§Œí¼ Rectë¥¼ êµ¬í•œë‹¤.
         RECT rcMinimap;
         rcMinimap.left = (long)(fSpriteCenterX - m_iWidth / (2 * m_fCurrentScale)) + c_iMargin;
         rcMinimap.top =
@@ -224,10 +224,10 @@ CMinimapDLG::Draw() {
         rcMinimap.bottom =
             (long)(rcMinimap.top + (m_iHeight - c_iCaptionHeight) / m_fCurrentScale) - c_iMargin;
 
-        /// 3. ZoomÀû¿ë
+        /// 3. Zoomì ìš©
         D3DXMatrixScaling(&mat, m_fCurrentScale, m_fCurrentScale, 0.0f);
 
-        /// 4. ±×¸®±â
+        /// 4. ê·¸ë¦¬ê¸°
         ::setTransformSprite(mat);
 
         D3DCOLOR color = D3DCOLOR_RGBA(255, 255, 255, 255);
@@ -241,24 +241,24 @@ CMinimapDLG::Draw() {
             color);
 
         ////-----------------------------------------------------------------------------------------
-        /////´Ù¸¥ ¾Æ¹ÙÅ¸µéÀÇ À§Ä¡ Ç¥½Ã
+        /////ë‹¤ë¥¸ ì•„ë°”íƒ€ë“¤ì˜ ìœ„ì¹˜ í‘œì‹œ
         DrawAVTPosition();
         DrawCoordinatesIndicator();
         ///-----------------------------------------------------------------------------------------
-        ////¹Ì´Ï¸Ê Ä¿¼­¸¦ Ãâ·ÂÇÑ´Ù.
-        /// 1. ¾Æ¹ÙÅ¸ÀÇ ¹æÇâÀ» ±¸ÇÑ´Ù.
+        ////ë¯¸ë‹ˆë§µ ì»¤ì„œë¥¼ ì¶œë ¥í•œë‹¤.
+        /// 1. ì•„ë°”íƒ€ì˜ ë°©í–¥ì„ êµ¬í•œë‹¤.
         float fRadian = D3DXToRadian(g_pAVATAR->GetDirection());
 
-        /// 2.  ¹Ì´Ï¸ÊÀÇ Áß½ÉÀ¸·ÎºÎÅÍÀÇ ¾Æ¹ÙÅ¸ÀÇ ¿ùµå°Å¸®¸¦ ±¸ÇÑ´Ù.
+        /// 2.  ë¯¸ë‹ˆë§µì˜ ì¤‘ì‹¬ìœ¼ë¡œë¶€í„°ì˜ ì•„ë°”íƒ€ì˜ ì›”ë“œê±°ë¦¬ë¥¼ êµ¬í•œë‹¤.
         float fDistanceX = m_fMinimapCenterWorldPosX - g_pAVATAR->Get_CurXPOS();
         float fDistanceY = g_pAVATAR->Get_CurYPOS() - m_fMinimapCenterWorldPosY;
 
-        /// 3. È­¸é¿¡¼­ ¹Ì´Ï¸ÊÀÇ ÁßÁ¡ È­¸éÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
+        /// 3. í™”ë©´ì—ì„œ ë¯¸ë‹ˆë§µì˜ ì¤‘ì  í™”ë©´ì¢Œí‘œë¥¼ êµ¬í•œë‹¤.
         float fScreenCenterX = (float)(m_sPosition.x + GetWidth() / 2);
         float fScreenCenterY =
             (float)(m_sPosition.y + c_iCaptionHeight + (GetHeight() - c_iCaptionHeight) / 2);
 
-        /// 4. ¹Ì´Ï¸ÊÀÇ ÁßÁ¡À¸·Î ºÎÅÍÀÇ È­¸é°Å¸®¸¦ ±¸ÇÑ´Ù.
+        /// 4. ë¯¸ë‹ˆë§µì˜ ì¤‘ì ìœ¼ë¡œ ë¶€í„°ì˜ í™”ë©´ê±°ë¦¬ë¥¼ êµ¬í•œë‹¤.
         float fDrawPosX =
             fScreenCenterX - m_fCurrentScale * fDistanceX / fGetWorldDistancePerPixel();
         float fDrawPosY =
@@ -283,7 +283,7 @@ CMinimapDLG::Draw() {
                 D3DCOLOR_RGBA(255, 255, 255, 255)); // color
         }
 
-        /////2004 /  2/ 2 : nAvy Ãß°¡ - ÁÂÇ¥°ª±×¸±¶§ ¹è°æÀÌ¹ÌÁö ±×¸®±â
+        /////2004 /  2/ 2 : nAvy ì¶”ê°€ - ì¢Œí‘œê°’ê·¸ë¦´ë•Œ ë°°ê²½ì´ë¯¸ì§€ ê·¸ë¦¬ê¸°
         int iImageIndex = CResourceMgr::GetInstance()->GetImageNID(IMAGE_RES_UI, "ID_BLACK_PANEL");
         g_DrawImpl.Draw(m_sPosition.x + c_iMargin,
             m_sPosition.y + m_iHeight - 18,
@@ -338,16 +338,16 @@ CMinimapDLG::Update(POINT ptMouse) {
     CTDialog::Update(ptMouse);
 
     m_indicator->Update(ptMouse);
-    /// ÇöÀç ¹Ì´Ï¸ÊÀÌ º¸ÀÌ°í ÀÖ°í µå·¡±× ÁßÀÏ¶§ ¹Ì´Ï¸Ê Áß½ÉÀ» º¯°æÇØÁØ´Ù.( µå·¡±×·Î ¹Ì´Ï¸Ê ÀÌµ¿ )
+    /// í˜„ì¬ ë¯¸ë‹ˆë§µì´ ë³´ì´ê³  ìˆê³  ë“œë˜ê·¸ ì¤‘ì¼ë•Œ ë¯¸ë‹ˆë§µ ì¤‘ì‹¬ì„ ë³€ê²½í•´ì¤€ë‹¤.( ë“œë˜ê·¸ë¡œ ë¯¸ë‹ˆë§µ ì´ë™ )
     if (m_bShowMiniMap && m_bDragStart) {
         if (IsInsideMinimap((float)ptMouse.x, (float)ptMouse.y, 0, 0)) {
-            ///ÀÌÀü ¸¶¿ì½ºÀ§Ä¡¿Í ÇöÀç ¸¶¿ì½ºÀ§Ä¡¿ÍÀÇ °Å¸®¸¦ ±¸ÇÑ´Ù.
+            ///ì´ì „ ë§ˆìš°ìŠ¤ìœ„ì¹˜ì™€ í˜„ì¬ ë§ˆìš°ìŠ¤ìœ„ì¹˜ì™€ì˜ ê±°ë¦¬ë¥¼ êµ¬í•œë‹¤.
             float fDistanceX = (float)(m_ptLButtonDown.x - ptMouse.x);
             float fDistanceY = (float)(m_ptLButtonDown.y - ptMouse.y);
 
-            /// ÀÏÁ¤ °Å¸®ÀÌ»óÀÏ¶§¸¸ Àû¿ë
+            /// ì¼ì • ê±°ë¦¬ì´ìƒì¼ë•Œë§Œ ì ìš©
             if (abs(fDistanceX) > 5 || abs(fDistanceY) > 5) {
-                /// È­¸é°Å¸®¿¡¼­ ¿ùµå °Å¸®¸¦ ±¸ÇÑÈÄ ÀÌµ¿°¡´ÉÁö¿ªÀÏ°æ¿ì¿¡¸¸ º¯°æÇÑ´Ù.
+                /// í™”ë©´ê±°ë¦¬ì—ì„œ ì›”ë“œ ê±°ë¦¬ë¥¼ êµ¬í•œí›„ ì´ë™ê°€ëŠ¥ì§€ì—­ì¼ê²½ìš°ì—ë§Œ ë³€ê²½í•œë‹¤.
                 float fTempX = m_fMinimapCenterWorldPosX
                     + fDistanceX * fGetWorldDistancePerPixel() / m_fCurrentScale;
                 float fTempY = m_fMinimapCenterWorldPosY
@@ -365,7 +365,7 @@ CMinimapDLG::Update(POINT ptMouse) {
         }
     }
 
-    ///ÀÌÇÏ ÅøÆÁ Ç¥½Ã
+    ///ì´í•˜ íˆ´íŒ í‘œì‹œ
     CTDialog* pDlg = CTDialog::GetProcessMouseOverDialog();
     if (pDlg && pDlg != this)
         return;
@@ -427,12 +427,12 @@ CMinimapDLG::On_LButtonUP(unsigned iProcID, WPARAM wParam, LPARAM lParam) {
     m_bDragStart = false;
     CWinCtrl* pCtrl = NULL;
     switch (iProcID) {
-        case IID_BTN_EXPAND: ///Å«»çÀÌÁî·Î º¯°æ
+        case IID_BTN_EXPAND: ///í°ì‚¬ì´ì¦ˆë¡œ ë³€ê²½
         {
             Expand();
             return true;
         }
-        case IID_BTN_NORMAL: ///ÀÛÀº »çÀÌÁî·Î º¯°æ
+        case IID_BTN_NORMAL: ///ì‘ì€ ì‚¬ì´ì¦ˆë¡œ ë³€ê²½
         {
             Reduct();
             return true;
@@ -441,7 +441,7 @@ CMinimapDLG::On_LButtonUP(unsigned iProcID, WPARAM wParam, LPARAM lParam) {
             ToggleShowMinimapSmall();
             return true;
         }
-        case IID_BTN_MINIMIZE_BIG: ///Ä¸¼Ç¸¸ º¸ÀÌ±â
+        case IID_BTN_MINIMIZE_BIG: ///ìº¡ì…˜ë§Œ ë³´ì´ê¸°
         {
             ToggleShowMinimapBig();
             return true;
@@ -514,18 +514,18 @@ CMinimapDLG::DrawAVTPosition() {
         if (pCharOBJ == NULL)
             continue;
 
-        ///¹Ì´Ï¸ÊÀÇ Áß½ÉÀ¸·ÎºÎÅÍÀÇ ¿ùµå °Å¸®¸¦ ±¸ÇÑ´Ù.
+        ///ë¯¸ë‹ˆë§µì˜ ì¤‘ì‹¬ìœ¼ë¡œë¶€í„°ì˜ ì›”ë“œ ê±°ë¦¬ë¥¼ êµ¬í•œë‹¤.
         fDistanceX = m_fMinimapCenterWorldPosX - pCharOBJ->Get_CurXPOS();
         fDistanceY = pCharOBJ->Get_CurYPOS() - m_fMinimapCenterWorldPosY;
 
-        ///¹Ì´Ï¸ÊÀÇ Áß½ÉÀÌ ±×·ÁÁú Screen ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
+        ///ë¯¸ë‹ˆë§µì˜ ì¤‘ì‹¬ì´ ê·¸ë ¤ì§ˆ Screen ì¢Œí‘œë¥¼ êµ¬í•œë‹¤.
         fScreenCenterX = (float)(m_sPosition.x + GetWidth() / 2);
         fScreenCenterY =
             (float)(m_sPosition.y + c_iCaptionHeight + (GetHeight() - c_iCaptionHeight) / 2);
 
         switch (pCharOBJ->Get_TYPE()) {
-            case OBJ_NPC: { ///¼­¹ö¿¡¼­ ³»·ÁÁÖ´Â Á¤º¸´Â ÀÏ´Ü ¹«½ÃÇÑ´Ù.
-                ///ÀÌ¹ÌÁö°¡ ±×·ÁÁú Screen Left-top À» ±¸ÇÑ´Ù.
+            case OBJ_NPC: { ///ì„œë²„ì—ì„œ ë‚´ë ¤ì£¼ëŠ” ì •ë³´ëŠ” ì¼ë‹¨ ë¬´ì‹œí•œë‹¤.
+                ///ì´ë¯¸ì§€ê°€ ê·¸ë ¤ì§ˆ Screen Left-top ì„ êµ¬í•œë‹¤.
                 // fDrawPosX = fScreenCenterX - m_fCurrentScale * fDistanceX /
                 // fGetWorldDistancePerPixel() - NPC_POINT_SIZE / 2; fDrawPosY = fScreenCenterY -
                 // m_fCurrentScale * fDistanceY / fGetWorldDistancePerPixel() - NPC_POINT_SIZE / 2;
@@ -620,7 +620,7 @@ CMinimapDLG::DrawNpcFromMap() {
     POINT ptMouse;
     CGame::GetInstance().Get_MousePos(ptMouse);
 
-    /// NPC - ¸ğµç NPC: m_listNpcMarkInfo¿¡ ÀÖ´Â NPCÀÏ°æ¿ì´Â ±×¸®Áö ¾Ê´Â´Ù.
+    /// NPC - ëª¨ë“  NPC: m_listNpcMarkInfoì— ìˆëŠ” NPCì¼ê²½ìš°ëŠ” ê·¸ë¦¬ì§€ ì•ŠëŠ”ë‹¤.
     int iImageID = 0;
 
     const std::list<NpcInfoInMap>& listNpcInfo = g_pObjMGR->GetNpcInfoList();
@@ -631,11 +631,11 @@ CMinimapDLG::DrawNpcFromMap() {
         // iterNpc = m_listNpcMarkInfo.find( iterNpcAll->m_iNpcID );
         // if( iterNpc == m_listNpcMarkInfo.end() )
         //{
-        ///¹Ì´Ï¸ÊÀÇ Áß½ÉÀ¸·ÎºÎÅÍÀÇ ¿ùµå °Å¸®¸¦ ±¸ÇÑ´Ù.
+        ///ë¯¸ë‹ˆë§µì˜ ì¤‘ì‹¬ìœ¼ë¡œë¶€í„°ì˜ ì›”ë“œ ê±°ë¦¬ë¥¼ êµ¬í•œë‹¤.
         fDistanceX = m_fMinimapCenterWorldPosX - iterNpcAll->m_Position.x;
         fDistanceY = iterNpcAll->m_Position.y - m_fMinimapCenterWorldPosY;
 
-        ///¿ùµå °Å¸®¿¡¼­ ½ºÅ©¸° °Å¸®¸¦ ±¸ÇÑ´Ù.
+        ///ì›”ë“œ ê±°ë¦¬ì—ì„œ ìŠ¤í¬ë¦° ê±°ë¦¬ë¥¼ êµ¬í•œë‹¤.
         fScreenCenterX = (float)(m_sPosition.x + GetWidth() / 2);
         fScreenCenterY =
             (float)(m_sPosition.y + c_iCaptionHeight + (GetHeight() - c_iCaptionHeight) / 2);
@@ -650,7 +650,7 @@ CMinimapDLG::DrawNpcFromMap() {
         if (IsInsideMinimap(fDrawPosX, fDrawPosY, 20, 20)) {
 
             strNpcName = NPC_NAME(iterNpcAll->m_iNpcID);
-            ///ÀÌ¸§ÀÌ ¾ø´Â °æ¿ì NPCÃë±Ş¾ÈÇÑ´Ù.
+            ///ì´ë¦„ì´ ì—†ëŠ” ê²½ìš° NPCì·¨ê¸‰ì•ˆí•œë‹¤.
             if (!strNpcName.empty()) {
 
                 if (GetIndicatorNpc(iterNpcAll->m_iNpcID)) {
@@ -663,7 +663,7 @@ CMinimapDLG::DrawNpcFromMap() {
                         NPC_MARK_NO(iterNpcAll->m_iNpcID));
                 }
 
-                ///½ÇÁ¦ ÀÌ¹ÌÁö ¿µ¿ªÀº 21/21 ¾ÈÀÇ 8/8ÀÌ´Ù.
+                ///ì‹¤ì œ ì´ë¯¸ì§€ ì˜ì—­ì€ 21/21 ì•ˆì˜ 8/8ì´ë‹¤.
                 SetRect(&rcHitTest,
                     (int)fDrawPosX + 6,
                     (int)fDrawPosY + 6,
@@ -672,7 +672,7 @@ CMinimapDLG::DrawNpcFromMap() {
 
                 if (PtInRect(&rcHitTest, ptMouse)) {
                     if (iterNpcAll->m_iNpcID > 0 && iterNpcAll->m_iNpcID < g_TblNPC.row_count) {
-                        ///ÀÌÇÏ ÅøÆÁ Ç¥½Ã
+                        ///ì´í•˜ íˆ´íŒ í‘œì‹œ
                         CTDialog* pDlg = CTDialog::GetProcessMouseOverDialog();
                         if (!(pDlg && pDlg != this))
                             CToolTipMgr::GetInstance().RegToolTip(ptMouse.x,
@@ -704,7 +704,7 @@ CMinimapDLG::IsInsideMinimap(float x, float y, int width, int height) {
     return false;
 }
 
-///Ç×»ó º¸ÀÌ°í ÃÖÃÊ¿¡ ÇÑ¹ø È£ÃâµÇ¾î¾ß ÇÑ´Ù.
+///í•­ìƒ ë³´ì´ê³  ìµœì´ˆì— í•œë²ˆ í˜¸ì¶œë˜ì–´ì•¼ í•œë‹¤.
 void
 CMinimapDLG::Show() {
     CTDialog::Show();
@@ -858,7 +858,7 @@ CMinimapDLG::AddIndicatorCoordinates(int index, int zoneno, float x, float y) {
     std::map<int, S_IndicatorCoordinates>::iterator iter;
     iter = m_indicators_coordinates.find(index);
     if (iter != m_indicators_coordinates.end()) {
-        assert(0 && "Áßº¹µÈ ÀÎµ¦½º ÀÔ´Ï´Ù:ÁÂÇ¥ÀÎµğÄÉÀÌÅÍ ÀÔ·Â¿À·ù");
+        assert(0 && "ì¤‘ë³µëœ ì¸ë±ìŠ¤ ì…ë‹ˆë‹¤:ì¢Œí‘œì¸ë””ì¼€ì´í„° ì…ë ¥ì˜¤ë¥˜");
         return;
     } else {
         m_indicators_coordinates.insert(make_pair(index, newitem));

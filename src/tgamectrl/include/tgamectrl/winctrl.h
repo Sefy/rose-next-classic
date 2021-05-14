@@ -52,9 +52,9 @@ typedef map<unsigned int, CWinCtrl*> WINCTRL_MAP;
 typedef WINCTRL_MAP::iterator WINCTRL_MAP_ITOR;
 
 /**
- *ÀÎÅÍÆäÀÌ½º¿¡¼­ »ç¿ëµÇ´Â ControlµéÀÇ ±âº»ÀÌ µÇ´Â Class
+ *ì¸í„°í˜ì´ìŠ¤ì—ì„œ ì‚¬ìš©ë˜ëŠ” Controlë“¤ì˜ ê¸°ë³¸ì´ ë˜ëŠ” Class
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/8/30
  */
 
@@ -62,27 +62,27 @@ class TGAMECTRL_API CWinCtrl: public CTObject, public ITControl {
 
 protected:
     CWinCtrl*
-        m_pParent; /// ÀÚ½ÅÀ» Æ÷ÇÔÇÏ°í ÀÕ´Â ParentÀÇ Æ÷ÀÎÅÍ( Parent°¡ ÀÖÀ»Áö¶óµµ ºñ¾î ÀÕÀ»¼ö ÀÖ´Ù )
-    DWORD m_dwStatus; /// »óÅÂº¯¼ö
+        m_pParent; /// ìì‹ ì„ í¬í•¨í•˜ê³  ì‡ëŠ” Parentì˜ í¬ì¸í„°( Parentê°€ ìˆì„ì§€ë¼ë„ ë¹„ì–´ ì‡ì„ìˆ˜ ìˆë‹¤ )
+    DWORD m_dwStatus; /// ìƒíƒœë³€ìˆ˜
     DWORD m_dwCtrlType; ///
     POINT m_sPosition; ///
-    POINT m_ptOffset; /// ÄÁÆ®·ÑÀÌ Child(DialogÀÇ)ÀÏ°æ¿ì ParentÀÇ Left-TopÁÂÇ¥¿ÍÀÇ °Å¸®
+    POINT m_ptOffset; /// ì»¨íŠ¸ë¡¤ì´ Child(Dialogì˜)ì¼ê²½ìš° Parentì˜ Left-Topì¢Œí‘œì™€ì˜ ê±°ë¦¬
     int m_iWidth;
     int m_iHeight;
-    unsigned int m_iControlID; /// ÄÁÅÍ·Ñ ¾ÆÀÌµğ
-    std::string m_strControlName; /// ÄÁÆ®·Ñ ÀÌ¸§.
+    unsigned int m_iControlID; /// ì»¨í„°ë¡¤ ì•„ì´ë””
+    std::string m_strControlName; /// ì»¨íŠ¸ë¡¤ ì´ë¦„.
 
     int m_iParentID;
     ITDraw* m_pDraw;
     bool m_bSelected;
 
-    static CWinCtrl* m_pMouseExclusiveCtrl; /// ¸¶¿ì½º¸¦ µ¶Á¡ÇÏ°í ÀÖ´Â ÄÁÆ®·Ñ
+    static CWinCtrl* m_pMouseExclusiveCtrl; /// ë§ˆìš°ìŠ¤ë¥¼ ë…ì í•˜ê³  ìˆëŠ” ì»¨íŠ¸ë¡¤
     static CWinCtrl*
-        m_pProcessMouseOverCtrl; // Çö ÇÁ·¹ÀÓ¿¡¼­ ¸¶¿ì½º°¡ ÀÚ½ÅÀÇ ¹Ù·Î À§¿¡ ÀÖ´Â WinCtrlÀÇ Æ÷ÀÎÅÍ :
-                                 // ¸ÅÇÁ·¹ÀÓ Ã³¸®Àü ClearµÇ¾î¾ß ÇÑ´Ù.
+        m_pProcessMouseOverCtrl; // í˜„ í”„ë ˆì„ì—ì„œ ë§ˆìš°ìŠ¤ê°€ ìì‹ ì˜ ë°”ë¡œ ìœ„ì— ìˆëŠ” WinCtrlì˜ í¬ì¸í„° :
+                                 // ë§¤í”„ë ˆì„ ì²˜ë¦¬ì „ Clearë˜ì–´ì•¼ í•œë‹¤.
     static bool m_bProcessMouseOver;
 
-    bool m_bOwnerDraw; /// Client¿¡¼­ º°µµÀÇ ÄÚµå·Î ±×·ÁÁö°Ô µÉ°æ¿ì true ( Default: false )
+    bool m_bOwnerDraw; /// Clientì—ì„œ ë³„ë„ì˜ ì½”ë“œë¡œ ê·¸ë ¤ì§€ê²Œ ë ê²½ìš° true ( Default: false )
 
     float m_fScaleWidth;
     float m_fScaleHeight;
@@ -97,28 +97,28 @@ public:
     virtual unsigned int Process(UINT uiMsg, WPARAM wParam, LPARAM lParam);
     virtual void Update(POINT ptMouse){};
     virtual void Draw() {}
-    virtual void Draw(POINT ptDraw){}; ///ÀÓÀÇÀÇ ÁÂÇ¥¿¡ ±×¸°´Ù.ÀúÀåµÇÁö´Â ¾Ê´Â´Ù.
+    virtual void Draw(POINT ptDraw){}; ///ì„ì˜ì˜ ì¢Œí‘œì— ê·¸ë¦°ë‹¤.ì €ì¥ë˜ì§€ëŠ” ì•ŠëŠ”ë‹¤.
     virtual bool IsInside(int x, int y);
-    /// ÃÊ±âÈ­
-    virtual void Init(DWORD dwType, int iScrX, int iScrY, int iWidth, int iHeight); //ÃÊ±âÈ­ÇÔ¼ö
+    /// ì´ˆê¸°í™”
+    virtual void Init(DWORD dwType, int iScrX, int iScrY, int iWidth, int iHeight); //ì´ˆê¸°í™”í•¨ìˆ˜
 
     virtual CWinCtrl* Find(const char* szName);
 
-    /// m_bOwnerDraw == trueÀÏ¶§ ±×¸®Áö ¾Ê´Â Draw ·çÆ¾ ,
-    /// Layer¹®Á¦·Î Ãß°¡, ListBox³ª ComboBox¿¡¼­ »ç¿ë
-    /// Client°¡ Àû´çÇÑ ½Ã±â¿¡ DrawÇÏ´Â ·çÆ¾
+    /// m_bOwnerDraw == trueì¼ë•Œ ê·¸ë¦¬ì§€ ì•ŠëŠ” Draw ë£¨í‹´ ,
+    /// Layerë¬¸ì œë¡œ ì¶”ê°€, ListBoxë‚˜ ComboBoxì—ì„œ ì‚¬ìš©
+    /// Clientê°€ ì ë‹¹í•œ ì‹œê¸°ì— Drawí•˜ëŠ” ë£¨í‹´
     virtual void OwnerDraw(){};
     virtual void SetSelected();
     virtual void SetDeselected();
     bool IsSelected();
 
-    ///¸¶¿ì½º µ¶Á¡ °ü·Ã operation
+    ///ë§ˆìš°ìŠ¤ ë…ì  ê´€ë ¨ operation
     static bool IsExclusive();
     static void SetMouseExclusiveCtrl(CWinCtrl* pCtrl);
     static CWinCtrl* GetMouseExclusiveCtrl();
 
-    /// ¸¶¿ì½º ¿À¹ö °ü·Ã Ã³¸® operation : Client¿¡¼­ ÀüÃ¼ Interface¸¦ UpdateÇÏ±âÀü¿¡ false·Î
-    /// SettingÇÏ°í Ã³¸®µÈ CtrlµéÀÌ ÀÌ¸¦ true·Î SetÇÏ¿© ´Ù¸¥ CtrlÀÌ Ã³¸®ÇÏÁö ¾Ê°Ô²û ÇÑ´Ù.
+    /// ë§ˆìš°ìŠ¤ ì˜¤ë²„ ê´€ë ¨ ì²˜ë¦¬ operation : Clientì—ì„œ ì „ì²´ Interfaceë¥¼ Updateí•˜ê¸°ì „ì— falseë¡œ
+    /// Settingí•˜ê³  ì²˜ë¦¬ëœ Ctrlë“¤ì´ ì´ë¥¼ trueë¡œ Setí•˜ì—¬ ë‹¤ë¥¸ Ctrlì´ ì²˜ë¦¬í•˜ì§€ ì•Šê²Œë” í•œë‹¤.
     static bool IsProcessMouseOver() { return m_bProcessMouseOver; }
     static void SetProcessMouseOver(bool b) { m_bProcessMouseOver = b; }
     static void SetProcessMouseOverCtrl(CWinCtrl* pCtrl) { m_pProcessMouseOverCtrl = pCtrl; }
@@ -136,7 +136,7 @@ public:
     void SetControlID(unsigned int iID) { m_iControlID = iID; };
     unsigned int GetControlID() { return m_iControlID; };
 
-    /// »óÅÂº¯°æ ÇÔ¼ö
+    /// ìƒíƒœë³€ê²½ í•¨ìˆ˜
     void SetCtrlStatus(DWORD dwStatus) { m_dwStatus = dwStatus; };
     DWORD GetCtrlStatus() { return m_dwStatus; };
 
@@ -164,7 +164,7 @@ public:
         else
             m_dwStatus &= ~STATUS_ENABLE;
     }
-    /// »óÅÂÁ¤º¸ÇÔ¼ö
+    /// ìƒíƒœì •ë³´í•¨ìˆ˜
     inline bool IsFocus() { return (m_dwStatus & STATUS_FOCUS) ? true : false; }
     inline bool IsActive() { return (m_dwStatus & STATUS_ACTIVE) ? true : false; }
     virtual bool IsVision() { return (m_dwStatus & STATUS_VISION) ? true : false; }
@@ -182,7 +182,7 @@ public:
     void SetOwnerDraw(bool b); //{ m_bOwnerDraw = b; }
     bool IsOwnerDraw();
 
-    /// Parent µî·Ï
+    /// Parent ë“±ë¡
     void SetParent(CWinCtrl* pParent);
     CWinCtrl* GetParent();
     /// OffSet

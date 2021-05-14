@@ -80,7 +80,7 @@ CJustModelAVT::Init(const char* strName,
     int iBODY_PART_BOOTS,
     int iBODY_PART_FACE_ITEM, // 6 link to dummy
     int iBODY_PART_KNAPSACK,
-    // ¿À¸¥¼Õ, ¿Ş¼Õ ¼ø¼­ ÁÖÀÇ !!!
+    // ì˜¤ë¥¸ì†, ì™¼ì† ìˆœì„œ ì£¼ì˜ !!!
     int iBODY_PART_WEAPON_R, // 8 link to dummy
     int iBODY_PART_WEAPON_L) {
     m_strName = std::string((strName == NULL) ? "NULL" : strName);
@@ -88,7 +88,7 @@ CJustModelAVT::Init(const char* strName,
     m_nPartItemIDX[BODY_PART_FACE] = iBODY_PART_FACE;
     m_nPartItemIDX[BODY_PART_HELMET] = iBODY_PART_HELMET;
 
-    if (iBODY_PART_HELMET) ///¸ğÀÚ¿¡ ¾î¿ï¸®´Â ¸Ó¸®¸ğ¾çÀ» ¼±ÅÃÇÑ´Ù.
+    if (iBODY_PART_HELMET) ///ëª¨ìì— ì–´ìš¸ë¦¬ëŠ” ë¨¸ë¦¬ëª¨ì–‘ì„ ì„ íƒí•œë‹¤.
         m_nPartItemIDX[BODY_PART_HAIR] = iBODY_PART_HAIR + HELMET_HAIR_TYPE(iBODY_PART_HELMET);
     else
         m_nPartItemIDX[BODY_PART_HAIR] = iBODY_PART_HAIR;
@@ -123,7 +123,7 @@ CJustModelAVT::SetPart(int iPartType, int iPartIDX) {
         return false;
 
     //----------------------------------------------------------------------------------------------------
-    /// @brief CHILDÀÇremoveFromSceneÁ¦°Å
+    /// @brief CHILDì˜removeFromSceneì œê±°
     //----------------------------------------------------------------------------------------------------
     // short nI = 0;
     // CMODEL<CCharPART> *pCharPART = m_CharMODEL.GetCharPART( iPartType );
@@ -144,7 +144,7 @@ CJustModelAVT::SetPart(int iPartType, int iPartIDX) {
         m_CharMODEL.CreatePART((char*)(m_strName.c_str()), m_hNodeMODEL, iPartType);
 
     //----------------------------------------------------------------------------------------------------
-    /// @brief CHILDÀÇInsertToSceneÁ¦°Å
+    /// @brief CHILDì˜InsertToSceneì œê±°
     //----------------------------------------------------------------------------------------------------
     // if ( pCharPART  )
     //{
@@ -162,7 +162,7 @@ bool
 CJustModelAVT::LoadModelVisible() {
     LoadModelNODE(m_strName.c_str());
 
-    // npc ¹«±â¶«¿¡ MAX_BODY_PART±îÁö ...
+    // npc ë¬´ê¸°ë•œì— MAX_BODY_PARTê¹Œì§€ ...
 
     for (short nP = 0; nP < MAX_BODY_PART; nP++) {
         m_phPartVIS[nP] = m_CharMODEL.CreatePART((char*)(m_strName.c_str()), m_hNodeMODEL, nP);
@@ -178,11 +178,11 @@ CJustModelAVT::UnloadModelVisible() {
     this->RemoveFromScene();
 
     if (this->m_hNodeMODEL) {
-        // addRenderUnitµÈ°Íµé »èÁ¦.
+        // addRenderUnitëœê²ƒë“¤ ì‚­ì œ.
         ::clearRenderUnit(this->m_hNodeMODEL);
     }
 
-    // loadVisibleµÈ°Íµé »èÁ¦.
+    // loadVisibleëœê²ƒë“¤ ì‚­ì œ.
     for (short nP = 0; nP < MAX_BODY_PART; nP++) {
         m_CharMODEL.DeletePART(nP, m_phPartVIS[nP]);
         m_phPartVIS[nP] = NULL;
@@ -217,7 +217,7 @@ CJustModelAVT::InsertToScene() {
     ::insertToScene(m_hNodeMODEL); // CObjCHAR::InsertToScene
 
     //----------------------------------------------------------------------------------------------------
-    /// @brief CHILDÀÇInsertToSceneÁ¦°Å
+    /// @brief CHILDì˜InsertToSceneì œê±°
     //----------------------------------------------------------------------------------------------------
 
     // for ( short nP=0 ; nP < MAX_BODY_PART ; nP++ )
@@ -248,7 +248,7 @@ CJustModelAVT::RemoveFromScene() {
     ::removeFromScene(m_hNodeMODEL); // CObjCHAR::RemoveFromScene
 
     //----------------------------------------------------------------------------------------------------
-    /// @brief CHILDÀÇremoveFromSceneÁ¦°Å
+    /// @brief CHILDì˜removeFromSceneì œê±°
     //----------------------------------------------------------------------------------------------------
     // for ( short nP=0 ; nP<MAX_BODY_PART ; nP++ )
     //{

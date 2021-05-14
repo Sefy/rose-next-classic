@@ -25,7 +25,7 @@ private:
 #ifdef _DEBUG
     CStrVAR m_Name;
 #endif
-    bool m_bIsFemale; ///< ³²ÀÚ³Ä? ¿©ÀÚ³Ä?
+    bool m_bIsFemale; ///< ë‚¨ìëƒ? ì—¬ìëƒ?
 
     t_HASHKEY m_HashSkelFILE; ///< Skeleton
     t_HASHKEY m_BoneAniFILE[MAX_MOB_ANI]; ///< Animation file
@@ -34,10 +34,10 @@ private:
 
     short m_nBodyPartCNT;
     union {
-        // ¸Ş¸ğ¸® ÇÒ´çÀº ÇÏÁö ¾Ê°í ¸ŞÀÎ µ¥ÀÌÅ¸ÀÇ Æ÷ÀÎÅÍ¸¸ °®´Â´Ù.
+        // ë©”ëª¨ë¦¬ í• ë‹¹ì€ í•˜ì§€ ì•Šê³  ë©”ì¸ ë°ì´íƒ€ì˜ í¬ì¸í„°ë§Œ ê°–ëŠ”ë‹¤.
         CMODEL<CCharPART>* m_pBodyPART[MAX_BODY_PART];
         struct {
-            // ¼ø¼­´Â t_CharPART¿¡ µû¶ó¼­...
+            // ìˆœì„œëŠ” t_CharPARTì— ë”°ë¼ì„œ...
             CMODEL<CCharPART>*
                 m_pFaceMODEL; ///< loadvisible, linkBone ( head ), addRenderUnit : boneidx >= 0
             CMODEL<CCharPART>* m_pHairMODEL; ///< loadVisible, linkbone ( head ), addRenderUnit
@@ -57,7 +57,7 @@ private:
     };
 
 public:
-    /// RenderUnit »ğÀÔ¼ø¼­ º¸°ü¿ë..
+    /// RenderUnit ì‚½ì…ìˆœì„œ ë³´ê´€ìš©..
     int m_iRenderUnitOrder;
     std::list<int> m_RenderUnitPart[MAX_BODY_PART];
 
@@ -83,7 +83,7 @@ public:
     CMODEL<CCharPART>* GetCharPART(short nPartIdx) { return m_pBodyPART[nPartIdx]; }
 
     ///
-    /// .Txt ´ÜÀ§ÀÇ ¿ÀºêÁ§Æ® ·Îµå
+    /// .Txt ë‹¨ìœ„ì˜ ì˜¤ë¸Œì íŠ¸ ë¡œë“œ
     ///
     HNODE* CreatePART(char* szName, HNODE hModelNODE, short nPartIdx, short nLinkDummyIdx = -1);
     void DeletePART(short nPartIdx, HNODE* pVIS);

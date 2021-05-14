@@ -132,7 +132,7 @@ CTree::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
         return 0;
 
     POINT ptMouse = {LOWORD(lParam), HIWORD(lParam)};
-    //¿µ¿ª¾È¿¡ ÀÖ´ÂÁö Ã¼Å©
+    //ì˜ì—­ì•ˆì— ìˆëŠ”ì§€ ì²´í¬
     if (!IsInside(ptMouse.x, ptMouse.y)) {
         // m_iButtonState = BS_NORMAL;
         return 0;

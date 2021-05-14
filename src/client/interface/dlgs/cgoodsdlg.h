@@ -3,9 +3,9 @@
 #include "tgamectrl/tdialog.h"
 #include "subclass/CSlot.h"
 /**
- * °³ÀÎ»óÁ¡¿¡ ¹°Ç° µî·Ï½Ã »ç¿ëµÇ´Â UI Dialog
+ * ê°œì¸ìƒì ì— ë¬¼í’ˆ ë“±ë¡ì‹œ ì‚¬ìš©ë˜ëŠ” UI Dialog
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CGoodsDlg: public CTDialog {
@@ -32,7 +32,7 @@ private:
         IID_EDIT_PRICE = 20,
         IID_EDIT_QUANTITY = 21,
     };
-    int m_iType; /// ±¸ÀÔÈñ¸Á or ÆÇ¸ÅÈñ¸Á ±¸ºĞ
+    int m_iType; /// êµ¬ì…í¬ë§ or íŒë§¤í¬ë§ êµ¬ë¶„
     CSlot m_Slot;
 };
 #endif

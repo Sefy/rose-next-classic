@@ -294,7 +294,7 @@ void zz_font_d3d::draw_text_prim (const zz_font_text& text_item)
 	if (!text_item.use_sprite) { // begin sprite
 		
 		zz_assert(!r->sprite_began());
-		r->begin_sprite(ZZ_SPRITE_ALPHABLEND, "draw_text_prim");  //Á¶¼ºÇö 2006 04 25 TextÃâ·Â..
+		r->begin_sprite(ZZ_SPRITE_ALPHABLEND, "draw_text_prim");  //ì¡°ì„±í˜„ 2006 04 25 Textì¶œë ¥..
 		// we assumes that identity matrix transform is the default
 	   D3DXMATRIX mat, mat2;
 	   D3DXMatrixIdentity(&mat2);

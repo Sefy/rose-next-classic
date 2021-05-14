@@ -117,10 +117,10 @@ CCursorStateDx::UnloadCursor() {
 }
 
 /**
- * nVidia°è¿­ÀÇ ºñµğµµ Ä«µå¿¡¼­ À©µµ¿ìÀÇ Depth¿Í °ÔÀÓÀÇ Depth°¡ Æ²¸±°æ¿ì Cursor resource°¡ ±úÁö´Â
- * °æ¿ì°¡ ¹ß»ıÇÑ´Ù(À§Ä¡µµ Æ²·ÁÁü) resetScreen½Ã Ç×»ó Cursor¸¦ ReloadÇÑ´Ù.
+ * nVidiaê³„ì—´ì˜ ë¹„ë””ë„ ì¹´ë“œì—ì„œ ìœˆë„ìš°ì˜ Depthì™€ ê²Œì„ì˜ Depthê°€ í‹€ë¦´ê²½ìš° Cursor resourceê°€ ê¹¨ì§€ëŠ”
+ * ê²½ìš°ê°€ ë°œìƒí•œë‹¤(ìœ„ì¹˜ë„ í‹€ë ¤ì§) resetScreenì‹œ í•­ìƒ Cursorë¥¼ Reloadí•œë‹¤.
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2004/10/12
  */
 void

@@ -1,14 +1,14 @@
 #ifndef _IActionListener_
 #define _IActionListener_
 //---------------------------------------------------------------------------------------------------
-/// Client¿¡¼­ CWinCtrlÀÇ CActionListenerList¿¡ Ã³¸®·çÆ¾ Ãß°¡½Ã »ó¼Ó¹Ş¾Æ¾ßÇÒ ÀÎÅÍÆäÀÌ½º
+/// Clientì—ì„œ CWinCtrlì˜ CActionListenerListì— ì²˜ë¦¬ë£¨í‹´ ì¶”ê°€ì‹œ ìƒì†ë°›ì•„ì•¼í•  ì¸í„°í˜ì´ìŠ¤
 ///
-///	* Client¿¡¼­ CWinCtrlÀÇ ActionListenerList¿¡ IActionListener¸¦ Ãß°¡ÇØ¼­
-///		CWinCtrl::Process¿¡¼­ Á÷Á¢ ClientÀÇ Ã³¸® ·çÆ¾À» È£ÃâÇÒ¼ö ÀÖµµ·Ï ÇÏ±â À§ÇÑ System¿¡ »ç¿ë
+///	* Clientì—ì„œ CWinCtrlì˜ ActionListenerListì— IActionListenerë¥¼ ì¶”ê°€í•´ì„œ
+///		CWinCtrl::Processì—ì„œ ì§ì ‘ Clientì˜ ì²˜ë¦¬ ë£¨í‹´ì„ í˜¸ì¶œí• ìˆ˜ ìˆë„ë¡ í•˜ê¸° ìœ„í•œ Systemì— ì‚¬ìš©
 ///
-/// * °ü·Ã Class : CActionListenerList, IActionListener, CActionEvent
+/// * ê´€ë ¨ Class : CActionListenerList, IActionListener, CActionEvent
 ///
-/// @Author ÃÖÁ¾Áø
+/// @Author ìµœì¢…ì§„
 /// @Date	2005/8/19
 //---------------------------------------------------------------------------------------------------
 

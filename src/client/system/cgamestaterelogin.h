@@ -3,10 +3,10 @@
 #include "cgamestate.h"
 
 /**
- * CGameStateMain¿¡¼­ CGameStateLogin·Î ¹Ù²î´Â Áß°£ State Class
+ * CGameStateMainì—ì„œ CGameStateLoginë¡œ ë°”ë€ŒëŠ” ì¤‘ê°„ State Class
  *	- Next State : CGameStateLogin
  *
- * @Author		±èÁÖÇö
+ * @Author		ê¹€ì£¼í˜„
  * @Date			2005/10/20
  */
 class CGameStateReLogin: public CGameState {
@@ -20,7 +20,7 @@ public:
     virtual int Enter(int iPrevStateID);
     virtual int Leave(int iNextStateID);
 
-    virtual void ServerDisconnected() {} ////ÀÌ »óÅÂ¿¡¼­´Â ¼­¹ö°¡ ²÷°Üµµ ¾Æ¹«°Íµµ ÇÏÁö ¾Ê´Â´Ù.
+    virtual void ServerDisconnected() {} ////ì´ ìƒíƒœì—ì„œëŠ” ì„œë²„ê°€ ëŠê²¨ë„ ì•„ë¬´ê²ƒë„ í•˜ì§€ ì•ŠëŠ”ë‹¤.
 
     virtual int ProcMouseInput(UINT uiMsg, WPARAM wParam, LPARAM lParam) { return 0; }
     virtual int ProcKeyboardInput(UINT uiMsg, WPARAM wParam, LPARAM lParam) { return 0; }
@@ -30,7 +30,7 @@ protected:
     void Draw();
 
     ///
-    /// system ¹è°æ¿¡ »ç¿ëµÉ Á¸¹øÈ£
+    /// system ë°°ê²½ì— ì‚¬ìš©ë  ì¡´ë²ˆí˜¸
     ///
     static int m_iBackGroundZone;
 };

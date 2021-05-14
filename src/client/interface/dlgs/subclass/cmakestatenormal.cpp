@@ -98,7 +98,7 @@ void
 CMakeStateNormal::OnLButtonDown(unsigned iProcID, WPARAM wParam, LPARAM lParam) {
     switch (iProcID) {
         case CMakeDLG::IID_COMBOBOX_ITEM: {
-            /// ItemÀ» ¹Ù²Ù¾î ÁÖÀÚ
+            /// Itemì„ ë°”ê¾¸ì–´ ì£¼ìž
             CWinCtrl* pCtrl = m_pParent->Find(CMakeDLG::IID_COMBOBOX_ITEM);
             if (pCtrl) {
                 CJComboBox* pComboBox = (CJComboBox*)pCtrl;

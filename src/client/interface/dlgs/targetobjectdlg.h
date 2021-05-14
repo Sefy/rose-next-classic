@@ -4,10 +4,10 @@
 #include "tgamectrl/tdialog.h"
 
 /**
- * ¿¹Àü Å¬º£¶§ Å¸°Ù¿¡ ´ëÇÑ Á¤º¸¸¦ º¸¿©ÁÖ´Â ´ÙÀÌ¾ó·Î±×
+ * ì˜ˆì „ í´ë² ë•Œ íƒ€ê²Ÿì— ëŒ€í•œ ì •ë³´ë¥¼ ë³´ì—¬ì£¼ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Warning		ÇöÀç( 2005/9/15)»ç¿ëÇÏÁö ¾Ê°í ÀÖ´Ù.
- * @Author		ÃÖÁ¾Áø
+ * @Warning		í˜„ìž¬( 2005/9/15)ì‚¬ìš©í•˜ì§€ ì•Šê³  ìžˆë‹¤.
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CTargetObjectDLG: public CTDialog {

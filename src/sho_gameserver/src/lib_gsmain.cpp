@@ -122,7 +122,7 @@ GS_TimerProc(HWND hwnd /* handle to window */,
 
             switch (g_pZoneLIST->m_dwAccTIME % 6) {
                 case 0:
-                case 3: // 30ÃÊ¿¡ ÇÑ¹ø¾¿ Ã¼Å©...
+                case 3: // 30ì´ˆì— í•œë²ˆì”© ì²´í¬...
                     g_pUserLIST->Check_SocketALIVE();
                     break;
                 case 1: // case 4 :
@@ -254,7 +254,7 @@ CLIB_GameSRV::CheckSTB_UseITEM() {
 
             assert(0 != STATE_APPLY_ABILITY_VALUE(nIngSTB, nI));
 
-            // ÃÑ Áõ°¡ÇÒ ¼öÄ¡.
+            // ì´ ì¦ê°€í•  ìˆ˜ì¹˜.
             nDuringTime = USEITEM_ADD_DATA_VALUE(nD) / STATE_APPLY_ABILITY_VALUE(nIngSTB, nI);
         }
     }
@@ -287,7 +287,7 @@ CLIB_GameSRV::CheckSTB_NPC() {
                 SET_NPC_DEAD_EVENT(nI, NULL);
             } else {
                 do {
-                    pQuestTrigger->m_iOwerNpcIDX = nI; // Á×À»¶§ ¹ß»ýµÇ´Â Æ®¸®°Å´Ù.
+                    pQuestTrigger->m_iOwerNpcIDX = nI; // ì£½ì„ë•Œ ë°œìƒë˜ëŠ” íŠ¸ë¦¬ê±°ë‹¤.
                     pQuestTrigger = pQuestTrigger->m_pNextTrigger;
                 } while (pQuestTrigger);
             }
@@ -299,7 +299,7 @@ CLIB_GameSRV::CheckSTB_NPC() {
 bool
 CLIB_GameSRV::CheckSTB_DropITEM() {
     //	/*
-    //¾ÆÀÌÅÛ µå·Ó °è»ê¹æ½ÄÀÌ ¹Ù²î¸é¼­ stbÂüÁ¶ °ªÀÌ Æ²·ÁÁ³´Ù.
+    //ì•„ì´í…œ ë“œë¡­ ê³„ì‚°ë°©ì‹ì´ ë°”ë€Œë©´ì„œ stbì°¸ì¡° ê°’ì´ í‹€ë ¤ì¡Œë‹¤.
     int iDropITEM;
     tagITEM sITEM;
 
@@ -321,10 +321,10 @@ CLIB_GameSRV::CheckSTB_DropITEM() {
 
             if (iDropITEM <= 1000) {
                 if (iDropITEM >= 1 && iDropITEM <= 4) {
-                    // ´Ù½Ã °è»ê
-                    int iDropTblIDX = 26 + (iDropITEM * 5) + 4 /*RANDOM(5)ÀÇ ÃÖ´ë°ª 4 */;
+                    // ë‹¤ì‹œ ê³„ì‚°
+                    int iDropTblIDX = 26 + (iDropITEM * 5) + 4 /*RANDOM(5)ì˜ ìµœëŒ€ê°’ 4 */;
                     if (iDropTblIDX >= g_TblDropITEM.col_count) {
-                        // Å×ÀÌºí ÄÃ·³ °¹¼ö ÃÊ°ú...
+                        // í…Œì´ë¸” ì»¬ëŸ¼ ê°¯ìˆ˜ ì´ˆê³¼...
                         g_LOG.CS_ODS(0xffff, "This drop item[ %d %d ] may be too big\n", nI, nC);
                     }
                     continue;
@@ -402,8 +402,8 @@ CLIB_GameSRV::CheckSTB_ListPRODUCT() {
                 if (!sOutITEM.IsValidITEM()) {
                     _ASSERT(0);
                 }
-                // Àç·á ¾ÆÀÌÅÛ ¹øÈ£
-                _ASSERT(PRODUCT_NEED_ITEM_CNT(nI, nS) > 0); // ÆÓ¿ä °¹¼ö
+                // ìž¬ë£Œ ì•„ì´í…œ ë²ˆí˜¸
+                _ASSERT(PRODUCT_NEED_ITEM_CNT(nI, nS) > 0); // íŒ°ìš” ê°¯ìˆ˜
             }
         }
     }
@@ -505,7 +505,7 @@ CLIB_GameSRV::Load_BasicDATA() {
 
 void
 CLIB_GameSRV::Free_BasicDATA() {
-    // STBDATA´Â ÀÚµ¿ Ç®¸²..
+    // STBDATAëŠ” ìžë™ í’€ë¦¼..
     g_QuestList.Free();
     g_SkillList.Free();
     g_MotionFILE.Free();
@@ -653,7 +653,7 @@ CLIB_GameSRV::Start(HWND hMainWND, BYTE btChannelNO, BYTE btLowAge, BYTE btHighA
         (TIMERPROC)GS_TimerProc);
     m_pWorldTIMER->Start();
 
-    g_pUserLIST->Active(config.gameserver.port, MAX_ZONE_USER_BUFF, 5 * 60); // 5ºÐ ´ë±â.
+    g_pUserLIST->Active(config.gameserver.port, MAX_ZONE_USER_BUFF, 5 * 60); // 5ë¶„ ëŒ€ê¸°.
 
     return true;
 }
@@ -661,7 +661,7 @@ CLIB_GameSRV::Start(HWND hMainWND, BYTE btChannelNO, BYTE btLowAge, BYTE btHighA
 //-------------------------------------------------------------------------------------------------
 void
 CLIB_GameSRV::Shutdown() {
-    SAFE_DELETE(m_pWorldTIMER); // Å¸ÀÌ¸Ó »èÁ¦°¡ ¾Õ¼­µµ·Ï...
+    SAFE_DELETE(m_pWorldTIMER); // íƒ€ì´ë¨¸ ì‚­ì œê°€ ì•žì„œë„ë¡...
 
     g_pUserLIST->ShutdownACCEPT();
 
@@ -673,14 +673,14 @@ CLIB_GameSRV::Shutdown() {
     g_pUserLIST->ShutdownWORKER();
     g_pUserLIST->ShutdownSOCKET();
 
-    // sql threadÀÇ ¸ðµç ³»¿ëÀÌ ±â·Ï µÉµ¿¾È ´ë±â...
+    // sql threadì˜ ëª¨ë“  ë‚´ìš©ì´ ê¸°ë¡ ë ë™ì•ˆ ëŒ€ê¸°...
     if (g_pThreadSQL) {
         _ASSERT(g_pThreadSQL);
         g_pThreadSQL->Set_EVENT();
         do {
             ::Sleep(200); // wait 0.2 sec
         } while (
-            !g_pThreadSQL->IsWaiting() || g_pThreadSQL->WaitUserCNT() > 0); // Ã³¸®ÁßÀÌ¸é ´ë±â..
+            !g_pThreadSQL->IsWaiting() || g_pThreadSQL->WaitUserCNT() > 0); // ì²˜ë¦¬ì¤‘ì´ë©´ ëŒ€ê¸°..
     }
 
     SAFE_DELETE(g_pObjMGR);

@@ -14,10 +14,10 @@ class CItem;
 class CTCmdNumberInput;
 
 /**
- * ´Ù¸¥ À¯ÀúÀÇ »óÁ¡À» ÀÌ¿ëÇÒ¶§ »ç¿ëµÇ´Â Dialog( UI + Data )
+ * ë‹¤ë¥¸ ìœ ì €ì˜ ìƒì ì„ ì´ìš©í• ë•Œ ì‚¬ìš©ë˜ëŠ” Dialog( UI + Data )
  *	- Observer : CDragNDropMgr
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CAvatarStoreDlg: public CTDialog, public CObservable {
@@ -35,16 +35,16 @@ public:
     WORD GetMasterSvrObjIdx();
     void SetTitle(const char* pszTitle);
 
-    void AddItem2SellList(tagPS_SLOT_PRICE& SlotITEM); /// ¼­¹ö¿¡¼­ ¹ŞÀº ÆÇ¸Å Èñ¸Á ¾ÆÀÌÅÛ Ãß°¡
-    void AddItem2BuyList(tagPS_SLOT_PRICE& SlotITEM); /// ¼­¹ö¿¡¼­ ¹ŞÀº ±¸ÀÔ Èñ¸Á ¾ÆÀÌÅÛ Ãß°¡
+    void AddItem2SellList(tagPS_SLOT_PRICE& SlotITEM); /// ì„œë²„ì—ì„œ ë°›ì€ íŒë§¤ í¬ë§ ì•„ì´í…œ ì¶”ê°€
+    void AddItem2BuyList(tagPS_SLOT_PRICE& SlotITEM); /// ì„œë²„ì—ì„œ ë°›ì€ êµ¬ì… í¬ë§ ì•„ì´í…œ ì¶”ê°€
 
     void UpdateSellList(
-        tagPS_SLOT_ITEM& SlotITEM); /// ÆÇ¸Å Èñ¸Á¾ÆÀÌÅÛ ¸®½ºÆ®¿¡ º¯µ¿»çÇ×ÀÌ ÀÖÀ»°æ¿ì ¾÷µ¥ÀÌÆ®
+        tagPS_SLOT_ITEM& SlotITEM); /// íŒë§¤ í¬ë§ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ì— ë³€ë™ì‚¬í•­ì´ ìˆì„ê²½ìš° ì—…ë°ì´íŠ¸
     void UpdateBuyList(
-        tagPS_SLOT_ITEM& SlotITEM); /// ±¸ÀÔ Èñ¸Á¾ÆÀÌÅÛ ¸®½ºÆ®¿¡ º¯µ¿»çÇ×ÀÌ ÀÖÀ»°æ¿ì ¾÷µ¥ÀÌÆ®
+        tagPS_SLOT_ITEM& SlotITEM); /// êµ¬ì… í¬ë§ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ì— ë³€ë™ì‚¬í•­ì´ ìˆì„ê²½ìš° ì—…ë°ì´íŠ¸
 
     int IsBuyItem(
-        tagITEM& Item); /// °³ÀÎ»óÁ¡¿¡ ³»°¡ ÆÈ·Á´Â ¾ÆÀÌÅÛÀÌ ±¸ÀÔÈñ¸Á¸®½ºÆ®¿¡ ÀÖ´Â ¾ÆÀÌÅÛÀÎ°¡?
+        tagITEM& Item); /// ê°œì¸ìƒì ì— ë‚´ê°€ íŒ”ë ¤ëŠ” ì•„ì´í…œì´ êµ¬ì…í¬ë§ë¦¬ìŠ¤íŠ¸ì— ìˆëŠ” ì•„ì´í…œì¸ê°€?
 
     int GetWishIndex(tagITEM& Item, int& iUnitPrice);
 
@@ -59,22 +59,22 @@ private:
         IID_BTN_SELL = 31,
         IID_BTN_BUY = 32,
     };
-    int m_iTab; /// ÇöÀç ±¸ÀÔ/ÆÇ¸ÅÅÇ ±¸ºĞ ÀúÀå
+    int m_iTab; /// í˜„ì¬ êµ¬ì…/íŒë§¤íƒ­ êµ¬ë¶„ ì €ì¥
 
-    CSinglelineString m_title; /// »óÁ¡ °£ÆÇ
-    WORD m_wMasterSvrObjIdx; /// »óÁ¡ÁÖÀÎÀÇ ¼­¹öÀÎµ¦½º
+    CSinglelineString m_title; /// ìƒì  ê°„íŒ
+    WORD m_wMasterSvrObjIdx; /// ìƒì ì£¼ì¸ì˜ ì„œë²„ì¸ë±ìŠ¤
 
-    CSlot m_SellSlots[c_iAvatarStoreMaxSlotCount]; /// ÆÇ¸ÅÈñ¸Á¾ÆÀÌÅÛÀÇ ¾ÆÀÌÄÜÀÌ AttachµÉ ½½·Ôµé
-    CSlot m_BuySlots[c_iAvatarStoreMaxSlotCount]; /// ±¸ÀÔÈñ¸Á¾ÆÀÌÅÛÀÇ ¾ÆÀÌÄÜÀÌ AttachµÉ ½½·Ôµé
+    CSlot m_SellSlots[c_iAvatarStoreMaxSlotCount]; /// íŒë§¤í¬ë§ì•„ì´í…œì˜ ì•„ì´ì½˜ì´ Attachë  ìŠ¬ë¡¯ë“¤
+    CSlot m_BuySlots[c_iAvatarStoreMaxSlotCount]; /// êµ¬ì…í¬ë§ì•„ì´í…œì˜ ì•„ì´ì½˜ì´ Attachë  ìŠ¬ë¡¯ë“¤
 
-    CItem* m_SellItems[c_iAvatarStoreMaxSlotCount]; /// ÆÇ¸ÅÈñ¸Á ¾ÆÀÌÅÛµé
-    CItem* m_BuyItems[c_iAvatarStoreMaxSlotCount]; /// ±¸ÀÔÈñ¸Á ¾ÆÀÌÅÛµé
+    CItem* m_SellItems[c_iAvatarStoreMaxSlotCount]; /// íŒë§¤í¬ë§ ì•„ì´í…œë“¤
+    CItem* m_BuyItems[c_iAvatarStoreMaxSlotCount]; /// êµ¬ì…í¬ë§ ì•„ì´í…œë“¤
 
-    CDragItem* m_pSellDragItem; /// µå·¡±×&µå¶ø¿¡ »ç¿ëµÉ CDragItem
+    CDragItem* m_pSellDragItem; /// ë“œë˜ê·¸&ë“œëì— ì‚¬ìš©ë  CDragItem
 
-    CTCmdNumberInput* m_pBuyItemAtAvatarStore; /// ÆÇ¸Å Èñ¸Á ¾ÆÀÌÅÛÀ» ±¸ÀÔÇÒ¶§ »ç¿ëµÉ TCommand( ¼ıÀÚ
-                                               /// ÀÔ·Â±â¸¦ ¶ç¿î´Ù )
+    CTCmdNumberInput* m_pBuyItemAtAvatarStore; /// íŒë§¤ í¬ë§ ì•„ì´í…œì„ êµ¬ì…í• ë•Œ ì‚¬ìš©ë  TCommand( ìˆ«ì
+                                               /// ì…ë ¥ê¸°ë¥¼ ë„ìš´ë‹¤ )
 
-    CTEventAvatarStore m_Event; /// Observer¿¡°Ô º¸³¾ ÀÌº¥Æ®
+    CTEventAvatarStore m_Event; /// Observerì—ê²Œ ë³´ë‚¼ ì´ë²¤íŠ¸
 };
 #endif

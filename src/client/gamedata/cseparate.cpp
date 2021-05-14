@@ -7,7 +7,7 @@
 #include "../Network/CNetwork.h"
 #include "event/CTEventItem.h"
 CSeparate::CSeparate(void) {
-    m_pMaterialItem = NULL; ///ºĞ¸® ÇÏ°íÀÚ ÇÏ´Â ¾ÆÀÌÅÛ
+    m_pMaterialItem = NULL; ///ë¶„ë¦¬ í•˜ê³ ì í•˜ëŠ” ì•„ì´í…œ
     m_iRequireMp = 0;
     m_wNpcSvrIdx = 0;
     m_iSkillSlotIdx = 0;
@@ -197,7 +197,7 @@ CSeparate::SetItem(CItem* pItem) {
                 for (int i = 1; i < 4; ++i) {
                     if (iMaterialIdx = PRODUCT_NEED_ITEM_NO(iProductIdx, i)) {
                         // iClass = ITEM_TYPE( iMaterialIdx / 1000, iMaterialIdx % 1000 );
-                        // if( iClass == 427 || iClass == 428 )///¿¬±İÀç·á¿Í , È­ÇĞÇ°Àº ¾ø¾îÁø´Ù.
+                        // if( iClass == 427 || iClass == 428 )///ì—°ê¸ˆì¬ë£Œì™€ , í™”í•™í’ˆì€ ì—†ì–´ì§„ë‹¤.
                         //	continue;
 
                         MaterialItem.Init(iMaterialIdx);

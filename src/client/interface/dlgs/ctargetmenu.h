@@ -12,7 +12,7 @@ public:
     virtual void Show();
     virtual unsigned int Process(UINT uiMsg, WPARAM wParam, LPARAM lParam);
     enum { IID_BTN_FRIEND = 1, IID_BTN_EXCHANGE, IID_BTN_PARTY, IID_BTN_INFORMATION };
-    ///ÇöÀç ´Ù¸¥ ¾Æ¹ÙÅ¸°¡ Å¸°ÙÀ¸·Î ¼±ÅÃµÇ¾îÁ® ÀÖÀ»¶§ ±× ¾Æ¹ÙÅ¸ÀÇ Idx
+    ///í˜„ì¬ ë‹¤ë¥¸ ì•„ë°”íƒ€ê°€ íƒ€ê²Ÿìœ¼ë¡œ ì„ íƒë˜ì–´ì ¸ ìˆì„ë•Œ ê·¸ ì•„ë°”íƒ€ì˜ Idx
     int GetTargetAvatarID() { return m_iTargetAvatarID; }
     void SetTargetAvatarID(int iTargetAvatarID) { m_iTargetAvatarID = iTargetAvatarID; }
 

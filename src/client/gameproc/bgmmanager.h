@@ -5,7 +5,7 @@
 //---------------------------------------------------------------------------------------
 ///
 /// class CBGManager
-/// ¹è°æÀ½¾Ç ÇÃ·¹ÀÌ¾î °ü¸®, À½¾Ç ÀüÀÌ..
+/// ë°°ê²½ìŒì•… í”Œë ˆì´ì–´ ê´€ë¦¬, ìŒì•… ì „ì´..
 ///
 //---------------------------------------------------------------------------------------
 class CBGMManager: public CJSingleton<CBGMManager> {
@@ -26,7 +26,7 @@ public:
     CBGMManager(void);
     ~CBGMManager(void);
 
-    /// ¹ã³· º¯°æ¿¡ µû¸¥ ¹è°æÀ½¾Ç ÀüÀÌ..
+    /// ë°¤ë‚® ë³€ê²½ì— ë”°ë¥¸ ë°°ê²½ìŒì•… ì „ì´..
     void ChangeBGMMusicWithDayAndNight(int iZoneNO, bool bToNight);
 
     void EndTransition();

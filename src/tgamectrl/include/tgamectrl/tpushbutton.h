@@ -3,10 +3,10 @@
 #include "winctrl.h"
 
 /**
- * üũ ��ưó�� �ش��ư�� Ŭ���� Normal�� Down�� �ݺ��Ǵ� Button
- *	- client���� 1:1�ŷ�â���� �����( 2005/8/30)
+ * 체크 버튼처럼 해당버튼을 클릭시 Normal과 Down이 반복되는 Button
+ *	- client에서 1:1거래창에서 사용중( 2005/8/30)
  *
- * @Author	������
+ * @Author	최종진
  *
  * @Data		2005/8/30
  */

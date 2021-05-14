@@ -12,8 +12,8 @@
 #endif
 
 /*
-    ¼­¹ö¿ÍÀÇ Á¢¼ÓÀÌ ²÷°åÀ» °æ¿ì...
-    Query ½ÇÇà½Ã Ç×»ó ÀçÁ¢¼Ó µÈ´Ù. !!..
+    ì„œë²„ì™€ì˜ ì ‘ì†ì´ ëŠê²¼ì„ ê²½ìš°...
+    Query ì‹¤í–‰ì‹œ í•­ìƒ ì¬ì ‘ì† ëœë‹¤. !!..
 */
 //-------------------------------------------------------------------------------------------------
 classMYSQL::classMYSQL(short nBindParamCNT, WORD wQueryBufferLEN) {
@@ -136,7 +136,7 @@ int
 classMYSQL::ExecMySQL(char* szQuery, unsigned long ulLength) {
     m_iErrCODE = ::mysql_real_query(m_pMySQL, szQuery, ulLength);
     if (0 == m_iErrCODE) {
-        // ¿µÇâ ¹ŞÀº ·¹Å©µå ¼ö !!!
+        // ì˜í–¥ ë°›ì€ ë ˆí¬ë“œ ìˆ˜ !!!
         m_iRecordCNT = (int)::mysql_affected_rows(m_pMySQL);
     } else
         m_iRecordCNT = -1;
@@ -305,10 +305,10 @@ classMYSQL::MakeQuery(char* szCommand, ...) {
                 char* pStr = va_arg(va, char*);
                 iStrLen = strlen(pStr);
 
-                *pBuff++ = ' '; // °ø¹éÀ» ¾Õ¿¡ ³Ö´Â´Ù.
+                *pBuff++ = ' '; // ê³µë°±ì„ ì•ì— ë„£ëŠ”ë‹¤.
                 ::CopyMemory(pBuff, pStr, iStrLen);
                 pBuff += iStrLen;
-                *pBuff++ = ' '; // °ø¹éÀ» µÚ¿¡ ³Ö´Â´Ù.
+                *pBuff++ = ' '; // ê³µë°±ì„ ë’¤ì— ë„£ëŠ”ë‹¤.
                 break;
             }
             case MQ_PARAM_INT: {

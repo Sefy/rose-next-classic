@@ -3,10 +3,10 @@
 #include "tgamectrl/tmsgbox.h"
 
 /**
- * ¼­¹ö¿ÍÀÇ Á¾·á ´ë±â¸¦ Ç¥½ÃÇÏ±â À§ÇÑ ´ÙÀÌ¾ó·Î±×
- *	- ÀÏ¹İ ¸Ş¼¼Áö ¹Ú½º¿Í ±¸ºĞÇÏ±â À§ÇÏ¿© º°µµÀÇ Å¬·¡½º·Î Á¤ÀÇÇÏ¿´´Ù
+ * ì„œë²„ì™€ì˜ ì¢…ë£Œ ëŒ€ê¸°ë¥¼ í‘œì‹œí•˜ê¸° ìœ„í•œ ë‹¤ì´ì–¼ë¡œê·¸
+ *	- ì¼ë°˜ ë©”ì„¸ì§€ ë°•ìŠ¤ì™€ êµ¬ë¶„í•˜ê¸° ìœ„í•˜ì—¬ ë³„ë„ì˜ í´ë˜ìŠ¤ë¡œ ì •ì˜í•˜ì˜€ë‹¤
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CMsgBoxSpecial: public CTMsgBox {
@@ -26,8 +26,8 @@ protected:
     void ClearCommand();
 
 protected:
-    CTCommand* m_pCmdOk; /// Ok BtnÀÌ ´­·ÈÀ»¶§ Ã³¸®ÇÒ Command
-    CTCommand* m_pCmdCancel; /// Cancel BtnÀÌ ´­·ÈÀ»¶§ Ã³¸®ÇÒ Command
-    unsigned int m_iInvokerDlgID; /// Command ¸¦ Ã³¸®ÇÒ TDialogID
+    CTCommand* m_pCmdOk; /// Ok Btnì´ ëˆŒë ¸ì„ë•Œ ì²˜ë¦¬í•  Command
+    CTCommand* m_pCmdCancel; /// Cancel Btnì´ ëˆŒë ¸ì„ë•Œ ì²˜ë¦¬í•  Command
+    unsigned int m_iInvokerDlgID; /// Command ë¥¼ ì²˜ë¦¬í•  TDialogID
 };
 #endif

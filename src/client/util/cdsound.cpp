@@ -249,7 +249,7 @@ CDSOUND::CreateSoundData(t_wavedata* pWave, DWORD dwCreationFlags, GUID guid3DAl
         lpDSB->Unlock(pMem1, dwSize1, pMem2, dwSize2);
 
         if (dsbd.dwFlags & DSBCAPS_CTRLVOLUME)
-            lpDSB->SetVolume(DSBVOLUME_MIN /*DSBVOLUME_MAX*/); // ÃÊ±â ¹¬À½À¸·Î..
+            lpDSB->SetVolume(DSBVOLUME_MIN /*DSBVOLUME_MAX*/); // ì´ˆê¸° ë¬µìŒìœ¼ë¡œ..
 
         if (dsbd.dwFlags & DSBCAPS_CTRLFREQUENCY)
             lpDSB->SetFrequency(DSBFREQUENCY_ORIGINAL);
@@ -326,7 +326,7 @@ CDSOUND::CreateSoundData(CWaveFile* pCWave, DWORD dwCreationFlags, GUID guid3DAl
         lpDSB->Unlock(pMem1, dwSize1, pMem2, dwSize2);
 
         if (dsbd.dwFlags & DSBCAPS_CTRLVOLUME)
-            lpDSB->SetVolume(DSBVOLUME_MIN /*DSBVOLUME_MAX*/); // ÃÊ±â ¹¬À½À¸·Î..
+            lpDSB->SetVolume(DSBVOLUME_MIN /*DSBVOLUME_MAX*/); // ì´ˆê¸° ë¬µìŒìœ¼ë¡œ..
 
         if (dsbd.dwFlags & DSBCAPS_CTRLFREQUENCY)
             lpDSB->SetFrequency(DSBFREQUENCY_ORIGINAL);
@@ -622,8 +622,8 @@ CD3DSOUND::CreateSoundData(t_wavedata* pWave, DWORD dwCreationFlags, GUID guid3D
         pSound->m_pDS3DBuffer->GetAllParameters(&m_dsBufferParams);
 
         // Set new 3D buffer parameters
-        m_dsBufferParams.flMaxDistance = SOUND_DEFAULT_MAX_DISTANCE; // ¿©±â±îÁö¸¸ º¼·ıÀû¿ë
-        m_dsBufferParams.flMinDistance = SOUND_DEFAULT_MIN_DISTANCE; //  ¿©±â±îÁö´Â ÃÖ´ë º¼·ı Àû¿ë
+        m_dsBufferParams.flMaxDistance = SOUND_DEFAULT_MAX_DISTANCE; // ì—¬ê¸°ê¹Œì§€ë§Œ ë³¼ë¥¨ì ìš©
+        m_dsBufferParams.flMinDistance = SOUND_DEFAULT_MIN_DISTANCE; //  ì—¬ê¸°ê¹Œì§€ëŠ” ìµœëŒ€ ë³¼ë¥¨ ì ìš©
         m_dsBufferParams.dwMode = DS3DMODE_NORMAL;
         pSound->m_pDS3DBuffer->SetAllParameters(&m_dsBufferParams, DS3D_DEFERRED);
     }
@@ -669,10 +669,10 @@ CD3DSOUND::SetListenerParam(void) {
 
     // m_dsListenerParams.
 
-    // DS3D_DEFERRED	: ¾ÖÇÃ¸®ÄÉÀÌ¼ÇÀÌ IDirectSound3DListener8::CommitDeferredSettings ¸Ş¼­µå¸¦
-    // È£ÃâÇÒ ¶§±îÁö, ¼³Á¤Àº Àû¿ëµÇÁö ¾Ê´Â´Ù. º¹¼öÀÇ ¼³Á¤À» º¯°æÇÑ ÈÄ, 1 È¸ÀÇ Àç°è»êÀ¸·Î ±×°ÍµéÀ»
-    // Àû¿ëÇÒ ¼ö ÀÖ´Ù.
-    // DS3D_DEFERRED	: ¼³Á¤À» Áï½Ã Àû¿ëÇØ, ½Ã½ºÅÛÀº ¸ğµç 3D »ç¿îµå ¹öÆÛÀÇ 3D ÁÂÇ¥¸¦ Àç°è»êÇÑ´Ù.
+    // DS3D_DEFERRED	: ì• í”Œë¦¬ì¼€ì´ì…˜ì´ IDirectSound3DListener8::CommitDeferredSettings ë©”ì„œë“œë¥¼
+    // í˜¸ì¶œí•  ë•Œê¹Œì§€, ì„¤ì •ì€ ì ìš©ë˜ì§€ ì•ŠëŠ”ë‹¤. ë³µìˆ˜ì˜ ì„¤ì •ì„ ë³€ê²½í•œ í›„, 1 íšŒì˜ ì¬ê³„ì‚°ìœ¼ë¡œ ê·¸ê²ƒë“¤ì„
+    // ì ìš©í•  ìˆ˜ ìˆë‹¤.
+    // DS3D_DEFERRED	: ì„¤ì •ì„ ì¦‰ì‹œ ì ìš©í•´, ì‹œìŠ¤í…œì€ ëª¨ë“  3D ì‚¬ìš´ë“œ ë²„í¼ì˜ 3D ì¢Œí‘œë¥¼ ì¬ê³„ì‚°í•œë‹¤.
     m_pDSListener->SetAllParameters(&m_dsListenerParams, DS3D_DEFERRED);
 }
 
@@ -743,7 +743,7 @@ CD3DSOUND::UpdateListener(const CCamera* pCamera) {
     if (0 == getCameraUp(hCamera, dirTop))
         return false;
 
-    // ¾Æ¹ÙÅ¸ÀÇ À§Ä¡·Î ¸®½º³Ê À§Ä¡ ¼¼ÆÃ
+    // ì•„ë°”íƒ€ì˜ ìœ„ì¹˜ë¡œ ë¦¬ìŠ¤ë„ˆ ìœ„ì¹˜ ì„¸íŒ…
     // if ( FAILED( SetListenerPosition( g_pAVATAR->Get_CurPOS() ) ) ) {
     //	return false;
     //}

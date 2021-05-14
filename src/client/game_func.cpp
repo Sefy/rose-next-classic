@@ -89,7 +89,7 @@ GF_log(ZSTRING szStr) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÀÌÆåÆ® ÆÄÀÏÀ» ÀÌÆåÆ® ¸®¼Ò½º °ü¸®ÀÚ¿¡ ³Ö´Â´Ù.
+/// @brief ì´í™íŠ¸ íŒŒì¼ì„ ì´í™íŠ¸ ë¦¬ì†ŒìŠ¤ ê´€ë¦¬ìì— ë„£ëŠ”ë‹¤.
 //----------------------------------------------------------------------------------------------------
 int
 GF_GetEffectUseFile(ZSTRING szEffectFile) {
@@ -103,7 +103,7 @@ GF_GetEffectUseIndex(int iEffectIndex) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief CObjCHAR ¿¡ ÀÌÆåÆ®¸¦ ºÙÀÎ´Ù.
+/// @brief CObjCHAR ì— ì´í™íŠ¸ë¥¼ ë¶™ì¸ë‹¤.
 //----------------------------------------------------------------------------------------------------
 void
 GF_EffectOnObject(int iObject, int iEffectHash) {
@@ -115,7 +115,7 @@ GF_EffectOnObject(int iObject, int iEffectHash) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief CObjCHAR ¿¡ ÀÌÆåÆ®¸¦ ºÙÀÎ´Ù.
+/// @brief CObjCHAR ì— ì´í™íŠ¸ë¥¼ ë¶™ì¸ë‹¤.
 //----------------------------------------------------------------------------------------------------
 void
 GF_WeatherEffectOnObject(int iObject, int iEffectHash) {
@@ -127,7 +127,7 @@ GF_WeatherEffectOnObject(int iObject, int iEffectHash) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief Æ¯Á¤ ÀÌÆåÆ®¸¦ Á¦°Å
+/// @brief íŠ¹ì • ì´í™íŠ¸ë¥¼ ì œê±°
 //----------------------------------------------------------------------------------------------------
 void
 GF_DeleteEffectFromObject(int iObject) {
@@ -155,7 +155,7 @@ GF_GetMotionUseFile(ZSTRING szMotionFile) {
 
 void
 GF_SetMotion(int iObject, int iMotionHashKEY, int iRepeatCnt) {
-    // iObject¿¡ iMotionFileIDXÀÇ ¸ğ¼ÇÀ» Àû¿ëÇØ¶ó !!
+    // iObjectì— iMotionFileIDXì˜ ëª¨ì…˜ì„ ì ìš©í•´ë¼ !!
     CObjCHAR* pObjCHAR = g_pObjMGR->Get_CharOBJ(iObject, false);
     if (pObjCHAR) {
         pObjCHAR->Set_UserMOITON(iMotionHashKEY, 0, iRepeatCnt);
@@ -249,7 +249,7 @@ GF_error(void) {}
 
 //----------------------------------------------------------------------------------------------------
 ///
-/// °ÔÀÓ³» ÀÌº¥Æ®¿¡ µû¸¥ È¿°ú Ãâ·Â
+/// ê²Œì„ë‚´ ì´ë²¤íŠ¸ì— ë”°ë¥¸ íš¨ê³¼ ì¶œë ¥
 ///
 //----------------------------------------------------------------------------------------------------
 
@@ -264,89 +264,89 @@ Call_Char_Lua_Func(int iObject, const char* pFunc) {
     return iResult;
 }
 
-/// ¾Æ¹ÙÅ¸ Ã³À½ »ı¼ºÇÒ ¶§ »ı±â´Â È¿°ú
+/// ì•„ë°”íƒ€ ì²˜ìŒ ìƒì„±í•  ë•Œ ìƒê¸°ëŠ” íš¨ê³¼
 void
 SE_CharCreate(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_CharCreate");
 }
 
-/// ¾Æ¹ÙÅ¸°¡ Ã³À½ ¿ùµå¿¡ Á¶ÀÎÇÒ¶§
+/// ì•„ë°”íƒ€ê°€ ì²˜ìŒ ì›”ë“œì— ì¡°ì¸í• ë•Œ
 void
 SE_CharJoinZone(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_CharJoinZone");
 }
 
-/// ¾Æ¹ÙÅ¸ »ç¸Á½Ã
+/// ì•„ë°”íƒ€ ì‚¬ë§ì‹œ
 void
 SE_CharDie(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_CharDie");
 }
 
-/// ¾Æ¹ÙÅ¸ ¿öÇÁ
+/// ì•„ë°”íƒ€ ì›Œí”„
 void
 SE_CharWarp(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_CharWarp");
 }
 
-/// ¾Æ¹ÙÅ¸ ·¹º§¾÷
+/// ì•„ë°”íƒ€ ë ˆë²¨ì—…
 void
 SE_CharLevelUp(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_CharLevelUp");
 }
 
-/// ÆÄÆ¼ ·¹º§¾÷
+/// íŒŒí‹° ë ˆë²¨ì—…
 void
 SE_PartyLevelUp(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_PartyLevelUp");
 }
 
 /*
-¸ó½ºÅÍ °ü·Ã
+ëª¬ìŠ¤í„° ê´€ë ¨
 */
 
-/// ¸ó½ºÅÍ Á×À»¶§
+/// ëª¬ìŠ¤í„° ì£½ì„ë•Œ
 void
 SE_MobDie(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_MobDie");
 }
 
-///Á¦Á¶ ½ÃÀÛ
+///ì œì¡° ì‹œì‘
 void
 SE_StartMake(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_StartMake");
 }
-///Á¦·Ã ½ÃÀÛ
+///ì œë ¨ ì‹œì‘
 void
 SE_StartUpgrade(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_StartUpgrade");
 }
-/// Á¦Á¶ ¼º°ø
+/// ì œì¡° ì„±ê³µ
 void
 SE_SuccessMake(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_SuccessMake");
 }
-/// Á¦·Ã ¼º°ø
+/// ì œë ¨ ì„±ê³µ
 void
 SE_SuccessUpgrade(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_SuccessUpgrade");
 }
-/// ºĞ¸®/ºĞÇØ ¼º°ø
+/// ë¶„ë¦¬/ë¶„í•´ ì„±ê³µ
 void
 SE_SuccessSeparate(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_SuccessSeparate");
 }
-/// Á¦Á¶ ½ÇÆĞ
+/// ì œì¡° ì‹¤íŒ¨
 void
 SE_FailMake(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_FailMake");
 }
-///Á¦·Ã ½ÇÆĞ
+///ì œë ¨ ì‹¤íŒ¨
 void
 SE_FailUpgrade(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_FailUpgrade");
 }
 
-///½ºÅ³ ·¹º§¾÷
+///ìŠ¤í‚¬ ë ˆë²¨ì—…
 void
 SE_SkillLevelUp(int iObject) {
     int iResult = Call_Char_Lua_Func(iObject, "SE_SkillLevelUp");
@@ -361,7 +361,7 @@ GF_LogString(ZSTRING szMessage) {
 }
 
 /*
-·£´ı³Ñ¹ö Á¦³×·¹ÀÌÅÍ
+ëœë¤ë„˜ë²„ ì œë„¤ë ˆì´í„°
 */
 int
 GF_Random(int iMax) {
@@ -369,7 +369,7 @@ GF_Random(int iMax) {
 }
 
 //------------------------------------------------------------------------------------------------
-/// ³¯¾¾ ÀÌÆåÆ®
+/// ë‚ ì”¨ ì´í™íŠ¸
 //------------------------------------------------------------------------------------------------
 void
 SE_WeatherEffect(int iObject, int iWeatherType) {
@@ -386,7 +386,7 @@ SE_WeatherEffect(int iObject, int iWeatherType) {
 }
 
 //------------------------------------------------------------------------------------------------
-/// ÄÆ¾À Á¸°ü·Ã
+/// ì»·ì”¬ ì¡´ê´€ë ¨
 //------------------------------------------------------------------------------------------------
 int
 GF_ChangeState(int iNewState) {

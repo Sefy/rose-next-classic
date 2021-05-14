@@ -48,8 +48,8 @@
 
 #define INDEX_MONEY 0
 
-const int MAX_DROP_MONEY = 100000; ///µ·À» ¹Ù´Ú¿¡ ¹ö¸±°æ¿ì ÃÖ´ë 10¸¸±îÁö
-/// const	int	MAX_DROP_MONEY	= 100000000;///µ·À» ¹Ù´Ú¿¡ ¹ö¸±°æ¿ì ÃÖ´ë 10¸¸±îÁö
+const int MAX_DROP_MONEY = 100000; ///ëˆì„ ë°”ë‹¥ì— ë²„ë¦´ê²½ìš° ìµœëŒ€ 10ë§Œê¹Œì§€
+/// const	int	MAX_DROP_MONEY	= 100000000;///ëˆì„ ë°”ë‹¥ì— ë²„ë¦´ê²½ìš° ìµœëŒ€ 10ë§Œê¹Œì§€
 CInventoryDLG::CInventoryDLG(int iType) {
     m_nInvType = 0;
     POINT ptOffset;
@@ -57,45 +57,45 @@ CInventoryDLG::CInventoryDLG(int iType) {
     CTCommand* pCmd = NULL;
     m_pDragItem = new CDragItem;
 
-    ///Äü¹Ù·ÎÀÇ ÀÌµ¿
+    ///í€µë°”ë¡œì˜ ì´ë™
     pCmd = new CTCmdDragInven2QuickBar;
     m_pDragItem->AddTarget(DLG_TYPE_QUICKBAR, pCmd);
 
-    ///¸Å¸ÅÃ¢À¸·ÎÀÇ ÀÌµ¿
+    ///ë§¤ë§¤ì°½ìœ¼ë¡œì˜ ì´ë™
     CTCmdNumberInput* pNumberCmd = new CTCmdAddItem2DealFromInventory;
     CTCmdOpenNumberInputDlg* pOpenCmd = new CTCmdOpenNumberInputDlg;
     pOpenCmd->SetCommand(pNumberCmd);
     m_pDragItem->AddTarget(DLG_TYPE_DEAL, pOpenCmd);
 
-    ///±³È¯Ã¢À¸·Î ÀÌµ¿
+    ///êµí™˜ì°½ìœ¼ë¡œ ì´ë™
     pNumberCmd = new CTCmdAddMyItem2Exchange;
     pOpenCmd = new CTCmdOpenNumberInputDlg;
     pOpenCmd->SetCommand(pNumberCmd);
     m_pDragItem->AddTarget(DLG_TYPE_EXCHANGE, pOpenCmd);
 
-    ///»óÁ¡Ã¢À¸·Î ÀÌµ¿
+    ///ìƒì ì°½ìœ¼ë¡œ ì´ë™
     pNumberCmd = new CTCmdSellItem;
     pOpenCmd = new CTCmdOpenNumberInputDlg;
     pOpenCmd->SetCommand(pNumberCmd);
     m_pDragItem->AddTarget(DLG_TYPE_STORE, pOpenCmd);
 
-    ///¶¥À¸·Î µå¶ø
+    ///ë•…ìœ¼ë¡œ ë“œë
     pNumberCmd = new CTCmdDropItem;
     pOpenCmd = new CTCmdOpenNumberInputDlg;
     pOpenCmd->SetCommand(pNumberCmd);
     m_pDragItem->AddTarget(CDragItem::TARGET_GROUND, pOpenCmd);
 
-    /// Bank·Î ÀÌµ¿
+    /// Bankë¡œ ì´ë™
     pNumberCmd = new CTCmdMoveItemInv2Bank;
     pOpenCmd = new CTCmdOpenNumberInputDlg;
     pOpenCmd->SetCommand(pNumberCmd);
     m_pDragItem->AddTarget(DLG_TYPE_BANK, pOpenCmd);
 
-    ///Á¦Á¶Ã¢À¸·Î ÀÌµ¿
+    ///ì œì¡°ì°½ìœ¼ë¡œ ì´ë™
     pCmd = new CTCmdTakeInItem2MakeDlg;
     m_pDragItem->AddTarget(DLG_TYPE_MAKE, pCmd);
 
-    ///Ä³¸¯ÅÍ Ã¢À¸·ÎÀÇ ÀÌµ¿
+    ///ìºë¦­í„° ì°½ìœ¼ë¡œì˜ ì´ë™
     pCmd = new CTCmdDragItemEquipFromInven;
     m_pDragItem->AddTarget(DLG_TYPE_CHAR, pCmd);
 
@@ -111,7 +111,7 @@ CInventoryDLG::CInventoryDLG(int iType) {
     }
     SetDialogType(iType);
 
-    ///µ·Drop°ü·Ã command
+    ///ëˆDropê´€ë ¨ command
     m_pCmdDropMoney = new CTCmdDropMoney;
     m_pCmdAddMyMoney2Exchange = new CTCmdAddMyMoney2Exchange;
 }
@@ -135,14 +135,14 @@ CInventoryDLG::Draw() {
         m_ItemSlots[m_nInvType][i].Draw();
 }
 
-/// ¹«°Ô¿Í, ±İ Á¤º¸¸¦ Ãâ·ÂÇÑ´Ù.
+/// ë¬´ê²Œì™€, ê¸ˆ ì •ë³´ë¥¼ ì¶œë ¥í•œë‹¤.
 void
 CInventoryDLG::DrawWeightANDGold() {
     D3DXMATRIX mat;
     D3DXMatrixTranslation(&mat, (float)m_sPosition.x, (float)m_sPosition.y, 0.0f);
     ::setTransformSprite(mat);
 
-    /// ¹«°Ô Ç¥½Ã..
+    /// ë¬´ê²Œ í‘œì‹œ..
     RECT rt = {WEIGHT_INFO_X,
         WEIGHT_INFO_Y,
         WEIGHT_INFO_X + WEIGHT_INFO_WIDTH,
@@ -157,7 +157,7 @@ CInventoryDLG::DrawWeightANDGold() {
         g_pAVATAR->GetCur_WEIGHT(),
         g_pAVATAR->GetCur_MaxWEIGHT());
 
-    //µ·Ç¥½Ã
+    //ëˆí‘œì‹œ
     SetRect(&rt,
         GOLD_INFO_X,
         GOLD_INFO_Y,
@@ -177,7 +177,7 @@ unsigned int
 CInventoryDLG::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
     unsigned iProcID = 0;
     if (iProcID = CTDialog::Process(uiMsg, wParam, lParam)) {
-        /// SlotsÃ³¸®
+        /// Slotsì²˜ë¦¬
         for (int i = 0; i < INVENTORY_PAGE_SIZE; ++i) {
             if (m_ItemSlots[m_nInvType][i].Process(uiMsg, wParam, lParam))
                 return uiMsg;
@@ -215,7 +215,7 @@ CInventoryDLG::On_LButtonUP(unsigned iProcID, WPARAM wParam, LPARAM lParam) {
             m_nInvType = 2;
             UpdateSlotPosition(m_nInvType);
             return true;
-        /// ¸Ş¼¼ÁöÃ¢ ¶ç¿ì°í È®ÀÎ¿¡ ¼ıÀÚÀÔ·ÂÃ¢ ¶ç¿î´Ù.
+        /// ë©”ì„¸ì§€ì°½ ë„ìš°ê³  í™•ì¸ì— ìˆ«ìì…ë ¥ì°½ ë„ìš´ë‹¤.
         case INV_BTN_MONEY: {
             int iMaxDropMoney = 0;
 
@@ -249,7 +249,7 @@ CInventoryDLG::On_LButtonUP(unsigned iProcID, WPARAM wParam, LPARAM lParam) {
 // *------------------------------------------------------------------------* //
 // Check function
 
-/// ¾ÆÀÌÅÛ »ç¿ë¿ä±¸¸¦ ¸¸Á·½ÃÅ°´Â°¡?
+/// ì•„ì´í…œ ì‚¬ìš©ìš”êµ¬ë¥¼ ë§Œì¡±ì‹œí‚¤ëŠ”ê°€?
 /*
 bool CInventoryDLG::CheckBUseItem( short nSelectNo )
 {
@@ -258,8 +258,8 @@ bool CInventoryDLG::CheckBUseItem( short nSelectNo )
 */
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 /// 2003 / 12 /24 / Navy
-/// ÆÇ¸Å¸ñ·Ï¿¡ µî·ÏµÈ ¾ÆÀÌÅÛÀº »ç¿ë¹× ÀåÂøÀ» ¸·´Â´Ù.
-/// ¾ÆÀÌÅÛ »ç¿ë..
+/// íŒë§¤ëª©ë¡ì— ë“±ë¡ëœ ì•„ì´í…œì€ ì‚¬ìš©ë° ì¥ì°©ì„ ë§‰ëŠ”ë‹¤.
+/// ì•„ì´í…œ ì‚¬ìš©..
 /*
 bool CInventoryDLG::UseItem( short nRealIndex )
 {
@@ -283,12 +283,12 @@ CChatDLG::CHAT_TYPE_SYSTEM);
     }
     switch( nItemType )
     {
-        case 0://ÀåºñÅÇ
+        case 0://ì¥ë¹„íƒ­
             {
                 if( g_itMGR.IsQualityItemInTradeList( nRealIndex ) )
                     break;
-                //¾ÆÀÌÅÛÀ» Ä³¸¯ÅÍÃ¢À¸·Î ...
-                //ÇöÀç ¼±ÅÃ¾ÆÀÌÅÛÀ» µî·ÏÇÏ°í µî·ÏµÈ ¾ÆÀÌÅÛÀ» °¡Á®¿Â´Ù ....
+                //ì•„ì´í…œì„ ìºë¦­í„°ì°½ìœ¼ë¡œ ...
+                //í˜„ì¬ ì„ íƒì•„ì´í…œì„ ë“±ë¡í•˜ê³  ë“±ë¡ëœ ì•„ì´í…œì„ ê°€ì ¸ì˜¨ë‹¤ ....
                 /// drag entity setting
                 tagDragItem dragEntity;
                 dragEntity.m_DragItem = sITEM;
@@ -299,9 +299,9 @@ CChatDLG::CHAT_TYPE_SYSTEM);
                 break;
             }
             break;
-        case 1://¼Ò¸ğÅÇ
+        case 1://ì†Œëª¨íƒ­
             {
-                /// ¹Ù·Î ¼Ò¸ğÇÑ´Ù..¹°·Ğ Å×½ºÆ®ÈÄ..
+                /// ë°”ë¡œ ì†Œëª¨í•œë‹¤..ë¬¼ë¡  í…ŒìŠ¤íŠ¸í›„..
                 if( CheckBUseItem( nRealIndex ) )
                 {
                     if( g_itMGR.IsQuantityItemInTradeList( nRealIndex ) )
@@ -309,20 +309,20 @@ CChatDLG::CHAT_TYPE_SYSTEM);
 
                     switch( ITEM_TYPE( sITEM.GetTYPE(), sITEM.GetItemNO() ) )
                     {
-                        /// ¸¶¹ıÃ¥
+                        /// ë§ˆë²•ì±…
                         case 314:
                             {
-                                /// 2004 / 2 / 11 : nAvy - »ç¿ë¾ÆÀÌÅÛÀÌ¶ó´Â Á¶°Ç¾Æ·¡
+                                /// 2004 / 2 / 11 : nAvy - ì‚¬ìš©ì•„ì´í…œì´ë¼ëŠ” ì¡°ê±´ì•„ë˜
                                 ///BYTE btT = g_pAVATAR->Skill_LearnCondition(
    USEITEM_NEED_DATA_TYPE( sITEM.GetItemNO()) );
 
                                 ///
-                                /// @todo ½ºÅ³À» ¹è¿ï¼ö ¾ø½À´Ï´Ù. °ü·Ã Ã³¸®...
+                                /// @todo ìŠ¤í‚¬ì„ ë°°ìš¸ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ê´€ë ¨ ì²˜ë¦¬...
                                 ///
                             }
                             break;
 
-                        /// ½ºÅ©·Ñ ¸¶¹ı
+                        /// ìŠ¤í¬ë¡¤ ë§ˆë²•
                         case 313:
                             {
                                 int iSkillIDX		= USEITEM_SCROLL_USE_SKILL( sITEM.GetItemNO() );
@@ -338,16 +338,16 @@ CChatDLG::CHAT_TYPE_SYSTEM);
                             break;
                     }
 
-                    //»ç¿ë?
+                    //ì‚¬ìš©?
                     if ( g_pNet->Send_cli_USE_ITEM( nRealIndex ) )
                         g_pSoundLIST->IDX_PlaySound( USEITEM_USE_SOUND( m_pInventory->m_ItemLIST[
    nRealIndex ].m_nItemNo_1 )  );
                 }
                 break;
             }
-        case 2://±âÅ¸ÅÇ
+        case 2://ê¸°íƒ€íƒ­
             {
-                ///°Å·¡³ª ±³È¯½Ã ´Ù¸¥°÷¿¡¼­ »ç¿ëµÇ´Â ¾ÆÀÌÅÛÀÏ°æ¿ì µ¿ÀÛµÇ¸é ¾ÈµÈ´Ù.
+                ///ê±°ë˜ë‚˜ êµí™˜ì‹œ ë‹¤ë¥¸ê³³ì—ì„œ ì‚¬ìš©ë˜ëŠ” ì•„ì´í…œì¼ê²½ìš° ë™ì‘ë˜ë©´ ì•ˆëœë‹¤.
                 if( g_itMGR.IsQuantityItemInTradeList( nRealIndex ) )
                     break;
 
@@ -355,7 +355,7 @@ CChatDLG::CHAT_TYPE_SYSTEM);
                 if( sITEM.GetTYPE() == ITEM_TYPE_NATURAL  )
                 {
                     CMakeDLG* pDlg = (CMakeDLG*)g_itMGR.FindDlg( DLG_TYPE_MAKE );
-                    if( pDlg && pDlg->IsVision() )///Á¦Á¶Ã¢ÀÌ ¿­·Á ÀÖ´Âµ¿¾È¿¡´Â ¼Ò¸ğÅº ÀåÂøºÒ°¡
+                    if( pDlg && pDlg->IsVision() )///ì œì¡°ì°½ì´ ì—´ë ¤ ìˆëŠ”ë™ì•ˆì—ëŠ” ì†Œëª¨íƒ„ ì¥ì°©ë¶ˆê°€
                     {
                         CTCmdTakeInItem2MakeDlg* pCmd = new CTCmdTakeInItem2MakeDlg( nRealIndex );
                         /*
@@ -387,11 +387,11 @@ CChatDLG::CHAT_TYPE_SYSTEM);
     return true;
 }
 
-///Profile¿¡ ÀúÀåµÈ °¡»óÀÎº¥Åä¸®°¡ ÀÖ´Ù¸é ±×°ÍÀ» °¡Á®¿Í¼­ SettingÇÑ´Ù.
+///Profileì— ì €ì¥ëœ ê°€ìƒì¸ë²¤í† ë¦¬ê°€ ìˆë‹¤ë©´ ê·¸ê²ƒì„ ê°€ì ¸ì™€ì„œ Settingí•œë‹¤.
 void CInventoryDLG::CreateVirtualInventory()
 {
     POINT			ptDraw;
-    ///ÀÏ´Ü ½ÇÁ¦ ÀÎº¥Åä¸®·ÎºÎÅÍ °¡»óÀÎº¥Åä¸®¸¦ ¸¸µç´Ù.
+    ///ì¼ë‹¨ ì‹¤ì œ ì¸ë²¤í† ë¦¬ë¡œë¶€í„° ê°€ìƒì¸ë²¤í† ë¦¬ë¥¼ ë§Œë“ ë‹¤.
     for( int iType = 0; iType < MAX_INV_TYPE; ++iType )
     {
         for( int iSlotIdx = 0; iSlotIdx < INVENTORY_PAGE_SIZE; ++iSlotIdx )
@@ -411,7 +411,7 @@ void CInventoryDLG::CreateVirtualInventory()
         }
     }
 
-    ///ÀúÀåµÇ¾î ÀÖ´ø °¡»ó ÀÎº¥Åä¸®Å×ÀÌºí°ú ºñ±³ÇØ¼­ Àç±¸¼ºÇÑ´Ù.
+    ///ì €ì¥ë˜ì–´ ìˆë˜ ê°€ìƒ ì¸ë²¤í† ë¦¬í…Œì´ë¸”ê³¼ ë¹„êµí•´ì„œ ì¬êµ¬ì„±í•œë‹¤.
     short nRealInvenIdx = 0;
     short nSlotIdx      = 0;
     for( int iType = 0; iType < MAX_INV_TYPE; ++iType )
@@ -558,7 +558,7 @@ CInventoryDLG::MoveWindow(POINT ptMouse) {
 //	CIconInvenItem InvenIcon;
 //	POINT	ptDraw;
 ///*
-//	///½ÇÁ¦ ÀÎº¥Åä¸®ÀÖ´Â ¾ÆÀÌÅÛÁß °¡»ó ÀÎº¥Åä¸®¿¡ ¾ø´Â ¾ÆÀÌÅÛÀ» Ãß°¡ÇÑ´Ù.
+//	///ì‹¤ì œ ì¸ë²¤í† ë¦¬ìˆëŠ” ì•„ì´í…œì¤‘ ê°€ìƒ ì¸ë²¤í† ë¦¬ì— ì—†ëŠ” ì•„ì´í…œì„ ì¶”ê°€í•œë‹¤.
 //	for( iTypeIndex = 0; iTypeIndex < MAX_INV_TYPE; ++iTypeIndex )
 //	{
 //		for( iRealSlotIndex = 0; iRealSlotIndex < INVENTORY_PAGE_SIZE; ++iRealSlotIndex )
@@ -583,7 +583,7 @@ CInventoryDLG::MoveWindow(POINT ptMouse) {
 //					}
 //				}
 //
-//				if( iVirtualSlotIndex == INVENTORY_PAGE_SIZE )///Ã£Áö ¸øÇÑ°æ¿ì
+//				if( iVirtualSlotIndex == INVENTORY_PAGE_SIZE )///ì°¾ì§€ ëª»í•œê²½ìš°
 //				{
 //					iEmptySlotIdx = GetVirtualEmptySlot( iTypeIndex );
 //					if( iEmptySlotIdx >= 0 && iEmptySlotIdx < INVENTORY_PAGE_SIZE )
@@ -604,8 +604,8 @@ CInventoryDLG::MoveWindow(POINT ptMouse) {
 //		}
 //	}
 //
-//	/// °¡»ó ÀÎº¥Åä¸®¿¡¼­ ½ÇÁ¦ ÀÎº¥Åä¸®¿¡ ¾ø´Â ¾ÆÀÌÅÛÀ» »«´Ù.
-//	/// Update½Ã¿¡ ½ÇÁ¦ ÀÎº¥Åä¸®¿¡ ¾ø´Ù¸é Clear°¡ µÇÁö¸¸ ÇÑ¹ø´õ »©ÁØ´Ù.
+//	/// ê°€ìƒ ì¸ë²¤í† ë¦¬ì—ì„œ ì‹¤ì œ ì¸ë²¤í† ë¦¬ì— ì—†ëŠ” ì•„ì´í…œì„ ëº€ë‹¤.
+//	/// Updateì‹œì— ì‹¤ì œ ì¸ë²¤í† ë¦¬ì— ì—†ë‹¤ë©´ Clearê°€ ë˜ì§€ë§Œ í•œë²ˆë” ë¹¼ì¤€ë‹¤.
 //	for( iTypeIndex = 0; iTypeIndex < MAX_INV_TYPE; ++iTypeIndex )
 //	{
 //		for( iVirtualSlotIndex = 0; iVirtualSlotIndex < INVENTORY_PAGE_SIZE; ++iVirtualSlotIndex )
@@ -751,8 +751,8 @@ CInventoryDLG::FindItem(int iClass) {
 //		assert( 0 && "CTEvent is NULL or Invalid Type @CInventoryDlg::Update" );
 //	}
 //}
-/// ¼±ÅÃµÈ ¾ÆÀÌÅÛÀ» ¾ò¾î¿Â´Ù. ½ÇÁ¦ ¾ÆÀÌÅÛ..
-/// IDX_GetITEM(, , ) ÆÄ¶ó¹ÌÅÍ ¼¼°³Â¥¸®´Â ³»ºÎÀûÀ¸·Î µÎ°³Â¥¸® È£Ãâ..½ÇÁ¦ ¾ÆÀÌÅÛÀ» ¾ò¾î¿Â´Ù.
+/// ì„ íƒëœ ì•„ì´í…œì„ ì–»ì–´ì˜¨ë‹¤. ì‹¤ì œ ì•„ì´í…œ..
+/// IDX_GetITEM(, , ) íŒŒë¼ë¯¸í„° ì„¸ê°œì§œë¦¬ëŠ” ë‚´ë¶€ì ìœ¼ë¡œ ë‘ê°œì§œë¦¬ í˜¸ì¶œ..ì‹¤ì œ ì•„ì´í…œì„ ì–»ì–´ì˜¨ë‹¤.
 /*
 short CInventoryDLG::GetMouse_PointITEM(tagITEM& sITEM, POINT ptPoint )
 {

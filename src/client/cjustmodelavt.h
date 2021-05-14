@@ -27,7 +27,7 @@ private:
     union {
         HNODE* m_phPartVIS[MAX_BODY_PART];
         struct {
-            // ¼ø¼­´Â t_CharPART¿¡ µû¶ó¼­...
+            // ìˆœì„œëŠ” t_CharPARTì— ë”°ë¼ì„œ...
             HNODE* m_phFaceVIS;
             HNODE* m_phHairVIS;
             HNODE* m_phHelmetVIS;
@@ -48,7 +48,7 @@ private:
     union {
         int m_nPartItemIDX[MAX_BODY_PART];
         struct {
-            // ¼ø¼­´Â t_CharPART¿¡ µû¶ó¼­...
+            // ìˆœì„œëŠ” t_CharPARTì— ë”°ë¼ì„œ...
             int m_nFaceIDX;
             int m_nHairIDX;
             int m_nHelmetIDX;
@@ -65,7 +65,7 @@ private:
         };
     };
 
-    /// ½ÇÁ¦ Ä³¸¯ÅÍ ÆÄÆ® Á¤º¸( ModelMerger ·ÎºÎÅÍ »ı¼ºµÈ µ¥ÀÌÅÍ )
+    /// ì‹¤ì œ ìºë¦­í„° íŒŒíŠ¸ ì •ë³´( ModelMerger ë¡œë¶€í„° ìƒì„±ëœ ë°ì´í„° )
     CCharMODEL m_CharMODEL;
     bool m_bIsVisible;
 
@@ -92,7 +92,7 @@ public:
         int iBODY_PART_BOOTS = 0,
         int iBODY_PART_FACE_ITEM = 0, // 6 link to dummy
         int iBODY_PART_KNAPSACK = 0,
-        // ¿À¸¥¼Õ, ¿Ş¼Õ ¼ø¼­ ÁÖÀÇ !!!
+        // ì˜¤ë¥¸ì†, ì™¼ì† ìˆœì„œ ì£¼ì˜ !!!
         int iBODY_PART_WEAPON_R = 0, // 8 link to dummy
         int iBODY_PART_WEAPON_L = 0);
 

@@ -46,7 +46,7 @@ CPrivateStore::GetInstance() {
     return s_Instance;
 }
 //*---------------------------------------------------------------------------//
-/// @brief ÆÇ¸ÅÇÏ°íÀÚ ÇÏ´Â ¹°Ç°À» µî·ÏÇÑ´Ù.ÀÎº¥Åä¸®·ÎºÎÅÍ
+/// @brief íŒë§¤í•˜ê³ ìž í•˜ëŠ” ë¬¼í’ˆì„ ë“±ë¡í•œë‹¤.ì¸ë²¤í† ë¦¬ë¡œë¶€í„°
 //*---------------------------------------------------------------------------//
 void
 CPrivateStore::AddItemSellList(CItem* pItem, int iQuantity, int iPrice) {
@@ -95,7 +95,7 @@ public:
     };
 };
 
-// 20050728 È«±Ù °³ÀÎ »óÁ¡ °Å·¡ ¹ö±×
+// 20050728 í™ê·¼ ê°œì¸ ìƒì  ê±°ëž˜ ë²„ê·¸
 void
 CPrivateStore::SortItemSellList() {
 
@@ -110,7 +110,7 @@ CPrivateStore::SortItemSellList() {
 
 //*---------------------------------------------------------------------------//
 /// @param iIndex - Inventory Index
-/// @brief ÆÇ¸Å¸®½ºÆ®¿¡¼­ Æ¯Á¤ ¹°Ç°À» »«´Ù
+/// @brief íŒë§¤ë¦¬ìŠ¤íŠ¸ì—ì„œ íŠ¹ì • ë¬¼í’ˆì„ ëº€ë‹¤
 //*---------------------------------------------------------------------------//
 void
 CPrivateStore::RemoveItemSellList(int iIndex) {
@@ -140,7 +140,7 @@ CPrivateStore::RemoveItemSellList(int iIndex) {
 }
 //*---------------------------------------------------------------------------//
 /// @param iIndex - Slot Index
-/// @brief ÆÇ¸Å¸®½ºÆ®¿¡¼­ Æ¯Á¤ ¹°Ç°À» ¸®ÅÏÇÑ´Ù.
+/// @brief íŒë§¤ë¦¬ìŠ¤íŠ¸ì—ì„œ íŠ¹ì • ë¬¼í’ˆì„ ë¦¬í„´í•œë‹¤.
 //*---------------------------------------------------------------------------//
 CItem*
 CPrivateStore::GetItemSellList(int iIndex) {
@@ -149,9 +149,9 @@ CPrivateStore::GetItemSellList(int iIndex) {
     return NULL;
 }
 //*---------------------------------------------------------------------------//
-/// @param iIndex    - WishListÀÇ Index
-/// @param iUnitCost - ´Ü°¡
-/// @brief Âò¸ñ·Ï¿¡¼­ ½ÇÁ¦ ±¸ÀÔ¸®½ºÆ®¿¡ Ãß°¡ÇÑ´Ù
+/// @param iIndex    - WishListì˜ Index
+/// @param iUnitCost - ë‹¨ê°€
+/// @brief ì°œëª©ë¡ì—ì„œ ì‹¤ì œ êµ¬ìž…ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•œë‹¤
 //*---------------------------------------------------------------------------//
 void
 CPrivateStore::AddItemBuyList(int iIndex, int iUnitCost, int iQuantity) {
@@ -180,8 +180,8 @@ CPrivateStore::AddItemBuyList(int iIndex, int iUnitCost, int iQuantity) {
     }
 }
 //*---------------------------------------------------------------------------//
-/// @param iIndex    - WishListÀÇ Index
-/// @brief ±¸ÀÔ¸®½ºÆ®¿¡¼­ ÇØ´ç IndexÀÇ ItemÀ» »«´Ù.
+/// @param iIndex    - WishListì˜ Index
+/// @brief êµ¬ìž…ë¦¬ìŠ¤íŠ¸ì—ì„œ í•´ë‹¹ Indexì˜ Itemì„ ëº€ë‹¤.
 //*---------------------------------------------------------------------------//
 void
 CPrivateStore::RemoveItemBuyList(int iIndex) {
@@ -213,7 +213,7 @@ CPrivateStore::RemoveItemBuyList(int iIndex) {
 
 ////*---------------------------------------------------------------------------//
 ///// @param iIndex - Slot Index
-///// @brief ±¸ÀÔ¸®½ºÆ®¿¡¼­ Æ¯Á¤ ¹°Ç°À» ¸®ÅÏÇÑ´Ù.
+///// @brief êµ¬ìž…ë¦¬ìŠ¤íŠ¸ì—ì„œ íŠ¹ì • ë¬¼í’ˆì„ ë¦¬í„´í•œë‹¤.
 ////*---------------------------------------------------------------------------//
 // CItem*	CPrivateStore::GetItemBuyList( int iIndex )
 //{
@@ -223,8 +223,8 @@ CPrivateStore::RemoveItemBuyList(int iIndex) {
 //	return NULL;
 //}
 //*---------------------------------------------------------------------------//
-/// @param bSendPacket    - ¼­¹ö¿¡ Ãß°¡»çÇ×À» ¾Ë·ÁÁÖ´Â°¡?
-/// @brief Âò¸®½ºÆ®¿¡ Æ¯Á¤ itemÀ» Ãß°¡ÇÑ´Ù.
+/// @param bSendPacket    - ì„œë²„ì— ì¶”ê°€ì‚¬í•­ì„ ì•Œë ¤ì£¼ëŠ”ê°€?
+/// @brief ì°œë¦¬ìŠ¤íŠ¸ì— íŠ¹ì • itemì„ ì¶”ê°€í•œë‹¤.
 //*---------------------------------------------------------------------------//
 void
 CPrivateStore::AddItemWishList(tagITEM& Item, bool bSendPacket, int iSlotIndex) {
@@ -297,7 +297,7 @@ CPrivateStore::AddItemWishList(tagITEM& Item, bool bSendPacket, int iSlotIndex) 
 }
 //*---------------------------------------------------------------------------//
 /// @param iIndex	- WishList Index
-/// @brief Âò¸®½ºÆ®¿¡¼­ Æ¯Á¤ ItemÀ» »«´Ù.
+/// @brief ì°œë¦¬ìŠ¤íŠ¸ì—ì„œ íŠ¹ì • Itemì„ ëº€ë‹¤.
 //*---------------------------------------------------------------------------//
 void
 CPrivateStore::RemoveItemWishList(int iIndex) {
@@ -328,7 +328,7 @@ CPrivateStore::RemoveItemWishList(int iIndex) {
     }
 }
 //*---------------------------------------------------------------------------//
-/// @brief ÆÇ¸Å¸®½ºÆ®¸¦ ¸ðµÎ Áö¿î´Ù.
+/// @brief íŒë§¤ë¦¬ìŠ¤íŠ¸ë¥¼ ëª¨ë‘ ì§€ìš´ë‹¤.
 //*---------------------------------------------------------------------------//
 void
 CPrivateStore::ClearSellList() {
@@ -344,7 +344,7 @@ CPrivateStore::ClearSellList() {
     }
 }
 //*---------------------------------------------------------------------------//
-/// @brief ±¸ÀÔ¸®½ºÆ®¸¦ ¸ðµÎ Áö¿î´Ù.
+/// @brief êµ¬ìž…ë¦¬ìŠ¤íŠ¸ë¥¼ ëª¨ë‘ ì§€ìš´ë‹¤.
 //*---------------------------------------------------------------------------//
 void
 CPrivateStore::ClearBuyList() {
@@ -359,7 +359,7 @@ CPrivateStore::ClearBuyList() {
 }
 
 //*---------------------------------------------------------------------------//
-/// @brief °³ÀÎ»óÁ¡À» ¿¬´Ù
+/// @brief ê°œì¸ìƒì ì„ ì—°ë‹¤
 //*---------------------------------------------------------------------------//
 bool
 CPrivateStore::Open() {
@@ -367,7 +367,7 @@ CPrivateStore::Open() {
         return false;
 
     //---------------------------------------------------------------------------------
-    /// PVPÁ¸¿¡¼­´Â °³ÀÎ»óÁ¡ °³¼³ ±ÝÁö.
+    /// PVPì¡´ì—ì„œëŠ” ê°œì¸ìƒì  ê°œì„¤ ê¸ˆì§€.
     //---------------------------------------------------------------------------------
     if (g_pTerrain->is_pvp_zone()) {
         g_itMGR.AppendChatMsg(STR_CANT_OPEN_PRIVATESTORE, IT_MGR::CHAT_TYPE_SYSTEM);
@@ -375,7 +375,7 @@ CPrivateStore::Open() {
     }
 
     //---------------------------------------------------------------------------------
-    /// PET ¸ðµå ¿¡¼­´Â °³ÀÎ»óÁ¡ °³¼³ ±ÝÁö.
+    /// PET ëª¨ë“œ ì—ì„œëŠ” ê°œì¸ìƒì  ê°œì„¤ ê¸ˆì§€.
     //---------------------------------------------------------------------------------
     if (g_pAVATAR->GetPetMode() >= 0) {
         g_itMGR.AppendChatMsg(STR_CANT_OPEN_PRIVATESTORE, IT_MGR::CHAT_TYPE_SYSTEM);
@@ -387,7 +387,7 @@ CPrivateStore::Open() {
         return false;
     }
 
-    /// CItemSlot¿¡ Observer·Î µî·Ï
+    /// CItemSlotì— Observerë¡œ ë“±ë¡
     if (m_strTitle.empty())
         m_strTitle = STR_PRIVATESTORE;
 
@@ -448,7 +448,7 @@ CPrivateStore::Open() {
 }
 
 //*---------------------------------------------------------------------------//
-/// @brief °³ÀÎ»óÁ¡À» Áß´ÜÇÑ´Ù
+/// @brief ê°œì¸ìƒì ì„ ì¤‘ë‹¨í•œë‹¤
 //*---------------------------------------------------------------------------//
 void
 CPrivateStore::Close() {
@@ -457,7 +457,7 @@ CPrivateStore::Close() {
 }
 
 //*---------------------------------------------------------------------------//
-/// @brief °³ÀÎ»óÁ¡À» Áß´ÜÇÑ´Ù(UI°¡ ¾Æ´Ñ´Ù)
+/// @brief ê°œì¸ìƒì ì„ ì¤‘ë‹¨í•œë‹¤(UIê°€ ì•„ë‹Œë‹¤)
 //*---------------------------------------------------------------------------//
 void
 CPrivateStore::Update(CObservable* pObservable, CTObject* pObj) {
@@ -469,7 +469,7 @@ CPrivateStore::Update(CObservable* pObservable, CTObject* pObj) {
     }
 
     CTEventItem* pEvent = (CTEventItem*)pObj;
-    if (pEvent->GetID() == CTEventItem::EID_DEL_ITEM) ///¾ÆÀÌÅÛÀÌ »èÁ¦µÇ¾úÀ»°æ¿ì
+    if (pEvent->GetID() == CTEventItem::EID_DEL_ITEM) ///ì•„ì´í…œì´ ì‚­ì œë˜ì—ˆì„ê²½ìš°
     {
         std::vector<CItemFragment*>::iterator iter;
         CItemFragment* pFragmentItem;
@@ -524,7 +524,7 @@ CPrivateStore::UpdateBuyList(tagPS_SLOT_ITEM& SlotITEM) {
     for (iter = m_BuyItems.begin(); iter != m_BuyItems.end(); ++iter) {
         pFragmentItem = *iter;
         if (pFragmentItem->GetIndex() == SlotITEM.m_btSLOT) {
-            if (SlotITEM.m_SlotITEM.IsEmpty()) ///´Ù ÆÈ·È´Ù.
+            if (SlotITEM.m_SlotITEM.IsEmpty()) ///ë‹¤ íŒ”ë ¸ë‹¤.
             {
                 CTEventPrivateStore Event;
 
@@ -541,7 +541,7 @@ CPrivateStore::UpdateBuyList(tagPS_SLOT_ITEM& SlotITEM) {
                 if (SlotITEM.m_SlotITEM.IsEnableDupCNT()) {
                     pFragmentItem->SetQuantity(SlotITEM.m_SlotITEM.GetQuantity());
                 } else {
-                    assert(0 && "¼ö·®ÀÌ ¾ø´Â ¾ÆÀÌÅÛÀ» ¾÷µ¥ÀÌÆ® ÇÏ·Á°íÇÑ´Ù");
+                    assert(0 && "ìˆ˜ëŸ‰ì´ ì—†ëŠ” ì•„ì´í…œì„ ì—…ë°ì´íŠ¸ í•˜ë ¤ê³ í•œë‹¤");
                 }
             }
             break;
@@ -554,12 +554,12 @@ CPrivateStore::UpdateSellList(tagPS_SLOT_ITEM& SlotITEM) {
     assert(SlotITEM.m_btSLOT >= 0 && SlotITEM.m_btSLOT < m_SellItems.size());
     if (SlotITEM.m_btSLOT >= 0 && SlotITEM.m_btSLOT < m_SellItems.size()) {
         CItemFragment* pFragmentItem = m_SellItems[SlotITEM.m_btSLOT];
-        if (pFragmentItem) ///¼­¹ö¿¡¼­ Recv_gsv_P_STORE_MONEYnINVÀ» ¸ÕÀú ¹Þ¾ÒÀ»°æ¿ì »èÁ¦µÇ¾úÀ»¼ö
-                           ///ÀÖ´Ù
+        if (pFragmentItem) ///ì„œë²„ì—ì„œ Recv_gsv_P_STORE_MONEYnINVì„ ë¨¼ì € ë°›ì•˜ì„ê²½ìš° ì‚­ì œë˜ì—ˆì„ìˆ˜
+                           ///ìžˆë‹¤
         {
             CItemSlot* pItemSlot = g_pAVATAR->GetItemSlot();
             int iInvenIndex = pFragmentItem->GetIndex();
-            if (SlotITEM.m_SlotITEM.IsEmpty()) ///´Ù ÆÈ·È´Ù.
+            if (SlotITEM.m_SlotITEM.IsEmpty()) ///ë‹¤ íŒ”ë ¸ë‹¤.
             {
                 CTEventPrivateStore Event;
 
@@ -572,7 +572,7 @@ CPrivateStore::UpdateSellList(tagPS_SLOT_ITEM& SlotITEM) {
                 delete pFragmentItem;
                 m_SellItems[SlotITEM.m_btSLOT] = NULL;
 
-            } else ///¸î°³¸¸ ÆÈ·È´Ù.
+            } else ///ëª‡ê°œë§Œ íŒ”ë ¸ë‹¤.
             {
                 if (SlotITEM.m_SlotITEM.IsEnableDupCNT()) {
                     // int iSubQuantity = pFragmentItem->GetQuantity() -
@@ -580,9 +580,9 @@ CPrivateStore::UpdateSellList(tagPS_SLOT_ITEM& SlotITEM) {
                     pFragmentItem->SetQuantity(SlotITEM.m_SlotITEM.GetQuantity());
                     /*		CItem* pItem = pFragmentItem->GetInnerCItem();
                             pItem->SubQuantity( iSubQuantity );*/
-                    ///ÀÎº¥Åä¸®¿¡¼­ ÇØ´ç°³¼ö¸¸Å­ »èÁ¦
+                    ///ì¸ë²¤í† ë¦¬ì—ì„œ í•´ë‹¹ê°œìˆ˜ë§Œí¼ ì‚­ì œ
                 } else {
-                    assert(0 && "¼ö·®ÀÌ ¾ø´Â ¾ÆÀÌÅÛÀ» ¾÷µ¥ÀÌÆ® ÇÏ·Á°íÇÑ´Ù");
+                    assert(0 && "ìˆ˜ëŸ‰ì´ ì—†ëŠ” ì•„ì´í…œì„ ì—…ë°ì´íŠ¸ í•˜ë ¤ê³ í•œë‹¤");
                 }
             }
         }

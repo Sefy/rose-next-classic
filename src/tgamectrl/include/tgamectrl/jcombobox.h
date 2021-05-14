@@ -10,9 +10,9 @@ class ITFont;
 class CTObject;
 
 //------------------------------------------------------------------------------------------------------------------------
-///	ÄŞº¸ ¹Ú½º Class - CTComboBoxÀÇ °³·®ÆÇ( ±â´ÉÀûÀ¸·Î Å©°Ô ´Ù¸¥Á¡Àº ¾ø´Ù );
+///	ì½¤ë³´ ë°•ìŠ¤ Class - CTComboBoxì˜ ê°œëŸ‰íŒ( ê¸°ëŠ¥ì ìœ¼ë¡œ í¬ê²Œ ë‹¤ë¥¸ì ì€ ì—†ë‹¤ );
 ///
-/// @Author				ÃÖÁ¾Áø
+/// @Author				ìµœì¢…ì§„
 ///
 /// @Date				2005/08/23
 //------------------------------------------------------------------------------------------------------------------------
@@ -31,37 +31,37 @@ public:
     virtual void SetOffset(POINT pt);
     virtual void MoveWindow(POINT pt);
     virtual void
-    OwnerDraw(); /// Æ¯Á¤ÇÑ »óÈ²¿¡ Á¦ÀÏ ¸¶Áö¸·¿¡ µå¶ø¹Ú½º¸¦ ±×¸®±â À§ÇÏ¿© DrawºÎºĞÀÌ ±¸ºĞµÇ¾îÀÖ´Ù
-                 /// ´Ù¸¥ WinCtrlÀÌ µÚ¿¡ ±×·ÁÁø´Ù¸é µå¶ø¹Ú½º°¡ µÚ¿¡ °¨ÃçÁö´Â »óÈ²
+    OwnerDraw(); /// íŠ¹ì •í•œ ìƒí™©ì— ì œì¼ ë§ˆì§€ë§‰ì— ë“œëë°•ìŠ¤ë¥¼ ê·¸ë¦¬ê¸° ìœ„í•˜ì—¬ Drawë¶€ë¶„ì´ êµ¬ë¶„ë˜ì–´ìˆë‹¤
+                 /// ë‹¤ë¥¸ WinCtrlì´ ë’¤ì— ê·¸ë ¤ì§„ë‹¤ë©´ ë“œëë°•ìŠ¤ê°€ ë’¤ì— ê°ì¶°ì§€ëŠ” ìƒí™©
 
     bool Create(int iScrX, int iScrY, int iWidth, int iHeight);
 
-    void SetButton(CTButton* pButton); /// µå¶ø¹Ú½º ¹öÆ° Set
+    void SetButton(CTButton* pButton); /// ë“œëë°•ìŠ¤ ë²„íŠ¼ Set
     void SetImage(CTImage* pTop,
         CTImage* pMiddle,
-        CTImage* pBottom); /// µå¶ø¹Ú½º¸¦ ±×¸± ÀÌ¹ÌÁö(3ºÎºĞ)¸¦ Set
-    void SetListBox(CJListBox* pListBox); /// ¾ÆÀÌÅÛµéÀ» º¸°üÇÒ JListBox¸¦ Set
+        CTImage* pBottom); /// ë“œëë°•ìŠ¤ë¥¼ ê·¸ë¦´ ì´ë¯¸ì§€(3ë¶€ë¶„)ë¥¼ Set
+    void SetListBox(CJListBox* pListBox); /// ì•„ì´í…œë“¤ì„ ë³´ê´€í•  JListBoxë¥¼ Set
 
-    void AddItem(CTObject* pItem); /// µå¶ø¹Ú½º¿¡ ¾ÆÀÌÅÛÀ» Ãß°¡
-    void SelectItem(unsigned iSubscript); /// ÇØ´ç ÀÎµ¦½ºÀÇ ¾ÆÀÌÅÛÀ» ¼±ÅÃ
-    unsigned GetSelectedItemIndex(); /// ÇöÀç ¼±ÅÃµÈ ¾ÆÀÌÅÛÀÇ ÀÎµ¦½º ¸®ÅÏ
+    void AddItem(CTObject* pItem); /// ë“œëë°•ìŠ¤ì— ì•„ì´í…œì„ ì¶”ê°€
+    void SelectItem(unsigned iSubscript); /// í•´ë‹¹ ì¸ë±ìŠ¤ì˜ ì•„ì´í…œì„ ì„ íƒ
+    unsigned GetSelectedItemIndex(); /// í˜„ì¬ ì„ íƒëœ ì•„ì´í…œì˜ ì¸ë±ìŠ¤ ë¦¬í„´
 
-    CJListBox* GetListBoxPtr(); /// µå¶ø¹Ú½º¿¡¼­ ¾ÆÀÌÅÛÀ» º¸°üÇÏ´Â ¸®½ºÆ®¹Ú½ºÀÇ Æ÷ÀÎÅÍ ¸®ÅÏ
-    const CTObject* GetSelectedItem(); /// ÇöÀç ¼±ÅÃµÇ¾îÁø ¾ÆÀÌÅÛÀ» ±¸ÇÑ´Ù.
+    CJListBox* GetListBoxPtr(); /// ë“œëë°•ìŠ¤ì—ì„œ ì•„ì´í…œì„ ë³´ê´€í•˜ëŠ” ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ì˜ í¬ì¸í„° ë¦¬í„´
+    const CTObject* GetSelectedItem(); /// í˜„ì¬ ì„ íƒë˜ì–´ì§„ ì•„ì´í…œì„ êµ¬í•œë‹¤.
 
-    bool IsShowDropBox(); /// ÇöÀç µå¶ø¹Ú½º¸¦ ±×·Á¾ß ÇÏ´Â°¡?
-    void DrawDropBoxImage(); /// 3ºÎºĞÀ¸·Î ³ª´©¾îÁø Images¸¦ ±×¸°´Ù.
-    void ClearItem(); /// DropBox¿¡ ÀÖ´Â ¸ğµç ItemµéÀ» Áö¿î´Ù.
+    bool IsShowDropBox(); /// í˜„ì¬ ë“œëë°•ìŠ¤ë¥¼ ê·¸ë ¤ì•¼ í•˜ëŠ”ê°€?
+    void DrawDropBoxImage(); /// 3ë¶€ë¶„ìœ¼ë¡œ ë‚˜ëˆ„ì–´ì§„ Imagesë¥¼ ê·¸ë¦°ë‹¤.
+    void ClearItem(); /// DropBoxì— ìˆëŠ” ëª¨ë“  Itemë“¤ì„ ì§€ìš´ë‹¤.
 
     std::vector<CWinCtrl*> GetChildren() override;
 
 protected:
-    void ToggleShowDropBox(); /// µå¶ø¹Ú½º¸¦ Show/HideÇÑ´Ù
-    void DrawSelectedItem(); /// ¼±ÅÃµÈ ¾ÆÀÌÅÛÀ» µå¶ø¹Ú½º À§¿¡ ±×¸°´Ù.
+    void ToggleShowDropBox(); /// ë“œëë°•ìŠ¤ë¥¼ Show/Hideí•œë‹¤
+    void DrawSelectedItem(); /// ì„ íƒëœ ì•„ì´í…œì„ ë“œëë°•ìŠ¤ ìœ„ì— ê·¸ë¦°ë‹¤.
 
 protected:
-    ITFont* m_pFontMgr; /// TControlMgr¿¡¼­ ¾ò¾î¿Â Client°¡ ±¸ÇöÇÑ ITFontÀÇ Implemented-ClassÀÇ
-                        /// Æ÷ÀÎÅÍ ÀÓ½Ãº¸°ü
+    ITFont* m_pFontMgr; /// TControlMgrì—ì„œ ì–»ì–´ì˜¨ Clientê°€ êµ¬í˜„í•œ ITFontì˜ Implemented-Classì˜
+                        /// í¬ì¸í„° ì„ì‹œë³´ê´€
     CTButton* m_pDropButton;
     CTImage* m_pDropBoxTopImage;
     CTImage* m_pDropBoxMiddleImage;

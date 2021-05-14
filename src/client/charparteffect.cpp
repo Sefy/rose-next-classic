@@ -15,19 +15,19 @@ CCharPartEffect::CreatePartEffect(int iPartIndex) {
     // if( pCharPART == NULL )
     //	return false;
 
-    ///// ÀÌ¹Ì ¾î¶² ÀÌÆåÆ®°¡ ºÙ¾î ÀÖ´Ù¸é Áö¿ö¶ó
+    ///// ì´ë¯¸ ì–´ë–¤ ì´íŽ™íŠ¸ê°€ ë¶™ì–´ ìžˆë‹¤ë©´ ì§€ì›Œë¼
     // if( m_ppEFFECTp iPartIndex ] )
     //	DeletePartEffect( iPartIndex );
 
-    ///// Effect °¡ ºÙ¾îÀÖ´Ù¸é..( ºÙÀÌ ´õ¹ÌÆ÷ÀÎÅÍ°¡ ÀÖ°í, ºÙ¿©¾ßÇÑ´Ù¸é )
+    ///// Effect ê°€ ë¶™ì–´ìžˆë‹¤ë©´..( ë¶™ì´ ë”ë¯¸í¬ì¸í„°ê°€ ìžˆê³ , ë¶™ì—¬ì•¼í•œë‹¤ë©´ )
     // if ( pCharPART->m_nDummyPointCNT )
     //{
     //	m_ppEFFECT[ iPartIndex ] = new CEffect*[ pCharPART->m_nDummyPointCNT ];
     //	for (nI=0; nI<pCharPART->m_nDummyPointCNT; nI++)
     //	{
     //		m_ppEFFECT[ nI ] = NULL;
-    //		/// POINT_LIGHT_CONTAINER ´Â ¸Æ½º¿¡¼­ ¸ÆÀ» ÀÓÆ÷ÅÍ ÇÒ¶§ ¶óÀÌÆ®¸¦ ¼¼ÆÃÇÏ±â À§ÇÑ Æ÷ÀÎÅÍ
-    //ÀÌ´Ù. 		if( pCharPART->m_pDummyPoints[ nI ].m_nEffectType < POINT_LIGHT_CONTAINER )
+    //		/// POINT_LIGHT_CONTAINER ëŠ” ë§¥ìŠ¤ì—ì„œ ë§¥ì„ ìž„í¬í„° í• ë•Œ ë¼ì´íŠ¸ë¥¼ ì„¸íŒ…í•˜ê¸° ìœ„í•œ í¬ì¸í„°
+    //ì´ë‹¤. 		if( pCharPART->m_pDummyPoints[ nI ].m_nEffectType < POINT_LIGHT_CONTAINER )
     //		{
     //			m_ppEFFECT[ nI ] = g_pEffectLIST->Add_EFFECT( pCharPART->m_pDummyPoints[ nI
     //].m_uiEftKEY
@@ -42,7 +42,7 @@ CCharPartEffect::CreatePartEffect(int iPartIndex) {
     //]
     //);
 
-    //				/// ¹ã,³·¿¡ ÁÂ¿ì ¹Þ´Â ÀÌÆåÆ®¶ó¸é ¹ã,³· ¸Å´ÏÁ®¿¡ µî·Ï
+    //				/// ë°¤,ë‚®ì— ì¢Œìš° ë°›ëŠ” ì´íŽ™íŠ¸ë¼ë©´ ë°¤,ë‚® ë§¤ë‹ˆì ¸ì— ë“±ë¡
     //				if( pCharPART->m_pDummyPoints[ nI ].m_nEffectType == POINT_EFFECT_DAYNNIGHT )
     //				{
     //					g_DayNNightProc.PushEffect( m_ppEFFECT[ nI ] );

@@ -73,7 +73,7 @@ CLS_SqlTHREAD::Execute() {
         for (pUsrNODE = m_RunUserLIST.GetHeadNode(); pUsrNODE;
              pUsrNODE = m_RunUserLIST.GetHeadNode()) {
             m_RunUserLIST.DeleteNode(pUsrNODE->DATA->m_pListNODE);
-            // ¸ðµç CLS_Account()´Â ¿©±â¼­ »èÁ¦µÈ´Ù...
+            // ëª¨ë“  CLS_Account()ëŠ” ì—¬ê¸°ì„œ ì‚­ì œëœë‹¤...
             g_pListJOIN->Delete_ACCOUNT(pUsrNODE->DATA);
         }
 

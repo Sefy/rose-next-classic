@@ -4,10 +4,10 @@
 
 #include "tgamectrl/itsound.h"
 /**
- * ÀÎÅÍÆäÀÌ½º ¶óÀÌºê·¯¸®(TGameCtrl)¿¡°Ô ¾Ë·ÁÁÙ ITSoundÀÇ Implemented Class
- *  : TGameCtrl³»ºÎÀûÀ¸·Î »ç¿îµå¸¦ ÇÃ·¹ÀÌÇÒ¶§ ÀÌ ÀÎÅÍÆäÀÌ½º¸¦ ÅëÇØ¼­ È£ÃâÇÑ´Ù.
+ * ì¸í„°í˜ì´ìŠ¤ ë¼ì´ë¸ŒëŸ¬ë¦¬(TGameCtrl)ì—ê²Œ ì•Œë ¤ì¤„ ITSoundì˜ Implemented Class
+ *  : TGameCtrlë‚´ë¶€ì ìœ¼ë¡œ ì‚¬ìš´ë“œë¥¼ í”Œë ˆì´í• ë•Œ ì´ ì¸í„°í˜ì´ìŠ¤ë¥¼ í†µí•´ì„œ í˜¸ì¶œí•œë‹¤.
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  *
  * @Date			2005/9/5
  */

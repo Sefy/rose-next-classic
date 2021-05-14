@@ -5,11 +5,11 @@
 #include <string>
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-/// Ç¥½ÃÇÒ StringÀÌ ÇØ´ç ¿µ¿ªÀ» ¹þ¾î³¯ °æ¿ì µÚ¿¡ ".."À» ºÙÇô¼­ ¿µ¿ª¾È¿¡ ´Ù Ç¥½ÃµÇµµ·Ï ÇÏ´Â Class
-///		- Client¿¡¼­ get_rect()¿Í is_ellipsis()·Î ¸¶¿ì½ºÀÇ À§Ä¡¿Í Â©¸²À» Ã¼Å©ÇÏ¿© ÅøÆÁÀ¸·Î ÀüÃ¼
-///½ºÆ®¸µÀ» º¸¿©ÁÖ´Â µ¥ »ç¿ëÇÏ°í ÀÖ´Ù.
+/// í‘œì‹œí•  Stringì´ í•´ë‹¹ ì˜ì—­ì„ ë²—ì–´ë‚  ê²½ìš° ë’¤ì— ".."ì„ ë¶™í˜€ì„œ ì˜ì—­ì•ˆì— ë‹¤ í‘œì‹œë˜ë„ë¡ í•˜ëŠ” Class
+///		- Clientì—ì„œ get_rect()ì™€ is_ellipsis()ë¡œ ë§ˆìš°ìŠ¤ì˜ ìœ„ì¹˜ì™€ ì§¤ë¦¼ì„ ì²´í¬í•˜ì—¬ íˆ´íŒìœ¼ë¡œ ì „ì²´
+///ìŠ¤íŠ¸ë§ì„ ë³´ì—¬ì£¼ëŠ” ë° ì‚¬ìš©í•˜ê³  ìžˆë‹¤.
 ///
-/// @Author					ÃÖÁ¾Áø
+/// @Author					ìµœì¢…ì§„
 /// @Date					2005/8/30
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 class TGAMECTRL_API CSinglelineString {
@@ -30,13 +30,13 @@ public:
     void clear();
 
 protected:
-    std::string m_msg; /// ¿øº» ½ºÆ®¸µ
-    std::string m_ellipsis_msg; /// ¿µ¿ª¾È¿¡ ´Ù Ç¥½Ã°¡ ¾ÈµÉ°æ¿ì ¿µ¿ª¾È¿¡ Ç¥½ÃÇÒ stringÀ» ¸¸µé¾î¼­
-                                /// ÀúÀåÇØµÎ´Â string
+    std::string m_msg; /// ì›ë³¸ ìŠ¤íŠ¸ë§
+    std::string m_ellipsis_msg; /// ì˜ì—­ì•ˆì— ë‹¤ í‘œì‹œê°€ ì•ˆë ê²½ìš° ì˜ì—­ì•ˆì— í‘œì‹œí•  stringì„ ë§Œë“¤ì–´ì„œ
+                                /// ì €ìž¥í•´ë‘ëŠ” string
     DWORD m_format; ///
-    RECT m_rect; /// ½ºÆ®¸µÀ» Ç¥½ÃÇÒ ¿µ¿ª
-    bool m_end_ellipsis; /// ½ºÆ®¸µÀÌ ÇØ´ç ¿µ¿ª¾È¿¡ ´Ù Ç¥½Ã°¡ ¾ÈµÇ´Â°¡?
-    int m_font; /// ÆùÆ®
-    DWORD m_color; /// ÆùÆ® »ö»ó
+    RECT m_rect; /// ìŠ¤íŠ¸ë§ì„ í‘œì‹œí•  ì˜ì—­
+    bool m_end_ellipsis; /// ìŠ¤íŠ¸ë§ì´ í•´ë‹¹ ì˜ì—­ì•ˆì— ë‹¤ í‘œì‹œê°€ ì•ˆë˜ëŠ”ê°€?
+    int m_font; /// í°íŠ¸
+    DWORD m_color; /// í°íŠ¸ ìƒ‰ìƒ
 };
 #endif

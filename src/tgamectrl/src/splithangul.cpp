@@ -52,7 +52,7 @@ CSplitHangul::Clear() {
     m_StringList.clear();
 }
 
-// ÇÑ±ÛÀ» ÁÖ¾îÁø Å©±â·Î ÀÚ¸¥´Ù..
+// í•œê¸€ì„ ì£¼ì–´ì§„ í¬ê¸°ë¡œ ìë¥¸ë‹¤..
 bool
 CSplitHangul::SplitHangul(char* pStr, int iLength, unsigned uiCodePage) {
     if (pStr == NULL)

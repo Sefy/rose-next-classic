@@ -13,11 +13,11 @@ class CTCommand;
 class CDragItem;
 
 /**
- * ´Ù¸¥ À¯Àú¿Í 1:1°Å·¡½Ã »ç¿ëµÇ´Â ´ÙÀÌ¾ó·Î±×
- *	- »ç±â¸¦ ¸·±â À§ÇØ µÑ´Ù ÁØºñ¹öÆ°À» ´­·¶À»¶§ È®ÀÎ ¹öÆ°ÀÌ È°¼ºÈ­ µÇ´Â 2Áß È®ÀÎÀ» ÇÑ´Ù.
+ * ë‹¤ë¥¸ ìœ ì €ì™€ 1:1ê±°ëž˜ì‹œ ì‚¬ìš©ë˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
+ *	- ì‚¬ê¸°ë¥¼ ë§‰ê¸° ìœ„í•´ ë‘˜ë‹¤ ì¤€ë¹„ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ í™•ì¸ ë²„íŠ¼ì´ í™œì„±í™” ë˜ëŠ” 2ì¤‘ í™•ì¸ì„ í•œë‹¤.
  *	- Observable : CExchange
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/14
  */
 

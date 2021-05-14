@@ -9,9 +9,9 @@
 #define AIG_NAME_MAX 32
 typedef DWORD AITYPE;
 
-#define AICOND_GENERAL 0x04000000 // ÀÏ¹ÝÀûÀÎ Á¶°Çµé
+#define AICOND_GENERAL 0x04000000 // ì¼ë°˜ì ì¸ ì¡°ê±´ë“¤
 
-#define AICOND_00 (0x000000001 | AICOND_GENERAL) // Á¶°Ç-00 , ÀÚ½ÅÀÌ ºñÀüÅõÁß/´ë±âÁß ÀÏ°æ¿ì
+#define AICOND_00 (0x000000001 | AICOND_GENERAL) // ì¡°ê±´-00 , ìžì‹ ì´ ë¹„ì „íˆ¬ì¤‘/ëŒ€ê¸°ì¤‘ ì¼ê²½ìš°
 #define AICOND_01 (0x000000002 | AICOND_GENERAL)
 #define AICOND_02 (0x000000003 | AICOND_GENERAL)
 #define AICOND_03 (0x000000004 | AICOND_GENERAL)
@@ -24,56 +24,56 @@ typedef DWORD AITYPE;
 #define AICOND_10 (0x00000000B | AICOND_GENERAL)
 #define AICOND_11 (0x00000000C | AICOND_GENERAL)
 
-/// Áö±ÝÀÌ ³·ÀÎ°¡ / ¹ãÀÎ°¡ ?
+/// ì§€ê¸ˆì´ ë‚®ì¸ê°€ / ë°¤ì¸ê°€ ?
 #define AICOND_12 (0x00000000D | AICOND_GENERAL)
-/// ÀÚ½Å/Å¸°Ù¿¡°Ô °É·ÁÀÖ´Â »óÅÂ Ã¼Å©.
+/// ìžì‹ /íƒ€ê²Ÿì—ê²Œ ê±¸ë ¤ìžˆëŠ” ìƒíƒœ ì²´í¬.
 #define AICOND_13 (0x00000000E | AICOND_GENERAL)
-// NPC º¯¼ö Ã¼Å©
+// NPC ë³€ìˆ˜ ì²´í¬
 #define AICOND_14 (0x00000000F | AICOND_GENERAL)
 #define AICOND_15 (0x000000010 | AICOND_GENERAL)
 #define AICOND_16 (0x000000011 | AICOND_GENERAL)
 
-/// NPC ¼±ÅÃ
+/// NPC ì„ íƒ
 #define AICOND_17 (0x000000012 | AICOND_GENERAL)
-/// ÀÚ½Å°ú ÁÖÀÎÄ³¸¯ÅÍ(ÀÚ½ÅÀ» ¼ÒÈ¯ÇÑ ¾Æ¹ÙÅ¸)¿ÍÀÇ °Å¸® Ã¼Å©
+/// ìžì‹ ê³¼ ì£¼ì¸ìºë¦­í„°(ìžì‹ ì„ ì†Œí™˜í•œ ì•„ë°”íƒ€)ì™€ì˜ ê±°ë¦¬ ì²´í¬
 #define AICOND_18 (0x000000013 | AICOND_GENERAL)
 
-/// ÇöÀç Á¸½Ã°¢ Ã¼Å©
+/// í˜„ìž¬ ì¡´ì‹œê° ì²´í¬
 #define AICOND_19 (0x000000014 | AICOND_GENERAL)
 
-/// ÀÚ½ÅÀÇ ´É·ÂÄ¡ Ã¼Å©
+/// ìžì‹ ì˜ ëŠ¥ë ¥ì¹˜ ì²´í¬
 #define AICOND_20 (0x000000015 | AICOND_GENERAL)
-// ÁÖÀÎ Ä³¸¯ÅÍ Á¸Àç À¯¹« È®ÀÎ.
+// ì£¼ì¸ ìºë¦­í„° ì¡´ìž¬ ìœ ë¬´ í™•ì¸.
 #define AICOND_21 (0x000000016 | AICOND_GENERAL)
-// ÁÖÀÎ Ä³¸¯ÅÍ°¡ ÇöÀç °ø°ÝÅ¸°ÙÀ» °¡Áö°í ÀÖ´Â°¡
+// ì£¼ì¸ ìºë¦­í„°ê°€ í˜„ìž¬ ê³µê²©íƒ€ê²Ÿì„ ê°€ì§€ê³  ìžˆëŠ”ê°€
 #define AICOND_22 (0x000000017 | AICOND_GENERAL)
-// ¿ùµå ½Ã°¢ Ã¼Å©
+// ì›”ë“œ ì‹œê° ì²´í¬
 #define AICOND_23 (0x000000018 | AICOND_GENERAL)
 
-/// ³¯Â¥ + ½Ã°¢ Ã¼Å©
+/// ë‚ ì§œ + ì‹œê° ì²´í¬
 #define AICOND_24 (0x000000019 | AICOND_GENERAL)
-/// ¿äÀÏ + ½Ã°¢ Ã¼Å©
+/// ìš”ì¼ + ì‹œê° ì²´í¬
 #define AICOND_25 (0x00000001A | AICOND_GENERAL)
-/// Ã¤³Î ¼­¹ö Ã¼Å©
+/// ì±„ë„ ì„œë²„ ì²´í¬
 #define AICOND_26 (0x00000001B | AICOND_GENERAL)
-// ÁÖº¯Ä³¸¯ÅÍ »óÈ²Ã¼Å© ¿¡ ¸î¸¶¸® "ÀÌ»ó/ÀÌÇÏ" ÀÎ°¡ Ãß°¡
+// ì£¼ë³€ìºë¦­í„° ìƒí™©ì²´í¬ ì— ëª‡ë§ˆë¦¬ "ì´ìƒ/ì´í•˜" ì¸ê°€ ì¶”ê°€
 #define AICOND_27 (0x00000001C | AICOND_GENERAL)
-// Monster º¯¼ö Ã¼Å© ( 0 ~ 4 ¹ø )
+// Monster ë³€ìˆ˜ ì²´í¬ ( 0 ~ 4 ë²ˆ )
 #define AICOND_28 (0x00000001D | AICOND_GENERAL)
 
 //
-// Å¬·£
+// í´ëžœ
 //
-// Å¬·£¸¶½ºÅÍ Ã¼Å©
+// í´ëžœë§ˆìŠ¤í„° ì²´í¬
 #define AICOND_29 (0x00000001E | AICOND_GENERAL)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// ÆÄÀÏ Çì´õ
-// ÆÄÀÏ Çì´õ ¹Ù·Î ´ÙÀ½¿¡ ÆÄÀÏ Á¦¸ñÀÌ ¿È
+// íŒŒì¼ í—¤ë”
+// íŒŒì¼ í—¤ë” ë°”ë¡œ ë‹¤ìŒì— íŒŒì¼ ì œëª©ì´ ì˜´
 struct AI_FILE_HEADER {
     int iNumOfPattern;
-    int iSecond; // Á¤Áö»óÅÂÀÏ¶§ Ã¼Å© ÃÊ´ÜÀ§
-    int iSecondOfAttackMove; // Å¸°Ý½Ã Ã¼Å©È®·ü
+    int iSecond; // ì •ì§€ìƒíƒœì¼ë•Œ ì²´í¬ ì´ˆë‹¨ìœ„
+    int iSecondOfAttackMove; // íƒ€ê²©ì‹œ ì²´í¬í™•ë¥ 
     int iNumOfTitle;
 };
 
@@ -103,9 +103,9 @@ struct stPattern {
 // Explain :
 //
 struct AICOND00 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    BYTE cNotfightOrDelay; // 0= ºñÀüÅõ , 1=´ë±â
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    BYTE cNotfightOrDelay; // 0= ë¹„ì „íˆ¬ , 1=ëŒ€ê¸°
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,10 +114,10 @@ struct AICOND00 {
 // Explain :
 //
 struct AICOND01 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    int iDamage; // µ¥¹ÌÁö·®
-    BYTE cRecvOrGive; // 0=¹Þ´Ù , 1=ÁÖ´Ù
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    int iDamage; // ë°ë¯¸ì§€ëŸ‰
+    BYTE cRecvOrGive; // 0=ë°›ë‹¤ , 1=ì£¼ë‹¤
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -126,24 +126,24 @@ struct AICOND01 {
 // Explain :
 //
 /****************************************************************************************************
- * Struct Name : AICOND_02 - <<2004³â 1¿ù 2ÀÏ ¼öÁ¤>>
- * ÁÖº¯Ä³¸¯ÅÍ »óÈ² Ã¼Å© (°ü·Ã Å¬·¡½º CCondDlg_02)
- * Explain : Ã¼Å©¹üÀ§ iDistanceÀÌ³»¿¡ Ä³¸¯ÅÍÅ¸ÀÔ cChrTypeÀÌ°í ·¹º§Â÷°¡ cLevelDiffÀÌ»óÀÌ°í Ä³¸¯ÅÍ¼ö°¡
- * wChrNumÀÌ»óÀÎ °æ¿ì
+ * Struct Name : AICOND_02 - <<2004ë…„ 1ì›” 2ì¼ ìˆ˜ì •>>
+ * ì£¼ë³€ìºë¦­í„° ìƒí™© ì²´í¬ (ê´€ë ¨ í´ëž˜ìŠ¤ CCondDlg_02)
+ * Explain : ì²´í¬ë²”ìœ„ iDistanceì´ë‚´ì— ìºë¦­í„°íƒ€ìž… cChrTypeì´ê³  ë ˆë²¨ì°¨ê°€ cLevelDiffì´ìƒì´ê³  ìºë¦­í„°ìˆ˜ê°€
+ * wChrNumì´ìƒì¸ ê²½ìš°
  */
 struct AICOND02 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    int iDistance; // Ã¼Å©°Å¸®
-    BYTE btIsAllied; // Ä³¸¯ÅÍ Å¸ÀÔ (Àû±º=0,¾Æ±º=1)
-    short nLevelDiff; // ·¹º§Â÷ (-128~127 )  ÀÌ°Å ÀÌ»ó
-    short nLevelDiff2; // ·¹º§Â÷ (-128~127 )  ÀÌ°Å ÀÌ»ó
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    int iDistance; // ì²´í¬ê±°ë¦¬
+    BYTE btIsAllied; // ìºë¦­í„° íƒ€ìž… (ì êµ°=0,ì•„êµ°=1)
+    short nLevelDiff; // ë ˆë²¨ì°¨ (-128~127 )  ì´ê±° ì´ìƒ
+    short nLevelDiff2; // ë ˆë²¨ì°¨ (-128~127 )  ì´ê±° ì´ìƒ
     WORD wChrNum;
     /*
     union {
         struct {
-            char	cLevelDiff2 ;			// ·¹º§Â÷ (-128~127 )  ÀÌ°Å ÀÌÇÏ. ¿¹: cLevelDiffÀÌ»óÀÌ°í
-    cLevelDiff2ÀÌÇÏÀÎ .. <<2004³â 1¿ù 2ÀÏ ¼öÁ¤>> WORD	wChrNum ;				// Ä³¸¯ÅÍ ¼ýÀÚ } ;
+            char	cLevelDiff2 ;			// ë ˆë²¨ì°¨ (-128~127 )  ì´ê±° ì´í•˜. ì˜ˆ: cLevelDiffì´ìƒì´ê³ 
+    cLevelDiff2ì´í•˜ì¸ .. <<2004ë…„ 1ì›” 2ì¼ ìˆ˜ì •>> WORD	wChrNum ;				// ìºë¦­í„° ìˆ«ìž } ;
         struct {
             WORD	wChrNum_Before;
         } ;
@@ -157,9 +157,9 @@ struct AICOND02 {
 // Explain :
 //
 struct AICOND03 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    int iDistance; // °Å¸®
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    int iDistance; // ê±°ë¦¬
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -168,10 +168,10 @@ struct AICOND03 {
 // Explain :
 //
 struct AICOND04 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    int iDistance; // °Å¸®
-    BYTE cMoreLess; // ÀÌ»ó ÀÌÇÏ
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    int iDistance; // ê±°ë¦¬
+    BYTE cMoreLess; // ì´ìƒ ì´í•˜
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -180,12 +180,12 @@ struct AICOND04 {
 // Explain :
 //
 struct AICOND05 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    //	int				cAbType ;					// ´É·ÂÄ¡ Å¸ÀÔ
-    BYTE cAbType; // ´É·ÂÄ¡ Å¸ÀÔ
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    //	int				cAbType ;					// ëŠ¥ë ¥ì¹˜ íƒ€ìž…
+    BYTE cAbType; // ëŠ¥ë ¥ì¹˜ íƒ€ìž…
     int iDiff;
-    BYTE cMoreLess; // Å«°¡ , ÀÛÀº°¡
+    BYTE cMoreLess; // í°ê°€ , ìž‘ì€ê°€
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -194,10 +194,10 @@ struct AICOND05 {
 // Explain :
 //
 struct AICOND06 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    DWORD wHP; // HP ¼öÄ¡
-    BYTE cMoreLess; // Å«°¡ , ÀÛÀº°¡
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    DWORD wHP; // HP ìˆ˜ì¹˜
+    BYTE cMoreLess; // í°ê°€ , ìž‘ì€ê°€
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -206,207 +206,207 @@ struct AICOND06 {
 // Explain :
 //
 struct AICOND07 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    BYTE cPercent; // È®·ü
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    BYTE cPercent; // í™•ë¥ 
 };
 
 struct AICOND08 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    int iDistance; // °Å¸®
-    short nLevelDiff; // ·¹º§Â÷ (-128~127 ) ÀÚ½ÅÀÇ ·¹º§º¸´Ù cLevelDiffÀÌ»óÀÎ
-    short nLevelDiff2; // ·¹º§Â÷ (-128~127 ) ÀÚ½ÅÀÇ ·¹º§º¸´Ù cLevelDiffÀÌ»óÀÎ
-    // BYTE			cChrType ;					// Ä³¸¯ÅÍ Å¸ÀÔ (¾Æ¹ÙÅ¸=0,¸ó½ºÅÍ=1)
-    BYTE btIsAllied; // Ä³¸¯ÅÍ Å¸ÀÔ (Àû±º=0,¾Æ±º=1)
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    int iDistance; // ê±°ë¦¬
+    short nLevelDiff; // ë ˆë²¨ì°¨ (-128~127 ) ìžì‹ ì˜ ë ˆë²¨ë³´ë‹¤ cLevelDiffì´ìƒì¸
+    short nLevelDiff2; // ë ˆë²¨ì°¨ (-128~127 ) ìžì‹ ì˜ ë ˆë²¨ë³´ë‹¤ cLevelDiffì´ìƒì¸
+    // BYTE			cChrType ;					// ìºë¦­í„° íƒ€ìž… (ì•„ë°”íƒ€=0,ëª¬ìŠ¤í„°=1)
+    BYTE btIsAllied; // ìºë¦­í„° íƒ€ìž… (ì êµ°=0,ì•„êµ°=1)
 };
 
 struct AICOND09 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
 };
 
 struct AICOND10 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    BYTE cAbType; // ´É·ÂÄ¡ Å¸ÀÔ
-    BYTE cMoreLess; // Å«=0 , ÀÛÀº=1
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    BYTE cAbType; // ëŠ¥ë ¥ì¹˜ íƒ€ìž…
+    BYTE cMoreLess; // í°=0 , ìž‘ì€=1
 };
 
 /*******************************************************************************************
  * Struct Name : AICOND_11
- * Explain : ÀÚ½ÅÀ» °ø°ÝÇÑ Ä³¸¯ÅÍÀÇ A´É·ÂÄ¡°¡ B°ªº¸´Ù Å©°Å³ª/ÀÛÀº °æ¿ì
+ * Explain : ìžì‹ ì„ ê³µê²©í•œ ìºë¦­í„°ì˜ AëŠ¥ë ¥ì¹˜ê°€ Bê°’ë³´ë‹¤ í¬ê±°ë‚˜/ìž‘ì€ ê²½ìš°
  */
 struct AICOND11 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ = AICOND_11
-    BYTE cAbType; // ´É·ÂÄ¡ (·¹º§=0, °ø°Ý·Â=1, ¹æ¾î·Â=2, Ç×¸¶·Â=3, HP=4, ¸Å·Â=5)
-    int iValue; // ºñ±³°ª. ÀÌ°ªº¸´Ù Å«°¡/ÀÛÀº°¡. ÀÌ·±½ÄÀ¸·Î
-    BYTE cMoreLess; // Å«=0 , ÀÛÀº=1
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž… = AICOND_11
+    BYTE cAbType; // ëŠ¥ë ¥ì¹˜ (ë ˆë²¨=0, ê³µê²©ë ¥=1, ë°©ì–´ë ¥=2, í•­ë§ˆë ¥=3, HP=4, ë§¤ë ¥=5)
+    int iValue; // ë¹„êµê°’. ì´ê°’ë³´ë‹¤ í°ê°€/ìž‘ì€ê°€. ì´ëŸ°ì‹ìœ¼ë¡œ
+    BYTE cMoreLess; // í°=0 , ìž‘ì€=1
 };
 
-// ¿©±â¼­ºÎÅÍ ¼­¹ö¼Ò½º¿Í ¸Â´ÂÁö ºñ±³
-// Áö±ÝÀÌ ³·ÀÎ°¡ / ¹ãÀÎ°¡ ?
+// ì—¬ê¸°ì„œë¶€í„° ì„œë²„ì†ŒìŠ¤ì™€ ë§žëŠ”ì§€ ë¹„êµ
+// ì§€ê¸ˆì´ ë‚®ì¸ê°€ / ë°¤ì¸ê°€ ?
 struct AICOND12 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ = AICOND_12
-    BYTE cWhen; // 0 = ³·ÀÎÁö Ã¼Å©, 1 = ¹ãÀÎÁö Ã¼Å©
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž… = AICOND_12
+    BYTE cWhen; // 0 = ë‚®ì¸ì§€ ì²´í¬, 1 = ë°¤ì¸ì§€ ì²´í¬
 };
 
-// ÀÚ½Å/Å¸°Ù¿¡°Ô °É·ÁÀÖ´Â »óÅÂ Ã¼Å©.
+// ìžì‹ /íƒ€ê²Ÿì—ê²Œ ê±¸ë ¤ìžˆëŠ” ìƒíƒœ ì²´í¬.
 struct AICOND13 {
     DWORD dwSize;
     AITYPE Type;
 
-    BYTE btCheckTarget; // 0 = ÀÚ±âÀÚ½Å, 1 = °ø°ÝÅ¸°Ù
-    BYTE btStatusType; // 0 = ÇØ·Î¿î, 1 = À¯¸®ÇÑ, 2 = ÇØ·Î¿î/À¯¸®ÇÑ ¾Æ¹«°Å³ª
-    BYTE btHave; // 0 = ¾ø´Â°¡ ? 1 = ÀÖ´Â°¡ ?
+    BYTE btCheckTarget; // 0 = ìžê¸°ìžì‹ , 1 = ê³µê²©íƒ€ê²Ÿ
+    BYTE btStatusType; // 0 = í•´ë¡œìš´, 1 = ìœ ë¦¬í•œ, 2 = í•´ë¡œìš´/ìœ ë¦¬í•œ ì•„ë¬´ê±°ë‚˜
+    BYTE btHave; // 0 = ì—†ëŠ”ê°€ ? 1 = ìžˆëŠ”ê°€ ?
 };
 
-// NPC º¯¼ö Ã¼Å©	- AICOND14 AIACT25
-// ¿ùµåº¯¼ö Ã¼Å©	- AICOND15 AIACT26
-// °æÁ¦ µ¥ÀÌÅÍ Ã¼Å© - AICOND16 AIACT27
-// ¸ó½ºÅÍ º¯¼ö Ã¼Å© - AICOND28
+// NPC ë³€ìˆ˜ ì²´í¬	- AICOND14 AIACT25
+// ì›”ë“œë³€ìˆ˜ ì²´í¬	- AICOND15 AIACT26
+// ê²½ì œ ë°ì´í„° ì²´í¬ - AICOND16 AIACT27
+// ëª¬ìŠ¤í„° ë³€ìˆ˜ ì²´í¬ - AICOND28
 typedef struct tagValueAI {
     DWORD dwSize;
     AITYPE Type;
 
-    short nVarNo; // º¯¼ö ¹øÈ£ : 0 ~ , Á¸ÀÇ °æÁ¦µ¥ÀÌÅÍ º¯¼ö
-    int iValue; // ºñ±³ÇÒ µ¥ÀÌÅÍ°ª (iTypeÀÇ ´É·ÂÄ¡ Op iValue)
-    BYTE btOp; // iValue°ª¿¡ ´ëÇÑ ºñ±³¹æ¹ý. 0 = °°´Ù, 1 = Å©´Ù, 2 = Å©°Å³ª °°´Ù. 3=ÀÛ´Ù, 4=ÀÛ°Å³ª
-               // °°´Ù. (¾×¼ÇÂÊ) 5 = °ª¹Ù²Þ, 6 = Áõ°¡, 7 = °¨¼Ò
+    short nVarNo; // ë³€ìˆ˜ ë²ˆí˜¸ : 0 ~ , ì¡´ì˜ ê²½ì œë°ì´í„° ë³€ìˆ˜
+    int iValue; // ë¹„êµí•  ë°ì´í„°ê°’ (iTypeì˜ ëŠ¥ë ¥ì¹˜ Op iValue)
+    BYTE btOp; // iValueê°’ì— ëŒ€í•œ ë¹„êµë°©ë²•. 0 = ê°™ë‹¤, 1 = í¬ë‹¤, 2 = í¬ê±°ë‚˜ ê°™ë‹¤. 3=ìž‘ë‹¤, 4=ìž‘ê±°ë‚˜
+               // ê°™ë‹¤. (ì•¡ì…˜ìª½) 5 = ê°’ë°”ê¿ˆ, 6 = ì¦ê°€, 7 = ê°ì†Œ
 } AICOND14, AICOND15, AICOND16, AIACT25, AIACT26, AIACT27, AICOND28;
 
-/// NPC ¼±ÅÃ
+/// NPC ì„ íƒ
 #define AICOND_17 (0x000000012 | AICOND_GENERAL)
 
-// NPC ¼±ÅÃ
+// NPC ì„ íƒ
 struct AICOND17 {
     DWORD dwSize;
     AITYPE Type;
 
     //	short			nZoneNo;
-    int iNpcNo; /// ¼±ÅÃÇÒ NPC ¹øÈ£
+    int iNpcNo; /// ì„ íƒí•  NPC ë²ˆí˜¸
 };
 
-// ÀÚ½Å°ú ÁÖÀÎÄ³¸¯ÅÍ(ÀÚ½ÅÀ» ¼ÒÈ¯ÇÑ ¾Æ¹ÙÅ¸)¿ÍÀÇ °Å¸® Ã¼Å© - ¼ÒÈ¯µÈ ¸÷¸¸ »ç¿ë
+// ìžì‹ ê³¼ ì£¼ì¸ìºë¦­í„°(ìžì‹ ì„ ì†Œí™˜í•œ ì•„ë°”íƒ€)ì™€ì˜ ê±°ë¦¬ ì²´í¬ - ì†Œí™˜ëœ ëª¹ë§Œ ì‚¬ìš©
 struct AICOND18 {
     DWORD dwSize;
     AITYPE Type;
 
-    int iDistance; // ¼±ÅÃÇÒ NPC ¹øÈ£. (ÁÖÀÎ°úÀÇ °Å¸® Op iDistance)
-    BYTE btOp; // 0 = °°´Ù, 1 = Å©´Ù, 2 = Å©°Å³ª °°´Ù. 3=ÀÛ´Ù, 4=ÀÛ°Å³ª °°´Ù.
+    int iDistance; // ì„ íƒí•  NPC ë²ˆí˜¸. (ì£¼ì¸ê³¼ì˜ ê±°ë¦¬ Op iDistance)
+    BYTE btOp; // 0 = ê°™ë‹¤, 1 = í¬ë‹¤, 2 = í¬ê±°ë‚˜ ê°™ë‹¤. 3=ìž‘ë‹¤, 4=ìž‘ê±°ë‚˜ ê°™ë‹¤.
 
-    // ¼ÒÈ¯µÈ ¸÷ °Å¸® °ü·Ã ÀÖÀ¸¸é ¾Æ·¡ È°¿ë. 2004-4-9 ÇöÀç´Â À§¸¸ »ç¿ë
-    // BYTE			btOrg;		// 0 = ¼ÒÈ¯ÇÑ Ä³¸¯ÅÍ, ...
+    // ì†Œí™˜ëœ ëª¹ ê±°ë¦¬ ê´€ë ¨ ìžˆìœ¼ë©´ ì•„ëž˜ í™œìš©. 2004-4-9 í˜„ìž¬ëŠ” ìœ„ë§Œ ì‚¬ìš©
+    // BYTE			btOrg;		// 0 = ì†Œí™˜í•œ ìºë¦­í„°, ...
 };
 
-// ÇöÀç Á¸½Ã°¢ Ã¼Å©
+// í˜„ìž¬ ì¡´ì‹œê° ì²´í¬
 struct AICOND19 {
     DWORD dwSize;
     AITYPE Type;
 
     unsigned long ulTime; //
-    unsigned long ulEndTime; // ulTime <= ÇöÀç Á¸½Ã°¢ <= ulEndTime ÀÎ°¡ ?
+    unsigned long ulEndTime; // ulTime <= í˜„ìž¬ ì¡´ì‹œê° <= ulEndTime ì¸ê°€ ?
 };
 
-// ÀÚ½Å(¸ó½ºÅÍ)ÀÇ ´É·ÂÄ¡/±âÅ¸/ÁÖÀÎÄ³¸¯ÅÍ °ü·Ã µ¥ÀÌÅÍ Ã¼Å©
+// ìžì‹ (ëª¬ìŠ¤í„°)ì˜ ëŠ¥ë ¥ì¹˜/ê¸°íƒ€/ì£¼ì¸ìºë¦­í„° ê´€ë ¨ ë°ì´í„° ì²´í¬
 struct AICOND20 {
     DWORD dwSize;
     AITYPE Type;
 
-    BYTE btAbType; // ´É·ÂÄ¡ (·¹º§=0, °ø°Ý·Â=1, ¹æ¾î·Â=2, Ç×¸¶·Â=3, HP=4, ¸Å·Â=5)
+    BYTE btAbType; // ëŠ¥ë ¥ì¹˜ (ë ˆë²¨=0, ê³µê²©ë ¥=1, ë°©ì–´ë ¥=2, í•­ë§ˆë ¥=3, HP=4, ë§¤ë ¥=5)
 
-    int iValue; // ºñ±³ÇÒ µ¥ÀÌÅÍ°ª (iTypeÀÇ ´É·ÂÄ¡ Op iValue)
-    BYTE btOp; // iData°ª¿¡ ´ëÇÑ ºñ±³¹æ¹ý. 0 = °°´Ù, 1 = Å©´Ù, 2 = Å©°Å³ª °°´Ù. 3=ÀÛ´Ù, 4=ÀÛ°Å³ª
-               // °°´Ù.
+    int iValue; // ë¹„êµí•  ë°ì´í„°ê°’ (iTypeì˜ ëŠ¥ë ¥ì¹˜ Op iValue)
+    BYTE btOp; // iDataê°’ì— ëŒ€í•œ ë¹„êµë°©ë²•. 0 = ê°™ë‹¤, 1 = í¬ë‹¤, 2 = í¬ê±°ë‚˜ ê°™ë‹¤. 3=ìž‘ë‹¤, 4=ìž‘ê±°ë‚˜
+               // ê°™ë‹¤.
 };
 
-// ÁÖÀÎÄ³¸¯ÅÍ°¡ Á¸Àç À¯¹« È®ÀÎ
+// ì£¼ì¸ìºë¦­í„°ê°€ ì¡´ìž¬ ìœ ë¬´ í™•ì¸
 struct AICOND21 {
     DWORD dwSize;
     AITYPE Type;
 };
 
-// ÁÖÀÎÄ³¸¯ÅÍ°¡ ÇöÀç °ø°ÝÅ¸°ÙÀ» °¡Áö°í ÀÖ´Â°¡ ?
+// ì£¼ì¸ìºë¦­í„°ê°€ í˜„ìž¬ ê³µê²©íƒ€ê²Ÿì„ ê°€ì§€ê³  ìžˆëŠ”ê°€ ?
 struct AICOND22 {
     DWORD dwSize;
     AITYPE Type;
 };
 
-// ¿ùµå½Ã°¢ Ã¼Å©
+// ì›”ë“œì‹œê° ì²´í¬
 struct AICOND23 {
     DWORD dwSize;
     AITYPE Type;
 
     unsigned long ulTime; //
-    unsigned long ulEndTime; // ulTime <= ÇöÀç Á¸½Ã°¢ <= ulEndTime ÀÎ°¡ ?
+    unsigned long ulEndTime; // ulTime <= í˜„ìž¬ ì¡´ì‹œê° <= ulEndTime ì¸ê°€ ?
 };
 
-// ³¯Â¥ + ½Ã°¢ Ã¼Å©
+// ë‚ ì§œ + ì‹œê° ì²´í¬
 struct AICOND24 {
     DWORD dwSize;
     AITYPE Type;
 
-    BYTE btDate; // ³¯Â¥. (1 ~ 31)
+    BYTE btDate; // ë‚ ì§œ. (1 ~ 31)
 
-    BYTE btHour1; // ½Ã (1 ~ 24)
-    BYTE btMin1; // ºÐ (1 ~ 60)
-    BYTE btHour2; // ½Ã
-    BYTE btMin2; // ºÐ
-    //  ÇöÀçÀÇ ³¯Â¥°¡ btDate ÀÌ°í, btHour1½Ã btMin1ºÐ  <= ÇöÀç ½Ã°¢ <= btHour1½Ã btMin1ºÐ ÀÌ¸é true
+    BYTE btHour1; // ì‹œ (1 ~ 24)
+    BYTE btMin1; // ë¶„ (1 ~ 60)
+    BYTE btHour2; // ì‹œ
+    BYTE btMin2; // ë¶„
+    //  í˜„ìž¬ì˜ ë‚ ì§œê°€ btDate ì´ê³ , btHour1ì‹œ btMin1ë¶„  <= í˜„ìž¬ ì‹œê° <= btHour1ì‹œ btMin1ë¶„ ì´ë©´ true
 };
 
-// ¿äÀÏ + ½Ã°¢ Ã¼Å©
+// ìš”ì¼ + ì‹œê° ì²´í¬
 struct AICOND25 {
     DWORD dwSize;
     AITYPE Type;
 
-    BYTE btWeekDay; // ¿äÀÏ (0 ~ 6)
+    BYTE btWeekDay; // ìš”ì¼ (0 ~ 6)
 
-    BYTE btHour1; // ½Ã
-    BYTE btMin1; // ºÐ
+    BYTE btHour1; // ì‹œ
+    BYTE btMin1; // ë¶„
     BYTE btHour2;
     BYTE btMin2;
-    //  ÇöÀçÀÇ ¿äÀÏÀÌ btWeekDay ÀÌ°í, btHour1½Ã btMin1ºÐ  <= ÇöÀç ½Ã°¢ <= btHour1½Ã btMin1ºÐ ÀÌ¸é
+    //  í˜„ìž¬ì˜ ìš”ì¼ì´ btWeekDay ì´ê³ , btHour1ì‹œ btMin1ë¶„  <= í˜„ìž¬ ì‹œê° <= btHour1ì‹œ btMin1ë¶„ ì´ë©´
     //  true
 };
 
-// Ã¤³Î ¼­¹ö Ã¼Å©
+// ì±„ë„ ì„œë²„ ì²´í¬
 struct AICOND26 {
     DWORD dwSize;
     AITYPE Type;
 
     unsigned short nX;
-    unsigned short nY; // (nX <= Ã¤³Î¼­¹ö <= nY) ÀÌ¸é true
+    unsigned short nY; // (nX <= ì±„ë„ì„œë²„ <= nY) ì´ë©´ true
 };
 
 /****************************************************************************************************
  * Struct Name : AICOND_27
- * ÁÖº¯Ä³¸¯ÅÍ »óÈ² Ã¼Å©
- * Explain : Ã¼Å©¹üÀ§ iDistanceÀÌ³»¿¡ Ä³¸¯ÅÍÅ¸ÀÔ cChrTypeÀÌ°í ·¹º§Â÷°¡ cLevelDiffÀÌ»óÀÌ°í Ä³¸¯ÅÍ¼ö°¡
- * wChrNumÀÌ»ó/ÀÌÇÏÀÎ °æ¿ì
+ * ì£¼ë³€ìºë¦­í„° ìƒí™© ì²´í¬
+ * Explain : ì²´í¬ë²”ìœ„ iDistanceì´ë‚´ì— ìºë¦­í„°íƒ€ìž… cChrTypeì´ê³  ë ˆë²¨ì°¨ê°€ cLevelDiffì´ìƒì´ê³  ìºë¦­í„°ìˆ˜ê°€
+ * wChrNumì´ìƒ/ì´í•˜ì¸ ê²½ìš°
  */
-struct AICOND27 // 2¹ø Á¶°ÇÇÏ°í ºñ½Á...
+struct AICOND27 // 2ë²ˆ ì¡°ê±´í•˜ê³  ë¹„ìŠ·...
 {
     DWORD dwSize;
     AITYPE Type;
-    int iDistance; // Ã¼Å©°Å¸®
-    BYTE btIsAllied; // Ä³¸¯ÅÍ Å¸ÀÔ (¾Æ¹ÙÅ¸=0,¸ó½ºÅÍ=1)
+    int iDistance; // ì²´í¬ê±°ë¦¬
+    BYTE btIsAllied; // ìºë¦­í„° íƒ€ìž… (ì•„ë°”íƒ€=0,ëª¬ìŠ¤í„°=1)
     short nLevelDiff; //
     short nLevelDiff2; // nLevelDiff <= XXXX <= nLevelDiff2
 
-    WORD wChrNum; // Ä³¸¯ÅÍ ¼ýÀÚ
+    WORD wChrNum; // ìºë¦­í„° ìˆ«ìž
     BYTE
-        btOp; // Ä³¸¯ÅÍ ¼ýÀÚ¿¡ ´ëÇÑ OP (0 = °°´Ù, 1 = Å©´Ù, 2 = Å©°Å³ª °°´Ù. 3=ÀÛ´Ù, 4=ÀÛ°Å³ª °°´Ù.)
+        btOp; // ìºë¦­í„° ìˆ«ìžì— ëŒ€í•œ OP (0 = ê°™ë‹¤, 1 = í¬ë‹¤, 2 = í¬ê±°ë‚˜ ê°™ë‹¤. 3=ìž‘ë‹¤, 4=ìž‘ê±°ë‚˜ ê°™ë‹¤.)
 };
 
-// °ø°ÝÀÚ / °ø°ÝÅ¸°ÙÀÌ Å¬·£¸¶½ºÅÍÀÎ°¡ ?
+// ê³µê²©ìž / ê³µê²©íƒ€ê²Ÿì´ í´ëžœë§ˆìŠ¤í„°ì¸ê°€ ?
 struct AICOND29 {
     DWORD dwSize;
     AITYPE Type;
 
-    BYTE btTargetType; // 0 : °ø°ÝÀÚ, 1 : °ø°ÝÅ¸°Ù
+    BYTE btTargetType; // 0 : ê³µê²©ìž, 1 : ê³µê²©íƒ€ê²Ÿ
 };
 
 struct stCondHead {
@@ -427,7 +427,7 @@ struct AI_CONDITION // stCond
         } ;
         */
         //------------------------------------------------------------------------------
-        // ÀÌÇÏ Á¸°Ç ½ºÆ®·°ÃÄ ¸ðµÎ ¸®½ºÆ® ÇÒ²¯
+        // ì´í•˜ ì¡´ê±´ ìŠ¤íŠ¸ëŸ­ì³ ëª¨ë‘ ë¦¬ìŠ¤íŠ¸ í• ê»
         AICOND00 st00;
         AICOND01 st01;
         AICOND02 st02;
@@ -477,40 +477,40 @@ struct AI_CONDITION // stCond
 #define AIACT_19 (0x000000014 | AIACT_GENERAL)
 #define AIACT_20 (0x000000015 | AIACT_GENERAL)
 
-// #define		AIACT_21					(0x000000016 | AIACT_GENERAL)	// ±â¼ú ±¸Çö. ** »ç¿ë
-// ¾ÈÇÔ
-#define AIACT_22 (0x000000017 | AIACT_GENERAL) // ÁöÁ¤µÈ ¸ó½ºÅÍ¸¦ ÁöÁ¤µÈ À§Ä¡¿¡ ¼ÒÈ¯½ÃÅ²´Ù
-#define AIACT_23 (0x000000018 | AIACT_GENERAL) // ÀÚ»ì ½ÃÄÑ ¹ö¸°´Ù
-#define AIACT_24 (0x000000019 | AIACT_GENERAL) // ´ë»óÀ» ÇâÇØ ½ºÅ³/µ¿ÀÛ ±¸Çö
+// #define		AIACT_21					(0x000000016 | AIACT_GENERAL)	// ê¸°ìˆ  êµ¬í˜„. ** ì‚¬ìš©
+// ì•ˆí•¨
+#define AIACT_22 (0x000000017 | AIACT_GENERAL) // ì§€ì •ëœ ëª¬ìŠ¤í„°ë¥¼ ì§€ì •ëœ ìœ„ì¹˜ì— ì†Œí™˜ì‹œí‚¨ë‹¤
+#define AIACT_23 (0x000000018 | AIACT_GENERAL) // ìžì‚´ ì‹œì¼œ ë²„ë¦°ë‹¤
+#define AIACT_24 (0x000000019 | AIACT_GENERAL) // ëŒ€ìƒì„ í–¥í•´ ìŠ¤í‚¬/ë™ìž‘ êµ¬í˜„
 
 #define AIACT_25 (0x00000001A | AIACT_GENERAL)
 #define AIACT_26 (0x00000001B | AIACT_GENERAL)
 #define AIACT_27 (0x00000001C | AIACT_GENERAL)
 #define AIACT_28 (0x00000001D | AIACT_GENERAL)
 
-// ÁÖÀÎÄ³¸¯ÅÍ(ÀÚ±â¸¦ ¼ÒÈ¯ÇÑ Ä³¸¯ÅÍ)°¡ ÀÖ´Â °÷À¸·Î ÀÌµ¿
+// ì£¼ì¸ìºë¦­í„°(ìžê¸°ë¥¼ ì†Œí™˜í•œ ìºë¦­í„°)ê°€ ìžˆëŠ” ê³³ìœ¼ë¡œ ì´ë™
 #define AIACT_29 (0x00000001E | AIACT_GENERAL)
-// Æ®¸®°Å½ÇÇà
+// íŠ¸ë¦¬ê±°ì‹¤í–‰
 #define AIACT_30 (0x00000001F | AIACT_GENERAL)
 
-// ÁÖÀÎÀÌ °¡Áö°í ÀÖ´Â °ø°ÝÅ¸°Ù °øÀ¯
+// ì£¼ì¸ì´ ê°€ì§€ê³  ìžˆëŠ” ê³µê²©íƒ€ê²Ÿ ê³µìœ 
 #define AIACT_31 (0x000000020 | AIACT_GENERAL)
 // Pk Mode On/Off
 #define AIACT_32 (0x000000021 | AIACT_GENERAL)
 
-// ÇöÀç/¸î ¹øÁ¸ÀÇ ¸®Á¨À» On/Off ·Î ¼³Á¤
+// í˜„ìž¬/ëª‡ ë²ˆì¡´ì˜ ë¦¬ì  ì„ On/Off ë¡œ ì„¤ì •
 #define AIACT_33 (0x000000022 | AIACT_GENERAL)
-// ÁÖÀÎÄ³¸¯ÅÍ¿¡°Ô ¾ÆÀÌÅÛ Áö±Þ
+// ì£¼ì¸ìºë¦­í„°ì—ê²Œ ì•„ì´í…œ ì§€ê¸‰
 #define AIACT_34 (0x000000023 | AIACT_GENERAL)
-// ¸ó½ºÅÍ º¯¼ö °ª º¯°æ
+// ëª¬ìŠ¤í„° ë³€ìˆ˜ ê°’ ë³€ê²½
 #define AIACT_35 (0x000000024 | AIACT_GENERAL)
 
 //
-// Å¬·£
+// í´ëžœ
 //
-// ÀÚ½Å ÁÖº¯¿¡ ¸ó½ºÅÍ ¼ÒÈ¯
+// ìžì‹  ì£¼ë³€ì— ëª¬ìŠ¤í„° ì†Œí™˜
 #define AIACT_36 (0x000000025 | AIACT_GENERAL)
-// ´©±¸ ÁÖº¯¿¡ ¸ó½ºÅÍ ¼ÒÈ¯
+// ëˆ„êµ¬ ì£¼ë³€ì— ëª¬ìŠ¤í„° ì†Œí™˜
 #define AIACT_37 (0x000000026 | AIACT_GENERAL)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -520,8 +520,8 @@ struct AI_CONDITION // stCond
 //
 
 struct AIACT00 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -531,9 +531,9 @@ struct AIACT00 {
 //
 
 struct AIACT01 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    BYTE cAction; // µ¿ÀÛ¹øÈ£
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    BYTE cAction; // ë™ìž‘ë²ˆí˜¸
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -543,15 +543,15 @@ struct AIACT01 {
 //
 
 struct AIACT02 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    // char			szCon[1] ;					// ´ë»ç µ¥ÀÌÅÍ
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    // char			szCon[1] ;					// ëŒ€ì‚¬ ë°ì´í„°
     int iStrID;
 };
 struct AIACT02_STR {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    char szCon[1]; // ´ë»ç µ¥ÀÌÅÍ
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    char szCon[1]; // ëŒ€ì‚¬ ë°ì´í„°
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -561,10 +561,10 @@ struct AIACT02_STR {
 //
 
 struct AIACT03 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    int iDistance; // °Å¸®
-    BYTE cSpeed; // 0: °È±â, 1: ¶Ù±â
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    int iDistance; // ê±°ë¦¬
+    BYTE cSpeed; // 0: ê±·ê¸°, 1: ë›°ê¸°
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -574,10 +574,10 @@ struct AIACT03 {
 //
 
 struct AIACT04 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    int iDistance; // °Å¸®
-    BYTE cSpeed; // 0: °È±â, 1: ¶Ù±â
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    int iDistance; // ê±°ë¦¬
+    BYTE cSpeed; // 0: ê±·ê¸°, 1: ë›°ê¸°
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -586,10 +586,10 @@ struct AIACT04 {
 // Explain :
 //
 struct AIACT05 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    BYTE cSpeed; // 0: °È±â, 1: ¶Ù±â
-    // BYTE			cAttackOrMove ;				// °ø°Ý , ÀÌµ¿
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    BYTE cSpeed; // 0: ê±·ê¸°, 1: ë›°ê¸°
+    // BYTE			cAttackOrMove ;				// ê³µê²© , ì´ë™
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -599,11 +599,11 @@ struct AIACT05 {
 //
 
 struct AIACT06 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    int iDistance; // °Å¸®
-    BYTE cAbType; // ´É·ÂÄ¡ Å¸ÀÔ
-    BYTE cMoreLess; // Å«°¡ , ÀÛÀº°¡
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    int iDistance; // ê±°ë¦¬
+    BYTE cAbType; // ëŠ¥ë ¥ì¹˜ íƒ€ìž…
+    BYTE cMoreLess; // í°ê°€ , ìž‘ì€ê°€
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -613,9 +613,9 @@ struct AIACT06 {
 //
 
 struct AIACT07 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-                 // µ¥ÀÌÅÍ ÇÊ¿ä ¾øÀ½
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+                 // ë°ì´í„° í•„ìš” ì—†ìŒ
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -625,10 +625,10 @@ struct AIACT07 {
 //
 
 struct AIACT08 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    int iDistance; // °Å¸®
-    BYTE cSpeed; // 0: °È±â, 1: ¶Ù±â
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    int iDistance; // ê±°ë¦¬
+    BYTE cSpeed; // 0: ê±·ê¸°, 1: ë›°ê¸°
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -638,10 +638,10 @@ struct AIACT08 {
 //
 
 typedef struct tagAIACT09 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    //	BYTE			cMonster ;					// ¸ó½ºÅÍ¹øÈ£
-    WORD wMonster; // ¸ó½ºÅÍ¹øÈ£
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    //	BYTE			cMonster ;					// ëª¬ìŠ¤í„°ë²ˆí˜¸
+    WORD wMonster; // ëª¬ìŠ¤í„°ë²ˆí˜¸
 } AIACT09, AIACT10;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -652,8 +652,8 @@ typedef struct tagAIACT09 {
 
 // struct		AIACT10
 //{
-//	DWORD			dwSize ;					// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-//	AITYPE			Type ;						// Á¶°Ç Å¸ÀÔ
+//	DWORD			dwSize ;					// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+//	AITYPE			Type ;						// ì¡°ê±´ íƒ€ìž…
 //} ;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -663,58 +663,58 @@ typedef struct tagAIACT09 {
 //
 
 struct AIACT11 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    int iDistance; // °Å¸®
-    //	BYTE			cCallType ;					// °ø°ÝÈ£Ãâ ÇüÅÂ , (¸ðµç , ºñÀüÅõÁßÀÎ)
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    int iDistance; // ê±°ë¦¬
+    //	BYTE			cCallType ;					// ê³µê²©í˜¸ì¶œ í˜•íƒœ , (ëª¨ë“  , ë¹„ì „íˆ¬ì¤‘ì¸)
     int iNumOfMonster;
 };
 
 struct AIACT12 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
 };
 
 struct AIACT13 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
 };
 
 struct AIACT14 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    int iDistance; // °Å¸®
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    int iDistance; // ê±°ë¦¬
 };
 
 struct AIACT15 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
 };
 
 /**********************************************************************************
  * Struct Name : AIACT16
- * µµ¸Á : ÀÌµ¿°ú ±¸ºÐµÊ. µµ¸ÁµµÁß¿¡´Â ¸Â¾Æµµ °è¼Ó µµ¸Á°¨
+ * ë„ë§ : ì´ë™ê³¼ êµ¬ë¶„ë¨. ë„ë§ë„ì¤‘ì—ëŠ” ë§žì•„ë„ ê³„ì† ë„ë§ê°
  */
 struct AIACT16 {
-    DWORD dwSize; /// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; /// Type = AIACT_16 . µµ¸Á
-    int iDistance; /// ¸®Á¨À» Áß½ÉÀ¸·Î ¸î ¹ÌÅÍ ÀÌ³»·Î µµ¸Á
+    DWORD dwSize; /// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; /// Type = AIACT_16 . ë„ë§
+    int iDistance; /// ë¦¬ì  ì„ ì¤‘ì‹¬ìœ¼ë¡œ ëª‡ ë¯¸í„° ì´ë‚´ë¡œ ë„ë§
 };
 
 /**********************************************************************************
  * Struct Name : AIACT17
- * µµ¸Á : ¾ÆÀÌÅÛ¹øÈ£¸¦ 5°³ °¡Áö°í ÀÖ´Ù°¡ ·£´ýÇÏ°Ô ¶³¾î¶ß¸². ¾ÆÀÌÅÛ ¹øÈ£´Â 5ÀÚ¸®
+ * ë„ë§ : ì•„ì´í…œë²ˆí˜¸ë¥¼ 5ê°œ ê°€ì§€ê³  ìžˆë‹¤ê°€ ëžœë¤í•˜ê²Œ ë–¨ì–´ëœ¨ë¦¼. ì•„ì´í…œ ë²ˆí˜¸ëŠ” 5ìžë¦¬
  */
 struct AIACT17 {
-    DWORD dwSize; /// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; /// Type = AIACT_16 . µµ¸Á
+    DWORD dwSize; /// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; /// Type = AIACT_16 . ë„ë§
     union {
         struct {
-            short item0; /// ¾ÆÀÌÅÛ ¹øÈ£ 0  . ¸¸¾à ¾ÆÀÌÅÛ¹øÈ£°¡ ¾øÀ¸¸é -1À» Áý¾î ³Ö´Â´Ù
-            short item1; /// ¾ÆÀÌÅÛ ¹øÈ£ 1
-            short item2; /// ¾ÆÀÌÅÛ ¹øÈ£ 2
-            short item3; /// ¾ÆÀÌÅÛ ¹øÈ£ 3
-            short item4; /// ¾ÆÀÌÅÛ ¹øÈ£ 4
+            short item0; /// ì•„ì´í…œ ë²ˆí˜¸ 0  . ë§Œì•½ ì•„ì´í…œë²ˆí˜¸ê°€ ì—†ìœ¼ë©´ -1ì„ ì§‘ì–´ ë„£ëŠ”ë‹¤
+            short item1; /// ì•„ì´í…œ ë²ˆí˜¸ 1
+            short item2; /// ì•„ì´í…œ ë²ˆí˜¸ 2
+            short item3; /// ì•„ì´í…œ ë²ˆí˜¸ 3
+            short item4; /// ì•„ì´í…œ ë²ˆí˜¸ 4
         };
         short m_ITEMS[5];
     };
@@ -722,183 +722,183 @@ struct AIACT17 {
 };
 
 /**********************************************************************************
- * Struct Name : AIACT18 - <<2004.1.29 Ãß°¡>>
- * ÁöÁ¤µÈ ¹øÈ£ÀÇ ºñÀüÅõÁßÀÎ ¸÷¿¡°Ô °ø°ÝÈ£Ãâ ¸í·É. (¸ó½ºÅÍ¹øÈ£, °Å¸®, ¸¶¸®¼ö)
- * Ãß°¡ ¼³¸í : ÁöÁ¤µÈ °Å¸®¾È¿¡ ÁöÁ¤µÈ ¸¶¸®¼ö¸¸Å­ÀÇ ÁöÁ¤µÈ ¹øÈ£ÀÇ ¸ó½ºÅÍ¿¡°Ô °ø°ÝÈ£Ãâ ¸í·É
+ * Struct Name : AIACT18 - <<2004.1.29 ì¶”ê°€>>
+ * ì§€ì •ëœ ë²ˆí˜¸ì˜ ë¹„ì „íˆ¬ì¤‘ì¸ ëª¹ì—ê²Œ ê³µê²©í˜¸ì¶œ ëª…ë ¹. (ëª¬ìŠ¤í„°ë²ˆí˜¸, ê±°ë¦¬, ë§ˆë¦¬ìˆ˜)
+ * ì¶”ê°€ ì„¤ëª… : ì§€ì •ëœ ê±°ë¦¬ì•ˆì— ì§€ì •ëœ ë§ˆë¦¬ìˆ˜ë§Œí¼ì˜ ì§€ì •ëœ ë²ˆí˜¸ì˜ ëª¬ìŠ¤í„°ì—ê²Œ ê³µê²©í˜¸ì¶œ ëª…ë ¹
  */
 struct AIACT18 {
-    DWORD dwSize; /// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; /// Type°ªÀº AIACT_18
+    DWORD dwSize; /// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; /// Typeê°’ì€ AIACT_18
 
-    WORD cMonster; // ¸ó½ºÅÍ¹øÈ£
-    WORD wHowMany; // ¸î¸¶¸®
-    int iDistance; // °Å¸®
+    WORD cMonster; // ëª¬ìŠ¤í„°ë²ˆí˜¸
+    WORD wHowMany; // ëª‡ë§ˆë¦¬
+    int iDistance; // ê±°ë¦¬
 };
 
 /**********************************************************************************
- * Struct Name : AIACT19 - <<2004.1.29 Ãß°¡>>
- * °¡Àå °¡±îÀÌ ÀÖ´Â ¾Æ¹ÙÅ¸¸¦ °ø°ÝÅ¸°ÙÀ¸·Î ÁöÁ¤
+ * Struct Name : AIACT19 - <<2004.1.29 ì¶”ê°€>>
+ * ê°€ìž¥ ê°€ê¹Œì´ ìžˆëŠ” ì•„ë°”íƒ€ë¥¼ ê³µê²©íƒ€ê²Ÿìœ¼ë¡œ ì§€ì •
  */
 struct AIACT19 {
-    DWORD dwSize; /// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; /// Type°ªÀº AIACT_19
+    DWORD dwSize; /// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; /// Typeê°’ì€ AIACT_19
 
-    /// Ãß°¡ Á¶°Ç ÇÊ¿ä
+    /// ì¶”ê°€ ì¡°ê±´ í•„ìš”
 };
 
 /**********************************************************************************
- * Struct Name : AIACT20 - <<2004.1.29 Ãß°¡>>
- * ÁöÁ¤µÈ ¸ó½ºÅÍ¸¦ ¼ÒÈ¯½ÃÅ²´Ù. ÀÚ½Å/°ø°ÝÀÚ(ÀÚ½ÅÀ» °ø°ÝÇÑ Ä³¸¯ÅÍ)/°ø°ÝÅ¸°Ù(ÀÚ½ÅÀÌ °ø°ÝÇÏ´Â Ä³¸¯ÅÍ).
- * ±ÙÃ³ ?¹ÌÅÍ ÀÌ³»¿¡ ¼ÒÈ¯
- * Ãß°¡¼³¸í : ¸¶¸®¼ö´Â 1¸¶¸®ÀÌ´Ù.
+ * Struct Name : AIACT20 - <<2004.1.29 ì¶”ê°€>>
+ * ì§€ì •ëœ ëª¬ìŠ¤í„°ë¥¼ ì†Œí™˜ì‹œí‚¨ë‹¤. ìžì‹ /ê³µê²©ìž(ìžì‹ ì„ ê³µê²©í•œ ìºë¦­í„°)/ê³µê²©íƒ€ê²Ÿ(ìžì‹ ì´ ê³µê²©í•˜ëŠ” ìºë¦­í„°).
+ * ê·¼ì²˜ ?ë¯¸í„° ì´ë‚´ì— ì†Œí™˜
+ * ì¶”ê°€ì„¤ëª… : ë§ˆë¦¬ìˆ˜ëŠ” 1ë§ˆë¦¬ì´ë‹¤.
  */
 struct AIACT20 {
-    DWORD dwSize; /// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; /// Type°ªÀº AIACT_20
+    DWORD dwSize; /// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; /// Typeê°’ì€ AIACT_20
 
-    WORD cMonster; /// ¸ó½ºÅÍ¹øÈ£
-    BYTE btPos; /// ¼ÒÈ¯À§Ä¡ : 0 = ÀÚ½Å ÁÖÀ§,  1 = °ø°ÝÀÚ ÁÖÀ§(ÀÚ½ÅÀ» °ø°ÝÇÑ), 2 = °ø°ÝÅ¸°Ù
-                /// ÁÖÀ§(ÀÚ½ÅÀÌ °ø°ÝÇÏ°í ÀÖ´Â)
-    int iDistance; // °Å¸® . ÀÌ °Å¸® ÀÌ³»¿¡ ¼ÒÈ¯
+    WORD cMonster; /// ëª¬ìŠ¤í„°ë²ˆí˜¸
+    BYTE btPos; /// ì†Œí™˜ìœ„ì¹˜ : 0 = ìžì‹  ì£¼ìœ„,  1 = ê³µê²©ìž ì£¼ìœ„(ìžì‹ ì„ ê³µê²©í•œ), 2 = ê³µê²©íƒ€ê²Ÿ
+                /// ì£¼ìœ„(ìžì‹ ì´ ê³µê²©í•˜ê³  ìžˆëŠ”)
+    int iDistance; // ê±°ë¦¬ . ì´ ê±°ë¦¬ ì´ë‚´ì— ì†Œí™˜
 };
 
 /**********************************************************************************
- * Struct Name : AIACT22 - <<2004.2.21 Ãß°¡>>
- * ÁöÁ¤µÈ ¸ó½ºÅÍ¸¦ ÁöÁ¤µÈ À§Ä¡¿¡ ¼ÒÈ¯
+ * Struct Name : AIACT22 - <<2004.2.21 ì¶”ê°€>>
+ * ì§€ì •ëœ ëª¬ìŠ¤í„°ë¥¼ ì§€ì •ëœ ìœ„ì¹˜ì— ì†Œí™˜
  */
 /*
 struct AIACT22
 {
-    DWORD		dwSize;			/// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE		Type;			/// Type°ªÀº AIACT_22
+    DWORD		dwSize;			/// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE		Type;			/// Typeê°’ì€ AIACT_22
 
 };
 */
 
-// ÀÚ»ì½ÃÅ²´Ù
+// ìžì‚´ì‹œí‚¨ë‹¤
 struct AIACT23 {
     DWORD dwSize;
     AITYPE Type;
 };
 
-// ½ºÅ³°ú µ¿ÀÛÀ» ´ë»óÀ» ÇâÇØ »ç¿ë
+// ìŠ¤í‚¬ê³¼ ë™ìž‘ì„ ëŒ€ìƒì„ í–¥í•´ ì‚¬ìš©
 struct AIACT24 {
-    DWORD dwSize; /// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
+    DWORD dwSize; /// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
     AITYPE Type; /// Type
 
-    BYTE btTarget; // 0=Á¶°Ç¿¡ Ã¼Å©µÈ Ä³¸¯ÅÍ, 1=ÇöÀç °ø°ÝÅ¸°Ù, 2=ÀÚ±âÀÚ½Å(¼¿ÇÁ½ºÅ³)
-    short nSkill; // ½ºÅ³¹øÈ£
-    short nMotion; // µ¿ÀÛ¹øÈ£ -1 = µ¿ÀÛ¾øÀ½
+    BYTE btTarget; // 0=ì¡°ê±´ì— ì²´í¬ëœ ìºë¦­í„°, 1=í˜„ìž¬ ê³µê²©íƒ€ê²Ÿ, 2=ìžê¸°ìžì‹ (ì…€í”„ìŠ¤í‚¬)
+    short nSkill; // ìŠ¤í‚¬ë²ˆí˜¸
+    short nMotion; // ë™ìž‘ë²ˆí˜¸ -1 = ë™ìž‘ì—†ìŒ
 };
 
 struct AIACT28 {
-    DWORD dwSize; /// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
+    DWORD dwSize; /// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
     AITYPE Type; /// Type
 
-    BYTE btMsgType; /// 0 = ÇöÀçÇÊµå, 1 = ÇöÀçÁ¸, 2=ÀüÃ¼¿ùµå
-    // short	nMsgLength;		/// ´ë»çÀÇ ±æÀÌ NULLÆ÷ÇÔ
-    // char		szMsg[ 1 ];		/// ´ë»ç
+    BYTE btMsgType; /// 0 = í˜„ìž¬í•„ë“œ, 1 = í˜„ìž¬ì¡´, 2=ì „ì²´ì›”ë“œ
+    // short	nMsgLength;		/// ëŒ€ì‚¬ì˜ ê¸¸ì´ NULLí¬í•¨
+    // char		szMsg[ 1 ];		/// ëŒ€ì‚¬
     int iStrID;
 };
 struct AIACT28_STR {
-    DWORD dwSize; /// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
+    DWORD dwSize; /// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
     AITYPE Type; /// Type
 
-    BYTE btMsgType; /// 0 = ÇöÀçÇÊµå, 1 = ÇöÀçÁ¸, 2=ÀüÃ¼¿ùµå
-    char szMsg[1]; /// ´ë»ç
+    BYTE btMsgType; /// 0 = í˜„ìž¬í•„ë“œ, 1 = í˜„ìž¬ì¡´, 2=ì „ì²´ì›”ë“œ
+    char szMsg[1]; /// ëŒ€ì‚¬
 };
 
-// ÁÖÀÎÄ³¸¯ÅÍ(ÀÚ½ÅÀ» ¼ÒÈ¯ÇÑ Ä³¸¯ÅÍ)°¡ ÀÖ´Â °÷À¸·Î ÀÌµ¿
+// ì£¼ì¸ìºë¦­í„°(ìžì‹ ì„ ì†Œí™˜í•œ ìºë¦­í„°)ê°€ ìžˆëŠ” ê³³ìœ¼ë¡œ ì´ë™
 struct AIACT29 {
     DWORD dwSize;
     AITYPE Type;
 
-    // 2004-4-9 ÇöÀç±îÁö´Â µ¥ÀÌÅÍ ¾øÀ½
-    // short	nCheckUnit; // ¾ó¸¶ ¸¸Å­ ´ÜÀ§·Î Ã¼Å© . ÀÌ°Íµµ µé¾î°¥ ¼ö ÀÖÀ½. ´ÜÀ§=½Ã°£, ÇÁ·¹ÀÓ
-    // BYTE		btSpeed; // 0 = ÃµÃµÈ÷ , 1 = »¡¸® (¼ÒÈ¯ÀÚ¿¡°Ô °¡´Âµ¥ ÀÌµ¿¼Óµµ ÀÖÀ»¼ö ÀÖÀ½)
-    // BYTE		btAddOp; // ¼ÒÈ¯ÀÚ°¡ Á×¾úÀ» °æ¿ì (¶Ç´Â ¾øÀ» °æ¿ì) µ¹¾Æ°¥ À§Ä¡ ¾øÀ½
+    // 2004-4-9 í˜„ìž¬ê¹Œì§€ëŠ” ë°ì´í„° ì—†ìŒ
+    // short	nCheckUnit; // ì–¼ë§ˆ ë§Œí¼ ë‹¨ìœ„ë¡œ ì²´í¬ . ì´ê²ƒë„ ë“¤ì–´ê°ˆ ìˆ˜ ìžˆìŒ. ë‹¨ìœ„=ì‹œê°„, í”„ë ˆìž„
+    // BYTE		btSpeed; // 0 = ì²œì²œížˆ , 1 = ë¹¨ë¦¬ (ì†Œí™˜ìžì—ê²Œ ê°€ëŠ”ë° ì´ë™ì†ë„ ìžˆì„ìˆ˜ ìžˆìŒ)
+    // BYTE		btAddOp; // ì†Œí™˜ìžê°€ ì£½ì—ˆì„ ê²½ìš° (ë˜ëŠ” ì—†ì„ ê²½ìš°) ëŒì•„ê°ˆ ìœ„ì¹˜ ì—†ìŒ
 };
 
-// Æ®¸®°Å ½ÇÇà
+// íŠ¸ë¦¬ê±° ì‹¤í–‰
 struct AIACT30 {
     DWORD dwSize;
     AITYPE Type;
 
     short shNameLen;
 
-    //  union ¼³Á¤ÇÏ¸é struct ±¸Á¶Á¤·ÄÀÌ ¿¡µðÅÍ¿Í Æ²·ÁÁ® »à»ç¸®³²
+    //  union ì„¤ì •í•˜ë©´ struct êµ¬ì¡°ì •ë ¬ì´ ì—ë””í„°ì™€ í‹€ë ¤ì ¸ ì‚‘ì‚¬ë¦¬ë‚¨
     //	union {
-    //		t_HASHKEY	m_HashNextTrigger[0];	/// ·Îµù½Ã Æ®¸®°Å¸íÀ» Çì½¬°ªÀ¸·Î º¯°æ ½ÃÅ´...
-    char szTrigger[1]; // Æ®¸®°Å¸í. NULLÆ÷ÇÔ
+    //		t_HASHKEY	m_HashNextTrigger[0];	/// ë¡œë”©ì‹œ íŠ¸ë¦¬ê±°ëª…ì„ í—¤ì‰¬ê°’ìœ¼ë¡œ ë³€ê²½ ì‹œí‚´...
+    char szTrigger[1]; // íŠ¸ë¦¬ê±°ëª…. NULLí¬í•¨
     //	} ;
 };
 
-// ÁÖÀÎÀÌ °¡Áö°í ÀÖ´Â °ø°ÝÅ¸°Ù °øÀ¯
+// ì£¼ì¸ì´ ê°€ì§€ê³  ìžˆëŠ” ê³µê²©íƒ€ê²Ÿ ê³µìœ 
 struct AIACT31 {
     DWORD dwSize;
     AITYPE Type;
 };
 
-// PK ¸ðµå On/Off. NPC°¡ Á¸ÀçÇÏ´Â Á¸¿¡.
+// PK ëª¨ë“œ On/Off. NPCê°€ ì¡´ìž¬í•˜ëŠ” ì¡´ì—.
 struct AIACT32 {
     DWORD dwSize;
     AITYPE Type;
 
-    short nZoneNo; // Á¸¹øÈ£, ÇöÀç´Â ¹«Á¶°Ç 0
+    short nZoneNo; // ì¡´ë²ˆí˜¸, í˜„ìž¬ëŠ” ë¬´ì¡°ê±´ 0
     BYTE btOnOff; // 0 = Off , 1 = On
 };
 
-// ÇöÀç/¸î¹ø Á¸ÀÇ ¸®Á¨À» On/Off ÇÔ
+// í˜„ìž¬/ëª‡ë²ˆ ì¡´ì˜ ë¦¬ì  ì„ On/Off í•¨
 struct AIACT33 {
     DWORD dwSize;
     AITYPE Type;
 
-    short nZonNo; // 0 : ÇöÀçÁ¸, ÀÌ¿Ü: Á¸¹øÈ£
+    short nZonNo; // 0 : í˜„ìž¬ì¡´, ì´ì™¸: ì¡´ë²ˆí˜¸
     BYTE btOp; // 0: Off, 1: On, 2: Toggle
 };
 
-// ÁÖÀÎÄ³¸¯ÅÍ¿¡°Ô ¾ÆÀÌÅÛ Áö±Þ
+// ì£¼ì¸ìºë¦­í„°ì—ê²Œ ì•„ì´í…œ ì§€ê¸‰
 struct AIACT34 {
     DWORD dwSize;
     AITYPE Type;
 
     short nItemNo;
-    short nCnt; // nItemNo ¸¦ nCnt °¹¼ö ¸¸Å­ Áö±Þ
+    short nCnt; // nItemNo ë¥¼ nCnt ê°¯ìˆ˜ ë§Œí¼ ì§€ê¸‰
 };
 
-// ¸ó½ºÅÍ º¯¼ö °ª º¯°æ
+// ëª¬ìŠ¤í„° ë³€ìˆ˜ ê°’ ë³€ê²½
 struct AIACT35 {
     DWORD dwSize;
     AITYPE Type;
 
-    short nVarNo; // º¯¼ö ¹øÈ£ : 0 ~ 4
-    int iValue; // ºñ±³ÇÒ µ¥ÀÌÅÍ°ª
-    BYTE btOp; // (¾×¼ÇÂÊ) 5 = °ª¹Ù²Þ, 6 = Áõ°¡, 7 = °¨¼Ò
+    short nVarNo; // ë³€ìˆ˜ ë²ˆí˜¸ : 0 ~ 4
+    int iValue; // ë¹„êµí•  ë°ì´í„°ê°’
+    BYTE btOp; // (ì•¡ì…˜ìª½) 5 = ê°’ë°”ê¿ˆ, 6 = ì¦ê°€, 7 = ê°ì†Œ
 };
 
 //
-// Å¬·£
+// í´ëžœ
 //
-// ÀÚ½ÅÀÇ ±ÙÃ³¿¡ ?¹ø ¸ó½ºÅÍ ¼ÒÈ¯ ( ÀÌÀü 10¹ø²¨¿¡ ÁÖÀÎ ÁöÁ¤ Ãß°¡ )
+// ìžì‹ ì˜ ê·¼ì²˜ì— ?ë²ˆ ëª¬ìŠ¤í„° ì†Œí™˜ ( ì´ì „ 10ë²ˆêº¼ì— ì£¼ì¸ ì§€ì • ì¶”ê°€ )
 struct AIACT36 {
-    DWORD dwSize; // ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; // Á¶°Ç Å¸ÀÔ
-    WORD cMonster; // ¸ó½ºÅÍ¹øÈ£
+    DWORD dwSize; // ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; // ì¡°ê±´ íƒ€ìž…
+    WORD cMonster; // ëª¬ìŠ¤í„°ë²ˆí˜¸
 
-    BYTE btMaster; // 0: ºñÁöÁ¤, 1: ÀÚ½Å(È£ÃâÇÑ)À» ÁÖÀÎÀ¸·Î ÁöÁ¤
+    BYTE btMaster; // 0: ë¹„ì§€ì •, 1: ìžì‹ (í˜¸ì¶œí•œ)ì„ ì£¼ì¸ìœ¼ë¡œ ì§€ì •
 };
 
-// ?ÁÖº¯¿¡ ?¹ÌÅÍ ÀÌ³»¿¡ ?¹ø ¸ó½ºÅÍ ¼ÒÈ¯ ( ÀÌÀü 20¹ø²¨¿¡ ÁÖÀÎ ÁöÁ¤ Ãß°¡ )
+// ?ì£¼ë³€ì— ?ë¯¸í„° ì´ë‚´ì— ?ë²ˆ ëª¬ìŠ¤í„° ì†Œí™˜ ( ì´ì „ 20ë²ˆêº¼ì— ì£¼ì¸ ì§€ì • ì¶”ê°€ )
 struct AIACT37 {
-    DWORD dwSize; /// ÀÌ ½ºÆ®·°ÃÄÀÇ Å©±â
-    AITYPE Type; /// Type°ªÀº AIACT_20
+    DWORD dwSize; /// ì´ ìŠ¤íŠ¸ëŸ­ì³ì˜ í¬ê¸°
+    AITYPE Type; /// Typeê°’ì€ AIACT_20
 
-    WORD cMonster; /// ¸ó½ºÅÍ¹øÈ£
-    BYTE btPos; /// ¼ÒÈ¯À§Ä¡ : 0 = ÀÚ½Å ÁÖÀ§,  1 = °ø°ÝÀÚ ÁÖÀ§(ÀÚ½ÅÀ» °ø°ÝÇÑ), 2 = °ø°ÝÅ¸°Ù
-                /// ÁÖÀ§(ÀÚ½ÅÀÌ °ø°ÝÇÏ°í ÀÖ´Â)
-    int iDistance; // °Å¸® . ÀÌ °Å¸® ÀÌ³»¿¡ ¼ÒÈ¯
+    WORD cMonster; /// ëª¬ìŠ¤í„°ë²ˆí˜¸
+    BYTE btPos; /// ì†Œí™˜ìœ„ì¹˜ : 0 = ìžì‹  ì£¼ìœ„,  1 = ê³µê²©ìž ì£¼ìœ„(ìžì‹ ì„ ê³µê²©í•œ), 2 = ê³µê²©íƒ€ê²Ÿ
+                /// ì£¼ìœ„(ìžì‹ ì´ ê³µê²©í•˜ê³  ìžˆëŠ”)
+    int iDistance; // ê±°ë¦¬ . ì´ ê±°ë¦¬ ì´ë‚´ì— ì†Œí™˜
 
-    BYTE btMaster; // 0: ºñÁöÁ¤, 1: ÀÚ½Å(È£ÃâÇÑ)À» ÁÖÀÎÀ¸·Î ÁöÁ¤
+    BYTE btMaster; // 0: ë¹„ì§€ì •, 1: ìžì‹ (í˜¸ì¶œí•œ)ì„ ì£¼ì¸ìœ¼ë¡œ ì§€ì •
 };
 
 struct stActHead {
@@ -1037,22 +1037,22 @@ inline bool
 Check_AiOP(BYTE btOP, dType1 iLeft, dType2 iRight) {
     bool bResult;
     switch (btOP) {
-        case 0: // °°´Ù
+        case 0: // ê°™ë‹¤
             bResult = (iLeft == iRight);
             break;
-        case 1: // Å©´Ù
+        case 1: // í¬ë‹¤
             bResult = (iLeft > iRight);
             break;
-        case 2: // Å©°Å³ª °°´Ù
+        case 2: // í¬ê±°ë‚˜ ê°™ë‹¤
             bResult = (iLeft >= iRight);
             break;
-        case 3: // ÀÛ´Ù
+        case 3: // ìž‘ë‹¤
             bResult = (iLeft < iRight);
             break;
-        case 4: // ÀÛ°Å³ª °°´Ù.
+        case 4: // ìž‘ê±°ë‚˜ ê°™ë‹¤.
             bResult = (iLeft <= iRight);
             break;
-        case 10: // °°Áö ¾Ê´Ù.
+        case 10: // ê°™ì§€ ì•Šë‹¤.
             bResult = (iLeft != iRight);
             break;
         default:
@@ -1066,11 +1066,11 @@ template<class dType>
 inline dType
 Result_AiOP(BYTE btOP, dType iLeft, dType iRight) {
     switch (btOP) {
-        case 5: // °ª¹Ù²Þ
+        case 5: // ê°’ë°”ê¿ˆ
             return iRight;
-        case 6: // Áõ°¡(ÁÖ¾îÁø ¸¸Å­)
+        case 6: // ì¦ê°€(ì£¼ì–´ì§„ ë§Œí¼)
             return (iLeft + iRight);
-        case 7: // °¨¼Ò
+        case 7: // ê°ì†Œ
             return (iLeft - iRight);
     }
     return 0;

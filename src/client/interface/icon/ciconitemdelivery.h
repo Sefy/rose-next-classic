@@ -2,9 +2,9 @@
 #define _CIconItemDelivery_
 #include "ciconitem.h"
 /**
- * ¸¶ÀÏ¸®Áö ¾ÆÀÌÅÛ Ã¢°í¿¡¼­ »ç¿ëµÇ´Â Item Icon
+ * ë§ˆì¼ë¦¬ì§€ ì•„ì´í…œ ì°½ê³ ì—ì„œ ì‚¬ìš©ë˜ëŠ” Item Icon
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CIconItemDelivery: public CIconItem {
@@ -18,7 +18,7 @@ public:
     virtual void ExecuteCommand() {}
     virtual void GetToolTip(CInfo& strToolTip, DWORD dwDialogType, DWORD dwType);
 
-    static int s_selected_icon; /// ¼±ÅÃµÈ ¾ÆÀÌÄÜ¿¡ ´ëÇÑ ÀÎµ¦½º¸¦ staticÀ¸·Î °¡Áö°í ÀÖ´Â´Ù
+    static int s_selected_icon; /// ì„ íƒëœ ì•„ì´ì½˜ì— ëŒ€í•œ ì¸ë±ìŠ¤ë¥¼ staticìœ¼ë¡œ ê°€ì§€ê³  ìˆëŠ”ë‹¤
 
 protected:
     int m_border_grahicid;

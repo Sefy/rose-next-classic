@@ -5,9 +5,9 @@
 #include "TGameCtrl.h"
 class CTImage;
 class CWinCtrl;
-/// CWinCtrl¿¡ Æ÷ÇÔµÇ´Â Tooltip Class
-/// Client¿¡¼­ ±×¸±¶§¸¶´Ù °ªÀ» °»½ÅÇØ¾ßÇÏ´Â ÅøÆÁÀÇ °æ¿ì
-/// DrawBody³ª DrawText¸¦ OverridenÇÏ¿© »ı¼ºÇØ¼­ CWinCtrl¿¡ SetToolTipÇØÁØ´Ù.
+/// CWinCtrlì— í¬í•¨ë˜ëŠ” Tooltip Class
+/// Clientì—ì„œ ê·¸ë¦´ë•Œë§ˆë‹¤ ê°’ì„ ê°±ì‹ í•´ì•¼í•˜ëŠ” íˆ´íŒì˜ ê²½ìš°
+/// DrawBodyë‚˜ DrawTextë¥¼ Overridení•˜ì—¬ ìƒì„±í•´ì„œ CWinCtrlì— SetToolTipí•´ì¤€ë‹¤.
 class TGAMECTRL_API CToolTip {
 public:
     CToolTip(void);

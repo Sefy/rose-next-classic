@@ -21,7 +21,7 @@
 #include "tgamectrl/tpane.h"
 #include "tgamectrl/tabbedpane.h"
 
-const int MAX_DROP_MONEY = 100000; ///µ·À» ¹Ù´Ú¿¡ ¹ö¸±°æ¿ì ÃÖ´ë 10¸¸±îÁö
+const int MAX_DROP_MONEY = 100000; ///ëˆì„ ë°”ë‹¥ì— ë²„ë¦´ê²½ìš° ìµœëŒ€ 10ë§Œê¹Œì§€
 
 const POINT c_ptEquipedSlotOffsets[] = {
     {23, 66}, /// Face
@@ -96,38 +96,38 @@ CItemDlg::CItemDlg(int iType) {
     pCmd = new CTCmdDragTakeinItem2UpgradeDlg;
     m_pInvenDragItem->AddTarget(DLG_TYPE_UPGRADE, pCmd);
 
-    ///ºÐ¸®/ºÐÇØÃ¢À¸·Î ÀÌµ¿
+    ///ë¶„ë¦¬/ë¶„í•´ì°½ìœ¼ë¡œ ì´ë™
     pCmd = new CTCmdDragItem2SeparateDlg;
     m_pInvenDragItem->AddTarget(DLG_TYPE_SEPARATE, pCmd);
 
-    ///Äü¹Ù·ÎÀÇ ÀÌµ¿
+    ///í€µë°”ë¡œì˜ ì´ë™
     pCmd = new CTCmdDragInven2QuickBar;
     m_pInvenDragItem->AddTarget(DLG_TYPE_QUICKBAR, pCmd);
 
     pCmd = new CTCmdDragInven2QuickBar(DLG_TYPE_QUICKBAR_EXT);
     m_pInvenDragItem->AddTarget(DLG_TYPE_QUICKBAR_EXT, pCmd);
 
-    ///¸Å¸ÅÃ¢À¸·ÎÀÇ ÀÌµ¿
+    ///ë§¤ë§¤ì°½ìœ¼ë¡œì˜ ì´ë™
     CTCmdNumberInput* pNumberCmd = new CTCmdAddItem2DealFromInventory;
     CTCmdOpenNumberInputDlg* pOpenCmd = new CTCmdOpenNumberInputDlg;
     pOpenCmd->SetCommand(pNumberCmd);
     m_pInvenDragItem->AddTarget(DLG_TYPE_DEAL, pOpenCmd);
 
-    ///±³È¯Ã¢À¸·Î ÀÌµ¿
+    ///êµí™˜ì°½ìœ¼ë¡œ ì´ë™
     pNumberCmd = new CTCmdAddMyItem2Exchange;
     pOpenCmd = new CTCmdOpenNumberInputDlg;
     pOpenCmd->SetCommand(pNumberCmd);
     m_pInvenDragItem->AddTarget(DLG_TYPE_EXCHANGE, pOpenCmd);
 
-    ///»óÁ¡Ã¢À¸·Î ÀÌµ¿
+    ///ìƒì ì°½ìœ¼ë¡œ ì´ë™
     pNumberCmd = new CTCmdSellItem;
     pOpenCmd = new CTCmdOpenNumberInputDlg;
     pOpenCmd->SetCommand(pNumberCmd);
     m_pInvenDragItem->AddTarget(DLG_TYPE_STORE, pOpenCmd);
 
-    ///¶¥ È¤Àº Ã¤ÆÃÃ¢À¸·Î µå¶ø
-    ///Ã¤ÆÃÃ¢Àº º¸ÀÌÁö´Â ¾ÊÁö¸¸ ÀÏÁ¤¿µ¿ªÀ» °¡Áö°í ÀÖ´Ù..
-    ///Ã¤ÆÃÃ¢¿¡ °ÉÃÄ¼­ ¹ö·Áµµ ¶¥¿¡ ¹ö¸®´Â °ÍÀ» °£ÁÖÇÑ´Ù
+    ///ë•… í˜¹ì€ ì±„íŒ…ì°½ìœ¼ë¡œ ë“œëž
+    ///ì±„íŒ…ì°½ì€ ë³´ì´ì§€ëŠ” ì•Šì§€ë§Œ ì¼ì •ì˜ì—­ì„ ê°€ì§€ê³  ìžˆë‹¤..
+    ///ì±„íŒ…ì°½ì— ê±¸ì³ì„œ ë²„ë ¤ë„ ë•…ì— ë²„ë¦¬ëŠ” ê²ƒì„ ê°„ì£¼í•œë‹¤
     pNumberCmd = new CTCmdDropItem;
     pOpenCmd = new CTCmdOpenNumberInputDlg;
     pOpenCmd->SetCommand(pNumberCmd);
@@ -138,27 +138,27 @@ CItemDlg::CItemDlg(int iType) {
     pOpenCmd->SetCommand(pNumberCmd);
     m_pInvenDragItem->AddTarget(DLG_TYPE_CHAT, pOpenCmd);
 
-    /// Bank·Î ÀÌµ¿
+    /// Bankë¡œ ì´ë™
     pNumberCmd = new CTCmdMoveItemInv2Bank;
     pOpenCmd = new CTCmdOpenNumberInputDlg;
     pOpenCmd->SetCommand(pNumberCmd);
     m_pInvenDragItem->AddTarget(DLG_TYPE_BANK, pOpenCmd);
 
-    ///Á¦Á¶Ã¢À¸·Î ÀÌµ¿
+    ///ì œì¡°ì°½ìœ¼ë¡œ ì´ë™
     pCmd = new CTCmdTakeInItem2MakeDlg;
     m_pInvenDragItem->AddTarget(DLG_TYPE_MAKE, pCmd);
 
-    ///ÀÚ½ÅÀÌ °³¼³ÇÑ °³ÀÎ»óÁ¡Ã¢À¸·Î
+    ///ìžì‹ ì´ ê°œì„¤í•œ ê°œì¸ìƒì ì°½ìœ¼ë¡œ
     pCmd = new CTCmdDragItem2PrivateStoreDlg;
     m_pInvenDragItem->AddTarget(DLG_TYPE_PRIVATESTORE, pCmd);
 
-    ///´Ù¸¥ ¾Æ¹ÙÅ¸ÀÇ °³ÀÎ»óÁ¡À» ÀÌ¿ë½Ã
+    ///ë‹¤ë¥¸ ì•„ë°”íƒ€ì˜ ê°œì¸ìƒì ì„ ì´ìš©ì‹œ
     CTCmdDragItem2AvatarStoreDlg* pOpenNumberInputDlg = new CTCmdDragItem2AvatarStoreDlg;
     CTCmdNumberInput* pCmd2 = new CTCmdSellItem2AvatarStore;
     pOpenNumberInputDlg->SetCommand(pCmd2);
     m_pInvenDragItem->AddTarget(DLG_TYPE_AVATARSTORE, pOpenNumberInputDlg);
 
-    ///ÀåÂø½½·ÔÀ¸·Î ÀÌµ¿½Ã¿¡´Â ÀåÂø È¤Àº Àç¹Öµî....
+    ///ìž¥ì°©ìŠ¬ë¡¯ìœ¼ë¡œ ì´ë™ì‹œì—ëŠ” ìž¥ì°© í˜¹ì€ ìž¬ë°ë“±....
     pCmd = new CTCmdDragItemFromInvenInItemDlg;
     m_pInvenDragItem->AddTarget(iType, pCmd);
 
@@ -226,7 +226,7 @@ CItemDlg::Draw() {
     D3DXMatrixTranslation(&mat, (float)m_sPosition.x, (float)m_sPosition.y + m_iHeight - 23, 0.0f);
     ::setTransformSprite(mat);
 
-    ///µ·
+    ///ëˆ
     const int money_buffer_size = 64;
     char money_buffer[money_buffer_size];
     CGameUtil::ConvertMoney2String(g_pAVATAR->Get_MONEY(), money_buffer, money_buffer_size);
@@ -238,7 +238,7 @@ CItemDlg::Draw() {
         D3DCOLOR_XRGB(255, 240, 0),
         "%s",
         money_buffer);
-    ///¹«°Ô
+    ///ë¬´ê²Œ
     ::drawFontf(g_GameDATA.m_hFONT[FONT_NORMAL],
         true,
         198,
@@ -609,8 +609,8 @@ CItemDlg::IsInsideEquip(POINT pt) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÇöÀç¸¶¿ì½º À§Ä¡·Î Àåºñ ÀåÂøÃ¢ ½½·Ô ¹øÈ£¸¦ ±¸ÇÑ´Ù.
-/// @return < 0 ÀÌ¶ó¸é Àû´çÇÑ ÀåºñÀåÂøÃ¢ À§°¡ ¾Æ´Ô..
+/// @brief í˜„ìž¬ë§ˆìš°ìŠ¤ ìœ„ì¹˜ë¡œ ìž¥ë¹„ ìž¥ì°©ì°½ ìŠ¬ë¡¯ ë²ˆí˜¸ë¥¼ êµ¬í•œë‹¤.
+/// @return < 0 ì´ë¼ë©´ ì ë‹¹í•œ ìž¥ë¹„ìž¥ì°©ì°½ ìœ„ê°€ ì•„ë‹˜..
 //----------------------------------------------------------------------------------------------------
 
 int
@@ -700,7 +700,7 @@ CItemDlg::SwitchIcon(int iReal, int iVirtual) {
     }
 }
 //*-----------------------------------------------------------------------
-/// @brief ½ÇÁ¦ ÀÎº¥Åä¸®ÀÎµ¦½º¸¦ °¡Áø ¾ÆÀÌÅÛ ¾ÆÀÌÄÜÀ» °¡Áø SlotÀ» Ã£´Â´Ù.
+/// @brief ì‹¤ì œ ì¸ë²¤í† ë¦¬ì¸ë±ìŠ¤ë¥¼ ê°€ì§„ ì•„ì´í…œ ì•„ì´ì½˜ì„ ê°€ì§„ Slotì„ ì°¾ëŠ”ë‹¤.
 //*-----------------------------------------------------------------------
 CSlot*
 CItemDlg::GetInvenSlotByRealIndex(int iIndex) {
@@ -762,7 +762,7 @@ CItemDlg::ActionPerformed(CActionEvent* e) {
                         switch (g_itMGR.GetState()) {
                             case IT_MGR::STATE_REPAIR: {
                                 CGame& refGame = CGame::GetInstance();
-                                if (refGame.GetRepairMode() != CGame::REPAIR_NONE) ///¼ö¸®¸ðµåÀÏ°æ¿ì
+                                if (refGame.GetRepairMode() != CGame::REPAIR_NONE) ///ìˆ˜ë¦¬ëª¨ë“œì¼ê²½ìš°
                                 {
                                     pSlot->ResetClicked();
                                     if (IsAvailableRepair(pIcon)) {

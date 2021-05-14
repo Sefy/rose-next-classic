@@ -2,11 +2,11 @@
 #define _CGAMESTATE_
 
 /**
- * Å¬¶óÀÌ¾ðÆ®ÀÇ »óÅÂÅ¬·¡½ºÀÇ º£ÀÌ½ºÅ¬·¡½º
- *	- Ã³À½ µ¥ÀÌÅ¸ ·Îµù°ú È­¸é Ãâ·ÂÀ» thread·Î ±¸ÇöÇÏ·Á°í ½ÃµµÇÏ¿© ¸ÖÆ¼ ¾²·¹µå ÄÚµå°¡ ÁÖ¼®Ã³¸®µÇ¾î
- *ÀÖ´Ù( µ¥ÀÌÅ¸ ·Îµù°ú DirectXÀÇ ¹®Á¦·Î Æ÷±â )
+ * í´ë¼ì´ì–¸íŠ¸ì˜ ìƒíƒœí´ëž˜ìŠ¤ì˜ ë² ì´ìŠ¤í´ëž˜ìŠ¤
+ *	- ì²˜ìŒ ë°ì´íƒ€ ë¡œë”©ê³¼ í™”ë©´ ì¶œë ¥ì„ threadë¡œ êµ¬í˜„í•˜ë ¤ê³  ì‹œë„í•˜ì—¬ ë©€í‹° ì“°ë ˆë“œ ì½”ë“œê°€ ì£¼ì„ì²˜ë¦¬ë˜ì–´
+ *ìžˆë‹¤( ë°ì´íƒ€ ë¡œë”©ê³¼ DirectXì˜ ë¬¸ì œë¡œ í¬ê¸° )
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CGameState {

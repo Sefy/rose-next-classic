@@ -121,7 +121,7 @@ CJTable::SetValue(int iValue) {
         m_ViewItems.push_back(*iter);
     }
 
-    ///���ο� offset���� ���� ��ũ����ǥ�� �����Ѵ�.
+    ///새로운 offset으로 실제 스크린좌표를 재계산한다.
     // MoveWindow( m_sPosition );
 }
 
@@ -148,7 +148,7 @@ CJTable::SetColumnCount(int iCount) {
     if (iCount > 0) {
         m_iColumnCount = iCount;
         SetValue(m_iValue);
-        ///=>��ũ�ѹٵ� �ٲپ� �־�� ���ٵ� :
+        ///=>스크롤바도 바꾸어 주어야 할텐데 :
     }
 }
 

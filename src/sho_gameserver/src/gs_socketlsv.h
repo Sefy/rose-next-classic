@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	GS_SocketLSV.h
- * \brief	¿ù½º ¼­¹ö¿Í Åë½Å ÇÏ´Â ¼ÒÄÏ Å¬·¡½º
+ * \brief	ì›”ìŠ¤ ì„œë²„ì™€ í†µì‹  í•˜ëŠ” ì†Œì¼“ í´ë˜ìŠ¤
  */
 #ifndef __GS_SOCKETLSV_H
 #define __GS_SOCKETLSV_H
@@ -13,7 +13,7 @@
  * \ingroup SHO_GS_LIB
  * \class	GSLSV_Socket
  * \author	wookSang.Jo
- * \brief	·ÎÁî ¿ùµå¼­¹ö sho_ws¿Í Åë½Å¹× Ã³¸®ÇÏ´Â Å¬·¡½º
+ * \brief	ë¡œì¦ˆ ì›”ë“œì„œë²„ sho_wsì™€ í†µì‹ ë° ì²˜ë¦¬í•˜ëŠ” í´ë˜ìŠ¤
  */
 class GSLSV_Socket: public CClientSOCKET {
 public:
@@ -67,7 +67,7 @@ public:
     void Send_gsv_CHEAT_REQ(classUSER* pUSER,
         DWORD dwReqWSID,
         DWORD dwReplyWSID,
-        char* szCheatCode); // ¿ùµå ¼­¹ö¿¡ Ä¡Æ®ÄÚµå ¿äÃ»
+        char* szCheatCode); // ì›”ë“œ ì„œë²„ì— ì¹˜íŠ¸ì½”ë“œ ìš”ì²­
     void Recv_wsv_CHEAT_REQ();
 
     void Send_srv_ACTIVE_MODE(bool bActive);

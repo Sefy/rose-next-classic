@@ -6,25 +6,25 @@
 #include "ITFont.h"
 
 const D3DCOLOR c_TextColor[19] = {
-    D3DCOLOR_ARGB(255, 0, 0, 0), //		°ËÁ¤»ö
-    D3DCOLOR_ARGB(255, 0x80, 0, 0), //ÁøÇÑ »¡°£»ö
-    D3DCOLOR_ARGB(255, 0, 0x80, 0), //ÁøÇÑ ÃÊ·Ï»ö
-    D3DCOLOR_ARGB(255, 0, 0, 0x80), //ÁøÇÑ ÆÄ¶õ»ö
-    D3DCOLOR_ARGB(255, 0x80, 0x80, 0), //ÁøÇÑ ³ë¶õ»ö
-    D3DCOLOR_ARGB(255, 0x80, 0, 0x80), //ÁøÇÑ ºĞ°¡»ö
-    D3DCOLOR_ARGB(255, 0, 0x80, 0x80), //ÁøÇÑ ÇÏ´Ã»ö
-    D3DCOLOR_ARGB(255, 0x80, 0x80, 0x80), //ÁøÇÑ È¸»ö
-    D3DCOLOR_ARGB(255, 0xC0, 0xC0, 0xC0), //¿¬ÇÑ È¸»ö
-    D3DCOLOR_ARGB(255, 0xC0, 0xDC, 0xC0), //ÃÊ·Ï»ö
-    D3DCOLOR_ARGB(255, 0xC0, 0xC0, 0xDC), //¿¬µÎ»ö
-    D3DCOLOR_ARGB(255, 0xA6, 0xCA, 0xF0), //¿¬ÇÑ ÆÄ¶õ»ö
-    D3DCOLOR_ARGB(255, 0xFF, 0, 0), //»¡°£»ö
-    D3DCOLOR_ARGB(255, 0, 0xFF, 0), //³ì»ö
-    D3DCOLOR_ARGB(255, 0, 0, 0xFF), //ÆÄ¶õ»ö
-    D3DCOLOR_ARGB(255, 0xFF, 0xFF, 0), //³ë¶õ»ö
-    D3DCOLOR_ARGB(255, 0, 0xFF, 0xFF), //ÇÏ´Ã»ö
-    D3DCOLOR_ARGB(255, 0xFF, 0xFB, 0xF0), //Å©¸²»ö
-    D3DCOLOR_ARGB(255, 0xFF, 0xFF, 0xFF) //ÇÏ¾á»ö
+    D3DCOLOR_ARGB(255, 0, 0, 0), //		ê²€ì •ìƒ‰
+    D3DCOLOR_ARGB(255, 0x80, 0, 0), //ì§„í•œ ë¹¨ê°„ìƒ‰
+    D3DCOLOR_ARGB(255, 0, 0x80, 0), //ì§„í•œ ì´ˆë¡ìƒ‰
+    D3DCOLOR_ARGB(255, 0, 0, 0x80), //ì§„í•œ íŒŒë€ìƒ‰
+    D3DCOLOR_ARGB(255, 0x80, 0x80, 0), //ì§„í•œ ë…¸ë€ìƒ‰
+    D3DCOLOR_ARGB(255, 0x80, 0, 0x80), //ì§„í•œ ë¶„ê°€ìƒ‰
+    D3DCOLOR_ARGB(255, 0, 0x80, 0x80), //ì§„í•œ í•˜ëŠ˜ìƒ‰
+    D3DCOLOR_ARGB(255, 0x80, 0x80, 0x80), //ì§„í•œ íšŒìƒ‰
+    D3DCOLOR_ARGB(255, 0xC0, 0xC0, 0xC0), //ì—°í•œ íšŒìƒ‰
+    D3DCOLOR_ARGB(255, 0xC0, 0xDC, 0xC0), //ì´ˆë¡ìƒ‰
+    D3DCOLOR_ARGB(255, 0xC0, 0xC0, 0xDC), //ì—°ë‘ìƒ‰
+    D3DCOLOR_ARGB(255, 0xA6, 0xCA, 0xF0), //ì—°í•œ íŒŒë€ìƒ‰
+    D3DCOLOR_ARGB(255, 0xFF, 0, 0), //ë¹¨ê°„ìƒ‰
+    D3DCOLOR_ARGB(255, 0, 0xFF, 0), //ë…¹ìƒ‰
+    D3DCOLOR_ARGB(255, 0, 0, 0xFF), //íŒŒë€ìƒ‰
+    D3DCOLOR_ARGB(255, 0xFF, 0xFF, 0), //ë…¸ë€ìƒ‰
+    D3DCOLOR_ARGB(255, 0, 0xFF, 0xFF), //í•˜ëŠ˜ìƒ‰
+    D3DCOLOR_ARGB(255, 0xFF, 0xFB, 0xF0), //í¬ë¦¼ìƒ‰
+    D3DCOLOR_ARGB(255, 0xFF, 0xFF, 0xFF) //í•˜ì–€ìƒ‰
 };
 
 CJStringParser::CJStringParser(void) {
@@ -93,7 +93,7 @@ CJStringParser::SetString(const char* pszString, int iDisplayWidth) {
                 iStringWidth = 0;
                 tag_info.m_linefeed = false;
             }
-            pCurrChar = tag_info.m_pCurrChar; //º¯°æµÇ¾úÀ»¼ö ÀÖ´Ù.
+            pCurrChar = tag_info.m_pCurrChar; //ë³€ê²½ë˜ì—ˆì„ìˆ˜ ìˆë‹¤.
         } else {
             strTemp.clear();
             for (; pCurrChar < pNextChar; ++pCurrChar)
@@ -102,9 +102,9 @@ CJStringParser::SetString(const char* pszString, int iDisplayWidth) {
             size = CTControlMgr::GetInstance()->GetFontMgr()->GetFontTextExtent(tag_info.m_font,
                 strTemp.c_str());
 
-            ///ÇÑ ´Ü¾î( ½ºÆäÀÌ½º »çÀÌÀÇ ¹®ÀÚ¿­)ÀÇ ±æÀÌ°¡ ÃÖ´ë ÆøÀ» ³ÑÀ»°æ¿ì
+            ///í•œ ë‹¨ì–´( ìŠ¤í˜ì´ìŠ¤ ì‚¬ì´ì˜ ë¬¸ìì—´)ì˜ ê¸¸ì´ê°€ ìµœëŒ€ í­ì„ ë„˜ì„ê²½ìš°
             if (m_split_type == SPLIT_WORD && size.cx > iDisplayWidth) {
-                tag_info.m_pCurrChar = pCurrChar; ///¹Ì¸® Ã³¸®ÈÄÀÇ Æ÷ÀÎÅÍ¸¦ ÀúÀåÇÑ´Ù.
+                tag_info.m_pCurrChar = pCurrChar; ///ë¯¸ë¦¬ ì²˜ë¦¬í›„ì˜ í¬ì¸í„°ë¥¼ ì €ì¥í•œë‹¤.
                 pCurrChar = (char*)strTemp.c_str();
                 pNextChar = CharNextExA(CP_ACP, pCurrChar, 0);
                 char* pTempChar = pCurrChar;
@@ -135,8 +135,8 @@ CJStringParser::SetString(const char* pszString, int iDisplayWidth) {
                     }
                     pNextChar = CharNextExA(CP_ACP, pCurrChar, 0);
                 }
-                ///¿©±â¼­ Ã³¸®°¡ ¾ÈµÈ StringÀÇ °æ¿ì ´ÙÀ½¿¡ Ã³¸®°¡ µÈ´Ù.
-                pCurrChar = tag_info.m_pCurrChar; ///¹Ì¸® ÀúÀåÇØµÎ¾ú´ø Æ÷ÀÎÅÍ¸¦ ´Ù½Ã ´ëÀÔÇÑ´Ù.
+                ///ì—¬ê¸°ì„œ ì²˜ë¦¬ê°€ ì•ˆëœ Stringì˜ ê²½ìš° ë‹¤ìŒì— ì²˜ë¦¬ê°€ ëœë‹¤.
+                pCurrChar = tag_info.m_pCurrChar; ///ë¯¸ë¦¬ ì €ì¥í•´ë‘ì—ˆë˜ í¬ì¸í„°ë¥¼ ë‹¤ì‹œ ëŒ€ì…í•œë‹¤.
             } else {
                 iStringWidth += size.cx;
                 iStringWidthOnelinePrint += size.cx;
@@ -160,12 +160,12 @@ CJStringParser::SetString(const char* pszString, int iDisplayWidth) {
     }
 
     if (!String.IsEmpty())
-        m_Strings.push_back(String); /// StringÀÇ ±æÀÌ°¡ ÃÖ´ë Ç¥½Ã±æÀÌ¸¦ ³Ñ´ÂÁö Ã¼Å©ÇÑ´Ù.
+        m_Strings.push_back(String); /// Stringì˜ ê¸¸ì´ê°€ ìµœëŒ€ í‘œì‹œê¸¸ì´ë¥¼ ë„˜ëŠ”ì§€ ì²´í¬í•œë‹¤.
 
     return iStringWidthOnelinePrint;
 }
-///"<"¹®ÀÚ·Î Tag°¡ ½ÃÀÛµÇ¾ú´Ù.
-///">"¹®ÀÚ°¡ ³ª¿À°Å³ª ¹®ÀÚ¿­ÀÌ ³¡³ª¸é ¸®ÅÏÇÑ´Ù.
+///"<"ë¬¸ìë¡œ Tagê°€ ì‹œì‘ë˜ì—ˆë‹¤.
+///">"ë¬¸ìê°€ ë‚˜ì˜¤ê±°ë‚˜ ë¬¸ìì—´ì´ ëë‚˜ë©´ ë¦¬í„´í•œë‹¤.
 void
 CJStringParser::Tag(TagInfo& tag_info) {
     std::string strTemp;
@@ -292,7 +292,7 @@ CJStringParser::TagEndProcess(std::string& Tag, TagInfo& tag_info) {
         tag_info.m_font = m_iDefaultFont;
 }
 
-///ÇöÀç À§Ä¡¿¡¼­ ´ÙÀ½ ´Ü¾îÀÇ Ã¹¹øÂ° À§Ä¡¸¦ Ã£´Â´Ù.
+///í˜„ì¬ ìœ„ì¹˜ì—ì„œ ë‹¤ìŒ ë‹¨ì–´ì˜ ì²«ë²ˆì§¸ ìœ„ì¹˜ë¥¼ ì°¾ëŠ”ë‹¤.
 LPSTR
 CJStringParser::GetNextWord(WORD CodePage, LPSTR pCurrChar, DWORD dwFlags) {
     LPSTR pNextChar = CharNextExA(CodePage, pCurrChar, dwFlags);

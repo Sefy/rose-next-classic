@@ -38,7 +38,7 @@ CIocpTHREAD::Execute() {
             lpNumberOfBytesTransferred, lpCompletionKey, and lpOverlapped.
             */
             if (NULL != lpOverlapped) {
-                // ¼ÒÄÏ Á¾·á
+                // ì†Œì¼“ ì¢…ë£Œ
                 DWORD dwErrCODE = ::GetLastError();
                 STATUS_ReturnFALSE(lpOverlapped, dwCompletionKey);
                 continue;

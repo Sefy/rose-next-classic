@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	CThreadGUILD.h
- * \brief	¿ùµåÀÇ Å¬·£ °ü¸®¹× Ã³¸®, Å¬·£ µğºñ¿Í ¿¬µ¿
+ * \brief	ì›”ë“œì˜ í´ëœ ê´€ë¦¬ë° ì²˜ë¦¬, í´ëœ ë””ë¹„ì™€ ì—°ë™
  */
 #ifndef __GS_GUILD_H
 #define __GS_GUILD_H
@@ -28,16 +28,16 @@ typedef classUSER CWS_Client;
  * \ingroup SHO_GS_LIB
  * \class	CClanUSER
  * \author	wookSang.Jo
- * \brief	Å¬·£¿¡ °¡ÀÔÇÑ »ç¿ëÀÚ Á¤º¸
+ * \brief	í´ëœì— ê°€ì…í•œ ì‚¬ìš©ì ì •ë³´
  */
 class CClanUSER {
 public:
-    CStrVAR m_Name; // ÄÉ¸¯ÀÌ¸§
+    CStrVAR m_Name; // ì¼€ë¦­ì´ë¦„
     t_HASHKEY m_HashName;
-    int m_iContribute; // ±â¿©µµ
-    int m_iPosition; // Á÷À§
-    int m_iConnSockIDX; // Á¢¼ÓµÆÀ»°æ¿ì ¼ÒÄÏ IDX
-    BYTE m_btChannelNo; // Á¢¼ÓµÆÀ»°æ¿ì Ã¤³Î ¹øÈ£..
+    int m_iContribute; // ê¸°ì—¬ë„
+    int m_iPosition; // ì§ìœ„
+    int m_iConnSockIDX; // ì ‘ì†ëì„ê²½ìš° ì†Œì¼“ IDX
+    BYTE m_btChannelNo; // ì ‘ì†ëì„ê²½ìš° ì±„ë„ ë²ˆí˜¸..
     short m_nLevel;
     short m_nJob;
     CClanUSER() {
@@ -52,8 +52,8 @@ public:
 //	#pragma pack (push, 1)
 //	struct tagClanSKILL {
 //		short	m_nSkillIDX;
-//		DWORD	m_dwExpiredTIME;	// »ç¿ë ¸¸·á ½Ã°£
-//	//	short	m_nCount;			// »ç¿ë °¡´É È½¼ö -> ´©°¡ »ç¿ë°¡´ÉÇÑ È½¼ö?? ¸¶½ºÅÍ¸¸??
+//		DWORD	m_dwExpiredTIME;	// ì‚¬ìš© ë§Œë£Œ ì‹œê°„
+//	//	short	m_nCount;			// ì‚¬ìš© ê°€ëŠ¥ íšŸìˆ˜ -> ëˆ„ê°€ ì‚¬ìš©ê°€ëŠ¥í•œ íšŸìˆ˜?? ë§ˆìŠ¤í„°ë§Œ??
 //	} ;
 //	struct tagClanBIN {
 //		tagClanSKILL	m_SKILL[ MAX_CLAN_SKILL_SLOT ];
@@ -77,7 +77,7 @@ public:
  * \ingroup SHO_GS_LIB
  * \class	CClan
  * \author	wookSang.Jo
- * \brief	Å¬·£ µ¥ÀÌÅ¸¹× Å¬·£¸â¹ö °üÄ¡¹× Ã³¸®
+ * \brief	í´ëœ ë°ì´íƒ€ë° í´ëœë©¤ë²„ ê´€ì¹˜ë° ì²˜ë¦¬
  */
 class CClan: public CCriticalSection {
 public:
@@ -92,13 +92,13 @@ public:
         DWORD m_dwClanMARK;
         WORD m_wClanMARK[2];
     };
-    DWORD m_dwAlliedGroupID; // Å¬·£ÀÇ µ¿¸Í±×·ì
+    DWORD m_dwAlliedGroupID; // í´ëœì˜ ë™ë§¹ê·¸ë£¹
     int m_iClanRATE;
     __int64 m_biClanMONEY;
 
-    CStrVAR m_Name; // ±æµå ÀÌ¸§
-    CStrVAR m_Desc; // ±æµå ¼³¸í
-    CStrVAR m_Motd; // ±æµå °øÁö
+    CStrVAR m_Name; // ê¸¸ë“œ ì´ë¦„
+    CStrVAR m_Desc; // ê¸¸ë“œ ì„¤ëª…
+    CStrVAR m_Motd; // ê¸¸ë“œ ê³µì§€
 
     short m_nClanMarkLEN;
     char m_pClanMARK[1024];
@@ -109,7 +109,7 @@ public:
     tagClanBIN m_ClanBIN;
 #endif
 
-    short m_nPosCNT[GPOS_MASTER + 1]; // µî±Şº° ¸â¹ö¼ö
+    short m_nPosCNT[GPOS_MASTER + 1]; // ë“±ê¸‰ë³„ ë©¤ë²„ìˆ˜
 
     CDLList<CClanUSER> m_ListUSER;
 
@@ -235,7 +235,7 @@ struct tagCLAN_CMD {
  * \ingroup SHO_GS_LIB
  * \class	CThreadGUILD
  * \author	wookSang.Jo
- * \brief	Å¬·£ µ¥ÀÌÅ¸¸¦ µğºñ¿Í ¿¬µ¿ÇÏ´Â Å¬·¡½º
+ * \brief	í´ëœ ë°ì´íƒ€ë¥¼ ë””ë¹„ì™€ ì—°ë™í•˜ëŠ” í´ë˜ìŠ¤
  */
 class CThreadGUILD: public CSqlTHREAD {
 private:

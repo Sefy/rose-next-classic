@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	IO_Skill.h
- * \brief	List_skill.stb¸¦ ÀĞ¾î µé¿© º¸°ü, °¢°¢ÀÇ ½ºÅ³ µ¥ÀÌÅ¸ º¸°ü
+ * \brief	List_skill.stbë¥¼ ì½ì–´ ë“¤ì—¬ ë³´ê´€, ê°ê°ì˜ ìŠ¤í‚¬ ë°ì´íƒ€ ë³´ê´€
  */
 #ifndef __IO_SKILL_H
 #define __IO_SKILL_H
@@ -13,47 +13,47 @@
 //-------------------------------------------------------------------------------------------------
 
 enum {
-    SKILL_TYPE_01 = 1, /// ±âº» µ¿ÀÛ ½ºÅ³
-    SKILL_TYPE_02, /// Ã¢ »ı¼º ½ºÅ³
-    SKILL_TYPE_03, /// °ø°İ µ¿ÀÛ º¯°æÇü
-    SKILL_TYPE_04, /// ¹«±â »óÅÂ º¯°æÇü
-    SKILL_TYPE_05, /// ÃÑ¾Ë º¯°æÇë °ø°İÇü
-    SKILL_TYPE_06, /// ¹ß»ç ¸¶¹ıÇü
-    SKILL_TYPE_07, /// Áö¿ª ¸¶¹ı °ø°İÇü
-    SKILL_TYPE_08, /// ´É·ÂÄ¡ÀÇ Áõ/°¨À» ÀÏÁ¤½Ã°£ Áö¼Ó(¼¿ÇÁ)
-    SKILL_TYPE_09, /// ´É·ÂÄ¡ÀÇ Áõ/°¨À» ÀÏÁ¤½Ã°£ Áö¼Ó(Å¸°Ù)
-    SKILL_TYPE_10, /// ´É·ÂÄ¡ º¯°æÇü(¼¿ÇÁ)	:	ÇÑ¹æ¿¡ ¿Ã¸²
-    SKILL_TYPE_11, /// ´É·ÂÄ¡ º¯°æÇü(Å¸°Ù)	:	ÇÑ¹æ¿¡ ¿Ã¸²
-    SKILL_TYPE_12, /// »óÅÂ Áö¼ÓÇü(¼¿ÇÁ)	Áßµ¶, º¡¾î¸®, ±âÀı, Åõ¸í, ¹æÆĞµ¥¹ÌÁö, Ãß°¡ µ¥¹ÌÁö
-    SKILL_TYPE_13, /// »óÅÂ Áö¼ÓÇü(Å¸°Ù)	Áßµ¶, º¡¾î¸®, ±âÀı, Åõ¸í, ¹æÆĞµ¥¹ÌÁö, Ãß°¡ µ¥¹ÌÁö
-    SKILL_TYPE_14, /// ÀÚ½ÅÀÇ ÆÀ ¹øÈ£·Î NPC¸¦ ¼ÒÈ¯...
-    SKILL_TYPE_15, /// ÆĞ½Ãºê ½ºÅ³
+    SKILL_TYPE_01 = 1, /// ê¸°ë³¸ ë™ì‘ ìŠ¤í‚¬
+    SKILL_TYPE_02, /// ì°½ ìƒì„± ìŠ¤í‚¬
+    SKILL_TYPE_03, /// ê³µê²© ë™ì‘ ë³€ê²½í˜•
+    SKILL_TYPE_04, /// ë¬´ê¸° ìƒíƒœ ë³€ê²½í˜•
+    SKILL_TYPE_05, /// ì´ì•Œ ë³€ê²½í— ê³µê²©í˜•
+    SKILL_TYPE_06, /// ë°œì‚¬ ë§ˆë²•í˜•
+    SKILL_TYPE_07, /// ì§€ì—­ ë§ˆë²• ê³µê²©í˜•
+    SKILL_TYPE_08, /// ëŠ¥ë ¥ì¹˜ì˜ ì¦/ê°ì„ ì¼ì •ì‹œê°„ ì§€ì†(ì…€í”„)
+    SKILL_TYPE_09, /// ëŠ¥ë ¥ì¹˜ì˜ ì¦/ê°ì„ ì¼ì •ì‹œê°„ ì§€ì†(íƒ€ê²Ÿ)
+    SKILL_TYPE_10, /// ëŠ¥ë ¥ì¹˜ ë³€ê²½í˜•(ì…€í”„)	:	í•œë°©ì— ì˜¬ë¦¼
+    SKILL_TYPE_11, /// ëŠ¥ë ¥ì¹˜ ë³€ê²½í˜•(íƒ€ê²Ÿ)	:	í•œë°©ì— ì˜¬ë¦¼
+    SKILL_TYPE_12, /// ìƒíƒœ ì§€ì†í˜•(ì…€í”„)	ì¤‘ë…, ë²™ì–´ë¦¬, ê¸°ì ˆ, íˆ¬ëª…, ë°©íŒ¨ë°ë¯¸ì§€, ì¶”ê°€ ë°ë¯¸ì§€
+    SKILL_TYPE_13, /// ìƒíƒœ ì§€ì†í˜•(íƒ€ê²Ÿ)	ì¤‘ë…, ë²™ì–´ë¦¬, ê¸°ì ˆ, íˆ¬ëª…, ë°©íŒ¨ë°ë¯¸ì§€, ì¶”ê°€ ë°ë¯¸ì§€
+    SKILL_TYPE_14, /// ìì‹ ì˜ íŒ€ ë²ˆí˜¸ë¡œ NPCë¥¼ ì†Œí™˜...
+    SKILL_TYPE_15, /// íŒ¨ì‹œë¸Œ ìŠ¤í‚¬
     SKILL_TYPE_PASSIVE = SKILL_TYPE_15,
     SKILL_TYPE_16, /// Emotion
     SKILL_TYPE_17, /// Self & damage
-    SKILL_TYPE_18, /// Ãß°¡ 2004.4.8 : warp skill
-    SKILL_TYPE_19, /* Ãß°¡ 2004.6.16 :
-                   ´É·ÂÄ¡ º¯°æ(10¹øÀ¯Çü) & µ¥¹ÌÁö°ø°İ(3¹øÀ¯Çü)
-                           ±âÁ¸ÀÇ 3¹ø½ºÅ³ À¯ÇüÀ¸·Î Å¸°Ù¿¡°Ô µ¥¹ÌÁö¸¦ ÁÖ°í, ÀÚ½Å¿¡°Ô´Â
-                           ÁöÁ¤µÈ ´É·ÂÄ¡(21¹ø,24¹ø Ä®·³)ÀÇ ¼öÄ¡(22,25¹øÄ®·³)°¡ Áõ°¡µÈ´Ù.
-                           ½ºÅ³¼º°ø°è»ê½ÄÀ» Àû¿ëÇÏ¿© ¼º°ø½Ã¿¡¸¸ ´É·ÂÄ¡ º¯°æÀ» Àû¿ë½ÃÅ²´Ù.
-                           (Å¸°Ù¿¡ µ¥¹ÌÁö°ø°İÀ» ÇÏ¸é¼­ HP,MP »¯¾î¿À±â °³³ä)
+    SKILL_TYPE_18, /// ì¶”ê°€ 2004.4.8 : warp skill
+    SKILL_TYPE_19, /* ì¶”ê°€ 2004.6.16 :
+                   ëŠ¥ë ¥ì¹˜ ë³€ê²½(10ë²ˆìœ í˜•) & ë°ë¯¸ì§€ê³µê²©(3ë²ˆìœ í˜•)
+                           ê¸°ì¡´ì˜ 3ë²ˆìŠ¤í‚¬ ìœ í˜•ìœ¼ë¡œ íƒ€ê²Ÿì—ê²Œ ë°ë¯¸ì§€ë¥¼ ì£¼ê³ , ìì‹ ì—ê²ŒëŠ”
+                           ì§€ì •ëœ ëŠ¥ë ¥ì¹˜(21ë²ˆ,24ë²ˆ ì¹¼ëŸ¼)ì˜ ìˆ˜ì¹˜(22,25ë²ˆì¹¼ëŸ¼)ê°€ ì¦ê°€ëœë‹¤.
+                           ìŠ¤í‚¬ì„±ê³µê³„ì‚°ì‹ì„ ì ìš©í•˜ì—¬ ì„±ê³µì‹œì—ë§Œ ëŠ¥ë ¥ì¹˜ ë³€ê²½ì„ ì ìš©ì‹œí‚¨ë‹¤.
+                           (íƒ€ê²Ÿì— ë°ë¯¸ì§€ê³µê²©ì„ í•˜ë©´ì„œ HP,MP ëºì–´ì˜¤ê¸° ê°œë…)
                    */
     SKILL_TYPE_20,
 };
 
 enum enumSKILL_TAGER_FILTER {
-    SKILL_TARGET_FILTER_SELF = 0, ///< ÀÚ±â ÀÚ½Å
-    SKILL_TARGET_FILTER_GROUP = 1, ///< ±×·ì(ÆÄÆ¼)¿ø
-    SKILL_TARGET_FILTER_GUILD = 2, ///< ±æµå¿ø
-    SKILL_TARGET_FILTER_FRIEND_ALL = 3, ///< ¾Æ±º (¾Æ¹ÙÅ¸, ¼ÒÈ¯¸÷)
-    SKILL_TARGET_FILTER_MOB = 4, ///< ¸ğµç ¸ó½ºÅÍ (¼ÒÈ¯¸÷,Àû±º¸÷)
-    SKILL_TARGET_FILTER_ENEMY_ALL = 5, ///< Àû PC + ¸ó½ºÅÍ
-    SKILL_TARGET_FILTER_ENEMY_PC = 6, ///< Àû PC( Àû »óÅÂ Æ÷ÇÔ )
-    SKILL_TARGET_FILTER_ALL_PC = 7, ///< ¸ğµç PC
-    SKILL_TARGET_FILTER_ALL_CHAR = 8, ///< ¸ğµç Ä³¸¯ÅÍ( ¸ó½ºÅÍ, ÇÃ·¹ÀÌ¾î )
-    SKILL_TARGET_FILTER_DEAD_USER = 9, /// Á×Àº »ç¿ëÀÚ
-    SKILL_TARGET_FILTER_ENEMY_MOB = 10, /// Àû ¸ó½ºÅÍ
+    SKILL_TARGET_FILTER_SELF = 0, ///< ìê¸° ìì‹ 
+    SKILL_TARGET_FILTER_GROUP = 1, ///< ê·¸ë£¹(íŒŒí‹°)ì›
+    SKILL_TARGET_FILTER_GUILD = 2, ///< ê¸¸ë“œì›
+    SKILL_TARGET_FILTER_FRIEND_ALL = 3, ///< ì•„êµ° (ì•„ë°”íƒ€, ì†Œí™˜ëª¹)
+    SKILL_TARGET_FILTER_MOB = 4, ///< ëª¨ë“  ëª¬ìŠ¤í„° (ì†Œí™˜ëª¹,ì êµ°ëª¹)
+    SKILL_TARGET_FILTER_ENEMY_ALL = 5, ///< ì  PC + ëª¬ìŠ¤í„°
+    SKILL_TARGET_FILTER_ENEMY_PC = 6, ///< ì  PC( ì  ìƒíƒœ í¬í•¨ )
+    SKILL_TARGET_FILTER_ALL_PC = 7, ///< ëª¨ë“  PC
+    SKILL_TARGET_FILTER_ALL_CHAR = 8, ///< ëª¨ë“  ìºë¦­í„°( ëª¬ìŠ¤í„°, í”Œë ˆì´ì–´ )
+    SKILL_TARGET_FILTER_DEAD_USER = 9, /// ì£½ì€ ì‚¬ìš©ì
+    SKILL_TARGET_FILTER_ENEMY_MOB = 10, /// ì  ëª¬ìŠ¤í„°
     SKILL_TARGET_FILTER_MAX,
 };
 
@@ -73,22 +73,22 @@ enum enumSKILL_TAGER_FILTER {
 #define SKILL_TAB_TYPE(S) g_SkillList.m_SkillDATA.get_int32(S, 4)
 #define SKILL_TYPE(I) g_SkillList.m_SkillDATA.get_int32(I, 5)
 
-#define SKILL_DISTANCE(I) g_SkillList.m_SkillDATA.get_int32(I, 6) ///	Å¸°Ù°úÀÇ °Å¸®
+#define SKILL_DISTANCE(I) g_SkillList.m_SkillDATA.get_int32(I, 6) ///	íƒ€ê²Ÿê³¼ì˜ ê±°ë¦¬
 #define SKILL_WARP_PLANET_NO(I) \
-    g_SkillList.m_SkillDATA.get_int32(I, 6) ///	¿öÇÁ ½ºÅ³ÀÏ °æ¿ì Á¸ÀÌ À§Ä¡ÇÑ Çà¼º ¹øÈ£
+    g_SkillList.m_SkillDATA.get_int32(I, 6) ///	ì›Œí”„ ìŠ¤í‚¬ì¼ ê²½ìš° ì¡´ì´ ìœ„ì¹˜í•œ í–‰ì„± ë²ˆí˜¸
 
 #define SKILL_CLASS_FILTER(I) g_SkillList.m_SkillDATA.get_int32(I, 7)
-#define SKILL_SCOPE(S) g_SkillList.m_SkillDATA.get_int32(S, 8) /// Àû¿ë¹üÀ§
+#define SKILL_SCOPE(S) g_SkillList.m_SkillDATA.get_int32(S, 8) /// ì ìš©ë²”ìœ„
 #define SKILL_POWER(S) g_SkillList.m_SkillDATA.get_int32(S, 9)
-#define SKILL_ITEM_MAKE_NUM SKILL_POWER /// Á¦Á¶¹øÈ£
+#define SKILL_ITEM_MAKE_NUM SKILL_POWER /// ì œì¡°ë²ˆí˜¸
 #define SKILL_HARM(I) g_SkillList.m_SkillDATA.get_int32(I, 10)
 
-#define SKILL_STATE_STB(I, C) g_SkillList.m_SkillDATA.get_int32(I, 11 + C) ///	»óÅÂ ¹øÈ£
-#define SKILL_STATE_STB1(I) g_SkillList.m_SkillDATA.get_int32(I, 11) ///	»óÅÂ ¹øÈ£
-#define SKILL_STATE_STB2(I) g_SkillList.m_SkillDATA.get_int32(I, 12) ///	»óÅÂ ¹øÈ£
-#define SKILL_SUCCESS_RATIO(I) g_SkillList.m_SkillDATA.get_int32(I, 13) ///	¼º°ø·ü
-#define SKILL_DURATION(I) g_SkillList.m_SkillDATA.get_int32(I, 14) ///	Áö¼Ó ½Ã°£
-#define SKILL_DAMAGE_TYPE(S) g_SkillList.m_SkillDATA.get_int32(S, 15) /// Àû¿ëµÉ °è»ê½Ä À¯Çü
+#define SKILL_STATE_STB(I, C) g_SkillList.m_SkillDATA.get_int32(I, 11 + C) ///	ìƒíƒœ ë²ˆí˜¸
+#define SKILL_STATE_STB1(I) g_SkillList.m_SkillDATA.get_int32(I, 11) ///	ìƒíƒœ ë²ˆí˜¸
+#define SKILL_STATE_STB2(I) g_SkillList.m_SkillDATA.get_int32(I, 12) ///	ìƒíƒœ ë²ˆí˜¸
+#define SKILL_SUCCESS_RATIO(I) g_SkillList.m_SkillDATA.get_int32(I, 13) ///	ì„±ê³µë¥ 
+#define SKILL_DURATION(I) g_SkillList.m_SkillDATA.get_int32(I, 14) ///	ì§€ì† ì‹œê°„
+#define SKILL_DAMAGE_TYPE(S) g_SkillList.m_SkillDATA.get_int32(S, 15) /// ì ìš©ë  ê³„ì‚°ì‹ ìœ í˜•
 
 #define SKILL_USE_PROPERTY_CNT 2
 #define SKILL_USE_PROPERTY(S, T) g_SkillList.m_SkillDATA.get_int32(S, 16 + (T)*2)
@@ -96,50 +96,50 @@ enum enumSKILL_TAGER_FILTER {
 
 #define SKILL_RELOAD_TIME(S) g_SkillList.m_SkillDATA.get_int32(S, 20)
 
-// ÆĞ½Ãºê(Áö¼Ó¼º) ½ºÅ³ÀÏ °æ¿ì ÀÏÁ¤½Ã°£ »ó½Â½ÃÅ³ ´É·ÂÄ¡...
+// íŒ¨ì‹œë¸Œ(ì§€ì†ì„±) ìŠ¤í‚¬ì¼ ê²½ìš° ì¼ì •ì‹œê°„ ìƒìŠ¹ì‹œí‚¬ ëŠ¥ë ¥ì¹˜...
 #define SKILL_INCREASE_ABILITY_CNT 2
 #define SKILL_INCREASE_ABILITY(S, T) g_SkillList.m_SkillDATA.get_int32(S, 21 + (T)*3)
 #define SKILL_INCREASE_ABILITY_VALUE(S, T) g_SkillList.m_SkillDATA.get_int32(S, 22 + (T)*3)
 #define SKILL_CHANGE_ABILITY_RATE(S, T) g_SkillList.m_SkillDATA.get_int32(S, 23 + (T)*3)
 
 #define SKILL_WARP_ZONE_NO(S) \
-    g_SkillList.m_SkillDATA.get_int32(S, 21) /// ¿öÇÁ ½ºÅ³ÀÏ °æ¿ì ¿öÇÁÇÒ Á¸ ¹øÈ£
+    g_SkillList.m_SkillDATA.get_int32(S, 21) /// ì›Œí”„ ìŠ¤í‚¬ì¼ ê²½ìš° ì›Œí”„í•  ì¡´ ë²ˆí˜¸
 #define SKILL_WARP_ZONE_XPOS(S) \
-    g_SkillList.m_SkillDATA.get_int32(S, 22) /// ¿öÇÁ ½ºÅ³ÀÏ °æ¿ì ¿öÇÁÇÒ Á¸ À§Ä¡
+    g_SkillList.m_SkillDATA.get_int32(S, 22) /// ì›Œí”„ ìŠ¤í‚¬ì¼ ê²½ìš° ì›Œí”„í•  ì¡´ ìœ„ì¹˜
 #define SKILL_WARP_ZONE_YPOS(S) g_SkillList.m_SkillDATA.get_int32(S, 23)
 
 #define MAX_SKILL_RELOAD_TYPE 16 // 0~15
-#define SKILL_RELOAD_TYPE(S) g_SkillList.m_SkillDATA.get_int32(S, 27) /// ÀçÃæÀü ½Ã°£ ±×·ì ¹øÈ£
+#define SKILL_RELOAD_TYPE(S) g_SkillList.m_SkillDATA.get_int32(S, 27) /// ì¬ì¶©ì „ ì‹œê°„ ê·¸ë£¹ ë²ˆí˜¸
 #define SET_SKILL_RELOAD_TYPE(S, V) g_SkillList.m_SkillDATA.set_int32(S, 27, V)
 
-#define SKILL_SUMMON_PET(S) g_SkillList.m_SkillDATA.get_int32(S, 28) /// ¼ÒÈ¯¸÷ ¹øÈ£
+#define SKILL_SUMMON_PET(S) g_SkillList.m_SkillDATA.get_int32(S, 28) /// ì†Œí™˜ëª¹ ë²ˆí˜¸
 
-#define SKILL_ACTION_MODE(S) g_SkillList.m_SkillDATA.get_int32(S, 29) /// ½ºÅ³°ø°İ À¯Çü
-/// »ç¿ë½Ã ÀåÂøÇÏ°í ÀÖ¾î¾ßÇÏ´Â Àåºñ.  T = 0 ~ 3
-#define SKILL_NEED_WEAPON_CNT 5 // <--- 2004. 2. 26 4->5·Î ´Ã¸²°í ÀÌÈÄ ÄÃ·³ ¹øÈ£+1 by icarus
+#define SKILL_ACTION_MODE(S) g_SkillList.m_SkillDATA.get_int32(S, 29) /// ìŠ¤í‚¬ê³µê²© ìœ í˜•
+/// ì‚¬ìš©ì‹œ ì¥ì°©í•˜ê³  ìˆì–´ì•¼í•˜ëŠ” ì¥ë¹„.  T = 0 ~ 3
+#define SKILL_NEED_WEAPON_CNT 5 // <--- 2004. 2. 26 4->5ë¡œ ëŠ˜ë¦¼ê³  ì´í›„ ì»¬ëŸ¼ ë²ˆí˜¸+1 by icarus
 #define SKILL_NEED_WEAPON(S, T) g_SkillList.m_SkillDATA.get_int32(S, 30 + (T))
 
 /*
-// ÃÖÃÊ ¹è¿ï¶§ ÇÊ¿äÇÑ Á÷¾÷.	T = 0 ~ 3
+// ìµœì´ˆ ë°°ìš¸ë•Œ í•„ìš”í•œ ì§ì—….	T = 0 ~ 3
 #define	SKILL_AVAILBLE_CLASS_CNT			4
 #define	SKILL_AVAILBLE_CLASS(S,T)			g_SkillList.m_SkillDATA.get_int32( S ,  1+34+(T) )
 */
-/// LIST_CLASS.stb ÂüÁ¶ ¹øÈ£...
+/// LIST_CLASS.stb ì°¸ì¡° ë²ˆí˜¸...
 #define SKILL_AVAILBLE_CLASS_SET(S) g_SkillList.m_SkillDATA.get_int32(S, 35)
 
-// ÃÖÃÊ ¹è¿ï¶§ ¼Ò¼Ó Á¶ÇÕ Ã¼Å©...
+// ìµœì´ˆ ë°°ìš¸ë•Œ ì†Œì† ì¡°í•© ì²´í¬...
 #define SKILL_AVAILBLE_UNION_CNT 3
 #define SKILL_AVAILBLE_UNION(S, T) g_SkillList.m_SkillDATA.get_int32(S, 36 + (T))
 
-/// ÃÖÃÊ·Î ¹è¿ï¶§ ¹Ì¸® ¼ÒÀ¯ÇÏ°í ÀÖ¾î¾ßÇÏ´Â ½ºÅ³. T = 0 ~ 2
+/// ìµœì´ˆë¡œ ë°°ìš¸ë•Œ ë¯¸ë¦¬ ì†Œìœ í•˜ê³  ìˆì–´ì•¼í•˜ëŠ” ìŠ¤í‚¬. T = 0 ~ 2
 #define SKILL_NEED_SKILL_CNT 3
 #define SKILL_NEED_SKILL_INDEX(S, T) g_SkillList.m_SkillDATA.get_int32(S, 39 + (T)*2)
 #define SKILL_NEDD_SKILL_LEVEL(S, T) g_SkillList.m_SkillDATA.get_int32(S, 40 + (T)*2)
 
-/// ÃÖÃÊ·Î ¹è¿ì°Å³ª ·¹º§¾÷½Ã ÇÊ¿äÇÑ Á¶°Ç ´É·ÂÄ¡. T = 0 ~ 2
+/// ìµœì´ˆë¡œ ë°°ìš°ê±°ë‚˜ ë ˆë²¨ì—…ì‹œ í•„ìš”í•œ ì¡°ê±´ ëŠ¥ë ¥ì¹˜. T = 0 ~ 2
 #define SKILL_NEED_ABILITY_TYPE_CNT 2
 #define SKILL_NEED_ABILITY_TYPE(S, T) \
-    g_SkillList.m_SkillDATA.get_int32(S, 45 + (T)*2) // °ªÀº AT_DEX~AT_SENSE ¸¸ »ç¿ëµÊ
+    g_SkillList.m_SkillDATA.get_int32(S, 45 + (T)*2) // ê°’ì€ AT_DEX~AT_SENSE ë§Œ ì‚¬ìš©ë¨
 #define SKILL_NEED_ABILITY_VALUE(S, T) g_SkillList.m_SkillDATA.get_int32(S, 46 + (T)*2)
 
 #define SKILL_SCRIPT1(I) g_SkillList.m_SkillDATA.get_int32(I, 49)
@@ -147,65 +147,65 @@ enum enumSKILL_TAGER_FILTER {
 #define SKILL_RESERVE_02(I) g_SkillList.m_SkillDATA.get_int32(I, 50)
 #define SKILL_ICON_NO(I) g_SkillList.m_SkillDATA.get_int32(I, 51)
 
-/// Ä³½ºÆÃ µ¿ÀÛ
+/// ìºìŠ¤íŒ… ë™ì‘
 #define SKILL_ANI_CASTING(S) g_SkillList.m_SkillDATA.get_int32(S, 52)
 #define SKILL_ANI_CASTING_SPEED(S) g_SkillList.m_SkillDATA.get_int32(S, 53)
 
-/// Ä³½ºÆÃ ·çÇÁ µ¿ÀÛ
+/// ìºìŠ¤íŒ… ë£¨í”„ ë™ì‘
 #define SKILL_ANI_CASTING_REPEAT(S) g_SkillList.m_SkillDATA.get_int32(S, 54)
 #define SKILL_ANI_CASTING_REPEAT_CNT(S) g_SkillList.m_SkillDATA.get_int32(S, 55)
 
 #define SET_SKILL_ANI_CASTING_REPEAT(S, V) g_SkillList.m_SkillDATA.set_int32(S, 54, V)
 #define SET_SKILL_ANI_CASTING_REPEAT_CNT(S, V) g_SkillList.m_SkillDATA.set_int32(S, 55, V)
 
-/// Ä³½ºÆÃ ÀÌÆåÆ®
+/// ìºìŠ¤íŒ… ì´í™íŠ¸
 #define SKILL_CASTING_EFFECT_CNT 4
 #define SKILL_CASTING_EFFECT(I, T) g_SkillList.m_SkillDATA.get_int32(I, 56 + (T * 3))
 #define SKILL_CASTING_EFFECT_POINT(I, T) g_SkillList.m_SkillDATA.get_int32(I, 57 + (T * 3))
 #define SKILL_CASTING_SOUND(I, T) g_SkillList.m_SkillDATA.get_int32(I, 58 + (T * 3))
 
-// ½ÇÁ¦ µ¿ÀÛ
+// ì‹¤ì œ ë™ì‘
 #define SKILL_ANI_ACTION_TYPE(S) g_SkillList.m_SkillDATA.get_int32(S, 68)
 #define SKILL_ANI_ACTION_SPEED(S) g_SkillList.m_SkillDATA.get_int32(S, 69)
 #define SKILL_ANI_HIT_COUNT(S) g_SkillList.m_SkillDATA.get_int32(S, 70)
 
-/// ¹ß»ç ÃÑ¾Ë ÀÌÆåÆ®
+/// ë°œì‚¬ ì´ì•Œ ì´í™íŠ¸
 #define SKILL_BULLET_NO(I) g_SkillList.m_SkillDATA.get_int32(I, 71)
 #define SKILL_BULLET_LINKED_POINT(I) g_SkillList.m_SkillDATA.get_int32(I, 72)
 #define SKILL_BULLET_FIRE_SOUND(I) g_SkillList.m_SkillDATA.get_int32(I, 73)
 
-/// Å¸°İ ÀÌÆåÆ®
-#define SKILL_HIT_EFFECT(I) g_SkillList.m_SkillDATA.get_int32(I, 74) //	Å¸°İ È¿°ú
-#define SKILL_HIT_EFFECT_LINKED_POINT(I) g_SkillList.m_SkillDATA.get_int32(I, 75) //	Å¸°İ È¿°ú
-#define SKILL_HIT_SOUND(I) g_SkillList.m_SkillDATA.get_int32(I, 76) //	Å¸°İ È¿°úÀ½
+/// íƒ€ê²© ì´í™íŠ¸
+#define SKILL_HIT_EFFECT(I) g_SkillList.m_SkillDATA.get_int32(I, 74) //	íƒ€ê²© íš¨ê³¼
+#define SKILL_HIT_EFFECT_LINKED_POINT(I) g_SkillList.m_SkillDATA.get_int32(I, 75) //	íƒ€ê²© íš¨ê³¼
+#define SKILL_HIT_SOUND(I) g_SkillList.m_SkillDATA.get_int32(I, 76) //	íƒ€ê²© íš¨ê³¼ìŒ
 
-/// ¿¬Å¸ ´õ¹Ì ÀÌÆåÆ®
+/// ì—°íƒ€ ë”ë¯¸ ì´í™íŠ¸
 #define SKILL_HIT_DUMMY_EFFECT_CNT 2
 #define SKILL_HIT_DUMMY_EFFECT(I, T) \
-    g_SkillList.m_SkillDATA.get_int32(I, 77 + 3 * T) //	´õ¹Ì Å¸°İ È¿°ú
+    g_SkillList.m_SkillDATA.get_int32(I, 77 + 3 * T) //	ë”ë¯¸ íƒ€ê²© íš¨ê³¼
 #define SKILL_HIT_DUMMY_EFFECT_LINKED_POINT(I, T) \
-    g_SkillList.m_SkillDATA.get_int32(I, 78 + 3 * T) //	´õ¹Ì Å¸°İ È¿°ú
+    g_SkillList.m_SkillDATA.get_int32(I, 78 + 3 * T) //	ë”ë¯¸ íƒ€ê²© íš¨ê³¼
 #define SKILL_HIT_DUMMY_SOUND(I, T) \
-    g_SkillList.m_SkillDATA.get_int32(I, 79 + 3 * T) //	´õ¹Ì Å¸°İ È¿°úÀ½
+    g_SkillList.m_SkillDATA.get_int32(I, 79 + 3 * T) //	ë”ë¯¸ íƒ€ê²© íš¨ê³¼ìŒ
 
-#define SKILL_AREA_HIT_EFFECT(I) g_SkillList.m_SkillDATA.get_int32(I, 83) //	Áö¿ª Å¸°İ È¿°ú
-#define SKILL_AREA_HIT_SOUND(I) g_SkillList.m_SkillDATA.get_int32(I, 84) //	Áö¿ª Å¸°İ È¿°úÀ½
+#define SKILL_AREA_HIT_EFFECT(I) g_SkillList.m_SkillDATA.get_int32(I, 83) //	ì§€ì—­ íƒ€ê²© íš¨ê³¼
+#define SKILL_AREA_HIT_SOUND(I) g_SkillList.m_SkillDATA.get_int32(I, 84) //	ì§€ì—­ íƒ€ê²© íš¨ê³¼ìŒ
 
 #define SKILL_LEVELUP_NEED_ZULY(I) \
-    g_SkillList.m_SkillDATA.get_int32(I, 85) //	½ºÅ³ ·¹·¾¾÷½Ã ¼Ò¸ğ ºñ¿ë / 100
+    g_SkillList.m_SkillDATA.get_int32(I, 85) //	ìŠ¤í‚¬ ë ˆë ™ì—…ì‹œ ì†Œëª¨ ë¹„ìš© / 100
 
-#define SKILL_AVAILBLE_STATUS(I) g_SkillList.m_SkillDATA.get_int32(I, 86) // ½ºÅ³ °¡´É »óÅÂ
-#define SKILL_ATTRIBUTE(I) g_SkillList.m_SkillDATA.get_int32(I, 87) // ½ºÅ³ ¼Ó¼º
+#define SKILL_AVAILBLE_STATUS(I) g_SkillList.m_SkillDATA.get_int32(I, 86) // ìŠ¤í‚¬ ê°€ëŠ¥ ìƒíƒœ
+#define SKILL_ATTRIBUTE(I) g_SkillList.m_SkillDATA.get_int32(I, 87) // ìŠ¤í‚¬ ì†ì„±
 
 /*
-#define	SA_SELF_STOP							0		// ½ºÅ³ Àû¿ëÈÄ Á¤Áö
-#define	SA_TARGET_STOP							1		// Å¸°Ù ¼³Á¤, ½ºÅ³ Àû¿ëÈÄ Á¤Áö
-#define	SA_TARGET_ATTACK						2		// Å¸°Ù ¼³Á¤, ½ºÅ³ Àû¿ëÈÄ Å¸°ÙÀ» °ø°İ
-#define	SA_POSITION_STOP						3		// Áö¿ª¿¡ ½ºÅ³ Àû¿ëÈÄ Á¤Áö
+#define	SA_SELF_STOP							0		// ìŠ¤í‚¬ ì ìš©í›„ ì •ì§€
+#define	SA_TARGET_STOP							1		// íƒ€ê²Ÿ ì„¤ì •, ìŠ¤í‚¬ ì ìš©í›„ ì •ì§€
+#define	SA_TARGET_ATTACK						2		// íƒ€ê²Ÿ ì„¤ì •, ìŠ¤í‚¬ ì ìš©í›„ íƒ€ê²Ÿì„ ê³µê²©
+#define	SA_POSITION_STOP						3		// ì§€ì—­ì— ìŠ¤í‚¬ ì ìš©í›„ ì •ì§€
 */
-#define SA_STOP 0 // ½ºÅ³ Àû¿ëÈÄ Á¤Áö
-#define SA_ATTACK 1 // ½ºÅ³ Àû¿ëÈÄ Å¸°ÙÀ» °ø°İ
-#define SA_RESTORE 2 // ½ºÅ³ »ç¿ëÈÄ ÀÌÀü ¸í·É º¹±Í
+#define SA_STOP 0 // ìŠ¤í‚¬ ì ìš©í›„ ì •ì§€
+#define SA_ATTACK 1 // ìŠ¤í‚¬ ì ìš©í›„ íƒ€ê²Ÿì„ ê³µê²©
+#define SA_RESTORE 2 // ìŠ¤í‚¬ ì‚¬ìš©í›„ ì´ì „ ëª…ë ¹ ë³µê·€
 
 #ifdef __SERVER
     #define SKILL_RELOAD_SECOND(S) g_SkillList.m_pReloadTIME[S]
@@ -215,14 +215,14 @@ enum enumSKILL_TAGER_FILTER {
  * \ingroup SHO_GS_LIB
  * \class	CSkillLIST
  * \author	wookSang.Jo
- * \brief	ÀüÃ¼ ½ºÅ³ µ¥ÀÌÅ¸ º¸°ü
+ * \brief	ì „ì²´ ìŠ¤í‚¬ ë°ì´íƒ€ ë³´ê´€
  */
 class CSkillLIST {
 private:
     int m_iSkillCount;
 
-    float* m_pCastingAniSPEED; /// ¹Ì¸® °è»êµÇ¾îÁø ½ºÅ³ ÄÉ½ºÆÃ µ¿ÀÛ ¼Óµµ
-    float* m_pActionAniSPEED; /// ¹Ì¸® °è»êµÇ¾îÁö ½ºÅ³ ½ÇÁ¦ µ¿ÀÛ ¼Óµµ.
+    float* m_pCastingAniSPEED; /// ë¯¸ë¦¬ ê³„ì‚°ë˜ì–´ì§„ ìŠ¤í‚¬ ì¼€ìŠ¤íŒ… ë™ì‘ ì†ë„
+    float* m_pActionAniSPEED; /// ë¯¸ë¦¬ ê³„ì‚°ë˜ì–´ì§€ ìŠ¤í‚¬ ì‹¤ì œ ë™ì‘ ì†ë„.
 
 public:
     STBDATA m_SkillDATA;

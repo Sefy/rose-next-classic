@@ -134,7 +134,7 @@ CEndurancePack::MakeStateSTBIDXTable() {
         return;
 
     ///
-    /// STATE_PRIFITS_LOSSES_BY_STATE ¿ø·¡ ¿©±â°Ô ³Ö±â·Î Çß¾ú´Âµ¥...
+    /// STATE_PRIFITS_LOSSES_BY_STATE ì›ë˜ ì—¬ê¸°ê²Œ ë„£ê¸°ë¡œ í–ˆì—ˆëŠ”ë°...
     ///
 
     m_StateSTBIDXTable[ING_INC_HP] = 1;
@@ -148,29 +148,29 @@ CEndurancePack::MakeStateSTBIDXTable() {
     m_StateSTBIDXTable[ING_DEC_MOV_SPD] = 15;
     m_StateSTBIDXTable[ING_INC_ATK_SPD] = 16;
     m_StateSTBIDXTable[ING_DEC_ATK_SPD] = 17;
-    m_StateSTBIDXTable[ING_INC_APOWER] = 18; // À¯Áö : °ø°İ·Â
+    m_StateSTBIDXTable[ING_INC_APOWER] = 18; // ìœ ì§€ : ê³µê²©ë ¥
     m_StateSTBIDXTable[ING_DEC_APOWER] = 19;
-    m_StateSTBIDXTable[ING_INC_DPOWER] = 20; // À¯Áö : ¹æ¾î·Â
+    m_StateSTBIDXTable[ING_INC_DPOWER] = 20; // ìœ ì§€ : ë°©ì–´ë ¥
     m_StateSTBIDXTable[ING_DEC_DPOWER] = 21;
-    m_StateSTBIDXTable[ING_INC_RES] = 22; // À¯Áö : Ç×¸¶·Â
+    m_StateSTBIDXTable[ING_INC_RES] = 22; // ìœ ì§€ : í•­ë§ˆë ¥
     m_StateSTBIDXTable[ING_DEC_RES] = 23;
-    m_StateSTBIDXTable[ING_INC_HIT] = 24; // À¯Áö : ¸íÁß
+    m_StateSTBIDXTable[ING_INC_HIT] = 24; // ìœ ì§€ : ëª…ì¤‘
     m_StateSTBIDXTable[ING_DEC_HIT] = 25;
-    m_StateSTBIDXTable[ING_INC_CRITICAL] = 26; // À¯Áö : Å©¸®Æ¼ÄÃ
+    m_StateSTBIDXTable[ING_INC_CRITICAL] = 26; // ìœ ì§€ : í¬ë¦¬í‹°ì»¬
     m_StateSTBIDXTable[ING_DEC_CRITICAL] = 27;
-    m_StateSTBIDXTable[ING_INC_AVOID] = 28; // À¯Áö : È¸ÇÇ·Â
+    m_StateSTBIDXTable[ING_INC_AVOID] = 28; // ìœ ì§€ : íšŒí”¼ë ¥
     m_StateSTBIDXTable[ING_DEC_AVOID] = 29;
     m_StateSTBIDXTable[ING_DUMB] =
-        30; // À¯Áö : º¡¾î¸® : skill stb 5¹ø ÄÃ·³ÀÌ 7~14ÀÎ ½ºÅ³ »ç¿ë ¸øÇÔ.
-    m_StateSTBIDXTable[ING_SLEEP] = 31; // À¯Áö : ¼ö¸é : ¸í·É ºÒ´É »óÅÂ·Î.. °ø°İ ¹ŞÀ¸¸é Ç®¸²
-    m_StateSTBIDXTable[ING_FAINTING] = 32; // À¯Áö : ±âÀı : ¼ö¸é°ú °°À¸³ª °ø°İ ¹Ş¾Æµµ ¾ÈÇ®¸²
-    m_StateSTBIDXTable[ING_DISGUISE] = 33; // À¯Áö : À§Àå :
-    m_StateSTBIDXTable[ING_TRANSPARENT] = 34; // À¯Áö : Åõ¸í :
-    m_StateSTBIDXTable[ING_SHIELD_DAMAGE] = 35; // À¯Áö : ¹æÆĞ µ¥¹ÌÁö
-    m_StateSTBIDXTable[ING_DUMMY_DAMAGE] = 36; // À¯Áö : Ãß°¡ µ¥¹ÌÁö
+        30; // ìœ ì§€ : ë²™ì–´ë¦¬ : skill stb 5ë²ˆ ì»¬ëŸ¼ì´ 7~14ì¸ ìŠ¤í‚¬ ì‚¬ìš© ëª»í•¨.
+    m_StateSTBIDXTable[ING_SLEEP] = 31; // ìœ ì§€ : ìˆ˜ë©´ : ëª…ë ¹ ë¶ˆëŠ¥ ìƒíƒœë¡œ.. ê³µê²© ë°›ìœ¼ë©´ í’€ë¦¼
+    m_StateSTBIDXTable[ING_FAINTING] = 32; // ìœ ì§€ : ê¸°ì ˆ : ìˆ˜ë©´ê³¼ ê°™ìœ¼ë‚˜ ê³µê²© ë°›ì•„ë„ ì•ˆí’€ë¦¼
+    m_StateSTBIDXTable[ING_DISGUISE] = 33; // ìœ ì§€ : ìœ„ì¥ :
+    m_StateSTBIDXTable[ING_TRANSPARENT] = 34; // ìœ ì§€ : íˆ¬ëª… :
+    m_StateSTBIDXTable[ING_SHIELD_DAMAGE] = 35; // ìœ ì§€ : ë°©íŒ¨ ë°ë¯¸ì§€
+    m_StateSTBIDXTable[ING_DUMMY_DAMAGE] = 36; // ìœ ì§€ : ì¶”ê°€ ë°ë¯¸ì§€
 
     m_StateSTBIDXTable[ING_DEC_LIFE_TIME] =
-        43; // Ã³¸® : ¼ÒÈ¯µÈ ÄÉ¸¯ÀÇ »ı¸í ½Ã°£...	Ãß°¡: 2004. 4. 6
+        43; // ì²˜ë¦¬ : ì†Œí™˜ëœ ì¼€ë¦­ì˜ ìƒëª… ì‹œê°„...	ì¶”ê°€: 2004. 4. 6
 }
 
 CEnduranceProperty*
@@ -241,13 +241,13 @@ CEndurancePack::AddEntity(int iEntityIDX, int iStatusSTBNO, int iEnduranceTime, 
     if (iStatusSTBNO != 0) {
         if (ING_MAX_STATUS > STATE_TYPE(iStatusSTBNO)) {
             /// for vector container
-            /// Áßº¹ Àû¿ëµÈ »óÅÂ°¡ ÀÖ´Ù¸é Á¦°ÅÇÑ´Ù.
+            /// ì¤‘ë³µ ì ìš©ëœ ìƒíƒœê°€ ìˆë‹¤ë©´ ì œê±°í•œë‹¤.
             if (m_EntityList[STATE_TYPE(iStatusSTBNO)]) {
                 delete m_EntityList[STATE_TYPE(iStatusSTBNO)];
                 m_EntityList[STATE_TYPE(iStatusSTBNO)] = NULL;
             } else {
                 if (m_pObjCHAR->IsA(OBJ_USER)) {
-                    /// ÃÂ¹Ú½º¿¡ Á¤º¸ Ãâ·Â
+                    /// ì³‡ë°•ìŠ¤ì— ì •ë³´ ì¶œë ¥
                     g_itMGR.AppendChatMsg(STATE_SETTING_STRING(iStatusSTBNO),
                         IT_MGR::CHAT_TYPE_SYSTEM);
                 }
@@ -312,8 +312,8 @@ CEndurancePack::ClearEntityPack() {
 }
 
 /// Update all entities.
-/// Áö¼ÓÀûÀÎ »óÅÂ º¯°æÀº Á÷Á¢ ¿©±â¼­ Ã³¸®ÇØÁØ´Ù.
-/// ±âÅ¸ È¿°ú Ç¥ÇöÀÌ³ª È­¸éÃâ·ÂµîÀº °¢ ¿£Æ¼Æ¼¿¡ ¹Ì·é´Ù.
+/// ì§€ì†ì ì¸ ìƒíƒœ ë³€ê²½ì€ ì§ì ‘ ì—¬ê¸°ì„œ ì²˜ë¦¬í•´ì¤€ë‹¤.
+/// ê¸°íƒ€ íš¨ê³¼ í‘œí˜„ì´ë‚˜ í™”ë©´ì¶œë ¥ë“±ì€ ê° ì—”í‹°í‹°ì— ë¯¸ë£¬ë‹¤.
 void
 CEndurancePack::Update() {
     if (m_pObjCHAR == NULL)
@@ -323,13 +323,13 @@ CEndurancePack::Update() {
         return;*/
 
     //////////////////////////////////////////////////////////////////////////
-    /// Áö¼ÓÀûÀÎ Àû¿ë´É·Â Àû¿ë..
+    /// ì§€ì†ì ì¸ ì ìš©ëŠ¥ë ¥ ì ìš©..
     DWORD dwCurrentTime = g_GameDATA.GetGameTime();
     m_dwElapsedUpdateTime += dwCurrentTime
-        - m_dwUpdateCheckTime; /// ÀÌÀüÇÁ·¹ÀÓ¿¡¼­ ÇöÀç ÇÁ·¹ÀÓ »çÀÌ¿¡ Èå¸¥½Ã°£À» ´õÇØÁØ´Ù.
+        - m_dwUpdateCheckTime; /// ì´ì „í”„ë ˆì„ì—ì„œ í˜„ì¬ í”„ë ˆì„ ì‚¬ì´ì— íë¥¸ì‹œê°„ì„ ë”í•´ì¤€ë‹¤.
     m_dwUpdateCheckTime = dwCurrentTime;
 
-    /// ¼Ó¼º ¼öÁ¤Àº ÃÊ´ç Àû¿ë..
+    /// ì†ì„± ìˆ˜ì •ì€ ì´ˆë‹¹ ì ìš©..
     if (m_dwElapsedUpdateTime > 1000) {
         /// hp
         if (m_CurrentStateValue[ING_INC_HP]) {
@@ -347,14 +347,14 @@ CEndurancePack::Update() {
             }
         }
 
-        /// Áßµ¶
+        /// ì¤‘ë…
         if (m_CurrentStateValue[ING_POISONED]) {
             if ((m_pObjCHAR->Get_HP() - m_CurrentStateValue[ING_POISONED]) > 0) {
                 m_pObjCHAR->Sub_HP(m_CurrentStateValue[ING_POISONED]);
             }
         }
 
-        /// ¼ÒÈ¯¼ö
+        /// ì†Œí™˜ìˆ˜
         if (m_EntityList[ING_DEC_LIFE_TIME]) {
             if ((m_pObjCHAR->Get_HP() - STATE_APPLY_ABILITY_VALUE(43, 0)) > 0) {
                 if (m_pObjCHAR->Sub_HP(STATE_APPLY_ABILITY_VALUE(43, 0)) <= 0)
@@ -373,7 +373,7 @@ CEndurancePack::Update() {
                 assert(0 && "STATE_TYPE mismatch!!");
             /// if expired...
             if (Proc(pEntity) == false) {
-                /// ÇØ´ç »óÅÂ¿¡ ´ëÇÑ ¿£Æ¼Æ¼¸¦ Á¦°ÅÇÑ´Ù.
+                /// í•´ë‹¹ ìƒíƒœì— ëŒ€í•œ ì—”í‹°í‹°ë¥¼ ì œê±°í•œë‹¤.
                 DeleteEntityByStateType(i);
                 m_EntityList[i] = NULL;
             }
@@ -572,7 +572,7 @@ CEndurancePack::Draw() {
         }
 
         if (g_pAVATAR && g_pAVATAR->GetPetMode() >= 0
-            && !g_pAVATAR->IsRideUser()) /// Fuel Guage & Pat Guage & º¸Á¶¼®¿¡ Å¸°í ÀÖÁö ¾ÊÀ»¶§.
+            && !g_pAVATAR->IsRideUser()) /// Fuel Guage & Pat Guage & ë³´ì¡°ì„ì— íƒ€ê³  ìˆì§€ ì•Šì„ë•Œ.
         {
             int iBackImageNo =
                 CResourceMgr::GetInstance()->GetImageNID(IMAGE_RES_UI, "UI00_GUAGE_BACKGROUND");
@@ -671,7 +671,7 @@ CEndurancePack::Draw() {
 #endif
         }
 
-        /// Draw EquipItem Status(¼ö¸íÀÌ 5%ÀÌÇÏÀÎ ¾ÆÀÌÅÛÀÌ ÀÖÀ»°æ¿ì ±×·ÁÁØ´Ù. );
+        /// Draw EquipItem Status(ìˆ˜ëª…ì´ 5%ì´í•˜ì¸ ì•„ì´í…œì´ ìˆì„ê²½ìš° ê·¸ë ¤ì¤€ë‹¤. );
         ptDraw.x = ENDU_ICON_X;
         ptDraw.y = ENDU_ICON_Y + 25;
         CItemSlot* pItemSlot = g_pAVATAR->GetItemSlot();
@@ -681,7 +681,7 @@ CEndurancePack::Draw() {
         for (int i = 1; i < MAX_EQUIP_IDX; ++i) {
             pItem = pItemSlot->GetItem(i);
             if (pItem && pItem->GetItem().GetLife() < 50) {
-                /// scale * 0.5, color = ºÓÀº»ö
+                /// scale * 0.5, color = ë¶‰ì€ìƒ‰
                 pDrawObj->Draw(ptDraw.x,
                     ptDraw.y,
                     IMAGE_RES_ITEM,
@@ -692,11 +692,11 @@ CEndurancePack::Draw() {
                 ptDraw.x += 21;
             }
         }
-        /// Ä«Æ® ¾ÆÀÌÅÛ Ãâ·Â Ãß°¡
+        /// ì¹´íŠ¸ ì•„ì´í…œ ì¶œë ¥ ì¶”ê°€
         for (int i = INVENTORY_RIDE_ITEM0; i < INVENTORY_RIDE_ITEM0 + MAX_RIDING_PART; ++i) {
             pItem = pItemSlot->GetItem(i);
             if (pItem && pItem->GetItem().GetLife() < 50) {
-                /// scale * 0.5, color = ºÓÀº»ö
+                /// scale * 0.5, color = ë¶‰ì€ìƒ‰
                 pDrawObj->Draw(ptDraw.x,
                     ptDraw.y,
                     IMAGE_RES_ITEM,
@@ -712,7 +712,7 @@ CEndurancePack::Draw() {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ½Ã°£ÀÌ ´ÙµÇ°Å³ª, ÆÄ±«µÇ¾î¾ßÇÒ »óÅÂ°´Ã¼¸¦ ÆÄ±«..
+/// @brief ì‹œê°„ì´ ë‹¤ë˜ê±°ë‚˜, íŒŒê´´ë˜ì–´ì•¼í•  ìƒíƒœê°ì²´ë¥¼ íŒŒê´´..
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -725,7 +725,7 @@ CEndurancePack::DeleteExpiredEntity() {
                 assert(0 && "STATE_TYPE mismatch!!");
 
             if (pEntity->IsExpired()) {
-                /// ÇØ´ç »óÅÂ¿¡ ´ëÇÑ ¿£Æ¼Æ¼¸¦ Á¦°ÅÇÑ´Ù.
+                /// í•´ë‹¹ ìƒíƒœì— ëŒ€í•œ ì—”í‹°í‹°ë¥¼ ì œê±°í•œë‹¤.
                 DeleteEntityByStateType(i);
                 m_EntityList[i] = NULL;
             }
@@ -734,8 +734,8 @@ CEndurancePack::DeleteExpiredEntity() {
 }
 
 //----------------------------------------------------------------------------------------------------
-/// @param int iStateType »óÅÂÅ¸ÀÔ( STB ¹øÈ£°¡ ¾Æ´Ï´Ù. )
-/// @brief ÇØ´ç »óÅÂ¿¡ ´ëÇÑ ¿£Æ¼Æ¼¸¦ Á¦°ÅÇÑ´Ù.
+/// @param int iStateType ìƒíƒœíƒ€ì…( STB ë²ˆí˜¸ê°€ ì•„ë‹ˆë‹¤. )
+/// @brief í•´ë‹¹ ìƒíƒœì— ëŒ€í•œ ì—”í‹°í‹°ë¥¼ ì œê±°í•œë‹¤.
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -749,14 +749,14 @@ CEndurancePack::DeleteEntityByStateType(int iStateType) {
         m_EntityList[iStateType] = NULL;
 
         if (m_pObjCHAR->IsA(OBJ_USER)) {
-            /// ÃÂ¹Ú½º¿¡ Á¤º¸ Ãâ·Â
+            /// ì³‡ë°•ìŠ¤ì— ì •ë³´ ì¶œë ¥
             g_itMGR.AppendChatMsg(STATE_DELETE_STRING(pEntity->GetStateSTBNO()),
                 IT_MGR::CHAT_TYPE_SYSTEM);
         }
 
         DeleteEntity(pEntity);
 
-        m_dwStateFlag &= ~c_dwIngFLAG[iStateType]; /// »óÅÂ ÇÃ·¡±× ¸®¼Â..
+        m_dwStateFlag &= ~c_dwIngFLAG[iStateType]; /// ìƒíƒœ í”Œë˜ê·¸ ë¦¬ì…‹..
 
         {
             switch (iStateType) {
@@ -787,7 +787,7 @@ CEndurancePack::DeleteEntityByStateType(int iStateType) {
     }
 }
 
-/// »óÅÂ ÇØÁ¦
+/// ìƒíƒœ í•´ì œ
 void
 CEndurancePack::DeleteEnduranceState(DWORD dwNewState) {
     DWORD dwResult = m_dwStateFlag & (~dwNewState);
@@ -798,7 +798,7 @@ CEndurancePack::DeleteEnduranceState(DWORD dwNewState) {
     if (dwResult == 0)
         return;
 
-    /// ¸ğµç »óÅÂ ºñÆ®µé Ã¼Å©.
+    /// ëª¨ë“  ìƒíƒœ ë¹„íŠ¸ë“¤ ì²´í¬.
     for (int i = 0; i < sizeof(DWORD) * 8; i++) {
         dwTemp = 0x00000001 & (dwResult >> i);
 
@@ -818,7 +818,7 @@ CEndurancePack::DeleteEnduranceState(DWORD dwNewState) {
     m_dwStateFlag = dwNewState;
 }
 
-/// À¯¸®»óÅÂ ÇØÁö, ºÒ¸®»óÅÂ ÇØÁö µî..
+/// ìœ ë¦¬ìƒíƒœ í•´ì§€, ë¶ˆë¦¬ìƒíƒœ í•´ì§€ ë“±..
 int
 CEndurancePack::ProcFlushStateSkill(int iStateTableIndex) {
     if (iStateTableIndex && STATE_TYPE(iStateTableIndex) <= ING_CHECK_END)
@@ -838,7 +838,7 @@ CEndurancePack::ProcFlushStateSkillByIngState(int iStateType) {
                 CEnduranceProperty* pEntity = m_EntityList[i];
                 if (pEntity) {
                     iSTBIDX = pEntity->GetStateSTBNO();
-                    /// À¯¸®ÇÑ »óÅÂ ¸ğµÎ ÇØÁö..
+                    /// ìœ ë¦¬í•œ ìƒíƒœ ëª¨ë‘ í•´ì§€..
                     if (STATE_PRIFITS_LOSSES(iSTBIDX) == 0)
                         DeleteEntityByStateType(i);
                 }
@@ -849,7 +849,7 @@ CEndurancePack::ProcFlushStateSkillByIngState(int iStateType) {
                 CEnduranceProperty* pEntity = m_EntityList[i];
                 if (pEntity) {
                     iSTBIDX = pEntity->GetStateSTBNO();
-                    /// ºÒ¸®ÇÑ »óÅÂ ¸ğµÎ ÇØÁö..
+                    /// ë¶ˆë¦¬í•œ ìƒíƒœ ëª¨ë‘ í•´ì§€..
                     if (STATE_PRIFITS_LOSSES(iSTBIDX) == 1)
                         DeleteEntityByStateType(i);
                 }
@@ -860,7 +860,7 @@ CEndurancePack::ProcFlushStateSkillByIngState(int iStateType) {
                 CEnduranceProperty* pEntity = m_EntityList[i];
                 if (pEntity) {
                     iSTBIDX = pEntity->GetStateSTBNO();
-                    /// ¸ğµÎ ÇØÁö..
+                    /// ëª¨ë‘ í•´ì§€..
                     if (STATE_PRIFITS_LOSSES(iSTBIDX) != 2)
                         DeleteEntityByStateType(i);
                 }
@@ -870,8 +870,8 @@ CEndurancePack::ProcFlushStateSkillByIngState(int iStateType) {
 }
 
 //----------------------------------------------------------------------------------------------------
-/// Ä«Æ®Å½½Â½Ã Ç®·Á¾ß µÉ ½ºÅ³
-/// @brief ¸ğµç À¯¸®½ºÅ³ + 2 ¹ø Å¸ÀÔ
+/// ì¹´íŠ¸íƒìŠ¹ì‹œ í’€ë ¤ì•¼ ë  ìŠ¤í‚¬
+/// @brief ëª¨ë“  ìœ ë¦¬ìŠ¤í‚¬ + 2 ë²ˆ íƒ€ì…
 //----------------------------------------------------------------------------------------------------
 void
 CEndurancePack::ClearStateByDriveCart() {
@@ -881,7 +881,7 @@ CEndurancePack::ClearStateByDriveCart() {
         CEnduranceProperty* pEntity = m_EntityList[i];
         if (pEntity) {
             int iSTBIDX = pEntity->GetStateSTBNO();
-            /// À¯¸®, ºÒ¸® Á¤º¸°¡ 2¹øÀÎ »óÅÂ ¸ğµÎ ÇØÁö..
+            /// ìœ ë¦¬, ë¶ˆë¦¬ ì •ë³´ê°€ 2ë²ˆì¸ ìƒíƒœ ëª¨ë‘ í•´ì§€..
             if (STATE_PRIFITS_LOSSES(iSTBIDX) == 2) {
                 if (STATE_TYPE(iSTBIDX) != ING_INC_HP && STATE_TYPE(iSTBIDX) != ING_INC_MP)
                     DeleteEntityByStateType(i);
@@ -892,11 +892,11 @@ CEndurancePack::ClearStateByDriveCart() {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ¿À¸¥¼Õ Àåºñ±³Ã¼½Ã ÇØ´ç Àåºñ¿¡ °É·ÁÀÖ´ø »óÅÂ Á¦°Å..
-///			ING_INC_ATK_SPD		°ø°İ¼Óµµ
-///			ING_INC_APOWER		°ø°İ·Â
-///			ING_INC_HIT			¸íÁß·ü
-///			ING_INC_CRITICAL	Å©¸®Æ¼ÄÃ
+/// @brief ì˜¤ë¥¸ì† ì¥ë¹„êµì²´ì‹œ í•´ë‹¹ ì¥ë¹„ì— ê±¸ë ¤ìˆë˜ ìƒíƒœ ì œê±°..
+///			ING_INC_ATK_SPD		ê³µê²©ì†ë„
+///			ING_INC_APOWER		ê³µê²©ë ¥
+///			ING_INC_HIT			ëª…ì¤‘ë¥ 
+///			ING_INC_CRITICAL	í¬ë¦¬í‹°ì»¬
 //----------------------------------------------------------------------------------------------------
 void
 CEndurancePack::ClearRWeaponSkillEffect() {
@@ -908,10 +908,10 @@ CEndurancePack::ClearRWeaponSkillEffect() {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ¿Ş¼Õ Àåºñ±³Ã¼½Ã ÇØ´ç Àåºñ¿¡ °É·ÁÀÖ´ø »óÅÂ Á¦°Å..
-///			ING_INC_DPOWER		¹æ¾î·Â
-///			ING_INC_RES			Ç×¸¶·Â
-///			ING_SHIELD_DAMAGE	¹æÆĞµ¥¹ÌÁö
+/// @brief ì™¼ì† ì¥ë¹„êµì²´ì‹œ í•´ë‹¹ ì¥ë¹„ì— ê±¸ë ¤ìˆë˜ ìƒíƒœ ì œê±°..
+///			ING_INC_DPOWER		ë°©ì–´ë ¥
+///			ING_INC_RES			í•­ë§ˆë ¥
+///			ING_SHIELD_DAMAGE	ë°©íŒ¨ë°ë¯¸ì§€
 //----------------------------------------------------------------------------------------------------
 void
 CEndurancePack::ClearLWeaponSkillEffect() {
@@ -921,7 +921,7 @@ CEndurancePack::ClearLWeaponSkillEffect() {
 }
 
 //------------------------------------------------------------------------------------------
-/// ¸Â¾ÒÀ»¶§ ÀÚµ¿À¸·Î Ç®·Á¾ßÇÏ´Â °Íµé
+/// ë§ì•˜ì„ë•Œ ìë™ìœ¼ë¡œ í’€ë ¤ì•¼í•˜ëŠ” ê²ƒë“¤
 //------------------------------------------------------------------------------------------
 void
 CEndurancePack::ClearStateByHitted() {
@@ -931,7 +931,7 @@ CEndurancePack::ClearStateByHitted() {
 }
 
 //------------------------------------------------------------------------------------------
-/// °ø°İ½Ã ÀÚµ¿À¸·Î Ç®·Á¾ßÇÏ´Â ½ºÅ³µé
+/// ê³µê²©ì‹œ ìë™ìœ¼ë¡œ í’€ë ¤ì•¼í•˜ëŠ” ìŠ¤í‚¬ë“¤
 //------------------------------------------------------------------------------------------
 void
 CEndurancePack::ClearStateByAttack() {
@@ -940,15 +940,15 @@ CEndurancePack::ClearStateByAttack() {
 }
 
 //------------------------------------------------------------------------------------------
-/// ÀÌµ¿½Ã ÀÚµ¿À¸·Î Ç®·Á¾ßÇÏ´Â ½ºÅ³µé
+/// ì´ë™ì‹œ ìë™ìœ¼ë¡œ í’€ë ¤ì•¼í•˜ëŠ” ìŠ¤í‚¬ë“¤
 //------------------------------------------------------------------------------------------
 void
 CEndurancePack::ClearStateByMove() {
     // DeleteEntityByStateType( ING_DISGUISE );
 }
 
-/// visibility °ü·Ã ½ºÅ³ÀÌ °É·ÈÀ»°æ¿ì.. ¾÷µ¥ÀÌÆ® ÇØ¾ßµÉ½Ã±â¿¡´Â( ¹«±â¸¦ ±³Ã¼ÇÑ´Ù´øÁö ) ºñÁöºô¸®Æ¼
-/// ¾÷µ¥ÀÌÆ®
+/// visibility ê´€ë ¨ ìŠ¤í‚¬ì´ ê±¸ë ¸ì„ê²½ìš°.. ì—…ë°ì´íŠ¸ í•´ì•¼ë ì‹œê¸°ì—ëŠ”( ë¬´ê¸°ë¥¼ êµì²´í•œë‹¤ë˜ì§€ ) ë¹„ì§€ë¹Œë¦¬í‹°
+/// ì—…ë°ì´íŠ¸
 void
 CEndurancePack::UpdateVisibility() {
     if (m_EntityList[ING_DISGUISE] || m_EntityList[ING_TRANSPARENT]) {
@@ -1016,7 +1016,7 @@ CEnduranceSkill::CreateEnduranceEntity(CObjCHAR* pObjCHAR,
     m_iStatusSTBNO = iStatusSTBNO;
 
     // int iEnduranceEffect = SKILL_DURATION_EFFECT( iSkillIdx );
-    /// »óÅÂ´ç Áö¼ÓÈ¿°ú
+    /// ìƒíƒœë‹¹ ì§€ì†íš¨ê³¼
     int iEnduranceEffect = STATE_STEP_EFFECT(iStatusSTBNO);
 
     if (iEnduranceEffect) {
@@ -1025,10 +1025,10 @@ CEnduranceSkill::CreateEnduranceEntity(CObjCHAR* pObjCHAR,
     }
 
     ///
-    /// Åõ¸íµîÀÇ Æ¯¼ö »óÅÂ Àû¿ë
+    /// íˆ¬ëª…ë“±ì˜ íŠ¹ìˆ˜ ìƒíƒœ ì ìš©
     ///
     switch (STATE_TYPE(iStatusSTBNO)) {
-        /// Åõ¸í
+        /// íˆ¬ëª…
         case ING_DISGUISE:
         case ING_TRANSPARENT: {
             if (g_pAVATAR->Is_ALLIED(m_pObjCHAR) || m_pObjCHAR->IsA(OBJ_USER))
@@ -1037,9 +1037,9 @@ CEnduranceSkill::CreateEnduranceEntity(CObjCHAR* pObjCHAR,
                 ::setVisibilityRecursive(pObjCHAR->GetZMODEL(), 0.0f);
         } break;
 
-        /// ¼ö¸é
+        /// ìˆ˜ë©´
         case ING_SLEEP: {
-            /// ÀÌ¹Ì Ä³½ºÆÃÀÌ ½ÃÀÛµÇ¾ú°í, °á°ú¸¦ ¹ŞÁö ¸ø¤¾¤¶´Ù¸é.. Ä³½ºÆÃ Ãë¼Ò....
+            /// ì´ë¯¸ ìºìŠ¤íŒ…ì´ ì‹œì‘ë˜ì—ˆê³ , ê²°ê³¼ë¥¼ ë°›ì§€ ëª»ã…ã…†ë‹¤ë©´.. ìºìŠ¤íŒ… ì·¨ì†Œ....
             if (m_pObjCHAR->m_bCastingSTART && m_pObjCHAR->bCanActionActiveSkill()) {
                 m_pObjCHAR->PushCommandStop();
             } else {
@@ -1049,9 +1049,9 @@ CEnduranceSkill::CreateEnduranceEntity(CObjCHAR* pObjCHAR,
             }
         } break;
 
-        /// ±âÀı
+        /// ê¸°ì ˆ
         case ING_FAINTING: {
-            /// ÀÌ¹Ì Ä³½ºÆÃÀÌ ½ÃÀÛµÇ¾ú°í, °á°ú¸¦ ¹ŞÁö ¸ø¤¾¤¶´Ù¸é.. Ä³½ºÆÃ Ãë¼Ò....
+            /// ì´ë¯¸ ìºìŠ¤íŒ…ì´ ì‹œì‘ë˜ì—ˆê³ , ê²°ê³¼ë¥¼ ë°›ì§€ ëª»ã…ã…†ë‹¤ë©´.. ìºìŠ¤íŒ… ì·¨ì†Œ....
             if (m_pObjCHAR->m_bCastingSTART && m_pObjCHAR->bCanActionActiveSkill()) {
                 m_pObjCHAR->PushCommandStop();
             } else {
@@ -1095,10 +1095,10 @@ CEnduranceSkill::DeleteEffect() {
     switch (STATE_TYPE(m_iStatusSTBNO)) {
 
         ///
-        /// Åõ¸íµîÀÇ Æ¯¼ö »óÅÂ Àû¿ë
+        /// íˆ¬ëª…ë“±ì˜ íŠ¹ìˆ˜ ìƒíƒœ ì ìš©
         ///
 
-        /// Åõ¸í
+        /// íˆ¬ëª…
         case ING_DISGUISE:
         case ING_TRANSPARENT: {
             ::setVisibilityRecursive(m_pObjCHAR->GetZMODEL(), 1.0f);
@@ -1117,12 +1117,12 @@ CEnduranceSkill::DeleteEffect() {
         } break;
 
         ///
-        /// °ø¼Ó, ÀÌ¼ÓµîÀÇ º¯°æ½Ã ¼Óµµ ¸®¼Â
+        /// ê³µì†, ì´ì†ë“±ì˜ ë³€ê²½ì‹œ ì†ë„ ë¦¬ì…‹
         ///
-        /// °ø¼Ó
+        /// ê³µì†
         case ING_INC_ATK_SPD:
         case ING_DEC_ATK_SPD:
-            /// Àá½Ãº¸·ù..
+            /// ì ì‹œë³´ë¥˜..
             break;
     }
 }
@@ -1143,11 +1143,11 @@ CEnduranceSkill::GetIconNO() {
 }
 
 /// if return value is false, this endurance entity is expired.
-/// ½ºÅ³ÀÇ Á¾·á ¿©ºÎ´Â ¼­¹ö·ÎºÎÅÍ Åëº¸ ¹ŞÀ½..
-/// 2/20 Å¬¶óÀÌ¾ğÆ® ÀÚÃ¼ ÆÇ´Ü Á¾·áÁ¶°Çµµ ¼­¹ö¿¡¼­ Åëº¸¹ŞÀ½( HP, MP µîÀÇ Áõ°¡,°¨¼Ò Áö¼Ó )
+/// ìŠ¤í‚¬ì˜ ì¢…ë£Œ ì—¬ë¶€ëŠ” ì„œë²„ë¡œë¶€í„° í†µë³´ ë°›ìŒ..
+/// 2/20 í´ë¼ì´ì–¸íŠ¸ ìì²´ íŒë‹¨ ì¢…ë£Œì¡°ê±´ë„ ì„œë²„ì—ì„œ í†µë³´ë°›ìŒ( HP, MP ë“±ì˜ ì¦ê°€,ê°ì†Œ ì§€ì† )
 bool
 CEnduranceSkill::Proc(CObjCHAR* pObjCHAR) {
-    /// ÀÏ°æ¿ì Á¾·áÁ¶°ÇÀ» ÀÚÃ¼ ÆÇ´ÜÇÑ´Ù.
+    /// ì¼ê²½ìš° ì¢…ë£Œì¡°ê±´ì„ ìì²´ íŒë‹¨í•œë‹¤.
     // if( iStatusSTBNO == ING_INC_HP || iStatusSTBNO == ING_INC_MP )
     //{
     //	INT64 iCurrentTime	= g_GameDATA.GetGameTime();
@@ -1174,18 +1174,18 @@ CEnduranceSkill::Proc(CObjCHAR* pObjCHAR) {
     //	}
     //}
 
-    /// À§Àå¼ú/Åõ¸íÀÇ °æ¿ì ÀÚÃ¼ÆÇ´ÜÀ¸·Î ÇØÁ¦ÇØ¾ßÇÒ °æ¿ì°¡ÀÖ´Ù.
-    /// ÀÌÈÄ¿¡ Åõ¸íÀÇ °æ¿ì ¾ÈÇ®¸®Á¦.. ±¸Ã¼ÀûÀÎ°Ç À§Å° ÂüÁ¶..
+    /// ìœ„ì¥ìˆ /íˆ¬ëª…ì˜ ê²½ìš° ìì²´íŒë‹¨ìœ¼ë¡œ í•´ì œí•´ì•¼í•  ê²½ìš°ê°€ìˆë‹¤.
+    /// ì´í›„ì— íˆ¬ëª…ì˜ ê²½ìš° ì•ˆí’€ë¦¬ì œ.. êµ¬ì²´ì ì¸ê±´ ìœ„í‚¤ ì°¸ì¡°..
     // switch( STATE_TYPE( iStatusSTBNO ) )
     //{
-    //	/// À§Àå¼úÀÇ °æ¿ì ÀÌµ¿ÀÌ³ª °ø°İÀ» ÇÏ¸é Ç®¸°´Ù.
+    //	/// ìœ„ì¥ìˆ ì˜ ê²½ìš° ì´ë™ì´ë‚˜ ê³µê²©ì„ í•˜ë©´ í’€ë¦°ë‹¤.
     //	case ING_DISGUISE:
     //		{
     //			if( pObjCHAR->Get_COMMAND() != CMD_STOP )
     //                   SetExpire();
     //		}
     //		break;
-    //	/// Åõ¸íÀÇ °æ¿ì °ø°İÀ» ÇÏ¸é Ç®¸°´Ù.
+    //	/// íˆ¬ëª…ì˜ ê²½ìš° ê³µê²©ì„ í•˜ë©´ í’€ë¦°ë‹¤.
     //	case ING_TRANSPARENT:
     //		{
     //			if( pObjCHAR->Get_COMMAND() == CMD_ATTACK )
@@ -1289,14 +1289,14 @@ CEnduranceItem::Proc(CObjCHAR* pObjCHAR) {
     /// expire
     if ((iCurrentTime - m_iStartTime) >= m_iEnduranceTime) {
         for (int i = 0; i < STATE_APPLY_ABILITY_CNT; i++) {
-            /// ¼­¹ö·Î ºÎÅÍ Á¾·á°á°ú¸¦ ¹ŞÁö¸øÇßÁö¸¸ Å¬¶óÀÌ¾ğÆ®´Â ´ÙÃ¤¿ü´Ù. ±×·¸´Ù¸é ±×³É ÁøÇà..
+            /// ì„œë²„ë¡œ ë¶€í„° ì¢…ë£Œê²°ê³¼ë¥¼ ë°›ì§€ëª»í–ˆì§€ë§Œ í´ë¼ì´ì–¸íŠ¸ëŠ” ë‹¤ì±„ì› ë‹¤. ê·¸ë ‡ë‹¤ë©´ ê·¸ëƒ¥ ì§„í–‰..
             if (m_iTotalAppliedProperty[i] >= USEITEM_ADD_DATA_VALUE(m_iEndityIdx))
                 continue;
 
             iSTBLineNO = STATE_APPLY_ING_STB(USEITME_STATUS_STB(m_iEndityIdx), i);
             iApplyProperty = USEITEM_ADD_DATA_VALUE(m_iEndityIdx) - m_iTotalAppliedProperty[i];
 
-            /// ÀÏ´Ü »óÅÂ Àû¿ëµÇ´Â ¾ÆÀÌÅÛÀº ¼¼°³´Ù..
+            /// ì¼ë‹¨ ìƒíƒœ ì ìš©ë˜ëŠ” ì•„ì´í…œì€ ì„¸ê°œë‹¤..
             switch (STATE_TYPE(iSTBLineNO)) {
                     /// hp
                 case ING_INC_HP:
@@ -1325,14 +1325,14 @@ CEnduranceItem::Proc(CObjCHAR* pObjCHAR) {
             m_iTotalAppliedProperty[i] += iApplyProperty;
         }
 
-        /// Å¬¶óÀÌ¾ğÆ® ¿¡¼­ ÀÚÃ¼ÀûÀ¸·Î ÆÄ±«ÇÏ¸é ¾ÈµÈ´Ù.
+        /// í´ë¼ì´ì–¸íŠ¸ ì—ì„œ ìì²´ì ìœ¼ë¡œ íŒŒê´´í•˜ë©´ ì•ˆëœë‹¤.
         /// m_bExpired = true;
         /// return false;
 
         //------------------------------------------------------------------------------------
         /// 2004/10/4
-        /// Å¬¶óÀÌ¾ğÆ® ÀÚÃ¼ ÆÇ´ÜÀÌ ¾Æ´Ï¶ó.. ¼­¹ö·ÎºÎÅÍ Á¾·áÆĞÅ¶ÀÌ ¿ÔÀ»°æ¿ì ÆÄ±«½ÃÅ²´Ù.
-        /// ÀÌºÎºĞÀº ¼­·Î µ¿±âÈ­¸¦ ¸ÂÃß±âÀ§ÇÔÀÌ¶ó.. »ó´çÈ÷ Áß¿äÇÑ ºÎºĞÀÌ´Ù.
+        /// í´ë¼ì´ì–¸íŠ¸ ìì²´ íŒë‹¨ì´ ì•„ë‹ˆë¼.. ì„œë²„ë¡œë¶€í„° ì¢…ë£ŒíŒ¨í‚·ì´ ì™”ì„ê²½ìš° íŒŒê´´ì‹œí‚¨ë‹¤.
+        /// ì´ë¶€ë¶„ì€ ì„œë¡œ ë™ê¸°í™”ë¥¼ ë§ì¶”ê¸°ìœ„í•¨ì´ë¼.. ìƒë‹¹íˆ ì¤‘ìš”í•œ ë¶€ë¶„ì´ë‹¤.
         //------------------------------------------------------------------------------------
         return true;
     }
@@ -1342,7 +1342,7 @@ CEnduranceItem::Proc(CObjCHAR* pObjCHAR) {
         int iAddValue = USEITEM_ADD_DATA_VALUE(m_iEndityIdx);
         iApplyProperty = ((iAddValue)*iElaspedTime) / (m_iEnduranceTime);
 
-        /// ÀÏ´Ü »óÅÂ Àû¿ëµÇ´Â ¾ÆÀÌÅÛÀº ¼¼°³´Ù..
+        /// ì¼ë‹¨ ìƒíƒœ ì ìš©ë˜ëŠ” ì•„ì´í…œì€ ì„¸ê°œë‹¤..
         switch (STATE_TYPE(iSTBLineNO)) {
             /// hp
             case ING_INC_HP:

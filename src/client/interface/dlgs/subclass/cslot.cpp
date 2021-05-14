@@ -99,7 +99,7 @@ CSlot::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
             break;
         }
         case WM_LBUTTONDBLCLK: {
-            ///¿µ¿ª¾ÈÀÌ¶óµµ Ä¿¸Çµå ½ÇÇàÀÌ ¾ÈµÈ ºó½½·ÔÀº Ã³¸®¾ÈµÈ°ÍÀ¸·Î ÇÑ´Ù.
+            ///ì˜ì—­ì•ˆì´ë¼ë„ ì»¤ë§¨ë“œ ì‹¤í–‰ì´ ì•ˆëœ ë¹ˆìŠ¬ë¡¯ì€ ì²˜ë¦¬ì•ˆëœê²ƒìœ¼ë¡œ í•œë‹¤.
             if (CWinCtrl::IsInside(pt.x, pt.y)) {
                 if (m_pIcon) {
                     m_pIcon->ExecuteCommand();

@@ -4,9 +4,9 @@
 #include "Interface/InterfaceType.h"
 #include <string>
 //////////////////////////////////////////////////////////////////////
-/// Å¬¶óÀÌ¾ğÆ® »çÀÌµå¿¡ ÀúÀåµÇ´Â Data¸¦ Load/SaveÇÏ´Â Class
-/// 1. ¿É¼Ç, ÀÎº¥Åä¸®¾ÈÀÇ ¾ÆÀÌÅÛÀ§Ä¡, ´ÙÀÌ¾ó·Î±×µéÀÇ À§Ä¡µîÀ» ÀúÀåÇÑ´Ù.
-/// 2. ÀÎº¥Åä¸®³ª ´ÙÀÌ¾ó·Î±×À§Ä¡µîÀº WritePrivateProfileStruct¸¦ ÀÌ¿ëÇÏÀÚ.
+/// í´ë¼ì´ì–¸íŠ¸ ì‚¬ì´ë“œì— ì €ì¥ë˜ëŠ” Dataë¥¼ Load/Saveí•˜ëŠ” Class
+/// 1. ì˜µì…˜, ì¸ë²¤í† ë¦¬ì•ˆì˜ ì•„ì´í…œìœ„ì¹˜, ë‹¤ì´ì–¼ë¡œê·¸ë“¤ì˜ ìœ„ì¹˜ë“±ì„ ì €ì¥í•œë‹¤.
+/// 2. ì¸ë²¤í† ë¦¬ë‚˜ ë‹¤ì´ì–¼ë¡œê·¸ìœ„ì¹˜ë“±ì€ WritePrivateProfileStructë¥¼ ì´ìš©í•˜ì.
 
 struct t_OptionResolution {
     int iWidth;
@@ -64,7 +64,7 @@ struct S_InventoryData {
 
 const int MAX_BGM_VOLUME = 9;
 const int MAX_EFFECT_VOLUME = 9;
-const int DEFAULT_BGM_VOLUME = 1; /// -1000 : OptionDlg::Create()Âü°í
+const int DEFAULT_BGM_VOLUME = 1; /// -1000 : OptionDlg::Create()ì°¸ê³ 
 const int DEFAULT_EFFECT_VOLUME = 3;
 const int MAX_GAMMA_COUNT = 5;
 const int MAX_PERFORMANCE_COUNT = 5;
@@ -82,7 +82,7 @@ const int c_iDefaultFrequency = 60;
 const short g_nDefaultInventoryIdx = 0;
 const float c_fDefaultGammaValue = 1.0f;
 
-const int c_iDefaultCommunityOption = 1; ///Çã¿ë
+const int c_iDefaultCommunityOption = 1; ///í—ˆìš©
 const int c_iDefaultShowName = 1;
 extern const long g_ListBgmVolume[MAX_BGM_VOLUME];
 extern const long g_ListEffectVolume[MAX_EFFECT_VOLUME];
@@ -165,7 +165,7 @@ public:
     void SetQuickBarDlgType(int iType) { m_iQuickBarDlgType = iType; }
     void SetQuickBarExtDlgType(int iType) { m_iQuickBarExtDlgType = iType; } // 2nd Skillbar
     void SetChatDlgType(int iType) { m_iChatDlgType = iType; }
-    /// QuickBar¿Í Chat DialogÀÇ Type
+    /// QuickBarì™€ Chat Dialogì˜ Type
 
     ///*********************************************************************/
     /// Virtual Inventory Table
@@ -174,7 +174,7 @@ public:
     // m_VirtualInventory )); } void  SetVirutalInven( int iType, int iIdx, short nRealInvenIdx ){
     // m_VirtualInventory[ iType ][ iIdx ] = nRealInvenIdx; }
     ///*********************************************************************/
-    ///½ÇÁ¦·Î ¿É¼ÇÀ» Àû¿ë½ÃÅ°´Â Method : COptionDlg¿Í WinMain.cppµî¿¡¼­ »ç¿ëµÈ´Ù.
+    ///ì‹¤ì œë¡œ ì˜µì…˜ì„ ì ìš©ì‹œí‚¤ëŠ” Method : COptionDlgì™€ WinMain.cppë“±ì—ì„œ ì‚¬ìš©ëœë‹¤.
     void ApplyCameraOption(short i);
 
     void SetSelectAvatarName(const char* pszName) { m_strAvatarName = pszName; }
@@ -188,13 +188,13 @@ public:
     void SetSaveLastConnectID(bool b);
     void SaveOptionLastConnectID();
 
-    /// ÀÏº» ÆÄÆ®³Ê»ç ¼±ÅÃ ÀúÀå
+    /// ì¼ë³¸ íŒŒíŠ¸ë„ˆì‚¬ ì„ íƒ ì €ì¥
     int GetJapanRoute();
     void SetJapanRoute(int route);
     void SaveJapanRoute();
 
 public:
-    bool m_bHasSavedDialogPos; ///ÀÌÀü¿¡ ÀúÀåµÈ Dialog PositionÀÌ ÀÖ´Â°¡?
+    bool m_bHasSavedDialogPos; ///ì´ì „ì— ì €ì¥ëœ Dialog Positionì´ ìˆëŠ”ê°€?
     t_OptionVideo m_VideoOption;
     t_OptionSound m_SoundOption;
     t_OptionPlay m_PlayOption;

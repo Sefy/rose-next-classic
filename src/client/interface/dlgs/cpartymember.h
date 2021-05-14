@@ -6,9 +6,9 @@
 #include <list>
 
 /**
- * ÆÄÆ¼Ã¢( CPartyDlg)¿¡¼­ °¢ ÆÄÆ¼¿øµéÀÇ »óÅÂ¸¦ ÀúÀåÇÏ°í ±×¸®´Â Class
+ * íŒŒí‹°ì°½( CPartyDlg)ì—ì„œ ê° íŒŒí‹°ì›ë“¤ì˜ ìƒíƒœë¥¼ ì €ì¥í•˜ê³  ê·¸ë¦¬ëŠ” Class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CPartyMember {
@@ -35,26 +35,26 @@ public:
 
 protected:
     bool IsInside(POINT pt);
-    bool AddStatusIcon(DWORD dwFlag); /// »óÅÂ ¾ÆÀÌÄÜ Ãß°¡
-    void ResetStatusIconsPosition(); /// »óÅÂ ¾ÆÀÌÄÜµéÀÇ À§Ä¡¸¦ ÀçÁ¤·ÄÇÑ´Ù.
+    bool AddStatusIcon(DWORD dwFlag); /// ìƒíƒœ ì•„ì´ì½˜ ì¶”ê°€
+    void ResetStatusIconsPosition(); /// ìƒíƒœ ì•„ì´ì½˜ë“¤ì˜ ìœ„ì¹˜ë¥¼ ì¬ì •ë ¬í•œë‹¤.
 
 protected:
-    /// MemberÀÇ Á¤º¸
-    WORD m_wObjSvrIdx; /// ÆÄÆ¼¿øÀÇ ¼­¹ö ÀÎµ¦½º
-    DWORD m_dwObjectTag; /// ÆÄÆ¼¿øÀÇ ¼­¹ö ÅÂ±×( ¼­¹ö¿¡¼­ À¯ÀÏÇÑ ID , ¼­¹öÀÎµ¦½º´Â À¯ÀÏÇÏÁö ¾ÊÀ»¼ö
-                         /// ÀÖ´Ù )
+    /// Memberì˜ ì •ë³´
+    WORD m_wObjSvrIdx; /// íŒŒí‹°ì›ì˜ ì„œë²„ ì¸ë±ìŠ¤
+    DWORD m_dwObjectTag; /// íŒŒí‹°ì›ì˜ ì„œë²„ íƒœê·¸( ì„œë²„ì—ì„œ ìœ ì¼í•œ ID , ì„œë²„ì¸ë±ìŠ¤ëŠ” ìœ ì¼í•˜ì§€ ì•Šì„ìˆ˜
+                         /// ìˆë‹¤ )
 
-    std::string m_stName; /// ÀÌ¸§
-    bool m_bLeader; /// ÆÄÆ¼ÀåÀÎ°¡?
+    std::string m_stName; /// ì´ë¦„
+    bool m_bLeader; /// íŒŒí‹°ì¥ì¸ê°€?
 
-    RECT m_rcThis; /// ÀÎÅÍÆäÀÌ½º ¿µ¿ª
+    RECT m_rcThis; /// ì¸í„°í˜ì´ìŠ¤ ì˜ì—­
     int m_iWidth;
     int m_iHeight;
-    bool m_bSelected; /// ¼±ÅÃµÇ¾î Á³´Â°¡?
+    bool m_bSelected; /// ì„ íƒë˜ì–´ ì¡ŒëŠ”ê°€?
 
-    std::list<CIconStatus> m_listStatusIcon; /// »óÅÂ ¾ÆÀÌÄÜ ¸®½ºÆ®
+    std::list<CIconStatus> m_listStatusIcon; /// ìƒíƒœ ì•„ì´ì½˜ ë¦¬ìŠ¤íŠ¸
 
-    int m_iGuageIdx; /// Ã¼·Â °ÔÀÌÁö ±×·¡ÇÈ ID
-    int m_iGuageBGIdx; /// Ã¼·Â °ÔÀÌÁö ¹è°æ ±×·¡ÇÈ ID
+    int m_iGuageIdx; /// ì²´ë ¥ ê²Œì´ì§€ ê·¸ë˜í”½ ID
+    int m_iGuageBGIdx; /// ì²´ë ¥ ê²Œì´ì§€ ë°°ê²½ ê·¸ë˜í”½ ID
 };
 #endif

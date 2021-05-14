@@ -24,7 +24,7 @@ typedef CWS_Client classUSER;
  * \ingroup SHO_GS_LIB
  * \class	CChatROOM
  * \author	wookSang.Jo
- * \brief	´ëÈ­¹æ °ü¸® Å¬·¡½º
+ * \brief	ëŒ€í™”ë°© ê´€ë¦¬ í´ë˜ìŠ¤
  */
 class CChatROOM {
 private:
@@ -59,7 +59,7 @@ public:
  * \ingroup SHO_GS_LIB
  * \class	CChatRoomLIST
  * \author	wookSang.Jo
- * \brief	ÀüÃ¼ ´ëÈ­¹æ °ü¸® Å¬·¡½º
+ * \brief	ì „ì²´ ëŒ€í™”ë°© ê´€ë¦¬ í´ë˜ìŠ¤
  */
 class CChatRoomLIST: public CIndexARRAY<CChatROOM*> {
 private:

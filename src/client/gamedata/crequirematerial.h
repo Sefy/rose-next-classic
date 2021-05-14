@@ -2,9 +2,9 @@
 #define _CRequireMaterial_
 
 /**
- * CManufacture¿¡ »ç¿ëµÇ´Â SubClass = Á¦Á¶¿¡ ÇÊ¿äÇÑ ItemµéÀ» À§ÇÑ Class
+ * CManufactureì— ì‚¬ìš©ë˜ëŠ” SubClass = ì œì¡°ì— í•„ìš”í•œ Itemë“¤ì„ ìœ„í•œ Class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CRequireMaterial {
@@ -17,7 +17,7 @@ public:
     void SetItemType(int iType);
     void SetItemNo(int iNo);
     void SetRequireCount(int iCount);
-    void SetName(const char* pszName); ///ÀÌ¸§ÀÌ ¾øÀ¸¸é
+    void SetName(const char* pszName); ///ì´ë¦„ì´ ì—†ìœ¼ë©´
 
     int GetItemClass();
     int GetItemType();
@@ -30,7 +30,7 @@ public:
 protected:
     int m_iItemClass;
     int m_iItemType;
-    int m_iItemNo; /// ItemNoÈ¤Àº ItemÁ¾·ù°¡ µé¾î°¥¼ö ÀÖ´Ù.1000º¸´Ù ÀÛÀ¸¸é Á¾·ù, 1000 º¸´Ù Å©¸é Type
+    int m_iItemNo; /// ItemNoí˜¹ì€ Itemì¢…ë¥˜ê°€ ë“¤ì–´ê°ˆìˆ˜ ìˆë‹¤.1000ë³´ë‹¤ ì‘ìœ¼ë©´ ì¢…ë¥˜, 1000 ë³´ë‹¤ í¬ë©´ Type
                    /// + ItemNo
     int m_iRequireCount;
     std::string m_strName;

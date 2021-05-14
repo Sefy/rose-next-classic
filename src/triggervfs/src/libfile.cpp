@@ -19,7 +19,7 @@ __fseek(FILE* fp, int lOff, int iOrg) {
 }
 
 /*********************************************************************************************
- * ÇöÀç µğ·ºÅä¸®¸¦ ¾Ë¾Æ³½´Ù
+ * í˜„ì¬ ë””ë ‰í† ë¦¬ë¥¼ ì•Œì•„ë‚¸ë‹¤
  */
 std::string
 __GetCurDir(void) {
@@ -35,7 +35,7 @@ __GetCurDir(void) {
 }
 
 /*********************************************************************************************
- * ÆÄÀÏÀÇ Å©±â¸¦ ¾Ë¾Æ³½´Ù
+ * íŒŒì¼ì˜ í¬ê¸°ë¥¼ ì•Œì•„ë‚¸ë‹¤
  */
 long
 __GetFileSize(const char* FileName) {
@@ -49,13 +49,13 @@ __GetFileSize(const char* FileName) {
 }
 
 /*********************************************************************************************
- * ÆÄÀÏ ºí·Ï ÀÌµ¿ ½ÃÅ°±â
- * @param lStartOff		¿Ã±æ ºÎºĞÀÇ ½ÃÀÛ Offset
- * @param stLength		ºí·ÏÀÇ ±æÀÌ
- * @param lTargetOff	¿Å±æ Offset
- * @param sAllocSize	¿Å±â´Â ´ÜÀ§ . ¸Ş¸ğ¸® ÇÒ´ç·®ÀÌ µÊ
- * @param bFlush		true ÀÌ¸é ¿Å±â°í ³ª¼­ fflush¸¦ ÇÏ°í falseÀÌ¸é ¾È ÇÑ´Ù.
- * @param fp			ÆÄÀÏ ÇÚµé
+ * íŒŒì¼ ë¸”ë¡ ì´ë™ ì‹œí‚¤ê¸°
+ * @param lStartOff		ì˜¬ê¸¸ ë¶€ë¶„ì˜ ì‹œì‘ Offset
+ * @param stLength		ë¸”ë¡ì˜ ê¸¸ì´
+ * @param lTargetOff	ì˜®ê¸¸ Offset
+ * @param sAllocSize	ì˜®ê¸°ëŠ” ë‹¨ìœ„ . ë©”ëª¨ë¦¬ í• ë‹¹ëŸ‰ì´ ë¨
+ * @param bFlush		true ì´ë©´ ì˜®ê¸°ê³  ë‚˜ì„œ fflushë¥¼ í•˜ê³  falseì´ë©´ ì•ˆ í•œë‹¤.
+ * @param fp			íŒŒì¼ í•¸ë“¤
  */
 bool
 MoveFileBlock(long lStartOff,
@@ -64,33 +64,33 @@ MoveFileBlock(long lStartOff,
     int sAllocSize,
     FILE* fp,
     bool bFlush) {
-    BYTE* btBuff = NULL; /// ¹öÆÛ
-    int iMove = 0; /// ¿Å°ÜÁö´Â ±æÀÌ
-    size_t stCount = stLength; /// while ·çÇÁ¸¦ À§ÇÑ Count
-    int stRead = 0; /// ÇöÀç ÀĞÀ» ¹ÙÀÌÆ®¼ö
-    int stReaded = 0; /// ÀĞÇôÁø ¹ÙÀÌÆ®¼ö
-    long lOldSize = 0; /// ¿ø·¡ ÆÄÀÏÀÇ Å©±â
+    BYTE* btBuff = NULL; /// ë²„í¼
+    int iMove = 0; /// ì˜®ê²¨ì§€ëŠ” ê¸¸ì´
+    size_t stCount = stLength; /// while ë£¨í”„ë¥¼ ìœ„í•œ Count
+    int stRead = 0; /// í˜„ì¬ ì½ì„ ë°”ì´íŠ¸ìˆ˜
+    int stReaded = 0; /// ì½í˜€ì§„ ë°”ì´íŠ¸ìˆ˜
+    long lOldSize = 0; /// ì›ë˜ íŒŒì¼ì˜ í¬ê¸°
 
     if (stLength < (unsigned)sAllocSize) {
         sAllocSize = (int)stLength;
     }
-    /// ÇöÀç ¹Ì°áµÈ ¾²±âÀÛ¾÷À» ¸ğµÎ Device·Î ¹Ğ¾î³Ö´Â´Ù
+    /// í˜„ì¬ ë¯¸ê²°ëœ ì“°ê¸°ì‘ì—…ì„ ëª¨ë‘ Deviceë¡œ ë°€ì–´ë„£ëŠ”ë‹¤
     fflush(fp);
-    /// ¾ÕÀ¸·Î
+    /// ì•ìœ¼ë¡œ
     if (lTargetOff - lStartOff < 0) {
         iMove = lStartOff - lTargetOff;
         if ((btBuff = new BYTE[sAllocSize])) {
             fseek(fp, lTargetOff, SEEK_SET);
             while (stCount > 0) {
-                /// ÀĞÀ» ¾çÀ» °áÁ¤
+                /// ì½ì„ ì–‘ì„ ê²°ì •
                 stRead = stCount > (unsigned)sAllocSize ? sAllocSize : (unsigned)stCount;
-                /// ÀĞÀ» À§Ä¡·Î ÀÌµ¿
+                /// ì½ì„ ìœ„ì¹˜ë¡œ ì´ë™
                 fseek(fp, iMove, SEEK_CUR);
-                /// ÀĞ´Â´Ù
+                /// ì½ëŠ”ë‹¤
                 stReaded = (int)fread(btBuff, sizeof(BYTE), stRead, fp);
-                /// ÀĞÀ» ¾ç¿¡¼­ ÀĞÀº ¸¸Å­ »«´Ù
+                /// ì½ì„ ì–‘ì—ì„œ ì½ì€ ë§Œí¼ ëº€ë‹¤
                 stCount -= stReaded;
-                /// ÀĞÀº ¸¸Å­ ¾ÕÀ¸·Î °¡¸é ¿ø·¡ À§Ä¡ ±×¸®°í imove ¸¸Å­ ¾ÕÀ¸·Î
+                /// ì½ì€ ë§Œí¼ ì•ìœ¼ë¡œ ê°€ë©´ ì›ë˜ ìœ„ì¹˜ ê·¸ë¦¬ê³  imove ë§Œí¼ ì•ìœ¼ë¡œ
                 fseek(fp, (long)(-iMove - stReaded), SEEK_CUR);
                 fwrite(btBuff, sizeof(BYTE), stReaded, fp);
             }
@@ -98,25 +98,25 @@ MoveFileBlock(long lStartOff,
                 fflush(fp);
             }
             lOldSize = __fseek(fp, 0, SEEK_END);
-            /// ÆÄÀÏÅ©±â¸¦ ÁÙÀÌ´Â °ÍÀº ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÑ ÂÊ¿¡¼­ ÇØ¾ß ÇÑ´Ù.
+            /// íŒŒì¼í¬ê¸°ë¥¼ ì¤„ì´ëŠ” ê²ƒì€ ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œ ìª½ì—ì„œ í•´ì•¼ í•œë‹¤.
             /// ::__ftruncate (lOldSize - iMove, fp);
-            /// ¸Ş¸ğ¸® ÇØÁ¦
+            /// ë©”ëª¨ë¦¬ í•´ì œ
             delete[] btBuff;
             return true;
         }
     }
-    /// µÚ·Î ¹Ğ¶§
+    /// ë’¤ë¡œ ë°€ë•Œ
     else if (lTargetOff - lStartOff > 0) {
         if ((btBuff = new BYTE[sAllocSize])) {
             // lOldSize = ::__fseek (fp, 0, SEEK_END);
-            /// µŞÂÊ µ¥ÀÌÅÍÀÇ Å©±â
+            /// ë’·ìª½ ë°ì´í„°ì˜ í¬ê¸°
             // size_t szLengthOfletter = lOldSize - lStartOff;
-            /// °¡Àå µŞÂÊ = ¿Å±æ ½ÃÀÛ À§Ä¡ + ¿Å±æ ºí·°ÀÇ ±æÀÌ
+            /// ê°€ì¥ ë’·ìª½ = ì˜®ê¸¸ ì‹œì‘ ìœ„ì¹˜ + ì˜®ê¸¸ ë¸”ëŸ­ì˜ ê¸¸ì´
             fseek(fp, lStartOff + (long)stLength, SEEK_SET);
-            /// ¿Å±æ ±æÀÌ
+            /// ì˜®ê¸¸ ê¸¸ì´
             iMove = lTargetOff - lStartOff;
             while (stCount > 0) {
-                /// ÀĞÀ» ±æÀÌ =  ÀĞ´Â ºí·°º¸´Ù ³²Àº Å©±â°¡ ÀÛÀ¸¸é ³²Àº Å©±â¸¸Å­ ¾Æ´Ï¸é ÀĞ´Â ºí·Ï
+                /// ì½ì„ ê¸¸ì´ =  ì½ëŠ” ë¸”ëŸ­ë³´ë‹¤ ë‚¨ì€ í¬ê¸°ê°€ ì‘ìœ¼ë©´ ë‚¨ì€ í¬ê¸°ë§Œí¼ ì•„ë‹ˆë©´ ì½ëŠ” ë¸”ë¡
                 stRead = stCount < (unsigned)sAllocSize ? (int)stCount : sAllocSize;
                 fseek(fp, (long)(0 - stRead), SEEK_CUR);
                 stReaded = (int)fread(btBuff, sizeof(BYTE), stRead, fp);
@@ -128,12 +128,12 @@ MoveFileBlock(long lStartOff,
             if (bFlush) {
                 fflush(fp);
             }
-            /// ¸Ş¸ğ¸® ÇØÁ¦
+            /// ë©”ëª¨ë¦¬ í•´ì œ
             delete[] btBuff;
             return true;
         }
     }
-    /// ¶È°°À»¶§
+    /// ë˜‘ê°™ì„ë•Œ
     else {
         return true;
     }
@@ -142,12 +142,12 @@ MoveFileBlock(long lStartOff,
 }
 
 /*************************************************************************************
- * MakeFileHole : ÆÄÀÏÀÇ Áß°£¿¡ ±¸¸ÛÀ» ¸¸µç´Ù
+ * MakeFileHole : íŒŒì¼ì˜ ì¤‘ê°„ì— êµ¬ë©ì„ ë§Œë“ ë‹¤
  */
 bool
 MakeFileHole(long lPos, size_t stSize, FILE* fp, bool bFlush) {
-    long lFileSize = __fseek(fp, 0, SEEK_END); /// ÆÄÀÏÀÇ Å©±â
-    size_t stLength = lFileSize - lPos; /// µŞÂÊ¿¡ ÀÖ´Â µ¥ÀÌÅÍÀÇ Å©±â
+    long lFileSize = __fseek(fp, 0, SEEK_END); /// íŒŒì¼ì˜ í¬ê¸°
+    size_t stLength = lFileSize - lPos; /// ë’·ìª½ì— ìˆëŠ” ë°ì´í„°ì˜ í¬ê¸°
 
     if (stSize < 0 || fp == NULL || lPos < 0) {
         return false;
@@ -156,11 +156,11 @@ MakeFileHole(long lPos, size_t stSize, FILE* fp, bool bFlush) {
     return ::MoveFileBlock(lPos, stLength, lPos + (long)stSize, 1000000 /*1MB*/, fp, bFlush);
 }
 
-/// ÆÄÀÏ °Ë»ö °á°ú¸¦ ÀúÀåÇÒ Àü¿ªº¯¼ö
+/// íŒŒì¼ ê²€ìƒ‰ ê²°ê³¼ë¥¼ ì €ì¥í•  ì „ì—­ë³€ìˆ˜
 struct stFindFiles g_stFindFile;
 
 /*************************************************************************************
- * µğ·ºÅä¸®¿¡ ÀÖ´Â ÆÄÀÏ¸íÀ» °¡Áö°í ¿Â´Ù
+ * ë””ë ‰í† ë¦¬ì— ìˆëŠ” íŒŒì¼ëª…ì„ ê°€ì§€ê³  ì˜¨ë‹¤
  */
 stFindFiles*
 GetFileList(const char* pBaseDir, const char* FilterExt, const char* FilterDir) {
@@ -178,7 +178,7 @@ GetFileList(const char* pBaseDir, const char* FilterExt, const char* FilterDir) 
         strcpy(buff, FilterExt);
         char* token = strtok(buff, ";");
         while (token) {
-            /// ´ë¹®ÀÚ·Î ¹Ù²Û´Ù
+            /// ëŒ€ë¬¸ìë¡œ ë°”ê¾¼ë‹¤
             _strupr(token);
             g_stFindFile.vecExcExt.push_back(token);
             token = strtok(NULL, ";");
@@ -193,7 +193,7 @@ GetFileList(const char* pBaseDir, const char* FilterExt, const char* FilterDir) 
         strcpy(buff, FilterDir);
         char* token = strtok(buff, ";");
         while (token) {
-            /// ´ë¹®ÀÚ·Î ¹Ù²Û´Ù
+            /// ëŒ€ë¬¸ìë¡œ ë°”ê¾¼ë‹¤
             _strupr(token);
             g_stFindFile.vecExcDir.push_back(token);
             token = strtok(NULL, ";");
@@ -209,20 +209,20 @@ GetFileList(const char* pBaseDir, const char* FilterExt, const char* FilterDir) 
     return &g_stFindFile;
 }
 
-/// Á¦¿Ü½ÃÅ³ µğ·ºÅä¸®ÀÎÁö °Ë»ç
+/// ì œì™¸ì‹œí‚¬ ë””ë ‰í† ë¦¬ì¸ì§€ ê²€ì‚¬
 bool
 __is_excdir(char* strDir) {
-    /// °Ë»öÇÒ Dir°¡ ¾øÀ¸¸é ¹Ù·Î false ¸®ÅÏ
+    /// ê²€ìƒ‰í•  Dirê°€ ì—†ìœ¼ë©´ ë°”ë¡œ false ë¦¬í„´
     if (g_stFindFile.vecExcDir.empty()) {
         return false;
     }
 
     std::vector<std::string>::iterator iv = g_stFindFile.vecExcDir.begin();
-    /// ½ºÆ®¸µ¿¡ Ä«ÇÇ. ¿ø·¡ ¹®ÀÚ¿­À» ¹Ù²ÙÁö ¾Ê±â À§ÇØ¼­
+    /// ìŠ¤íŠ¸ë§ì— ì¹´í”¼. ì›ë˜ ë¬¸ìì—´ì„ ë°”ê¾¸ì§€ ì•Šê¸° ìœ„í•´ì„œ
     char* strDir2 = NULL;
     if ((strDir2 = new char[strlen(strDir) + 1])) {
         strcpy(strDir2, strDir);
-        /// ´ë¹®ÀÚ·Î ¹Ù²Ş
+        /// ëŒ€ë¬¸ìë¡œ ë°”ê¿ˆ
         strDir2 = _strupr(strDir2);
         for (; iv != g_stFindFile.vecExcDir.end(); iv++) {
             if (strlen(strDir2) != (*iv).size()) {
@@ -237,27 +237,27 @@ __is_excdir(char* strDir) {
     return false;
 }
 
-/// Á¦¿Ü½ÃÅ³ µğ·ºÅä¸®ÀÎÁö °Ë»ç
+/// ì œì™¸ì‹œí‚¬ ë””ë ‰í† ë¦¬ì¸ì§€ ê²€ì‚¬
 bool
 __is_excext(const char* stFileName) {
-    /// °Ë»öÇÒ È®ÀåÀÚ°¡ ¾øÀ¸¸é ¹Ù·Î false ¸®ÅÏ
+    /// ê²€ìƒ‰í•  í™•ì¥ìê°€ ì—†ìœ¼ë©´ ë°”ë¡œ false ë¦¬í„´
     if (g_stFindFile.vecExcExt.empty()) {
         return false;
     }
-    /// .À» Ã£´Â´Ù
+    /// .ì„ ì°¾ëŠ”ë‹¤
     const char* Dot = strchr(stFileName, '.');
     if (!Dot) {
         return false;
     }
 
-    /// Á¦¿Ü½ÃÅ³ È®ÀåÀÚ°¡ ÀúÀåµÈ vector
+    /// ì œì™¸ì‹œí‚¬ í™•ì¥ìê°€ ì €ì¥ëœ vector
     std::vector<std::string>::iterator iv = g_stFindFile.vecExcExt.begin();
     char* sFileName2 = NULL;
 
     if ((sFileName2 = new char[strlen(stFileName) + 1])) {
-        /// ".xxx"¿¡¼­ "." ´ÙÀ½ È®ÀåÀÚ¸¸ ³Ö´Â´Ù
+        /// ".xxx"ì—ì„œ "." ë‹¤ìŒ í™•ì¥ìë§Œ ë„£ëŠ”ë‹¤
         strcpy(sFileName2, Dot + 1);
-        /// ´ë¹®ÀÚ·Î ¹Ù²Ş
+        /// ëŒ€ë¬¸ìë¡œ ë°”ê¿ˆ
         sFileName2 = _strupr(sFileName2);
         for (; iv != g_stFindFile.vecExcExt.end(); iv++) {
             if (strlen(sFileName2) != (*iv).size()) {
@@ -267,7 +267,7 @@ __is_excext(const char* stFileName) {
                 return true;
             }
         }
-        /// ½ºÆ®¸µÀ» À§ÇØ ÇÒ´çÇÑ ¸Ş¸ğ¸®¸¦ ÇØÁ¦
+        /// ìŠ¤íŠ¸ë§ì„ ìœ„í•´ í• ë‹¹í•œ ë©”ëª¨ë¦¬ë¥¼ í•´ì œ
         delete[] sFileName2;
     }
 
@@ -275,10 +275,10 @@ __is_excext(const char* stFileName) {
 }
 
 /**
- * µğ·ºÅä¸®·ÎºÎÅÍ ÆÄÀÏÀÌ¸§À» °¡Á®¿Â´Ù
- * @param pBaseDir ÆÄÀÏÀÌ¸§À» °Ë»öÇÒ µğ·ºÅä¸®
- * @param FilterEx Á¦¿Ü½ÃÅ³ ÆÄÀÏ
- * @param FilterInc Æ÷ÇÔ½ÃÅ³ ÆÄÀÏ
+ * ë””ë ‰í† ë¦¬ë¡œë¶€í„° íŒŒì¼ì´ë¦„ì„ ê°€ì ¸ì˜¨ë‹¤
+ * @param pBaseDir íŒŒì¼ì´ë¦„ì„ ê²€ìƒ‰í•  ë””ë ‰í† ë¦¬
+ * @param FilterEx ì œì™¸ì‹œí‚¬ íŒŒì¼
+ * @param FilterInc í¬í•¨ì‹œí‚¬ íŒŒì¼
  */
 void
 __GetFileNames(const char* pBaseDir, const char* prefix) {
@@ -304,11 +304,11 @@ __GetFileNames(const char* pBaseDir, const char* prefix) {
     }
 
     while (!fFinished) {
-        /// µğ·ºÅä¸®ÀÌ°í Á¦¿Ü½ÃÅ³
+        /// ë””ë ‰í† ë¦¬ì´ê³  ì œì™¸ì‹œí‚¬
         if (FileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY
             && !__is_excdir(FileData.cFileName)) {
             std::string sSubPrefix = sPrefix;
-            /// \ÀÌ ¸¶Áö¸·¿¡ ¾øÀ¸¸é Ãß°¡ÇÔ
+            /// \ì´ ë§ˆì§€ë§‰ì— ì—†ìœ¼ë©´ ì¶”ê°€í•¨
             if (sPrefix.size() > 0 && sPrefix[sPrefix.size() - 1] != '\\') {
                 sSubPrefix.append("\\");
             }
@@ -319,12 +319,12 @@ __GetFileNames(const char* pBaseDir, const char* prefix) {
             && !__is_excext(FileData.cFileName)) {
             // finded = pBaseDir;
             finded = sPrefix;
-            /// \ÀÌ ¸¶Áö¸·¿¡ ¾øÀ¸¸é Ãß°¡ÇÔ
+            /// \ì´ ë§ˆì§€ë§‰ì— ì—†ìœ¼ë©´ ì¶”ê°€í•¨
             if (finded.size() > 0 && finded[finded.size() - 1] != '\\') {
                 finded.append("\\");
             }
             finded.append(FileData.cFileName);
-            /// ÆÄÀÏÅ©±â¸¦ ¾Ë¾Æ³»¼­ ´õÇÑ´Ù
+            /// íŒŒì¼í¬ê¸°ë¥¼ ì•Œì•„ë‚´ì„œ ë”í•œë‹¤
             g_stFindFile.dwTotalSize += ::__GetFileSize(FileData.cFileName);
             g_stFindFile.FileList.push_back(finded);
         }
@@ -344,12 +344,12 @@ __GetFileNames(const char* pBaseDir, const char* prefix) {
 }
 
 /********************************************************************************************
- * µğ·ºÅä¸®³»¿¡ ÀÖ´Â ÆÄÀÏÀÇ °¹¼ö¸¦ Á¶»çÇÑ´Ù. ÇÏÀ§µğ·ºÅä¸®´Â °Ë»ç ¾È ÇÑ´Ù
+ * ë””ë ‰í† ë¦¬ë‚´ì— ìˆëŠ” íŒŒì¼ì˜ ê°¯ìˆ˜ë¥¼ ì¡°ì‚¬í•œë‹¤. í•˜ìœ„ë””ë ‰í† ë¦¬ëŠ” ê²€ì‚¬ ì•ˆ í•œë‹¤
  */
 int
 GetFileNumInDir(const char* Dir) {
     int nNum = 0;
-    BOOL fFinished = FALSE; /// ´õ ÀÌ»óÀÇ ÆÄÀÏÀÌ ¾øÀ¸¸é ¿©±â¿¡ TRUE°ª
+    BOOL fFinished = FALSE; /// ë” ì´ìƒì˜ íŒŒì¼ì´ ì—†ìœ¼ë©´ ì—¬ê¸°ì— TRUEê°’
 
     WIN32_FIND_DATA FileData;
     HANDLE hSearch = NULL;
@@ -360,7 +360,7 @@ GetFileNumInDir(const char* Dir) {
     }
 
     while (!fFinished) {
-        /// µğ·ºÅä¸®ÀÌ°í Á¦¿Ü½ÃÅ³
+        /// ë””ë ‰í† ë¦¬ì´ê³  ì œì™¸ì‹œí‚¬
         if (!(FileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
             nNum++;
         }
@@ -376,19 +376,19 @@ GetFileNumInDir(const char* Dir) {
 }
 
 /********************************************************************************************
- * µğ·ºÅä¸®³»¿¡ ÀÖ´Â ÆÄÀÏÀÌ¸§À» Á¶»çÇÑ´Ù
- * @param Dir		Á¶»çÇÒ µğ·ºÅä¸®
- * @param ppFile	ÀúÀåÇÒ ¸Ş¸ğ¸® Æ÷ÀÎÅÍ
- * @param nNum		ÇÒ´çµÈ ¸Ş¸ğ¸®ÀÇ ÃÖ´ë°¹¼ö
- * @param nMaxName	ÃÖ´ë ÆÄÀÏÀÌ¸§ ±æÀÌ. NULLÆ÷ÇÔ
+ * ë””ë ‰í† ë¦¬ë‚´ì— ìˆëŠ” íŒŒì¼ì´ë¦„ì„ ì¡°ì‚¬í•œë‹¤
+ * @param Dir		ì¡°ì‚¬í•  ë””ë ‰í† ë¦¬
+ * @param ppFile	ì €ì¥í•  ë©”ëª¨ë¦¬ í¬ì¸í„°
+ * @param nNum		í• ë‹¹ëœ ë©”ëª¨ë¦¬ì˜ ìµœëŒ€ê°¯ìˆ˜
+ * @param nMaxName	ìµœëŒ€ íŒŒì¼ì´ë¦„ ê¸¸ì´. NULLí¬í•¨
  *
- * @return			Á¶»çÇÑ ÆÄÀÏÀÇ °¹¼ö
+ * @return			ì¡°ì‚¬í•œ íŒŒì¼ì˜ ê°¯ìˆ˜
  */
 int
 GetFileNameInDir(const char* Dir, char** ppFile, int nNum, int nMaxName) {
     int nRetNum = 0;
     int i = 0;
-    BOOL fFinished = FALSE; /// ´õ ÀÌ»óÀÇ ÆÄÀÏÀÌ ¾øÀ¸¸é ¿©±â¿¡ TRUE°ª
+    BOOL fFinished = FALSE; /// ë” ì´ìƒì˜ íŒŒì¼ì´ ì—†ìœ¼ë©´ ì—¬ê¸°ì— TRUEê°’
 
     WIN32_FIND_DATA FileData;
     HANDLE hSearch = NULL;
@@ -399,13 +399,13 @@ GetFileNameInDir(const char* Dir, char** ppFile, int nNum, int nMaxName) {
     }
 
     while (!fFinished) {
-        /// µğ·ºÅä¸®ÀÌ°í Á¦¿Ü½ÃÅ³ ".", ".."µµ Á¦¿Ü
+        /// ë””ë ‰í† ë¦¬ì´ê³  ì œì™¸ì‹œí‚¬ ".", ".."ë„ ì œì™¸
         if (!(FileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
-            *(ppFile[i] + nMaxName - 1) = 0; /// strncpy¸¦ »ç¿ëÇÒ °æ¿ì ÁÖÀÇ
+            *(ppFile[i] + nMaxName - 1) = 0; /// strncpyë¥¼ ì‚¬ìš©í•  ê²½ìš° ì£¼ì˜
             strncpy(ppFile[i++],
                 FileData.cFileName,
-                nMaxName); /// ÆÄÀÏÀÌ¸§À» Ä«ÇÇ, FileData.cFileNameÀº char [260]
-            nRetNum++; /// °¹¼ö Áõ°¡
+                nMaxName); /// íŒŒì¼ì´ë¦„ì„ ì¹´í”¼, FileData.cFileNameì€ char [260]
+            nRetNum++; /// ê°¯ìˆ˜ ì¦ê°€
         }
 
         if (!FindNextFile(hSearch, &FileData)) {
@@ -420,10 +420,10 @@ GetFileNameInDir(const char* Dir, char** ppFile, int nNum, int nMaxName) {
 
 char g_szOldDir[1024];
 /********************************************************************************************
- * µğ·ºÅä¸®³»¿¡ ÀÖ´Â Ã¹¹øÂ° ÆÄÀÏÀÌ¸§À» Á¶»çÇÑ´Ù.
- * @param Dir		Á¶»çÇÒ µğ·ºÅä¸®
- * @param FirstName Ã¹¹øÂ° ÆÄÀÏ¸í
- * @return			ÇÚµé. ½ÇÆĞÇÏ¸é NULL
+ * ë””ë ‰í† ë¦¬ë‚´ì— ìˆëŠ” ì²«ë²ˆì§¸ íŒŒì¼ì´ë¦„ì„ ì¡°ì‚¬í•œë‹¤.
+ * @param Dir		ì¡°ì‚¬í•  ë””ë ‰í† ë¦¬
+ * @param FirstName ì²«ë²ˆì§¸ íŒŒì¼ëª…
+ * @return			í•¸ë“¤. ì‹¤íŒ¨í•˜ë©´ NULL
  */
 HANDLE
 __FindFirstFileName(const char* Dir, const char** FirstName) {
@@ -441,10 +441,10 @@ __FindFirstFileName(const char* Dir, const char** FirstName) {
 
     while (FileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
         FindNextFile(hSearch, &FileData);
-        if (GetLastError() == ERROR_NO_MORE_FILES) /// °Ë»öÀº ¼º°øÇßÁö¸¸ ÆÄÀÏÀÌ ÇÏ³ªµµ ¾ø´Â °æ¿ì
+        if (GetLastError() == ERROR_NO_MORE_FILES) /// ê²€ìƒ‰ì€ ì„±ê³µí–ˆì§€ë§Œ íŒŒì¼ì´ í•˜ë‚˜ë„ ì—†ëŠ” ê²½ìš°
         {
             FirstName = NULL;
-            return hSearch; /// ÆÄÀÏÀÌ ÇÏ³ªµµ ¾ø´Â °æ¿ì ¿©±â°¡ ½ÇÇàµÈ´Ù
+            return hSearch; /// íŒŒì¼ì´ í•˜ë‚˜ë„ ì—†ëŠ” ê²½ìš° ì—¬ê¸°ê°€ ì‹¤í–‰ëœë‹¤
         }
     }
     *FirstName = (const char*)FileData.cFileName;
@@ -453,12 +453,12 @@ __FindFirstFileName(const char* Dir, const char** FirstName) {
 }
 
 /********************************************************************************************
- * µğ·ºÅä¸®³»¿¡ ÀÖ´Â ´ÙÀ½ ÆÄÀÏÀÌ¸§À» ¸®ÅÏÇØ ÁØ´Ù
- * @param Dir		Á¶»çÇÒ µğ·ºÅä¸®
- * @param hSearch	GetFileNameInDir¿¡ ÀÇÇØ ¸¸µé¾îÁø ÇÚµé
+ * ë””ë ‰í† ë¦¬ë‚´ì— ìˆëŠ” ë‹¤ìŒ íŒŒì¼ì´ë¦„ì„ ë¦¬í„´í•´ ì¤€ë‹¤
+ * @param Dir		ì¡°ì‚¬í•  ë””ë ‰í† ë¦¬
+ * @param hSearch	GetFileNameInDirì— ì˜í•´ ë§Œë“¤ì–´ì§„ í•¸ë“¤
  *
- * @return			ÆÄÀÏÀÌ¸§
- * µğ·ºÅä¸®ÀÌ°í Á¦¿Ü½ÃÅ³ ".", ".."µµ Á¦¿Ü
+ * @return			íŒŒì¼ì´ë¦„
+ * ë””ë ‰í† ë¦¬ì´ê³  ì œì™¸ì‹œí‚¬ ".", ".."ë„ ì œì™¸
  */
 const char*
 __FindNextFileName(HANDLE hSearch) {
@@ -466,18 +466,18 @@ __FindNextFileName(HANDLE hSearch) {
 
     if (!hSearch) {
         return NULL;
-    } /// hSearch°¡ À¯È¿ÇÑ °ªÀÌ ¾Æ´Ï¸é NULLÀ» ¸®ÅÏ
+    } /// hSearchê°€ ìœ íš¨í•œ ê°’ì´ ì•„ë‹ˆë©´ NULLì„ ë¦¬í„´
 
     FindNextFile(hSearch, &FileData);
     if (GetLastError() == ERROR_NO_MORE_FILES) {
         return NULL;
-    } /// ´õ ÀÌ»óÀÇ ÆÄÀÏÀÌ ¾ø´Ù
+    } /// ë” ì´ìƒì˜ íŒŒì¼ì´ ì—†ë‹¤
 
     while (FileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
         if (!FindNextFile(hSearch, &FileData)) {
             if (GetLastError() == ERROR_NO_MORE_FILES) {
                 return NULL;
-            } /// ´õ ÀÌ»óÀÇ ÆÄÀÏÀÌ ¾ø´Ù
+            } /// ë” ì´ìƒì˜ íŒŒì¼ì´ ì—†ë‹¤
         }
     }
 
@@ -485,7 +485,7 @@ __FindNextFileName(HANDLE hSearch) {
 }
 
 /****************************************************************************************************
- * ÆÄÀÏ °Ë»öÀ» ´İ´Â´Ù. ±×¸®°í µğ·ºÅä¸®µµ ¿øÀ§Ä¡ ½ÃÅ²´Ù
+ * íŒŒì¼ ê²€ìƒ‰ì„ ë‹«ëŠ”ë‹¤. ê·¸ë¦¬ê³  ë””ë ‰í† ë¦¬ë„ ì›ìœ„ì¹˜ ì‹œí‚¨ë‹¤
  */
 void
 __CloseFindFileName(HANDLE hSearch) {
@@ -495,7 +495,7 @@ __CloseFindFileName(HANDLE hSearch) {
 }
 
 /****************************************************************************************************
- * °æ·Î°¡ µğ·ºÅä¸®ÀÎÁö ¾Æ´ÑÁö °Ë»ç
+ * ê²½ë¡œê°€ ë””ë ‰í† ë¦¬ì¸ì§€ ì•„ë‹Œì§€ ê²€ì‚¬
  */
 bool
 __IsDirectory(const char* Path) {
@@ -503,7 +503,7 @@ __IsDirectory(const char* Path) {
 
     if (_access(Path, 0) != 0) {
         return false;
-    } /// ÀÌ°Ô ¾øÀ¸¸é ¾ø´Â °æ·ÎÀÎ °æ¿ì µğ·ºÅä¸®·Î ÇØ¼®µÈ´Ù
+    } /// ì´ê²Œ ì—†ìœ¼ë©´ ì—†ëŠ” ê²½ë¡œì¸ ê²½ìš° ë””ë ‰í† ë¦¬ë¡œ í•´ì„ëœë‹¤
 
     struct _stat s;
 
@@ -513,13 +513,13 @@ __IsDirectory(const char* Path) {
 }
 
 /****************************************************************************************************
- * °æ·Î°¡ ÆÄÀÏÀÎÁö ¾Æ´ÑÁö °Ë»ç
+ * ê²½ë¡œê°€ íŒŒì¼ì¸ì§€ ì•„ë‹Œì§€ ê²€ì‚¬
  */
 bool
 __IsFile(const char* Path) {
     if (_access(Path, 0) != 0) {
         return false;
-    } /// ÀÌ°Ô ¾øÀ¸¸é ¾ø´Â °æ·ÎÀÎ °æ¿ì ÀÌ»óÇÏ°Ô ÀÛµ¿ÇÑ´Ù
+    } /// ì´ê²Œ ì—†ìœ¼ë©´ ì—†ëŠ” ê²½ë¡œì¸ ê²½ìš° ì´ìƒí•˜ê²Œ ì‘ë™í•œë‹¤
 
     struct _stat s;
 
@@ -529,8 +529,8 @@ __IsFile(const char* Path) {
 }
 
 /****************************************************************************************************
- * °æ·Î1¿¡¼­ °æ·Î2¸¦ Á¦¿ÜÇÑ ¹®ÀÚ¿­À» ¸®ÅÏÇÑ´Ù
- * ¸Ş¸ğ¸®ÇÒ´ç¿¡ ½ÇÆĞÇØµµ NULLÀ» ¸®ÅÏÇÏ¹Ç·Î »ç¿ëÇÒ ¶§ ÁÖÀÇÇÒ°Í
+ * ê²½ë¡œ1ì—ì„œ ê²½ë¡œ2ë¥¼ ì œì™¸í•œ ë¬¸ìì—´ì„ ë¦¬í„´í•œë‹¤
+ * ë©”ëª¨ë¦¬í• ë‹¹ì— ì‹¤íŒ¨í•´ë„ NULLì„ ë¦¬í„´í•˜ë¯€ë¡œ ì‚¬ìš©í•  ë•Œ ì£¼ì˜í• ê²ƒ
  */
 const char*
 GetRelativePath(const char* Path1, const char* Path2) {
@@ -538,13 +538,13 @@ GetRelativePath(const char* Path1, const char* Path2) {
     char* sPath2 = new char[strlen(Path2) + 1];
     if (!sPath1 || !sPath2) {
         return NULL;
-    } /// ¸Ş¸ğ¸®ÇÒ´ç¿¡ ½ÇÆĞÇÏ¸é ±×³É NULLÀ» ¸®ÅÏ.
-    strcpy(sPath1, Path1); /// ´ë¹®ÀÚ·Î º¯È¯ÇÏ±â À§ÇØ
-    strcpy(sPath2, Path2); /// ´ë¹®ÀÚ·Î º¯È¯ÇÏ±â À§ÇØ
+    } /// ë©”ëª¨ë¦¬í• ë‹¹ì— ì‹¤íŒ¨í•˜ë©´ ê·¸ëƒ¥ NULLì„ ë¦¬í„´.
+    strcpy(sPath1, Path1); /// ëŒ€ë¬¸ìë¡œ ë³€í™˜í•˜ê¸° ìœ„í•´
+    strcpy(sPath2, Path2); /// ëŒ€ë¬¸ìë¡œ ë³€í™˜í•˜ê¸° ìœ„í•´
 
     if (strlen(Path1) < strlen(Path2)) {
         return NULL;
-    } /// °æ·Î1ÀÌ °æ·Î2º¸´Ù ÀÛÀ¸¸é NULLÀ» ¸®ÅÏ
+    } /// ê²½ë¡œ1ì´ ê²½ë¡œ2ë³´ë‹¤ ì‘ìœ¼ë©´ NULLì„ ë¦¬í„´
     _strupr(sPath1);
     _strupr(sPath2);
 
@@ -561,7 +561,7 @@ GetRelativePath(const char* Path1, const char* Path2) {
 }
 
 /**************************************************************************
- * Base NameÀ» ¾Ë¾Æ³½´Ù
+ * Base Nameì„ ì•Œì•„ë‚¸ë‹¤
  */
 char*
 GetBaseName(const char* Path) {
@@ -576,7 +576,7 @@ GetBaseName(const char* Path) {
 }
 
 /**************************************************************************
- * µğ·ºÅä¸® °æ·Î¸¦ ¾Ë¾Æ³½´Ù
+ * ë””ë ‰í† ë¦¬ ê²½ë¡œë¥¼ ì•Œì•„ë‚¸ë‹¤
  */
 int
 GetDirectory(const char* Path, char* buff, int nMax) {
@@ -594,7 +594,7 @@ GetDirectory(const char* Path, char* buff, int nMax) {
 }
 
 /**************************************************************************
- * µğ·ºÅä¸® °æ·Î¸¦ ¾Ë¾Æ³½´Ù
+ * ë””ë ‰í† ë¦¬ ê²½ë¡œë¥¼ ì•Œì•„ë‚¸ë‹¤
  * @return std::string
  */
 std::string
@@ -613,7 +613,7 @@ GetDirectory(const char* Path) {
 }
 
 /**************************************************************************
- * È®ÀåÀÚ±î ºüÁø Base File¸íÀ» Á¶»çÇÑ´Ù
+ * í™•ì¥ìê¹Œ ë¹ ì§„ Base Fileëª…ì„ ì¡°ì‚¬í•œë‹¤
  */
 std::string
 GetFileNameWithoutExt(const char* Path) {
@@ -632,9 +632,9 @@ GetFileNameWithoutExt(const char* Path) {
 }
 
 /*********************************************************************************
- * FileÀÇ »çÀÌÁî¸¦ º¯°æÇÑ´Ù
- * @param lNewSize »õ·Ó°Ô º¯°æÇÒ ÆÄÀÏÀÇ Å©±â
- * @param fp Å©±â¸¦ º¯°æÇÒ ÆÄÀÏÀÇ ÆÄÀÏÆ÷ÀÎÅÍ
+ * Fileì˜ ì‚¬ì´ì¦ˆë¥¼ ë³€ê²½í•œë‹¤
+ * @param lNewSize ìƒˆë¡­ê²Œ ë³€ê²½í•  íŒŒì¼ì˜ í¬ê¸°
+ * @param fp í¬ê¸°ë¥¼ ë³€ê²½í•  íŒŒì¼ì˜ íŒŒì¼í¬ì¸í„°
  */
 bool
 __ftruncate(long lNewSize, FILE* fp) {
@@ -645,8 +645,8 @@ __ftruncate(long lNewSize, FILE* fp) {
 }
 
 /*********************************************************************************
- * ÆÄÀÏ indicator¸¦ ÀÌµ¿½ÃÅ°°í ±× À§Ä¡¸¦ ¸®ÅÏÇÑ´Ù
- * parameter´Â fseek¿Í µ¿ÀÏÇÏ´Ù
+ * íŒŒì¼ indicatorë¥¼ ì´ë™ì‹œí‚¤ê³  ê·¸ ìœ„ì¹˜ë¥¼ ë¦¬í„´í•œë‹¤
+ * parameterëŠ” fseekì™€ ë™ì¼í•˜ë‹¤
  * @param origin SEEK_SET SEEK_CUR SEEK_END
  */
 long
@@ -660,7 +660,7 @@ __vfseek(FILE* stream, long offset, int origin) {
 }
 
 /*********************************************************************************
- * ÆÄÀÏÀÇ Æ¯Á¤ À§Ä¡¿¡ µ¥ÀÌÅÍ¸¦ »ğÀÔÇÑ´Ù
+ * íŒŒì¼ì˜ íŠ¹ì • ìœ„ì¹˜ì— ë°ì´í„°ë¥¼ ì‚½ì…í•œë‹¤
  */
 bool
 __InSertFileBlock(void* buff, size_t sSize, long lPos, FILE* fp, bool bFlush) {
@@ -678,12 +678,12 @@ __InSertFileBlock(void* buff, size_t sSize, long lPos, FILE* fp, bool bFlush) {
 }
 
 /*********************************************************************************
- * MakeFileHole : ÆÄÀÏÀÇ Áß°£¿¡ ±¸¸ÛÀ» ¸¸µç´Ù
+ * MakeFileHole : íŒŒì¼ì˜ ì¤‘ê°„ì— êµ¬ë©ì„ ë§Œë“ ë‹¤
  */
 bool
 __MakeFileHole(long lPos, size_t stSize, FILE* fp, bool bFlush) {
-    long lFileSize = __vfseek(fp, 0, SEEK_END); /// ÆÄÀÏÀÇ Å©±â
-    size_t stLength = lFileSize - lPos; /// µŞÂÊ¿¡ ÀÖ´Â µ¥ÀÌÅÍÀÇ Å©±â
+    long lFileSize = __vfseek(fp, 0, SEEK_END); /// íŒŒì¼ì˜ í¬ê¸°
+    size_t stLength = lFileSize - lPos; /// ë’·ìª½ì— ìˆëŠ” ë°ì´í„°ì˜ í¬ê¸°
 
     if (stSize < 0 || fp == NULL || lPos < 0) {
         return false;
@@ -693,13 +693,13 @@ __MakeFileHole(long lPos, size_t stSize, FILE* fp, bool bFlush) {
 }
 
 /*********************************************************************************
- * ÆÄÀÏ ºí·Ï ÀÌµ¿ ½ÃÅ°±â
- * @param lStartOff		¿Ã±æ ºÎºĞÀÇ ½ÃÀÛ Offset
- * @param stLength		ºí·ÏÀÇ ±æÀÌ
- * @param lTargetOff	¿Å±æ Offset
- * @param sAllocSize	¿Å±â´Â ´ÜÀ§ . ¸Ş¸ğ¸® ÇÒ´ç·®ÀÌ µÊ
- * @param bFlush		true ÀÌ¸é ¿Å±â°í ³ª¼­ fflush¸¦ ÇÏ°í falseÀÌ¸é ¾È ÇÑ´Ù.
- * @param fp			ÆÄÀÏ ÇÚµé
+ * íŒŒì¼ ë¸”ë¡ ì´ë™ ì‹œí‚¤ê¸°
+ * @param lStartOff		ì˜¬ê¸¸ ë¶€ë¶„ì˜ ì‹œì‘ Offset
+ * @param stLength		ë¸”ë¡ì˜ ê¸¸ì´
+ * @param lTargetOff	ì˜®ê¸¸ Offset
+ * @param sAllocSize	ì˜®ê¸°ëŠ” ë‹¨ìœ„ . ë©”ëª¨ë¦¬ í• ë‹¹ëŸ‰ì´ ë¨
+ * @param bFlush		true ì´ë©´ ì˜®ê¸°ê³  ë‚˜ì„œ fflushë¥¼ í•˜ê³  falseì´ë©´ ì•ˆ í•œë‹¤.
+ * @param fp			íŒŒì¼ í•¸ë“¤
  */
 bool
 __MoveFileBlock(long lStartOff,
@@ -708,34 +708,34 @@ __MoveFileBlock(long lStartOff,
     int sAllocSize,
     FILE* fp,
     bool bFlush) {
-    BYTE* btBuff = NULL; /// ¹öÆÛ
-    int iMove = 0; /// ¿Å°ÜÁö´Â ±æÀÌ
-    size_t stCount = stLength; /// while ·çÇÁ¸¦ À§ÇÑ Count
-    int stRead = 0; /// ÇöÀç ÀĞÀ» ¹ÙÀÌÆ®¼ö
-    int stReaded = 0; /// ÀĞÇôÁø ¹ÙÀÌÆ®¼ö
-    long lOldSize = 0; /// ¿ø·¡ ÆÄÀÏÀÇ Å©±â
+    BYTE* btBuff = NULL; /// ë²„í¼
+    int iMove = 0; /// ì˜®ê²¨ì§€ëŠ” ê¸¸ì´
+    size_t stCount = stLength; /// while ë£¨í”„ë¥¼ ìœ„í•œ Count
+    int stRead = 0; /// í˜„ì¬ ì½ì„ ë°”ì´íŠ¸ìˆ˜
+    int stReaded = 0; /// ì½í˜€ì§„ ë°”ì´íŠ¸ìˆ˜
+    long lOldSize = 0; /// ì›ë˜ íŒŒì¼ì˜ í¬ê¸°
 
     if (stLength < (unsigned)sAllocSize) {
         sAllocSize = (int)stLength;
     }
-    /// ÇöÀç ¹Ì°áµÈ ¾²±âÀÛ¾÷À» ¸ğµÎ Device·Î ¹Ğ¾î³Ö´Â´Ù
+    /// í˜„ì¬ ë¯¸ê²°ëœ ì“°ê¸°ì‘ì—…ì„ ëª¨ë‘ Deviceë¡œ ë°€ì–´ë„£ëŠ”ë‹¤
     fflush(fp);
-    /// ¾ÕÀ¸·Î
+    /// ì•ìœ¼ë¡œ
     if (lTargetOff - lStartOff < 0) {
         iMove = lStartOff - lTargetOff;
         if ((btBuff = new BYTE[sAllocSize])) {
             fseek(fp, lTargetOff, SEEK_SET);
             while (stCount > 0) {
-                /// ÀĞÀ» ¾çÀ» °áÁ¤
+                /// ì½ì„ ì–‘ì„ ê²°ì •
                 stRead = stCount > (unsigned)sAllocSize ? sAllocSize : (int)stCount;
-                /// ÀĞÀ» À§Ä¡·Î ÀÌµ¿
+                /// ì½ì„ ìœ„ì¹˜ë¡œ ì´ë™
                 fseek(fp, iMove, SEEK_CUR);
-                /// ÀĞ´Â´Ù
+                /// ì½ëŠ”ë‹¤
                 stReaded = (int)fread(btBuff, sizeof(BYTE), stRead, fp);
                 if (stReaded > 0) {
-                    /// ÀĞÀ» ¾ç¿¡¼­ ÀĞÀº ¸¸Å­ »«´Ù
+                    /// ì½ì„ ì–‘ì—ì„œ ì½ì€ ë§Œí¼ ëº€ë‹¤
                     stCount -= stReaded;
-                    /// ÀĞÀº ¸¸Å­ ¾ÕÀ¸·Î °¡¸é ¿ø·¡ À§Ä¡ ±×¸®°í imove ¸¸Å­ ¾ÕÀ¸·Î
+                    /// ì½ì€ ë§Œí¼ ì•ìœ¼ë¡œ ê°€ë©´ ì›ë˜ ìœ„ì¹˜ ê·¸ë¦¬ê³  imove ë§Œí¼ ì•ìœ¼ë¡œ
                     fseek(fp, (long)(-iMove - stReaded), SEEK_CUR);
                     fwrite(btBuff, sizeof(BYTE), stReaded, fp);
                 } else {
@@ -747,25 +747,25 @@ __MoveFileBlock(long lStartOff,
                 fflush(fp);
             }
             lOldSize = ::__vfseek(fp, 0, SEEK_END);
-            /// ÆÄÀÏÅ©±â¸¦ ÁÙÀÌ´Â °ÍÀº ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÑ ÂÊ¿¡¼­ ÇØ¾ß ÇÑ´Ù.
+            /// íŒŒì¼í¬ê¸°ë¥¼ ì¤„ì´ëŠ” ê²ƒì€ ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œ ìª½ì—ì„œ í•´ì•¼ í•œë‹¤.
             /// ::__ftruncate (lOldSize - iMove, fp);
-            /// ¸Ş¸ğ¸® ÇØÁ¦
+            /// ë©”ëª¨ë¦¬ í•´ì œ
             delete[] btBuff;
             return true;
         }
     }
-    /// µÚ·Î ¹Ğ¶§
+    /// ë’¤ë¡œ ë°€ë•Œ
     else if (lTargetOff - lStartOff > 0) {
         if ((btBuff = new BYTE[sAllocSize])) {
             // lOldSize = ::__vfseek (fp, 0, SEEK_END);
-            /// µŞÂÊ µ¥ÀÌÅÍÀÇ Å©±â
+            /// ë’·ìª½ ë°ì´í„°ì˜ í¬ê¸°
             // size_t szLengthOfletter = lOldSize - lStartOff;
-            /// °¡Àå µŞÂÊ = ¿Å±æ ½ÃÀÛ À§Ä¡ + ¿Å±æ ºí·°ÀÇ ±æÀÌ
+            /// ê°€ì¥ ë’·ìª½ = ì˜®ê¸¸ ì‹œì‘ ìœ„ì¹˜ + ì˜®ê¸¸ ë¸”ëŸ­ì˜ ê¸¸ì´
             fseek(fp, lStartOff + (long)stLength, SEEK_SET);
-            /// ¿Å±æ ±æÀÌ
+            /// ì˜®ê¸¸ ê¸¸ì´
             iMove = lTargetOff - lStartOff;
             while (stCount > 0) {
-                /// ÀĞÀ» ±æÀÌ =  ÀĞ´Â ºí·°º¸´Ù ³²Àº Å©±â°¡ ÀÛÀ¸¸é ³²Àº Å©±â¸¸Å­ ¾Æ´Ï¸é ÀĞ´Â ºí·Ï
+                /// ì½ì„ ê¸¸ì´ =  ì½ëŠ” ë¸”ëŸ­ë³´ë‹¤ ë‚¨ì€ í¬ê¸°ê°€ ì‘ìœ¼ë©´ ë‚¨ì€ í¬ê¸°ë§Œí¼ ì•„ë‹ˆë©´ ì½ëŠ” ë¸”ë¡
                 stRead = stCount < (unsigned)sAllocSize ? (int)stCount : sAllocSize;
                 fseek(fp, (long)(0 - stRead), SEEK_CUR);
                 stReaded = (int)fread(btBuff, sizeof(BYTE), stRead, fp);
@@ -782,12 +782,12 @@ __MoveFileBlock(long lStartOff,
             if (bFlush) {
                 fflush(fp);
             }
-            /// ¸Ş¸ğ¸® ÇØÁ¦
+            /// ë©”ëª¨ë¦¬ í•´ì œ
             delete[] btBuff;
             return true;
         }
     }
-    /// ¶È°°À»¶§
+    /// ë˜‘ê°™ì„ë•Œ
     else {
         return true;
     }

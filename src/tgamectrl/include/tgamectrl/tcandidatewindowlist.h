@@ -5,11 +5,11 @@
 #include "TListBox.h"
 
 /**
- * ÇÑ±¹¾îÀÌ¿ÜÀÇ ÀÏ¾î, Áß±¹¾îÀÏ°æ¿ì »ç¿ëµÇ´Â Candidate Window class
- *	* ¸®½ºÆ® ÇüÅÂ
- *	* ¿¬°ü Class	: CTIme
+ * í•œêµ­ì–´ì´ì™¸ì˜ ì¼ì–´, ì¤‘êµ­ì–´ì¼ê²½ìš° ì‚¬ìš©ë˜ëŠ” Candidate Window class
+ *	* ë¦¬ìŠ¤íŠ¸ í˜•íƒœ
+ *	* ì—°ê´€ Class	: CTIme
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/8/30
  */
 class CTCandidateWindowList: public CTCandidateWindow {

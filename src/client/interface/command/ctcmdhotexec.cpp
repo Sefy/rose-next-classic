@@ -35,7 +35,7 @@ CTCmdReLogin::Exec(CTObject* pObj) {
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
-/// 1:1 °Å·¡ °ü·Ã
+/// 1:1 ê±°ëž˜ ê´€ë ¨
 bool
 CTCmdAcceptTradeReq::Exec(CTObject* pObj) {
     CExchangeDLG* pDlg = g_itMGR.GetExchangeDLG();
@@ -84,20 +84,20 @@ CTCmdHideDialog::Exec(CTObject* pObj) {
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
 bool
 CTCmdCloseStore::Exec(CTObject* pObj) {
-    // »óÁ¡ ´Ý±â
+    // ìƒì  ë‹«ê¸°
     CStoreDLG* pStore = (CStoreDLG*)g_itMGR.FindDlg(DLG_TYPE_STORE);
     if (pStore) {
         pStore->SetTab(0);
         pStore->Hide();
     }
 
-    // °Å·¡Ã¢ ´Ý±â
+    // ê±°ëž˜ì°½ ë‹«ê¸°
     CTDialog* pDlg = g_itMGR.FindDlg(DLG_TYPE_DEAL);
 
     if (pDlg && pDlg->IsVision())
         pDlg->Hide();
 
-    ///¼ýÀÚÀÔ·Â±â°¡ ¶° ÀÖ´Ù¸é ´Ý´Â´Ù.
+    ///ìˆ«ìžìž…ë ¥ê¸°ê°€ ë–  ìžˆë‹¤ë©´ ë‹«ëŠ”ë‹¤.
     pDlg = g_itMGR.FindDlg(DLG_TYPE_N_INPUT);
     if (pDlg && pDlg->IsVision())
         pDlg->Hide();
@@ -105,7 +105,7 @@ CTCmdCloseStore::Exec(CTObject* pObj) {
     return true;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
-///ÇöÀç CMakeDLG¿¡¸¸ Àû¿ë ChangeState ¶õ virtual Func¸¦ TDialog¿¡ Ãß°¡ÇÏÀÚ
+///í˜„ìž¬ CMakeDLGì—ë§Œ ì ìš© ChangeState ëž€ virtual Funcë¥¼ TDialogì— ì¶”ê°€í•˜ìž
 bool
 CTCmdChangeState::Exec(CTObject* pObj) {
     if (pObj == NULL)
@@ -118,7 +118,7 @@ CTCmdChangeState::Exec(CTObject* pObj) {
 }
 
 /*------------------------------------------------------------------------------------------*/
-/// ÆÄÆ¼ °ü·Ã
+/// íŒŒí‹° ê´€ë ¨
 bool
 CTCmdSendPacketPartyReq::Exec(CTObject* pObj) {
     g_pNet->Send_cli_PARTY_REQ(m_btRequest, m_dwObjectIDXorTAG);
@@ -153,13 +153,13 @@ CTCmdRejectPartyJoin::Exec(CTObject* pObj) {
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
-// 2ÀÎ½Â Ä«Æ®
+// 2ì¸ìŠ¹ ì¹´íŠ¸
 bool
 CTCmdAcceptCartRide::Exec(CTObject* pObj) {
     g_pNet->Send_cli_CART_RIDE(CART_RIDE_ACCEPT, m_wOwnerIDX, m_wGuestIDX);
     return true;
 }
-// 2ÀÎ½Â Ä«Æ®
+// 2ì¸ìŠ¹ ì¹´íŠ¸
 bool
 CTCmdRejectCartRide::Exec(CTObject* pObj) {
     g_pNet->Send_cli_CART_RIDE(CART_RIDE_REFUSE, m_wOwnerIDX, m_wGuestIDX);

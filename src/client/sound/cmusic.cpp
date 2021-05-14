@@ -30,7 +30,7 @@ CMusic::ON_Completed() {
 HRESULT
 CMusic::SetVolume(long lVolume) {
     HRESULT hr = S_OK;
-    // ÇÒ¶§¸¶´Ù ÇÏ´Â°Ç ¹«½ÄÇÏÁö¸¸.. Àû´çÈ÷ ³ÖÀ»°÷ÀÌ ¾ø´Ù.. ÇöÀç·Î´Â..
+    // í• ë•Œë§ˆë‹¤ í•˜ëŠ”ê±´ ë¬´ì‹í•˜ì§€ë§Œ.. ì ë‹¹ížˆ ë„£ì„ê³³ì´ ì—†ë‹¤.. í˜„ìž¬ë¡œëŠ”..
     if (FAILED(hr = m_pGraphBuilder->QueryInterface(IID_IBasicAudio, (void**)&m_pBA)))
         return hr;
 

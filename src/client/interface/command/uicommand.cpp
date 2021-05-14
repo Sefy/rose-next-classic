@@ -91,10 +91,10 @@ CTCmdAssembleRideItem::Exec(CTObject* pObj) {
     }
 
 #ifdef _GBC
-    // È«±Ù : 2ÀÎ½Â Ä«Æ®
-    // Ä«Æ® º¸Á¶¼®¿¡ °Ô½ºÆ®°¡ Å¸°í ÀÖÀ»¶§,
-    // Ä«Æ® º¸Á¶¼®¿¡ Å¸°í ÀÖÀ»¶§
-    // ¾ÆÀÌÅÛ ±³È¯ ±ÝÁö.
+    // í™ê·¼ : 2ì¸ìŠ¹ ì¹´íŠ¸
+    // ì¹´íŠ¸ ë³´ì¡°ì„ì— ê²ŒìŠ¤íŠ¸ê°€ íƒ€ê³  ìžˆì„ë•Œ,
+    // ì¹´íŠ¸ ë³´ì¡°ì„ì— íƒ€ê³  ìžˆì„ë•Œ
+    // ì•„ì´í…œ êµí™˜ ê¸ˆì§€.
     if (g_pAVATAR->GetRideUserIndex() || g_pAVATAR->IsRideUser()) {
         g_itMGR.AppendChatMsg(STR_BOARDING_CANT_USE, IT_MGR::CHAT_TYPE_SYSTEM);
         return false;
@@ -126,8 +126,8 @@ CTCmdAssembleRideItem::Exec(CTObject* pObj) {
 
     CItemSlot* pItemSlot = g_pAVATAR->GetItemSlot();
 
-    CItem* pBodyItem = pItemSlot->GetItem(INVENTORY_RIDE_ITEM0); ///ÀåÂøµÇ¾îÀÖ´Â ¾ÆÀÌÅÛ
-    CItem* pItem = pItemSlot->GetItem(nInvenIdx); ///ÀåÂøÇÏ·Á´Â ¾ÆÀÌÅÛ
+    CItem* pBodyItem = pItemSlot->GetItem(INVENTORY_RIDE_ITEM0); ///ìž¥ì°©ë˜ì–´ìžˆëŠ” ì•„ì´í…œ
+    CItem* pItem = pItemSlot->GetItem(nInvenIdx); ///ìž¥ì°©í•˜ë ¤ëŠ” ì•„ì´í…œ
     if (pItem == NULL) {
         assert(pItem);
         return true;
@@ -139,7 +139,7 @@ CTCmdAssembleRideItem::Exec(CTObject* pObj) {
     }
 
 #if defined(_GBC)
-    ///Á÷¾÷ Á¦ÇÑ
+    ///ì§ì—… ì œí•œ
     if (!g_pAVATAR->Check_JobCollection(PAT_ITEM_EQUIP_REQUIRE_CLASS(nItemNo))) {
         g_itMGR.AppendChatMsg(STR_NOT_ENOUGH_CONDITION, IT_MGR::CHAT_TYPE_SYSTEM);
         return true;
@@ -162,11 +162,11 @@ CTCmdAssembleRideItem::Exec(CTObject* pObj) {
             g_itMGR.AppendChatMsg(STR_PAT_ERROR_NOT_EQUIP_BODY, IT_MGR::CHAT_TYPE_SYSTEM);
             return true;
         }
-    } else ///¹Ùµð ºÎÇ°ÀÏ°æ¿ì
+    } else ///ë°”ë”” ë¶€í’ˆì¼ê²½ìš°
     {
-        if (g_pAVATAR->GetPetMode() >= 0) ///µå¶óÀÌºê ½ºÅ³ »ç¿ëÁßÀÌ¶ó¸é
+        if (g_pAVATAR->GetPetMode() >= 0) ///ë“œë¼ì´ë¸Œ ìŠ¤í‚¬ ì‚¬ìš©ì¤‘ì´ë¼ë©´
         {
-            ///°°Àº Å¸ÀÔ¸¸ ÀåÂøÇÒ¼ö ÀÖ´Ù.
+            ///ê°™ì€ íƒ€ìž…ë§Œ ìž¥ì°©í• ìˆ˜ ìžˆë‹¤.
             if (pBodyItem
                 && PAT_ITEM_PART_TYPE(pBodyItem->GetItemNo())
                     != PAT_ITEM_PART_TYPE(pItem->GetItemNo())) {
@@ -193,10 +193,10 @@ CTCmdAssembleRideItem::Exec(CTObject* pObj) {
                     }
                 }
             }
-        } else ///µå¶óÀÌºê ½ºÅ³ »ç¿ëÁßÀÌ ¾Æ´Ï¶ó¸é
+        } else ///ë“œë¼ì´ë¸Œ ìŠ¤í‚¬ ì‚¬ìš©ì¤‘ì´ ì•„ë‹ˆë¼ë©´
         {
-            /// »õ·Î ÀåÂøÇÏ´Â Body¿Í ´Ù¸¥ Parts°¡ ÀåÂøµÇ¾î ÀÖ´Ù¸é ´Ù ¶³±º´Ù.
-            /// »õ·Î ÀåÂøÇÏ´Â BodyÀÇ ¹öÁ¯º¸´Ù ³·Àº ºÎÇ°ÀÌ ÀÖ´Ù¸é ´Ù ¶³±º´Ù.
+            /// ìƒˆë¡œ ìž¥ì°©í•˜ëŠ” Bodyì™€ ë‹¤ë¥¸ Partsê°€ ìž¥ì°©ë˜ì–´ ìžˆë‹¤ë©´ ë‹¤ ë–¨êµ°ë‹¤.
+            /// ìƒˆë¡œ ìž¥ì°©í•˜ëŠ” Bodyì˜ ë²„ì ¼ë³´ë‹¤ ë‚®ì€ ë¶€í’ˆì´ ìžˆë‹¤ë©´ ë‹¤ ë–¨êµ°ë‹¤.
             CItem* pPartItem = NULL;
             for (int i = 1; i < MAX_RIDING_PART; ++i) {
                 pPartItem = pItemSlot->GetItem(INVENTORY_RIDE_ITEM0 + i);
@@ -256,13 +256,13 @@ CTCmdOpenNumberInputDlg::Exec(CTObject* pObj) {
 
         __int64 iMaxNumber = 0;
         CTObject* pCmdParam = NULL;
-        if (pObj == NULL) ///µ·ÀÏ°æ¿ì
+        if (pObj == NULL) ///ëˆì¼ê²½ìš°
         {
             iMaxNumber = (int)m_i64Maximum;
             LogString(LOG_NORMAL, "maximum money is 0");
             if (iMaxNumber == 0)
                 return true;
-        } else if (strcmp(pObj->toString(), "CIcon") == 0) ///µå·¡±×¾Øµå¶ø¿¡¼­ ½ÇÇàµÇ¾úÀ» °æ¿ì
+        } else if (strcmp(pObj->toString(), "CIcon") == 0) ///ë“œëž˜ê·¸ì•¤ë“œëžì—ì„œ ì‹¤í–‰ë˜ì—ˆì„ ê²½ìš°
         {
             tagITEM& Item = ((CIconItem*)pObj)->GetItem();
             pCmdParam = ((CIconItem*)pObj)->GetCItem();
@@ -284,7 +284,7 @@ CTCmdOpenNumberInputDlg::Exec(CTObject* pObj) {
             } else
                 iMaxNumber = 1;
         } else {
-            assert(0 && "¾Ë¼ö ¾ø´Â CTobject Type @CTCmdOpenNumberInputDlg::Exec");
+            assert(0 && "ì•Œìˆ˜ ì—†ëŠ” CTobject Type @CTCmdOpenNumberInputDlg::Exec");
             return true;
         }
 
@@ -296,7 +296,7 @@ CTCmdOpenNumberInputDlg::Exec(CTObject* pObj) {
             m_pCmd->SetNumber(1);
             m_pCmd->Exec(pCmdParam);
         } else {
-            assert(0 && "Maximum °ªÀÌ 0º¸´Ù ÀÛ°Å³ª °°´Ù");
+            assert(0 && "Maximum ê°’ì´ 0ë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ë‹¤");
         }
     }
 
@@ -476,7 +476,7 @@ CTCmdRegistDialogIcon2QuickBar::Exec(CTObject* pObj) {
 
     short nQuickSlotIdx = pQuickBar->GetMouseClickSlot(ptMouse);
 
-    if (nQuickSlotIdx == -1) ///ÇØ´ç À§Ä¡¿¡ ½½·ÔÀÌ ¾ø´Ù.
+    if (nQuickSlotIdx == -1) ///í•´ë‹¹ ìœ„ì¹˜ì— ìŠ¬ë¡¯ì´ ì—†ë‹¤.
         return true;
 
     tagHotICON hotICON;

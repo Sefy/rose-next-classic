@@ -8,9 +8,9 @@ class IListCellRenderer;
 class CTContainer;
 
 //------------------------------------------------------------------------------------------------------------------------
-///	¸®½ºÆ® ¹Ú½º class
+///	ë¦¬ìŠ¤íŠ¸ ë°•ìŠ¤ class
 ///
-/// @Author	ÃÖÁ¾Áø
+/// @Author	ìµœì¢…ì§„
 ///
 /// @Date	2005/08/30
 //------------------------------------------------------------------------------------------------------------------------
@@ -25,8 +25,8 @@ public:
     virtual void Draw();
     virtual unsigned int Process(UINT uiMsg, WPARAM wParam, LPARAM lParam);
     /// Renderer
-    void SetCellRenderer(IListCellRenderer* pRenderer); /// ItemÀÇ Draw°¡ Á¤ÀÇµÈ Class¸¦ Set
-    void SetContainer(CTContainer* pContainer); /// ItemÀ» ÀúÀåÇÒ Container¸¦ Set
+    void SetCellRenderer(IListCellRenderer* pRenderer); /// Itemì˜ Drawê°€ ì •ì˜ëœ Classë¥¼ Set
+    void SetContainer(CTContainer* pContainer); /// Itemì„ ì €ì¥í•  Containerë¥¼ Set
 
     /// Container
     void Clear();
@@ -46,22 +46,22 @@ public:
     virtual RECT GetWindowRect();
 
     /// operation
-    const CTObject* GetSelectedItem(); /// ¼±ÅÃµÈ ItemÀ» ¸®ÅÏÇÑ´Ù.
-    unsigned GetSelectedItemIndex(); /// ¼±ÅÃµÈ ItemÀÇ ÀÎµ¦½º¸¦ ¸®ÅÏÇÑ´Ù.
+    const CTObject* GetSelectedItem(); /// ì„ íƒëœ Itemì„ ë¦¬í„´í•œë‹¤.
+    unsigned GetSelectedItemIndex(); /// ì„ íƒëœ Itemì˜ ì¸ë±ìŠ¤ë¥¼ ë¦¬í„´í•œë‹¤.
     unsigned GetSize();
 
     CWinCtrl* GetRendererComponent(const CTObject* pObject,
         bool bSelect,
-        bool bMouseOver); /// ItemÀÇ Draw°¡ Á¤ÀÇµÈ Class¸¦ ¸®ÅÏ
-    void SelectItem(unsigned subscript); /// ÇØ´ç ItemÀ» ¼±ÅÃÇÑ´Ù.
+        bool bMouseOver); /// Itemì˜ Drawê°€ ì •ì˜ëœ Classë¥¼ ë¦¬í„´
+    void SelectItem(unsigned subscript); /// í•´ë‹¹ Itemì„ ì„ íƒí•œë‹¤.
 
-    void SetCellHeight(int iHeight); /// Draw½Ã Item°£ Space¸¦ Set
+    void SetCellHeight(int iHeight); /// Drawì‹œ Itemê°„ Spaceë¥¼ Set
 private:
-    IListCellRenderer* m_pListCellRenderer; /// ItemÀÇ Draw°¡ Á¤ÀÇµÈ Class
-    CTContainer* m_pContainer; /// ItemÀ» ÀúÀåÇÒ Container
+    IListCellRenderer* m_pListCellRenderer; /// Itemì˜ Drawê°€ ì •ì˜ëœ Class
+    CTContainer* m_pContainer; /// Itemì„ ì €ì¥í•  Container
 
-    int m_iCellHeight; /// Draw½Ã Item°£ Space
-    int m_iExtent; /// ÇÑ¹ø¿¡ º¸¿©ÁÙ ItemÀÇ ¼ö
-    int m_iValue; /// ÇöÀç È­¸é¿¡¼­ Á¦ÀÏ À§¿¡ º¸¿©Áú ItemÀÇ Index
+    int m_iCellHeight; /// Drawì‹œ Itemê°„ Space
+    int m_iExtent; /// í•œë²ˆì— ë³´ì—¬ì¤„ Itemì˜ ìˆ˜
+    int m_iValue; /// í˜„ì¬ í™”ë©´ì—ì„œ ì œì¼ ìœ„ì— ë³´ì—¬ì§ˆ Itemì˜ Index
 };
 #endif

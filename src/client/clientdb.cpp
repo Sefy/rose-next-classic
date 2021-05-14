@@ -191,7 +191,7 @@ CClientDB::CreateCommand(IDBInitialize* pIDBInitialize, LPCWSTR wCmdString) {
 }
 
 //*----------------------------------------------------------------------------
-/// ¸Å¹ø »õ·Î ¸¸µé·Á°í ½ÃµµÇÑ´Ù.. ÀÌ¹Ì ¸¸µé¾îÁ® ÀÖ´Ù¸é Fail
+/// ë§¤ë²ˆ ìƒˆë¡œ ë§Œë“¤ë ¤ê³  ì‹œë„í•œë‹¤.. ì´ë¯¸ ë§Œë“¤ì–´ì ¸ ìˆë‹¤ë©´ Fail
 //*----------------------------------------------------------------------------
 bool
 CClientDB::CreateInventoryTable() {
@@ -354,7 +354,7 @@ CClientDB::GetInventoryData(const char* pszName, std::list<S_InventoryData>& Inv
 }
 
 //*----------------------------------------------------------------------------
-/// Update¸¦ ÇÏ°í ½ÇÆĞÇÏ¸é InsertÇÑ´Ù.
+/// Updateë¥¼ í•˜ê³  ì‹¤íŒ¨í•˜ë©´ Insertí•œë‹¤.
 //*----------------------------------------------------------------------------
 void
 CClientDB::SetInventoryData(const char* pszName, std::list<S_InventoryData>& Inventory) {

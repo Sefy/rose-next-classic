@@ -85,7 +85,7 @@ CLS_Client::Recv_cli_SELECT_SERVER(t_PACKET* pPacket) {
     if (pServer) {
         char* szServerName = pServer->m_ServerNAME.Get();
         if (this->m_bFreeServerOnly && '@' != *szServerName) {
-            // @ ¼­¹ö°¡ ¾Æ´Ñ ¼­¹ø Á¢¼Ó ¸øÇÔ...
+            // @ ì„œë²„ê°€ ì•„ë‹Œ ì„œë²ˆ ì ‘ì† ëª»í•¨...
             packet.m_lsv_SELECT_SERVER.m_btResult = RESULT_SELECT_SERVER_NEED_CHARGE;
         } else if (0 == pPacket->m_cli_SELECT_SERVER.m_btChannelNO
             || pPacket->m_cli_SELECT_SERVER.m_btChannelNO >= MAX_CHANNEL_SERVER) {
@@ -97,14 +97,14 @@ CLS_Client::Recv_cli_SELECT_SERVER(t_PACKET* pPacket) {
             >= 100) {
             packet.m_lsv_SELECT_SERVER.m_btResult = RESULT_SELECT_SERVER_FULL;
         } else {
-#define RIGHT_NG 0x00100 // ÀÏ¹Ý GM
-#define RIGHT_MG 0x00200 // ¸¶½ºÅ¸ GM
-#define RIGHT_DEV 0x00400 // °³¹ßÀÚ È¸¿ø
-#define RIGHT_MASTER 0x00800 // ¸¶½ºÅ¸..
+#define RIGHT_NG 0x00100 // ì¼ë°˜ GM
+#define RIGHT_MG 0x00200 // ë§ˆìŠ¤íƒ€ GM
+#define RIGHT_DEV 0x00400 // ê°œë°œìž íšŒì›
+#define RIGHT_MASTER 0x00800 // ë§ˆìŠ¤íƒ€..
             if (this->m_dwRIGHT < RIGHT_NG
                 && pServer->m_CHANNEL[pPacket->m_cli_SELECT_SERVER.m_btChannelNO].m_btLowAGE) {
-                // ÃÖÀú ¿¬·É Á¦ÇÑ...
-                if (this->m_pJuMinNO[7] != '7') { // ¹«Á¶°Ç Åë°ú...
+                // ìµœì € ì—°ë ¹ ì œí•œ...
+                if (this->m_pJuMinNO[7] != '7') { // ë¬´ì¡°ê±´ í†µê³¼...
                     SYSTEMTIME st;
                     ::GetLocalTime(&st);
 
@@ -125,10 +125,10 @@ CLS_Client::Recv_cli_SELECT_SERVER(t_PACKET* pPacket) {
                         if (wAge
                             == pServer->m_CHANNEL[pPacket->m_cli_SELECT_SERVER.m_btChannelNO]
                                    .m_btLowAGE) {
-                            if (st.wMonth <= wMonth) { // ´ÞÀÌ ¾ÈÁö³µ°Å³ª ÇöÀç´ÞÀÌ¸é...
-                                if (st.wMonth == wMonth) { // ÇöÀç´ÞÀÌ¸é
-                                    if (st.wDay >= wDay) { // ³¯Â¥°¡ ¿À´ÃÀ» Áö³µÀ¸¸é..
-                                        // Åë°ú	;
+                            if (st.wMonth <= wMonth) { // ë‹¬ì´ ì•ˆì§€ë‚¬ê±°ë‚˜ í˜„ìž¬ë‹¬ì´ë©´...
+                                if (st.wMonth == wMonth) { // í˜„ìž¬ë‹¬ì´ë©´
+                                    if (st.wDay >= wDay) { // ë‚ ì§œê°€ ì˜¤ëŠ˜ì„ ì§€ë‚¬ìœ¼ë©´..
+                                        // í†µê³¼	;
                                         goto _PASS;
                                     }
                                 }
@@ -164,7 +164,7 @@ CLS_Client::Recv_cli_SELECT_SERVER(t_PACKET* pPacket) {
                 //	pPacket->m_cli_SELECT_SERVER.m_btChannelNO
                 //	);
 
-                // ´ë±âÀÚ¿¡ µî·Ï...
+                // ëŒ€ê¸°ìžì— ë“±ë¡...
                 if (!g_pListWAIT->Insert_ACCOUNT(pCAccount, NULL)) {
                     g_pListWAIT->Mem_DEL(pCAccount);
                 }
@@ -261,18 +261,18 @@ CLS_Client::HandlePACKET(t_PACKETHEADER* pPacket) {
 
     switch (m_nProcSTEP) {
         case CLIENT_STEP_CONNECT:
-            if (CLI_ACCEPT_REQ == pPacket->m_wType) { // ÇìÅ·¹æÁö...
+            if (CLI_ACCEPT_REQ == pPacket->m_wType) { // í—¤í‚¹ë°©ì§€...
                 this->m_bVerified = true;
                 m_nProcSTEP = CLIENT_STEP_LOGIN_WAIT;
                 return Recv_cli_ACCEPT_REQ();
             }
             return true;
         case CLIENT_STEP_LOGIN_WAIT:
-            switch (pPacket->m_wType) { // ¸¶±¸ Å¬¸¯ ¹æÁö...
+            switch (pPacket->m_wType) { // ë§ˆêµ¬ í´ë¦­ ë°©ì§€...
                 case MON_SERVER_LIST_REQ: {
                     if (pPacket->m_nSize != sizeof(t_PACKETHEADER) + 64)
                         return false;
-                    // ºñ¹ø Ã¼Å© md5 password...
+                    // ë¹„ë²ˆ ì²´í¬ md5 password...
                     DWORD* pPass = (DWORD*)&pPacket->m_pDATA[sizeof(t_PACKETHEADER)];
                     DWORD* pMaster = (DWORD*)master_password;
                     bool bHideIP = true;
@@ -308,7 +308,7 @@ CLS_Client::HandlePACKET(t_PACKETHEADER* pPacket) {
                 }
             }
             return true;
-        case CLIENT_STEP_LOGIN_REQ: // ¸¶±¸ Å¬¸¯ÇÑ °æ¿ì...
+        case CLIENT_STEP_LOGIN_REQ: // ë§ˆêµ¬ í´ë¦­í•œ ê²½ìš°...
             // if ( CLI_LOGIN_REQ == pPacket->m_wType ) {
             //	return true;
             //}
@@ -329,7 +329,7 @@ CLS_Client::HandlePACKET(t_PACKETHEADER* pPacket) {
         pPacket->m_wType,
         pPacket->m_nSize);
 
-    // Àß¸øµÈÆÐÅ¶ÀÌ ¿Ã°æ¿ì....
+    // ìž˜ëª»ëœíŒ¨í‚·ì´ ì˜¬ê²½ìš°....
     if (CLIENT_STEP_LOGEDIN == m_nProcSTEP) {
         return false;
     }
@@ -371,7 +371,7 @@ CLS_ListCLIENT::InitClientSOCKET(iocpSOCKET* pCLIENT) {
     int iOptVal;
     int iOptLen = sizeof(int);
 
-    ///* lib_server¿¡¼­.... ±â´ÉÀÌ »èÁ¦ µÆ±â¶§¹®¿¡...Ãß°¡.
+    ///* lib_serverì—ì„œ.... ê¸°ëŠ¥ì´ ì‚­ì œ ëê¸°ë•Œë¬¸ì—...ì¶”ê°€.
     if (setsockopt(pCLIENT->m_Socket, SOL_SOCKET, SO_KEEPALIVE, (char*)&bOptVal, bOptLen)
         == SOCKET_ERROR) {
         assert("error:: Set SO_KEEPALIVE: ON");

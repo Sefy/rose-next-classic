@@ -90,7 +90,7 @@ CServerList::AddWorldServerList(int index, DWORD worldserver_id, const char* wor
         std::map<int, WORLDSERVER_INFO>::iterator iter;
         for (iter = m_worldserver_list.begin(); iter != m_worldserver_list.end(); ++iter) {
             if (iter->second.m_world_id == worldserver_id) {
-                _RPT0(_CRT_ASSERT, "Áßº¹µÈ ¿ùµå¼­¹ö ID¸¦ ¹Ş¾Ò½À´Ï´Ù");
+                _RPT0(_CRT_ASSERT, "ì¤‘ë³µëœ ì›”ë“œì„œë²„ IDë¥¼ ë°›ì•˜ìŠµë‹ˆë‹¤");
                 return;
             }
         }

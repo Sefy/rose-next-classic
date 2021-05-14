@@ -2,7 +2,7 @@
 #define _CTCmdSystem_
 #include "tgamectrl/tcommand.h"
 
-/// »ç¿ë¾ÈÇÔ
+/// ì‚¬ìš©ì•ˆí•¨
 class CTCmdChangeGameState: public CTCommand {
 public:
     CTCmdChangeGameState(int iState);

@@ -20,16 +20,16 @@ public:
     classPARSESTR();
     ~classPARSESTR();
 
-    //ÃÊ±âÈ­
+    //ì´ˆê¸°í™”
     void CheatInit();
-    //¹®ÀÚ¿­À» ¾ò¾îÁØ´Ù (nStrNo==¾îµğºÎÅÍ ¾òÀ»°ÍÀÎ°¡)
+    //ë¬¸ìì—´ì„ ì–»ì–´ì¤€ë‹¤ (nStrNo==ì–´ë””ë¶€í„° ì–»ì„ê²ƒì¸ê°€)
     char* ParseString(char* pStr, short nStrNo);
-    //Ä¡Æ®¹øÈ£¸¦ ¾ò¾îÁÜ
+    //ì¹˜íŠ¸ë²ˆí˜¸ë¥¼ ì–»ì–´ì¤Œ
     short ParseCheatCodeIdx(char* pStr);
 
-    //Ä¡Æ®½ÇÇà
+    //ì¹˜íŠ¸ì‹¤í–‰
     int DoCheat(char* pCheatCode, bool bServerCheate = true);
-    // special Ä¡Æ®½ÇÇà
+    // special ì¹˜íŠ¸ì‹¤í–‰
     int DoSpecialCheat(char* pCheatCode, bool bServerCheate = true);
 
     // set
@@ -67,19 +67,19 @@ public:
     // Dagnarus
     bool DoSpeed(char* pStr);
 
-    //ÁøÇà ¼öÄ¡
+    //ì§„í–‰ ìˆ˜ì¹˜
     bool DoProcVal(char* pStr);
-    //¼Ò¼Ó ¸í¼º
+    //ì†Œì† ëª…ì„±
     bool DoUnionFame(char* pStr);
-    //Äù½ºÆ® º¯¼ö
+    //í€˜ìŠ¤íŠ¸ ë³€ìˆ˜
     bool DoQuestVal(char* pStr);
-    // Á÷¾÷ ÀüÈ¯
+    // ì§ì—… ì „í™˜
     bool DoJob(char* pStr);
 
-    // ½ºÆä¼È Ä¡Æ®
+    // ìŠ¤í˜ì…œ ì¹˜íŠ¸
     bool DoSpecial(char* pStr);
 
-    /// ClientÀÚÃ¼ÀûÀ¸·Î Äù½ºÆ® ÄÁµğ¼Ç Ã¼Å©
+    /// Clientìì²´ì ìœ¼ë¡œ í€˜ìŠ¤íŠ¸ ì»¨ë””ì…˜ ì²´í¬
     bool DoCheckQuestCondition(char* pszStr);
 
     bool DoFree(char* pStr);

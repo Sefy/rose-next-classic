@@ -190,9 +190,9 @@ CFileSystemTriggerVFS::ReadPascalStringLength() {
     BYTE btLength;
     ReadByte(&btLength);
 
-    /// ÇÑ¹ÙÀÌÆ®¸¦ »ç¿ëÇÏ´Â°¡? µÎ¹ÙÀÌÆ®¸¦ »ç¿ëÇÏ´Â°¡?
+    /// í•œë°”ì´íŠ¸ë¥¼ ì‚¬ìš©í•˜ëŠ”ê°€? ë‘ë°”ì´íŠ¸ë¥¼ ì‚¬ìš©í•˜ëŠ”ê°€?
 
-    /// µÎ¹ÙÀÌÆ®¸¦ »ç¿ëÇÑ´Ù.
+    /// ë‘ë°”ì´íŠ¸ë¥¼ ì‚¬ìš©í•œë‹¤.
     if (btLength & 0x80) {
         BYTE btSecondByte = 0;
         ReadByte(&btSecondByte);
@@ -222,9 +222,9 @@ CFileSystemTriggerVFS::ReadPascalString(char* lpBuf, int iBufferLength) {
     BYTE btLength;
     ReadByte(&btLength);
 
-    /// ÇÑ¹ÙÀÌÆ®¸¦ »ç¿ëÇÏ´Â°¡? µÎ¹ÙÀÌÆ®¸¦ »ç¿ëÇÏ´Â°¡?
+    /// í•œë°”ì´íŠ¸ë¥¼ ì‚¬ìš©í•˜ëŠ”ê°€? ë‘ë°”ì´íŠ¸ë¥¼ ì‚¬ìš©í•˜ëŠ”ê°€?
 
-    /// µÎ¹ÙÀÌÆ®¸¦ »ç¿ëÇÑ´Ù.
+    /// ë‘ë°”ì´íŠ¸ë¥¼ ì‚¬ìš©í•œë‹¤.
     if (btLength & 0x80) {
         BYTE btSecondByte = 0;
         ReadByte(&btSecondByte);
@@ -259,7 +259,7 @@ CFileSystemTriggerVFS::WritePascalString(const char* pStr) {
 
     short nLength = strlen(pStr);
 
-    /// µÎ¹ÙÀÌÆ®·Î ±æÀÌ¸¦ Ç¥ÇöÇÑ´Ù.
+    /// ë‘ë°”ì´íŠ¸ë¡œ ê¸¸ì´ë¥¼ í‘œí˜„í•œë‹¤.
     if (nLength > 0x7F) {
         BYTE btFirstLength = (nLength & 0x1111111) | 0x10000000;
         WriteByte(&btFirstLength, "First length");

@@ -88,7 +88,7 @@ CZoneLIST::InitZoneLIST(char* szBaseDIR) {
         }
         m_pValidZONE[nZ] = true;
 
-        // ·ÎÄÃ·Î ½ÇÇàµÇ´Â Á¸ÀÎ°¡ ???
+        // ë¡œì»¬ë¡œ ì‹¤í–‰ë˜ëŠ” ì¡´ì¸ê°€ ???
         if (!CLIB_GameSRV::GetInstance()->IsLocalCheckedZONE(nZ))
             continue;
 
@@ -254,7 +254,7 @@ CZoneLIST::Send_gsv_ANNOUNCE_CHAT(short nZoneNO, char* szMessage, char* szAccoun
         return;
 
     g_LOG.CS_ODS(0xffff,
-        "[%d/%s:Á¸°øÁö] %s\n",
+        "[%d/%s:ì¡´ê³µì§€] %s\n",
         nZoneNO,
         m_ppThreadZONE[nZoneNO]->Get_NAME(),
         szMessage);
@@ -286,10 +286,10 @@ CZoneLIST::Send_gsv_ANNOUNCE_CHAT(char* szMessage, char* szAccount) {
 
     Packet_AppendString(pPacket, szMessage);
     if (szAccount) {
-        g_LOG.CS_ODS(0xffff, "[ÀüÃ¼°øÁö:%s] %s\n", szAccount, szMessage);
+        g_LOG.CS_ODS(0xffff, "[ì „ì²´ê³µì§€:%s] %s\n", szAccount, szMessage);
         Packet_AppendString(pPacket, szAccount);
     } else {
-        g_LOG.CS_ODS(0xffff, "[ÀüÃ¼°øÁö] %s\n", szMessage);
+        g_LOG.CS_ODS(0xffff, "[ì „ì²´ê³µì§€] %s\n", szMessage);
     }
 
     this->Send_gsv_ANNOUNCE_CHAT(pPacket);

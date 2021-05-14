@@ -9,7 +9,7 @@ struct stDROPITEM {
 };
 
 ///
-/// Á¤È®ÇÑ Å¸ÀÌ¹Ö¿¡ ¾ÆÀÌÅÛÀ» µå¶øÇÏ±â À§ÇÑ Å¬·¡½º..
+/// ì •í™•í•œ íƒ€ì´ë°ì— ì•„ì´í…œì„ ë“œëí•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤..
 ///
 
 class CDropItemManager {
@@ -21,7 +21,7 @@ public:
     ~CDropItemManager(void);
 
     void PushDropItem(stDROPITEM& DropItem) { m_DropItemList.push_back(DropItem); }
-    /// Drop item Á¤º¸°¡ ¼ö½ÅµÇ¾ú´Ù.
+    /// Drop item ì •ë³´ê°€ ìˆ˜ì‹ ë˜ì—ˆë‹¤.
     int UpdateDropItemList(int iDropItemIndex);
 };
 

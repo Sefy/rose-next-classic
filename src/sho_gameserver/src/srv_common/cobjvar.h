@@ -23,7 +23,7 @@ struct tagObjVAR {
  * \ingroup SHO_GS_LIB
  * \class	CObjVAR
  * \author	wookSang.Jo
- * \brief	CObjNPC, CObjEVENT °´Ã¼ÀÇ ±âº» µ¥ÀÌÅ¸ º¸°ü¹× Ã³¸® Å¬·¡½º
+ * \brief	CObjNPC, CObjEVENT ê°ì²´ì˜ ê¸°ë³¸ ë°ì´íƒ€ ë³´ê´€ë° ì²˜ë¦¬ í´ë˜ìŠ¤
  */
 class CObjVAR: public tagObjVAR {
 public:
@@ -55,14 +55,14 @@ public:
         return 0;
     }
     virtual void Set_ObjVAR(BYTE btVarIDX, short nValue) {
-        // »ó¼Ó ¹Ş¾Æ¼­ ¿ùµå ¼­¹ö¿¡ Àü¼ÛÇØ¾ß ÇÔ...
+        // ìƒì† ë°›ì•„ì„œ ì›”ë“œ ì„œë²„ì— ì „ì†¡í•´ì•¼ í•¨...
         if (btVarIDX < MAX_OBJ_VAR_CNT) {
             m_nAI_VAR[btVarIDX] = nValue;
         }
     }
 
     virtual void Set_NextTRIGGER(int iRemainSec, t_HASHKEY HashNextTrigger) {
-        // »ó¼Ó ¹Ş¾Æ¼­ ¿ùµå ¼­¹ö¿¡ Àü¼ÛÇØ¾ß ÇÔ...
+        // ìƒì† ë°›ì•„ì„œ ì›”ë“œ ì„œë²„ì— ì „ì†¡í•´ì•¼ í•¨...
         m_iPassTIME = 0;
         m_iNextCheckTIME = iRemainSec * 1000;
         m_HashNextTrigger = HashNextTrigger;
@@ -73,7 +73,7 @@ public:
             m_iPassTIME += dwPassTIME;
             if (m_iPassTIME >= m_iNextCheckTIME) {
                 m_iNextCheckTIME = 0;
-                // true¸é ´ÙÀ½ Æ®¸®°Å ÀÌº¥Æ® Ã³¸®...
+                // trueë©´ ë‹¤ìŒ íŠ¸ë¦¬ê±° ì´ë²¤íŠ¸ ì²˜ë¦¬...
                 return true;
             }
         }

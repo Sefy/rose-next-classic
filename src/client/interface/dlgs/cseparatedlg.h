@@ -7,10 +7,10 @@
 class CIconItem;
 class CDragItem;
 /**
- * ºĞ¸®/ºĞÇØ¿¡ »ç¿ëµÇ´Â ´ÙÀÌ¾ó·Î±×
+ * ë¶„ë¦¬/ë¶„í•´ì— ì‚¬ìš©ë˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *	- Observable : CSeparate
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/14
  */
 class CSeparateDlg: public CTDialog, public IObserver {
@@ -36,8 +36,8 @@ protected:
         IID_BTN_CLOSE = 11,
     };
 
-    CSlot m_MaterialItemSlot; /// ºĞ¸®/ºĞÇØÇÒ ¾ÆÀÌÅÛÀÌ µé¾î°¥ ½½·Ô
-    std::vector<CSlot> m_OutputItemSlots; /// ºĞ¸®/ºĞÇØÇÑ ¾ÆÀÌÅÛÀÌ µé¾î°¥ ½½·Ô
+    CSlot m_MaterialItemSlot; /// ë¶„ë¦¬/ë¶„í•´í•  ì•„ì´í…œì´ ë“¤ì–´ê°ˆ ìŠ¬ë¡¯
+    std::vector<CSlot> m_OutputItemSlots; /// ë¶„ë¦¬/ë¶„í•´í•œ ì•„ì´í…œì´ ë“¤ì–´ê°ˆ ìŠ¬ë¡¯
 
     CDragItem* m_pDragItem;
 };

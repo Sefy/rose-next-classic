@@ -97,7 +97,7 @@ public:
         CDataNODE* pDataNODE = reinterpret_cast<CDataNODE*>(pDATA);
         this->Lock();
         {
-            // �ι� Ǯ���°� üũ...
+            // 두번 풀리는거 체크...
             _ASSERT(pDataNODE->m_bUSED);
 
             if (pDataNODE->m_bUSED) {

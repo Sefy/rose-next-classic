@@ -5,9 +5,9 @@
 class CGuage;
 
 /**
- * Á¦Á¶ÀÎÅÍÆäÀÌ½º Ã¢ÀÇ State Class : ¼­¹ö·Î ºÎÅÍ ¹ŞÀº Á¦Á¶°á°ú¸¦ Ãâ·ÂÇÏ´Â »óÅÂ
+ * ì œì¡°ì¸í„°í˜ì´ìŠ¤ ì°½ì˜ State Class : ì„œë²„ë¡œ ë¶€í„° ë°›ì€ ì œì¡°ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ëŠ” ìƒíƒœ
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CMakeStateResult: public CMakeState {
@@ -28,6 +28,6 @@ protected:
     int m_iRedGuageImageID;
     int m_iGreenGuageImageID;
     int m_dwPrevTime;
-    bool m_bWaitState; ///¸Ş¼¼Áö ¹Ú½º°¡ ´­¸±¶§±îÁö ±â´Ù¸°´Ù.
+    bool m_bWaitState; ///ë©”ì„¸ì§€ ë°•ìŠ¤ê°€ ëˆŒë¦´ë•Œê¹Œì§€ ê¸°ë‹¤ë¦°ë‹¤.
 };
 #endif

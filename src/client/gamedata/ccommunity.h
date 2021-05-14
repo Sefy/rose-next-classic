@@ -1,8 +1,8 @@
 #ifndef _CCommunity_
 #define _CCommunity_
 
-/// ÇöÀç (2005/9/15) »ç¿ë¾ÈÇÏ´Â Class
-/// »èÁ¦ ÇÊ¿ä
+/// í˜„ìž¬ (2005/9/15) ì‚¬ìš©ì•ˆí•˜ëŠ” Class
+/// ì‚­ì œ í•„ìš”
 class CCommunity {
     CCommunity(void);
     ~CCommunity(void);

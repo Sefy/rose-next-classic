@@ -4,10 +4,10 @@
 #include "JContainer.h"
 
 /**
- * Dialog³»¿¡¼­ÀÇ ¿µ¿ªº°·Î child controlµéÀ» ±¸ºĞÇÏ±â À§ÇÑ Container class
- *   - Å¬¶óÀÌ¾ğÆ®ÀÇ CChatRoomDlg¿¡¼­ À§/¾Æ·¡ ¿µ¿ªÀÌ ÀÌ Container class·Î ±¸ºĞµÇ¾î ÀÖ´Ù.
+ * Dialogë‚´ì—ì„œì˜ ì˜ì—­ë³„ë¡œ child controlë“¤ì„ êµ¬ë¶„í•˜ê¸° ìœ„í•œ Container class
+ *   - í´ë¼ì´ì–¸íŠ¸ì˜ CChatRoomDlgì—ì„œ ìœ„/ì•„ë˜ ì˜ì—­ì´ ì´ Container classë¡œ êµ¬ë¶„ë˜ì–´ ìˆë‹¤.
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Data			2005/8/30
  */
 class TGAMECTRL_API CTPane: public CWinCtrl {

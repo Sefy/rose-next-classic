@@ -25,7 +25,7 @@ struct tagFriend_H {
 };
     #pragma pack(pop)
 
-// ³»°¡ µî·ÏÇÑ Ä£±¸ ¸®½ºÆ®
+// ë‚´ê°€ ë“±ë¡í•œ ì¹œêµ¬ ë¦¬ìŠ¤íŠ¸
 struct tagMyFriend: public tagFriend_H {
     CMessenger* m_pMSGR;
     CStrVAR m_Name;
@@ -58,12 +58,12 @@ public:
     int Get_FriendCNT() { return m_ListFRIEND.GetNodeCount(); }
     DWORD Get_DBID() { return m_dwDBID; }
 
-    bool MSGR_IsUPDATE() { return m_bFriendUPDATE; } // db °»½ÅÇØ¾ß ÇÏ³Ä?
+    bool MSGR_IsUPDATE() { return m_bFriendUPDATE; } // db ê°±ì‹ í•´ì•¼ í•˜ëƒ?
 
-    bool MSGR_Add(CMessenger* pFriend); // Ä£±¸ Ãß°¡
+    bool MSGR_Add(CMessenger* pFriend); // ì¹œêµ¬ ì¶”ê°€
 
-    void MSGR_Del(DWORD dwDBID); // Ä£±¸ »èÁ¦
-    void MSGR_Ban(DWORD dwDBID); // Ã¤ÆÃ Â÷´Ü
+    void MSGR_Del(DWORD dwDBID); // ì¹œêµ¬ ì‚­ì œ
+    void MSGR_Ban(DWORD dwDBID); // ì±„íŒ… ì°¨ë‹¨
     void MSGR_Status2ONE(DWORD dwDBID, BYTE btNewStatus, CMessenger* pMessenger);
     void MSGR_Status2ALL(BYTE btNewStatus);
     void MSGR_Msg(t_PACKET* pPacket);

@@ -254,7 +254,7 @@ CGame::Init() {
     it_Init(g_pCApp->GetHWND(), &g_DrawImpl, &g_SoundImpl, &g_FontImpl);
 
     //--------------------------------------------------------------------------------
-    /// ÇöÀç ÄÚµåÆäÀÌÁö¸¦ »õ·Î ±¸ÇÒ°æ¿ì Ç×»ó TGameCtrl¿¡ ¾Ë·ÁÁÙ°Í
+    /// í˜„ìž¬ ì½”ë“œíŽ˜ì´ì§€ë¥¼ ìƒˆë¡œ êµ¬í• ê²½ìš° í•­ìƒ TGameCtrlì— ì•Œë ¤ì¤„ê²ƒ
     //--------------------------------------------------------------------------------
     CLocalizing::GetSingleton().GetCurrentCodePage();
     it_SetCodePage(CLocalizing::GetSingleton().GetCurrentCodePageNO());
@@ -278,7 +278,7 @@ CGame::Init() {
         musicMgr.SetVolume(
             g_ClientStorage.GetBgmVolumeByIndex(g_ClientStorage.GetBgmVolumeIndex()));
     } else {
-        MessageBox(g_pCApp->GetHWND(), "»ç¿îµå Ä«µå¿¡ ¹®Á¦°¡ ÀÖ½À´Ï´Ù.", "ERROR", MB_OK);
+        MessageBox(g_pCApp->GetHWND(), "ì‚¬ìš´ë“œ ì¹´ë“œì— ë¬¸ì œê°€ ìžˆìŠµë‹ˆë‹¤.", "ERROR", MB_OK);
     }
 
     //--------------------------------------------------------------------------------
@@ -332,7 +332,7 @@ CGame::Init() {
     CSFXFont* sfx_font = new CSFXFont;
     CSFXManager::GetSingleton().AddSFX(sfx_font);
 
-    ///Å¬¶óÀÌ¾ðÆ® ½ÇÇà½Ã¿¡ ÇÊ¿äÇÑ µð·ºÅä¸®¸¦ ¸¸µç´Ù.
+    ///í´ë¼ì´ì–¸íŠ¸ ì‹¤í–‰ì‹œì— í•„ìš”í•œ ë””ë ‰í† ë¦¬ë¥¼ ë§Œë“ ë‹¤.
     CreateDirectory(CClanMarkUserDefined::ClanMarkFileDirectory.c_str(), NULL);
     CreateDirectory("Chat", NULL);
 
@@ -493,7 +493,7 @@ CGame::Load_BasicDATA() {
 
     g_AI_LIST.Load(NULL, "3DDATA\\STB\\FILE_AI.STB", "3DDATA\\AI\\AI_S.stb", iCurrentLang);
     g_pEffectLIST =
-        new CEffectLIST("3ddata\\stb\\FILE_EFFECT.stb"); // shader ¼³Á¤µÈÈÄ ·ÎµåÇØ¾ß ÇÔ..
+        new CEffectLIST("3ddata\\stb\\FILE_EFFECT.stb"); // shader ì„¤ì •ëœí›„ ë¡œë“œí•´ì•¼ í•¨..
 
     if (!g_DATA.Load3DDATA()) {
         return false;
@@ -535,8 +535,8 @@ CGame::Load_BasicDATA() {
 }
 
 bool
-CGame::Load_DataNotUseThread() ///¾²·¹µå¸¦ »ç¿ëÇØ¼­ ÀÐÀ¸¸é ¾ÈµÇ´Â Data¸¦ LoadÇÏ´Â Method: ¼ø¼­»ó
-                               ///Á¦ÀÏ¸ÕÀúÇØ¾ßÇÑ´Ù.
+CGame::Load_DataNotUseThread() ///ì“°ë ˆë“œë¥¼ ì‚¬ìš©í•´ì„œ ì½ìœ¼ë©´ ì•ˆë˜ëŠ” Dataë¥¼ Loadí•˜ëŠ” Method: ìˆœì„œìƒ
+                               ///ì œì¼ë¨¼ì €í•´ì•¼í•œë‹¤.
 {
     g_pCamera = CCamera::Instance();
 
@@ -963,14 +963,14 @@ CGame::CreateSelectedAvata() {
     for (int i = 0; i < MAX_WISH_ITEMS; ++i)
         CPrivateStore::GetInstance().AddItemWishList(g_pAVATAR->m_WishLIST.m_WishITEM[i], false, i);
 
-    // ÆÐ½Ãºê ½ºÅ³¿¡ÀÇÇÑ ´É·ÂÄ¡ ÃÊ±âÈ­...
+    // íŒ¨ì‹œë¸Œ ìŠ¤í‚¬ì—ì˜í•œ ëŠ¥ë ¥ì¹˜ ì´ˆê¸°í™”...
     g_pAVATAR->InitPassiveSkill();
 
     // g_pAVATAR->m_Inventory = m_SelectedAvataINV.m_INV;
     g_pAVATAR->Set_SEX(m_SelectedAvataInfo.m_btCharRACE);
     g_pAVATAR->UpdateAbility();
 
-    /// skill slot setting : UpdateAbilityµÚ·Î ÀÌµ¿
+    /// skill slot setting : UpdateAbilityë’¤ë¡œ ì´ë™
 
     for (int i = 0; i < MAX_LEARNED_SKILL_CNT; i++)
         g_pAVATAR->AddNewSkill(g_pAVATAR->m_Skills.m_nSkillINDEX[i], i);
@@ -989,10 +989,10 @@ CGame::CreateSelectedAvata() {
 
     g_pAVATAR->m_Inventory.MakeItemIndexList();
 
-    /// Å¬¶óÀÌ¾ðÆ®¿¡¼­ÀÇ È¿°ú¹× ¸ð¼Ç°ú µ¿±âÈ­ ½ÃÅ°±â À§ÇÏ¿© »ç¿ëµÇ´Â º¯¼öµé Setting : 2004 / 2 / 23
-    /// CObjAVT::m_ShotData´Â ´Ù¸¥ ¾Æ¹ÙÅ¸µéÀº ½ÇÁ¦·Î ¸ð¼Ç°ú µ¿±âÈ­ ½ÃÅ°Áö ¾Ê°í
-    /// CObjUSER¸¸ CInventory::m_ItemSHOT¿Í °°ÀÌ 2°³¸¦ »ç¿ëÇØ¼­ ¼­¹ö¿Í Å¬¶óÀÌ¾ðÆ®ÀÇ ¸ð¼Ç°ú µ¿±âÈ­
-    /// ½ÃÅ²´Ù.
+    /// í´ë¼ì´ì–¸íŠ¸ì—ì„œì˜ íš¨ê³¼ë° ëª¨ì…˜ê³¼ ë™ê¸°í™” ì‹œí‚¤ê¸° ìœ„í•˜ì—¬ ì‚¬ìš©ë˜ëŠ” ë³€ìˆ˜ë“¤ Setting : 2004 / 2 / 23
+    /// CObjAVT::m_ShotDataëŠ” ë‹¤ë¥¸ ì•„ë°”íƒ€ë“¤ì€ ì‹¤ì œë¡œ ëª¨ì…˜ê³¼ ë™ê¸°í™” ì‹œí‚¤ì§€ ì•Šê³ 
+    /// CObjUSERë§Œ CInventory::m_ItemSHOTì™€ ê°™ì´ 2ê°œë¥¼ ì‚¬ìš©í•´ì„œ ì„œë²„ì™€ í´ë¼ì´ì–¸íŠ¸ì˜ ëª¨ì…˜ê³¼ ë™ê¸°í™”
+    /// ì‹œí‚¨ë‹¤.
     g_pAVATAR->SetShotData(SHOT_TYPE_ARROW,
         g_pAVATAR->CUserDATA::m_Inventory.m_ItemSHOT[SHOT_TYPE_ARROW].GetItemNO());
     g_pAVATAR->SetShotData(SHOT_TYPE_BULLET,
@@ -1001,7 +1001,7 @@ CGame::CreateSelectedAvata() {
         g_pAVATAR->CUserDATA::m_Inventory.m_ItemSHOT[SHOT_TYPE_THROW].GetItemNO());
 
     //----------------------------------------------------------------------------------------------------
-    /// ½½·Ô Á¤º¸ ¼¼ÆÃ + CQuickDlg ÀÇ ½½·Ô ¾÷µ¥ÀÌÆ®( Inventory¿Í SkillÁ¤º¸¸¦ ¸ÕÀú ¹Þ¾Æ¾ß ÇÑ´Ù.)
+    /// ìŠ¬ë¡¯ ì •ë³´ ì„¸íŒ… + CQuickDlg ì˜ ìŠ¬ë¡¯ ì—…ë°ì´íŠ¸( Inventoryì™€ Skillì •ë³´ë¥¼ ë¨¼ì € ë°›ì•„ì•¼ í•œë‹¤.)
     ///::CopyMemory ( &g_pAVATAR->m_HotICONS,		&m_SelectedAvataInfo.m_HotICONS,
     ///sizeof(CHotICONS)
     ///);
@@ -1021,7 +1021,7 @@ CGame::CreateSelectedAvata() {
             pszName = CStringManager::GetSingleton().GetAbility(i + AT_MAINTAIN_ABILITY);
             ;
             classTIME::AbsSecondToSystem(dwABS, stCurrTime);
-            // g_itMGR.AppendChatMsg( CStr::Printf("%sÀ» %d³â %d¿ù %dÀÏ %d½Ã±îÁö »ç¿ë°¡´ÉÇÕ´Ï´Ù",
+            // g_itMGR.AppendChatMsg( CStr::Printf("%sì„ %dë…„ %dì›” %dì¼ %dì‹œê¹Œì§€ ì‚¬ìš©ê°€ëŠ¥í•©ë‹ˆë‹¤",
             // pszName, stCurrTime.wYear, stCurrTime.wMonth, stCurrTime.wDay, stCurrTime.wHour ),
             // IT_MGR::CHAT_TYPE_NOTICE);
             g_itMGR.AppendChatMsg(
@@ -1041,8 +1041,8 @@ CGame::CreateSelectedAvata() {
     g_pAVATAR->Set_RareITEM_Glow();
     g_pAVATAR->CreateGradeEffect();
 
-    /// µå¶óÀÌºê ½ºÅ³ ÄðÅ¸ÀÓ Àû¿ë : 2005/7/27 - nAvy
-    /// ÄðÅ¸ÀÓÀÌ ¾øÀ»°æ¿ì g_pAVATAR->m_GrowAbility.m_dwPatCoolTIME == 0
+    /// ë“œë¼ì´ë¸Œ ìŠ¤í‚¬ ì¿¨íƒ€ìž„ ì ìš© : 2005/7/27 - nAvy
+    /// ì¿¨íƒ€ìž„ì´ ì—†ì„ê²½ìš° g_pAVATAR->m_GrowAbility.m_dwPatCoolTIME == 0
     g_SoloSkillDelayTick.SetUseItemDelay(17, (float)g_pAVATAR->GetCur_PatCoolTIME());
 }
 
@@ -1078,7 +1078,7 @@ CGame::GetCurrStateID() {
     return this->active_state->GetStateID();
 }
 
-/// ½ºÅ©¸° Ä¸ÃÄ½Ã¿¡ BMP ÆÄÀÏÀ» Áö¿ï°ÍÀÌ³Ä ¸»°ÍÀÌ³Ä..
+/// ìŠ¤í¬ë¦° ìº¡ì³ì‹œì— BMP íŒŒì¼ì„ ì§€ìš¸ê²ƒì´ëƒ ë§ê²ƒì´ëƒ..
 // bool g_bDontDeleteCapFile = false;
 
 void
@@ -1290,22 +1290,22 @@ CGame::GetPayType() {
     // NO EXT
     else {
         switch (m_paytype) {
-            case BILLING_MSG_PAY_FU: // FU	·Î±×ÀÎ µÈ »ç¿ëÀÚ´Â ¹«·á ¾ÆÀÌµð »ç¿ëÀÚÀÓÀ» ³ªÅ¸³½´Ù.
+            case BILLING_MSG_PAY_FU: // FU	ë¡œê·¸ì¸ ëœ ì‚¬ìš©ìžëŠ” ë¬´ë£Œ ì•„ì´ë”” ì‚¬ìš©ìžìž„ì„ ë‚˜íƒ€ë‚¸ë‹¤.
                 return PAY_FREE;
-            case BILLING_MSG_PAY_FQ: // FQ	·Î±×ÀÎ µÈ »ç¿ëÀÚ´Â °³ÀÎÁ¤·® »ç¿ëÀÚ(ÇÁ¸®¹Ì¾ö)ÀÓÀ»
-                                     // ³ªÅ¸³½´Ù.
-            case BILLING_MSG_PAY_FA: // FA	·Î±×ÀÎ µÈ »ç¿ëÀÚ´Â °³ÀÎÁ¤¾× »ç¿ëÀÚ(ÇÁ¸®¹Ì¾ö)ÀÓÀ»
-                                     // ³ªÅ¸³½´Ù.
+            case BILLING_MSG_PAY_FQ: // FQ	ë¡œê·¸ì¸ ëœ ì‚¬ìš©ìžëŠ” ê°œì¸ì •ëŸ‰ ì‚¬ìš©ìž(í”„ë¦¬ë¯¸ì—„)ìž„ì„
+                                     // ë‚˜íƒ€ë‚¸ë‹¤.
+            case BILLING_MSG_PAY_FA: // FA	ë¡œê·¸ì¸ ëœ ì‚¬ìš©ìžëŠ” ê°œì¸ì •ì•¡ ì‚¬ìš©ìž(í”„ë¦¬ë¯¸ì—„)ìž„ì„
+                                     // ë‚˜íƒ€ë‚¸ë‹¤.
                 return PAY_PREMIUM;
-            case BILLING_MSG_PAY_GU: // GU	·Î±×ÀÎ µÈ »ç¿ëÀÚ´Â °ÔÀÓ¹æ »ç¿ëÀÚ(ÇÃ·¹Æ¼³Ñ)ÀÓÀ» ³ªÅ¸³½´Ù.
-            case BILLING_MSG_PAY_GQ: // GQ	(ÇÃ·¹Æ¼³Ñ)°ÔÀÓ¹æ¿¡¼­ ·Î±×ÀÎÀ» ½ÃµµÇÏ¿´À¸³ª °ÔÀÓ¹æÀÇ
-                                     // °ú±Ý±â°£(½Ã°£)ÀÌ ¸¸·áµÇ¾î °³ÀÎÁ¤·®À¸·Î ·Î±×ÀÎ µÇ¾úÀ½À»
-                                     // ³ªÅ¸³½´Ù.
-            case BILLING_MSG_PAY_IQ: // IQ	(ÇÃ·¹Æ¼³Ñ)°ÔÀÓ¹æ¿¡¼­ ·Î±×ÀÎÀ» ½ÃµµÇÏ¿´À¸³ª ÀÌ¹Ì °è¾àµÈ
-                                     // IP ¼ýÀÚ¸¦ ¸ðµÎ »ç¿ëÇÏ°í ÀÖ¾î °³ÀÎÁ¤·®À¸·Î ·Î±×ÀÎ µÇ¾úÀ½À»
-                                     // ³ªÅ¸³½´Ù.
-            case BILLING_MSG_PAY_FAP: // FAP	·Î±×ÀÎ µÈ »ç¿ëÀÚ´Â °³ÀÎÁ¤¾× »ç¿ëÀÚ(ÇÃ·¹Æ¼³Ñ)ÀÓÀ»
-                                      // ³ªÅ¸³½´Ù.
+            case BILLING_MSG_PAY_GU: // GU	ë¡œê·¸ì¸ ëœ ì‚¬ìš©ìžëŠ” ê²Œìž„ë°© ì‚¬ìš©ìž(í”Œë ˆí‹°ë„˜)ìž„ì„ ë‚˜íƒ€ë‚¸ë‹¤.
+            case BILLING_MSG_PAY_GQ: // GQ	(í”Œë ˆí‹°ë„˜)ê²Œìž„ë°©ì—ì„œ ë¡œê·¸ì¸ì„ ì‹œë„í•˜ì˜€ìœ¼ë‚˜ ê²Œìž„ë°©ì˜
+                                     // ê³¼ê¸ˆê¸°ê°„(ì‹œê°„)ì´ ë§Œë£Œë˜ì–´ ê°œì¸ì •ëŸ‰ìœ¼ë¡œ ë¡œê·¸ì¸ ë˜ì—ˆìŒì„
+                                     // ë‚˜íƒ€ë‚¸ë‹¤.
+            case BILLING_MSG_PAY_IQ: // IQ	(í”Œë ˆí‹°ë„˜)ê²Œìž„ë°©ì—ì„œ ë¡œê·¸ì¸ì„ ì‹œë„í•˜ì˜€ìœ¼ë‚˜ ì´ë¯¸ ê³„ì•½ëœ
+                                     // IP ìˆ«ìžë¥¼ ëª¨ë‘ ì‚¬ìš©í•˜ê³  ìžˆì–´ ê°œì¸ì •ëŸ‰ìœ¼ë¡œ ë¡œê·¸ì¸ ë˜ì—ˆìŒì„
+                                     // ë‚˜íƒ€ë‚¸ë‹¤.
+            case BILLING_MSG_PAY_FAP: // FAP	ë¡œê·¸ì¸ ëœ ì‚¬ìš©ìžëŠ” ê°œì¸ì •ì•¡ ì‚¬ìš©ìž(í”Œë ˆí‹°ë„˜)ìž„ì„
+                                      // ë‚˜íƒ€ë‚¸ë‹¤.
                 return PAY_PLATINUM;
 
             default:
@@ -1366,7 +1366,7 @@ CGame::GetSetExpireTimeExt(int type) {
     return 0;
 }
 
-/// 1: ³¯Â¥, 2:ºÐ, 0:¾øÀ½
+/// 1: ë‚ ì§œ, 2:ë¶„, 0:ì—†ìŒ
 void
 CGame::SetExpireTimeType(int type) {
     m_expiretime_type = type;
@@ -1419,8 +1419,8 @@ CGame::ResetAutoRun() {
 }
 
 //-------------------------------------------------------------------------------------------
-/// @brief ÀÏº» ÆÄÆ®³Ê»ç ±¸ºÐÀ» À§ÇÑ ÄÞº¸¹Ú½º¸¦ È°¼ºÈ­½ÃÅ³°ÍÀÎ°¡?
-///    - ÀÏº»ÀÌ¸é¼­ NHNÀÌ ¾Æ´Ò°æ¿ì¿¡¸¸ È°¼ºÈ­ ½ÃÅ²´Ù.
+/// @brief ì¼ë³¸ íŒŒíŠ¸ë„ˆì‚¬ êµ¬ë¶„ì„ ìœ„í•œ ì½¤ë³´ë°•ìŠ¤ë¥¼ í™œì„±í™”ì‹œí‚¬ê²ƒì¸ê°€?
+///    - ì¼ë³¸ì´ë©´ì„œ NHNì´ ì•„ë‹ê²½ìš°ì—ë§Œ í™œì„±í™” ì‹œí‚¨ë‹¤.
 //-------------------------------------------------------------------------------------------
 bool
 CGame::IsActiveRouteComboBox() {

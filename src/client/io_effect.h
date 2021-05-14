@@ -101,8 +101,8 @@ struct tagEFFECT_MESHANI {
 
 /////////////////////////////////////////////////////////////////////////////////////
 /// CEffectDATA
-/// ½ÇÁ¦·Î µ¥ÀÌÅÍ¸¦ º¸°üÇÏ°í ÀÖ°í,
-/// »ı¼ºÀº CFileList ¸ŞÄ«´ÏÁò¿¡ ÀÇÇØ »ı¼ºµÈ´Ù.
+/// ì‹¤ì œë¡œ ë°ì´í„°ë¥¼ ë³´ê´€í•˜ê³  ìˆê³ ,
+/// ìƒì„±ì€ CFileList ë©”ì¹´ë‹ˆì¦˜ì— ì˜í•´ ìƒì„±ëœë‹¤.
 /////////////////////////////////////////////////////////////////////////////////////
 class CEffectDATA {
 public:
@@ -136,11 +136,11 @@ private:
     bool m_bIsVisible;
 
     HNODE m_hParent;
-    CObjCHAR* m_pParent; // ¸µÅ©°¡ °É¸° ºÎ¸ğ..
+    CObjCHAR* m_pParent; // ë§í¬ê°€ ê±¸ë¦° ë¶€ëª¨..
 
-    bool m_bNightEffect; /// ¹ã¿¡¸¸ ³ª¿À´Â ÀÌÆåÆ® ÀÎ°¡?
+    bool m_bNightEffect; /// ë°¤ì—ë§Œ ë‚˜ì˜¤ëŠ” ì´í™íŠ¸ ì¸ê°€?
 
-    static int m_iEffectCnt; /// »ı¼ºµÈ ÀüÃ¼ ÀÌÆåÆ®ÀÇ °³¼ö
+    static int m_iEffectCnt; /// ìƒì„±ëœ ì „ì²´ ì´í™íŠ¸ì˜ ê°œìˆ˜
 
 public:
     void SetParentCHAR(CObjCHAR* pParent) { m_pParent = pParent; }
@@ -232,7 +232,7 @@ public:
 
 /////////////////////////////////////////////////////////////////////////////////////
 /// CEffectLIST
-/// Á÷Á¢ hash Å×ÀÌºíÀ» °ü¸®ÇÏ°í, CFileList ÀÇ ±â´ÉÀ» ´ë½ÅÇÑ´Ù.
+/// ì§ì ‘ hash í…Œì´ë¸”ì„ ê´€ë¦¬í•˜ê³ , CFileList ì˜ ê¸°ëŠ¥ì„ ëŒ€ì‹ í•œë‹¤.
 /////////////////////////////////////////////////////////////////////////////////////
 class CEffectLIST {
 private:
@@ -240,7 +240,7 @@ private:
     classDLLIST<CEffect*> m_LIST;
 
     short m_nFileEffectCNT;
-    t_HASHKEY* m_pHashKEY; /// FILE_EFFECT.STb ÀÇ ¸®½ºÆ®¸¦ À§ÇÑ ¹è¿­ÀÌ´Ù.
+    t_HASHKEY* m_pHashKEY; /// FILE_EFFECT.STb ì˜ ë¦¬ìŠ¤íŠ¸ë¥¼ ìœ„í•œ ë°°ì—´ì´ë‹¤.
 
 public:
     CEffectLIST(char* szFileEFFECT);

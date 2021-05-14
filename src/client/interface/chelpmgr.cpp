@@ -22,7 +22,7 @@ GetHelpFontColor(int i) {
     return g_TblHELP.get_int16(i, 3);
 }
 
-/// STB¿¡¼­ÀÇ ½Ã°£Àº ÃÊ´ÜÀ§ , ÇÁ·Î±×·¥¿¡¼­ »ç¿ëÇÏ´Â°ÍÀº ms´ÜÀ§
+/// STBì—ì„œì˜ ì‹œê°„ì€ ì´ˆë‹¨ìœ„ , í”„ë¡œê·¸ë¨ì—ì„œ ì‚¬ìš©í•˜ëŠ”ê²ƒì€ msë‹¨ìœ„
 inline short
 GetHelpContinueTime(int i) {
     return g_TblHELP.get_int16(i, 4) * 1000;
@@ -38,7 +38,7 @@ GetHelpTitle(int i) {
 }
 
 const short MaxFontColor = 8;
-const int ChangeTipTimeSpace = 5000; ///ÀÌ¹ø ¸Ş¼¼Áö°¡ ´Ù º¸ÀÌ°í ³ª¼­ ´ÙÀ½¸Ş¼¼Áö°¡ º¸ÀÏ¶§±îÁöÀÇ ½Ã°£
+const int ChangeTipTimeSpace = 5000; ///ì´ë²ˆ ë©”ì„¸ì§€ê°€ ë‹¤ ë³´ì´ê³  ë‚˜ì„œ ë‹¤ìŒë©”ì„¸ì§€ê°€ ë³´ì¼ë•Œê¹Œì§€ì˜ ì‹œê°„
 
 inline D3DCOLOR
 GetColor(short i) {
@@ -49,7 +49,7 @@ GetColor(short i) {
 
 CHelpMgr::CHelpMgr(void) {
     m_iPrevShowHelpID = 0;
-    m_dwSetMsgTimeSpace = 15000; /// 15ÃÊ °£°İÀ¸·Î »õ·Î¿î ¸Ş¼¼Áö¸¦ º¸³½´Ù.
+    m_dwSetMsgTimeSpace = 15000; /// 15ì´ˆ ê°„ê²©ìœ¼ë¡œ ìƒˆë¡œìš´ ë©”ì„¸ì§€ë¥¼ ë³´ë‚¸ë‹¤.
     m_dwSetMsgTime = g_GameDATA.GetGameTime();
     m_bShowTip = true;
 }
@@ -86,7 +86,7 @@ CHelpMgr::SetNextHelpMsg() {
         HNODE hFont = g_GameDATA.m_hFONT[FONT_NORMAL];
         D3DCOLOR color = GetColor(GetHelpFontColor(iNextShowHelpID));
 
-        // if( strcmp( szTitle, "[°øÁö]" ) == 0 )
+        // if( strcmp( szTitle, "[ê³µì§€]" ) == 0 )
         //{
         //	hFont = g_GameDATA.m_hFONT[ FONT_NORMAL_BOLD ];
         //	color = g_dwWHITE;
@@ -99,7 +99,7 @@ CHelpMgr::SetNextHelpMsg() {
                 GetHelpContinueTime(iNextShowHelpID),
                 hFont)) {
             m_iPrevShowHelpID = iNextShowHelpID;
-            ///´ÙÀ½ TipÀ» º¸¿©ÁÖ±â±îÁöÀÇ ½Ã°£
+            ///ë‹¤ìŒ Tipì„ ë³´ì—¬ì£¼ê¸°ê¹Œì§€ì˜ ì‹œê°„
             m_dwSetMsgTimeSpace = GetHelpContinueTime(iNextShowHelpID) + ChangeTipTimeSpace;
         }
     }
@@ -169,7 +169,7 @@ CHelpMgr::Update() {
         iLowestLv = GetHelpLowestLimitLv(i);
         iUpperLv = GetHelpUpperLimitLv(i);
 
-        ///¿¹¾àµÈ row: ¹«½ÃÇÑ´Ù.
+        ///ì˜ˆì•½ëœ row: ë¬´ì‹œí•œë‹¤.
         if (iLowestLv <= 0 || iUpperLv <= 0)
             continue;
 

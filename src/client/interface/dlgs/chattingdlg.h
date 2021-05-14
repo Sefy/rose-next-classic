@@ -12,13 +12,13 @@ struct ChatFilter {
 };
 
 /**
- * Ã¤ÆÃ ÀÔ/Ãâ·ÂÀ» À§ÇÑ ´ÙÀÌ¾ó·Î±×
- *	- Ã¤ÆÃ¸í·É¾î( ¿ÜÄ¡±âµî )´Â 2¹ÙÀÌÆ®¹®ÀÚ¿¡¼­µµ µ¿ÀÛ°¡´ÉÇÏµµ·Ï À¯´ÏÄÚµå·Î 2°³¸¦ ÀúÀå
- *	- GM¸í·É¾îÁß Ã¤ÆÃ±İÁö ±â´É ±¸Çö( Å¬¶óÀÌ¾ğÆ®¿¡¼­¸¸ ±¸ÇöµÇ¾î ÀÖÀ¸¸é Àç Á¢¼Ó½Ã ÇØ´ç ±â´ÉÁ¤Áö )
+ * ì±„íŒ… ì…/ì¶œë ¥ì„ ìœ„í•œ ë‹¤ì´ì–¼ë¡œê·¸
+ *	- ì±„íŒ…ëª…ë ¹ì–´( ì™¸ì¹˜ê¸°ë“± )ëŠ” 2ë°”ì´íŠ¸ë¬¸ìì—ì„œë„ ë™ì‘ê°€ëŠ¥í•˜ë„ë¡ ìœ ë‹ˆì½”ë“œë¡œ 2ê°œë¥¼ ì €ì¥
+ *	- GMëª…ë ¹ì–´ì¤‘ ì±„íŒ…ê¸ˆì§€ ê¸°ëŠ¥ êµ¬í˜„( í´ë¼ì´ì–¸íŠ¸ì—ì„œë§Œ êµ¬í˜„ë˜ì–´ ìˆìœ¼ë©´ ì¬ ì ‘ì†ì‹œ í•´ë‹¹ ê¸°ëŠ¥ì •ì§€ )
  *
- * @Todo			GM¸í·É¾îÁß Ã¤ÆÃ±İÁö±â´ÉÀ» ¼­¹ö¿¡¼­ ±¸ÇöÇÏ°Å³ª ÀúÀåÈÄ ´Ù½Ã °¡Á®¿À´Â ¹æ½ÄÀ¸·Î ¼öÁ¤
- *ÇÊ¿ä
- * @Author		ÃÖÁ¾Áø
+ * @Todo			GMëª…ë ¹ì–´ì¤‘ ì±„íŒ…ê¸ˆì§€ê¸°ëŠ¥ì„ ì„œë²„ì—ì„œ êµ¬í˜„í•˜ê±°ë‚˜ ì €ì¥í›„ ë‹¤ì‹œ ê°€ì ¸ì˜¤ëŠ” ë°©ì‹ìœ¼ë¡œ ìˆ˜ì •
+ *í•„ìš”
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CChatDLG: public CTDialog, public IActionListener {
@@ -90,8 +90,8 @@ public:
     void AppendMsg2(const char* pszMsg, DWORD color, int iType);
     void AppendMsg2System(const char* pszMsg, DWORD color);
     void SendChatMsgRepeat();
-    void SetEnableShoutRestrict(); /// ¿ÜÄ¡±â ½Ã°£ Á¦ÇÑ ¼³Á¤
-    void SetDisableShoutRestrict(); /// ¿ÜÄ¡±â ½Ã°£ Á¦ÇÑ ¾ø¾Ú
+    void SetEnableShoutRestrict(); /// ì™¸ì¹˜ê¸° ì‹œê°„ ì œí•œ ì„¤ì •
+    void SetDisableShoutRestrict(); /// ì™¸ì¹˜ê¸° ì‹œê°„ ì œí•œ ì—†ì•°
 
     int GetLineCount();
     const char* GetLineString(int index);
@@ -135,32 +135,32 @@ protected:
     void ActiveListBoxMoveEnd();
 
 protected:
-    /// µµ¹è ±İÁö ±â´É¿¡ »ç¿ëµÇ´Â ¸â¹öµé
+    /// ë„ë°° ê¸ˆì§€ ê¸°ëŠ¥ì— ì‚¬ìš©ë˜ëŠ” ë©¤ë²„ë“¤
     queue<DWORD> m_PrevSendMessageTimes;
     int m_iCheckChatCount; /// 3
     DWORD m_dwCheckChatTime; /// 5 * 1000
 
-    /// GM¸í·É¾îÁß Ã¤ÆÃ±İÁö¿¡ »ç¿ëµÇ´Â ¸â¹öµé
+    /// GMëª…ë ¹ì–´ì¤‘ ì±„íŒ…ê¸ˆì§€ì— ì‚¬ìš©ë˜ëŠ” ë©¤ë²„ë“¤
     bool m_bChatBlock;
     DWORD m_dwChatBlockStartTime;
     DWORD m_dwChatBlockTime;
 
-    /// ¿ÜÄ¡±â ½Ã°£ Á¦ÇÑ¿¡ »ç¿ëµÇ´Â ¸â¹ö
+    /// ì™¸ì¹˜ê¸° ì‹œê°„ ì œí•œì— ì‚¬ìš©ë˜ëŠ” ë©¤ë²„
     bool m_bCheckShoutRestrict;
     DWORD m_dwShoutRestrictTime;
     DWORD m_dwPrevUseShoutTime;
 
-    // DWORD   m_dwChatRestrictTime;	///»ç¿ë¾ÈÇÔ
-    // DWORD   m_dwPrevSendChatTime; ///»ç¿ë¾ÈÇÔ
+    // DWORD   m_dwChatRestrictTime;	///ì‚¬ìš©ì•ˆí•¨
+    // DWORD   m_dwPrevSendChatTime; ///ì‚¬ìš©ì•ˆí•¨
 
-    std::string m_strLastSendMsg; /// ¸¶Áö¸· ¼­¹ö¿¡ º¸³½ ÀÔ·Â±Û ÀúÀå
-    int m_iSelectedTab; /// ÇöÀç ÅÇ ±¸ºĞ
+    std::string m_strLastSendMsg; /// ë§ˆì§€ë§‰ ì„œë²„ì— ë³´ë‚¸ ì…ë ¥ê¸€ ì €ì¥
+    int m_iSelectedTab; /// í˜„ì¬ íƒ­ êµ¬ë¶„
 
-    short m_nChatLineCNT; /// Ã¤ÆÃ ¶óÀÎ¼ö
+    short m_nChatLineCNT; /// ì±„íŒ… ë¼ì¸ìˆ˜
 
     vector<ChatFilter> m_Filters;
 
-    /// ´Ù±¹¾î Áö¿ø¿ë : 2¹ÙÀÌÆ®¹®ÀÚ¿¡¼­µµ µ¿ÀÛÇÒ¼ö ÀÖµµ·Ï À¯´ÏÄÚµå·Î µî·Ï
+    /// ë‹¤êµ­ì–´ ì§€ì›ìš© : 2ë°”ì´íŠ¸ë¬¸ìì—ì„œë„ ë™ì‘í• ìˆ˜ ìˆë„ë¡ ìœ ë‹ˆì½”ë“œë¡œ ë“±ë¡
     std::vector<std::wstring> m_ShoutCommands;
     std::vector<std::wstring> m_TradeCommands;
     std::vector<std::wstring> m_WhisperCommands;

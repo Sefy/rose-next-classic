@@ -57,7 +57,7 @@ CTButton::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
 
     POINT ptMouse = {LOWORD(lParam), HIWORD(lParam)};
 
-    //¿µ¿ª¾È¿¡ ÀÖ´ÂÁö Ã¼Å©
+    //ì˜ì—­ì•ˆì— ìˆëŠ”ì§€ ì²´í¬
     if (!IsInside(ptMouse.x, ptMouse.y)) {
         //		m_iButtonState = BS_NORMAL;
         return 0;
@@ -129,7 +129,7 @@ CTButton::Update(POINT ptMouse) {
             m_dwPrevUpdateTime = dwCurrTime;
         }
     }
-    /// Parent Dlg°ú ÀÖ°í MouseOver¸¦ Ã³¸®ÇÑ Dialog°¡ ÀÖÀ»°æ¿ì
+    /// Parent Dlgê³¼ ìˆê³  MouseOverë¥¼ ì²˜ë¦¬í•œ Dialogê°€ ìˆì„ê²½ìš°
     if (m_pParent && CTDialog::GetProcessMouseOverDialog()) {
         if ((CWinCtrl*)CTDialog::GetProcessMouseOverDialog() != m_pParent)
             return;
@@ -141,7 +141,7 @@ CTButton::Update(POINT ptMouse) {
     } else {
         if (m_iButtonState != BS_MOUSEOVER && m_iButtonState != BS_CLICKED && !IsExclusive()
             && !IsProcessMouseOver()) {
-            /// Disalbe»óÅÂ¿¡¼­µµ µ¿ÀÛÇÏÀÚ
+            /// Disalbeìƒíƒœì—ì„œë„ ë™ì‘í•˜ì
             SetProcessMouseOverCtrl(this);
             SetProcessMouseOver(true);
             if (IsEnable()) {

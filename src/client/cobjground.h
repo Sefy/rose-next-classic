@@ -7,7 +7,7 @@
 #include "citem.h"
 
 ///
-/// ÇÊµå ¾ÆÀÌÅÛ...
+/// í•„ë“œ ì•„ì´í…œ...
 ///
 
 class CObjITEM: public CObjFIXED {
@@ -59,7 +59,7 @@ public:
 };
 
 ///
-/// ³ª¹«, Ç®, ¹ÙÀ§...
+/// ë‚˜ë¬´, í’€, ë°”ìœ„...
 ///
 
 class CObjTREE: public CObjFIXED {
@@ -88,7 +88,7 @@ public:
 };
 
 ///
-/// °Ç¹°
+/// ê±´ë¬¼
 ///
 
 class CObjCNST: public CObjFIXED {

@@ -5,7 +5,7 @@
 /**
  * Normal Interface(IT_MGR) State
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  *
  * @Date			2005/9/6
  */

@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	CRegenArea.h
- * \brief	¸÷ÀÌ Ãâ¸ôÇÏ´Â ¸®Á¨ Æ÷ÀÎÆ® °ü¸®
+ * \brief	ëª¹ì´ ì¶œëª°í•˜ëŠ” ë¦¬ì   í¬ì¸íŠ¸ ê´€ë¦¬
  */
 #ifndef __CRegenAREA_H
 #define __CRegenAREA_H
@@ -21,7 +21,7 @@ struct tagREGENMOB {
  * \ingroup SHO_GS_LIB
  * \class	CRegenPOINT
  * \author	wookSang.Jo
- * \brief	Á¸ÆÄÀÏ¿¡¼­ ¼³Á¤µÈ ¸÷ÀÌ ÃâÇö Ã³¸® Å¬·¡½º
+ * \brief	ì¡´íŒŒì¼ì—ì„œ ì„¤ì •ëœ ëª¹ì´ ì¶œí˜„ ì²˜ë¦¬ í´ëž˜ìŠ¤
  */
 class CRegenPOINT {
     // private:
@@ -42,10 +42,10 @@ public:
 
     int m_iInterval;
     int m_iLimitCNT;
-    int m_iTacticsPOINT; // Àü¼úP ÁÖ±â
+    int m_iTacticsPOINT; // ì „ìˆ P ì£¼ê¸°
 
     int m_iLiveCNT;
-    int m_iCurTactics; // ÇöÀç Àü¼úP
+    int m_iCurTactics; // í˜„ìž¬ ì „ìˆ P
     //#ifdef	_DEBUG
     //	int			m_iLastCurTactics;
     //#endif
@@ -80,7 +80,7 @@ public:
 
     void AddLiveCNT() { m_iLiveCNT++; }
     void SubLiveCNT() {
-        // °­Á¦ ÃÊ±âÈ­ÇÒ°æ¿ì - °ªÀÌ µÉ¼ö ÀÖ´Ù.
+        // ê°•ì œ ì´ˆê¸°í™”í• ê²½ìš° - ê°’ì´ ë ìˆ˜ ìžˆë‹¤.
         if (m_iLiveCNT > 0)
             m_iLiveCNT--;
     }

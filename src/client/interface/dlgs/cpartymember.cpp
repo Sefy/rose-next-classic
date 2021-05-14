@@ -15,7 +15,7 @@
 
 const int g_PartyTooFarDistance = 40 * 100;
 
-///ÀüÃ¼ ¹Ú½ºÀÇ Left-Top¿¡¼­ÀÇ °Å¸®
+///ì „ì²´ ë°•ìŠ¤ì˜ Left-Topì—ì„œì˜ ê±°ë¦¬
 const POINT g_ptOffsetHpGuage = {7, 22};
 
 CPartyMember::CPartyMember(void) {
@@ -31,7 +31,7 @@ CPartyMember::~CPartyMember(void) {
     m_listStatusIcon.clear();
 }
 
-///Á÷¾÷º° ÀÎµ¦½ºÀÇ °ªÀÌ Define µÈ°÷ Ã£±â
+///ì§ì—…ë³„ ì¸ë±ìŠ¤ì˜ ê°’ì´ Define ëœê³³ ì°¾ê¸°
 CPartyMember::CPartyMember(DWORD dwObjectTag, WORD wObjSvrIdx, const char* pszName) {
     assert(pszName);
     if (pszName == NULL)
@@ -55,19 +55,19 @@ CPartyMember::Draw() {
         g_pObjMGR->Get_CharAVT(g_pObjMGR->Get_ClientObjectIndex(m_wObjSvrIdx), false);
 
     D3DCOLOR color = D3DCOLOR_RGBA(255, 255, 255, 255);
-    if (pObjAVT == NULL) ///°°Àº Á¸¿¡ ¾ø´Ù¸é
+    if (pObjAVT == NULL) ///ê°™ì€ ì¡´ì— ì—†ë‹¤ë©´
     {
         color = D3DCOLOR_RGBA(170, 128, 128, 255);
-    } else ///°°Àº Á¸¿¡ ÀÖÁö¸¸ ¸Ö´Ù¸é
+    } else ///ê°™ì€ ì¡´ì— ìˆì§€ë§Œ ë©€ë‹¤ë©´
     {
         if (g_pAVATAR->Get_DISTANCE(pObjAVT) >= g_PartyTooFarDistance)
             color = D3DCOLOR_RGBA(170, 128, 128, 255);
     }
 
-    /// ¼±ÅÃ Å×µÎ¸®
+    /// ì„ íƒ í…Œë‘ë¦¬
     for_each(m_listStatusIcon.begin(), m_listStatusIcon.end(), [](auto i) { i.Draw(); });
 
-    /// ÀÌ¸§
+    /// ì´ë¦„
     D3DXMATRIX mat;
     D3DXMatrixTranslation(&mat, (float)m_rcThis.left, (float)m_rcThis.top, 0.0f);
     ::setTransformSprite(mat);
@@ -152,7 +152,7 @@ CPartyMember::SetPosition(POINT pt) {
     m_rcThis.right = m_rcThis.left + m_iWidth;
     m_rcThis.bottom = m_rcThis.top + m_iHeight;
 
-    ///ÀÏÁ¤ °£°İÀ¸·Î ¾ó±¼»çÁø ¾Æ·¡¼­ºÎÅÍ ¿ŞÂÊÀ¸·Î »óÅÂ ¾ÆÀÌÄÜÀÇ À§Ä¡¸¦ ÀçÁ¤ÀÇÇØÁØ´Ù.
+    ///ì¼ì • ê°„ê²©ìœ¼ë¡œ ì–¼êµ´ì‚¬ì§„ ì•„ë˜ì„œë¶€í„° ì™¼ìª½ìœ¼ë¡œ ìƒíƒœ ì•„ì´ì½˜ì˜ ìœ„ì¹˜ë¥¼ ì¬ì •ì˜í•´ì¤€ë‹¤.
     ResetStatusIconsPosition();
 }
 

@@ -4,7 +4,7 @@
 
 class CTObject;
 
-/// Å¬¶óÀÌ¾ğÆ® Á¾·á
+/// í´ë¼ì´ì–¸íŠ¸ ì¢…ë£Œ
 class CTCmdExit: public CTCommand {
 public:
     CTCmdExit(void);
@@ -12,7 +12,7 @@ public:
     virtual bool Exec(CTObject*);
 };
 
-/// ¼­¹ö µğ½ºÄÁ³ØÆ® ½Ã Àç·Î±×ÀÎ( __SRVDISCONNECTRELOGIN ÀüÃ³¸®±â°¡ ¼±¾ğµÇ¾îÀÖÀ» °æ¿ì¸¸ ÀÛµ¿)
+/// ì„œë²„ ë””ìŠ¤ì»¨ë„¥íŠ¸ ì‹œ ì¬ë¡œê·¸ì¸( __SRVDISCONNECTRELOGIN ì „ì²˜ë¦¬ê¸°ê°€ ì„ ì–¸ë˜ì–´ìˆì„ ê²½ìš°ë§Œ ì‘ë™)
 class CTCmdReLogin: public CTCommand {
 public:
     CTCmdReLogin(void);
@@ -20,7 +20,7 @@ public:
     virtual bool Exec(CTObject*);
 };
 
-/// Æ¯Á¤ Dialog ´İ±â
+/// íŠ¹ì • Dialog ë‹«ê¸°
 class CTCmdHideDialog: public CTCommand {
 public:
     CTCmdHideDialog(void) {}
@@ -32,7 +32,7 @@ protected:
     int m_iDialogID;
 };
 
-/// NPC»óÁ¡¿¡¼­ÀÇ °Å·¡ Á¾·á
+/// NPCìƒì ì—ì„œì˜ ê±°ë˜ ì¢…ë£Œ
 class CTCmdCloseStore: public CTCommand {
 public:
     CTCmdCloseStore(void) {}
@@ -40,7 +40,7 @@ public:
     virtual bool Exec(CTObject*);
 };
 
-/// 1:1 °Å·¡ ¿äÃ» ½Â³«
+/// 1:1 ê±°ë˜ ìš”ì²­ ìŠ¹ë‚™
 class CTCmdAcceptTradeReq: public CTCommand {
 public:
     CTCmdAcceptTradeReq(void) {}
@@ -52,7 +52,7 @@ protected:
     WORD m_wReqServerObjectIdx;
 };
 
-/// 1:1 °Å·¡ ¿äÃ» °ÅºÎ
+/// 1:1 ê±°ë˜ ìš”ì²­ ê±°ë¶€
 class CTCmdRejectTradeReq: public CTCommand {
 public:
     CTCmdRejectTradeReq(void) {}
@@ -64,7 +64,7 @@ protected:
     WORD m_wReqServerObjectIdx;
 };
 
-/// ÆÄÆ¼ ¿äÃ»À» ÇÑ´Ù.
+/// íŒŒí‹° ìš”ì²­ì„ í•œë‹¤.
 class CTCmdSendPacketPartyReq: public CTCommand {
 public:
     CTCmdSendPacketPartyReq(void) {}
@@ -80,7 +80,7 @@ protected:
     DWORD m_dwObjectIDXorTAG;
 };
 
-/// ÆÄÆ¼ ¿äÃ»¿¡ ´ëÇÑ ÀÀ´äÀ» º¸³½´Ù.
+/// íŒŒí‹° ìš”ì²­ì— ëŒ€í•œ ì‘ë‹µì„ ë³´ë‚¸ë‹¤.
 class CTCmdSendPacketPartyReply: public CTCommand {
 public:
     CTCmdSendPacketPartyReply(void) {}
@@ -96,7 +96,7 @@ protected:
     WORD m_wObjSvrIdx;
 };
 
-/// ÆÄÆ¼ ÃÊ´ë ½Â³«
+/// íŒŒí‹° ì´ˆëŒ€ ìŠ¹ë‚™
 class CTCmdAcceptPartyJoin: public CTCommand {
 public:
     CTCmdAcceptPartyJoin(void) {}
@@ -108,7 +108,7 @@ protected:
     WORD m_wDestObjSvrIdx;
 };
 
-/// ÆÄÆ¼ ÃÊ´ë °ÅºÎ
+/// íŒŒí‹° ì´ˆëŒ€ ê±°ë¶€
 class CTCmdRejectPartyJoin: public CTCommand {
 public:
     CTCmdRejectPartyJoin(void) {}
@@ -120,7 +120,7 @@ protected:
     WORD m_wDestObjSvrIdx;
 };
 
-/// Á¦Á¶ DialogÀÇ »óÅÂ º¯°æ
+/// ì œì¡° Dialogì˜ ìƒíƒœ ë³€ê²½
 class CTCmdChangeState: public CTCommand {
 public:
     CTCmdChangeState(int i) { m_iState = i; }
@@ -131,7 +131,7 @@ protected:
     int m_iState;
 };
 
-/// ÆÄÆ¼¸¦ ¶°³­´Ù.
+/// íŒŒí‹°ë¥¼ ë– ë‚œë‹¤.
 class CTCmdLeaveParty: public CTCommand {
 public:
     CTCmdLeaveParty(void) {}
@@ -139,7 +139,7 @@ public:
     virtual bool Exec(CTObject*);
 };
 
-// 2ÀÎ½Â Ä«Æ®
+// 2ì¸ìŠ¹ ì¹´íŠ¸
 class CTCmdAcceptCartRide: public CTCommand {
 public:
     CTCmdAcceptCartRide(void) {}
@@ -155,7 +155,7 @@ protected:
     WORD m_wGuestIDX;
 };
 
-// 2ÀÎ½Â Ä«Æ®
+// 2ì¸ìŠ¹ ì¹´íŠ¸
 class CTCmdRejectCartRide: public CTCommand {
 public:
     CTCmdRejectCartRide(void) {}

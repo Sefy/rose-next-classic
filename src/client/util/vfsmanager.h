@@ -31,9 +31,9 @@ public:
     void SetVFS(VHANDLE pVFile) { m_hVFile = pVFile; };
     VHANDLE GetVFS() { return m_hVFile; };
 
-    bool InitVFS(int iVFSType, int iReserveCount = 10); /// ¸ğµç ÀÚ¿ø ÃÊ±âÈ­
+    bool InitVFS(int iVFSType, int iReserveCount = 10); /// ëª¨ë“  ìì› ì´ˆê¸°í™”
     CFileSystem* GetNewFileSystem(int iVFSType);
-    void ReleaseAll(); /// ¸ğµç ÀÚ¿ø ÇØÁ¦
+    void ReleaseAll(); /// ëª¨ë“  ìì› í•´ì œ
 
     CFileSystem* GetFileSystem();
     void ReturnToManager(CFileSystem* pFileSystem);

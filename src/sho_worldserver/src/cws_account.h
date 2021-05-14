@@ -41,7 +41,7 @@ public:
         m_btLoginBIT |= BIT_LOGIN_WS;
     }
     void Add_GSBit(DWORD dwGSID) {
-        // GSø°º≠ ¿Œ¡ı ø‰√ªø¿∏È ...
+        // GSÏóêÏÑú Ïù∏Ï¶ù ÏöîÏ≤≠Ïò§Î©¥ ...
         m_dwGSID = dwGSID;
         m_btLoginBIT |= BIT_LOGIN_GS;
     }

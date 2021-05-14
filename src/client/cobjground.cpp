@@ -76,7 +76,7 @@ CObjITEM::CreateAnimatable() {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief m_hDummyPosition ÀÌ ÃÖ»óÀÇ ³ëµåÀÓ
+/// @brief m_hDummyPosition ì´ ìµœìƒì˜ ë…¸ë“œìž„
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -90,7 +90,7 @@ CObjITEM::InsertToScene(void) {
         ::linkNode(m_hDummyPosition, m_hAnimatable);
 
         //----------------------------------------------------------------------------------------------------
-        /// @brief CHILDÀÇInsertToSceneÁ¦°Å
+        /// @brief CHILDì˜InsertToSceneì œê±°
         //----------------------------------------------------------------------------------------------------
         //::insertToScene( m_hDummyPosition );		// CObjGROUND::RegisterToEZIN
         //::insertToScene( m_hAnimatable );		// CObjGROUND::RegisterToEZIN
@@ -101,7 +101,7 @@ CObjITEM::InsertToScene(void) {
     }
 
     //----------------------------------------------------------------------------------------------------
-    /// @brief CHILDÀÇInsertToSceneÁ¦°Å
+    /// @brief CHILDì˜InsertToSceneì œê±°
     //----------------------------------------------------------------------------------------------------
     ::insertToScene(m_hDummyPosition); // CObjGROUND::RegisterToEZIN
     //::insertToScene( m_hAnimatable );		// CObjGROUND::RegisterToEZIN
@@ -111,7 +111,7 @@ CObjITEM::InsertToScene(void) {
 void
 CObjITEM::RemoveFromScene(bool bIncludeEFFECT) {
     //----------------------------------------------------------------------------------------------------
-    /// @brief CHILDÀÇRemoveToSceneÁ¦°Å
+    /// @brief CHILDì˜RemoveToSceneì œê±°
     //----------------------------------------------------------------------------------------------------
     if (m_hDummyPosition)
         ::removeFromScene(m_hDummyPosition);
@@ -147,12 +147,12 @@ CObjITEM::Get_NAME() {
     if (m_ITEM.GetTYPE() >= 1 && m_ITEM.GetTYPE() < ITEM_TYPE_MONEY)
         return (char*)ITEM_NAME(m_ITEM.GetTYPE(), m_ITEM.GetItemNO());
 
-    return CStr::Printf("%s", "¾Ë¼ö ¾ø´Â ¾ÆÀÌÅÛ");
+    return CStr::Printf("%s", "ì•Œìˆ˜ ì—†ëŠ” ì•„ì´í…œ");
 }
 
 int
 CObjITEM::Proc() {
-    if (::inViewfrustum(m_hDummyPosition)) // ºäÇÁ·¯½ºÅÒ ¾È¿¡ ÀÖÀ¸¸é Âü, ¾øÀ¸¸é °ÅÁþ
+    if (::inViewfrustum(m_hDummyPosition)) // ë·°í”„ëŸ¬ìŠ¤í…€ ì•ˆì— ìžˆìœ¼ë©´ ì°¸, ì—†ìœ¼ë©´ ê±°ì§“
     {
         g_pViewMSG->AddItemToInfoView(this);
     }

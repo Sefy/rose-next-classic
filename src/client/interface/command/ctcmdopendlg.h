@@ -7,7 +7,7 @@ class CTCmdNumberInput;
 class CTDialog;
 class CIcon;
 
-/// ÇöÀç »ç¿ë¾ÈÇÏ°í ÀÖ´Ù.
+/// í˜„ì¬ ì‚¬ìš©ì•ˆí•˜ê³  ìˆë‹¤.
 class CTCmdOpenDlg: public CTCommand {
 public:
     CTCmdOpenDlg(void);
@@ -24,13 +24,13 @@ protected:
 
 struct CreateMsgBoxData {
     bool bModal; /// Modal/Modeless
-    int iMsgType; ///Áßº¹ÀÌ ºÒ°¡´ÉÇÒ°æ¿ì
+    int iMsgType; ///ì¤‘ë³µì´ ë¶ˆê°€ëŠ¥í• ê²½ìš°
     int iButtonType;
     int iInvokerDlgID;
     CTCommand* pCmdOk;
     CTCommand* pCmdCancel;
     std::string strMsg;
-    std::list<CIcon*> m_Icons; ///¸Ş¼¼Áö ¹Ú½º¿¡ ¾ÆÀÌÄÜÀ» ±×¸®±â ¿øÇÒ¶§ »ç¿ë
+    std::list<CIcon*> m_Icons; ///ë©”ì„¸ì§€ ë°•ìŠ¤ì— ì•„ì´ì½˜ì„ ê·¸ë¦¬ê¸° ì›í• ë•Œ ì‚¬ìš©
 
     WORD parm1;
     WORD parm2;
@@ -49,7 +49,7 @@ struct CreateMsgBoxData {
     }
 };
 
-/// ¸Ş¼¼Áö ¹Ú½º »ı¼º¹× ¿ÀÇÂ
+/// ë©”ì„¸ì§€ ë°•ìŠ¤ ìƒì„±ë° ì˜¤í”ˆ
 class CTCmdCreateMsgBox: public CTCommand {
 public:
     CTCmdCreateMsgBox(CreateMsgBoxData& Data);
@@ -60,7 +60,7 @@ public:
 protected:
     CreateMsgBoxData m_Data;
 };
-/// ¸Ş¼¼Áö ¹Ú½º »èÁ¦
+/// ë©”ì„¸ì§€ ë°•ìŠ¤ ì‚­ì œ
 class CTCmdDeleteMsgBox: public CTCommand {
 public:
     CTCmdDeleteMsgBox(CTDialog* pDlg);
@@ -70,7 +70,7 @@ public:
 protected:
     CTDialog* m_pDialog;
 };
-/// 1:1 ´ëÈ­Ã¢ »ı¼º¹× ¿ÀÇÂ
+/// 1:1 ëŒ€í™”ì°½ ìƒì„±ë° ì˜¤í”ˆ
 class CTCmdOpenPrivateChatDlg: public CTCommand {
 public:
     CTCmdOpenPrivateChatDlg(DWORD dwUserTag, BYTE btStatus, const char* pszName);
@@ -83,7 +83,7 @@ protected:
     std::string m_strName;
 };
 
-/// 1:1 ´ëÈ­Ã¢ »èÁ¦
+/// 1:1 ëŒ€í™”ì°½ ì‚­ì œ
 class CTCmdClosePrivateChatDlg: public CTCommand {
 public:
     CTCmdClosePrivateChatDlg(DWORD dwUserTag);

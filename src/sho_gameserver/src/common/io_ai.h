@@ -3,7 +3,7 @@
  *
  * \file	IO_AI.h
  *
- * \brief	ÀüÃ¼ ÀÎ°øÁö´É µ¥ÀÌÅ¸ º¸°ü¹× Ã³¸®
+ * \brief	ì „ì²´ ì¸ê³µì§€ëŠ¥ ë°ì´íƒ€ ë³´ê´€ë° ì²˜ë¦¬
  *
  * \todo
  *
@@ -21,7 +21,7 @@
  * \ingroup SHO_GS_LIB
  * \class	CAI_LIST
  * \author	wookSang.Jo
- * \brief	ÀüÃ¼ ÀÎ°øÁö´É µ¥ÀÌÅ¸ º¸°ü¹× Ã³¸® Å¬·¡½º
+ * \brief	ì „ì²´ ì¸ê³µì§€ëŠ¥ ë°ì´íƒ€ ë³´ê´€ë° ì²˜ë¦¬ í´ëž˜ìŠ¤
  */
 class CAI_LIST {
 private:

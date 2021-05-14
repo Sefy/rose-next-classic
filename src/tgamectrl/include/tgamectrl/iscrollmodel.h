@@ -4,47 +4,47 @@
 #include <crtdbg.h>
 
 //-------------------------------------------------------------------------------------------
-/// ScrollÀ» ºÙÀÌ±â ¿øÇÏ´Â Å¬·¡½º°¡ ImplementÇØ¾ßÇÏ´Â Inteface
-///		- Extent : ÇÑ È­¸é¿¡¼­ º¸¿©Áú ItemÀÇ °³¼ö
+/// Scrollì„ ë¶™ì´ê¸° ì›í•˜ëŠ” í´ë˜ìŠ¤ê°€ Implementí•´ì•¼í•˜ëŠ” Inteface
+///		- Extent : í•œ í™”ë©´ì—ì„œ ë³´ì—¬ì§ˆ Itemì˜ ê°œìˆ˜
 ///
 ///
-/// @Author				ÃÖÁ¾Áø
+/// @Author				ìµœì¢…ì§„
 /// @Date				2003/11/26
 //-------------------------------------------------------------------------------------------
 
 class TGAMECTRL_API IScrollModel {
 public:
-    /// ÇöÀç È­¸é¿¡¼­ Á¦ÀÏ À§¿¡ ±×·ÁÁú ItemÀÇ ÀÎµ¦½º ¸®ÅÏ
+    /// í˜„ì¬ í™”ë©´ì—ì„œ ì œì¼ ìœ„ì— ê·¸ë ¤ì§ˆ Itemì˜ ì¸ë±ìŠ¤ ë¦¬í„´
     virtual int GetValue() = 0; /*{ _ASSERT(0 && "IScrollModel::GetValue")		; return 0; }*/
     ;
 
-    /// È­¸é¿¡ ÇÑ¹ø¿¡ º¸¿©Áú ItemÀÇ °³¼ö ¸®ÅÏ
+    /// í™”ë©´ì— í•œë²ˆì— ë³´ì—¬ì§ˆ Itemì˜ ê°œìˆ˜ ë¦¬í„´
     virtual int GetExtent() = 0; /*{ _ASSERT(0 && "IScrollModel::GetExtent")	; return 0; }*/
     ;
 
-    /// ÀÇ¹Ì»óÀ¸·Î´Â ÃÖ´ëItemÀÇ °³¼öÀÌÁö¸¸ ½ÇÁ¦ÀûÀ¸·Î´Â ÇöÀç ItemÀÇ ¼ö¸¦ ¸®ÅÏÇÏ°í ÀÖ´Ù.
+    /// ì˜ë¯¸ìƒìœ¼ë¡œëŠ” ìµœëŒ€Itemì˜ ê°œìˆ˜ì´ì§€ë§Œ ì‹¤ì œì ìœ¼ë¡œëŠ” í˜„ì¬ Itemì˜ ìˆ˜ë¥¼ ë¦¬í„´í•˜ê³  ìˆë‹¤.
     virtual int GetMaximum() = 0; /*{ _ASSERT(0 && "IScrollModel::GetMaximum")	; return 0; };*/
 
-    /// CTreeÀÌ¿Ü¿¡´Â ¸ğµÎ return 0;
+    /// CTreeì´ì™¸ì—ëŠ” ëª¨ë‘ return 0;
     virtual int GetMinimum() = 0; /*{ _ASSERT(0 && "IScrollModel::GetMinimum")	; return 0; };*/
 
-    /// ÇöÀç È­¸é¿¡¼­ Á¦ÀÏ À§¿¡ ±×·ÁÁú Item º¯°æ
+    /// í˜„ì¬ í™”ë©´ì—ì„œ ì œì¼ ìœ„ì— ê·¸ë ¤ì§ˆ Item ë³€ê²½
     virtual void SetValue(int) = 0; /*{ _ASSERT(0 && "IScrollModel::SetValue");	};*/
 
     /// Set Extent
     virtual void SetExtent(int) = 0; /*{ _ASSERT(0 && "IScrollModel::SetExtent");	};*/
 
-    /// °ÅÀÇ ±¸ÇöÇÏÁö ¾Ê°í ÀÖ´Ù.
+    /// ê±°ì˜ êµ¬í˜„í•˜ì§€ ì•Šê³  ìˆë‹¤.
     virtual void SetMaximum(int) = 0; /*{ _ASSERT(0 && "IScrollModel::SetMaximum");};*/
 
-    /// À¯¸í¹«½Ç
+    /// ìœ ëª…ë¬´ì‹¤
     virtual void SetMinimum(int) = 0; /* { _ASSERT(0 && "IScrollModel::SetMinimum");};*/
 
-    /// ScrollBox¿¡¼­ ÈÙ¹× »ç¿ëÀÚ Ã³¸®¸¦ ÇÏ±â À§ÇÏ¿© ModelÀÇ È­¸é»ó ¿µ¿ªÀÌ ÇÊ¿äÇÏ´Ù
+    /// ScrollBoxì—ì„œ íœ ë° ì‚¬ìš©ì ì²˜ë¦¬ë¥¼ í•˜ê¸° ìœ„í•˜ì—¬ Modelì˜ í™”ë©´ìƒ ì˜ì—­ì´ í•„ìš”í•˜ë‹¤
     virtual RECT GetWindowRect() = 0; /*{ _ASSERT( 0 && "IScrollModel::GetWindowRect"); RECT rc =
                                          {0,0,0,0}; return rc; };*/
 
-    /// ¸¶Áö¸· ¾ÆÀÌÅÛÀÌ ±×·ÁÁø ÀûÀÌ ÀÖ´Â°¡?
+    /// ë§ˆì§€ë§‰ ì•„ì´í…œì´ ê·¸ë ¤ì§„ ì ì´ ìˆëŠ”ê°€?
     virtual bool IsLastItemDrawn() { return true; }
 };
 #endif

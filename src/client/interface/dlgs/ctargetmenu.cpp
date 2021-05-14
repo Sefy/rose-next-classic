@@ -92,19 +92,19 @@ CTargetMenu::OnLButtonUp(unsigned iProcID) {
                             break;*/
 
             /// REMARK REMOVE TEST CODE
-            ///·¹º§Â÷°¡ ³Ê¹« Å¬°æ¿ì
+            ///ë ˆë²¨ì°¨ê°€ ë„ˆë¬´ í´ê²½ìš°
             /*				if( abs(pObjChar->Get_LEVEL() - g_pAVATAR->Get_LEVEL()) > 5 )
                             {
                                 char szBuf[256];
-                                sprintf( szBuf,"%s´ÔÀº ·¹º§ÀÌ ¸ÂÁö ¾Ê¾Æ ÆÄÆ¼¿¡ µé¾î¿Ã ¼ö ¾ø½À´Ï´Ù",
+                                sprintf( szBuf,"%së‹˜ì€ ë ˆë²¨ì´ ë§žì§€ ì•Šì•„ íŒŒí‹°ì— ë“¤ì–´ì˜¬ ìˆ˜ ì—†ìŠµë‹ˆë‹¤",
                pObjChar->Get_NAME()); g_itMGR.AppendChatMsg( szBuf, g_dwWHITE );
                             }
-                        //	else /// ·¹º§Â÷°¡ Àû´çÇÒ °æ¿ì */
+                        //	else /// ë ˆë²¨ì°¨ê°€ ì ë‹¹í•  ê²½ìš° */
             //	{
             if (CParty::GetInstance().HasParty()) {
-                ///ÆÄÆ¼ ÃÊ´ë
+                ///íŒŒí‹° ì´ˆëŒ€
                 if (CParty::GetInstance().IsPartyLeader()) {
-                    ///ÆÄÆ¼ Ç®
+                    ///íŒŒí‹° í’€
                     if (CParty::GetInstance().IsPartyFull())
                         g_itMGR.AppendChatMsg(STR_PARTY_IS_FULL, IT_MGR::CHAT_TYPE_SYSTEM);
                     else
@@ -115,7 +115,7 @@ CTargetMenu::OnLButtonUp(unsigned iProcID) {
                     g_itMGR.AppendChatMsg(STR_CANT_INVITE_TO_PARTY, IT_MGR::CHAT_TYPE_SYSTEM);
                 }
             } else {
-                ///ÆÄÆ¼ °á¼º
+                ///íŒŒí‹° ê²°ì„±
                 g_pNet->Send_cli_PARTY_REQ(PARTY_REQ_MAKE,
                     g_pObjMGR->Get_ServerObjectIndex(m_iTargetAvatarID));
             }
@@ -140,7 +140,7 @@ CTargetMenu::Show() {
     if (pObj == NULL)
         return;
 
-    /// TargetÀÌ ¾Æ¹ÙÅ¸ÀÏ°æ¿ì¿¡¸¸ ÇöÀç ½ºÅ©¸° ÁÂÇ¥¿¡ µû¶ó¼­ À©µµ¿ìÀÇ À§Ä¡ Á¶Á¤
+    /// Targetì´ ì•„ë°”íƒ€ì¼ê²½ìš°ì—ë§Œ í˜„ìž¬ ìŠ¤í¬ë¦° ì¢Œí‘œì— ë”°ë¼ì„œ ìœˆë„ìš°ì˜ ìœ„ì¹˜ ì¡°ì •
     if (pObj->Get_TYPE() == OBJ_AVATAR) {
         D3DVECTOR PosSCR;
         POINT ptNew;
@@ -162,7 +162,7 @@ CTargetMenu::Update(POINT ptMouse) {
     CTDialog::Update(ptMouse);
     if (m_iTargetAvatarID) {
         CObjCHAR* pObj = (CObjCHAR*)g_pObjMGR->Get_CharOBJ(m_iTargetAvatarID, true);
-        /// À¯È¿ÇÏÁö ¾ÊÀº Å¸°ÙÀÌ´Ù.. ¸¶¿ì½º ÄÄ¸Çµå ÃÊ±âÈ­
+        /// ìœ íš¨í•˜ì§€ ì•Šì€ íƒ€ê²Ÿì´ë‹¤.. ë§ˆìš°ìŠ¤ ì»´ë§¨ë“œ ì´ˆê¸°í™”
         if (pObj == NULL) {
             Hide();
         } else {
@@ -200,7 +200,7 @@ CTargetMenu::Update(POINT ptMouse) {
         {
             CObjCHAR *pObj = (CObjCHAR*)g_pObjMGR->Get_CharOBJ( g_CommandState.GetCurrentTarget(),
     true );
-            /// À¯È¿ÇÏÁö ¾ÊÀº Å¸°ÙÀÌ´Ù.. ¸¶¿ì½º ÄÄ¸Çµå ÃÊ±âÈ­
+            /// ìœ íš¨í•˜ì§€ ì•Šì€ íƒ€ê²Ÿì´ë‹¤.. ë§ˆìš°ìŠ¤ ì»´ë§¨ë“œ ì´ˆê¸°í™”
             if( pObj == NULL )
             {
                 g_CommandState.ClearMouseState();
@@ -208,7 +208,7 @@ CTargetMenu::Update(POINT ptMouse) {
                 return;
             }
 
-            ///TargetÀÌ ¾Æ¹ÙÅ¸ÀÏ°æ¿ì¿¡¸¸ ÇöÀç ½ºÅ©¸° ÁÂÇ¥¿¡ µû¶ó¼­ À©µµ¿ìÀÇ À§Ä¡ Á¶Á¤
+            ///Targetì´ ì•„ë°”íƒ€ì¼ê²½ìš°ì—ë§Œ í˜„ìž¬ ìŠ¤í¬ë¦° ì¢Œí‘œì— ë”°ë¼ì„œ ìœˆë„ìš°ì˜ ìœ„ì¹˜ ì¡°ì •
             if( pObj->Get_TYPE() == OBJ_AVATAR )
             {
                 D3DVECTOR   PosSCR;

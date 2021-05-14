@@ -20,7 +20,7 @@ enum DIGIT_TYPE {
     MAX_DIGIT_TYPE,
 };
 
-/// Å¸°ÝÄ¡ Ç¥Çö ÀÌÆåÆ®..
+/// íƒ€ê²©ì¹˜ í‘œí˜„ ì´íŽ™íŠ¸..
 class CDigitEffect {
 private:
     DIGITNODE m_DigitNode[MAX_DIGIT_EFFECT];
@@ -43,7 +43,7 @@ public:
 
     void Refresh();
 
-    /// ÇöÀç »ç¿ëµÇ°í ÀÖÁö ¾Ê´Â ³ëµå¸¦ ¾ò´Â´Ù..( ¾Ö´Ï¸ÅÀÌ¼ÇÀÌ ³¡³µ°Å³ª, ¾Æ¿¹ ¾ÆÁ÷ »ý¼ºµÇÁö ¾ÊÀº°Í )
+    /// í˜„ìž¬ ì‚¬ìš©ë˜ê³  ìžˆì§€ ì•ŠëŠ” ë…¸ë“œë¥¼ ì–»ëŠ”ë‹¤..( ì• ë‹ˆë§¤ì´ì…˜ì´ ëë‚¬ê±°ë‚˜, ì•„ì˜ˆ ì•„ì§ ìƒì„±ë˜ì§€ ì•Šì€ê²ƒ )
     int GetEmptyNode();
 
     void CreateDigitEffect(int iPoint, float x, float y, float z, bool bIsUSER);

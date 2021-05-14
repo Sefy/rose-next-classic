@@ -130,7 +130,7 @@ CBankDlg::Draw() {
 }
 
 /**
- * ÀºÇà¿ø( ÀºÇàÀ» ¿­¼ö ÀÖ´Â NPC )¿Í ÀÏÁ¤°Å¸® ÀÌ»óÀÌ µÇ¾ùÀ»°æ¿ì Ã¢À» ´Ý´Â´Ù.
+ * ì€í–‰ì›( ì€í–‰ì„ ì—´ìˆ˜ ìžˆëŠ” NPC )ì™€ ì¼ì •ê±°ë¦¬ ì´ìƒì´ ë˜ì—‡ì„ê²½ìš° ì°½ì„ ë‹«ëŠ”ë‹¤.
  */
 void
 CBankDlg::Update(POINT ptMouse) {
@@ -142,7 +142,7 @@ CBankDlg::Update(POINT ptMouse) {
         m_Slots[m_iCurrBankPage][iSlot].Update(ptMouse);
 
     CObjCHAR* pObjChar = g_pObjMGR->Get_CharOBJ(CBank::GetInstance().GetNpcClientIndex(), false);
-    /// Object°¡ ¾ø°Å³ª °Å¸®°¡ ÀÏÁ¤ÀÌ»óÀÌ¸é ´Ý¾Æ¹ö·Á¶ó.
+    /// Objectê°€ ì—†ê±°ë‚˜ ê±°ë¦¬ê°€ ì¼ì •ì´ìƒì´ë©´ ë‹«ì•„ë²„ë ¤ë¼.
     if (pObjChar == NULL)
         Hide();
     else if (g_pAVATAR->Get_DISTANCE(pObjChar) >= 1000)
@@ -243,17 +243,17 @@ CBankDlg::Update(CObservable* pObservable, CTObject* pObj) {
     int iPage = pItem->GetIndex() / g_iSlotCountPerPage;
     int iSlot = pItem->GetIndex() % g_iSlotCountPerPage;
 
-    if (Item.IsEmpty()) ///»èÁ¦
+    if (Item.IsEmpty()) ///ì‚­ì œ
     {
         if (m_Slots[iPage][iSlot].GetIcon() == NULL) {
-            assert(0 && "ºó ½½·ÔÀ» ´Ù½Ã ºñ¿ì·Á°í ÇÕ´Ï´Ù @CBankDlg::Update");
+            assert(0 && "ë¹ˆ ìŠ¬ë¡¯ì„ ë‹¤ì‹œ ë¹„ìš°ë ¤ê³  í•©ë‹ˆë‹¤ @CBankDlg::Update");
         } else {
             m_Slots[iPage][iSlot].DetachIcon();
         }
-    } else ///Ãß°¡
+    } else ///ì¶”ê°€
     {
         if (m_Slots[iPage][iSlot].GetIcon()) {
-            assert(0 && "ºñ¿öÀÖÁö ¾ÊÀº ½½·Ô¿¡ ItemÀ» ³ÖÀ»·Á°í ÇÕ´Ï´Ù @CBankDlg::Update");
+            assert(0 && "ë¹„ì›Œìžˆì§€ ì•Šì€ ìŠ¬ë¡¯ì— Itemì„ ë„£ì„ë ¤ê³  í•©ë‹ˆë‹¤ @CBankDlg::Update");
         } else {
             pIcon = pItem->CreateItemIcon();
             m_Slots[iPage][iSlot].AttachIcon(pIcon);

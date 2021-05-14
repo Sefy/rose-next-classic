@@ -10,9 +10,9 @@ class CObjCHAR;
 #define NAMEBOX_HEIGHT 48
 
 /**
- * °ÔÀÓ³» Ä³¸¯ÅÍµé( ³ª, ´Ù¸¥ À¯Àú, ¸÷, NPCµî)ÀÇ ÀÌ¸§, HP°ÔÀÌÁö, Å¬·£¸¶Å©µîÀ» ±×¸®´Â Class
+ * ê²Œìž„ë‚´ ìºë¦­í„°ë“¤( ë‚˜, ë‹¤ë¥¸ ìœ ì €, ëª¹, NPCë“±)ì˜ ì´ë¦„, HPê²Œì´ì§€, í´ëžœë§ˆí¬ë“±ì„ ê·¸ë¦¬ëŠ” Class
  *
- * @Author		ÀÌµ¿Çö, ÃÖÁ¾Áø
+ * @Author		ì´ë™í˜„, ìµœì¢…ì§„
  * @Date			2005/9/5
  */
 class CNameBox {

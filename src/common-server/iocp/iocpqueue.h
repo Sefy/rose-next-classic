@@ -4,10 +4,10 @@
 #include <assert.h>
 
 /*
-Title     : IOCP·Î ±¸ÇöµÈ Å¥ ÅÛÇÃ¸´ Å¬·¡½º
+Title     : IOCPë¡œ êµ¬í˜„ëœ í í…œí”Œë¦¿ í´ë˜ìŠ¤
 Class Name: IocpQueue
 Date      : 2002.8.30
-Programmer: snaiper- ÀÌ±âÅ¹ (snaiper80@korea.com)
+Programmer: snaiper- ì´ê¸°íƒ (snaiper80@korea.com)
 */
 
 template<typename Type, int QueueSize>
@@ -18,35 +18,35 @@ public:
     IocpQueue(): m_hIocp(NULL), m_hSemaphore(NULL) { Create(); }
     ~IocpQueue() { Destroy(); }
 
-    // Push µ¿ÀÛ - Å¥¿¡ ºó ÀÚ¸®°¡ ¾øÀ¸¸é ÀÚ¸® »ı±æ¶§±îÁö ºí·¯Å·
+    // Push ë™ì‘ - íì— ë¹ˆ ìë¦¬ê°€ ì—†ìœ¼ë©´ ìë¦¬ ìƒê¸¸ë•Œê¹Œì§€ ë¸”ëŸ¬í‚¹
     void Blocking_Push(Type PushingData) { Push(PushingData, INFINITE); }
 
-    // Pop µ¿ÀÛ - Å¥¿¡ ¾ÆÀÌÅÛÀÌ ¾øÀ¸¸é ºí·¯Å·
+    // Pop ë™ì‘ - íì— ì•„ì´í…œì´ ì—†ìœ¼ë©´ ë¸”ëŸ¬í‚¹
     Type Blocking_Pop() {
         Type PopedData;
         Pop(PopedData, INFINITE);
         return PopedData;
     }
 
-    // Push µ¿ÀÛ - Å¥¿¡ ºó ÀÚ¸®°¡ ¾øÀ¸¸é Å¸ÀÓ¾Æ¿ô ½Ã°£±îÁö ºí·¯Å·, ÀÚ¸® »ı±â¸é ³Ö°í ¸®ÅÏ
+    // Push ë™ì‘ - íì— ë¹ˆ ìë¦¬ê°€ ì—†ìœ¼ë©´ íƒ€ì„ì•„ì›ƒ ì‹œê°„ê¹Œì§€ ë¸”ëŸ¬í‚¹, ìë¦¬ ìƒê¸°ë©´ ë„£ê³  ë¦¬í„´
     BOOL Blocking_Push_Timeout(Type PushingData, DWORD dwTimeout) {
         return Push(PushingData, dwTimeout);
     }
 
-    // Pop µ¿ÀÛ - Å¥¿¡ ¾ÆÀÌÅÛÀÌ ¾øÀ¸¸é Å¸ÀÓ¾Æ¿ô ½Ã°£±îÁö ºí·¯Å·, ¾ÆÀÌÅÛ ÀÖÀ¸¸é ¸®ÅÏ
+    // Pop ë™ì‘ - íì— ì•„ì´í…œì´ ì—†ìœ¼ë©´ íƒ€ì„ì•„ì›ƒ ì‹œê°„ê¹Œì§€ ë¸”ëŸ¬í‚¹, ì•„ì´í…œ ìˆìœ¼ë©´ ë¦¬í„´
     BOOL Blocking_Pop_Timeout(Type& PopingData, DWORD dwTimeout) {
         return Pop(PopingData, dwTimeout);
     }
 
-    // Push µ¿ÀÛ - Å¥¿¡ ÀÚ¸®°¡ ÀÖÀ¸¸é ³Ö°í ÀÚ¸® ¾øÀ¸¸é ¹Ù·Î FALSE¶ó´Â °á°ú¿Í ÇÔ²² ¸®ÅÏ
+    // Push ë™ì‘ - íì— ìë¦¬ê°€ ìˆìœ¼ë©´ ë„£ê³  ìë¦¬ ì—†ìœ¼ë©´ ë°”ë¡œ FALSEë¼ëŠ” ê²°ê³¼ì™€ í•¨ê»˜ ë¦¬í„´
     BOOL NonBlocking_Push(Type PushingData) { return Push(PushingData, 0); }
 
-    // Pop µ¿ÀÛ - Å¥¿¡ ¾ÆÀÌÅÛÀÌ ÀÖÀ¸¸é °¡Áö°í ¿À°í TRUE ¸®ÅÏ, ¾ÆÀÌÅÛ ¾øÀ¸¸é ¹Ù·Î FALSE ¿Í ÇÔ²² ¸®ÅÏ
+    // Pop ë™ì‘ - íì— ì•„ì´í…œì´ ìˆìœ¼ë©´ ê°€ì§€ê³  ì˜¤ê³  TRUE ë¦¬í„´, ì•„ì´í…œ ì—†ìœ¼ë©´ ë°”ë¡œ FALSE ì™€ í•¨ê»˜ ë¦¬í„´
     BOOL NonBlocking_Pop(Type& PopingData) { return Pop(PopingData, 0); }
 
     // Private Method
 private:
-    // ÃÊ±âÈ­, IOCP »ı¼º, ¼¼¸¶Æ÷¾î ÃÊ±âÈ­
+    // ì´ˆê¸°í™”, IOCP ìƒì„±, ì„¸ë§ˆí¬ì–´ ì´ˆê¸°í™”
     void Create() {
         m_hIocp = CreateIoCompletionPort(INVALID_HANDLE_VALUE, NULL, NULL, 0);
         assert(m_hIocp != NULL);
@@ -54,7 +54,7 @@ private:
         m_hSemaphore = CreateSemaphore(NULL, QueueSize, QueueSize, NULL);
         assert(m_hSemaphore != NULL);
     }
-    // ÀÚ¿øÁ¤¸®, IOCP °´Ã¼ ¹× ¼¼¸¶Æ÷¾î Á¤¸®
+    // ìì›ì •ë¦¬, IOCP ê°ì²´ ë° ì„¸ë§ˆí¬ì–´ ì •ë¦¬
     void Destroy() {
         if (m_hIocp != NULL) {
             CloseHandle(m_hIocp);

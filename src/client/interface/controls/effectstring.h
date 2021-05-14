@@ -3,26 +3,26 @@
 
 #include "tgamectrl/TSplitString.h"
 /**
- * ½Ã°£¿¡ µû¶ó ÆùÆ® »ö±ò¹× ¾ËÆÄ°ªÀÌ º¯°æµÇ´Â StringÃâ·Â¿ë Class
- *	- Outline FontÀÇ °æ¿ì Alpha°ªÀÌ º¯°æµÉ°æ¿ì OutlineÀÌ °°ÀÌ º¯°æµÇÁö ¾Ê´Â »óÈ²À¸·Î »ç¿ë¾ÈµÇ°í
- *ÀÖ´Ù.
- *	- Update()¸¦ ¼öÁ¤ÇÏ¸é  Alpha°ª¹× »ö»óÀÌ º¯°æµÇµµ·Ï »ç¿ë°¡´ÉÇÏ´Ù
+ * ì‹œê°„ì— ë”°ë¼ í°íŠ¸ ìƒ‰ê¹”ë° ì•ŒíŒŒê°’ì´ ë³€ê²½ë˜ëŠ” Stringì¶œë ¥ìš© Class
+ *	- Outline Fontì˜ ê²½ìš° Alphaê°’ì´ ë³€ê²½ë ê²½ìš° Outlineì´ ê°™ì´ ë³€ê²½ë˜ì§€ ì•ŠëŠ” ìƒí™©ìœ¼ë¡œ ì‚¬ìš©ì•ˆë˜ê³ 
+ *ìˆë‹¤.
+ *	- Update()ë¥¼ ìˆ˜ì •í•˜ë©´  Alphaê°’ë° ìƒ‰ìƒì´ ë³€ê²½ë˜ë„ë¡ ì‚¬ìš©ê°€ëŠ¥í•˜ë‹¤
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CEffectString {
-    CTSplitString m_parser; /// ÅØ½ºÆ® ÀúÀå
-    POINT m_draw_position; /// È­¸é ÁÂÇ¥
-    DWORD m_time_display; /// È­¸é¿¡ Ç¥½ÃÇÒ ÃÑ½Ã°£
-    DWORD m_time_set; /// ÀÌÀü ¾÷µ¥ÀÌÆ® ½Ã°£
+    CTSplitString m_parser; /// í…ìŠ¤íŠ¸ ì €ì¥
+    POINT m_draw_position; /// í™”ë©´ ì¢Œí‘œ
+    DWORD m_time_display; /// í™”ë©´ì— í‘œì‹œí•  ì´ì‹œê°„
+    DWORD m_time_set; /// ì´ì „ ì—…ë°ì´íŠ¸ ì‹œê°„
     BYTE m_color_red;
     BYTE m_color_green;
     BYTE m_color_blue;
     BYTE m_color_alpha;
     int m_font;
 
-    int m_type; /// °´Ã¼¸¦ ±¸ºĞÇÏ±â À§ÇÑ Å¸ÀÔ
+    int m_type; /// ê°ì²´ë¥¼ êµ¬ë¶„í•˜ê¸° ìœ„í•œ íƒ€ì…
 public:
     CEffectString(void);
     virtual ~CEffectString(void);

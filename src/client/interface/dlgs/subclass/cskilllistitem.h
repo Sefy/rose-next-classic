@@ -9,9 +9,9 @@ class CIconSkill;
 class CDragItem;
 
 /**
- * ½ºÅ³Ã¢¿¡¼­ ZListBoxÀÇ item Class
+ * ìŠ¤í‚¬ì°½ì—ì„œ ZListBoxì˜ item Class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 

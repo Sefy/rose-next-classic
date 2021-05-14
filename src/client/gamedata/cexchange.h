@@ -9,7 +9,7 @@
 #define TOTAL_EXCHANGE_INVENTORY MAX_EXCHANGE_ROW* MAX_EXCHANGE_COL
 
 typedef struct t_exchange_item {
-    tagITEM m_sItem; /// ¾ÆÀÌÅÛ
+    tagITEM m_sItem; /// ì•„ì´í…œ
     short m_nInvenIdx;
     int m_iQuantity;
     t_exchange_item() {
@@ -25,12 +25,12 @@ class CTEventExchange;
 class CItemFragment;
 class CItem;
 /**
- * À¯Àú°£ 1:1 ±³È¯¿¡ »ç¿ëµÇ´Â Data Class
- *	- ½Ì±ÛÅæ
+ * ìœ ì €ê°„ 1:1 êµí™˜ì— ì‚¬ìš©ë˜ëŠ” Data Class
+ *	- ì‹±ê¸€í†¤
  *	- Observer		: CExchangeDLG
  *	- Observable	: CItemSlot
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CExchange: public CObservable, public IObserver {
@@ -50,22 +50,22 @@ public:
     void SetReadyOther(bool bReady);
     bool IsReadyMe();
     bool IsReadyOther();
-    ///³ª¿Í »ó´ë¹æÀÌ ¸ğµÎ ÁØºñ»óÅÂÀÎ°¡?
+    ///ë‚˜ì™€ ìƒëŒ€ë°©ì´ ëª¨ë‘ ì¤€ë¹„ìƒíƒœì¸ê°€?
     bool IsReadyAll();
 
-    ///ÇöÀç ±³È¯ÁßÀÎ°¡ÀÇ Flag
+    ///í˜„ì¬ êµí™˜ì¤‘ì¸ê°€ì˜ Flag
     void StartExchange(WORD wServerObjectIdx, const char* pszName);
     void EndExchange();
     bool IsExchange();
 
-    ///´Ù¸¥ ÀÎÅÍÆäÀÌ½º¿¡¼­ »ç¿ëµÇ´Â
+    ///ë‹¤ë¥¸ ì¸í„°í˜ì´ìŠ¤ì—ì„œ ì‚¬ìš©ë˜ëŠ”
     // bool				IsItemInTradeList( short iItemInvenIdx );
     // int					GetItemQuantityInTradeList( short iItemInvenIdx );
 
     // bool				IsEnoughEmptyInvenSlots( tagITEM& item );
     ///
 
-    /// Network¿ë Method;
+    /// Networkìš© Method;
     bool SendCliTradeReq(WORD wObjSvrIdx);
     void SendTradePacket(BYTE btResult, char cSlotIdx = 0);
 
@@ -77,8 +77,8 @@ public:
 private:
     void Clear();
 
-    ///	Æ®·¹ÀÌµå ¿Ï·á½Ã »õ·Î ÀÎº¥Åä¸®¿¡ Ãß°¡µÉ ¾ÆÀÌÅÛÀÇ °¹¼ö:±³È¯ÈÄ ÀÎº¥Åä¸®°¡ ²ËÂ÷¼­ ¾ÆÀÌÅÛÀ»
-    ///³ÖÀ»¼ö ¾ø´Â°æ¿ì ¹æÁö
+    ///	íŠ¸ë ˆì´ë“œ ì™„ë£Œì‹œ ìƒˆë¡œ ì¸ë²¤í† ë¦¬ì— ì¶”ê°€ë  ì•„ì´í…œì˜ ê°¯ìˆ˜:êµí™˜í›„ ì¸ë²¤í† ë¦¬ê°€ ê½‰ì°¨ì„œ ì•„ì´í…œì„
+    ///ë„£ì„ìˆ˜ ì—†ëŠ”ê²½ìš° ë°©ì§€
     int GetCountTradeItem(t_InvTYPE InvenType);
 
     // CItem*				CreateItem( tagITEM& Item );
@@ -87,7 +87,7 @@ private:
     CItemFragment* m_MyItems[TOTAL_EXCHANGE_INVENTORY];
     CItem* m_OtherItems[TOTAL_EXCHANGE_INVENTORY];
 
-    bool m_bExchange; ///±³È¯ÁßÀÎ°¡?
+    bool m_bExchange; ///êµí™˜ì¤‘ì¸ê°€?
     bool m_bReadyMe;
     bool m_bReadyOther;
 

@@ -12,7 +12,7 @@ void
 CRequireMaterial::Clear() {
     m_iItemClass = 0;
     m_iItemType = 0;
-    m_iItemNo = 0; /// ItemNoÈ¤Àº ItemÁ¾·ù°¡ µé¾î°¥¼ö ÀÖ´Ù.1000º¸´Ù ÀÛÀ¸¸é Á¾·ù, 1000 º¸´Ù Å©¸é Type
+    m_iItemNo = 0; /// ItemNoí˜¹ì€ Itemì¢…ë¥˜ê°€ ë“¤ì–´ê°ˆìˆ˜ ìˆë‹¤.1000ë³´ë‹¤ ì‘ìœ¼ë©´ ì¢…ë¥˜, 1000 ë³´ë‹¤ í¬ë©´ Type
                    /// + ItemNo
     m_iRequireCount = 0;
     m_strName.clear();

@@ -40,7 +40,7 @@ CClanSkillListItem::Draw() {
     if (!IsVision())
         return;
 
-    /// °ÔÀÌÁö ÁøÇà»óÅÂ¸¦ º¸¿©ÁÖ±â À§ÇØ¼­..
+    /// ê²Œì´ì§€ ì§„í–‰ìƒíƒœë¥¼ ë³´ì—¬ì£¼ê¸° ìœ„í•´ì„œ..
     ::endSprite();
     ::beginSprite(D3DXSPRITE_ALPHABLEND);
 

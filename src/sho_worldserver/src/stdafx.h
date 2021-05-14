@@ -43,7 +43,7 @@
 
     #include "CVector.h"
     #include "Net_Prototype.h"
-    #include "ioDataPOOL.h" //	Net_Prototype.h ∫∏¥Ÿ µ⁄ø° !!!
+    #include "ioDataPOOL.h" //	Net_Prototype.h Î≥¥Îã§ Îí§Ïóê !!!
 
     #include "IOCPSocketSERVER.h"
     #include "CClientSOCKET.h"

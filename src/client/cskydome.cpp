@@ -39,27 +39,27 @@ CSkyDOME::CSkyDOME(HNODE hShader, HNODE hLight, short nSkyIDX):
 
     ::setSkyMaterialBlendRatio(m_hMAT, 1.0f);
 
-    // --- Ã¹¹øÂ° ÇÏ´Ã ¸Þ½¬¿Í ÀçÁú »ý¼º. (Á¦ÀÏ ¸Õ°Å¸®¿¡ ÀÖ´Â °ÍºÎÅÍ »ý¼º)
-    // --- ÇÏ´Ã ¿ÀºêÁ§Æ® »ý¼º(loadVisible() °ú »ç¿ë¹ý µ¿ÀÏ)
+    // --- ì²«ë²ˆì§¸ í•˜ëŠ˜ ë©”ì‰¬ì™€ ìž¬ì§ˆ ìƒì„±. (ì œì¼ ë¨¼ê±°ë¦¬ì— ìžˆëŠ” ê²ƒë¶€í„° ìƒì„±)
+    // --- í•˜ëŠ˜ ì˜¤ë¸Œì íŠ¸ ìƒì„±(loadVisible() ê³¼ ì‚¬ìš©ë²• ë™ì¼)
     ::setMaterialUseAlpha(m_hMAT, 0);
 
     m_hSKY = ::loadSky("__XXX_sky", m_hMESH, m_hMAT, hLight);
     ::setScale(m_hSKY, 1.0, 1.0, 1.0);
 
-    // --- µÎ¹øÂ° ÇÏ´Ã ¸Þ½¬¿Í ÀçÁú »ý¼º
+    // --- ë‘ë²ˆì§¸ í•˜ëŠ˜ ë©”ì‰¬ì™€ ìž¬ì§ˆ ìƒì„±
     ::setMaterialUseAlpha(m_hMAT, 1);
-    // --- ¸Þ½¬¿Í ÀçÁú »ý¼º ÈÄ ÇÏ´Ã ¿ÀºêÁ§Æ®¿¡ µî·Ï½ÃÅ´
+    // --- ë©”ì‰¬ì™€ ìž¬ì§ˆ ìƒì„± í›„ í•˜ëŠ˜ ì˜¤ë¸Œì íŠ¸ì— ë“±ë¡ì‹œí‚´
     ::addRenderUnit(m_hSKY, m_hMESH, m_hMAT, hLight);
 
     ::setMaterialUseAlphaTest(m_hMAT, 0);
 
-    // --- ÇÏ´Ã ¿ÀºêÁ§Æ®´Â Æ÷±×ÀÇ ¿µÇâÀ» ¹ÞÁö ¸»¾Æ¾ß ÇÏ¹Ç·Î, ¾Æ·¡¿Í °°ÀÌ ¼¼ÆÃ
+    // --- í•˜ëŠ˜ ì˜¤ë¸Œì íŠ¸ëŠ” í¬ê·¸ì˜ ì˜í–¥ì„ ë°›ì§€ ë§ì•„ì•¼ í•˜ë¯€ë¡œ, ì•„ëž˜ì™€ ê°™ì´ ì„¸íŒ…
     ::setReceiveFog(m_hSKY, 0);
 
-    // --- °¢ ·»´õÀ¯´ÖµéÀÇ È¸Àü ¼Óµµ ÁöÁ¤
-    // --- È¸Àü ÃàÀº ¿ùµåÀÇ z Ãà.
-    // --- µÎ¹øÂ° ÀÎÀÚ: ·»´õÀ¯´Ö ¹øÈ£(0ºÎÅÍ ½ÃÀÛ)
-    // --- ¼¼¹øÂ° ÀÎÀÚ: È¸Àü ¹æÇâ ¹× ¼Óµµ. À½¼ö °¡´É. ÃÊ´ç È¸Àü °¢µµÀÇ ´ÜÀ§
+    // --- ê° ë Œë”ìœ ë‹›ë“¤ì˜ íšŒì „ ì†ë„ ì§€ì •
+    // --- íšŒì „ ì¶•ì€ ì›”ë“œì˜ z ì¶•.
+    // --- ë‘ë²ˆì§¸ ì¸ìž: ë Œë”ìœ ë‹› ë²ˆí˜¸(0ë¶€í„° ì‹œìž‘)
+    // --- ì„¸ë²ˆì§¸ ì¸ìž: íšŒì „ ë°©í–¥ ë° ì†ë„. ìŒìˆ˜ ê°€ëŠ¥. ì´ˆë‹¹ íšŒì „ ê°ë„ì˜ ë‹¨ìœ„
     /*
     ::setSkyRotationSpeed( m_hSKY, 0, 2 );
     ::setSkyRotationSpeed( m_hSKY, 1, 1 );

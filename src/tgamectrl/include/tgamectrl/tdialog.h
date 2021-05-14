@@ -11,9 +11,9 @@ class CTCommand;
 class CTStatusBar;
 class CTImage;
 /**
- * WinCtrlµéÀ» child °¡Áö°í Ã³¸®ÇÏ´Â Class - ÀÎÅÍÆäÀÌ½ºÃ³¸®¿¡¼­ °¡Àå ±âº»ÀÌ µÇ´Â ClassÀÌ´Ù
+ * WinCtrlë“¤ì„ child ê°€ì§€ê³  ì²˜ë¦¬í•˜ëŠ” Class - ì¸í„°í˜ì´ìŠ¤ì²˜ë¦¬ì—ì„œ ê°€ì¥ ê¸°ë³¸ì´ ë˜ëŠ” Classì´ë‹¤
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  *
  * @Date			2005/8/30
  */
@@ -32,14 +32,14 @@ public:
     virtual void MoveWindow(int x, int y);
     virtual void SetInterfacePos_After();
 
-    /// ¸ğ´Ş ´ÙÀÌ¾ó·Î±× ÀÎ°¡?
+    /// ëª¨ë‹¬ ë‹¤ì´ì–¼ë¡œê·¸ ì¸ê°€?
     virtual bool IsModal();
 
-    /// ´ÙÀÌ¾ó·Î±×ÀÇ ÀÏºÎ ¼Ó¼º¹× °£´ÜÇÑ ÇàÀ§¸¦ ÇÏ±âÀ§ÇÑ virtual method : client¿¡¼­ ÀçÁ¤ÀÇÇØ¼­
-    /// »ç¿ëÇÑ´Ù.
+    /// ë‹¤ì´ì–¼ë¡œê·¸ì˜ ì¼ë¶€ ì†ì„±ë° ê°„ë‹¨í•œ í–‰ìœ„ë¥¼ í•˜ê¸°ìœ„í•œ virtual method : clientì—ì„œ ì¬ì •ì˜í•´ì„œ
+    /// ì‚¬ìš©í•œë‹¤.
     virtual void PostMsg(unsigned msg, unsigned param1, unsigned param2) {}
 
-    /// ´ÙÀÌ¾ó·Î±×ÀÇ »ç¿ë°¡´ÉÀ» Ã¼Å©ÇÏ±âÀ§ÇÑ virtual method : Client¿¡¼­ ÀçÁ¤ÀÇÇÏ¿© »ç¿ë - 	if(
+    /// ë‹¤ì´ì–¼ë¡œê·¸ì˜ ì‚¬ìš©ê°€ëŠ¥ì„ ì²´í¬í•˜ê¸°ìœ„í•œ virtual method : Clientì—ì„œ ì¬ì •ì˜í•˜ì—¬ ì‚¬ìš© - 	if(
     /// return value == 1 ) Valid
     virtual int IsInValidShow() { return 0; }
 
@@ -54,16 +54,16 @@ public:
     CWinCtrl* Find(const char* strName);
     std::vector<CWinCtrl*> GetChildren() override;
 
-    /// »ç¿ë¾ÈÇÏ°í ÀÖ´Ù.
+    /// ì‚¬ìš©ì•ˆí•˜ê³  ìˆë‹¤.
     void SetStatusBar(CTStatusBar* pStatusBar);
 
-    ///Ä¸¼Ç °ü·Ã
+    ///ìº¡ì…˜ ê´€ë ¨
     void SetCaption(CTCaption* pCaption);
     long GetChildCount();
     CTCaption* GetCaption() { return m_pCaption; }
     void ChangeCaptionRect(RECT rc);
 
-    ///Æ¯Á¤ child¸¸À» Show/Hide/Enable
+    ///íŠ¹ì • childë§Œì„ Show/Hide/Enable
     bool ShowChild(unsigned int iID);
     bool HideChild(unsigned int iID);
     bool ShowChild(const char* strName);
@@ -72,7 +72,7 @@ public:
 
     virtual void RefreshDlg();
 
-    /// Dialog»ı¼ºÈÄ ÃÖÃÊ Ç¥½Ã À§Ä¡ÀÇ »ó´ëÀû À§Ä¡ Å¸ÀÔ: X,Y
+    /// Dialogìƒì„±í›„ ìµœì´ˆ í‘œì‹œ ìœ„ì¹˜ì˜ ìƒëŒ€ì  ìœ„ì¹˜ íƒ€ì…: X,Y
     enum { TDXP_LEFT, TDXP_CENTER, TDXP_RIGHT };
 
     enum { TDYP_TOP, TDYP_CENTER, TDYP_BOTTOM };
@@ -80,24 +80,24 @@ public:
     DWORD GetDialogType() { return m_dwDialogType; }
     void SetDialogType(DWORD iDialogType) { m_dwDialogType = iDialogType; }
 
-    ///	Command PatternÀ¸·Î »ç¿ëµÇ´Â CommandÀÇ Ãß°¡/»èÁ¦/°ü¸®
+    ///	Command Patternìœ¼ë¡œ ì‚¬ìš©ë˜ëŠ” Commandì˜ ì¶”ê°€/ì‚­ì œ/ê´€ë¦¬
     void Push_Back_Cmd(CTCommand* pCmd);
     void Push_Front_Cmd(CTCommand* pCmd);
     void ClearCommandQ();
     CTCommand* GetTCommand();
 
-    /// ÇÑÇÁ·¹ÀÓ³»¿¡¼­ ¸¶¿ì½º°¡ ÀÚ½ÅÀÇ ¹Ù·Î À§¿¡ ÀÖ´Â( ´Ù¸¥ controlÀÌ ¾ø´Â°æ¿ì ) TDialogÀÇ Æ÷ÀÎÅÍ
-    /// °ü¸®
+    /// í•œí”„ë ˆì„ë‚´ì—ì„œ ë§ˆìš°ìŠ¤ê°€ ìì‹ ì˜ ë°”ë¡œ ìœ„ì— ìˆëŠ”( ë‹¤ë¥¸ controlì´ ì—†ëŠ”ê²½ìš° ) TDialogì˜ í¬ì¸í„°
+    /// ê´€ë¦¬
     static void SetProcessMouseOverDialog(CTDialog* pTDialog) {
         m_pProcessMouseOverDialog = pTDialog;
     }
     static CTDialog* GetProcessMouseOverDialog() { return m_pProcessMouseOverDialog; }
 
-    ///»ç¿îµå
-    void SetSoundShowID(int i) { m_iShowSoundID = i; } /// Dialog°¡ Show½Ã PlayµÉ Sound ID Set
-    void SetSoundHideID(int i) { m_iHideSoundID = i; } /// Dialog°¡ Hide½Ã PlayµÉ Sound ID Set
+    ///ì‚¬ìš´ë“œ
+    void SetSoundShowID(int i) { m_iShowSoundID = i; } /// Dialogê°€ Showì‹œ Playë  Sound ID Set
+    void SetSoundHideID(int i) { m_iHideSoundID = i; } /// Dialogê°€ Hideì‹œ Playë  Sound ID Set
 
-    /// Default Position °ü·Ã
+    /// Default Position ê´€ë ¨
     void SetDefaultPosX(int iPosX) { m_iXPos = iPosX; }
     void SetDefaultPosY(int iPosY) { m_iYPos = iPosY; }
     void SetDefaultAdjustPosX(int iAdjustPosX) { m_iAdjustXPos = iAdjustPosX; }
@@ -111,8 +111,8 @@ public:
     void SetDefaultVisible(bool b) { m_bDefaultVisible = b; }
     bool IsDefaultVisible() { return m_bDefaultVisible; }
 
-    void SetModal(); /// Dialog¸¦ ¸ğ´Ş·Î
-    void SetModeless(); /// Dialog¸¦ ¸ğ´Ş¸®½º·Î
+    void SetModal(); /// Dialogë¥¼ ëª¨ë‹¬ë¡œ
+    void SetModeless(); /// Dialogë¥¼ ëª¨ë‹¬ë¦¬ìŠ¤ë¡œ
 
     void SetMinimizeRect(const RECT& rc);
 
@@ -121,39 +121,39 @@ public:
     CTImage* GetImage();
 
 protected:
-    void MoveCtrl2ListEnd(int iID); /// ÇØ´ç IDÀÇ child¸¦ ¸®½ºÆ®ÀÇ ¸ÇµÚ·Î ÀÌµ¿
-    void ProcessLButtonDown(); /// DialogÀ§¿¡¼­ LButtonDownÀÌ ÀÏ¾î³µÀ»¶§ Ã³¸®ÇÒ Method
+    void MoveCtrl2ListEnd(int iID); /// í•´ë‹¹ IDì˜ childë¥¼ ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ë’¤ë¡œ ì´ë™
+    void ProcessLButtonDown(); /// Dialogìœ„ì—ì„œ LButtonDownì´ ì¼ì–´ë‚¬ì„ë•Œ ì²˜ë¦¬í•  Method
 
 protected:
-    WINCTRL_LIST m_listChild; /// WinCtrlÀ» º¸°üÇÒ Container;
-    WINCTRL_LIST m_OwnerDrawChildren; /// »ç¿ë¾ÈÇÔ
+    WINCTRL_LIST m_listChild; /// WinCtrlì„ ë³´ê´€í•  Container;
+    WINCTRL_LIST m_OwnerDrawChildren; /// ì‚¬ìš©ì•ˆí•¨
 
     CTCaption* m_pCaption; /// TCaption Object
-    CTStatusBar* m_pStatusBar; /// »ç¿ë¾ÈÇÔ
-    CTImage* m_pImage; /// »ç¿ë¾ÈÇÔ
+    CTStatusBar* m_pStatusBar; /// ì‚¬ìš©ì•ˆí•¨
+    CTImage* m_pImage; /// ì‚¬ìš©ì•ˆí•¨
 
-    POINT m_ptCaptionClicked; /// Ä¸¼ÇÀÌ ´­·ÁÁ³À»¶§ÀÇ Mouse ¿Í Dialog Left-Top°úÀÇ °Å¸®
+    POINT m_ptCaptionClicked; /// ìº¡ì…˜ì´ ëˆŒë ¤ì¡Œì„ë•Œì˜ Mouse ì™€ Dialog Left-Topê³¼ì˜ ê±°ë¦¬
 
     DWORD m_dwDialogType;
 
     bool m_bModal; /// Modal Or Modaless : Default - Modaless
-    int m_iShowSoundID; /// Dialog::Show() ½Ã PlayµÉ Sound ID
-    int m_iHideSoundID; /// Dialog::Hide() ½Ã PlayµÉ Sound ID
+    int m_iShowSoundID; /// Dialog::Show() ì‹œ Playë  Sound ID
+    int m_iHideSoundID; /// Dialog::Hide() ì‹œ Playë  Sound ID
 
-    CTCommandQ m_CommandQ; /// TCommand¸¦ ÀúÀå - Hide¹× ¼Ò¸ê½Ã¿¡ ÀÚµ¿À¸·Î ClearµÇ°Ô ÇÑ´Ù.
+    CTCommandQ m_CommandQ; /// TCommandë¥¼ ì €ì¥ - Hideë° ì†Œë©¸ì‹œì— ìë™ìœ¼ë¡œ Clearë˜ê²Œ í•œë‹¤.
 
     /// Default Position
-    int m_iXPos; /// LEFT-CENTER-RIGHT( »ó´ëÀû X )
-    int m_iYPos; /// TOP-CENTER-BOTTOM( »ó´ëÀû Y )
-    int m_iAdjustXPos; /// º¸Á¤ XÀ§Ä¡ - ÇÈ¼¿
-    int m_iAdjustYPos; /// º¸Á¤ YÀ§Ä¡ - ÇÈ¼¿
-    bool m_bDefaultVisible; /// Å¬¶óÀÌ¾ğÆ®¿¡¼­ ÃÖÃÊ °ÔÀÓ½ÇÇà½Ã º¸¿©ÁÙ°ÍÀÎ°¡?
+    int m_iXPos; /// LEFT-CENTER-RIGHT( ìƒëŒ€ì  X )
+    int m_iYPos; /// TOP-CENTER-BOTTOM( ìƒëŒ€ì  Y )
+    int m_iAdjustXPos; /// ë³´ì • Xìœ„ì¹˜ - í”½ì…€
+    int m_iAdjustYPos; /// ë³´ì • Yìœ„ì¹˜ - í”½ì…€
+    bool m_bDefaultVisible; /// í´ë¼ì´ì–¸íŠ¸ì—ì„œ ìµœì´ˆ ê²Œì„ì‹¤í–‰ì‹œ ë³´ì—¬ì¤„ê²ƒì¸ê°€?
 
-    int m_iExtent; ///	ClientRect¿¡ ±×·ÁÁú ImageÀÇ °³¼ö(Row) - Áßº¹µÈ ImageÀÇ ¿©·¯¹ø ±×¸®±â¿¡
-                   ///»ç¿ëÇÏ·Á°í ÇßÀ¸³ª ÇöÀç 1·Î °íÁ¤
+    int m_iExtent; ///	ClientRectì— ê·¸ë ¤ì§ˆ Imageì˜ ê°œìˆ˜(Row) - ì¤‘ë³µëœ Imageì˜ ì—¬ëŸ¬ë²ˆ ê·¸ë¦¬ê¸°ì—
+                   ///ì‚¬ìš©í•˜ë ¤ê³  í–ˆìœ¼ë‚˜ í˜„ì¬ 1ë¡œ ê³ ì •
 
     static CTDialog*
-        m_pProcessMouseOverDialog; /// ÇÑ ÇÁ·¹ÀÓ¾È¿¡¼­ ¸¶¿ì½º°¡ ¹Ù·Î ÀÚ½Å À§¿¡ ÀÖ´Â DialogÀÇ Æ÷ÀÎÅÍ(
-                                   /// Update½Ã ¸ÇÃ³À½ clear½ÃÄÑÁÖ¾î¾ß ÇÑ´Ù )
+        m_pProcessMouseOverDialog; /// í•œ í”„ë ˆì„ì•ˆì—ì„œ ë§ˆìš°ìŠ¤ê°€ ë°”ë¡œ ìì‹  ìœ„ì— ìˆëŠ” Dialogì˜ í¬ì¸í„°(
+                                   /// Updateì‹œ ë§¨ì²˜ìŒ clearì‹œì¼œì£¼ì–´ì•¼ í•œë‹¤ )
 };
 #endif ///_TDIALOG_

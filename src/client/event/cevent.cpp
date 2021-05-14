@@ -21,8 +21,8 @@
 #define SC_MSG_CLOSE 0 // Close Message Window
 #define SC_MSG_NEXTMSG 1 // Next Message
 #define SC_MSG_NPCSAY 2
-#define SC_MSG_PLAYERSELECT 3 // Menu Select :: Childµ¥ÀÌÅ¸ÀÇ ¸ğµç SubMENU¸¦ Ãâ·ÂÇÑ´Ù.
-#define SC_MSG_JUMPSELECT 4 // Menu Select :: Childµ¥ÀÌÅ¸ÀÇ ¸ğµç SubMENU¸¦ Ãâ·ÂÇÑ´Ù.
+#define SC_MSG_PLAYERSELECT 3 // Menu Select :: Childë°ì´íƒ€ì˜ ëª¨ë“  SubMENUë¥¼ ì¶œë ¥í•œë‹¤.
+#define SC_MSG_JUMPSELECT 4 // Menu Select :: Childë°ì´íƒ€ì˜ ëª¨ë“  SubMENUë¥¼ ì¶œë ¥í•œë‹¤.
 
 //-------------------------------------------------------------------------------------------------
 
@@ -63,8 +63,8 @@ typedef struct tag_SSC_Msg {
     char szFunc1[32];
     char szFunc2[32];
     /*
-    long		dwScript ;          // Script SN			Ç¥½ÃµÇ±â Àü ½ºÅ©¸³Æ®...
-    long		dwScript2 ;         // Second Script SN		Å¬¸¯½Ã ½ÇÇàµÉ ½ºÅ°¸³Æ®...
+    long		dwScript ;          // Script SN			í‘œì‹œë˜ê¸° ì „ ìŠ¤í¬ë¦½íŠ¸...
+    long		dwScript2 ;         // Second Script SN		í´ë¦­ì‹œ ì‹¤í–‰ë  ìŠ¤í‚¤ë¦½íŠ¸...
     */
     int iStrID;
     /*
@@ -124,7 +124,7 @@ CEvent::~CEvent() {
 
     SAFE_DELETE(m_pLUA);
 
-    // ¸Ş¸ğ¸®´Â ~xxx¿¡¼­ Ç®¸²..
+    // ë©”ëª¨ë¦¬ëŠ” ~xxxì—ì„œ í’€ë¦¼..
     SAFE_DELETE_ARRAY(m_pScrDATA);
     SAFE_DELETE_ARRAY(m_pLuaDATA);
     SAFE_DELETE_ARRAY(m_pScrMSG);
@@ -166,7 +166,7 @@ CEvent::Load(char* szFileName) {
     */
     for (short nI = 0; nI < NUM_EVENT; nI++) {
         if (FileHeader.EventMask & (1 << nI)) {
-            // ÀÌº¥Æ® ÇÔ¼ö ÀÌ¸§.
+            // ì´ë²¤íŠ¸ í•¨ìˆ˜ ì´ë¦„.
             m_EventFUNC[nI].Set(FileHeader.ppFuncName[nI]);
         }
     }
@@ -329,7 +329,7 @@ CEvent::Load(char* szFileName) {
     */
     for (short nI = 0; nI < NUM_EVENT; nI++) {
         if (FileHeader.EventMask & (1 << nI)) {
-            // ÀÌº¥Æ® ÇÔ¼ö ÀÌ¸§.
+            // ì´ë²¤íŠ¸ í•¨ìˆ˜ ì´ë¦„.
             m_EventFUNC[nI].Set(FileHeader.ppFuncName[nI]);
         }
     }
@@ -452,7 +452,7 @@ CEvent::Load(char* szFileName) {
         m_iLuaDataLEN,
         lFileSize); //_tell(hf) + 1 + m_iLuaDataLEN) ;
     #ifdef _DEBUG
-                    // m_pLuaDATA ±æÀÌ°¡ ±æ¾î¼­ -_-; LogString (LOG_DEBUG_, "%s \n", m_pLuaDATA);
+                    // m_pLuaDATA ê¸¸ì´ê°€ ê¸¸ì–´ì„œ -_-; LogString (LOG_DEBUG_, "%s \n", m_pLuaDATA);
                     //::OutputDebugString( m_pLuaDATA );
     #endif
 
@@ -547,7 +547,7 @@ CEvent::ParseMESSAGE(char* szMSG) {
         else if (strcmp(pEnd, "NAME") == 0) {
             sprintf(m_TempBuffer, "%s%s", m_TempBuffer, g_pAVATAR->Get_NAME());
         } else if (strcmp(pEnd, "SEX") == 0) {
-            sprintf(m_TempBuffer, "%s%s", m_TempBuffer, g_pAVATAR->Get_SEX() == 1 ? "¿©" : "³²");
+            sprintf(m_TempBuffer, "%s%s", m_TempBuffer, g_pAVATAR->Get_SEX() == 1 ? "ì—¬" : "ë‚¨");
         } else if (strcmp(pEnd, "RANK") == 0) {
             sprintf(m_TempBuffer, "%s%d", m_TempBuffer, g_pAVATAR->Get_RANK());
         }
@@ -609,7 +609,7 @@ CEvent::Conversation(int iMenuIDX) {
     char *fpCheck = NULL, *szMessage = NULL;
 
     for (short nI = 0; nI < m_pScrDATA[iMenuIDX].m_iScrItemCNT; nI++) {
-        /// °¢ ´ë»ç ¶óÀÎ´ç ÇÒ´çµÈ Ã¼Å© ½ºÅ©¸³Æ®
+        /// ê° ëŒ€ì‚¬ ë¼ì¸ë‹¹ í• ë‹¹ëœ ì²´í¬ ìŠ¤í¬ë¦½íŠ¸
         fpCheck = m_pScrDATA[iMenuIDX].m_pScrITEM[nI].m_CheckFunc.Get();
 
         if (fpCheck) {
@@ -625,7 +625,7 @@ CEvent::Conversation(int iMenuIDX) {
                     fpCheck);
                 continue;
             }
-        } // else ½ÇÇàÇÒ ÇÔ¼ö°¡ ¾øÀ¸¸é Ç×»ó Ãâ·Â...
+        } // else ì‹¤í–‰í•  í•¨ìˆ˜ê°€ ì—†ìœ¼ë©´ í•­ìƒ ì¶œë ¥...
 
         LogString(LOG_DEBUG_,
             "%d MENU %d / %d :: [%s], [%s] \n",
@@ -710,7 +710,7 @@ CEvent::Start(short nEventIDX) {
 
     QF_Init(m_pLUA->m_pState);
 
-    // °¢ »óÈ²¿¡ ¸Â´Â ÀÌº¥Æ® Ã³¸®...
+    // ê° ìƒí™©ì— ë§ëŠ” ì´ë²¤íŠ¸ ì²˜ë¦¬...
     if (nEventIDX >= 0 && nEventIDX < NUM_EVENT) {
         iResult = lua_CallIntFUNC(m_pLUA->m_pState,
             m_EventFUNC[nEventIDX].Get(),
@@ -728,7 +728,7 @@ CEvent::Start(short nEventIDX) {
         return true;
     }
 
-    // ´ëÈ­ ÀÌº¥Æ® Ã³¸®...
+    // ëŒ€í™” ì´ë²¤íŠ¸ ì²˜ë¦¬...
     char* szCheckFunc = m_pScrMSG[0].m_CheckFunc.Get();
     if (szCheckFunc) {
         iResult = lua_CallIntFUNC(m_pLUA->m_pState, szCheckFunc, ZZ_PARAM_INT, this, ZZ_PARAM_END);
@@ -739,7 +739,7 @@ CEvent::Start(short nEventIDX) {
     }
 
     if (!Conversation(0)) {
-        // Á¶°Ç¿¡ ¸Â´Â Ãâ·ÂÇÒ°ÍµéÀÌ ¾ø´Ù...
+        // ì¡°ê±´ì— ë§ëŠ” ì¶œë ¥í• ê²ƒë“¤ì´ ì—†ë‹¤...
         return false;
     }
 
@@ -855,7 +855,7 @@ int
 CEvent::GetQueryType() {
     int querytype = IT_MGR::QUERYTYPE_NPC;
     switch (m_iEventDlgType) {
-        /// NPC ´ëÈ­Ã¢
+        /// NPC ëŒ€í™”ì°½
         case EVENT_DLG_NPC: {
             querytype = IT_MGR::QUERYTYPE_NPC;
         }

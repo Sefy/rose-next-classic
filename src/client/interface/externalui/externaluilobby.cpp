@@ -114,7 +114,7 @@ bool
 CExternalUILobby::CreateWaitAvataListDlg() {
     //	CreateWaitAvataDlg();
     //	ShowWaitMsgBox();
-    //	ShowMsgBox("¾Æ¹ÙÅ¸ ¸®½ºÆ®¸¦ ¹Þ½À´Ï´Ù",CTMsgBox::BT_CANCEL, CTMsgBox::DT_MODAL, EUI_MAX,
+    //	ShowMsgBox("ì•„ë°”íƒ€ ë¦¬ìŠ¤íŠ¸ë¥¼ ë°›ìŠµë‹ˆë‹¤",CTMsgBox::BT_CANCEL, CTMsgBox::DT_MODAL, EUI_MAX,
     // MSG_TYPE_WAIT );
     return true;
 }
@@ -159,7 +159,7 @@ CExternalUILobby::CloseCreateAvataDlg() {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
-// »õ·Î Ä³¸¯ »ý¼ºÈÄ ±× Ä³¸¯ÀÌ ¼±ÅÃµÉ¶§±îÁö ´ë±â..
+// ìƒˆë¡œ ìºë¦­ ìƒì„±í›„ ê·¸ ìºë¦­ì´ ì„ íƒë ë•Œê¹Œì§€ ëŒ€ê¸°..
 bool
 CExternalUILobby::CreateWaitJoinServerDlg() {
     ShowWaitMsgBox();
@@ -177,8 +177,8 @@ CExternalUILobby::Update() {
 
     CGame::GetInstance().Get_MousePos(ptMouse);
 
-    /// ControlµéÀÌ ³»ºÎÀûÀ¸·Î Ã³¸®ÇÏ´Â º¯¼ö ÃÊ±âÈ­
-    /// Update½Ã MouseOverÃ³¸® º¯¼ö ÃÊ±âÈ­
+    /// Controlë“¤ì´ ë‚´ë¶€ì ìœ¼ë¡œ ì²˜ë¦¬í•˜ëŠ” ë³€ìˆ˜ ì´ˆê¸°í™”
+    /// Updateì‹œ MouseOverì²˜ë¦¬ ë³€ìˆ˜ ì´ˆê¸°í™”
     CWinCtrl::SetProcessMouseOver(false);
     CTDialog::SetProcessMouseOverDialog(NULL);
     ///
@@ -219,7 +219,7 @@ CExternalUILobby::Draw() {
 
 bool
 CExternalUILobby::MsgProc(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
-    /// CtrlµéÀÇ ³»ºÎÃ³¸®¸¦ À§ÇÑ Setting
+    /// Ctrlë“¤ì˜ ë‚´ë¶€ì²˜ë¦¬ë¥¼ ìœ„í•œ Setting
     if (uiMsg == WM_LBUTTONUP)
         CWinCtrl::SetMouseExclusiveCtrl(NULL);
 
@@ -291,14 +291,14 @@ CExternalUILobby::ShowWaitMsgBox() {
 
 void
 CExternalUILobby::ServerDisconnected() {
-    // 05. 10. 27 - ±èÁÖÇö
-    // __SRVDISCONNECTRELOGIN(¼­¹öµð½ºÄÁ³ØÆ®°¡ µÇ¾úÀ» °æ¿ì¿¡ ·Î±×ÀÎÃ¢À¸·Î ÀÌµ¿ÇÒ°ÍÀÎ°¡
-    // ¾Æ´Ï¸é... ÇÁ·Î±×·¥À» °­Á¾ÇÒ°ÍÀÎ°¡..
+    // 05. 10. 27 - ê¹€ì£¼í˜„
+    // __SRVDISCONNECTRELOGIN(ì„œë²„ë””ìŠ¤ì»¨ë„¥íŠ¸ê°€ ë˜ì—ˆì„ ê²½ìš°ì— ë¡œê·¸ì¸ì°½ìœ¼ë¡œ ì´ë™í• ê²ƒì¸ê°€
+    // ì•„ë‹ˆë©´... í”„ë¡œê·¸ëž¨ì„ ê°•ì¢…í• ê²ƒì¸ê°€..
 
 #ifdef __SRVDISCONNECTRELOGIN
-    CTCommand* pCmd = new CTCmdReLogin; // ÀÌ°Ç Àç·Î±×ÀÎ
+    CTCommand* pCmd = new CTCmdReLogin; // ì´ê±´ ìž¬ë¡œê·¸ì¸
 #else
-    CTCommand* pCmd = new CTCmdExit; // ÀÌ°Ç °­Á¾
+    CTCommand* pCmd = new CTCmdExit; // ì´ê±´ ê°•ì¢…
 #endif
     ShowMsgBox("Server Disconnected", CTMsgBox::BT_OK, true, EUI_MAX, pCmd);
 }
@@ -308,8 +308,8 @@ CExternalUILobby::AddTCommand(int iInvorkerDlgID, CTCommand* pCmd) {
     if (pCmd == NULL)
         return;
 
-    //Áï½Ã ½ÇÇà Ä¿¸Çµå=>IT_MGR°í CommandQ¸¦ °¡Áö°Ô ¼öÁ¤µÈ´Ù. Q¿¡ ³Ö°íUpdate¿¡¼­ ½ÇÇà½ÃÅ°ÀÚ
-    //¿ÜºÎ´Â ¾î¶»°Ô º¯°æµÇÁö???????????
+    //ì¦‰ì‹œ ì‹¤í–‰ ì»¤ë§¨ë“œ=>IT_MGRê³  CommandQë¥¼ ê°€ì§€ê²Œ ìˆ˜ì •ëœë‹¤. Qì— ë„£ê³ Updateì—ì„œ ì‹¤í–‰ì‹œí‚¤ìž
+    //ì™¸ë¶€ëŠ” ì–´ë–»ê²Œ ë³€ê²½ë˜ì§€???????????
     if (iInvorkerDlgID == EUI_MAX) {
         pCmd->Exec(NULL);
         delete pCmd;

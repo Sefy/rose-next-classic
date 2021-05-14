@@ -24,7 +24,7 @@ distance_square(tPOINTF& From, tPOINTF& To) {
 
 int
 distance(int iX1, int iY1, int iX2, int iY2) {
-    // ¿ÀÂ÷ 3.5%
+    // ì˜¤ì°¨ 3.5%
     iX1 = abs(iX2 - iX1);
     iY1 = abs(iY2 - iY1);
 

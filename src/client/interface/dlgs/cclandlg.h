@@ -9,10 +9,10 @@ class CTabbedPane;
 class CZListBox;
 
 /**
- * Å¬·£Á¤º¸¸¦ º¸¿©ÁÖ´Â ´ÙÀÌ¾ó·Î±×
+ * í´ëœì •ë³´ë¥¼ ë³´ì—¬ì£¼ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *	- Observable : CClan
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CClanDlg: public CTDialog, public IObserver {
@@ -57,15 +57,15 @@ private:
 
     enum { TAB_MEMBER = 0, TAB_SKILL = 1, TAB_NOTICE = 2, TAB_INFO = 3 };
 
-    void DrawInfomation(); /// ±âº»Á¤º¸ ÅÇ Draw
-    void DrawMembers(); /// ¸â¹öÁ¤º¸ ÅÇ Draw
-    void DrawSkills(); /// Å¬·£½ºÅ³ ÅÇ Draw
-    void DrawNotice(); /// °øÁö»çÇ× ÅÇ Draw
+    void DrawInfomation(); /// ê¸°ë³¸ì •ë³´ íƒ­ Draw
+    void DrawMembers(); /// ë©¤ë²„ì •ë³´ íƒ­ Draw
+    void DrawSkills(); /// í´ëœìŠ¤í‚¬ íƒ­ Draw
+    void DrawNotice(); /// ê³µì§€ì‚¬í•­ íƒ­ Draw
 
     void OnLButtonDown(unsigned uiProcID, WPARAM wParam, LPARAM lParam);
     void OnLButtonUp(unsigned uiProcID, WPARAM wParam, LPARAM lParam);
 
-    void SortMemberlistByClass(); /// µî±Şº°·Î ¼ÒÆ®
+    void SortMemberlistByClass(); /// ë“±ê¸‰ë³„ë¡œ ì†ŒíŠ¸
 
     CWinCtrl* FindCtrlInTabbedPane(CTabbedPane* pPane, int iTabID, int iCtrlID);
 
@@ -73,11 +73,11 @@ private:
 
     CClanMemberItem* GetSelectedMember();
 
-    int m_iTab; /// ÅÇ ±¸ºĞ
-    int m_iClassMarkImageNo[7]; /// Å¬·£ ¸â¹öÀÇ µî±Ş¿¡ µû¸¥ ÀÌ¹ÌÁö GraphicID ÀúÀå
+    int m_iTab; /// íƒ­ êµ¬ë¶„
+    int m_iClassMarkImageNo[7]; /// í´ëœ ë©¤ë²„ì˜ ë“±ê¸‰ì— ë”°ë¥¸ ì´ë¯¸ì§€ GraphicID ì €ì¥
 
-    std::string m_strSelectedMemberView; /// ¸â¹öÁ¤º¸ÅÇ¿¡¼­ ¼±ÅÃµÈ ¸â¹öÇ¥½Ã½Ã¿¡ ¾²ÀÌ´Â Á¤º¸ ÀúÀå
+    std::string m_strSelectedMemberView; /// ë©¤ë²„ì •ë³´íƒ­ì—ì„œ ì„ íƒëœ ë©¤ë²„í‘œì‹œì‹œì— ì“°ì´ëŠ” ì •ë³´ ì €ì¥
 
-    CClanMarkUserDefined m_ClanMarkPreView; /// Å¬·£¸¶Å© View Class
+    CClanMarkUserDefined m_ClanMarkPreView; /// í´ëœë§ˆí¬ View Class
 };
 #endif

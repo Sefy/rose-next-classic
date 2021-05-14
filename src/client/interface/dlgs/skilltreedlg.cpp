@@ -212,10 +212,10 @@ CSkillTreeDlg::MakeIcon(int skillindex, int level, int level_limit) {
             pIcon->SetDrawColor(D3DCOLOR_ARGB(255, 255, 255, 255));
             return pIcon;
         } else if (pSkill
-            && pSkill->GetSkillLevel() >= level) ///ÀÌ¹Ì ¹è¿î ½ºÅ³ÀÌ¶ó¸é SkillSlotÀÇ CSkill·Î
-                                                 /// CIconSkill¸¦ »ı¼ºÇØ¼­ ¸®ÅÏÇÑ´Ù.
+            && pSkill->GetSkillLevel() >= level) ///ì´ë¯¸ ë°°ìš´ ìŠ¤í‚¬ì´ë¼ë©´ SkillSlotì˜ CSkillë¡œ
+                                                 /// CIconSkillë¥¼ ìƒì„±í•´ì„œ ë¦¬í„´í•œë‹¤.
             return new CIconSkill(pSkill->GetSkillSlot());
-        else ///¾È¹è¿î ½ºÅ³ÀÌ¶ó¸é CIconSkillDummy¸¦ ¸®ÅÏÇÑ´Ù.
+        else ///ì•ˆë°°ìš´ ìŠ¤í‚¬ì´ë¼ë©´ CIconSkillDummyë¥¼ ë¦¬í„´í•œë‹¤.
             return new CIconSkillDummy(skillindex + level - 1);
     }
 

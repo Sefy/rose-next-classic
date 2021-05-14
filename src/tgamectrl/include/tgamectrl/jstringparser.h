@@ -4,7 +4,7 @@
 #include "JString.h"
 #include <vector>
 
-/// Tag ÆÄ½Ì½Ã ÇÊ¿äÇÑ Data ±¸Á¶Ã¼
+/// Tag íŒŒì‹±ì‹œ í•„ìš”í•œ Data êµ¬ì¡°ì²´
 struct TagInfo {
     DWORD m_color;
     int m_font;
@@ -13,20 +13,20 @@ struct TagInfo {
 };
 
 //--------------------------------------------------------------------------------------------------------------------------------------
-///	¹®ÀÚ¿­ ÆÄ½Ì Class
-///		1. Áö¿ø TAG :
-///			- {BR}	: ÁÙ³Ñ±è
-///			- {B}	: º¼µå		* ÁÖÀÇ : Å¬¶óÀÌ¾ğÆ®¿¡¼­ º¼µå ÆùÆ®°¡ ÀÏ¹İÆùÆ® ÀÎµ¦½º+3ÀÌ¶ó´Â °¡Á¤ÇÏ¿¡
-///±¸ÇöµÇ¾î ÀÖ´Ù
-///			- {FC=?}: ±ÛÀÚ»öº¯°æ
+///	ë¬¸ìì—´ íŒŒì‹± Class
+///		1. ì§€ì› TAG :
+///			- {BR}	: ì¤„ë„˜ê¹€
+///			- {B}	: ë³¼ë“œ		* ì£¼ì˜ : í´ë¼ì´ì–¸íŠ¸ì—ì„œ ë³¼ë“œ í°íŠ¸ê°€ ì¼ë°˜í°íŠ¸ ì¸ë±ìŠ¤+3ì´ë¼ëŠ” ê°€ì •í•˜ì—
+///êµ¬í˜„ë˜ì–´ ìˆë‹¤
+///			- {FC=?}: ê¸€ììƒ‰ë³€ê²½
 ///
-///		2. ÀÚµ¿ÁÙ³Ñ±è
-///			- ´Ü¾îº°(È­ÀÌÆ® ½ºÆäÀÌ½º »çÀÌÀÇ ¹®ÀÚ¿­·Î °¡Á¤)
-///			- ±ÛÀÚº°
+///		2. ìë™ì¤„ë„˜ê¹€
+///			- ë‹¨ì–´ë³„(í™”ì´íŠ¸ ìŠ¤í˜ì´ìŠ¤ ì‚¬ì´ì˜ ë¬¸ìì—´ë¡œ ê°€ì •)
+///			- ê¸€ìë³„
 ///
-///		- ¿¬°üclass			CJString
+///		- ì—°ê´€class			CJString
 ///
-/// @Author				ÃÖÁ¾Áø
+/// @Author				ìµœì¢…ì§„
 ///
 /// @Date				2005/08/30
 //--------------------------------------------------------------------------------------------------------------------------------------
@@ -39,22 +39,22 @@ public:
     int GetStringCount();
     void Clear();
 
-    void SetDefaultFont(int iFont); /// Default ÆùÆ® Set
-    void SetDefaultColor(DWORD dwColor); /// Default ÆùÆ® »ö»ó Set
-    void SetSplitType(int type); /// ÀÚµ¿ ÁÙ³Ñ±è Å¸ÀÔÀ» Set
+    void SetDefaultFont(int iFont); /// Default í°íŠ¸ Set
+    void SetDefaultColor(DWORD dwColor); /// Default í°íŠ¸ ìƒ‰ìƒ Set
+    void SetSplitType(int type); /// ìë™ ì¤„ë„˜ê¹€ íƒ€ì…ì„ Set
 
-    enum { /// ÀÚµ¿ ÁÙ³Ñ±è Å¸ÀÔ
-        SPLIT_LETTER, /// ¹®ÀÚº°(Default)
-        SPLIT_WORD, /// ´Ü¾îº°
+    enum { /// ìë™ ì¤„ë„˜ê¹€ íƒ€ì…
+        SPLIT_LETTER, /// ë¬¸ìë³„(Default)
+        SPLIT_WORD, /// ë‹¨ì–´ë³„
     };
 
 protected:
     std::vector<CJString> m_Strings; ///
-    int m_iDefaultFont; /// Default ÆùÆ®
-    int m_split_type; /// ÁÙ³Ñ±è Å¸ÀÔ
-    DWORD m_dwDefaultColor; /// Default ÆùÆ® »ö»ó
+    int m_iDefaultFont; /// Default í°íŠ¸
+    int m_split_type; /// ì¤„ë„˜ê¹€ íƒ€ì…
+    DWORD m_dwDefaultColor; /// Default í°íŠ¸ ìƒ‰ìƒ
 
-    /// ÀÌÇÏ Tag¸¦ ÆÄ½ÌÇÏ±â À§ÇÑ Methodµé
+    /// ì´í•˜ Tagë¥¼ íŒŒì‹±í•˜ê¸° ìœ„í•œ Methodë“¤
     void Tag(TagInfo& tag_info);
     void TagStartProcess(std::string& Tag, TagInfo& tag_info);
     void TagEndProcess(std::string& Tag, TagInfo& tag_info);

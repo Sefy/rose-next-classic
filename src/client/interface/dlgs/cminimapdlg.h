@@ -6,43 +6,43 @@
 class CTAnimation;
 
 /**
- * ¹Ì´Ï¸Ê Ç¥½Ã¸¦ À§ÇÑ ´ÙÀÌ¾ó·Î±×
+ * ë¯¸ë‹ˆë§µ í‘œì‹œë¥¼ ìœ„í•œ ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CMinimapDLG: public CTDialog {
 
 private:
-    /// ¹Ì´Ï¸ÊÀÇ Á¸ÀÇ ¸î¹øÂ° ¸ÊºÎÅÍ Á¸ÀçÇÏ´Â°¡? ±×·¡¾ß¸¸ ÇöÀç Ãâ·ÂÀ§Ä¡¸¦ °áÁ¤ÇÒ¼ö ÀÖ´Ù..
-    DWORD m_dwMinimapStartX; /// ¹Ì´Ï¸ÊÀÇ LEFT-TOP°ú ÀÏÄ¡½ÃÅ³ ¸ÊÀÇ ¹øÈ£
+    /// ë¯¸ë‹ˆë§µì˜ ì¡´ì˜ ëª‡ë²ˆì§¸ ë§µë¶€í„° ì¡´ì¬í•˜ëŠ”ê°€? ê·¸ë˜ì•¼ë§Œ í˜„ì¬ ì¶œë ¥ìœ„ì¹˜ë¥¼ ê²°ì •í• ìˆ˜ ìˆë‹¤..
+    DWORD m_dwMinimapStartX; /// ë¯¸ë‹ˆë§µì˜ LEFT-TOPê³¼ ì¼ì¹˜ì‹œí‚¬ ë§µì˜ ë²ˆí˜¸
     DWORD m_dwMinimapStartY;
 
-    float m_fMinMinimapWorldPosX; /// ¹Ì´Ï¸ÊÀÇ ½ÃÀÛÁÂÇ¥ÀÇ  ¿ùµå ÁÂÇ¥( °¡·Î )
-    float m_fMaxMinimapWorldPosY; /// ¹Ì´Ï¸ÊÀÇ ½ÃÀÛÁÂÇ¥ÀÇ  ¿ùµå ÁÂÇ¥( ¼¼·Î )
+    float m_fMinMinimapWorldPosX; /// ë¯¸ë‹ˆë§µì˜ ì‹œì‘ì¢Œí‘œì˜  ì›”ë“œ ì¢Œí‘œ( ê°€ë¡œ )
+    float m_fMaxMinimapWorldPosY; /// ë¯¸ë‹ˆë§µì˜ ì‹œì‘ì¢Œí‘œì˜  ì›”ë“œ ì¢Œí‘œ( ì„¸ë¡œ )
 
     float
-        m_fMaxMinimapWorldPosX; /// ¹Ì´Ï¸Ê TextureÀÇ Size·Î ÀÌµ¿°¡´ÉÇÑ ÃÖ´ë ¿ùµå XÁÂÇ¥¸¦ ±¸ÇÑ °ª(
-                                /// ½ÇÁ¦ ÀÌµ¿°¡´É ¿ùµå ÁÂÇ¥¿Í Æ²¸±¼ö ÀÖ´Ù:¹Ì´Ï¸ÊÀÌ Àß¸ø µé¾î°£ °æ¿ì)
-    float m_fMinMinimapWorldPosY; /// ¹Ì´Ï¸Ê TextureÀÇ Size·Î ÀÌµ¿°¡´ÉÇÑ ÃÖ¼Ò ¿ùµå YÁÂÇ¥¸¦ ±¸ÇÑ °ª
+        m_fMaxMinimapWorldPosX; /// ë¯¸ë‹ˆë§µ Textureì˜ Sizeë¡œ ì´ë™ê°€ëŠ¥í•œ ìµœëŒ€ ì›”ë“œ Xì¢Œí‘œë¥¼ êµ¬í•œ ê°’(
+                                /// ì‹¤ì œ ì´ë™ê°€ëŠ¥ ì›”ë“œ ì¢Œí‘œì™€ í‹€ë¦´ìˆ˜ ìˆë‹¤:ë¯¸ë‹ˆë§µì´ ì˜ëª» ë“¤ì–´ê°„ ê²½ìš°)
+    float m_fMinMinimapWorldPosY; /// ë¯¸ë‹ˆë§µ Textureì˜ Sizeë¡œ ì´ë™ê°€ëŠ¥í•œ ìµœì†Œ ì›”ë“œ Yì¢Œí‘œë¥¼ êµ¬í•œ ê°’
 
-    float m_fCurrentScale; /// Zoom½Ã¿¡ È®´ëÇÒ ºñÀ²
+    float m_fCurrentScale; /// Zoomì‹œì— í™•ëŒ€í•  ë¹„ìœ¨
 
-    float m_fMinimapCenterWorldPosX; /// ÇöÀç º¸¿©Áö´Â ¹Ì´Ï¸ÊÀÇ Áß°£ÀÇ ½ÇÁ¦ ¿ùµå ÁÂÇ¥
+    float m_fMinimapCenterWorldPosX; /// í˜„ì¬ ë³´ì—¬ì§€ëŠ” ë¯¸ë‹ˆë§µì˜ ì¤‘ê°„ì˜ ì‹¤ì œ ì›”ë“œ ì¢Œí‘œ
     float m_fMinimapCenterWorldPosY;
 
-    bool m_bExploreMode; /// ¸¶¿ì½º µå·¡±×¿¡ µû¶ó ¹Ì´Ï¸ÊÀÇ Áß½ÉÀÌ º¯°æµÇ´Â Mode(Draw¿¡¼­ falseÁ¶°Ç
-                         /// Ã¼Å©)
-    bool m_bShowMiniMap; /// Expand( ½ÇÁ¦ ¹Ì´Ï¸ÊÀ» º¸¿©ÁÖ´Â°¡? Dialog´Â Ç×»ó º¸¿©Áö´Â »óÅÂÀÌ´Ù )
+    bool m_bExploreMode; /// ë§ˆìš°ìŠ¤ ë“œë˜ê·¸ì— ë”°ë¼ ë¯¸ë‹ˆë§µì˜ ì¤‘ì‹¬ì´ ë³€ê²½ë˜ëŠ” Mode(Drawì—ì„œ falseì¡°ê±´
+                         /// ì²´í¬)
+    bool m_bShowMiniMap; /// Expand( ì‹¤ì œ ë¯¸ë‹ˆë§µì„ ë³´ì—¬ì£¼ëŠ”ê°€? DialogëŠ” í•­ìƒ ë³´ì—¬ì§€ëŠ” ìƒíƒœì´ë‹¤ )
 
     HNODE m_hMiniMap;
     HNODE m_hArrow;
 
-    float m_fPrevUserPosX; /// Explore Mode¸¦ Á¾·áÇÏ±â À§ÇÏ¿© ÀÓ½ÃÀûÀ¸·Î ³» ¾Æ¹ÙÅ¸ÀÇ À§Ä¡¸¦
-                           /// ÀúÀåÇØµÎ´Â º¯¼ö
+    float m_fPrevUserPosX; /// Explore Modeë¥¼ ì¢…ë£Œí•˜ê¸° ìœ„í•˜ì—¬ ì„ì‹œì ìœ¼ë¡œ ë‚´ ì•„ë°”íƒ€ì˜ ìœ„ì¹˜ë¥¼
+                           /// ì €ì¥í•´ë‘ëŠ” ë³€ìˆ˜
     float m_fPrevUserPosY;
-    POINT m_ptLButtonDown; /// LButtonDown½Ã ¸¶¿ì½º À§Ä¡
-    bool m_bDragStart; /// ¹Ì´Ï¸ÊÀ§¿¡¼­ µå·¡±×°¡ ½ÃÀÛµÇ¾ú´Â°¡?
+    POINT m_ptLButtonDown; /// LButtonDownì‹œ ë§ˆìš°ìŠ¤ ìœ„ì¹˜
+    bool m_bDragStart; /// ë¯¸ë‹ˆë§µìœ„ì—ì„œ ë“œë˜ê·¸ê°€ ì‹œì‘ë˜ì—ˆëŠ”ê°€?
 
     int m_iAvatarImageID;
     int m_iPartyImageID;
@@ -68,25 +68,25 @@ private:
         int m_auto_remove;
     };
 
-    /**¹Ì´Ï¸Ê¿¡¼­ npc&PartyMember¸¶Å©¸¦ ±×¸®±âÀ§ÇÏ¿© ÀÓ½Ã·Î ÀúÀåÇØµÎ´Â ¸®½ºÆ®
-     *	ObjMGR¿¡¼­ °¡Á®¿Â ¸®½ºÆ®¿¡¼­ ÀÏ´Ü ¾Æ¹ÙÅ¸µéÀº ±×¸®°í NPCµéÀº ÀÓ½Ã ÀúÀåÇØµÎ¾ú´Ù°¡
-     *	Á©À§·Î ±×¸®±â À§ÇÏ¿© Àá½Ã º¸°üÇØµĞ´Ù.
+    /**ë¯¸ë‹ˆë§µì—ì„œ npc&PartyMemberë§ˆí¬ë¥¼ ê·¸ë¦¬ê¸°ìœ„í•˜ì—¬ ì„ì‹œë¡œ ì €ì¥í•´ë‘ëŠ” ë¦¬ìŠ¤íŠ¸
+     *	ObjMGRì—ì„œ ê°€ì ¸ì˜¨ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì¼ë‹¨ ì•„ë°”íƒ€ë“¤ì€ ê·¸ë¦¬ê³  NPCë“¤ì€ ì„ì‹œ ì €ì¥í•´ë‘ì—ˆë‹¤ê°€
+     *	ì ¤ìœ„ë¡œ ê·¸ë¦¬ê¸° ìœ„í•˜ì—¬ ì ì‹œ ë³´ê´€í•´ë‘”ë‹¤.
      *	std::map<int, NpcMarkInfo>
-     *		-m_listNpcMarkInfo; - Áßº¹µÈ NPC ¹øÈ£¸¦ °¡Áø NPCÀÇ °æ¿ì ¾È±×·ÁÁö´Â »óÈ² ¹ß»ı
-     *		-¸ğµç NPC´Â ¸Ê¿¡¼­ ·ÎµùÇØ¼­ ±×¸®´Â°ÍÀ¸·Î ÇÑ´Ù.
+     *		-m_listNpcMarkInfo; - ì¤‘ë³µëœ NPC ë²ˆí˜¸ë¥¼ ê°€ì§„ NPCì˜ ê²½ìš° ì•ˆê·¸ë ¤ì§€ëŠ” ìƒí™© ë°œìƒ
+     *		-ëª¨ë“  NPCëŠ” ë§µì—ì„œ ë¡œë”©í•´ì„œ ê·¸ë¦¬ëŠ”ê²ƒìœ¼ë¡œ í•œë‹¤.
      */
     std::list<PartyMemberMarkInfo> m_listPartyMemberMarkInfo;
 
-    bool m_bExpand; ///ÇöÀç Å©°Ô º¸ÀÌ´Â°¡?
-    bool m_bMinimize; ///ÇöÀç Ä¸¼Ç¸¸ º¸ÀÌ´Â°¡?
+    bool m_bExpand; ///í˜„ì¬ í¬ê²Œ ë³´ì´ëŠ”ê°€?
+    bool m_bMinimize; ///í˜„ì¬ ìº¡ì…˜ë§Œ ë³´ì´ëŠ”ê°€?
 
-    CSinglelineString m_zonename; /// Á¸³×ÀÓ ½ºÆ®¸µ
+    CSinglelineString m_zonename; /// ì¡´ë„¤ì„ ìŠ¤íŠ¸ë§
 
-    /// ½ºÅ©¸³Æ®·Î ¹Ì´Ï¸ÊÀ§¿¡ Æ¯º°ÇÑ Ç¥½Ã¸¦ Ãß°¡½Ã ÀúÀå ÄÁÅ×ÀÌ³Ê
-    std::multimap<int, S_IndicatorNpc> m_indicators_npc; /// NPC( Áßº¹ ÁöÁ¤ÇÒ¼ö ÀÖ´Ù )
-    std::map<int, S_IndicatorCoordinates> m_indicators_coordinates; /// ÁÂÇ¥
+    /// ìŠ¤í¬ë¦½íŠ¸ë¡œ ë¯¸ë‹ˆë§µìœ„ì— íŠ¹ë³„í•œ í‘œì‹œë¥¼ ì¶”ê°€ì‹œ ì €ì¥ ì»¨í…Œì´ë„ˆ
+    std::multimap<int, S_IndicatorNpc> m_indicators_npc; /// NPC( ì¤‘ë³µ ì§€ì •í• ìˆ˜ ìˆë‹¤ )
+    std::map<int, S_IndicatorCoordinates> m_indicators_coordinates; /// ì¢Œí‘œ
 
-    CTAnimation* m_indicator; ///Ç¥½Ã¿¡ »ç¿ëµÉ CTAnimation
+    CTAnimation* m_indicator; ///í‘œì‹œì— ì‚¬ìš©ë  CTAnimation
 public:
     CMinimapDLG();
     virtual ~CMinimapDLG();
@@ -106,7 +106,7 @@ public:
     void RemoveIndicatorCoordinates(int index);
     int GetIndicatorNpc(int npcno);
     void RemoveAutodeleteIndicatorNpc(int npcno);
-    void CalculateDisplayPos(); ///°ÔÀÓ¿¡¼­ »ç¿ëµÇ´Â ¸ÊÀÇ ½ÃÀÛÀ§Ä¡¿Í ¹Ì´Ï¸ÊÀÇ ½ÃÀÛÀ§Ä¡¸¦ ¸ÂÃá´Ù.
+    void CalculateDisplayPos(); ///ê²Œì„ì—ì„œ ì‚¬ìš©ë˜ëŠ” ë§µì˜ ì‹œì‘ìœ„ì¹˜ì™€ ë¯¸ë‹ˆë§µì˜ ì‹œì‘ìœ„ì¹˜ë¥¼ ë§ì¶˜ë‹¤.
 
     void ToggleShowMinimap();
     void ToggleZoomMinimap();
@@ -114,7 +114,7 @@ public:
     bool IsShowMinimap() { return m_bShowMiniMap; }
     bool IsZoomMinimap() { return ((m_fCurrentScale == 1) ? false : true); }
 
-    void SetAvataInfoPos(int y); //  ¾Æ¹ÙÅ¸ÀÎÆ÷Ã¢ È®´ë,Ãà¼Ò½Ã À§Ä¡ º¯°æ
+    void SetAvataInfoPos(int y); //  ì•„ë°”íƒ€ì¸í¬ì°½ í™•ëŒ€,ì¶•ì†Œì‹œ ìœ„ì¹˜ ë³€ê²½
 
     void RefreshDlg();
     void SetInterfacePos_After();
@@ -137,25 +137,25 @@ protected:
     bool On_LButtonUP(unsigned iProcID, WPARAM wParam, LPARAM lParam);
     bool On_LButtonDN(unsigned iProcID, WPARAM wParam, LPARAM lParam);
 
-    float fGetWorldDistancePerPixel(); /// ¹Ì´Ï¸Ê°ú ¿ùµå °Å¸®¿ÍÀÇ ºñÀ²
+    float fGetWorldDistancePerPixel(); /// ë¯¸ë‹ˆë§µê³¼ ì›”ë“œ ê±°ë¦¬ì™€ì˜ ë¹„ìœ¨
 
-    void DrawAVTPosition(); /// ´Ù¸¥ ¾Æ¹ÙÅ¸,NPCµîÀ» Ç¥½Ã
+    void DrawAVTPosition(); /// ë‹¤ë¥¸ ì•„ë°”íƒ€,NPCë“±ì„ í‘œì‹œ
     bool IsInsideMinimap(float x,
         float y,
         int width,
-        int height); /// ¹Ì´Ï¸ÊDialog³»ºÎÀÇ ½ÇÁ¦ ¹Ì´Ï¸ÊÀ§ÀÎ°¡?
+        int height); /// ë¯¸ë‹ˆë§µDialogë‚´ë¶€ì˜ ì‹¤ì œ ë¯¸ë‹ˆë§µìœ„ì¸ê°€?
 
-    void DrawPartyMember(); /// ÆÄÆ¼ ¸â¹ö Ãâ·Â
+    void DrawPartyMember(); /// íŒŒí‹° ë©¤ë²„ ì¶œë ¥
     void
-    DrawNpcFromMap(); /// ¸Ê¿¡ ÂïÇôÈù NPCµé Ãâ·Â( ¼­¹ö¿¡¼­ ¹ŞÀº CObjNPCÀÌ ¾Æ´Ñ ¸Ê¿¡¼­ Á÷Á¢ ·ÎµåÇÑ )
+    DrawNpcFromMap(); /// ë§µì— ì°í˜€íŒ NPCë“¤ ì¶œë ¥( ì„œë²„ì—ì„œ ë°›ì€ CObjNPCì´ ì•„ë‹Œ ë§µì—ì„œ ì§ì ‘ ë¡œë“œí•œ )
 
-    void DrawCoordinatesIndicator(); /// Æ¯Á¤ÇÑ Ç¥½Ã°¡ Ãß°¡µÈ ÁÂÇ¥ Draw
+    void DrawCoordinatesIndicator(); /// íŠ¹ì •í•œ í‘œì‹œê°€ ì¶”ê°€ëœ ì¢Œí‘œ Draw
 
-    void Expand(); /// ÀüÃ¼ º¸ÀÌ±â
-    void Reduct(); /// Ä¸¼Ç¸¸ º¸ÀÌ±â
+    void Expand(); /// ì „ì²´ ë³´ì´ê¸°
+    void Reduct(); /// ìº¡ì…˜ë§Œ ë³´ì´ê¸°
 
-    void ToggleShowMinimapSmall(); /// ÃÖ¼ÒÈ­
-    void ToggleShowMinimapBig(); /// ÃÖ´ëÈ­
+    void ToggleShowMinimapSmall(); /// ìµœì†Œí™”
+    void ToggleShowMinimapBig(); /// ìµœëŒ€í™”
 
     CWinCtrl* FindPaneChild(unsigned uiPaneID, unsigned uiChildID);
 };

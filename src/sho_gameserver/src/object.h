@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	Object.h
- * \brief	¼­¹ö¿¡ »ı¼ºµÈ ÀüÃ¼ °´Ã¼ °ü¸®
+ * \brief	ì„œë²„ì— ìƒì„±ëœ ì „ì²´ ê°ì²´ ê´€ë¦¬
  */
 #ifndef __CObject_H
 #define __CObject_H

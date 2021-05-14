@@ -61,7 +61,7 @@ public:
 };
 
 //-------------------------------------------------------------------------------------------------
-/// °íÁ¤ ±¸Á¶¹° ¸ğµ¨ ºÎºĞ.
+/// ê³ ì • êµ¬ì¡°ë¬¼ ëª¨ë¸ ë¶€ë¶„.
 class CFixedPART: public CBasicPART {
 public:
     short m_nParent;
@@ -74,7 +74,7 @@ public:
 
     WORD m_wAniTYPE;
 
-    /// 2004/3/17 Rangeset, buseLightmap Ãß°¡
+    /// 2004/3/17 Rangeset, buseLightmap ì¶”ê°€
     short m_nRangeSet;
     short m_nUseLightMap;
 
@@ -102,7 +102,7 @@ public:
     short m_nPartCNT;
     CModelPart* m_pParts;
 
-    // È¿°ú ºÙ´Â À§Ä¡...
+    // íš¨ê³¼ ë¶™ëŠ” ìœ„ì¹˜...
     short m_nDummyPointCNT;
     CPointPART* m_pDummyPoints;
 
@@ -149,7 +149,7 @@ CMODEL<CModelPart>::Load(CFileSystem* pFileSystem,
     short nListIDX;
 
     //--------------------------------------------------------------------------------
-    /// °¢ ¸ğµ¨ ÆÄÆ® ·Îµå
+    /// ê° ëª¨ë¸ íŒŒíŠ¸ ë¡œë“œ
     //--------------------------------------------------------------------------------
     m_pParts = new CModelPart[m_nPartCNT];
     for (short nP = 0; nP < m_nPartCNT; nP++) {
@@ -168,15 +168,15 @@ CMODEL<CModelPart>::Load(CFileSystem* pFileSystem,
             m_nRootPART = nP;
     }
 
-    if (m_nRootPART < 0) // ¼³Á¤µÈ ·çÆ®°¡ ¾øÀ¸¸é 0¹øÀ¸·Î °­Á¦ ¼³Á¤.
+    if (m_nRootPART < 0) // ì„¤ì •ëœ ë£¨íŠ¸ê°€ ì—†ìœ¼ë©´ 0ë²ˆìœ¼ë¡œ ê°•ì œ ì„¤ì •.
         m_nRootPART = 0;
 
     //--------------------------------------------------------------------------------
-    /// Æ÷ÀÎÅÍ Á¤º¸ ·Îµå
+    /// í¬ì¸í„° ì •ë³´ ë¡œë“œ
     //--------------------------------------------------------------------------------
     pFileSystem->ReadInt16(&m_nDummyPointCNT);
     if (m_nDummyPointCNT > 0) {
-        short nEffectType; // ¹ã³· Àû¿ëÀ» ¹Ş´Â ÀÌÆåÆ® ÀÎ°¡?
+        short nEffectType; // ë°¤ë‚® ì ìš©ì„ ë°›ëŠ” ì´í™íŠ¸ ì¸ê°€?
         m_pDummyPoints = new CPointPART[m_nDummyPointCNT];
         for (short nP = 0; nP < m_nDummyPointCNT; nP++) {
             pFileSystem->ReadInt16(&nListIDX);
@@ -190,7 +190,7 @@ CMODEL<CModelPart>::Load(CFileSystem* pFileSystem,
     }
 
     //--------------------------------------------------------------------------------
-    /// ¸ğµ¨ ¹Ù¿îµù ¹Ú½º Á¤º¸ ·Îµå
+    /// ëª¨ë¸ ë°”ìš´ë”© ë°•ìŠ¤ ì •ë³´ ë¡œë“œ
     //--------------------------------------------------------------------------------
     pFileSystem->ReadFloat(&m_BBMin[0]);
     pFileSystem->ReadFloat(&m_BBMin[1]);
@@ -234,7 +234,7 @@ public:
 };
 
 //-------------------------------------------------------------------------------------------------
-/// .ZSC ¸¦ ÀĞ´Â ºÎºĞÀÌ´Ù. °¢ ModelPart ÀÇ Å¸ÀÔ¿¡ µû¶ó ³»ºÎ¿¡¼­ ±¸Ã¼ÀûÀ¸·Î ÀĞ´Â µ¥ÀÌÅÍ´Â Æ²·ÁÁø´Ù.
+/// .ZSC ë¥¼ ì½ëŠ” ë¶€ë¶„ì´ë‹¤. ê° ModelPart ì˜ íƒ€ì…ì— ë”°ë¼ ë‚´ë¶€ì—ì„œ êµ¬ì²´ì ìœ¼ë¡œ ì½ëŠ” ë°ì´í„°ëŠ” í‹€ë ¤ì§„ë‹¤.
 template<class CModelPart>
 bool
 CModelDATA<CModelPart>::Load(char* szFileName, short nBoneIdx, short nDummyIdx) {
@@ -353,8 +353,8 @@ CModelDATA<CModelPart>::Load(char* szFileName, short nBoneIdx, short nDummyIdx) 
             pStr = CGameStr::ReadString(pFileSystem);
 
             //----------------------------------------------------------------------------------------------------
-            /// @todo ¶óÀÌÆ®¸¦ ÀÌÆåÆ®¿Í °°Àº µ¥ÀÌÅÍ·Î »ç¿ëÇÏ±â¶§¹®¿¡ ÇöÀç´Â ±¸º° ¹æ¹ıÀÌ ¸ğÈ£ÇÏ´Ù.
-            ///        Â÷ÈÄ¿¡ »õ·Î¿î Å¸ÀÔÀ¸·Î »ı¼ºÇÏ´Â ¹æ¹ıÀ¸·Î ÀüÈ¯¿äÇÔ!!
+            /// @todo ë¼ì´íŠ¸ë¥¼ ì´í™íŠ¸ì™€ ê°™ì€ ë°ì´í„°ë¡œ ì‚¬ìš©í•˜ê¸°ë•Œë¬¸ì— í˜„ì¬ëŠ” êµ¬ë³„ ë°©ë²•ì´ ëª¨í˜¸í•˜ë‹¤.
+            ///        ì°¨í›„ì— ìƒˆë¡œìš´ íƒ€ì…ìœ¼ë¡œ ìƒì„±í•˜ëŠ” ë°©ë²•ìœ¼ë¡œ ì „í™˜ìš”í•¨!!
             //----------------------------------------------------------------------------------------------------
             if (pStr[0] == '3' && (pStr[1] == 'D' || pStr[1] == 'd')) {
                 pEftKEY[nI] = g_pEffectLIST->Add_EffectFILE(pStr);
@@ -367,7 +367,7 @@ CModelDATA<CModelPart>::Load(char* szFileName, short nBoneIdx, short nDummyIdx) 
     }
 
     /////////////////////////////////////////////////////////////////////////////////////
-    /// ½ÇÁ¦  Part Å¸ÀÔÀÇ µ¥ÀÌÅÍ¸¦ ÇÒ´ç ÇÏ°í ·Îµù..
+    /// ì‹¤ì œ  Part íƒ€ì…ì˜ ë°ì´í„°ë¥¼ í• ë‹¹ í•˜ê³  ë¡œë”©..
     pFileSystem->ReadInt16(&m_nModelCNT);
     m_pMODELS = new CMODEL<CModelPart>[m_nModelCNT];
 

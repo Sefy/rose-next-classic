@@ -7,38 +7,38 @@ public:
     IocpHandler(void);
     ~IocpHandler(void);
 
-    // IOCP »ı¼º ¹× ÃÊ±âÈ­
+    // IOCP ìƒì„± ë° ì´ˆê¸°í™”
     BOOL Create(int nMaxNumberOfConcurrentThreads = 0, int* pnOutErrCode = NULL);
-    // ¼ÒÄÏ°ú IOCP ¿Í ¿¬°á
+    // ì†Œì¼“ê³¼ IOCP ì™€ ì—°ê²°
     BOOL Associate(SOCKET hSocket, ULONG_PTR CompletionKey, int* pnOutErrCode = NULL);
-    // ÆÄÀÏ ÇÚµé°ú IOCP ¿ÍÀÇ ¿¬°á
+    // íŒŒì¼ í•¸ë“¤ê³¼ IOCP ì™€ì˜ ì—°ê²°
     BOOL Associate(HANDLE hDevice, ULONG_PTR CompletionKey, int* pnOutErrCode = NULL);
-    // IO Completion Queue¿¡ ÇÑ ¿Ï·á ·¹ÄÚµå¸¦ »ç¿ëÀÚ Á¤ÀÇ·Î Ãß°¡
+    // IO Completion Queueì— í•œ ì™„ë£Œ ë ˆì½”ë“œë¥¼ ì‚¬ìš©ì ì •ì˜ë¡œ ì¶”ê°€
     BOOL PostCompletionStatus(ULONG_PTR CompleitonKey,
         DWORD dwBytesTransferred = 0,
         OVERLAPPED* pOverlapped = NULL,
         int* pnOutErrCode = NULL);
-    // IO Completion Queue¿¡¼­ ¿Ï·á ÆĞÅ¶À» ¾ò¾î¿Â´Ù.
+    // IO Completion Queueì—ì„œ ì™„ë£Œ íŒ¨í‚·ì„ ì–»ì–´ì˜¨ë‹¤.
     BOOL GetCompletionStatus(ULONG_PTR* pOutCompletionKey,
         LPDWORD pdwOutBytesTransferred,
         LPOVERLAPPED* pOutOverlapped,
         int* pnOutErrCode = NULL,
         DWORD dwWaitingTime = INFINITE);
 
-    // IOCP Worker Thread Ç®À» ¸¸µë
+    // IOCP Worker Thread í’€ì„ ë§Œë“¬
     BOOL CreateThreadPool(IIocpProcessThread* piProcessThread, int nNumOfPooledThread = 0);
 
 private:
-    // IOCP Ä¿³Î °´Ã¼¿¡ ´ëÇÑ ÇÚµé
+    // IOCP ì»¤ë„ ê°ì²´ì— ëŒ€í•œ í•¸ë“¤
     HANDLE m_hIOCP;
-    // ¸¸µé¾îÁø Worker Thread ¼ö
+    // ë§Œë“¤ì–´ì§„ Worker Thread ìˆ˜
     int m_CreatedThreadNumber;
 
 private:
-    // IOCP ¿öÄ¿ ¾²·¹µå ½ÃÀÛ Æ÷ÀÎÆ®·Î¼­¸¸ÀÇ ¿ªÈ°
+    // IOCP ì›Œì»¤ ì“°ë ˆë“œ ì‹œì‘ í¬ì¸íŠ¸ë¡œì„œë§Œì˜ ì—­í™œ
     static DWORD __stdcall IocpWorkerThreadStartingPoint(PVOID pvParam);
 
 public:
-    // ÇöÀç µ¹°í ÀÖ´Â ¾²·¹µå ¸ğµÎ Á×ÀÓ
+    // í˜„ì¬ ëŒê³  ìˆëŠ” ì“°ë ˆë“œ ëª¨ë‘ ì£½ì„
     void CloseAllThreads(void);
 };

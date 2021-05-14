@@ -6,10 +6,10 @@
 using namespace std;
 
 /**
- *	CSplitHangul°ú À¯»çÇÏ°Ô µ¿ÀÛÇÏÁö¸¸ ¹®ÀÚ°³¼ö°¡ ¾Æ´Ñ Ç¥½ÃµÈ ³Êºñ¿¡ µû¶ó ½ºÆ®¸µÀ» ÀÚ¸£´Â Class
- *		- znzin¿¡ ½ÇÁ¦ Ç¥½Ã ±æÀÌ¸¦ queryÇÏ±â ¶§¹®¿¡ ´À¸±¼ö ÀÖ´Ù. ÇÁ·¹ÀÓ¸¶´Ù ½ÇÇàÇÏÁö ¾Êµµ·Ï À¯ÀÇÇÒ°Í
+ *	CSplitHangulê³¼ ìœ ì‚¬í•˜ê²Œ ë™ìž‘í•˜ì§€ë§Œ ë¬¸ìžê°œìˆ˜ê°€ ì•„ë‹Œ í‘œì‹œëœ ë„ˆë¹„ì— ë”°ë¼ ìŠ¤íŠ¸ë§ì„ ìžë¥´ëŠ” Class
+ *		- znzinì— ì‹¤ì œ í‘œì‹œ ê¸¸ì´ë¥¼ queryí•˜ê¸° ë•Œë¬¸ì— ëŠë¦´ìˆ˜ ìžˆë‹¤. í”„ë ˆìž„ë§ˆë‹¤ ì‹¤í–‰í•˜ì§€ ì•Šë„ë¡ ìœ ì˜í• ê²ƒ
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/8/30
  */
 

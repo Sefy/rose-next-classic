@@ -14,15 +14,15 @@ void
 CITStateRepair::Enter() {
     if (CTDialog* pDlg = g_itMGR.FindDlg(DLG_TYPE_ITEM)) {
         CItemDlg* pItemDlg = (CItemDlg*)pDlg;
-        pItemDlg->AddActionEventListener2Slots(); /// ¾ÆÀÌÅÛÃ¢ ½½·Ô¿¡¼­ÀÇ ¾ÆÀÌÄÜ Å¬¸¯½Ã ÇàÀ§(¼ö¸®)¸¦
-                                                  /// ¹Ù²Ù¾î ÁØ´Ù.
+        pItemDlg->AddActionEventListener2Slots(); /// ì•„ì´í…œì°½ ìŠ¬ë¡¯ì—ì„œì˜ ì•„ì´ì½˜ í´ë¦­ì‹œ í–‰ìœ„(ìˆ˜ë¦¬)ë¥¼
+                                                  /// ë°”ê¾¸ì–´ ì¤€ë‹¤.
     }
 }
 void
 CITStateRepair::Leave() {
     if (CTDialog* pDlg = g_itMGR.FindDlg(DLG_TYPE_ITEM)) {
         CItemDlg* pItemDlg = (CItemDlg*)pDlg;
-        pItemDlg->RemoveActionEventListener2Slots(); /// Enter()¿¡¼­ Ãß°¡ÇÑ ÇàÀ§(¼ö¸®)¸¦ Áö¿î´Ù.
+        pItemDlg->RemoveActionEventListener2Slots(); /// Enter()ì—ì„œ ì¶”ê°€í•œ í–‰ìœ„(ìˆ˜ë¦¬)ë¥¼ ì§€ìš´ë‹¤.
     }
 }
 unsigned
@@ -37,14 +37,14 @@ CITStateRepair::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
         pDlg = *ritorDlgs;
         if (pDlg->Process(uiMsg, wParam, lParam)) {
             if (uiMsg == WM_LBUTTONDOWN)
-                g_itMGR.MoveDlg2ListEnd(pDlg); /// iterator°¡ ÆÄ±«µÉ¼ö ÀÖ´Ù Ç×»ó loop¸¦ ¹þ¾î³¯°Í
+                g_itMGR.MoveDlg2ListEnd(pDlg); /// iteratorê°€ íŒŒê´´ë ìˆ˜ ìžˆë‹¤ í•­ìƒ loopë¥¼ ë²—ì–´ë‚ ê²ƒ
 
             uiRet = uiMsg;
             iProcessDialogType = pDlg->GetDialogType();
             break;
         }
 
-        ///¸ð´Þ ´ÙÀÌ¾ó·Î±×ÀÏ °æ¿ì´Â ´ÙÀ½ ´ÙÀÌ¾ó·Î±×¸¦ Ã³¸®ÇÒÇÊ¿ä°¡ ¾ø´Ù.
+        ///ëª¨ë‹¬ ë‹¤ì´ì–¼ë¡œê·¸ì¼ ê²½ìš°ëŠ” ë‹¤ìŒ ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ì²˜ë¦¬í• í•„ìš”ê°€ ì—†ë‹¤.
         if (pDlg->IsVision() && pDlg->IsModal()) {
             DWORD dwDialgType = pDlg->GetDialogType();
             return 1;

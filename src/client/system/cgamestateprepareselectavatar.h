@@ -3,9 +3,9 @@
 #include "cgamestate.h"
 
 /**
- * CGameStateSelectAvatar¿¡ ÇÊ¿äÇÑ ÀüÃ³¸®¸¦ ÇÏ´Â State Class
+ * CGameStateSelectAvatarì— í•„ìš”í•œ ì „ì²˜ë¦¬ë¥¼ í•˜ëŠ” State Class
  *	- Next State : CGameStateSelectAvatar
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/15
  */
 class CGameStatePrepareSelectAvatar: public CGameState {

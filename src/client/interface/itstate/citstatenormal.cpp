@@ -24,7 +24,7 @@ unsigned
 CITStateNormal::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
     UINT uiRet = 0;
 
-    /// CtrlµéÀÇ ³»ºÎÃ³¸®¸¦ À§ÇÑ Setting
+    /// Ctrlë“¤ì˜ ë‚´ë¶€ì²˜ë¦¬ë¥¼ ìœ„í•œ Setting
     if (uiMsg == WM_LBUTTONUP)
         CWinCtrl::SetMouseExclusiveCtrl(NULL);
 
@@ -32,26 +32,26 @@ CITStateNormal::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
     CTDialog* pDlg = NULL;
     int iProcessDialogType = 0;
 
-    /// ÀÏ¹İÀûÀÎ ´ÙÀÌ¾ó·Î±× Ã³¸®
+    /// ì¼ë°˜ì ì¸ ë‹¤ì´ì–¼ë¡œê·¸ ì²˜ë¦¬
     for (ritorDlgs = g_itMGR.m_Dlgs.rbegin(); ritorDlgs != g_itMGR.m_Dlgs.rend(); ++ritorDlgs) {
         pDlg = *ritorDlgs;
         if (pDlg->Process(uiMsg, wParam, lParam)) {
             if (uiMsg == WM_LBUTTONDOWN)
-                g_itMGR.MoveDlg2ListEnd(pDlg); /// iterator°¡ ÆÄ±«µÉ¼ö ÀÖ´Ù Ç×»ó loop¸¦ ¹ş¾î³¯°Í
+                g_itMGR.MoveDlg2ListEnd(pDlg); /// iteratorê°€ íŒŒê´´ë ìˆ˜ ìˆë‹¤ í•­ìƒ loopë¥¼ ë²—ì–´ë‚ ê²ƒ
 
             uiRet = uiMsg;
             iProcessDialogType = pDlg->GetDialogType();
             break;
         }
 
-        ///¸ğ´Ş ´ÙÀÌ¾ó·Î±×ÀÏ °æ¿ì´Â ´ÙÀ½ ´ÙÀÌ¾ó·Î±×¸¦ Ã³¸®ÇÒÇÊ¿ä°¡ ¾ø´Ù.
+        ///ëª¨ë‹¬ ë‹¤ì´ì–¼ë¡œê·¸ì¼ ê²½ìš°ëŠ” ë‹¤ìŒ ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ì²˜ë¦¬í• í•„ìš”ê°€ ì—†ë‹¤.
         if (pDlg->IsVision() && pDlg->IsModal()) {
             DWORD dwDialgType = pDlg->GetDialogType();
             return 1;
         }
     }
 
-    /// ¾ÆÀÌÄÜÈ­µÈ ´ÙÀÌ¾ó·Î±× Ã³¸®
+    /// ì•„ì´ì½˜í™”ëœ ë‹¤ì´ì–¼ë¡œê·¸ ì²˜ë¦¬
     std::list<CIconDialog*>::reverse_iterator riterIcons;
     for (riterIcons = g_itMGR.m_Icons.rbegin(); riterIcons != g_itMGR.m_Icons.rend();
          ++riterIcons) {
@@ -63,7 +63,7 @@ CITStateNormal::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
             break;
         }
     }
-    /// ¸Ş´º°¡ ¿ÀÇÂµÈ »óÅÂ¿¡¼­ ´Ù¸¥°÷À» Å¬¸¯½Ã ¸Ş´º¸¦ ´İ´Â´Ù.
+    /// ë©”ë‰´ê°€ ì˜¤í”ˆëœ ìƒíƒœì—ì„œ ë‹¤ë¥¸ê³³ì„ í´ë¦­ì‹œ ë©”ë‰´ë¥¼ ë‹«ëŠ”ë‹¤.
     if (uiMsg == WM_LBUTTONDOWN) {
         if (iProcessDialogType != DLG_TYPE_MENU && iProcessDialogType != DLG_TYPE_NOTIFY) {
 #ifdef _NEWUI
@@ -73,7 +73,7 @@ CITStateNormal::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
         }
     }
 
-    // ´ÜÃàÅ° Ã³¸®
+    // ë‹¨ì¶•í‚¤ ì²˜ë¦¬
     switch (it_GetKeyboardInputType()) {
         case CTControlMgr::INPUTTYPE_AUTOENTER: {
             if (!ProcessHotKeyAutoEnter(uiMsg, wParam, lParam))
@@ -90,13 +90,13 @@ CITStateNormal::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
 
     switch (uiMsg) {
         case WM_KEYDOWN:
-            // quick ½½·ÔÃ³¸®
+            // quick ìŠ¬ë¡¯ì²˜ë¦¬
             uiRet = uiMsg;
             switch (wParam) {
                 case 91: /// Window Key
                     // g_itMGR.OpenDialog( DLG_TYPE_MENU );
-                    /// À©µµ¿ì ½ÃÀÛ¸Ş´º°¡ ½ÃÀÛµÇ¸é¼­ È­¸éÀüÈ¯ÀÌ µÇ¹ö¸°´Ù. È­¸éÀÌ ¶° ÀÖÀ»°æ¿ì¿¡´Â
-                    /// ÈÄÅ·ÇØ¼­ ¸·¾Æ¹ö¸±±î? ÀÏ´Ü º¸·ù
+                    /// ìœˆë„ìš° ì‹œì‘ë©”ë‰´ê°€ ì‹œì‘ë˜ë©´ì„œ í™”ë©´ì „í™˜ì´ ë˜ë²„ë¦°ë‹¤. í™”ë©´ì´ ë–  ìˆì„ê²½ìš°ì—ëŠ”
+                    /// í›„í‚¹í•´ì„œ ë§‰ì•„ë²„ë¦´ê¹Œ? ì¼ë‹¨ ë³´ë¥˜
                     break;
 
                 case VK_ESCAPE: {
@@ -109,14 +109,14 @@ CITStateNormal::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
             }
             break;
         case WM_LBUTTONUP:
-            // µå·¡±×¾Øµå·Ó Ã³¸®
+            // ë“œë˜ê·¸ì•¤ë“œë¡­ ì²˜ë¦¬
             //		g_DragNDrop.DropToWindow();
             CDragNDropMgr::GetInstance().DragEnd(iProcessDialogType);
             g_itMGR.DelDialogiconFromMenu();
             break;
     }
 
-    ///±³È¯ÁßÀÏ°æ¿ì ÀÌµ¿À» ¸·´Â´Ù.
+    ///êµí™˜ì¤‘ì¼ê²½ìš° ì´ë™ì„ ë§‰ëŠ”ë‹¤.
     if ((pDlg = g_itMGR.FindDlg(DLG_TYPE_EXCHANGE)) && pDlg->IsVision())
         return uiMsg;
 
@@ -124,11 +124,11 @@ CITStateNormal::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
 }
 
 //*-----------------------------------------------------------------------------------------//
-/// @brief Ã¤ÆÃÀ» ÇÑ¹ø ÇÒ¶§¸¶´Ù Enter ¸¦ ÀÔ·Â ÇØ¾ß ÇÏ´Â ¹æ½Ä
+/// @brief ì±„íŒ…ì„ í•œë²ˆ í• ë•Œë§ˆë‹¤ Enter ë¥¼ ì…ë ¥ í•´ì•¼ í•˜ëŠ” ë°©ì‹
 //*-----------------------------------------------------------------------------------------//
 bool
 CITStateNormal::ProcessHotKeyNormalInput(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
-    if (CTEditBox::s_pFocusEdit == NULL) ///ÀÔ·Â Æ÷Ä¿½º°¡ ¾ø´Â°æ¿ì
+    if (CTEditBox::s_pFocusEdit == NULL) ///ì…ë ¥ í¬ì»¤ìŠ¤ê°€ ì—†ëŠ”ê²½ìš°
     {
         switch (uiMsg) {
             case WM_KEYDOWN: {
@@ -192,8 +192,8 @@ CITStateNormal::ProcessHotKeyNormalInput(unsigned uiMsg, WPARAM wParam, LPARAM l
     return ProcessHotKeyAutoEnter(uiMsg, wParam, lParam);
 }
 //*-----------------------------------------------------------------------------------------//
-/// @brief Ç×»ó ÀÔ·ÂÃ¢¿¡ Æ÷Ä¿½º°¡ À§Ä¡ÇÏ¿© ¿£ÅÍ¸¦ Ä¥ ÇÊ¿ä°¡ ¾øÀ»¶§ HotKeyÃ³¸®
-/// @warning NormalInputÀÏ°æ¿ì¿¡µµ AutoEnter()¸¦ Ã³¸®ÇÏ°í ÀÖ´Ù.
+/// @brief í•­ìƒ ì…ë ¥ì°½ì— í¬ì»¤ìŠ¤ê°€ ìœ„ì¹˜í•˜ì—¬ ì—”í„°ë¥¼ ì¹  í•„ìš”ê°€ ì—†ì„ë•Œ HotKeyì²˜ë¦¬
+/// @warning NormalInputì¼ê²½ìš°ì—ë„ AutoEnter()ë¥¼ ì²˜ë¦¬í•˜ê³  ìˆë‹¤.
 //*-----------------------------------------------------------------------------------------//
 bool
 CITStateNormal::ProcessHotKeyAutoEnter(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
@@ -204,7 +204,7 @@ CITStateNormal::ProcessHotKeyAutoEnter(unsigned uiMsg, WPARAM wParam, LPARAM lPa
 
             switch (vk) {
                 case 0x41: // 'a'
-                    //Ä³¸¯ÅÍÃ¢À» ¿¬´Ù
+                    //ìºë¦­í„°ì°½ì„ ì—°ë‹¤
                     g_itMGR.OpenDialog(DLG_TYPE_CHAR);
                     return true;
                 case 0x43: // 'c'
@@ -214,27 +214,27 @@ CITStateNormal::ProcessHotKeyAutoEnter(unsigned uiMsg, WPARAM wParam, LPARAM lPa
                     g_itMGR.OpenDialog(DLG_TYPE_HELP);
                     return true;
                 case 0x49: // 'i'
-                case 0x56: // 'v' /// 2004 / 1 / 26 / Navy /Ãß°¡( SYSTEM + I°¡ ÇÑ¼ÕÀ¸·Î ´©¸£±â
-                           // Èûµé´Ù´Â ÀÇ°ßÀ¸·Î )
-                    //ÀÎº¥Åä¸®¸¦ ¿¬´Ù
+                case 0x56: // 'v' /// 2004 / 1 / 26 / Navy /ì¶”ê°€( SYSTEM + Iê°€ í•œì†ìœ¼ë¡œ ëˆ„ë¥´ê¸°
+                           // í˜ë“¤ë‹¤ëŠ” ì˜ê²¬ìœ¼ë¡œ )
+                    //ì¸ë²¤í† ë¦¬ë¥¼ ì—°ë‹¤
                     g_itMGR.OpenDialog(DLG_TYPE_ITEM);
                     return true;
-                ///½ºÅ³Ã¢
+                ///ìŠ¤í‚¬ì°½
                 case 0x53: // 's'
                     g_itMGR.OpenDialog(DLG_TYPE_SKILL);
                     return true;
-                /// Äù½ºÆ®Ã¢
+                /// í€˜ìŠ¤íŠ¸ì°½
                 case 0x51: // 'q'
                     g_itMGR.OpenDialog(DLG_TYPE_QUEST);
                     return true;
-                ///¹Ì´Ï¸Ê º¸ÀÌ±â / ¼û±â±â
+                ///ë¯¸ë‹ˆë§µ ë³´ì´ê¸° / ìˆ¨ê¸°ê¸°
                 case 0x4d: // 'm'
                 {
                     CMinimapDLG* pDlg = (CMinimapDLG*)g_itMGR.FindDlg(DLG_TYPE_MINIMAP);
                     pDlg->ToggleShowMinimap();
                     return true;
                 }
-                ///¹Ì´Ï¸Ê È®´ë / Ãà¼Ò
+                ///ë¯¸ë‹ˆë§µ í™•ëŒ€ / ì¶•ì†Œ
                 case 0x4c: // 'l'
                 {
                     CMinimapDLG* pDlg = (CMinimapDLG*)g_itMGR.FindDlg(DLG_TYPE_MINIMAP);

@@ -31,7 +31,7 @@ CFriendListItem::CFriendListItem(DWORD dwUserTag, BYTE btStatus, const char* psz
 
 CFriendListItem::~CFriendListItem(void) {}
 //
-/////»óÅÂº° Ç¥½Ã Ãß°¡
+/////ìƒíƒœë³„ í‘œì‹œ ì¶”ê°€
 void
 CFriendListItem::Draw() {
     /*D3DXMATRIX mat;
@@ -44,30 +44,30 @@ CFriendListItem::Draw() {
     char* pszStatus = NULL;
 
     switch (m_btStatus) {
-        case FRIEND_STATUS_HUNT: // »ç³ÉÁß
+        case FRIEND_STATUS_HUNT: // ì‚¬ëƒ¥ì¤‘
             pszStatus = STR_MYSTATE_IN_HUNT;
             break;
-        case FRIEND_STATUS_STORE: // Àå»çÁß
+        case FRIEND_STATUS_STORE: // ì¥ì‚¬ì¤‘
             pszStatus = STR_MYSTATE_IN_TRADE;
             break;
-        case FRIEND_STATUS_QUEST: // Äù½ºÆ®Áß
+        case FRIEND_STATUS_QUEST: // í€˜ìŠ¤íŠ¸ì¤‘
             pszStatus = STR_MYSTATE_IN_QUEST;
             break;
-        case FRIEND_STATUS_EAT: // ½Ä»çÁß
+        case FRIEND_STATUS_EAT: // ì‹ì‚¬ì¤‘
             pszStatus = STR_MYSTATE_IN_EAT;
             break;
-        case FRIEND_STATUS_REST: // ÈŞ½ÄÁß
+        case FRIEND_STATUS_REST: // íœ´ì‹ì¤‘
             pszStatus = STR_MYSTATE_IN_BREAK;
             break;
-        case FRIEND_STATUS_REFUSED: ///´ëÈ­°ÅÀı
-        case FRIEND_STATUS_DELETED: ///»ó´ë¹æÀÌ ³ª¸¦ Ä£±¸¸ñ·Ï¿¡¼­ Á¦¿ÜÇß´Ù.
-        case FRIEND_STATUS_OFFLINE: // Á¢¼Ó²÷±è		: Ä£±¸¸ñ·ÏÀÇ m_dwUserTAG°¡ Á¢¼Ó²÷±è
+        case FRIEND_STATUS_REFUSED: ///ëŒ€í™”ê±°ì ˆ
+        case FRIEND_STATUS_DELETED: ///ìƒëŒ€ë°©ì´ ë‚˜ë¥¼ ì¹œêµ¬ëª©ë¡ì—ì„œ ì œì™¸í–ˆë‹¤.
+        case FRIEND_STATUS_OFFLINE: // ì ‘ì†ëŠê¹€		: ì¹œêµ¬ëª©ë¡ì˜ m_dwUserTAGê°€ ì ‘ì†ëŠê¹€
         {
             dwColor = g_dwGRAY;
             pszStatus = "OffLine";
             image_id = m_offline_image_id;
         } break;
-        case FRIEND_STATUS_ONLINE: // Á¢¼ÓµÊ		: Ä£±¸¸ñ·ÏÀÇ m_dwUserTAG°¡ Á¢¼ÓÇß´Ù.
+        case FRIEND_STATUS_ONLINE: // ì ‘ì†ë¨		: ì¹œêµ¬ëª©ë¡ì˜ m_dwUserTAGê°€ ì ‘ì†í–ˆë‹¤.
         case FRIEND_STATUS_NORMAL:
         default:
             pszStatus = "OnLine";
@@ -146,11 +146,11 @@ CFriendListItem::SetStatus(BYTE btStatus) {
     m_btStatus = btStatus;
 
     switch (m_btStatus) {
-        case FRIEND_STATUS_OFFLINE: // Á¢¼Ó²÷±è
+        case FRIEND_STATUS_OFFLINE: // ì ‘ì†ëŠê¹€
             g_itMGR.AppendChatMsg(CStr::Printf(FSTR_FRIEND_LOGOUT, m_strName.c_str()),
                 IT_MGR::CHAT_TYPE_FRIEND);
             break;
-        case FRIEND_STATUS_ONLINE: // Á¢¼ÓµÊ
+        case FRIEND_STATUS_ONLINE: // ì ‘ì†ë¨
             g_itMGR.AppendChatMsg(CStr::Printf(FSTR_FRIEND_LOGIN, m_strName.c_str()),
                 IT_MGR::CHAT_TYPE_FRIEND);
             break;

@@ -3,12 +3,12 @@
 #include ".\CITStateRideCart.h"
 #include "../../Object.h"
 
-// Ä«Æ®¸ðµå¿¡¼­ ÇÒ ¼ö ÀÖ´Â µ¿ÀÛ//
+// ì¹´íŠ¸ëª¨ë“œì—ì„œ í•  ìˆ˜ ìžˆëŠ” ë™ìž‘//
 
-// 1. ÇÏÂ÷ÇÏ±â,
-// 2. °øÅë½ºÅ³ »ç¿ë (ÀÌ¸ðÆ¼ÄÜµî)
-// 3. Ä«Æ® º¸Á¶ ½ºÅ³ »ç¿ë (ÇöÀç ¾øÀ½.)
-// 4. Ã¤ÆÃ ¸ðµå
+// 1. í•˜ì°¨í•˜ê¸°,
+// 2. ê³µí†µìŠ¤í‚¬ ì‚¬ìš© (ì´ëª¨í‹°ì½˜ë“±)
+// 3. ì¹´íŠ¸ ë³´ì¡° ìŠ¤í‚¬ ì‚¬ìš© (í˜„ìž¬ ì—†ìŒ.)
+// 4. ì±„íŒ… ëª¨ë“œ
 
 CITStateRideCart::CITStateRideCart(void) {
     m_iID = IT_MGR::STATE_RIDECART;
@@ -18,7 +18,7 @@ CITStateRideCart::~CITStateRideCart(void) {}
 
 void
 CITStateRideCart::Enter() {
-    // 1, 2¹ø ¼ÂÆÃ
+    // 1, 2ë²ˆ ì…‹íŒ…
     g_pAVATAR->GetSkillSlot()->SetActiveSkillEnableByRideState_Aid(true);
 }
 
@@ -32,10 +32,10 @@ CITStateRideCart::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
     if (uiMsg == WM_LBUTTONUP)
         CWinCtrl::SetMouseExclusiveCtrl(NULL);
 
-    ///Ã¤ÆÃ, ½ºÅ³, ´ÜÃàÅ° ´ÙÀÌ¾ó·Î±×¸¸ Ã³¸®ÇÑ´Ù.³ª¸ÓÁö´Â ¹«½ÃÇÑ´Ù.
+    ///ì±„íŒ…, ìŠ¤í‚¬, ë‹¨ì¶•í‚¤ ë‹¤ì´ì–¼ë¡œê·¸ë§Œ ì²˜ë¦¬í•œë‹¤.ë‚˜ë¨¸ì§€ëŠ” ë¬´ì‹œí•œë‹¤.
     CTDialog* pDlg = NULL;
 
-    // 4. Ã¤ÆÃ¸ðµå
+    // 4. ì±„íŒ…ëª¨ë“œ
     if (pDlg = g_itMGR.FindDlg(DLG_TYPE_CHAT)) {
         if (pDlg->Process(uiMsg, wParam, lParam)) {
             return uiMsg;

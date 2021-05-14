@@ -102,7 +102,7 @@ CAI_LIST::AI_Created(int iAI_IDX, CObjCHAR* pSourCHAR) {
 
     _ASSERT(m_ppAI[iAI_IDX]);
 
-    // Ã³À½ »ý¼º½Ã
+    // ì²˜ìŒ ìƒì„±ì‹œ
     m_ppAI[iAI_IDX]->AI_WhenCREATED(pSourCHAR);
 }
 void
@@ -115,7 +115,7 @@ CAI_LIST::AI_Stop(int iAI_IDX, CObjCHAR* pSourCHAR) {
     if (!m_ppAI[iAI_IDX])
         return;
 
-    // Á¤Áö »óÅÂÀÏ¶§
+    // ì •ì§€ ìƒíƒœì¼ë•Œ
     m_ppAI[iAI_IDX]->AI_WhenSTOP(pSourCHAR);
 }
 
@@ -130,7 +130,7 @@ CAI_LIST::AI_AttackMove(int iAI_IDX, CObjCHAR* pSourCHAR, CObjCHAR* pDestCHAR) {
         return;
     //	_ASSERT( m_ppAI[ iAI_IDX ] );
 
-    // °ø°Ý ÀÌµ¿½Ã
+    // ê³µê²© ì´ë™ì‹œ
     m_ppAI[iAI_IDX]->AI_WhenAttackMOVE(pSourCHAR, pDestCHAR);
 }
 
@@ -145,7 +145,7 @@ CAI_LIST::AI_Damaged(int iAI_IDX, CObjCHAR* pSourCHAR, CObjCHAR* pDestCHAR, int 
         return;
     //	_ASSERT( m_ppAI[ iAI_IDX ] );
 
-    // Å¸°Ý ´çÇßÀ»¶§
+    // íƒ€ê²© ë‹¹í–ˆì„ë•Œ
     m_ppAI[iAI_IDX]->AI_WhenDAMAGED(pSourCHAR, pDestCHAR, iDamage);
 }
 void
@@ -159,7 +159,7 @@ CAI_LIST::AI_Kill(int iAI_IDX, CObjCHAR* pSourCHAR, CObjCHAR* pDestCHAR, int iDa
         return;
     //	_ASSERT( m_ppAI[ iAI_IDX ] );
 
-    // »ó´ë¹æÀ» Á×¿´À»¶§
+    // ìƒëŒ€ë°©ì„ ì£½ì˜€ì„ë•Œ
     m_ppAI[iAI_IDX]->AI_WhenKILL(pSourCHAR, pDestCHAR, iDamage);
 }
 void
@@ -173,7 +173,7 @@ CAI_LIST::AI_Dead(int iAI_IDX, CObjCHAR* pSourCHAR, CObjCHAR* pDestCHAR, int iDa
         return;
     //	_ASSERT( m_ppAI[ iAI_IDX ] );
 
-    // ÀÚ½ÅÀÌ Á×À»¶§
+    // ìžì‹ ì´ ì£½ì„ë•Œ
     m_ppAI[iAI_IDX]->AI_WhenDEAD(pSourCHAR, pDestCHAR, iDamage);
 }
 

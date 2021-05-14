@@ -39,7 +39,7 @@ public:
     /// is Dummy bullet?
     bool m_bDummyBullet;
 
-    /// ½ºÅ³»ç¿ëÀ¸·Î ¹ß»ıÇÑ ÃÑ¾ËÀÇ °æ¿ì´Â.. ½ºÅ³¹øÈ£¸¦ ¼¼ÆÃÇØÁØ´Ù..
+    /// ìŠ¤í‚¬ì‚¬ìš©ìœ¼ë¡œ ë°œìƒí•œ ì´ì•Œì˜ ê²½ìš°ëŠ”.. ìŠ¤í‚¬ë²ˆí˜¸ë¥¼ ì„¸íŒ…í•´ì¤€ë‹¤..
     void SetSkillIDX(int iSkillIDX) { m_iSkillIDX = iSkillIDX; }
 
     char* Make_ZNAME(int iCreateOrder, short nPartIdx) {
@@ -68,7 +68,7 @@ public:
 };
 
 ///
-/// Á÷¼± ÀÌµ¿ ÃÑ¾Ë
+/// ì§ì„  ì´ë™ ì´ì•Œ
 ///
 class CBulletDIRECTION: public CBullet {
 private:
@@ -98,7 +98,7 @@ public:
 };
 
 ///
-/// Á÷¼± ÀÌµ¿ Áö¿ª Å¸°Ù
+/// ì§ì„  ì´ë™ ì§€ì—­ íƒ€ê²Ÿ
 ///
 class CBulletToPosition: public CBullet {
 private:
@@ -128,7 +128,7 @@ public:
 };
 
 ///
-/// Á÷°İ ÃÑ¾Ë
+/// ì§ê²© ì´ì•Œ
 ///
 class CBulletIMMEDIATE: public CBullet {
 private:
@@ -136,7 +136,7 @@ public:
 };
 
 ///
-/// Æ÷¹°¼± ÀÌµ¿ ÃÑ¾Ë
+/// í¬ë¬¼ì„  ì´ë™ ì´ì•Œ
 ///
 class CBulletPARABOLA: public CBullet {
 private:

@@ -8,7 +8,7 @@
  * *****************  Version 4  *****************
  * User: Netggun      Date: 05-06-04   Time: 1:00p
  * Updated in $/7HeartsOnline/LIB_Util
- * STB ·Îµù½Ã MAX_PATH ¸¸Å­ ÀĞ´ø °ÍÀ» ¹öÆÛ ±æÀÌ¸¸Å­ ÀĞ´Â °ÍÀ¸·Î °íÄ§
+ * STB ë¡œë”©ì‹œ MAX_PATH ë§Œí¼ ì½ë˜ ê²ƒì„ ë²„í¼ ê¸¸ì´ë§Œí¼ ì½ëŠ” ê²ƒìœ¼ë¡œ ê³ ì¹¨
  *
  * *****************  Version 3  *****************
  * User: Icarus       Date: 04-05-27   Time: 8:32p
@@ -124,17 +124,17 @@ classSTB::Open(char* szFileName, long lFilePtr) {
     if (u.cValue[0] == 'S' && u.cValue[1] == 'T' && u.cValue[2] == 'B') {
         iVersion = u.cValue[3] - '0';
 
-        // ¿­, ÁÙ µ¥ÀÌÅ¸ ¸öÃ¼°¡ µé¾îÀÖ´Â°÷...
+        // ì—´, ì¤„ ë°ì´íƒ€ ëª¸ì²´ê°€ ë“¤ì–´ìˆëŠ”ê³³...
         fread(&u.lValue, 1, sizeof(long), m_fp);
     }
 
-    // ¿­ °¹¼ö, ÁÙ °¹¼ö
+    // ì—´ ê°¯ìˆ˜, ì¤„ ê°¯ìˆ˜
     fread(&m_iRowCount, 1, sizeof(int), m_fp);
     fread(&m_iColCount, 1, sizeof(int), m_fp);
 
     m_lFP += u.lValue;
 
-    // ÁÙ³ôÀÌ.
+    // ì¤„ë†’ì´.
     fseek(m_fp, sizeof(int), SEEK_CUR);
 
     switch (iVersion) {
@@ -146,14 +146,14 @@ classSTB::Open(char* szFileName, long lFilePtr) {
             break;
     }
 
-    // ¿­ ÀÌ¸§..
+    // ì—´ ì´ë¦„..
     short nI, nLen;
     for (nI = 0; nI < m_iColCount; nI++) {
         fread(&nLen, sizeof(short), 1, m_fp);
         fseek(m_fp, nLen, SEEK_CUR);
     }
 
-    // µ¥ÀÌÅ¸ ÀÌ¸§.
+    // ë°ì´íƒ€ ì´ë¦„.
     m_RowNAME = new CStrVAR[m_iRowCount];
     char* pStr; // = CStr::GetString ();
 
@@ -343,7 +343,7 @@ classSTB::GetInteger() {
     return 0;
 }
     //-------------------------------------------------------------------------------------------------
-    #define MAX_STB_BUFFER_LENGTH 4096 // STB ·Îµù½Ã ÀĞÀ» ¼ö ÀÖ´Â ÃÖ´ë ¹®ÀÚ¿­ ±æÀÌ..
+    #define MAX_STB_BUFFER_LENGTH 4096 // STB ë¡œë”©ì‹œ ì½ì„ ìˆ˜ ìˆëŠ” ìµœëŒ€ ë¬¸ìì—´ ê¸¸ì´..
 char*
 classSTB::GetString() {
     if (feof(m_fp))

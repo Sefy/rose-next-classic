@@ -56,22 +56,22 @@ CHelpDlg::LoadHelpContents(const char* szFileName, CTree* pTree) {
         return false;
     }
 
-    /// RootNode ¹× TreeModel »ı¼º
+    /// RootNode ë° TreeModel ìƒì„±
 
     int iBufSize = pFileSystem->ReadPascalStringLength() + 1;
     char* pszBuf = new char[iBufSize];
-    pFileSystem->ReadPascalString(pszBuf, iBufSize); ///¹öÁ¯
+    pFileSystem->ReadPascalString(pszBuf, iBufSize); ///ë²„ì ¼
     delete[] pszBuf;
 
-    /// Tree Model ±¸¼º
+    /// Tree Model êµ¬ì„±
     int iNodeCount = 0;
     pFileSystem->ReadInt32(&iNodeCount);
     if (iNodeCount <= 0)
         return false;
 
-    /// RootNode±¸¼º : Ç×»ó Ã¹¹øÂ°¿¡´Â Root Node°¡ ÀÖ´Â°ÍÀ¸·Î Ã³¸®ÇÑ´Ù.
+    /// RootNodeêµ¬ì„± : í•­ìƒ ì²«ë²ˆì§¸ì—ëŠ” Root Nodeê°€ ìˆëŠ”ê²ƒìœ¼ë¡œ ì²˜ë¦¬í•œë‹¤.
     iBufSize = pFileSystem->ReadPascalStringLength() + 1;
-    pszBuf = new char[iBufSize * 2]; /// UTF8->MBCS ·Î º¯È¯À» À§ÇØ ÃæºĞÇÑ ¹öÆÛ¸¦ »ı¼º..
+    pszBuf = new char[iBufSize * 2]; /// UTF8->MBCS ë¡œ ë³€í™˜ì„ ìœ„í•´ ì¶©ë¶„í•œ ë²„í¼ë¥¼ ìƒì„±..
     pFileSystem->ReadPascalString(pszBuf, iBufSize);
 
     //-------------------------------------------------------------------------------
@@ -90,7 +90,7 @@ CHelpDlg::LoadHelpContents(const char* szFileName, CTree* pTree) {
     for (int i = 0; i < iNodeCount; ++i)
         LoadNodeCollection(pFileSystem, pRootNode);
 
-    /// Contents Load¹× Node¿¡ Ãß°¡
+    /// Contents Loadë° Nodeì— ì¶”ê°€
     LoadPageList(pFileSystem, m_pTreeModel);
 
     pFileSystem->CloseFile();
@@ -103,7 +103,7 @@ bool
 CHelpDlg::LoadNodeCollection(CFileSystem* pFileSystem, CTDefaultTreeNode* pNode) {
 
     int iBufSize = pFileSystem->ReadPascalStringLength() + 1;
-    char* pszBuf = new char[iBufSize * 2]; /// UTF8->MBCS ·ÎÀÇ º¯È¯À» À§ÇØ ÃæºĞÇÑ ¹öÆÛ »ı¼º
+    char* pszBuf = new char[iBufSize * 2]; /// UTF8->MBCS ë¡œì˜ ë³€í™˜ì„ ìœ„í•´ ì¶©ë¶„í•œ ë²„í¼ ìƒì„±
 
     pFileSystem->ReadPascalString(pszBuf, iBufSize);
 
@@ -180,7 +180,7 @@ CHelpDlg::Create(const char* IDD) {
     m_pTree->SetControlID(IID_TREE);
 
     //-------------------------------------------------------------------------
-    /// °¢ ¾ğ¾î¿¡ ¸Â´Â ÇïÇÁÆÄÀÏ ¼±ÅÃ
+    /// ê° ì–¸ì–´ì— ë§ëŠ” í—¬í”„íŒŒì¼ ì„ íƒ
     //-------------------------------------------------------------------------
     STBDATA stbFiles;
     if (CVFSManager::GetSingleton().load_stb(stbFiles, HELP_LIST_STB)) {
@@ -338,7 +338,7 @@ CHelpPage::~CHelpPage() {
 void
 CHelpPage::SetPageContents(char* pszContent) {
     m_PageContents.clear();
-    ///¶óÀÎÇÇµå °Ë»öÇØ¼­ ÇÑÁÙ¾¿ ³ÖÀÚ.
+    ///ë¼ì¸í”¼ë“œ ê²€ìƒ‰í•´ì„œ í•œì¤„ì”© ë„£ì.
     assert(pszContent);
     if (pszContent) {
         char* p = strtok(pszContent, "\n");

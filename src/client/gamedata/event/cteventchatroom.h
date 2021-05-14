@@ -8,7 +8,7 @@ public:
     virtual ~CTEventChatRoom(void);
     enum {
         EID_STATE_ACTIVATED,
-        EID_STATE_DEACTIVATED, ///Ã¤ÆÃ·ë¿¡¼­ ³ª°£´Ù - UI¸¦ »©ÀÚ
+        EID_STATE_DEACTIVATED, ///ì±„íŒ…ë£¸ì—ì„œ ë‚˜ê°„ë‹¤ - UIë¥¼ ë¹¼ìž
         EID_JOIN_MEMBER,
         EID_LEAVE_MEMBER,
         EID_SET_MASTER,

@@ -4,7 +4,7 @@
 #include "tgamectrl/tdialog.h"
 #include "../../CClientStorage.h"
 
-///ÇöÀç Áö¿øµÇ´Â ½ºÅ©¸° ÇØ»óµµ¹× ÁÖÆÄ¼öµé( Key¸¦ ÇØ»óµµ·Î ÇÑ´Ù )
+///í˜„ì¬ ì§€ì›ë˜ëŠ” ìŠ¤í¬ë¦° í•´ìƒë„ë° ì£¼íŒŒìˆ˜ë“¤( Keyë¥¼ í•´ìƒë„ë¡œ í•œë‹¤ )
 struct SupportedScreen {
     int m_iWidth;
     int m_iHeight;
@@ -31,14 +31,14 @@ struct SupportedAntiAlising {
 class CTComboBox;
 
 /**
- * ¿É¼ÇÁ¤º¸¸¦ ¼±ÅÃ/º¸¿©ÁÖ±â À§ÇÑ ´ÙÀÌ¾ó·Î±×
- *	- CClientStorage¿Í ¿¬°èÇÏ¿© Å¬¶óÀÌ¾ğÆ®¿¡ Save/Load¸¦ ¼öÇàÇÑ´Ù.
+ * ì˜µì…˜ì •ë³´ë¥¼ ì„ íƒ/ë³´ì—¬ì£¼ê¸° ìœ„í•œ ë‹¤ì´ì–¼ë¡œê·¸
+ *	- CClientStorageì™€ ì—°ê³„í•˜ì—¬ í´ë¼ì´ì–¸íŠ¸ì— Save/Loadë¥¼ ìˆ˜í–‰í•œë‹¤.
  *
- * @Warning		Å¬¶óÀÌ¾ğÆ® ÃÖÃÊ ½ÇÇà½Ã TriggerDetect¸¦ ½ÇÇàÇÏ¿© ÇÊ¿äÇÑ Á¤º¸È­ÀÏÀ» »ı¼ºÇÏÁö ¾Ê¾ÒÀ¸¸é
- *CreateºÎºĞ¿¡¼­ ¿¡·¯ ¹ß»ı
- * @Todo			ÇÊ¿äÇÑ ½Ã½ºÅÛÁ¤º¸ È­ÀÏÀÌ ¾ø´Ù¸é ¸Ş¼¼Áö ¹Ú½º¸¦ ¶ç¿ì´ø°¡ Á¤º¸È­ÀÏÀ» »ı¼ºÇÏµµ·Ï
- *¼öÁ¤ÇÏÀÚ.
- * @Author		ÃÖÁ¾Áø
+ * @Warning		í´ë¼ì´ì–¸íŠ¸ ìµœì´ˆ ì‹¤í–‰ì‹œ TriggerDetectë¥¼ ì‹¤í–‰í•˜ì—¬ í•„ìš”í•œ ì •ë³´í™”ì¼ì„ ìƒì„±í•˜ì§€ ì•Šì•˜ìœ¼ë©´
+ *Createë¶€ë¶„ì—ì„œ ì—ëŸ¬ ë°œìƒ
+ * @Todo			í•„ìš”í•œ ì‹œìŠ¤í…œì •ë³´ í™”ì¼ì´ ì—†ë‹¤ë©´ ë©”ì„¸ì§€ ë°•ìŠ¤ë¥¼ ë„ìš°ë˜ê°€ ì •ë³´í™”ì¼ì„ ìƒì„±í•˜ë„ë¡
+ *ìˆ˜ì •í•˜ì.
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class COptionDlg: public CTDialog {
@@ -52,7 +52,7 @@ public:
     virtual void Show();
     virtual unsigned int Process(UINT uiMsg, WPARAM wParam, LPARAM lParam);
 
-    void ChangeScreenModeByHotKey(); /// Window¸ğµå¿Í FullScreen¸ğµå ÀüÈ¯
+    void ChangeScreenModeByHotKey(); /// Windowëª¨ë“œì™€ FullScreenëª¨ë“œ ì „í™˜
 
 protected:
     enum {
@@ -123,8 +123,8 @@ protected:
         IID_TABVIDEO = 4,
     };
 
-    void SaveCurrentOption(); /// CClientStorage¿¡ ÇöÀç º¯°æµÈ ¿É¼ÇÀ» SetÇÏ°í File¿¡ ÀúÀåÇÑ´Ù.
-    void GetCurrentOption(); /// CClientStorage¿¡¼­ ÇöÀç ¿É¼ÇÀ» °¡Áö°í ¿Â´Ù.
+    void SaveCurrentOption(); /// CClientStorageì— í˜„ì¬ ë³€ê²½ëœ ì˜µì…˜ì„ Setí•˜ê³  Fileì— ì €ì¥í•œë‹¤.
+    void GetCurrentOption(); /// CClientStorageì—ì„œ í˜„ì¬ ì˜µì…˜ì„ ê°€ì§€ê³  ì˜¨ë‹¤.
 
     void ChangeOption();
 
@@ -155,14 +155,14 @@ protected:
     int GetCurrentResolutionIndex();
 
 protected:
-    int m_iTab; /// ÅÇ±¸ºĞ
+    int m_iTab; /// íƒ­êµ¬ë¶„
     t_OptionVideo m_VideoOption;
     t_OptionSound m_SoundOption;
     t_OptionPlay m_PlayOption;
     t_OptionCommunity m_CommunityOption;
     t_OptionKeyboard m_KeyboardOption;
 
-    std::vector<SupportedScreen> m_SupportedScreens; /// Å¬¶óÀÌ¾ğÆ® ÇÏµå¿ş¾î°¡ Áö¿øÇÏ´Â ÇØ»óµµµé
+    std::vector<SupportedScreen> m_SupportedScreens; /// í´ë¼ì´ì–¸íŠ¸ í•˜ë“œì›¨ì–´ê°€ ì§€ì›í•˜ëŠ” í•´ìƒë„ë“¤
     std::vector<SupportedAntiAlising> m_SupportedAntiAlising; /// AntiAlising
 };
 #endif

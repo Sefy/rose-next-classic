@@ -18,7 +18,7 @@ classTIME::GetPassAbsMilliSecond(void) {
 }
 
 //-------------------------------------------------------------------------------------------------
-// st³¯Â¥ÀÇ Àý´ë ³¯Â¥¸¦ ±¸ÇÑ´Ù. 1601³â 1¿ù 1ÀÏÀ» ±âÁØ(0)À¸·Î °æ°úÇÑ ³¯Â¥ ¼ö¸¦ ¼¼ÁØ´Ù.
+// stë‚ ì§œì˜ ì ˆëŒ€ ë‚ ì§œë¥¼ êµ¬í•œë‹¤. 1601ë…„ 1ì›” 1ì¼ì„ ê¸°ì¤€(0)ìœ¼ë¡œ ê²½ê³¼í•œ ë‚ ì§œ ìˆ˜ë¥¼ ì„¸ì¤€ë‹¤.
 DWORD
 classTIME::GetAbsDay(SYSTEMTIME& st) {
     INT64 i64;
@@ -30,7 +30,7 @@ classTIME::GetAbsDay(SYSTEMTIME& st) {
     i64 = i64 / (864000000000);
     return (DWORD)i64;
 }
-// Àý´ë ³¯Â¥¸¦ ½Ã½ºÅÛ Å¸ÀÓÀ¸·Î ¹Ù²Û´Ù.
+// ì ˆëŒ€ ë‚ ì§œë¥¼ ì‹œìŠ¤í…œ íƒ€ìž„ìœ¼ë¡œ ë°”ê¾¼ë‹¤.
 void
 classTIME::AbsDayToSystem(DWORD dwABS, SYSTEMTIME& st) {
     INT64 i64;
@@ -44,13 +44,13 @@ classTIME::AbsDayToSystem(DWORD dwABS, SYSTEMTIME& st) {
 
 //-------------------------------------------------------------------------------------------------
 /*
-    32ºñÆ® Á¤¼ö·Î Àý´ë ÃÊ¸¦ Ç¥ÇöÇÏ±â ¶§¹®¿¡ Ç¥Çö °¡´ÉÇÑ ³â¼ö°¡
-    136³â ¹Û¿¡ µÇÁö ¾Ê¾Æ ºÎµæÀÌ ±âÁØ ³¯Â¥¸¦ FILETIMEÀÇ 1601³âÀ¸·Î
-    ÀâÁö ¸øÇÏ°í 2000³â 1¿ù 1ÀÏ·Î Àâ¾Ò´Ù.
-    2136³â ±îÁö´Â Àß ½á¸ÔÀ»¼ö ÀÖ´Ù...
+    32ë¹„íŠ¸ ì •ìˆ˜ë¡œ ì ˆëŒ€ ì´ˆë¥¼ í‘œí˜„í•˜ê¸° ë•Œë¬¸ì— í‘œí˜„ ê°€ëŠ¥í•œ ë…„ìˆ˜ê°€
+    136ë…„ ë°–ì— ë˜ì§€ ì•Šì•„ ë¶€ë“ì´ ê¸°ì¤€ ë‚ ì§œë¥¼ FILETIMEì˜ 1601ë…„ìœ¼ë¡œ
+    ìž¡ì§€ ëª»í•˜ê³  2000ë…„ 1ì›” 1ì¼ë¡œ ìž¡ì•˜ë‹¤.
+    2136ë…„ ê¹Œì§€ëŠ” ìž˜ ì¨ë¨¹ì„ìˆ˜ ìžˆë‹¤...
 */
 // 1day = 60sec * 60min * 24hour = 86400 sec
-// st ³¯Â¥ÀÇ Àý´ë ÃÊ¸¦ ±¸ÇÑ´Ù. 2000³â 1¿ù 1ÀÏ ÀÚÁ¤±âÁØ
+// st ë‚ ì§œì˜ ì ˆëŒ€ ì´ˆë¥¼ êµ¬í•œë‹¤. 2000ë…„ 1ì›” 1ì¼ ìžì •ê¸°ì¤€
 DWORD
 classTIME::GetAbsSecond(SYSTEMTIME& st) {
     INT64 i64;
@@ -58,13 +58,13 @@ classTIME::GetAbsSecond(SYSTEMTIME& st) {
 
     ::SystemTimeToFileTime(&st, &fst);
     i64 = (((INT64)fst.dwHighDateTime) << 32) + fst.dwLowDateTime;
-    // ÃÊ´ÜÀ§·Î È¯»ê 2000³â 1¿ù 1ÀÏ ÀÚÁ¤ ±âÁØÀ¸·Î ¹Ù²Û´Ù.
+    // ì´ˆë‹¨ìœ„ë¡œ í™˜ì‚° 2000ë…„ 1ì›” 1ì¼ ìžì • ê¸°ì¤€ìœ¼ë¡œ ë°”ê¾¼ë‹¤.
     i64 = i64 / 10000000 - (INT64)145731 * 86400;
 
     return (DWORD)i64;
 }
 
-// Àý´ëÃÊ¸¦ ½Ã½ºÅÛ Å¸ÀÓÀ¸·Î ¹Ù²Û´Ù
+// ì ˆëŒ€ì´ˆë¥¼ ì‹œìŠ¤í…œ íƒ€ìž„ìœ¼ë¡œ ë°”ê¾¼ë‹¤
 void
 classTIME::AbsSecondToSystem(DWORD dwABS, SYSTEMTIME& st) {
     INT64 i64;
@@ -94,8 +94,8 @@ classTIME::GetPassAbsSecond(SYSTEMTIME& st) {
 
 //-------------------------------------------------------------------------------------------------
 // 1day = 60sec * 60min * 24hour = 86400 sec
-// st ³¯Â¥ÀÇ Àý´ë ÃÊ¸¦ ±¸ÇÑ´Ù. 1601³â 1¿ù 1ÀÏÀ» ±âÁØ(0)À¸·Î °æ°úÇÑ
-// 1/100ÃÊ¸¦ ±¸ÇÑ´Ù.
+// st ë‚ ì§œì˜ ì ˆëŒ€ ì´ˆë¥¼ êµ¬í•œë‹¤. 1601ë…„ 1ì›” 1ì¼ì„ ê¸°ì¤€(0)ìœ¼ë¡œ ê²½ê³¼í•œ
+// 1/100ì´ˆë¥¼ êµ¬í•œë‹¤.
 INT64
 classTIME::GetAbsMilliSecond(SYSTEMTIME& st) {
     INT64 i64;
@@ -103,7 +103,7 @@ classTIME::GetAbsMilliSecond(SYSTEMTIME& st) {
 
     ::SystemTimeToFileTime(&st, &fst);
     i64 = (((INT64)fst.dwHighDateTime) << 32) + fst.dwLowDateTime;
-    // 1/100ÃÊ´ÜÀ§·Î È¯»ê 2000³â 1¿ù 1ÀÏ ÀÚÁ¤ ±âÁØÀ¸·Î ¹Ù²Û´Ù.
+    // 1/100ì´ˆë‹¨ìœ„ë¡œ í™˜ì‚° 2000ë…„ 1ì›” 1ì¼ ìžì • ê¸°ì¤€ìœ¼ë¡œ ë°”ê¾¼ë‹¤.
 
     //	i64 = i64 / 10000000 - (INT64)145731 * 86400;
     i64 = i64 / 100000;

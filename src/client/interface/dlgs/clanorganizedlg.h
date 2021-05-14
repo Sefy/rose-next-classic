@@ -2,11 +2,11 @@
     #include "tgamectrl/tdialog.h"
 
 /**
- * Å¬·£ Ã¢¼³½Ã »ç¿ëµÇ´Â ´ÙÀÌ¾ó·Î±×
- *	- Å¬·£¸¶Å©´Â Ã³À½¿¡´Â Á¤ÇØÁø ÀÌ¹ÌÁöÁß 2°³¸¦ ¼±ÅÃÇÏ¿© ¸¸µé¾îÁö¸ç ³ªÁß¿¡ º°µµÀÇ ÀÌ¹ÌÁö¸¦ ¸¸µé¾î¼­
- *µî·Ï»ç¿ëÇÒ¼ö ÀÖ´Ù
+ * í´ëžœ ì°½ì„¤ì‹œ ì‚¬ìš©ë˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
+ *	- í´ëžœë§ˆí¬ëŠ” ì²˜ìŒì—ëŠ” ì •í•´ì§„ ì´ë¯¸ì§€ì¤‘ 2ê°œë¥¼ ì„ íƒí•˜ì—¬ ë§Œë“¤ì–´ì§€ë©° ë‚˜ì¤‘ì— ë³„ë„ì˜ ì´ë¯¸ì§€ë¥¼ ë§Œë“¤ì–´ì„œ
+ *ë“±ë¡ì‚¬ìš©í• ìˆ˜ ìžˆë‹¤
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  *
  */
@@ -32,7 +32,7 @@ private:
         IID_TABLE_CLANBACK = 40,
     };
 
-    int m_iSelectedClanBack; /// ¼±ÅÃÇÑ ¹è°æÀÌ¹ÌÁö ¹øÈ£
-    int m_iSelectedClanCenter; /// ¼±ÅÃÇÑ Àü¸éÀÌ¹ÌÁö ¹øÈ£
+    int m_iSelectedClanBack; /// ì„ íƒí•œ ë°°ê²½ì´ë¯¸ì§€ ë²ˆí˜¸
+    int m_iSelectedClanCenter; /// ì„ íƒí•œ ì „ë©´ì´ë¯¸ì§€ ë²ˆí˜¸
 };
 #endif

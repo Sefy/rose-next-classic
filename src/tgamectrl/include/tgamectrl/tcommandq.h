@@ -7,10 +7,10 @@ using namespace std;
 class CTCommand;
 
 /**
- * CTCommand¸¦ º¸°üÇÒ Container Class
- *		- ÇöÀç(2005/8/30) TDialog°¡ °¡Áö°í ÀÖ´Ù
+ * CTCommandë¥¼ ë³´ê´€í•  Container Class
+ *		- í˜„ìž¬(2005/8/30) TDialogê°€ ê°€ì§€ê³  ìžˆë‹¤
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Date		2005/8/30
  */

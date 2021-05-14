@@ -38,7 +38,7 @@ CTGuage::Create(int iScrX,
     m_iHeight = 15;
 
     //	m_bAutoIncrement		 = false;
-    //	m_iAutoIncrementValue	 = 0;///√ ¥Á ¡ı∞°«“ % ( 1 ~ 100 )
+    //	m_iAutoIncrementValue	 = 0;///Ï¥àÎãπ Ï¶ùÍ∞ÄÌï† % ( 1 ~ 100 )
     //	m_iAutoIncrementMaxValue = 0;
     m_iModuleID = iModuleID;
     m_iBGImageID = iBGraphicID;

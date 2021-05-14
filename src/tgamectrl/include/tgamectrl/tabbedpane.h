@@ -16,9 +16,9 @@ struct S_TabbedPane {
 
 //--------------------------------------------------------------------------------------*/
 /// Tab Container Control
-///		- S_TabbedPaneÀ» child·Î °¡Áö¸ç ÇÑ°³ÀÇ S_TabbedPane ¿ÀºêÁ§Æ®°¡ ÇÑ°³ÀÇ TabÀÌµÈ´Ù
+///		- S_TabbedPaneì„ childë¡œ ê°€ì§€ë©° í•œê°œì˜ S_TabbedPane ì˜¤ë¸Œì íŠ¸ê°€ í•œê°œì˜ Tabì´ëœë‹¤
 ///
-/// @Author				ÃÖÁ¾Áø
+/// @Author				ìµœì¢…ì§„
 /// @Date				2005/8/30
 //--------------------------------------------------------------------------------------*/
 class TGAMECTRL_API CTabbedPane: public CWinCtrl {
@@ -35,27 +35,27 @@ public:
     virtual bool IsInside(int x, int y);
 
     unsigned AddTab(CTRadioButton* pButton,
-        CJContainer* pContainer); /// Tab Ãß°¡ - ÀÎµ¦½º°¡ ºÎ¿©µÈ´Ù( 0-Base )
-    CJContainer* GetTabContainer(int iIndex); /// ÇØ´ç ÀÎµ¦½ºÀÇ S_TabbedPaneÀ» ¸®ÅÏÇÑ´Ù.
+        CJContainer* pContainer); /// Tab ì¶”ê°€ - ì¸ë±ìŠ¤ê°€ ë¶€ì—¬ëœë‹¤( 0-Base )
+    CJContainer* GetTabContainer(int iIndex); /// í•´ë‹¹ ì¸ë±ìŠ¤ì˜ S_TabbedPaneì„ ë¦¬í„´í•œë‹¤.
 
     void RemoveAll();
-    int GetSelectedIndex(); /// ÇöÀç ¼±ÅÃµÈ S_TabbedPaneÀ» ¸®ÅÏ
-    bool SetSelectedIndex(unsigned index); /// ÇØ´çÀÎµ¦½ºÀÇ S_TabbedPaneÀ» ¼±ÅÃÇÑ´Ù
+    int GetSelectedIndex(); /// í˜„ì¬ ì„ íƒëœ S_TabbedPaneì„ ë¦¬í„´
+    bool SetSelectedIndex(unsigned index); /// í•´ë‹¹ì¸ë±ìŠ¤ì˜ S_TabbedPaneì„ ì„ íƒí•œë‹¤
 
-    /// Ã¢ÀÇ ÃÖ¼ÒÈ­ ±â´ÉÀ» À§ÇÑ Ãß°¡ÀûÀÎ Method
-    void SetMinimizeRect(const RECT& rc); /// ÃÖ¼ÒÈ­½Ã ¿µ¿ª Set
-    bool IsMinimize(); /// ÃÖ¼ÒÈ­ »óÅÂÀÎ°¡?
-    void SetMinimize(bool bMinimize); /// ÃÖ¼Ò/ÃÖ´ëÈ­
-    void SetMinimizeButton(CTButton* pButton); /// ÃÖ¼ÒÈ­ ¹öÆ° Set
+    /// ì°½ì˜ ìµœì†Œí™” ê¸°ëŠ¥ì„ ìœ„í•œ ì¶”ê°€ì ì¸ Method
+    void SetMinimizeRect(const RECT& rc); /// ìµœì†Œí™”ì‹œ ì˜ì—­ Set
+    bool IsMinimize(); /// ìµœì†Œí™” ìƒíƒœì¸ê°€?
+    void SetMinimize(bool bMinimize); /// ìµœì†Œ/ìµœëŒ€í™”
+    void SetMinimizeButton(CTButton* pButton); /// ìµœì†Œí™” ë²„íŠ¼ Set
 
     std::vector<CWinCtrl*> GetChildren() override;
 
 protected:
-    std::list<S_TabbedPane> m_Tabs; /// child¸¦ º¸°üÇÒ Container
-    CTRadioBox* m_pRadioBox; /// ÅÇ¹öÆ°Àº ¶óµğ¿À ¹öÆ°À¸·Î ¶óµğ¿À ¹Ú½º¿Í ¿¬°áµÇ¾î ÀÖ´Ù
-    CTButton* m_pMinimizeButton; /// ÃÖ¼ÒÈ­ ¹öÆ°
+    std::list<S_TabbedPane> m_Tabs; /// childë¥¼ ë³´ê´€í•  Container
+    CTRadioBox* m_pRadioBox; /// íƒ­ë²„íŠ¼ì€ ë¼ë””ì˜¤ ë²„íŠ¼ìœ¼ë¡œ ë¼ë””ì˜¤ ë°•ìŠ¤ì™€ ì—°ê²°ë˜ì–´ ìˆë‹¤
+    CTButton* m_pMinimizeButton; /// ìµœì†Œí™” ë²„íŠ¼
 
-    bool m_bMinimize; /// ÃÖ¼ÒÈ­Áß
-    RECT m_rcMinimize; /// ÃÖ¼ÒÈ­½Ã ¿µ¿ª
+    bool m_bMinimize; /// ìµœì†Œí™”ì¤‘
+    RECT m_rcMinimize; /// ìµœì†Œí™”ì‹œ ì˜ì—­
 };
 #endif

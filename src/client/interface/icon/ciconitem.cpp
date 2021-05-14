@@ -137,7 +137,7 @@ CIconItem::Draw() {
         }
 
         else {
-            /// ½ºÅ©·Ñ ½ºÅ³ÀÏ°æ¿ì
+            /// ìŠ¤í¬ë¡¤ ìŠ¤í‚¬ì¼ê²½ìš°
             if (ITEM_TYPE(Item.GetTYPE(), Item.GetItemNO()) == USE_ITEM_SKILL_DOING) {
                 if (float fUseItemDelay = (float)g_UseItemDelay.GetUseItemDelay(USE_ITEM_SCROLL)) {
                     float fProcessRate = fUseItemDelay / DEFAULT_USE_SCROLL_DELAY;
@@ -186,10 +186,10 @@ CIconItem::Draw() {
         }
     }
 
-    if (m_pSlot && m_pSlot->GetParent() == DLG_TYPE_STORE) ///»óÁ¡¿¡¼­´Â ¾ÆÀÌÅÛÀÇ °³¼öÇ¥½Ã¸¦ ¾ÈÇÑ´Ù.
+    if (m_pSlot && m_pSlot->GetParent() == DLG_TYPE_STORE) ///ìƒì ì—ì„œëŠ” ì•„ì´í…œì˜ ê°œìˆ˜í‘œì‹œë¥¼ ì•ˆí•œë‹¤.
         return;
 
-    if (Item.IsEnableDupCNT() && GetQuantity()) /// Quantity ItemÀÏ°æ¿ì
+    if (Item.IsEnableDupCNT() && GetQuantity()) /// Quantity Itemì¼ê²½ìš°
     {
         int iImageIndex = CResourceMgr::GetInstance()->GetImageNID(IMAGE_RES_UI, "ID_BLACK_PANEL");
         char szCount[32] = {0};

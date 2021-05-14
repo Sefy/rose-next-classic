@@ -70,7 +70,7 @@ CNetwork::Destroy() {
 //-------------------------------------------------------------------------------------------------
 bool
 CNetwork::ConnectToServer(std::string& ip, WORD wTcpPORT, short nProcLEVEL) {
-    // World ¼ÒÄÏ...
+    // World ì†Œì¼“...
     if (m_nProcLEVEL == nProcLEVEL)
         return true;
 
@@ -94,11 +94,11 @@ CNetwork::DisconnectFromServer(short nProcLEVEL) {
 void
 CNetwork::MoveZoneServer() {
     if (NETWORK_STATUS_CONNECT == m_btZoneSocketSTATUS) {
-        // Á¸ ¼­¹ö ¼ÒÄÏÀ» ²÷°í »õ·Î Á¢¼ÓÇÑ´Ù...
+        // ì¡´ ì„œë²„ ì†Œì¼“ì„ ëŠê³  ìƒˆë¡œ ì ‘ì†í•œë‹¤...
         m_bMoveingZONE = true;
         m_ZoneSOCKET.Close();
     } else {
-        // ¹Ù·Î Á¢¼Ó...
+        // ë°”ë¡œ ì ‘ì†...
         m_bMoveingZONE = false;
         m_ZoneSOCKET.Connect(CSocketWND::GetInstance()->GetWindowHandle(),
             m_GSV_IP.Get(),
@@ -180,7 +180,7 @@ CNetwork::Proc_ZonePacket() {
             Recv_gsv_GM_COMMAND();
             break;
 
-        // Ä³¸¯ÅÍ ¼±ÅÃ °á°ú Åëº¸¹ÞÀ½
+        // ìºë¦­í„° ì„ íƒ ê²°ê³¼ í†µë³´ë°›ìŒ
         case GSV_SELECT_CHAR:
             Recv_gsv_SELECT_CHAR();
 
@@ -361,7 +361,7 @@ CNetwork::Proc_ZonePacket() {
             Recv_gsv_SPEED_CHANGED();
             break;
 
-        /// ¾ÆÀÌÅÛÀ» »ç¿ëÇß´Ù.
+        /// ì•„ì´í…œì„ ì‚¬ìš©í–ˆë‹¤.
         case GSV_USE_ITEM:
             Recv_gsv_USE_ITEM();
             break;
@@ -373,7 +373,7 @@ CNetwork::Proc_ZonePacket() {
             Recv_gsv_SET_MONEYnINV();
             break;
 
-        case GSV_REWARD_ITEM: /// Äù½ºÆ® º¸»ó¿¡ ÀÇÇØ ¾ÆÀÌÅÛÀÌ º¯°æ
+        case GSV_REWARD_ITEM: /// í€˜ìŠ¤íŠ¸ ë³´ìƒì— ì˜í•´ ì•„ì´í…œì´ ë³€ê²½
         {
             Recv_gsv_REWARD_ITEM();
         }
@@ -498,14 +498,14 @@ CNetwork::Proc_ZonePacket() {
         }
 
         //----------------------------------------------------------------------------------------------------
-        /// @brief ¾ÆÀÌÅÛ Àç¹Ö°ü·Ã
+        /// @brief ì•„ì´í…œ ìž¬ë°ê´€ë ¨
         //----------------------------------------------------------------------------------------------------
         case GSV_CRAFT_ITEM_REPLY:
             Recv_gsv_CRAFT_ITEM_REPLY();
             break;
 
         //----------------------------------------------------------------------------------------------------
-        /// @brief ÀÌº¥Æ® ¿ÀºêÁ§Æ® °ü·Ã
+        /// @brief ì´ë²¤íŠ¸ ì˜¤ë¸Œì íŠ¸ ê´€ë ¨
         //----------------------------------------------------------------------------------------------------
         case GSV_ADD_EVENTOBJ:
             Recv_gsv_ADD_EVENTOBJ();
@@ -566,14 +566,14 @@ CNetwork::Proc() {
                         continue;
                     }
                     case NETWORK_STATUS_CONNECT: {
-                        // ¼­¹ö¿Í ¿¬°áµÆ´Ù...
+                        // ì„œë²„ì™€ ì—°ê²°ëë‹¤...
                         switch (m_nProcLEVEL) {
-                            case NS_CON_TO_WSV: // ¿ùµå ¼­¹ö¿¡ Á¢¼ÓÇß´Ù.
+                            case NS_CON_TO_WSV: // ì›”ë“œ ì„œë²„ì— ì ‘ì†í–ˆë‹¤.
                                 Send_cli_JOIN_SERVER_REQ(m_dwWSV_ID, true);
                                 m_bWarping = false;
                                 bAllInONE = true;
                                 break;
-                            case NS_CON_TO_LSV: // ·Î±ä ¼­¹ö¿¡ Á¢¼ÓÇß´Ù.
+                            case NS_CON_TO_LSV: // ë¡œê¸´ ì„œë²„ì— ì ‘ì†í–ˆë‹¤.
                                 Send_cli_HEADER(CLI_ACCEPT_REQ, true);
 
                                 break;
@@ -582,7 +582,7 @@ CNetwork::Proc() {
                     }
                     case NETWORK_STATUS_DISCONNECT: {
                         if (NS_DIS_FORM_LSV == m_nProcLEVEL) {
-                            // °ÔÀÓ ¼­¹ö¿¡ ÀçÁ¢¼Ó ÇÑ´Ù...
+                            // ê²Œìž„ ì„œë²„ì— ìž¬ì ‘ì† í•œë‹¤...
                             std::string world_server_ip(m_WSV_IP.Get());
                             this->ConnectToServer(world_server_ip, m_wWSV_PORT, NS_CON_TO_WSV);
                             continue;
@@ -598,14 +598,14 @@ CNetwork::Proc() {
                     }
                 }
 
-                LogString(LOG_NORMAL, "¼­¹ö¿ÍÀÇ Á¢¼Ó¿¡ ½ÇÆÐÇß½À´Ï´Ù.\n");
+                LogString(LOG_NORMAL, "ì„œë²„ì™€ì˜ ì ‘ì†ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.\n");
                 break;
             }
             case SRV_ERROR:
                 Recv_srv_ERROR();
                 break;
 
-            case SRV_JOIN_SERVER_REPLY: // ¿ùµå ¼­¹ö¿¡ Á¢¼ÓÇß´Ù.
+            case SRV_JOIN_SERVER_REPLY: // ì›”ë“œ ì„œë²„ì— ì ‘ì†í–ˆë‹¤.
             {
                 DWORD dwRet = Recv_srv_JOIN_SERVER_REPLY();
                 if (dwRet) {
@@ -643,7 +643,7 @@ CNetwork::Proc() {
             case LSV_CHANNEL_LIST_REPLY:
                 Recv_lsv_CHANNEL_LIST_REPLY();
                 break;
-            // Ä³¸¯ÅÍ ¸®½ºÆ® ¹Þ¾ÒÀ½
+            // ìºë¦­í„° ë¦¬ìŠ¤íŠ¸ ë°›ì•˜ìŒ
             case WSV_CHAR_LIST:
                 Recv_wsv_CHAR_LIST();
                 break;
@@ -651,7 +651,7 @@ CNetwork::Proc() {
             case WSV_DELETE_CHAR:
                 Recv_wsv_DELETE_CHAR();
                 break;
-            // Ä³¸¯ÅÍ »ý¼º¿äÃ» °á°ú Åëº¸¹ÞÀ½
+            // ìºë¦­í„° ìƒì„±ìš”ì²­ ê²°ê³¼ í†µë³´ë°›ìŒ
             case WSV_CREATE_CHAR:
                 Recv_wsv_CREATE_CHAR();
 
@@ -674,7 +674,7 @@ CNetwork::Proc() {
             case WSV_CHAR_CHANGE:
                 Recv_wsv_CHAR_CHANGE();
                 break;
-            // Á¸ ¼­¹ö¸¦ ÀÌµ¿ÇØ¶ó...
+            // ì¡´ ì„œë²„ë¥¼ ì´ë™í•´ë¼...
             case WSV_MOVE_SERVER: {
                 bAllInONE = false;
                 Recv_wsv_MOVE_SERVER();
@@ -703,14 +703,14 @@ CNetwork::Proc() {
                         continue;
                     }
                     case NETWORK_STATUS_CONNECT: {
-                        // Á¸ ¼­¹ö¿Í ¿¬°áµÆ´Ù...
-                        // ÄÉ¸¯ÅÍ ¼±ÅÃÈÄ ½ÇÁ¦ Á¸¿¡ µé¾î°£´Ù.
+                        // ì¡´ ì„œë²„ì™€ ì—°ê²°ëë‹¤...
+                        // ì¼€ë¦­í„° ì„ íƒí›„ ì‹¤ì œ ì¡´ì— ë“¤ì–´ê°„ë‹¤.
                         m_bWarping = false;
                         this->Send_cli_JOIN_SERVER_REQ(m_dwGSV_IDs[0]);
                         continue;
                     }
                     case NETWORK_STATUS_DISCONNECT: {
-                        // ¼­¹ö¸¦ ¿Å±â±â À§ÇØ Á¢¼ÓÀ» ²÷Àº°ÍÀÎ°¡ ? ²÷±ä°ÍÀÎ°¡ ?
+                        // ì„œë²„ë¥¼ ì˜®ê¸°ê¸° ìœ„í•´ ì ‘ì†ì„ ëŠì€ê²ƒì¸ê°€ ? ëŠê¸´ê²ƒì¸ê°€ ?
                         if (m_bMoveingZONE) {
                             this->MoveZoneServer();
                             continue;
@@ -723,7 +723,7 @@ CNetwork::Proc() {
                     }
                 }
 
-                LogString(LOG_NORMAL, "Á¸ ¼­¹ö¿ÍÀÇ Á¢¼Ó¿¡ ½ÇÆÐÇß½À´Ï´Ù.\n");
+                LogString(LOG_NORMAL, "ì¡´ ì„œë²„ì™€ì˜ ì ‘ì†ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.\n");
                 break;
             }
 

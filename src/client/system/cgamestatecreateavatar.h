@@ -6,10 +6,10 @@
 class CJustModelAVT;
 
 /**
- * Ä³¸¯ÅÍ »ı¼º State Class
+ * ìºë¦­í„° ìƒì„± State Class
  *	- Next State  : CGameStateSelectAvatar
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CGameStateCreateAvatar: public CGameState {

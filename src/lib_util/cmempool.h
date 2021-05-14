@@ -56,7 +56,7 @@ CMemPOOL<pDataType>::CMemPOOL(char* szName, int iIncreaseSize) {
 template<class pDataType>
 CMemPOOL<pDataType>::~CMemPOOL() {
     _ASSERT(m_NODEs.GetNodeCount()
-        == 0); // »ó¼Ó ¹ŞÀº Å¬·¹½ºÀÇ ÆÄ±«ÀÚ¿¡¼­ this->DeletePool()ÀÌ È£ÃâµÇ¾î¾ß ÇÑ´Ù.
+        == 0); // ìƒì† ë°›ì€ í´ë ˆìŠ¤ì˜ íŒŒê´´ìì—ì„œ this->DeletePool()ì´ í˜¸ì¶œë˜ì–´ì•¼ í•œë‹¤.
     //	_ASSERT( m_USEDs.GetNodeCount() == 0 );
 }
 

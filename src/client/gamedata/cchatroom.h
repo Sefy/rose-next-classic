@@ -2,9 +2,9 @@
 #define _CChatRoom_
 
 /**
- * Ä¿¹Â´ÏÆ¼¿¡¼­ÀÇ Ã¤ÆÃ·ëÀÇ ¸â¹ö Å¬·¡½º
+ * ì»¤ë®¤ë‹ˆí‹°ì—ì„œì˜ ì±„íŒ…ë£¸ì˜ ë©¤ë²„ í´ëž˜ìŠ¤
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CChatMember {
@@ -27,10 +27,10 @@ protected:
 #include "../GameCommon/CObservable.h"
 #include "Event/CTEventChatRoom.h"
 /**
- * Ä¿¹Â´ÏÆ¼¿¡¼­ÀÇ Ã¤ÆÃ·ë¿¡ ´ëÇÑ Data Class
+ * ì»¤ë®¤ë‹ˆí‹°ì—ì„œì˜ ì±„íŒ…ë£¸ì— ëŒ€í•œ Data Class
  *	- Observer : CChatRoomDlg
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CChatRoom: public CObservable {
@@ -41,13 +41,13 @@ public:
     static CChatRoom& GetInstance();
 
     enum {
-        STATE_DEACTIVATED, /// ¾Æ¹« »óÅÂ ¾Æ´Ô. ui°¡ OpenÇÒ¼ö ¾øÀ¸¸ç OpenµÇ¾î ÀÖ´Ù¸é ´Ý´Â´Ù.
-        // STATE_MAKE,				/// ´ëÈ­¹æÀ» °³¼³ÇÏ±â À§ÇØ¼­ Ã¢À» ¶Ù¿î »óÅÂ - ¹æ¼³Á¤¸¸ °¡´ÉÇÏ°í
-        // È®ÀÎ½Ã ¼­¹ö¿¡ º¸³»°í ´ë±âÇÑ´Ù.(»óÅÂº¯°æ)
-        STATE_WAIT_MAKE, /// ´ëÈ­¹æÀ» ¸¸µé±â¸¦ ¼­¹ö¿¡°Ô ¿äÃ»ÇÏ°í ´ë±â»óÅÂ,¸ðµç ÀÎÅÍÆäÀÌ½º°¡ Àá°Ü¾ß
-                         /// ÇÑ´Ù.
+        STATE_DEACTIVATED, /// ì•„ë¬´ ìƒíƒœ ì•„ë‹˜. uiê°€ Opení• ìˆ˜ ì—†ìœ¼ë©° Openë˜ì–´ ìžˆë‹¤ë©´ ë‹«ëŠ”ë‹¤.
+        // STATE_MAKE,				/// ëŒ€í™”ë°©ì„ ê°œì„¤í•˜ê¸° ìœ„í•´ì„œ ì°½ì„ ë›°ìš´ ìƒíƒœ - ë°©ì„¤ì •ë§Œ ê°€ëŠ¥í•˜ê³ 
+        // í™•ì¸ì‹œ ì„œë²„ì— ë³´ë‚´ê³  ëŒ€ê¸°í•œë‹¤.(ìƒíƒœë³€ê²½)
+        STATE_WAIT_MAKE, /// ëŒ€í™”ë°©ì„ ë§Œë“¤ê¸°ë¥¼ ì„œë²„ì—ê²Œ ìš”ì²­í•˜ê³  ëŒ€ê¸°ìƒíƒœ,ëª¨ë“  ì¸í„°íŽ˜ì´ìŠ¤ê°€ ìž ê²¨ì•¼
+                         /// í•œë‹¤.
         STATE_WAIT_JOIN,
-        STATE_ACTIVATED /// ´ëÈ­¹æÀÌ °³¼³/Á¶ÀÎµÇ°í ´ëÈ­ÁßÀÎ »óÅÂ,, ¹æÀåÀÏ°æ¿ì¿¡¸¸ ¼³Á¤°¡´ÉÇÏ´Ù.
+        STATE_ACTIVATED /// ëŒ€í™”ë°©ì´ ê°œì„¤/ì¡°ì¸ë˜ê³  ëŒ€í™”ì¤‘ì¸ ìƒíƒœ,, ë°©ìž¥ì¼ê²½ìš°ì—ë§Œ ì„¤ì •ê°€ëŠ¥í•˜ë‹¤.
     };
 
     int GetState();
@@ -57,9 +57,9 @@ public:
     void LeaveMember(WORD wServerIdx);
     void LeaveMember(const char* pszName);
 
-    void Join(); ///±âÁ¸¿¡ Ã¤ÆÃ¹æ¿¡ Á¶ÀÎÇÑ´Ù.
-    void Made(WORD wMyID); ///³»°¡ ¸¸µé±â ¿äÃ»ÇÑ ¹æÀÌ ¸¸µé¾îÁ³´Ù.
-    void Leave(); ///Ã¤ÆÃ¹æ¿¡¼­ ³ª°£´Ù.
+    void Join(); ///ê¸°ì¡´ì— ì±„íŒ…ë°©ì— ì¡°ì¸í•œë‹¤.
+    void Made(WORD wMyID); ///ë‚´ê°€ ë§Œë“¤ê¸° ìš”ì²­í•œ ë°©ì´ ë§Œë“¤ì–´ì¡Œë‹¤.
+    void Leave(); ///ì±„íŒ…ë°©ì—ì„œ ë‚˜ê°„ë‹¤.
     void SetTitle(const char* pszTitle);
     void SendReqMakeRoom(BYTE btRoomType, BYTE btMaxUser, char* pszTitle, char* pszPwd);
     void SendReqJoinRoom(BYTE btRoomType, WORD wRoomID, char* pszPwd);

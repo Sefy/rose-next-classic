@@ -25,12 +25,12 @@ CTCmdCreateMsgBox::~CTCmdCreateMsgBox(void) {
 }
 
 /**
- * ¸Ş¼¼Áö ¹Ú½ºÀÇ °æ¿ì ¿©·¯°³°¡ ¶ç¾îÁú¼ö ÀÖ´Ù
- *	- Å¸ÀÔº°·Î ±¸ºĞÇÏ¸ç °¢ Å¸ÀÔº°·Î ÀÎµ¦½º(ÇöÀç °³¼ö+1)°¡ ºÎ¿©µÈ´Ù.
+ * ë©”ì„¸ì§€ ë°•ìŠ¤ì˜ ê²½ìš° ì—¬ëŸ¬ê°œê°€ ë„ì–´ì§ˆìˆ˜ ìˆë‹¤
+ *	- íƒ€ì…ë³„ë¡œ êµ¬ë¶„í•˜ë©° ê° íƒ€ì…ë³„ë¡œ ì¸ë±ìŠ¤(í˜„ì¬ ê°œìˆ˜+1)ê°€ ë¶€ì—¬ëœë‹¤.
  *
- * @warning		¸Ş¼¼Áö ¹Ú½º°¡ ´İÈú°æ¿ì °°Àº Å¸ÀÔÀÇ ¸ğµç ¸Ş¼¼Áö ¹Ú½º¸¦ »èÁ¦ÇÑ´Ù.( ±×·¸Áö ¾ÊÀ»°æ¿ì
- *ÀÎµ¦½Ì¿¡ ¹®Á¦ ¹ß»ıÇÒ¼ö ÀÖ´Ù.)
- * @Author		ÃÖÁ¾Áø
+ * @warning		ë©”ì„¸ì§€ ë°•ìŠ¤ê°€ ë‹«íê²½ìš° ê°™ì€ íƒ€ì…ì˜ ëª¨ë“  ë©”ì„¸ì§€ ë°•ìŠ¤ë¥¼ ì‚­ì œí•œë‹¤.( ê·¸ë ‡ì§€ ì•Šì„ê²½ìš°
+ *ì¸ë±ì‹±ì— ë¬¸ì œ ë°œìƒí• ìˆ˜ ìˆë‹¤.)
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/5
  */
 bool
@@ -141,7 +141,7 @@ CTCmdOpenPrivateChatDlg::CTCmdOpenPrivateChatDlg(DWORD dwUserTag,
 bool
 CTCmdOpenPrivateChatDlg::Exec(CTObject* pObj) {
     if (g_itMGR.GetPrivateChatDlg(
-            m_dwUserTag)) ///±âÁ¸¿¡ ÇØ´ç À¯Àú¿ÍÀÇ ´ëÈ­Ã¢ÀÌ ¿­·ÁÀÖ´Ù¸é ¿­Áö ¾Ê´Â´Ù.
+            m_dwUserTag)) ///ê¸°ì¡´ì— í•´ë‹¹ ìœ ì €ì™€ì˜ ëŒ€í™”ì°½ì´ ì—´ë ¤ìˆë‹¤ë©´ ì—´ì§€ ì•ŠëŠ”ë‹¤.
         return true;
 
     int iCount = 0;
@@ -151,9 +151,9 @@ CTCmdOpenPrivateChatDlg::Exec(CTObject* pObj) {
     for (riter = g_itMGR.m_Dlgs.rbegin(); riter != g_itMGR.m_Dlgs.rend(); ++riter) {
         if ((*riter)->GetDialogType() == DLG_TYPE_PRIVATECHAT) {
             if (iCount == 0) {
-                /// ÇöÀç ¸Ç ¾Õ¿¡ ÀÖ´Â Ã¤ÆÃÃ¢
-                /// 1. Æ÷Ä¿½º´Â ÀÌ³ğÇÑÅ× °£´Ù.
-                /// 2. »õ·Î ¸¸µç Ã¢Àº ÀÌ³ğ ¹ØÀ¸·Î °£´Ù.
+                /// í˜„ì¬ ë§¨ ì•ì— ìˆëŠ” ì±„íŒ…ì°½
+                /// 1. í¬ì»¤ìŠ¤ëŠ” ì´ë†ˆí•œí…Œ ê°„ë‹¤.
+                /// 2. ìƒˆë¡œ ë§Œë“  ì°½ì€ ì´ë†ˆ ë°‘ìœ¼ë¡œ ê°„ë‹¤.
                 pDlg = *riter;
                 iNextID = pDlg->GetControlID();
             }
@@ -169,7 +169,7 @@ CTCmdOpenPrivateChatDlg::Exec(CTObject* pObj) {
     else
         g_itMGR.AppendDlg(DLG_TYPE_PRIVATECHAT,
             pPrivateChatDlg,
-            m_dwUserTag); ///Ã³À½ ¿äÃ»µÈ 1:1´ëÈ­Ã¢ÀÌ¶ó¸é ¸ÇµÚ·Î °¡¼­ Á¦ÀÏ ¸ÕÀú ÇÁ·Î¼¼½º µÇµµ·Ï ÇÑ´Ù.
+            m_dwUserTag); ///ì²˜ìŒ ìš”ì²­ëœ 1:1ëŒ€í™”ì°½ì´ë¼ë©´ ë§¨ë’¤ë¡œ ê°€ì„œ ì œì¼ ë¨¼ì € í”„ë¡œì„¸ìŠ¤ ë˜ë„ë¡ í•œë‹¤.
 
     POINT pt = {0 + iCount * 30, 120 + iCount * 30};
 

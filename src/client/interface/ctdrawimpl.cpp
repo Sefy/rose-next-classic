@@ -496,9 +496,9 @@ CTDrawImpl::DrawFitH(int iX, int iY, int iModuleID, int iGraphicID, int iHeight,
     ::drawSprite(hTexture, &(pSpriteInfo->m_Rect), NULL, &D3DXVECTOR3(0, 0, 0), color);
 }
 //------------------------------------------------------------------------------------------------------------
-/// @param color : ¹è°æ ¾ÆÀÌÄÜ Ä®¶ó
-/// @param coveColor : °ÔÀÌÁö ÄÃ·¯
-/// @brief ÁøÇà °ÔÀÌÁö°¡ ÀÖ´Â ¾ÆÀÌÄÜ
+/// @param color : ë°°ê²½ ì•„ì´ì½˜ ì¹¼ë¼
+/// @param coveColor : ê²Œì´ì§€ ì»¬ëŸ¬
+/// @brief ì§„í–‰ ê²Œì´ì§€ê°€ ìˆëŠ” ì•„ì´ì½˜
 //------------------------------------------------------------------------------------------------------------
 void
 CTDrawImpl::DrawCover(int iX,

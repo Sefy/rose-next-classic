@@ -12,17 +12,17 @@
 #include <zmouse.h>
 
 //-----------------------------------------------------------------------------------------------------------
-///	2003/12/22 ÃÖÁ¾Áø
-/// 1. CommandQÃß°¡
-///		1) Hide()¿Í ~CTDailog()¿¡ ¸ðµç TCommand»èÁ¦
-///		2) Update½Ã( IsVision())¿¡ Q¿¡¼­ TCommand ¸¦ °¡Á®¿Í¼­ Ã³¸®
-///			(1) 1 Frame´ç ÇÏ³ªÀÇ TCommand¸¸ Ã³¸®µÈ´Ù.
-///		3) !IsVision()¿¡¼­´Â TCommand¸¦ ÀúÀå¸¸ ÇÑ´Ù.( ???? ) => ShowÈÄ Update¿¡¼­ Ã³¸® (
-///			(1) ¹®Á¦ ¹ß»ý½Ã TCommandÃ³¸® ·çÆ¾À» Update()¾È¿¡¼­ ¸ÇÀ§·Î ¿Ã·Á¶ó.
+///	2003/12/22 ìµœì¢…ì§„
+/// 1. CommandQì¶”ê°€
+///		1) Hide()ì™€ ~CTDailog()ì— ëª¨ë“  TCommandì‚­ì œ
+///		2) Updateì‹œ( IsVision())ì— Qì—ì„œ TCommand ë¥¼ ê°€ì ¸ì™€ì„œ ì²˜ë¦¬
+///			(1) 1 Frameë‹¹ í•˜ë‚˜ì˜ TCommandë§Œ ì²˜ë¦¬ëœë‹¤.
+///		3) !IsVision()ì—ì„œëŠ” TCommandë¥¼ ì €ìž¥ë§Œ í•œë‹¤.( ???? ) => Showí›„ Updateì—ì„œ ì²˜ë¦¬ (
+///			(1) ë¬¸ì œ ë°œìƒì‹œ TCommandì²˜ë¦¬ ë£¨í‹´ì„ Update()ì•ˆì—ì„œ ë§¨ìœ„ë¡œ ì˜¬ë ¤ë¼.
 ///
 ///
-/// 2003/11/24 ÃÖÁ¾Áø
-/// 1. Ãß°¡ °³¹ß »çÇ×¹× °í·Á»çÇ×
+/// 2003/11/24 ìµœì¢…ì§„
+/// 1. ì¶”ê°€ ê°œë°œ ì‚¬í•­ë° ê³ ë ¤ì‚¬í•­
 ///		1) Dialog In Dialog
 ///		2) Process Return Value
 //-----------------------------------------------------------------------------------------------------------
@@ -118,14 +118,14 @@ CTDialog::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
         pCtrl = *riter;
         iID = pCtrl->Process(uiMsg, wParam, lParam);
         if (iID) {
-            /* WM_LBUTTONDOWNÀ» Ã³¸®ÇÑ ¹öÆ°Àº Ç×»ó ¸®½ºÆ®ÀÇ ¸ÇµÚ·Î º¸³»¼­
-               ±×¸®±â°¡ Á¦ÀÏ µÚ¿¡¼­ ÇÏ°Ô²ûÇÑ´Ù.
-               ¿¹) ComboBoxÀÇ °æ¿ì Ctrlµé³¢¸® DrawÀÇ Layer°¡ ¾û¸ÁµÉ¼ö ÀÖ´Ù.
+            /* WM_LBUTTONDOWNì„ ì²˜ë¦¬í•œ ë²„íŠ¼ì€ í•­ìƒ ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ë’¤ë¡œ ë³´ë‚´ì„œ
+               ê·¸ë¦¬ê¸°ê°€ ì œì¼ ë’¤ì—ì„œ í•˜ê²Œë”í•œë‹¤.
+               ì˜ˆ) ComboBoxì˜ ê²½ìš° Ctrlë“¤ë¼ë¦¬ Drawì˜ Layerê°€ ì—‰ë§ë ìˆ˜ ìžˆë‹¤.
             */
             if (uiMsg == WM_LBUTTONDOWN) {
                 if (pCtrl->GetControlType() != CTRL_TABBEDPANE
                     && pCtrl->GetControlType()
-                        != CTRL_PANE) ///ÄÁÅ×ÀÌ³Ê´Â ±âº»ÀûÀ¸·Î À§·Î ¿Ã¶ó¿À¸é ¾ÈµÇ¿ä..
+                        != CTRL_PANE) ///ì»¨í…Œì´ë„ˆëŠ” ê¸°ë³¸ì ìœ¼ë¡œ ìœ„ë¡œ ì˜¬ë¼ì˜¤ë©´ ì•ˆë˜ìš”..
                     MoveCtrl2ListEnd(pCtrl->GetControlID());
             }
 
@@ -138,7 +138,7 @@ CTDialog::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
         switch (iID) {
             case CTCaption::IID_BTN_ICON:
                 /// if( uiMsg == WM_LBUTTONUP )
-                ///¾ÆÀÌÄÜÈ­
+                ///ì•„ì´ì½˜í™”
                 return m_pCaption->GetControlID();
             case CTCaption::IID_BTN_CLOSE:
                 if (uiMsg == WM_LBUTTONUP)
@@ -265,7 +265,7 @@ CTDialog::Add(CWinCtrl* pChild) {
 
     pChild->SetParent(this);
     pChild->SetOffset(pChild->GetPosition());
-    ///µî·ÏµÈ Child ControlÀÇ ÁÂÇ¥¸¦ »ó´ëÁÂÇ¥·Î °è»êÇÏ¿© ÇöÀç DialogÀÇ ÁÂÇ¥¿¡ ´õÇØÁØ´Ù.
+    ///ë“±ë¡ëœ Child Controlì˜ ì¢Œí‘œë¥¼ ìƒëŒ€ì¢Œí‘œë¡œ ê³„ì‚°í•˜ì—¬ í˜„ìž¬ Dialogì˜ ì¢Œí‘œì— ë”í•´ì¤€ë‹¤.
     pChild->MoveWindow(GetPosition());
 
     m_listChild.push_back(pChild);
@@ -402,9 +402,9 @@ CTDialog::Show() {
     if (m_pCaption)
         m_pCaption->Show();
 
-    /// Body¸¦ ±×¸®°í
+    /// Bodyë¥¼ ê·¸ë¦¬ê³ 
 
-    ///Ç²ÅÍ¸¦ ±×¸®°í
+    ///í’‹í„°ë¥¼ ê·¸ë¦¬ê³ 
 
     WINCTRL_LIST_ITOR iter;
     for (iter = m_listChild.begin(); iter != m_listChild.end(); ++iter)
@@ -514,7 +514,7 @@ CTDialog::GetImage() {
     return m_pImage;
 }
 
-/// Children Áß¿¡ Ã¹¹øÂ° EditBox¿¡ Focus¸¦ ÁØ´Ù.
+/// Children ì¤‘ì— ì²«ë²ˆì§¸ EditBoxì— Focusë¥¼ ì¤€ë‹¤.
 void
 CTDialog::ProcessLButtonDown() {
     if (CTEditBox::s_pFocusEdit && CTEditBox::s_pFocusEdit->GetParent() == (CWinCtrl*)this)

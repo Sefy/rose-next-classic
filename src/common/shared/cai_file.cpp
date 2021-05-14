@@ -43,17 +43,17 @@
 int
 AI_Get_Ability(CAI_OBJ* pCHAR, int iAbTYPE) {
     switch (iAbTYPE) {
-        case 0: //·¹º§
+        case 0: //ë ˆë²¨
             return pCHAR->Get_LEVEL();
-        case 1: // °ø°Ý·Â
+        case 1: // ê³µê²©ë ¥
             return pCHAR->total_attack_power();
-        case 2: // ¹æ¾î·Â
+        case 2: // ë°©ì–´ë ¥
             return pCHAR->Get_DEF();
-        case 3: // Ç×¸¶·Â
+        case 3: // í•­ë§ˆë ¥
             return pCHAR->Get_RES();
         case 4: // HP
             return pCHAR->Get_HP();
-        case 5: // ¸Å·Â
+        case 5: // ë§¤ë ¥
             return pCHAR->Get_CHARM();
     }
 
@@ -129,7 +129,7 @@ CAI_EVENT::Load(FILE* fp, STBDATA* pSTB, int iLangCol) {
                     _ASSERT(0);
                     return false;
                     /*
-                    // ÀÌÀü µ¥ÀÌÅ¸ Æ÷¸Ë.. 2004.2.2
+                    // ì´ì „ ë°ì´íƒ€ í¬ë§·.. 2004.2.2
                     AI_CONDITION *pNewCOND = (AI_CONDITION*) new BYTE [ sizeof( AICOND02 ) ];
 
                     ::CopyMemory ( pNewCOND, m_ppConditionLIST[ iC ], sCondH.dwSize );
@@ -266,7 +266,7 @@ CAI_EVENT::Load(FILE* fp, STBDATA* pSTB, int iLangCol) {
                 break;
             case AIACT_17:
                 if (sActionH.dwSize != sizeof(AIACT17)) {
-                    // ÀÌÀü µ¥ÀÌÅ¸¿ÍÀÇ È£È¯¼ºÀ» °í·Á..btToAttacker¸â¹ö°¡ ¾øÀ¸¹Ç·Î...
+                    // ì´ì „ ë°ì´íƒ€ì™€ì˜ í˜¸í™˜ì„±ì„ ê³ ë ¤..btToAttackerë©¤ë²„ê°€ ì—†ìœ¼ë¯€ë¡œ...
                     AI_ACTION* pOri = m_ppActionLIST[iA];
                     m_ppActionLIST[iA] = (AI_ACTION*)new AIACT17;
                     ::CopyMemory(m_ppActionLIST[iA], pOri, sActionH.dwSize);
@@ -659,7 +659,7 @@ CAI_FILE::AI_WhenAttackMOVE(CAI_OBJ* pSourCHAR, CAI_OBJ* pDestCHAR) {
 void
 CAI_FILE::AI_WhenDAMAGED(CAI_OBJ* pSourCHAR, CAI_OBJ* pDestCHAR, int iDamage) {
     if (pSourCHAR->Get_TARGET()) {
-        // È®·ü°è»ê...
+        // í™•ë¥ ê³„ì‚°...
         if (m_iRateDamagedAI < AI_SysRANDOM(100))
             return;
     }

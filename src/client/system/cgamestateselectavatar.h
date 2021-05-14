@@ -3,10 +3,10 @@
 #include "cgamestate.h"
 
 /**
- * Ä³¸¯ÅÍ ¼±ÅÃ State Class
+ * ìºë¦­í„° ì„ íƒ State Class
  *	- Next State : CGameStateCreateAvatar, CGameStateMoveMain, CGameStateLoginVirtual
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/15
  */
 class CGameStateSelectAvatar: public CGameState {

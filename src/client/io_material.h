@@ -14,7 +14,7 @@ struct tagMATERIAL {
     short m_nAlpha;
     short m_nTwoSide;
 
-    /// »õ·Î Ãß°¡µÈ ¼Ó¼ºµé
+    /// ìƒˆë¡œ ì¶”ê°€ëœ ì†ì„±ë“¤
     short m_nAlphaTest;
     short m_nAlphaRef;
     short m_nZTest;

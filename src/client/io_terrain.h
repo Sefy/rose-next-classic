@@ -193,8 +193,8 @@ public:
     int GetUpTileNO() { return m_nUpTileTEX; }
 
     aabbBox m_aabb;
-    int m_DrawingType; //  Ãß°¡
-    int m_PreDrawingType; //  Ãß°¡
+    int m_DrawingType; //  ì¶”ê°€
+    int m_PreDrawingType; //  ì¶”ê°€
     bool ExPatchEnable;
     bool ObjectOnOff;
 
@@ -296,8 +296,8 @@ private:
 
     float** m_ppHeight; //[ VERTEX_COUNT_PER_MAP_AXIS ][ VERTEX_COUNT_PER_MAP_AXIS ];
 
-    float m_fPatchHeightMN[PATCH_COUNT_PER_MAP_AXIS * PATCH_COUNT_PER_MAP_AXIS][2]; //    Ãß°¡
-    float m_fQuadPatchHeightMN[85][2]; //    Ãß°¡
+    float m_fPatchHeightMN[PATCH_COUNT_PER_MAP_AXIS * PATCH_COUNT_PER_MAP_AXIS][2]; //    ì¶”ê°€
+    float m_fQuadPatchHeightMN[85][2]; //    ì¶”ê°€
 
     classDLLIST<HNODE> m_OceanLIST;
     classDLLIST<HNODE> m_OceanMatLIST;
@@ -326,7 +326,7 @@ struct tagEVENT_POS {
     CStrVAR m_Name;
 };
 
-/// ÇÑÇÁ·¹ÀÓ¿¡ ÇÏ³ªÀÇ ¸Ê¸¸À» ÀĞ±âÀ§ÇÑ ±¸Á¶.
+/// í•œí”„ë ˆì„ì— í•˜ë‚˜ì˜ ë§µë§Œì„ ì½ê¸°ìœ„í•œ êµ¬ì¡°.
 struct tagLOAD_ONE_MAP_DATA {
     short m_nCenterX;
     short m_nCenterY;
@@ -421,7 +421,7 @@ private:
     CMAP* FindLoadedMAP(short nZoneMapXIDX, short nZoneMapYIDX);
     void FreeDirtyMAP();
 
-    /// ÇÑ¹ø¿¡´Â ÇÏ³ªÀÇ ¸Ê¸¸ ÀĞ±â À§ÇÑ ....
+    /// í•œë²ˆì—ëŠ” í•˜ë‚˜ì˜ ë§µë§Œ ì½ê¸° ìœ„í•œ ....
     std::list<tagLOAD_ONE_MAP_DATA*> m_LoadOneMapData;
     tagLOAD_ONE_MAP_DATA*
     GetLodingMapFromList(short nCenterMapXIDX, short nCenterMapYIDX, WORD wUpdateIndex);
@@ -463,8 +463,8 @@ public:
     void Lock() { ; }
     void Unlock() { ; }
 
-    /// 2004/3/31:ÀÎÀÚ Ãß°¡ nAvy
-    ///ÀÓ½Ã·Î ·Î±×ÀÎÈ­¸é¿¡¼­ »ç¿ëµÇ´Â Zone Load½Ã¿¡´Â ÇØ´ç BGMÀ» PlayÇÏÁö ¾Ê±â À§ÇÏ¿© bPlayBGM Ãß°¡
+    /// 2004/3/31:ì¸ì ì¶”ê°€ nAvy
+    ///ì„ì‹œë¡œ ë¡œê·¸ì¸í™”ë©´ì—ì„œ ì‚¬ìš©ë˜ëŠ” Zone Loadì‹œì—ëŠ” í•´ë‹¹ BGMì„ Playí•˜ì§€ ì•Šê¸° ìœ„í•˜ì—¬ bPlayBGM ì¶”ê°€
     bool LoadZONE(short nZoneNO, bool bPlayBGM = true);
     void FreeZONE();
     bool InitZONE(float fCenterX, float fCenterY);
@@ -496,23 +496,23 @@ public:
     // float	GetHEIGHT (float fWorldX, float fWorldY, bool &bStepOnObject, HNODE
     // hCheckNODE=NULL); float GetTerrainHeight (float fWorldX, float fWorldY, bool& bNotFound);
 
-    /// ÁöÇüÀÇ ´Ü¼ø ³ôÀÌ¸¦ ¸®ÅÏÇÔ.
-    /// @bNotFound ÇØ´ç ÁÂÇ¥¿¡ ÁöÇüÀÌ ¼¼ÆÃµÇ¾î ÀÖÁö ¾ÊÀº °æ¿ì¿¡´Â FALSE °ªÀÌ ¼³Á¤.
+    /// ì§€í˜•ì˜ ë‹¨ìˆœ ë†’ì´ë¥¼ ë¦¬í„´í•¨.
+    /// @bNotFound í•´ë‹¹ ì¢Œí‘œì— ì§€í˜•ì´ ì„¸íŒ…ë˜ì–´ ìˆì§€ ì•Šì€ ê²½ìš°ì—ëŠ” FALSE ê°’ì´ ì„¤ì •.
     float GetHeight(float fWorldX, float fWorldY, bool* pNotFound = NULL);
 
-    /// ÇöÀç ÁÂÇ¥ÀÇ °¡Àå ³ôÀº ¿ÀºêÁ§Æ®ÀÇ À§Ä¡¸¦ ¹İÈ¯.
-    /// ¿ÀºêÁ§Æ®°¡ ÇÏ³ªµµ ¾ø´Â °æ¿ì¿¡´Â pNotFound °¡ TRUEÀÌ¸ç, ÁöÇü ³ôÀÌ°¡ ¸®ÅÏµÊ.
-    /// ¿ÀºêÁ§Æ®ÀÇ ³ôÀÌ°¡ ÁöÇüº¸´Ù ³·Àº °æ¿ì¿¡´Â ÁöÇüÀÇ ³ôÀÌ°¡ ¼±ÅÃµÊ.
-    /// @bNotFound ÇØ´ç ÁÂÇ¥¿¡ ÁöÇüÀÌ ¼¼ÆÃµÇ¾î ÀÖÁö ¾ÊÀº °æ¿ì¿¡´Â TRUE °ªÀÌ ¼³Á¤.
+    /// í˜„ì¬ ì¢Œí‘œì˜ ê°€ì¥ ë†’ì€ ì˜¤ë¸Œì íŠ¸ì˜ ìœ„ì¹˜ë¥¼ ë°˜í™˜.
+    /// ì˜¤ë¸Œì íŠ¸ê°€ í•˜ë‚˜ë„ ì—†ëŠ” ê²½ìš°ì—ëŠ” pNotFound ê°€ TRUEì´ë©°, ì§€í˜• ë†’ì´ê°€ ë¦¬í„´ë¨.
+    /// ì˜¤ë¸Œì íŠ¸ì˜ ë†’ì´ê°€ ì§€í˜•ë³´ë‹¤ ë‚®ì€ ê²½ìš°ì—ëŠ” ì§€í˜•ì˜ ë†’ì´ê°€ ì„ íƒë¨.
+    /// @bNotFound í•´ë‹¹ ì¢Œí‘œì— ì§€í˜•ì´ ì„¸íŒ…ë˜ì–´ ìˆì§€ ì•Šì€ ê²½ìš°ì—ëŠ” TRUE ê°’ì´ ì„¤ì •.
     float GetHeightTop(float fWorldX, float fWorldY, bool* pNotFound = NULL);
 
-    /// ÇöÀç ÁÂÇ¥ÀÇ ÁöÇü¿¡ ´ëÇÑ ±â¿ï±â¸¦ ¹İÈ¯. 0(Æò¸é)¿¡¼­ 1(45µµ)»çÀÌÀÇ °ª.
-    /// @bNotFound ÇØ´ç ÁÂÇ¥¿¡ ÁöÇüÀÌ ¼¼ÆÃµÇ¾î ÀÖÁö ¾ÊÀº °æ¿ì¿¡´Â TRUE °ªÀÌ ¼³Á¤.
+    /// í˜„ì¬ ì¢Œí‘œì˜ ì§€í˜•ì— ëŒ€í•œ ê¸°ìš¸ê¸°ë¥¼ ë°˜í™˜. 0(í‰ë©´)ì—ì„œ 1(45ë„)ì‚¬ì´ì˜ ê°’.
+    /// @bNotFound í•´ë‹¹ ì¢Œí‘œì— ì§€í˜•ì´ ì„¸íŒ…ë˜ì–´ ìˆì§€ ì•Šì€ ê²½ìš°ì—ëŠ” TRUE ê°’ì´ ì„¤ì •.
     float GetSlope(float fWorldX, float fWorldY, bool* bNotFound);
 
-    /// ÇöÀç ÁÂÇ¥ÀÇ ÁöÇü¿¡ ´ëÇÑ ³ë¸» º¤ÅÍ¸¦ °è»ê.
-    /// @vNormal Á¤±ÔÈ­µÈ ³ë¸» º¤ÅÍ. Æò¸éÀÌ¶ó¸é, (0, 0, 1)
-    /// @return ÇØ´ç ÁÂÇ¥¿¡ ´ëÇÑ ÁöÇüÀÌ ¼¼ÆÃµÇ¾î ÀÖÁö ¾ÊÀº °æ¿ì¿¡´Â false ¸¦ ¸®ÅÏ.
+    /// í˜„ì¬ ì¢Œí‘œì˜ ì§€í˜•ì— ëŒ€í•œ ë…¸ë§ ë²¡í„°ë¥¼ ê³„ì‚°.
+    /// @vNormal ì •ê·œí™”ëœ ë…¸ë§ ë²¡í„°. í‰ë©´ì´ë¼ë©´, (0, 0, 1)
+    /// @return í•´ë‹¹ ì¢Œí‘œì— ëŒ€í•œ ì§€í˜•ì´ ì„¸íŒ…ë˜ì–´ ìˆì§€ ì•Šì€ ê²½ìš°ì—ëŠ” false ë¥¼ ë¦¬í„´.
     bool GetNormal(float fWorldX, float fWorldY, D3DXVECTOR3& vNormal);
 
     float Pick_POSITION(D3DXVECTOR3& PosPICK);
@@ -527,7 +527,7 @@ public:
     int GetZoneNO() { return m_nZoneNO; }
 
     ///
-    /// ÇöÀç ¿ùµå À§Ä¡·Î ÇØ´ç ÆĞÄ¡¸¦ ±¸ÇÏ±â
+    /// í˜„ì¬ ì›”ë“œ ìœ„ì¹˜ë¡œ í•´ë‹¹ íŒ¨ì¹˜ë¥¼ êµ¬í•˜ê¸°
     ///
     CMAP_PATCH* GetPatchFromWorld(float fWorldX, float fWorldY);
 

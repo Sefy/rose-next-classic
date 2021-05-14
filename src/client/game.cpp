@@ -62,7 +62,7 @@ D3DCOLOR g_dwCOLOR[] = {g_dwRED,
     g_dwORANGE,
     g_dwPINK};
 
-//// Util ÀÇ Output string ÀÇ ±¸Çö
+//// Util ì˜ Output string ì˜ êµ¬í˜„
 void
 WriteLOG(char*) {
     ;
@@ -83,8 +83,8 @@ DrawLoadingImage() {
     //
     // if( !bLostFocus )
     {
-        if (!::beginScene()) //  µğ¹ÙÀÌ½º°¡ ¼Õ½ÇµÈ »óÅÂ¶ó¸é 0À» ¸®ÅÏÇÏ¹Ç·Î, ¸ğµç
-                             //  ·»´õ¸µ ½ºÅµ
+        if (!::beginScene()) //  ë””ë°”ì´ìŠ¤ê°€ ì†ì‹¤ëœ ìƒíƒœë¼ë©´ 0ì„ ë¦¬í„´í•˜ë¯€ë¡œ, ëª¨ë“ 
+                             //  ë Œë”ë§ ìŠ¤í‚µ
         {
             return;
         }
@@ -123,13 +123,13 @@ CGAMEDATA::CGAMEDATA():
     m_bNoUI = false;
     m_bTranslate = false;
     m_bNoWeight = false;
-    ; ///¹«°ÔÁ¦ÇÑ ¹«½Ã flag: ÃßÈÄ Å¬¶óÀÌ¾ğÆ®¿¡¼­ »¬°Í
+    ; ///ë¬´ê²Œì œí•œ ë¬´ì‹œ flag: ì¶”í›„ í´ë¼ì´ì–¸íŠ¸ì—ì„œ ëº„ê²ƒ
     m_fTestVal = 0.0f;
 
-    m_dwGameStartTime = GetTime(); /// °ÔÀÓ ½ÃÀÛ ½Ã°£.
-    m_dwFrevFrameTime = 0; /// ÀÌÀü ÇÁ·¹ÀÓ Å¸ÀÓ
-    m_dwElapsedGameTime = 0; /// °ÔÀÓ ½ÃÀÛÈÄ ÁøÇà½Ã°£.
-    m_dwElapsedFrameTime = 0; /// ÀÌÀü ÇÁ·¹ÀÓ¿¡¼­ÀÇ ÁøÇà½Ã°£..
+    m_dwGameStartTime = GetTime(); /// ê²Œì„ ì‹œì‘ ì‹œê°„.
+    m_dwFrevFrameTime = 0; /// ì´ì „ í”„ë ˆì„ íƒ€ì„
+    m_dwElapsedGameTime = 0; /// ê²Œì„ ì‹œì‘í›„ ì§„í–‰ì‹œê°„.
+    m_dwElapsedFrameTime = 0; /// ì´ì „ í”„ë ˆì„ì—ì„œì˜ ì§„í–‰ì‹œê°„..
     m_bForOpenTestServer = false;
 
     GetSystemTime(&m_SystemTime);
@@ -152,7 +152,7 @@ CGAMEDATA::CGAMEDATA():
 
 #ifdef _DEBUG
     m_bObserverCameraMode = false;
-    ; /// µğ¹ö±ë¿ë ¾÷Á®¹ö Ä«¸Ş¶ó..
+    ; /// ë””ë²„ê¹…ìš© ì—…ì ¸ë²„ ì¹´ë©”ë¼..
 #endif
 
     m_iReceivedAvatarEXP = 0;

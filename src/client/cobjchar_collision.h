@@ -71,7 +71,7 @@ public:
     //--------------------------------------------------------------------------------
 
     void Initialize(void);
-    bool InitializePC(bool bIsAvatar = false); // ³ôÀÌ¸¦ º¸Á¤ÇÒ ÇÊ¿ä°¡ ¾øÀ¸¸é false ¸¦ ¸®ÅÏÇÔ.
+    bool InitializePC(bool bIsAvatar = false); // ë†’ì´ë¥¼ ë³´ì •í•  í•„ìš”ê°€ ì—†ìœ¼ë©´ false ë¥¼ ë¦¬í„´í•¨.
 
     static bool CollisionCallback_Avatar(HNODE hNodeIn);
     static bool CollisionCallback_Other(HNODE hNodeIn);

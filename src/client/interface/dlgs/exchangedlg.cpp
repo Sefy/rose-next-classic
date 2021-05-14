@@ -25,17 +25,17 @@
 #define DS_TEXT_WIDTH 96
 #define DS_TEXT_HEIGHT 17
 
-#define DS_S_SX 24 /// ÆÇ¸Å ½½·Ô ½ÃÀÛÀ§Ä¡
+#define DS_S_SX 24 /// íŒë§¤ ìŠ¬ë¡¯ ì‹œì‘ìœ„ì¹˜
 #define DS_S_SY 64
-#define DS_B_SX 139 /// ±¸ÀÔ ½½·Ô ½ÃÀÛÀ§Ä¡
+#define DS_B_SX 139 /// êµ¬ì… ìŠ¬ë¡¯ ì‹œì‘ìœ„ì¹˜
 #define DS_B_SY 64
 
-#define DS_WIDTH 33 /// ½½·Ô °¡·Î Å©±â
-#define DS_HEIGHT 33 /// ½½·Ô ¼¼·Î Å©±â
+#define DS_WIDTH 33 /// ìŠ¬ë¡¯ ê°€ë¡œ í¬ê¸°
+#define DS_HEIGHT 33 /// ìŠ¬ë¡¯ ì„¸ë¡œ í¬ê¸°
 
-#define DS_COST_BX 48 /// ±¸ÀÔÃÑ¾×
+#define DS_COST_BX 48 /// êµ¬ì…ì´ì•¡
 #define DS_COST_BY 168
-#define DS_COST_SX 163 /// ÆÇ¸ÅÃÑ¾×
+#define DS_COST_SX 163 /// íŒë§¤ì´ì•¡
 #define DS_COST_SY 168
 
 #define DS_DIGIT_WIDTH 73
@@ -51,7 +51,7 @@ CExchangeDLG::CExchangeDLG(int iType) {
     m_pDragItem = new CDragItem;
     CTCommand* pCmd = new CTCmdRemoveMyItemFromExchange;
 
-    m_pDragItem->AddTarget(iType, NULL); //ÀÚ±â ÀÚ½ÅÀº ¾Æ¹«°Íµµ ÇÏÁö ¸»°Í
+    m_pDragItem->AddTarget(iType, NULL); //ìê¸° ìì‹ ì€ ì•„ë¬´ê²ƒë„ í•˜ì§€ ë§ê²ƒ
     m_pDragItem->AddTarget(CDragItem::TARGET_ALL, pCmd);
 
     for (iSlot = 0; iSlot < TOTAL_EXCHANGE_INVENTORY; ++iSlot) {
@@ -68,7 +68,7 @@ CExchangeDLG::CExchangeDLG(int iType) {
     }
 
     m_pOtherItemDragItem = new CDragItem;
-    ///°³ÀÎ»óÁ¡À¸·ÎÀÇ ÀÌµ¿ = Wish List¿¡ Ãß°¡
+    ///ê°œì¸ìƒì ìœ¼ë¡œì˜ ì´ë™ = Wish Listì— ì¶”ê°€
     pCmd = new CTCmdDragItem2WishList;
     m_pOtherItemDragItem->AddTarget(DLG_TYPE_PRIVATESTORE, pCmd);
 
@@ -98,12 +98,12 @@ CExchangeDLG::~CExchangeDLG(void) {
 
 void
 CExchangeDLG::InitExchangeState() {
-    ///±³È¯¹öÆ° Disable
+    ///êµí™˜ë²„íŠ¼ Disable
     SetEnableChild(IID_BTN_MONEY, true);
     SetEnableChild(IID_BTN_OK, true);
     SetEnableChild(IID_BTN_EXCHANGE, true);
 
-    /// »ı¼ºÀÚ¿¡¼­ ºÒ·Á¿Ã°æ¿ìµµ »ı°¢ÇØ¼­ ÀÖÀ»¶§¸¸ Ã³¸®ÇÏ°Ô²û
+    /// ìƒì„±ìì—ì„œ ë¶ˆë ¤ì˜¬ê²½ìš°ë„ ìƒê°í•´ì„œ ìˆì„ë•Œë§Œ ì²˜ë¦¬í•˜ê²Œë”
     CWinCtrl* pCtrl = NULL;
     CTPushButton* pPushButton = NULL;
     pCtrl = Find(IID_BTN_OK);
@@ -333,9 +333,9 @@ CExchangeDLG::IsInValidShow() {
 }
 
 /** @param	if( pObj is NULL)
- *				±âÅ¸ ¼³Á¤ º¯°æ( »ó´ë¹æ ¼³Á¤, ³»¼³Á¤Àº ³»°¡ ÆĞÅ¶ º¸³»±â Àü¿¡ ¹Ù²Û´Ù )
+ *				ê¸°íƒ€ ì„¤ì • ë³€ê²½( ìƒëŒ€ë°© ì„¤ì •, ë‚´ì„¤ì •ì€ ë‚´ê°€ íŒ¨í‚· ë³´ë‚´ê¸° ì „ì— ë°”ê¾¼ë‹¤ )
  *			else
- *				³ª È¤Àº »ó´ë¹æÀÇ ¾ÆÀÌÅÛ º¯°æ
+ *				ë‚˜ í˜¹ì€ ìƒëŒ€ë°©ì˜ ì•„ì´í…œ ë³€ê²½
  */
 void
 CExchangeDLG::Update(CObservable* pObservable, CTObject* pObj) {

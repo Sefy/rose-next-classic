@@ -6,9 +6,9 @@
 #include "ITDraw.h"
 
 /**
- * °ÔÀÌÁö Class
+ * ê²Œì´ì§€ Class
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Date		2005/8/30
  */
@@ -37,9 +37,9 @@ public:
 
     void SetGuageImageID(int iImageID);
     enum {
-        UPDATE_DELETE, // PARENT¿¡°Ô Áö¿ö´Ş¶ó°í ¿äÃ» ( »ç¿ë¿¡ ÁÖÀÇ )
+        UPDATE_DELETE, // PARENTì—ê²Œ ì§€ì›Œë‹¬ë¼ê³  ìš”ì²­ ( ì‚¬ìš©ì— ì£¼ì˜ )
         UPDATE_NORMAL,
-        UPDATE_END // UPDATE¿¡¼­ ÇÒÀÏÀ» ´Ù ³¡³Â´Ù( PARENT°¡ ¾Ë¾Æ¼­ ´ÙÀ½¿¡ ÇØ¾ßÇÒ°ÍµéÀ» Ã³¸® )
+        UPDATE_END // UPDATEì—ì„œ í• ì¼ì„ ë‹¤ ëëƒˆë‹¤( PARENTê°€ ì•Œì•„ì„œ ë‹¤ìŒì— í•´ì•¼í• ê²ƒë“¤ì„ ì²˜ë¦¬ )
     };
 
 protected:
@@ -50,9 +50,9 @@ protected:
     /// Data
     std::string m_strText;
 
-    /// Guage¸¦ ±×¸± Width
-    int m_iValue; ///ÇöÀç °ÔÀÌÁö°¡ ±×·ÁÁ®¾ßÇÒ %(0 ~ 100)
-    bool m_bSizeFit; /// draw¿¡¼­ »çÀÌÁî with, height¿¥ Fit.
+    /// Guageë¥¼ ê·¸ë¦´ Width
+    int m_iValue; ///í˜„ì¬ ê²Œì´ì§€ê°€ ê·¸ë ¤ì ¸ì•¼í•  %(0 ~ 100)
+    bool m_bSizeFit; /// drawì—ì„œ ì‚¬ì´ì¦ˆ with, heightì—  Fit.
 
     ITFont* m_pFontImpl;
     ITDraw* m_pDrawImpl;

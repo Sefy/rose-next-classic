@@ -7,12 +7,12 @@
 //----------------------------------------------------------------------------------------------------
 ///
 ///			CSkillSlot				CItemSlot
-///				¡é						¡é
+///				â†“						â†“
 ///			  CSkill				  CItem
-///			   ¡é¡è					   ¡é¡è
-///			CSkillIcon ¢· CIcon ¢¹	CItemIcon
-///				¦­						¦­
-///				¦¦--------------------------------> CSlot
+///			   â†“â†‘					   â†“â†‘
+///			CSkillIcon â— CIcon â–·	CItemIcon
+///				â”ƒ						â”ƒ
+///				â””--------------------------------> CSlot
 ///
 //----------------------------------------------------------------------------------------------------
 
@@ -21,11 +21,11 @@ class CTDialog;
 class CSlot;
 
 /**
- * °ÔÀÓ³»ÀÇ ¸ðµç ¾ÆÀÌÄÜÅ¸ÀÔÀÇ Ãß»ó Å¬·¡½º
- * ±âº»ÀûÀ¸·Î ·£´õ¸µ¸Þ½îµå¿Í ¸í·É ½ÇÇà ¸Þ½îµå, ±×¸®°í ¾÷µ¥ÀÌÆ® ¸Þ½îµå¸¦ °¡Áø´Ù.
+ * ê²Œìž„ë‚´ì˜ ëª¨ë“  ì•„ì´ì½˜íƒ€ìž…ì˜ ì¶”ìƒ í´ëž˜ìŠ¤
+ * ê¸°ë³¸ì ìœ¼ë¡œ ëžœë”ë§ë©”ì˜ë“œì™€ ëª…ë ¹ ì‹¤í–‰ ë©”ì˜ë“œ, ê·¸ë¦¬ê³  ì—…ë°ì´íŠ¸ ë©”ì˜ë“œë¥¼ ê°€ì§„ë‹¤.
  *
- * @warning virtual Method´Â Ç×»ó CIconQuick¿¡¼­ ÀçÁ¤ÀÇ ÇØÁÙ°Í
- * @Author		ÃÖÁ¾Áø
+ * @warning virtual MethodëŠ” í•­ìƒ CIconQuickì—ì„œ ìž¬ì •ì˜ í•´ì¤„ê²ƒ
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CIcon: public CTObject {
@@ -73,23 +73,23 @@ protected:
     /// Graphic
     int m_iWidth;
     int m_iHeight;
-    int m_iIconGraphicID; /// ÀÌ¹ÌÁö ±×·¡ÇÈ ID
-    int m_iModuleID; /// ÀÌ¹ÌÁö ¸ðµâ ID
+    int m_iIconGraphicID; /// ì´ë¯¸ì§€ ê·¸ëž˜í”½ ID
+    int m_iModuleID; /// ì´ë¯¸ì§€ ëª¨ë“ˆ ID
     bool m_bEnable;
 
     /// Interface
     // CTDialog*	m_pParentDlg;
     CInfo m_ToolTip;
-    CSlot* m_pSlot; /// IconÀÌ Slot¿¡ AttachµÉ°æ¿ì ±× ½½·ÔÀÇ Pointer ÀúÀå
-    CTCommand* m_pCommand; /// IconÀÇ ±âº» ½ÇÇà Command( Æ÷ÀÎÅÍ¸¸ °¡Áö°í ÀÖ´Â´Ù )
-    DWORD m_dwIconDrawColor; /// IconÀ» DrawÇÒ¶§ Texture¿¡ °öÇØÁú »ö»ó°ª
+    CSlot* m_pSlot; /// Iconì´ Slotì— Attachë ê²½ìš° ê·¸ ìŠ¬ë¡¯ì˜ Pointer ì €ìž¥
+    CTCommand* m_pCommand; /// Iconì˜ ê¸°ë³¸ ì‹¤í–‰ Command( í¬ì¸í„°ë§Œ ê°€ì§€ê³  ìžˆëŠ”ë‹¤ )
+    DWORD m_dwIconDrawColor; /// Iconì„ Drawí• ë•Œ Textureì— ê³±í•´ì§ˆ ìƒ‰ìƒê°’
 };
 
 /**
- * ¾Æ¹ÙÅ¸ÀÇ »óÅÂ¸¦ Ç¥½ÃÇÒ ¾ÆÀÌÄÜ
- *	- ÇöÀç ÆÄÆ¼Ã¢¿¡¼­ ÆÄÆ¼¿øÀÇ »óÅÂÇ¥½Ã¿¡¸¸ »ç¿ëµÈ´Ù.
+ * ì•„ë°”íƒ€ì˜ ìƒíƒœë¥¼ í‘œì‹œí•  ì•„ì´ì½˜
+ *	- í˜„ìž¬ íŒŒí‹°ì°½ì—ì„œ íŒŒí‹°ì›ì˜ ìƒíƒœí‘œì‹œì—ë§Œ ì‚¬ìš©ëœë‹¤.
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CIconStatus: public CIcon {

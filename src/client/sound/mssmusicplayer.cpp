@@ -115,7 +115,7 @@ CMSSMusicPlayer::Pause() {
 void
 CMSSMusicPlayer::SetVolume(long lVolume) {
 #ifdef _USE_MSS
-    /// DS ÀÇ º¼·ý´ÜÀ§¸¦ MSS ´ÜÀ§·Îº¯È¯ ( -10000 ~ 0 => 0.0f ~ 1.0f )
+    /// DS ì˜ ë³¼ë¥¨ë‹¨ìœ„ë¥¼ MSS ë‹¨ìœ„ë¡œë³€í™˜ ( -10000 ~ 0 => 0.0f ~ 1.0f )
     AIL_set_stream_volume_pan(m_hStream, (float)(lVolume + 10000) / 10000.0f, 0.5);
 #endif
 }

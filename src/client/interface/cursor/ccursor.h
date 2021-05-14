@@ -5,10 +5,10 @@ class CCursorState;
 class CInfo;
 
 /**
- * °ÔÀÓ³» Ä¿¼­ Class
- * - ±×¸®´Â ¹æ½Ä¿¡ µû¶ó 3°¡Áö »óÅÂ·Î ±¸ºÐµÇ¾î Áø´Ù.
+ * ê²Œìž„ë‚´ ì»¤ì„œ Class
+ * - ê·¸ë¦¬ëŠ” ë°©ì‹ì— ë”°ë¼ 3ê°€ì§€ ìƒíƒœë¡œ êµ¬ë¶„ë˜ì–´ ì§„ë‹¤.
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  *
  * @Date			2005/9/6
  */
@@ -22,17 +22,17 @@ public:
     void Finalize();
 
     void Draw(POINT ptMouse);
-    void ChangeNextState(); /// ´ÙÀ½ »óÅÂ·Î ¹Ù²Û´Ù.
+    void ChangeNextState(); /// ë‹¤ìŒ ìƒíƒœë¡œ ë°”ê¾¼ë‹¤.
     int SetCursorType(int iType, CInfo* pMouseInfo = NULL);
-    int GetCurrCursorType(); /// ÇöÀç Ä¿¼­ State¸¦ ¸®ÅÏÇÑ´Ù.
+    int GetCurrCursorType(); /// í˜„ìž¬ ì»¤ì„œ Stateë¥¼ ë¦¬í„´í•œë‹¤.
     int RefreshCursor();
     void ReloadCursor(); ///
 
     CInfo& GetMouseInfo();
 
     enum {
-        STATE_DX, /// DirectX Cursor	-> À©µµ¿ì Ä¿¼­¸¦ º¯°æÇÏ¿© »ç¿ëÇÑ´Ù( µðÆúÆ® )
-        STATE_SPRITE, /// Sprite Cursor(¸ÅÇÁ·¹ÀÓ±×¸°´Ù)
+        STATE_DX, /// DirectX Cursor	-> ìœˆë„ìš° ì»¤ì„œë¥¼ ë³€ê²½í•˜ì—¬ ì‚¬ìš©í•œë‹¤( ë””í´íŠ¸ )
+        STATE_SPRITE, /// Sprite Cursor(ë§¤í”„ë ˆìž„ê·¸ë¦°ë‹¤)
         STATE_WINDOW, /// Window Default Cursor
         STATE_MAX
     };

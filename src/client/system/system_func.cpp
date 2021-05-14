@@ -24,7 +24,7 @@ void
 SC_InitGame() {}
 
 ///
-/// »õ·Î¿î½ºÅ©¸³Æ® ½ÇÇà
+/// ìƒˆë¡œìš´ìŠ¤í¬ë¦½íŠ¸ ì‹¤í–‰
 ///
 int
 SC_DoScript(ZSTRING strName) {
@@ -32,7 +32,7 @@ SC_DoScript(ZSTRING strName) {
 }
 
 ///
-/// Ä³¸¯ÅÍ »ı¼º°ü·Ã
+/// ìºë¦­í„° ìƒì„±ê´€ë ¨
 ///
 
 HNODE
@@ -69,7 +69,7 @@ SC_CreateAVT(ZSTRING strName,
     return reinterpret_cast<HNODE>(pAvt);
 }
 
-/// ¾Æ¹ÙÅ¸ »èÁ¦
+/// ì•„ë°”íƒ€ ì‚­ì œ
 void
 SC_DestroyAVT(HNODE hAVT) {
     CJustModelAVT* pAvt = reinterpret_cast<CJustModelAVT*>(hAVT);
@@ -83,7 +83,7 @@ SC_DestroyAVT(HNODE hAVT) {
     }
 }
 
-/// ¸ğ¼Ç ¼¼ÆÃ
+/// ëª¨ì…˜ ì„¸íŒ…
 void
 SC_SetAvatarMotionByName(ZSTRING strName, ZSTRING strMotion) {
     CJustModelAVT* pAvt = CGameDataCreateAvatar::GetInstance().FindAvatar(strName);
@@ -190,7 +190,7 @@ SC_AttachMotion(HNODE hNode, HNODE hMotion) {
 }
 
 //------------------------------------------------------------------------------------------
-/// ¸ğ¼Ç Á¶ÀÛ °ü·Ã
+/// ëª¨ì…˜ ì¡°ì‘ ê´€ë ¨
 //------------------------------------------------------------------------------------------
 void
 SC_SetMotionFrame(HNODE hNode, int iFrame) {
@@ -279,7 +279,7 @@ SC_SetScale(HNODE hVisible, float x, float y, float z) {
 }
 
 ///
-/// Á¸ °ü¸®
+/// ì¡´ ê´€ë¦¬
 ///
 
 int
@@ -364,9 +364,9 @@ SC_SetAvatarHair(ZSTRING pszName, int iHair) {
 }
 
 ///
-/// ÀÌº¥Æ® ¿ÀºêÁ§Æ® °ü·Ã..
-/// type 0 : Æ÷Áö¼Ç ³ëµå
-/// type 1 : ¾Ö´Ï¸ÅÀÌ¼Ç ³ëµå
+/// ì´ë²¤íŠ¸ ì˜¤ë¸Œì íŠ¸ ê´€ë ¨..
+/// type 0 : í¬ì§€ì…˜ ë…¸ë“œ
+/// type 1 : ì• ë‹ˆë§¤ì´ì…˜ ë…¸ë“œ
 ///
 HNODE
 SC_GetEventObject(int iEventID, int iType) {
@@ -387,8 +387,8 @@ SC_GetEventObjectIndex(int iEventID) {
 }
 
 ///
-/// Con ÆÄÀÏ ½ÇÇà
-/// NPC ´ëÈ­Ã¢..
+/// Con íŒŒì¼ ì‹¤í–‰
+/// NPC ëŒ€í™”ì°½..
 ///
 
 void
@@ -403,8 +403,8 @@ SC_RunEvent(int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX) {
 }
 
 ///
-/// Con ÆÄÀÏ ½ÇÇà
-/// ÇÊµå ¿öÇÁÃ¢
+/// Con íŒŒì¼ ì‹¤í–‰
+/// í•„ë“œ ì›Œí”„ì°½
 ///
 
 void
@@ -419,8 +419,8 @@ SC_RunEventFieldWarp(int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX) {
 }
 
 ///
-/// Con ÆÄÀÏ ½ÇÇà
-/// ÀÌº¥Æ® ´ëÈ­Ã¢ »ı¼º
+/// Con íŒŒì¼ ì‹¤í–‰
+/// ì´ë²¤íŠ¸ ëŒ€í™”ì°½ ìƒì„±
 ///
 
 void
@@ -436,7 +436,7 @@ SC_RunEventObjectEvent(int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX) {
 }
 
 ///
-/// ¾Ë¸² ¸Ş¼¼Áö¹Ú½º
+/// ì•Œë¦¼ ë©”ì„¸ì§€ë°•ìŠ¤
 ///
 void
 SC_ShowNotifyMessage(int iStringIDX) {
@@ -461,7 +461,7 @@ SC_LogString(ZSTRING szMessage) {
 }
 
 //------------------------------------------------------------------------------------------------
-/// ÄÆ¾À Á¸°ü·Ã
+/// ì»·ì”¬ ì¡´ê´€ë ¨
 //------------------------------------------------------------------------------------------------
 int
 SC_ChangeState(int iNewState) {
@@ -484,7 +484,7 @@ SC_ScreenFadeInStart(float fade_in_t,
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÀÌÆåÆ® ÆÄÀÏÀ» ÀÌÆåÆ® ¸®¼Ò½º °ü¸®ÀÚ¿¡ ³Ö´Â´Ù.
+/// @brief ì´í™íŠ¸ íŒŒì¼ì„ ì´í™íŠ¸ ë¦¬ì†ŒìŠ¤ ê´€ë¦¬ìì— ë„£ëŠ”ë‹¤.
 //----------------------------------------------------------------------------------------------------
 int
 SC_GetEffectUseFile(ZSTRING szEffectFile) {
@@ -498,7 +498,7 @@ SC_GetEffectUseIndex(int iEffectIndex) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief CObjCHAR ¿¡ ÀÌÆåÆ®¸¦ ºÙÀÎ´Ù.
+/// @brief CObjCHAR ì— ì´í™íŠ¸ë¥¼ ë¶™ì¸ë‹¤.
 //----------------------------------------------------------------------------------------------------
 void
 SC_EffectOnChar(int iObject, int iEffectHash) {
@@ -510,7 +510,7 @@ SC_EffectOnChar(int iObject, int iEffectHash) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief CObjCHAR ¿¡ ÀÌÆåÆ®¸¦ ºÙÀÎ´Ù.
+/// @brief CObjCHAR ì— ì´í™íŠ¸ë¥¼ ë¶™ì¸ë‹¤.
 //----------------------------------------------------------------------------------------------------
 void
 SC_EffectOnObject(HNODE hNode, int iEffectHash) {
@@ -519,8 +519,8 @@ SC_EffectOnObject(HNODE hNode, int iEffectHash) {
 }
 
 //----------------------------------------------------------------------------------------------------
-/// @param interface/interfacetype.h¿¡ ÀÖ´Â DialogType
-/// @brief ÀÎÀÚ·Î ³Ñ¾î¿Â Dialog¸¦ ¿¬´Ù
+/// @param interface/interfacetype.hì— ìˆëŠ” DialogType
+/// @brief ì¸ìë¡œ ë„˜ì–´ì˜¨ Dialogë¥¼ ì—°ë‹¤
 //----------------------------------------------------------------------------------------------------
 void
 SC_OpenDialog(int iDialog) {
@@ -528,8 +528,8 @@ SC_OpenDialog(int iDialog) {
 }
 
 //----------------------------------------------------------------------------------------------------
-/// @param Ãâ·ÂµÉ ¸Ş¼¼Áö
-/// @brief MODALESS ¸Ş¼¼Áö ¹Ú½º¸¦ ¿¬´Ù
+/// @param ì¶œë ¥ë  ë©”ì„¸ì§€
+/// @brief MODALESS ë©”ì„¸ì§€ ë°•ìŠ¤ë¥¼ ì—°ë‹¤
 //----------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 void
@@ -538,9 +538,9 @@ SC_OpenMsgbox(ZSTRING pszMsg) {
 }
 
 //----------------------------------------------------------------------------------------------------
-/// @param iParentDlg	ButtonÀÇ Parent Dialog
-/// @param iButtonID	ButtonÀÇ ID( ÇØ´ç DialogÀÇ xml¿¡¼­ ID ÂüÁ¶ )
-/// @brief ÇØ´ç ´ÙÀÌ¾ó·Î±×ÀÇ Â÷ÀÏµå ¹öÆ°À» Blink½ÃÅ²´Ù( ChildÀÇ ChildÀÏ °æ¿ì ¾ÈµÈ´Ù )
+/// @param iParentDlg	Buttonì˜ Parent Dialog
+/// @param iButtonID	Buttonì˜ ID( í•´ë‹¹ Dialogì˜ xmlì—ì„œ ID ì°¸ì¡° )
+/// @brief í•´ë‹¹ ë‹¤ì´ì–¼ë¡œê·¸ì˜ ì°¨ì¼ë“œ ë²„íŠ¼ì„ Blinkì‹œí‚¨ë‹¤( Childì˜ Childì¼ ê²½ìš° ì•ˆëœë‹¤ )
 //----------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 void
@@ -601,7 +601,7 @@ SC_RemoveCoordinatesIndicator(int index) {
 }
 
 //------------------------------------------------------------------------------------------------
-/// ¾Æ¹ÙÅ¸ Á¤º¸
+/// ì•„ë°”íƒ€ ì •ë³´
 //------------------------------------------------------------------------------------------------
 
 int
@@ -615,7 +615,7 @@ SC_GetAvatarLEVEL() {
 }
 
 //------------------------------------------------------------------------------------------------
-/// Äù½ºÆ® Æ®¸®°Å¸¦ ½ÇÇàÇÑ´Ù 2005-05-26 ±èÃ¢¼ö
+/// í€˜ìŠ¤íŠ¸ íŠ¸ë¦¬ê±°ë¥¼ ì‹¤í–‰í•œë‹¤ 2005-05-26 ê¹€ì°½ìˆ˜
 //------------------------------------------------------------------------------------------------
 void
 SC_QF_doQuestTrigger(ZSTRING TriggerName) {
@@ -623,7 +623,7 @@ SC_QF_doQuestTrigger(ZSTRING TriggerName) {
 }
 
 //------------------------------------------------------------------------------------------------
-/// Äù½ºÆ® Æ®¸®°Å ÄÁµğ¼ÇÀ» Ã¼Å©ÇÑ. 2005-05-26 ±èÃ¢¼ö
+/// í€˜ìŠ¤íŠ¸ íŠ¸ë¦¬ê±° ì»¨ë””ì…˜ì„ ì²´í¬í•œ. 2005-05-26 ê¹€ì°½ìˆ˜
 //------------------------------------------------------------------------------------------------
 int
 SC_QF_checkQuestCondition(ZSTRING szQuestTriggerName) {
@@ -640,15 +640,15 @@ SC_GF_setRevivePosition() {
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-/// Æ©Åä¸®¾ó ÀÌ¹ÌÁö¸¦ È­¸é¿¡ ÁöÁ¤µÈ À§Ä¡¿¡ ÀÏÁ¤½Ã°£µ¿¾È º¸¿©ÁØ´Ù.
-/// @param ZSTRING	filename: ÀÌ¹ÌÁö È­ÀÏ³×ÀÓ( path/filename )
-/// @param int		x		: Ãâ·ÂÇÒ È­¸éÀÇ xÁÂÇ¥
-/// @param int		y		: Ãâ·ÂÇÒ È­¸éÀÇ yÁÂÇ¥
-/// @param float	fade_time	: Ãâ·ÂÁßÀÎ ÀÌ¹ÌÁö°¡ È­¸é¿¡¼­ »ç¶óÁö±â ½ÃÀÛÇÏ´Â ½Ã°£( max_time º¸´Ù´Â
-/// ÀÛ¾Æ¾ß ÇÑ´Ù )
-/// @param float	max_time	: ÀÌ¹ÌÁö°¡ È­¸é¿¡ Ç¥½ÃµÉ ÃÑ ½Ã°£
-/// @param int		append_or_renewal	: ±âÁ¸ Ãâ·ÂÁßÀÎ ÀÌ¹ÌÁö°¡ ÀÖÀ»°æ¿ì »èÁ¦ÇÏ°í º¸¿©ÁÙ°ÍÀÎ°¡?
-/// Ãâ·ÂÀÌ ³¡³­ÈÄ º¸¿©ÁÙ°ÍÀÎ°¡?
+/// íŠœí† ë¦¬ì–¼ ì´ë¯¸ì§€ë¥¼ í™”ë©´ì— ì§€ì •ëœ ìœ„ì¹˜ì— ì¼ì •ì‹œê°„ë™ì•ˆ ë³´ì—¬ì¤€ë‹¤.
+/// @param ZSTRING	filename: ì´ë¯¸ì§€ í™”ì¼ë„¤ì„( path/filename )
+/// @param int		x		: ì¶œë ¥í•  í™”ë©´ì˜ xì¢Œí‘œ
+/// @param int		y		: ì¶œë ¥í•  í™”ë©´ì˜ yì¢Œí‘œ
+/// @param float	fade_time	: ì¶œë ¥ì¤‘ì¸ ì´ë¯¸ì§€ê°€ í™”ë©´ì—ì„œ ì‚¬ë¼ì§€ê¸° ì‹œì‘í•˜ëŠ” ì‹œê°„( max_time ë³´ë‹¤ëŠ”
+/// ì‘ì•„ì•¼ í•œë‹¤ )
+/// @param float	max_time	: ì´ë¯¸ì§€ê°€ í™”ë©´ì— í‘œì‹œë  ì´ ì‹œê°„
+/// @param int		append_or_renewal	: ê¸°ì¡´ ì¶œë ¥ì¤‘ì¸ ì´ë¯¸ì§€ê°€ ìˆì„ê²½ìš° ì‚­ì œí•˜ê³  ë³´ì—¬ì¤„ê²ƒì¸ê°€?
+/// ì¶œë ¥ì´ ëë‚œí›„ ë³´ì—¬ì¤„ê²ƒì¸ê°€?
 //-------------------------------------------------------------------------------------------------------------------
 void
 SC_ShowTutorialImage(ZSTRING filename,
@@ -670,8 +670,8 @@ SC_ShowTutorialImage(ZSTRING filename,
 }
 
 //------------------------------------------------------------------------------------------------
-/// SC => GF/QF ¿¬µ¿ ½ºÅ©¸³µå
-/// ÀÚ¼¼ÇÑ ¼³¸íÀº SC_¸¦ »« ½ºÅ©¸³Æ® ÂüÁ¶
+/// SC => GF/QF ì—°ë™ ìŠ¤í¬ë¦½ë“œ
+/// ìì„¸í•œ ì„¤ëª…ì€ SC_ë¥¼ ëº€ ìŠ¤í¬ë¦½íŠ¸ ì°¸ì¡°
 //------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 int
@@ -729,7 +729,7 @@ SC_QF_getQuestSwitch(int hQUEST, int iSwitchNO) {
 
 SYSTEM_SCRIPT
 int
-SC_QF_getQuestItemQuantity(int iQuestID, int iItemNo /*5ÀÚ¸®:Type+No*/) {
+SC_QF_getQuestItemQuantity(int iQuestID, int iItemNo /*5ìë¦¬:Type+No*/) {
     return QF_getQuestItemQuantity(iQuestID, iItemNo);
 }
 

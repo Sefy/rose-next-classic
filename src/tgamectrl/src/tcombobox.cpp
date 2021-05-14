@@ -37,7 +37,7 @@ CTComboBox::~CTComboBox(void) {
         m_pListBox = NULL;
     }
 }
-///µå¶ø¹Ú½º ¿­·Á ÀÖÀ»¶§ ÀÚµ¿À¸·Î ´Ý±âÀ§ÇØ¼­ WM_LBUTTONDOWNÀÌ Ã³¸®µÉ¶§ RETURN 0;
+///ë“œëžë°•ìŠ¤ ì—´ë ¤ ìžˆì„ë•Œ ìžë™ìœ¼ë¡œ ë‹«ê¸°ìœ„í•´ì„œ WM_LBUTTONDOWNì´ ì²˜ë¦¬ë ë•Œ RETURN 0;
 unsigned int
 CTComboBox::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
 
@@ -55,8 +55,8 @@ CTComboBox::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
             return m_iControlID;
         }
 
-        // if( uiMsg == WM_LBUTTONDOWN )///´Ù¸¥ ¿­·ÁÀÖ´Â ÄÞº¸µéÀ» ´Ý±âÀ§ÇÏ¿© Dialog³»¿¡¼­ ¸Þ¼¼Áö
-        // Àü´Þ 	return 0;
+        // if( uiMsg == WM_LBUTTONDOWN )///ë‹¤ë¥¸ ì—´ë ¤ìžˆëŠ” ì½¤ë³´ë“¤ì„ ë‹«ê¸°ìœ„í•˜ì—¬ Dialogë‚´ì—ì„œ ë©”ì„¸ì§€
+        // ì „ë‹¬ 	return 0;
 
         return m_pDropButton->GetControlID();
     }
@@ -66,7 +66,7 @@ CTComboBox::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
         return m_iControlID;
     }
 
-    ///µå¶ø¹Ú½º ¿­·Á ÀÖÀ»¶§ ÀÚµ¿À¸·Î ´Ý±â
+    ///ë“œëžë°•ìŠ¤ ì—´ë ¤ ìžˆì„ë•Œ ìžë™ìœ¼ë¡œ ë‹«ê¸°
     if (uiMsg == WM_LBUTTONDOWN && m_pListBox && m_pListBox->IsVision()) {
         ToggleShowDropBox();
         return m_iControlID;
@@ -277,7 +277,7 @@ CTComboBox::DrawDropBoxImage() {
     if (m_pListBox && m_pDropBoxTopImage && m_pDropBoxMiddleImage && m_pDropBoxBottomImage) {
         int iMaximum = m_pListBox->GetMaximum();
 
-        if (iMaximum <= 1) ///¾ÆÀÌÅÛÀÌ ¾øÀ»°æ¿ì´Â ±×¸±°ÍÀÌ ¾ø´Ù.
+        if (iMaximum <= 1) ///ì•„ì´í…œì´ ì—†ì„ê²½ìš°ëŠ” ê·¸ë¦´ê²ƒì´ ì—†ë‹¤.
             return;
 
         m_pListBox->SetExtent(iMaximum); ///
@@ -289,7 +289,7 @@ CTComboBox::DrawDropBoxImage() {
         ptNew = m_pDropBoxTopImage->GetPosition();
         ptNew.y += m_pDropBoxTopImage->GetHeight();
 
-        /// ¸®½ºÆ® ¹Ú½º À§Ä¡ Á¶Á¤
+        /// ë¦¬ìŠ¤íŠ¸ ë°•ìŠ¤ ìœ„ì¹˜ ì¡°ì •
         POINT ptListBox = ptNew;
         ptListBox.x += 3;
         m_pListBox->MoveWindow(ptListBox);

@@ -53,7 +53,7 @@ CTabbedPane::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
     if (m_bMinimize)
         return 0;
 
-    /// 1°³ÀÌ»óÀÌ ÀÖÀ»°æ¿ì¿¡¸¸
+    /// 1ê°œì´ìƒì´ ìˆì„ê²½ìš°ì—ë§Œ
     _ASSERT(m_Tabs.size());
     riter = m_Tabs.rbegin();
 
@@ -87,7 +87,7 @@ CTabbedPane::MoveWindow(POINT pt) {
     if (m_Tabs.empty())
         return;
 
-    ///¹öÆ°µéÀº ´Ù ÀÌµ¿½ÃÅ°°í
+    ///ë²„íŠ¼ë“¤ì€ ë‹¤ ì´ë™ì‹œí‚¤ê³ 
     std::list<S_TabbedPane>::iterator iter;
     for (iter = m_Tabs.begin(); iter != m_Tabs.end(); ++iter)
         iter->m_pRadioButton->MoveWindow(m_sPosition);
@@ -98,7 +98,7 @@ CTabbedPane::MoveWindow(POINT pt) {
     if (m_bMinimize)
         return;
 
-    /// Container´Â ÇöÀç È°¼ºÈ­(¼±ÅÃµÈ)°Í¸¸
+    /// ContainerëŠ” í˜„ì¬ í™œì„±í™”(ì„ íƒëœ)ê²ƒë§Œ
     std::list<S_TabbedPane>::reverse_iterator riter = m_Tabs.rbegin();
     riter->m_pContainer->MoveWindow(m_sPosition);
 }
@@ -110,7 +110,7 @@ CTabbedPane::Update(POINT ptMouse) {
     if (!IsVision())
         return;
 
-    ///¹öÆ°µéÀº ´Ù ÀÌµ¿½ÃÅ°°í
+    ///ë²„íŠ¼ë“¤ì€ ë‹¤ ì´ë™ì‹œí‚¤ê³ 
     std::list<S_TabbedPane>::iterator iter;
     for (iter = m_Tabs.begin(); iter != m_Tabs.end(); ++iter)
         iter->m_pRadioButton->Update(ptMouse);
@@ -121,7 +121,7 @@ CTabbedPane::Update(POINT ptMouse) {
     if (m_bMinimize)
         return;
 
-    /// Container´Â ÇöÀç È°¼ºÈ­(¼±ÅÃµÈ)°Í¸¸
+    /// ContainerëŠ” í˜„ì¬ í™œì„±í™”(ì„ íƒëœ)ê²ƒë§Œ
     std::list<S_TabbedPane>::reverse_iterator riter = m_Tabs.rbegin();
     riter->m_pContainer->Update(ptMouse);
 }
@@ -137,7 +137,7 @@ CTabbedPane::AddTab(CTRadioButton* pButton, CJContainer* pContainer) {
     Pane.m_pRadioButton = pButton;
     Pane.m_pContainer = pContainer;
 
-    ///¶óµğ¿À¹Ú½º¿¡ µî·Ï
+    ///ë¼ë””ì˜¤ë°•ìŠ¤ì— ë“±ë¡
     m_pRadioBox->RegisterCtrl(pButton);
 
     m_Tabs.push_back(Pane);
@@ -165,7 +165,7 @@ CTabbedPane::RemoveAll() {
 
         iter = m_Tabs.erase(iter);
 
-        ///¶óµğ¿À¹Ú½º¿¡¼­ »«´Ù.
+        ///ë¼ë””ì˜¤ë°•ìŠ¤ì—ì„œ ëº€ë‹¤.
         m_pRadioBox->UnregisterCtrl(pRadioButton);
 
         delete pRadioButton;
@@ -195,8 +195,8 @@ CTabbedPane::SetSelectedIndex(unsigned index) {
         if (iter->m_iIndex == (int)index) {
             m_Tabs.erase(iter);
 
-            ///È°¼ºÈ­µÇ¾î ÀÖÁö ¾ÊÀº »óÅÂ¿¡¼­ this°¡ ¿òÁ÷¿´À»°æ¿ì PositionÀÌ UpdateµÇÁö ¾Ê´Â´Ù.
-            ///ÀÌ¸¦ ¼±ÅÃµÇ¾úÀ»¶§¸¶´Ù º¸Á¤ÇØÁØ´Ù.
+            ///í™œì„±í™”ë˜ì–´ ìˆì§€ ì•Šì€ ìƒíƒœì—ì„œ thisê°€ ì›€ì§ì˜€ì„ê²½ìš° Positionì´ Updateë˜ì§€ ì•ŠëŠ”ë‹¤.
+            ///ì´ë¥¼ ì„ íƒë˜ì—ˆì„ë•Œë§ˆë‹¤ ë³´ì •í•´ì¤€ë‹¤.
             Pane.m_pRadioButton->MoveWindow(m_sPosition);
             Pane.m_pContainer->MoveWindow(m_sPosition);
             m_pRadioBox->SetPressedButton(Pane.m_pRadioButton->GetControlID());
@@ -229,7 +229,7 @@ CTabbedPane::IsMinimize() {
 
 bool
 CTabbedPane::IsInside(int x, int y) {
-    ///ÃÖ¼ÒÈ­ »óÅÂÀÏ°æ¿ì¿¡´Â ÇØ´ç ¿µ¿ª¸¸Å­¸¸ Ã³¸®ÇÒ¼ö ÀÖ°Ô ÇÑ´Ù.
+    ///ìµœì†Œí™” ìƒíƒœì¼ê²½ìš°ì—ëŠ” í•´ë‹¹ ì˜ì—­ë§Œí¼ë§Œ ì²˜ë¦¬í• ìˆ˜ ìˆê²Œ í•œë‹¤.
     if (m_bMinimize) {
         RECT rc = {m_sPosition.x + m_rcMinimize.left,
             m_sPosition.y + m_rcMinimize.top,

@@ -72,7 +72,7 @@ QF_ChangetalkName(ZSTRING szTalkName) {
     pDlg->SetNpcName(szTalkName);
 }
 
-// È«±Ù : È÷¾î·Î Äù½ºÆ®
+// í™ê·¼ : ížˆì–´ë¡œ í€˜ìŠ¤íŠ¸
 void
 QF_NpcTalkinterfaceHide(int iTime) {
     CDialogDlg* pDlg = NULL;
@@ -85,7 +85,7 @@ QF_NpcTalkinterfaceHide(int iTime) {
     pDlg->SetNpctalkinterfaceHide(iTime);
 }
 
-// È«±Ù : È÷¾î·Î Äù½ºÆ®
+// í™ê·¼ : ížˆì–´ë¡œ í€˜ìŠ¤íŠ¸
 void
 QF_NpcTalkinterfaceView(void) {
     CDialogDlg* pDlg = NULL;
@@ -98,7 +98,7 @@ QF_NpcTalkinterfaceView(void) {
     pDlg->SetNpctalkinterfaceHide(0);
 }
 
-// È«±Ù : È÷¾î·Î Äù½ºÆ®
+// í™ê·¼ : ížˆì–´ë¡œ í€˜ìŠ¤íŠ¸
 void
 QF_NpcHide(int iNpcIndex) {
     CObjNPC* pNPC = (CObjNPC*)(g_pObjMGR->Get_CharOBJ(iNpcIndex, false));
@@ -107,7 +107,7 @@ QF_NpcHide(int iNpcIndex) {
     }
 }
 
-// È«±Ù : È÷¾î·Î Äù½ºÆ®
+// í™ê·¼ : ížˆì–´ë¡œ í€˜ìŠ¤íŠ¸
 void
 QF_NpcView(int iNpcIndex) {
     CObjNPC* pNPC = (CObjNPC*)(g_pObjMGR->Get_CharOBJ(iNpcIndex, false));

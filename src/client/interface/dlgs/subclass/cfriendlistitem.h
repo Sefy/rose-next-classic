@@ -2,9 +2,9 @@
 #define _CFriendListItem_
 #include "tgamectrl/winctrl.h"
 /**
- * Ä¿¹Â´ÏÆ¼ Ã¢¿¡¼­ Ä£±¸ ¸®½ºÆ®¿¡ »ç¿ëµÇ´Â Item Class
+ * ì»¤ë®¤ë‹ˆí‹° ì°½ì—ì„œ ì¹œêµ¬ ë¦¬ìŠ¤íŠ¸ì— ì‚¬ìš©ë˜ëŠ” Item Class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CFriendListItem: public CWinCtrl {

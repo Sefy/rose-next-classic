@@ -137,7 +137,7 @@ void zz_render_state::set_display_quality_level (int level)
 	}
 
 	switch (level) {
-		case 5: // ÃÖÇÏ±ÞÇ°Áú
+		case 5: // ìµœí•˜ê¸‰í’ˆì§ˆ
 			this->texture_loading_scale = 2;
 			this->texture_loading_format = 2;
 			this->use_shadowmap = false;
@@ -158,7 +158,7 @@ void zz_render_state::set_display_quality_level (int level)
 			znzin->set_use_motion_interpolation(false);
 			znzin->terrain_blocks->set_num_reuse(500);
 			break;
-		case 4: // ÇÏ±ÞÇ°Áú
+		case 4: // í•˜ê¸‰í’ˆì§ˆ
 			this->texture_loading_scale = 1;
 			this->texture_loading_format = 2;
 			this->use_shadowmap = false;
@@ -179,7 +179,7 @@ void zz_render_state::set_display_quality_level (int level)
 			znzin->set_use_motion_interpolation(false);
 			znzin->terrain_blocks->set_num_reuse(500);
 			break;
-		case 3: // Áß±Þ Ç°Áú
+		case 3: // ì¤‘ê¸‰ í’ˆì§ˆ
 			this->texture_loading_scale = 1;
 			this->texture_loading_format = 0;
 			this->use_shadowmap = true;
@@ -200,7 +200,7 @@ void zz_render_state::set_display_quality_level (int level)
 			znzin->set_use_motion_interpolation(true);
 			znzin->terrain_blocks->set_num_reuse(500);
 			break;
-		case 2: // »ó±Þ Ç°Áú
+		case 2: // ìƒê¸‰ í’ˆì§ˆ
 			this->texture_loading_scale = 0;
 			this->texture_loading_format = 0;
 			this->use_shadowmap = true;
@@ -221,7 +221,7 @@ void zz_render_state::set_display_quality_level (int level)
 			znzin->set_use_motion_interpolation(true);
 			znzin->terrain_blocks->set_num_reuse(500);
 			break;
-		case 1: // ÃÖ»ó±Þ Ç°Áú(¼³Á¤ÆÄÀÏ´ë·Î)
+		case 1: // ìµœìƒê¸‰ í’ˆì§ˆ(ì„¤ì •íŒŒì¼ëŒ€ë¡œ)
 		case 0:
 			this->texture_loading_scale = initial_state.texture_loading_scale;
 			this->texture_loading_format = initial_state.texture_loading_format;

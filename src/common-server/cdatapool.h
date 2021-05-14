@@ -111,7 +111,7 @@ public:
 
         this->Lock();
         {
-            // �ι� Ǯ���°� üũ...
+            // 두번 풀리는거 체크...
             if (pDataNODE->m_POOL_bUsed) {
                 pDataNODE->m_POOL_bUsed = false;
 

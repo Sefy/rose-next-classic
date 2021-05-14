@@ -7,25 +7,25 @@
 
 void __GetFileNames(const char* pBaseDir, const char* prefix);
 
-/// ÇöÀç µğ·ºÅä¸®¸¦ ¾Ë¾Æ³½´Ù
+/// í˜„ì¬ ë””ë ‰í† ë¦¬ë¥¼ ì•Œì•„ë‚¸ë‹¤
 std::string GetCurDir(void);
 void GetCurDir(char* buff, int iMax);
-/// ÆÄÀÏ ±æÀÌ¸¦ ¾Ë¾Æ³½´Ù
+/// íŒŒì¼ ê¸¸ì´ë¥¼ ì•Œì•„ë‚¸ë‹¤
 long GetFileLength(const char* FileName);
 
-/// ÆÄÀÏ °Ë»ö°á°ú ÀúÀå
+/// íŒŒì¼ ê²€ìƒ‰ê²°ê³¼ ì €ì¥
 struct stFindFiles {
     DWORD dwFinded;
     DWORD dwTotalSize;
     std::vector<std::string> FileList;
-    std::vector<std::string> vecExcExt; /// Á¦¿Ü½ÃÅ³ È®ÀåÀÚ
-    std::vector<std::string> vecExcDir; /// Á¦¿Ü½ÃÅ³ µğ·ºÅä¸®
+    std::vector<std::string> vecExcExt; /// ì œì™¸ì‹œí‚¬ í™•ì¥ì
+    std::vector<std::string> vecExcDir; /// ì œì™¸ì‹œí‚¬ ë””ë ‰í† ë¦¬
 };
 
-/// µğ·ºÅä¸®·ÎºÎÅÍ ÆÄÀÏÀÌ¸§À» Ã£¾Æ³»¼­ ¸®ÅÏÇÑ´Ù
+/// ë””ë ‰í† ë¦¬ë¡œë¶€í„° íŒŒì¼ì´ë¦„ì„ ì°¾ì•„ë‚´ì„œ ë¦¬í„´í•œë‹¤
 stFindFiles*
 FindFiles(const char* pBaseDir, const char* FilterEx = NULL, const char* FilterInc = NULL);
-/// ³»ºÎÀûÀ¸·Î FindFiles ()°¡ ÆÄÀÏ °Ë»öÇÒ ÁØºñ¸¦ ³¡³»°í ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÑ´Ù
+/// ë‚´ë¶€ì ìœ¼ë¡œ FindFiles ()ê°€ íŒŒì¼ ê²€ìƒ‰í•  ì¤€ë¹„ë¥¼ ëë‚´ê³  ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œë‹¤
 void __FindFiles(const char* pBaseDir, const char* prefix);
 
 #endif

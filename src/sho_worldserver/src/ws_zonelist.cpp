@@ -29,7 +29,7 @@ WS_Zone::Get_RevivePOS(tPOINTF PosCUR) {
     }
 
     if (NULL == pNearstPos) {
-        // ºÎÈ° À§Ä¡¸¦ Ã£Áö ¸øÇß´Ù¸é ±×³É ½ÃÀÛ ºÎÈ° Àå¼Ò·Î ÇÏÀÚ...
+        // ë¶€í™œ ìœ„ì¹˜ë¥¼ ì°¾ì§€ ëª»í–ˆë‹¤ë©´ ê·¸ëƒ¥ ì‹œìž‘ ë¶€í™œ ìž¥ì†Œë¡œ í•˜ìž...
         return m_pStartPOS->m_Position;
     }
 
@@ -85,7 +85,7 @@ WS_ZoneLIST::Init(char* szBaseDIR) {
     this->m_pZONE = new WS_Zone[m_nZoneCNT];
 
     for (short nY = 1; nY < m_nZoneCNT; nY++) {
-        if (19 == nY) // Çà¼º ¿öÇÁ Á¸
+        if (19 == nY) // í–‰ì„± ì›Œí”„ ì¡´
             continue;
 
         if (ZONE_FILE(nY)) {
@@ -98,7 +98,7 @@ WS_ZoneLIST::Init(char* szBaseDIR) {
                 this->m_pZONE[nY].m_HashKeyRevivePOS = ::StrToHashKey(ZONE_REVIVE_POS(nY));
                 _ASSERT(this->m_pZONE[nY].m_HashKeyRevivePOS);
 
-                // °¢Á¸ÀÇ ºÎÈ° À§Ä¡´Â ¹Ýµå½Ã Á¸ÀçÇØ¾ß ÇÑ´Ù...
+                // ê°ì¡´ì˜ ë¶€í™œ ìœ„ì¹˜ëŠ” ë°˜ë“œì‹œ ì¡´ìž¬í•´ì•¼ í•œë‹¤...
                 if (this->m_pZONE[nY].m_pStartPOS) {
                     this->m_pZONE[nY].m_PosREVIVE =
                         this->m_pZONE[nY].Get_RevivePOS(this->m_pZONE[nY].m_pStartPOS->m_Position);

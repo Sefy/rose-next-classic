@@ -9,13 +9,13 @@
 struct t_PACKET;
 
 /**
- * Ä³¸¯ÅÍ ¼±ÅÃÃ¢¿¡¼­ »ç¿ëµÇ´Â ÀÎÅÍÆäÀÌ½º
- * - CGameDataCreateAvatar¿Í °°Àº ºÎºÐÀ» Ã³¸®ÇÏ°í ÀÖ´Ù.
+ * ìºë¦­í„° ì„ íƒì°½ì—ì„œ ì‚¬ìš©ë˜ëŠ” ì¸í„°íŽ˜ì´ìŠ¤
+ * - CGameDataCreateAvatarì™€ ê°™ì€ ë¶€ë¶„ì„ ì²˜ë¦¬í•˜ê³  ìžˆë‹¤.
  *
- * @Warning		°ú±ÝÃ³¸®¿¡ µû¶ó 4,5¹øÂ° ½½·ÔÀÇ Ä³¸¯ÅÍÀÇ ¼±ÅÃÀÌ °¡´É/ºÒ°¡´ÉÇØÁø´Ù.
- * @Todo			CGameDataCreateAvatar¿Í °°ÀÌ Á¤¸®ÇØ¼­ ÀÎÅÍÆäÀÌ½º¿Í µ¥ÀÌÅ¸¸¦ È®¿¬È÷ ±¸ºÐÇÏ´ø°¡
- * ÇÑ±ºµ¥( CSelectAvata )·Î ÇÕÄ¡´Â°Ç?
- * @Author		ÃÖÁ¾Áø
+ * @Warning		ê³¼ê¸ˆì²˜ë¦¬ì— ë”°ë¼ 4,5ë²ˆì§¸ ìŠ¬ë¡¯ì˜ ìºë¦­í„°ì˜ ì„ íƒì´ ê°€ëŠ¥/ë¶ˆê°€ëŠ¥í•´ì§„ë‹¤.
+ * @Todo			CGameDataCreateAvatarì™€ ê°™ì´ ì •ë¦¬í•´ì„œ ì¸í„°íŽ˜ì´ìŠ¤ì™€ ë°ì´íƒ€ë¥¼ í™•ì—°ížˆ êµ¬ë¶„í•˜ë˜ê°€
+ * í•œêµ°ë°( CSelectAvata )ë¡œ í•©ì¹˜ëŠ”ê±´?
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CSelectAvata: public CTDialog {

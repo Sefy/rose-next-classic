@@ -10,7 +10,7 @@
 #include "Util/LogWnd.h"
 
 //-------------------------------------------------------------------------------------------------
-/// Äù½ºÆ® Æ®¸®°Å Á¶°ÇÀ» Ã¼Å©ÇÑ´Ù... AddCODE: by icarus
+/// í€˜ìŠ¤íŠ¸ íŠ¸ë¦¬ê±° ì¡°ê±´ì„ ì²´í¬í•œë‹¤... AddCODE: by icarus
 int
 QF_checkQuestCondition(ZSTRING szQuestTriggerName) {
     LogString(LOG_DEBUG_, "GF_checkQuestCondition( %s ) \n", szQuestTriggerName);
@@ -41,7 +41,7 @@ QF_checkQuestCondition(ZSTRING szQuestTriggerName) {
 }
 
 //-------------------------------------------------------------------------------------------------
-/// Äù½ºÆ® Æ®¸®°Å Á¶°ÇÀÌ ¸¸Á·ÇÒ°æ¿ì ¼­¹ö¿¡ Äù½ºÆ® Æ®¸®°Å ½ÇÇàÀ» Àü¼Û... AddCODE: by icarus
+/// í€˜ìŠ¤íŠ¸ íŠ¸ë¦¬ê±° ì¡°ê±´ì´ ë§Œì¡±í• ê²½ìš° ì„œë²„ì— í€˜ìŠ¤íŠ¸ íŠ¸ë¦¬ê±° ì‹¤í–‰ì„ ì „ì†¡... AddCODE: by icarus
 int
 QF_doQuestTrigger(ZSTRING szQuestTriggerName) {
     //--------------------------------------------------------------------------------
@@ -52,7 +52,7 @@ QF_doQuestTrigger(ZSTRING szQuestTriggerName) {
 
     if (QF_checkQuestCondition(szQuestTriggerName) <= 0) {
         //--------------------------------------------------------------------------------
-        LOGERR("QF_checkQuestCondition( %s ) Failed[ Å¬¶óÀÌ¾ğÆ®¿¡¼­ÀÇ Á¶°ÇÃ¼Å© ½ÇÆĞ ] ",
+        LOGERR("QF_checkQuestCondition( %s ) Failed[ í´ë¼ì´ì–¸íŠ¸ì—ì„œì˜ ì¡°ê±´ì²´í¬ ì‹¤íŒ¨ ] ",
             szQuestTriggerName);
         //--------------------------------------------------------------------------------
         return 0;
@@ -61,7 +61,7 @@ QF_doQuestTrigger(ZSTRING szQuestTriggerName) {
     LogString(LOG_DEBUG_, "GF_doQuestTrigger( %d ) ", szQuestTriggerName);
 
     //--------------------------------------------------------------------------------
-    LOGOUT("QF_checkQuestCondition( %s ) success[ ¼­¹ö¿¡ Æ®¸®°Å ½ÇÇà¿äÃ» ] ", szQuestTriggerName);
+    LOGOUT("QF_checkQuestCondition( %s ) success[ ì„œë²„ì— íŠ¸ë¦¬ê±° ì‹¤í–‰ìš”ì²­ ] ", szQuestTriggerName);
     LOGOUT("=========================TRIGGER END==========================");
     LOGOUT(" ");
     //--------------------------------------------------------------------------------
@@ -100,13 +100,13 @@ QF_findQuest(int iQuestID) {
     for (short nI = 0; nI < QUEST_PER_PLAYER; nI++)
         if (g_pAVATAR->m_Quests.m_QUEST[nI].GetID() == iQuestID) {
             //--------------------------------------------------------------------------------
-            LOGOUT("QF_findQuest( %d ) success[ %d Äù½ºÆ® Ã£À»À½ ]", iQuestID, nI);
+            LOGOUT("QF_findQuest( %d ) success[ %d í€˜ìŠ¤íŠ¸ ì°¾ì„ìŒ ]", iQuestID, nI);
             //--------------------------------------------------------------------------------
             return nI;
         }
 
     //--------------------------------------------------------------------------------
-    LOGERR("QF_findQuest( %d ) Failed[ Äù½ºÆ® Ã£À»¼ö ¾øÀ½ ]", iQuestID);
+    LOGERR("QF_findQuest( %d ) Failed[ í€˜ìŠ¤íŠ¸ ì°¾ì„ìˆ˜ ì—†ìŒ ]", iQuestID);
     //--------------------------------------------------------------------------------
 
     return -1;
@@ -129,7 +129,7 @@ QF_getQuestID(int hQUEST) {
     }
 
     //--------------------------------------------------------------------------------
-    LOGOUT("QF_getQuestID( %d ) success [ Äù½ºÆ®ID : %d ]",
+    LOGOUT("QF_getQuestID( %d ) success [ í€˜ìŠ¤íŠ¸ID : %d ]",
         hQUEST,
         g_pAVATAR->m_Quests.m_QUEST[hQUEST].GetID());
     //--------------------------------------------------------------------------------
@@ -152,7 +152,7 @@ QF_appendQuest(int iQuestID) {
             g_pAVATAR->m_Quests.m_QUEST[nI].SetID(iQuestID, true);
 
             //--------------------------------------------------------------------------------
-            LOGOUT("QF_appendQuest( %d ) [ ¼­¹ö¿¡ ¿äÃ» : %d ] ", iQuestID, nI);
+            LOGOUT("QF_appendQuest( %d ) [ ì„œë²„ì— ìš”ì²­ : %d ] ", iQuestID, nI);
             //--------------------------------------------------------------------------------
 
             g_pNet->Send_cli_QUEST_REQ(TYPE_QUEST_REQ_ADD, (BYTE)nI, iQuestID);
@@ -179,7 +179,7 @@ QF_deleteQuest(int iQuestID) {
             g_pAVATAR->m_Quests.m_QUEST[nI].Init();
 
             //--------------------------------------------------------------------------------
-            LOGOUT("QF_deleteQuest( %d ) [ ¼­¹ö¿¡ ¿äÃ» : %d ] ", iQuestID, nI);
+            LOGOUT("QF_deleteQuest( %d ) [ ì„œë²„ì— ìš”ì²­ : %d ] ", iQuestID, nI);
             //--------------------------------------------------------------------------------
 
             g_pNet->Send_cli_QUEST_REQ(TYPE_QUEST_REQ_DEL, (BYTE)nI, iQuestID);
@@ -361,7 +361,7 @@ QF_getUnionVAR(int iVarNO) {
 
 //-------------------------------------------------------------------------------------------------
 int
-QF_getQuestItemQuantity(int iQuestID, int iItemNo /*5ÀÚ¸®:Type+No*/) {
+QF_getQuestItemQuantity(int iQuestID, int iItemNo /*5ìë¦¬:Type+No*/) {
     //--------------------------------------------------------------------------------
     LOGOUT("QF_getQuestItemQuantity( %d, %d ) ", iQuestID, iItemNo);
     //--------------------------------------------------------------------------------
@@ -376,39 +376,39 @@ QF_getQuestItemQuantity(int iQuestID, int iItemNo /*5ÀÚ¸®:Type+No*/) {
                     if (pQuestItem->IsEnableDupCNT()) {
                         //--------------------------------------------------------------------------------
                         LOGOUT(
-                            "QF_getQuestItemQuantity( %d, %d ) [ Áßº¹°¡´ÉÇÑ ¾ÆÀÌÅÛÀÇ °³¼ö : %d ] ",
+                            "QF_getQuestItemQuantity( %d, %d ) [ ì¤‘ë³µê°€ëŠ¥í•œ ì•„ì´í…œì˜ ê°œìˆ˜ : %d ] ",
                             iQuestID,
                             iItemNo,
                             pQuestItem->m_uiQuantity);
                         //--------------------------------------------------------------------------------
 
-                        return pQuestItem->m_uiQuantity; ///Áßº¹°¡´ÉÇÑ ¾ÆÀÌÅÛÀÇ °³¼ö
+                        return pQuestItem->m_uiQuantity; ///ì¤‘ë³µê°€ëŠ¥í•œ ì•„ì´í…œì˜ ê°œìˆ˜
                     } else {
                         //--------------------------------------------------------------------------------
-                        LOGOUT("QF_getQuestItemQuantity( %d, %d ) [ Áßº¹ºÒ°¡´ÉÇÑ ¾ÆÀÌÅÛ : %d ] ",
+                        LOGOUT("QF_getQuestItemQuantity( %d, %d ) [ ì¤‘ë³µë¶ˆê°€ëŠ¥í•œ ì•„ì´í…œ : %d ] ",
                             iQuestID,
                             iItemNo,
                             1);
                         //--------------------------------------------------------------------------------
-                        return 1; ///Áßº¹ºÒ°¡´ÉÇÑ ¾ÆÀÌÅÛ
+                        return 1; ///ì¤‘ë³µë¶ˆê°€ëŠ¥í•œ ì•„ì´í…œ
                     }
                 }
             }
             //--------------------------------------------------------------------------------
-            LOGERR("QF_getQuestItemQuantity( %d, %d ) FAILED[ ÇØ´ç ¾ÆÀÌÅÛÀÌ ¾ø´Ù ] ",
+            LOGERR("QF_getQuestItemQuantity( %d, %d ) FAILED[ í•´ë‹¹ ì•„ì´í…œì´ ì—†ë‹¤ ] ",
                 iQuestID,
                 iItemNo);
             //--------------------------------------------------------------------------------
 
-            return 0; ///ÇØ´ç ¾ÆÀÌÅÛÀÌ ¾ø´Ù
+            return 0; ///í•´ë‹¹ ì•„ì´í…œì´ ì—†ë‹¤
         }
     }
 
     //--------------------------------------------------------------------------------
-    LOGERR("QF_getQuestItemQuantity( %d, %d ) FAILED[ ÇØ´çÄù½ºÆ® ¾øÀ½ ] ", iQuestID, iItemNo);
+    LOGERR("QF_getQuestItemQuantity( %d, %d ) FAILED[ í•´ë‹¹í€˜ìŠ¤íŠ¸ ì—†ìŒ ] ", iQuestID, iItemNo);
     //--------------------------------------------------------------------------------
 
-    return -1; ///ÇØ´ç Äù½ºÆ®°¡ ¾ø´Ù
+    return -1; ///í•´ë‹¹ í€˜ìŠ¤íŠ¸ê°€ ì—†ë‹¤
 }
 
 int

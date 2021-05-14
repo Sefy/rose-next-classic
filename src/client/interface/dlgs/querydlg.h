@@ -5,36 +5,36 @@
 //#include "CommonDLG.h"
 #include "../../../TGameCtrl/TDialog.h"
 // *--------------------------------------------------------------------* //
-// ÁúÀÇ À©µµ¿ì
+// ì§ˆì˜ ìœˆë„ìš°
 // *--------------------------------------------------------------------* //
 #define MAX_QUESTION_LN 3
 
 typedef struct {
 
     char m_szQuestion[MAX_QUESTION_LN][MAX_PATH];
-} t_question_page; //Áú¹®ÆäÀÌÁö
+} t_question_page; //ì§ˆë¬¸í˜ì´ì§€
 
 typedef struct {
     int m_iEventID;
-    short m_nCurPageNo; //ÇöÀçÆäÀÌÁö¹øÈ£
-    short m_nPageCNT; //ÆäÀÌÁöÀÇ °³¼ö
-    t_question_page* m_pQuestionPage; //Áú¹®ÆäÀÌÁö
-} t_query_question; //Áú¹®
+    short m_nCurPageNo; //í˜„ì¬í˜ì´ì§€ë²ˆí˜¸
+    short m_nPageCNT; //í˜ì´ì§€ì˜ ê°œìˆ˜
+    t_question_page* m_pQuestionPage; //ì§ˆë¬¸í˜ì´ì§€
+} t_query_question; //ì§ˆë¬¸
 
 struct t_query_exam {
-    char* m_pExam; //¿¹½Ã
-    int m_iEventID; //ÀÌº¥Æ®ÀÇ ¾ÆÀÌµğ
-    short m_nLnCNT; //¶óÀÎ ¾ÆÀÌµğ(2ÁÙÀÌ»óµÇ´Â °Íµé¶§¹®¿¡)
-    void (*fpEventHandle)(int iEventID); //¿¹½Ã ¼±ÅÃ½Ã Ã³¸® ÇÔ¼ö
+    char* m_pExam; //ì˜ˆì‹œ
+    int m_iEventID; //ì´ë²¤íŠ¸ì˜ ì•„ì´ë””
+    short m_nLnCNT; //ë¼ì¸ ì•„ì´ë””(2ì¤„ì´ìƒë˜ëŠ” ê²ƒë“¤ë•Œë¬¸ì—)
+    void (*fpEventHandle)(int iEventID); //ì˜ˆì‹œ ì„ íƒì‹œ ì²˜ë¦¬ í•¨ìˆ˜
     t_query_exam() { m_pExam = NULL; }
-}; //¿¹½Ã
+}; //ì˜ˆì‹œ
 
 typedef vector<t_query_exam> vec_query_exam;
 typedef vector<t_query_exam>::iterator vec_query_exam_itr;
 
 enum {
-    QY_BTN_PREV, // 0,ÀÌÀü
-    QY_BTN_NEXT, // 1,´ÙÀ½
+    QY_BTN_PREV, // 0,ì´ì „
+    QY_BTN_NEXT, // 1,ë‹¤ìŒ
     QY_BTN_MAX_CNT
 };
 
@@ -43,25 +43,25 @@ private:
     short m_nTargetClientIdx;
 
 public:
-    short m_nMaxLength; //ÇÑ¶óÀÎ¿¡ µé¾î°¥ ÃÖ´ë ¹®ÀÚ¼ö
-    short m_nLastPosY; //Áú¹®ÀÌ ¸¶Áö¸·À¸·Î ÂïÈù ÁÂÇ¥
+    short m_nMaxLength; //í•œë¼ì¸ì— ë“¤ì–´ê°ˆ ìµœëŒ€ ë¬¸ììˆ˜
+    short m_nLastPosY; //ì§ˆë¬¸ì´ ë§ˆì§€ë§‰ìœ¼ë¡œ ì°íŒ ì¢Œí‘œ
 
-    int m_iFontNo_q; //ÆùÆ®¹øÈ£-Áú¹®
-    D3DCOLOR m_dCOL_q; //±Û¾¾»ö-Áú¹®
+    int m_iFontNo_q; //í°íŠ¸ë²ˆí˜¸-ì§ˆë¬¸
+    D3DCOLOR m_dCOL_q; //ê¸€ì”¨ìƒ‰-ì§ˆë¬¸
 
-    int m_iFontNo_e; //ÆùÆ®¹øÈ£-¿¹½Ã
-    D3DCOLOR m_dCOL_e; //±Û¾¾»ö-¿¹½Ã
-    t_query_question m_sQuestion; //Áú¹®
+    int m_iFontNo_e; //í°íŠ¸ë²ˆí˜¸-ì˜ˆì‹œ
+    D3DCOLOR m_dCOL_e; //ê¸€ì”¨ìƒ‰-ì˜ˆì‹œ
+    t_query_question m_sQuestion; //ì§ˆë¬¸
 
     char* m_pQuery;
     short m_nMaxLN;
 
-    short m_nExamCNT; //µî·ÏµÈ Áú¹®ÀÇ ¿¹¹®°³¼ö
-    short m_nMaxExamCNT; //ÃÖ´ë·Î µé¾î°¥ ¿¹¹®°³¼ö
-    short m_nLastExamID; //ºÎ¿©ÇØÁÙ ¿¹¹®ÀÇ ¾ÆÀÌµğ(2¶óÀÎ ÀÌ»óµÇ´Â°Íµé¶§¹®¿¡)
-    vec_query_exam m_vecEXAM; //Áú¹®¿¡ µî·ÏµÈ ¿¹¹®µé
+    short m_nExamCNT; //ë“±ë¡ëœ ì§ˆë¬¸ì˜ ì˜ˆë¬¸ê°œìˆ˜
+    short m_nMaxExamCNT; //ìµœëŒ€ë¡œ ë“¤ì–´ê°ˆ ì˜ˆë¬¸ê°œìˆ˜
+    short m_nLastExamID; //ë¶€ì—¬í•´ì¤„ ì˜ˆë¬¸ì˜ ì•„ì´ë””(2ë¼ì¸ ì´ìƒë˜ëŠ”ê²ƒë“¤ë•Œë¬¸ì—)
+    vec_query_exam m_vecEXAM; //ì§ˆë¬¸ì— ë“±ë¡ëœ ì˜ˆë¬¸ë“¤
 
-    void (*fpClose)(int iEventID); // X¹öÆ°À¸·Î Å¬·ÎÁî½Ã Ã³¸®ÇÒ ÇÔ¼ö
+    void (*fpClose)(int iEventID); // Xë²„íŠ¼ìœ¼ë¡œ í´ë¡œì¦ˆì‹œ ì²˜ë¦¬í•  í•¨ìˆ˜
 public:
     CQueryDLG();
     ~CQueryDLG();
@@ -80,22 +80,22 @@ public:
     void Close();
 
     void DrawQuery();
-    //Áú¹®
+    //ì§ˆë¬¸
     bool AppendQuestion(char* szQuestion, int iEventID);
-    //Áú¹®»èÁ¦
+    //ì§ˆë¬¸ì‚­ì œ
     void ReleaseQuestion();
-    //¿¹Á¦
+    //ì˜ˆì œ
     bool AppendExam(char* szExam, int iEventID, void (*fpExamEvent)(int iEventID));
     void Free_EXAM();
     void ReleaseExam();
-    //¸¶¿ì½º°¡ ¼±ÅÃÇÑ ¿¹Á¦ ¹øÈ£¸¦ ¾ò¾î¿Â´Ù
+    //ë§ˆìš°ìŠ¤ê°€ ì„ íƒí•œ ì˜ˆì œ ë²ˆí˜¸ë¥¼ ì–»ì–´ì˜¨ë‹¤
     short getMouseSelectLN();
 
-    //¿¹Á¦¼±ÅÃÃ³¸®
+    //ì˜ˆì œì„ íƒì²˜ë¦¬
     void ProcessEvent(short nNum);
-    //¸¶¿ì½º Å¬¸¯ ÀÌº¥Æ® Ã³¸®
+    //ë§ˆìš°ìŠ¤ í´ë¦­ ì´ë²¤íŠ¸ ì²˜ë¦¬
     bool MouseClickEventProc();
-    //Å°ÀÌº¥Æ® Ã³¸®
+    //í‚¤ì´ë²¤íŠ¸ ì²˜ë¦¬
     bool KeyDownEventProc(WPARAM wParam);
 
     // *---------------------------------------------------------------* //

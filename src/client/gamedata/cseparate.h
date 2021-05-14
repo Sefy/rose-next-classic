@@ -12,9 +12,9 @@ class CItemFragment;
 class CItem;
 
 /**
- * ºĞ¸®/ºĞÇØ½Ã »ç¿ëµÇ´Â Data Class
+ * ë¶„ë¦¬/ë¶„í•´ì‹œ ì‚¬ìš©ë˜ëŠ” Data Class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CSeparate: public CObservable, public IObserver {
@@ -34,8 +34,8 @@ public:
 
     enum {
         TYPE_NONE = 0,
-        TYPE_SEPARATE = 1, ///ºĞ¸® - Á¦¹Ö
-        TYPE_DECOMPOSITION = 2, ///ºĞÇØ - ÀçÁ¶µÈ È¤Àº Àç·á¹øÈ£°¡°¡ ÀÖ´Â ¾ÆÀÌÅÛ
+        TYPE_SEPARATE = 1, ///ë¶„ë¦¬ - ì œë°
+        TYPE_DECOMPOSITION = 2, ///ë¶„í•´ - ì¬ì¡°ëœ í˜¹ì€ ì¬ë£Œë²ˆí˜¸ê°€ê°€ ìˆëŠ” ì•„ì´í…œ
     };
 
     enum { TYPE_SKILL, TYPE_NPC };
@@ -50,8 +50,8 @@ private:
 
 private:
     CTEventSeparate m_Event;
-    CItemFragment* m_pMaterialItem; ///ºĞ¸® ÇÏ°íÀÚ ÇÏ´Â ¾ÆÀÌÅÛ
-    std::vector<CItem*> m_pItems; ///ºĞ¸®ÈÄ »ı¼ºµÉ ¾ÆÀÌÅÛµé
+    CItemFragment* m_pMaterialItem; ///ë¶„ë¦¬ í•˜ê³ ì í•˜ëŠ” ì•„ì´í…œ
+    std::vector<CItem*> m_pItems; ///ë¶„ë¦¬í›„ ìƒì„±ë  ì•„ì´í…œë“¤
     int m_iType;
     int m_iRequireMp;
     int m_iRequireMoney;

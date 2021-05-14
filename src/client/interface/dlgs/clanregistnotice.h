@@ -2,9 +2,9 @@
     #include "tgamectrl/tdialog.h"
 
 /**
- * Å¬·£ °øÁö»çÇ× µî·Ï¿¡ »ç¿ëµÇ´Â ´ÙÀÌ¾ó·Î±×
+ * í´ëžœ ê³µì§€ì‚¬í•­ ë“±ë¡ì— ì‚¬ìš©ë˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CClanRegistNotice: public CTDialog {

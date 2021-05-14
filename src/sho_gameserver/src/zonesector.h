@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	ZoneSECTOR.h
- * \brief	а╦ю╩ ╠╦╪╨го╢б ╪╫ем цЁ╦╝
+ * \brief	Л║╢Л²└ Й╣╛Л└╠М∙≤К┼■ Л└╧М└╟ Л╡≤К╕╛
  */
 #ifndef __ZONESECTOR_H
 #define __ZONESECTOR_H
@@ -15,7 +15,7 @@
  * \ingroup SHO_GS_LIB
  * \class	CZoneSECTOR
  * \author	wookSang.Jo
- * \brief	а╦юг ©╣©╙ю╩ ╠╦╪╨го╢б ╠Б╨╩ ╪╫ем е╛╥║╫╨
+ * \brief	Л║╢Л²≤ Л≤│Л≈╜Л²└ Й╣╛Л└╠М∙≤К┼■ Й╦╟КЁ╦ Л└╧М└╟ М│╢К·≤Л┼╓
  */
 class CZoneSECTOR {
 public:
@@ -81,8 +81,8 @@ public:
  * \ingroup SHO_GS_LIB
  * \class	CAgitSECTOR
  * \author	wookSang.Jo
- * \brief	юо╧щ а╦юг ©╣©╙ю╩ ╠╦╪╨го╢б ╪╫ем е╛╥║╫╨
- *			╠Б╨╩╪╫ем е╛╥║╫╨ CZoneSECTOR╦╕ ╩С╪с╧чю╫
+ * \brief	Л²╪К╟≤ Л║╢Л²≤ Л≤│Л≈╜Л²└ Й╣╛Л└╠М∙≤К┼■ Л└╧М└╟ М│╢К·≤Л┼╓
+ *			Й╦╟КЁ╦Л└╧М└╟ М│╢К·≤Л┼╓ CZoneSECTORК╔╪ Л┐│Л├█К╟⌡Л²▄
  */
 class CNormalSECTOR: public CZoneSECTOR {
 public:
@@ -101,8 +101,8 @@ public:
  * \ingroup SHO_GS_LIB
  * \class	CAgitSECTOR
  * \author	wookSang.Jo
- * \brief	╬фаЖф╝ а╦юг ©╣©╙ю╩ ╠╦╪╨го╢б ╪╫ем е╛╥║╫╨
- *			╠Б╨╩╪╫ем е╛╥║╫╨ CZoneSECTOR╦╕ ╩С╪с╧чю╫
+ * \brief	Л∙└Л╖─М┼╦ Л║╢Л²≤ Л≤│Л≈╜Л²└ Й╣╛Л└╠М∙≤К┼■ Л└╧М└╟ М│╢К·≤Л┼╓
+ *			Й╦╟КЁ╦Л└╧М└╟ М│╢К·≤Л┼╓ CZoneSECTORК╔╪ Л┐│Л├█К╟⌡Л²▄
  */
 class CAgitSECTOR: public CZoneSECTOR {
 public:

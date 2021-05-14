@@ -2,7 +2,7 @@
 // Microsoft Visual C++ generated include file.
 // Used by TriggerVFS.rc
 
-// »õ °³Ã¼¿¡ ´ëÇÑ ´ÙÀ½ ±âº»°ªÀÔ´Ï´Ù.
+// ìƒˆ ê°œì²´ì— ëŒ€í•œ ë‹¤ìŒ ê¸°ë³¸ê°’ì…ë‹ˆë‹¤.
 //
 #ifdef APSTUDIO_INVOKED
     #ifndef APSTUDIO_READONLY_SYMBOLS

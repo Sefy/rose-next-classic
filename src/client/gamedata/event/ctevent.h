@@ -4,10 +4,10 @@
 #include "tgamectrl/tobject.h"
 
 /**
- * Observable°ú Observer°£ÀÇ ¸Ş¼¼Áö Àü´Ş¿¡ »ç¿ëµÇ´Â CTEventÀÇ Base Class
+ * Observableê³¼ Observerê°„ì˜ ë©”ì„¸ì§€ ì „ë‹¬ì— ì‚¬ìš©ë˜ëŠ” CTEventì˜ Base Class
  *
- * @Warning	CTEventÀÇ ±¸ºĞÀ» ½ºÆ®¸µÀ¸·Î ÇÏ°í ÀÖ´Ù. ÀÌ¶§ ÀÏÁ¤ ±æÀÌ¸¦ ³ÑÀ»°æ¿ì ÀÌ»óµ¿ÀÛÇÒ¶§°¡ ÀÖ´Ù
- * @Author	ÃÖÁ¾Áø
+ * @Warning	CTEventì˜ êµ¬ë¶„ì„ ìŠ¤íŠ¸ë§ìœ¼ë¡œ í•˜ê³  ìˆë‹¤. ì´ë•Œ ì¼ì • ê¸¸ì´ë¥¼ ë„˜ì„ê²½ìš° ì´ìƒë™ì‘í• ë•Œê°€ ìˆë‹¤
+ * @Author	ìµœì¢…ì§„
  * @Date		2005/9/15
  */
 class CTEvent: public CTObject {

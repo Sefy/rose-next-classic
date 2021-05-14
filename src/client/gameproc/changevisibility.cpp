@@ -36,7 +36,7 @@ CChangeVisibility::CChangeVisibility(CObjCHAR* pObjCHAR, int iProgressTime, bool
 CChangeVisibility::~CChangeVisibility(void) {}
 
 //----------------------------------------------------------------------------------------------------
-/// @param int iElapsedFrameTime ÀÌÀü ÇÁ·¹ÀÓÀ¸·Î ºÎÅÍÀÇ ÁøÇà½Ã°£.
+/// @param int iElapsedFrameTime ì´ì „ í”„ë ˆì„ìœ¼ë¡œ ë¶€í„°ì˜ ì§„í–‰ì‹œê°„.
 /// @brief Process visibility
 //----------------------------------------------------------------------------------------------------
 

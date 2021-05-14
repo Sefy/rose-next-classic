@@ -5,10 +5,10 @@
 class CTCmdNumberInput;
 
 /**
- * ¾ÆÀÌÅÛÀÇ ÀÌµ¿½Ã³ª ±âÅ¸ ¼ıÀÚ ÀÔ·Â½Ã »ç¿ëµÇ´Â ´ÙÀÌ¾ó·Î±×
+ * ì•„ì´í…œì˜ ì´ë™ì‹œë‚˜ ê¸°íƒ€ ìˆ«ì ì…ë ¥ì‹œ ì‚¬ìš©ë˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
  *
- * @Warning		CTCmdNumberInput¸¦ »ó¼Ó¹ŞÀº Command¸¸À»¸¦ ÀÔ·ÂÈÄ ½ÇÇàÇÒ Command·Î ¼³Á¤ÇÒ¼ö ÀÖ´Ù.
- * @Author		ÃÖÁ¾Áø
+ * @Warning		CTCmdNumberInputë¥¼ ìƒì†ë°›ì€ Commandë§Œì„ë¥¼ ì…ë ¥í›„ ì‹¤í–‰í•  Commandë¡œ ì„¤ì •í• ìˆ˜ ìˆë‹¤.
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 
@@ -53,16 +53,16 @@ protected:
 
     __int64 GetNumberFromEditBox();
 
-    // void		ChangeButtonState( unsigned int iID, int iState ); »ç¿ë¾ÈÇÔ
+    // void		ChangeButtonState( unsigned int iID, int iState ); ì‚¬ìš©ì•ˆí•¨
     void SetFocusEditBox();
     void SendCommand();
     void ClearCommand();
 
 protected:
-    CTCmdNumberInput* m_pCmd; /// ÀÔ·Â ¿Ï·á½Ã ½ÇÇàÇÒ CTCommand
-    CTObject* m_pCommandParam; /// m_pCmd Ã³¸®¿¡ ÇÊ¿äÇÑ ÀÎÀÚ¸¦ ÀÓ½Ã º¸°ü
+    CTCmdNumberInput* m_pCmd; /// ì…ë ¥ ì™„ë£Œì‹œ ì‹¤í–‰í•  CTCommand
+    CTObject* m_pCommandParam; /// m_pCmd ì²˜ë¦¬ì— í•„ìš”í•œ ì¸ìë¥¼ ì„ì‹œ ë³´ê´€
 
-    __int64 m_iLastInputNumber; /// ¸¶Áö¸· ÀÔ·ÂµÈ ¼ıÀÚ
-    __int64 m_iMaxNumber; /// ÃÖ´ë ÀÔ·Â°¡´ÉÇÑ ¼ıÀÚ
+    __int64 m_iLastInputNumber; /// ë§ˆì§€ë§‰ ì…ë ¥ëœ ìˆ«ì
+    __int64 m_iMaxNumber; /// ìµœëŒ€ ì…ë ¥ê°€ëŠ¥í•œ ìˆ«ì
 };
 #endif

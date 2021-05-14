@@ -105,7 +105,7 @@ CChatDLG::CChatDLG() {
     Util::MulityByte2WideString(" ", wstrTemp);
     m_Spaces.push_back(wstrTemp);
 
-    /// 2¹ÙÀÌÆ® Æ¯¹®/ ÀÏº»¾î Àü°¢½Ã¿¡µµ Ã³¸®°¡´ÉÇÏµµ·Ï Ãß°¡ÇÑ´Ù.
+    /// 2ë°”ì´íŠ¸ íŠ¹ë¬¸/ ì¼ë³¸ì–´ ì „ê°ì‹œì—ë„ ì²˜ë¦¬ê°€ëŠ¥í•˜ë„ë¡ ì¶”ê°€í•œë‹¤.
     wchar_t wchar[2] = {0, 0};
     wchar[0] = 0xFF01;
     m_ShoutCommands.push_back(wchar);
@@ -128,7 +128,7 @@ CChatDLG::CChatDLG() {
     wstrHelp.append(wstrTemp);
     m_HelpCommands.push_back(wstrHelp);
 
-    /// 5ÃÊ¾È¿¡ 3¹ø¸¸ º¸³¾¼ö ÀÖ´Ù
+    /// 5ì´ˆì•ˆì— 3ë²ˆë§Œ ë³´ë‚¼ìˆ˜ ìˆë‹¤
     m_iCheckChatCount = 3; /// 3
     m_dwCheckChatTime = 5 * 1000; ///
 }
@@ -139,7 +139,7 @@ void
 CChatDLG::Update(POINT ptMouse) {
     CTDialog::Update(ptMouse);
 
-    ///ÀÌÇÏ ÅøÆÁ Ç¥½Ã
+    ///ì´í•˜ íˆ´íŒ í‘œì‹œ
     CTDialog* pDlg = CTDialog::GetProcessMouseOverDialog();
     if (pDlg && pDlg != this)
         return;
@@ -216,7 +216,7 @@ CChatDLG::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
     //		default:
     //			break;
     //		}
-    //		/////³»°¡ Ã¤ÆÃ ¸Ş¼¼Áö¸¦ º¸³»¸é Ç×»ó ¸®½ºÆ®´Â ¸Ç¹ØÀ¸·Î ÀÌµ¿
+    //		/////ë‚´ê°€ ì±„íŒ… ë©”ì„¸ì§€ë¥¼ ë³´ë‚´ë©´ í•­ìƒ ë¦¬ìŠ¤íŠ¸ëŠ” ë§¨ë°‘ìœ¼ë¡œ ì´ë™
     //		//if( int iActiveListBox = GetActiveListBox() )
     //		//{
     //		//	CWinCtrl* pCtrl = Find( iActiveListBox );
@@ -255,7 +255,7 @@ CChatDLG::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
             } break;
             case WM_LBUTTONDOWN: {
                 OnLButtonDown(iProcID, wParam, lParam);
-                if (iProcID == 1) /// Dialog¸¦ ClickÇß´Ù¸é  ÀÌµ¿°¡´ÉÇÏµµ·Ï
+                if (iProcID == 1) /// Dialogë¥¼ Clickí–ˆë‹¤ë©´  ì´ë™ê°€ëŠ¥í•˜ë„ë¡
                     return 0;
             }
         }
@@ -267,7 +267,7 @@ CChatDLG::Process(UINT uiMsg, WPARAM wParam, LPARAM lParam) {
 
             switch (wParam) {
                 case VK_SPACE: {
-                    // 20050902 È«±Ù 2ÀÎ½Â Ä«Æ® : ½ºÆäÀÌ½º¹Ù·Î ³»°¡ º¸Á¶¼®¿¡ ÅÀÀ» ¶§ ³»¸®±â.
+                    // 20050902 í™ê·¼ 2ì¸ìŠ¹ ì¹´íŠ¸ : ìŠ¤í˜ì´ìŠ¤ë°”ë¡œ ë‚´ê°€ ë³´ì¡°ì„ì— íƒ”ì„ ë•Œ ë‚´ë¦¬ê¸°.
                     if (CTControlMgr::GetInstance()->GetKeyboardInputType()
                             == CTControlMgr::INPUTTYPE_NORMAL
                         && NULL == CTEditBox::s_pFocusEdit && g_pAVATAR->IsRideUser()) {
@@ -331,7 +331,7 @@ CChatDLG::SendChatMsg(char* szMsg) {
 
     int iChatType = ChatParser(stMsg, stRealMsg, stTargetID);
 
-    ///À§Ä¡¿¡ ÁÖÀÇÇÒ²¯ szMsgÀÇ Æ÷ÀÎÅÍ°¡ ÆÄ±«µÉ¼ö ÀÖ´Ù.
+    ///ìœ„ì¹˜ì— ì£¼ì˜í• ê» szMsgì˜ í¬ì¸í„°ê°€ íŒŒê´´ë ìˆ˜ ìˆë‹¤.
     CWinCtrl* pCtrl = Find(IID_EDITBOX);
     if (pCtrl == NULL)
         return;
@@ -360,7 +360,7 @@ CChatDLG::SendChatMsg(char* szMsg) {
     switch (iChatType) {
         case CHAT_ALLIED:
             if (g_pAVATAR
-                && g_pAVATAR->Get_TeamNO() != 2) /// Defalt Team NoÀÏ°æ¿ì¿¡´Â µ¿¸ÍÃÂÀ» º¸³»Áö ¾Ê´Â´Ù
+                && g_pAVATAR->Get_TeamNO() != 2) /// Defalt Team Noì¼ê²½ìš°ì—ëŠ” ë™ë§¹ì³‡ì„ ë³´ë‚´ì§€ ì•ŠëŠ”ë‹¤
                 g_pNet->Send_cli_ALLIED_SHOUT((char*)stRealMsg.c_str());
             break;
         case CHAT_OPEN_HELP:
@@ -399,15 +399,15 @@ CChatDLG::SendChatMsg(char* szMsg) {
             m_dwPrevUseShoutTime = g_GameDATA.GetTime();
             break;
         case CHAT_WHISPER: {
-            ///¼­¹ö¿¡ ³¯¸®°í
+            ///ì„œë²„ì— ë‚ ë¦¬ê³ 
             g_pNet->Send_cli_WHISPER((char*)stTargetID.c_str(), (char*)stRealMsg.c_str());
 
-            ///ÀÚ½ÅÀÇ Ã¤ÆÃÃ¢¿¡ ¸Ş¼¼Áö »Ñ¸®°í
+            ///ìì‹ ì˜ ì±„íŒ…ì°½ì— ë©”ì„¸ì§€ ë¿Œë¦¬ê³ 
             string Temp = g_pAVATAR->Get_NAME();
             Temp.append(">");
             Temp.append(stMsg);
             g_itMGR.AppendChatMsg(Temp.c_str(), IT_MGR::CHAT_TYPE_WHISPER);
-            ///¿¡µğÆ®¹Ú½º¿¡ @ID¸¦ Ãß°¡ÇÑ´Ù.
+            ///ì—ë””íŠ¸ë°•ìŠ¤ì— @IDë¥¼ ì¶”ê°€í•œë‹¤.
             pEditBox = (CTEditBox*)pCtrl;
             std::string stTemp = "@";
             stTemp.append(stTargetID);
@@ -421,7 +421,7 @@ CChatDLG::SendChatMsg(char* szMsg) {
             if (pObjChar) {
                 if (CExchange::GetInstance().SendCliTradeReq(
                         g_pObjMGR->Get_ServerObjectIndex(pObjChar->Get_INDEX()))) {
-                    ///ÀÚ½ÅÀÇ Ã¤ÆÃÃ¢¿¡ ¸Ş¼¼Áö »Ñ¸®°í
+                    ///ìì‹ ì˜ ì±„íŒ…ì°½ì— ë©”ì„¸ì§€ ë¿Œë¦¬ê³ 
                     string Temp = stTargetID;
                     Temp.append(STR_REQ_TRADE);
                     g_itMGR.AppendChatMsg(Temp.c_str(), IT_MGR::CHAT_TYPE_SYSTEM);
@@ -554,7 +554,7 @@ CChatDLG::IsChatBlock() {
     return m_bChatBlock;
 }
 
-/// »óÈ²¿¡ µû¶ó List¿Í ScrollBarÀÇ ScrollÀ» ±¸ºĞÇÑ´Ù.
+/// ìƒí™©ì— ë”°ë¼ Listì™€ ScrollBarì˜ Scrollì„ êµ¬ë¶„í•œë‹¤.
 void
 CChatDLG::AppendMsg(const char* pszMsg, DWORD color, int iType) {
     AppendMsg2All(pszMsg, color, iType);
@@ -764,10 +764,10 @@ CChatDLG::AppendMsg2sys(const char* pszMsg, DWORD dwColor, int iFilterType) {
 
 void
 CChatDLG::AppendMsg2All(const char* pszMsg, DWORD dwColor, int iFilterType) {
-    if (iFilterType == FILTER_WHISPER) ///¹«Á¶°Ç ³Ö´Â´Ù.
+    if (iFilterType == FILTER_WHISPER) ///ë¬´ì¡°ê±´ ë„£ëŠ”ë‹¤.
     {
         AppendMsg2ListBox(IID_LISTBOX_ALL, IID_SCROLLBAR_ALL, pszMsg, dwColor);
-    } else ///ÇÊÅÍ Å¸ÀÔ¿¡ µû¶ó ³Ö°Å³ª¾È³Ö´Â´Ù.
+    } else ///í•„í„° íƒ€ì…ì— ë”°ë¼ ë„£ê±°ë‚˜ì•ˆë„£ëŠ”ë‹¤.
     {
         if (m_Filters[0].Filters[iFilterType] > 0)
             AppendMsg2ListBox(IID_LISTBOX_ALL, IID_SCROLLBAR_ALL, pszMsg, dwColor);
@@ -776,10 +776,10 @@ CChatDLG::AppendMsg2All(const char* pszMsg, DWORD dwColor, int iFilterType) {
 
 void
 CChatDLG::AppendMsg2Whisper(const char* pszMsg, DWORD dwColor, int iFilterType) {
-    if (iFilterType == FILTER_WHISPER) ///¹«Á¶°Ç ³Ö´Â´Ù.
+    if (iFilterType == FILTER_WHISPER) ///ë¬´ì¡°ê±´ ë„£ëŠ”ë‹¤.
     {
         AppendMsg2ListBox(IID_LISTBOX_WHISPER, IID_SCROLLBAR_WHISPER, pszMsg, dwColor);
-    } else ///ÇÊÅÍ Å¸ÀÔ¿¡ µû¶ó ³Ö°Å³ª¾È³Ö´Â´Ù.
+    } else ///í•„í„° íƒ€ì…ì— ë”°ë¼ ë„£ê±°ë‚˜ì•ˆë„£ëŠ”ë‹¤.
     {
         if (m_Filters[1].Filters[iFilterType] > 0)
             AppendMsg2ListBox(IID_LISTBOX_WHISPER, IID_SCROLLBAR_WHISPER, pszMsg, dwColor);
@@ -788,10 +788,10 @@ CChatDLG::AppendMsg2Whisper(const char* pszMsg, DWORD dwColor, int iFilterType) 
 
 void
 CChatDLG::AppendMsg2Trade(const char* pszMsg, DWORD dwColor, int iFilterType) {
-    if (iFilterType == FILTER_WHISPER) ///¹«Á¶°Ç ³Ö´Â´Ù.
+    if (iFilterType == FILTER_WHISPER) ///ë¬´ì¡°ê±´ ë„£ëŠ”ë‹¤.
     {
         AppendMsg2ListBox(IID_LISTBOX_TRADE, IID_SCROLLBAR_TRADE, pszMsg, dwColor);
-    } else ///ÇÊÅÍ Å¸ÀÔ¿¡ µû¶ó ³Ö°Å³ª¾È³Ö´Â´Ù.
+    } else ///í•„í„° íƒ€ì…ì— ë”°ë¼ ë„£ê±°ë‚˜ì•ˆë„£ëŠ”ë‹¤.
     {
         if (m_Filters[2].Filters[iFilterType] > 0)
             AppendMsg2ListBox(IID_LISTBOX_TRADE, IID_SCROLLBAR_TRADE, pszMsg, dwColor);
@@ -800,10 +800,10 @@ CChatDLG::AppendMsg2Trade(const char* pszMsg, DWORD dwColor, int iFilterType) {
 
 void
 CChatDLG::AppendMsg2Party(const char* pszMsg, DWORD dwColor, int iFilterType) {
-    if (iFilterType == FILTER_WHISPER) ///¹«Á¶°Ç ³Ö´Â´Ù.
+    if (iFilterType == FILTER_WHISPER) ///ë¬´ì¡°ê±´ ë„£ëŠ”ë‹¤.
     {
         AppendMsg2ListBox(IID_LISTBOX_PARTY, IID_SCROLLBAR_PARTY, pszMsg, dwColor);
-    } else ///ÇÊÅÍ Å¸ÀÔ¿¡ µû¶ó ³Ö°Å³ª¾È³Ö´Â´Ù.
+    } else ///í•„í„° íƒ€ì…ì— ë”°ë¼ ë„£ê±°ë‚˜ì•ˆë„£ëŠ”ë‹¤.
     {
         if (m_Filters[3].Filters[iFilterType] > 0)
             AppendMsg2ListBox(IID_LISTBOX_PARTY, IID_SCROLLBAR_PARTY, pszMsg, dwColor);
@@ -812,10 +812,10 @@ CChatDLG::AppendMsg2Party(const char* pszMsg, DWORD dwColor, int iFilterType) {
 
 void
 CChatDLG::AppendMsg2Clan(const char* pszMsg, DWORD dwColor, int iFilterType) {
-    if (iFilterType == FILTER_WHISPER) ///¹«Á¶°Ç ³Ö´Â´Ù.
+    if (iFilterType == FILTER_WHISPER) ///ë¬´ì¡°ê±´ ë„£ëŠ”ë‹¤.
     {
         AppendMsg2ListBox(IID_LISTBOX_CLAN, IID_SCROLLBAR_CLAN, pszMsg, dwColor);
-    } else ///ÇÊÅÍ Å¸ÀÔ¿¡ µû¶ó ³Ö°Å³ª¾È³Ö´Â´Ù.
+    } else ///í•„í„° íƒ€ì…ì— ë”°ë¼ ë„£ê±°ë‚˜ì•ˆë„£ëŠ”ë‹¤.
     {
         if (m_Filters[4].Filters[iFilterType] > 0)
             AppendMsg2ListBox(IID_LISTBOX_CLAN, IID_SCROLLBAR_CLAN, pszMsg, dwColor);
@@ -824,10 +824,10 @@ CChatDLG::AppendMsg2Clan(const char* pszMsg, DWORD dwColor, int iFilterType) {
 
 void
 CChatDLG::AppendMsg2Allied(const char* pszMsg, DWORD dwColor, int iFilterType) {
-    if (iFilterType == FILTER_WHISPER) ///¹«Á¶°Ç ³Ö´Â´Ù.
+    if (iFilterType == FILTER_WHISPER) ///ë¬´ì¡°ê±´ ë„£ëŠ”ë‹¤.
     {
         AppendMsg2ListBox(IID_LISTBOX_ALLIED, IID_SCROLLBAR_ALLIED, pszMsg, dwColor);
-    } else ///ÇÊÅÍ Å¸ÀÔ¿¡ µû¶ó ³Ö°Å³ª¾È³Ö´Â´Ù.
+    } else ///í•„í„° íƒ€ì…ì— ë”°ë¼ ë„£ê±°ë‚˜ì•ˆë„£ëŠ”ë‹¤.
     {
         if (m_Filters[5].Filters[iFilterType] > 0)
             AppendMsg2ListBox(IID_LISTBOX_ALLIED, IID_SCROLLBAR_ALLIED, pszMsg, dwColor);
@@ -1018,7 +1018,7 @@ CChatDLG::ActionPerformed(CActionEvent* e) {
 }
 
 //*-------------------------------------------------------------------------------------*/
-/// @brief ÇöÀç È°¼ºÈ­µÈ(¼±ÅÃµÈÅÇ) ¸®½ºÆ®¹Ú½ºÀÇ item count¸¦ ¸®ÅÏÇÑ´Ù.
+/// @brief í˜„ì¬ í™œì„±í™”ëœ(ì„ íƒëœíƒ­) ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ì˜ item countë¥¼ ë¦¬í„´í•œë‹¤.
 //*-------------------------------------------------------------------------------------*/
 int
 CChatDLG::GetLineCount() {
@@ -1032,7 +1032,7 @@ CChatDLG::GetLineCount() {
 
 //*-------------------------------------------------------------------------------------*/
 /// @param index : 0-based
-/// @brief ÇöÀç È°¼ºÈ­µÈ(¼±ÅÃµÈÅÇ) ¸®½ºÆ®¹Ú½ºÀÇ indexÀÇ stringÀ» ¸®ÅÏÇÑ´Ù.
+/// @brief í˜„ì¬ í™œì„±í™”ëœ(ì„ íƒëœíƒ­) ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ì˜ indexì˜ stringì„ ë¦¬í„´í•œë‹¤.
 //*-------------------------------------------------------------------------------------*/
 const char*
 CChatDLG::GetLineString(int index) {
@@ -1044,7 +1044,7 @@ CChatDLG::GetLineString(int index) {
     return NULL;
 }
 //*-------------------------------------------------------------------------------------*/
-/// @brief ÇöÀç È°¼ºÈ­µÈ(¼±ÅÃµÈÅÇ) ¸®½ºÆ®¹Ú½º¸¦ ¸Ç¹ØÀ¸·Î ÀÌµ¿½ÃÅ²´Ù
+/// @brief í˜„ì¬ í™œì„±í™”ëœ(ì„ íƒëœíƒ­) ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ë¥¼ ë§¨ë°‘ìœ¼ë¡œ ì´ë™ì‹œí‚¨ë‹¤
 //*-------------------------------------------------------------------------------------*/
 void
 CChatDLG::ActiveListBoxMoveEnd() {

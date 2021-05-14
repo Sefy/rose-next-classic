@@ -8,8 +8,8 @@ typedef struct tagPerIoContext {
     WSABUF wsaBuf;
     char Buffer[MAX_BUFFER];
 
-    // DWORD dwBytesTransferred; // Çö IO Àü¼ÛµÈ ¹ÙÀÌÆ® ¼ö
-    // DWORD dwTotalBytes;       // ÃÑ ¾ó¸¶¸¸Å­ Àü¼ÛµÇ¾ú´À³Ä¸¦ ÀúÀåÇÏ´Â ¹ÙÀÌÆ® ¼ö
+    // DWORD dwBytesTransferred; // í˜„ IO ì „ì†¡ëœ ë°”ì´íŠ¸ ìˆ˜
+    // DWORD dwTotalBytes;       // ì´ ì–¼ë§ˆë§Œí¼ ì „ì†¡ë˜ì—ˆëŠëƒë¥¼ ì €ì¥í•˜ëŠ” ë°”ì´íŠ¸ ìˆ˜
 
 } PerIoContext, *PPerIoContext;
 

@@ -3,10 +3,10 @@
 #include "tgamectrl/itfont.h"
 
 /**
- * ÀÎÅÍÆäÀÌ½º ¶óÀÌºê·¯¸®(TGameCtrl)¿¡°Ô ¾Ë·ÁÁÙ ITFontÀÇ Implemented Class
- *  : TGameCtrl³»ºÎÀûÀ¸·Î ±ÛÀÚ¸¦ ±×¸±¶§ ÀÌ ÀÎÅÍÆäÀÌ½º¸¦ ÅëÇØ¼­ znzinÀÇ ÇØ´ç ÀÎÅÍÆäÀÌ½º¸¦ È£ÃâÇÑ´Ù.
+ * ì¸í„°í˜ì´ìŠ¤ ë¼ì´ë¸ŒëŸ¬ë¦¬(TGameCtrl)ì—ê²Œ ì•Œë ¤ì¤„ ITFontì˜ Implemented Class
+ *  : TGameCtrlë‚´ë¶€ì ìœ¼ë¡œ ê¸€ìë¥¼ ê·¸ë¦´ë•Œ ì´ ì¸í„°í˜ì´ìŠ¤ë¥¼ í†µí•´ì„œ znzinì˜ í•´ë‹¹ ì¸í„°í˜ì´ìŠ¤ë¥¼ í˜¸ì¶œí•œë‹¤.
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  *
  * @Date			2005/9/5
  */
@@ -20,13 +20,13 @@ public:
     Draw(int iFont, bool bUseSprite, RECT* pRect, D3DCOLOR Color, DWORD dwFormat, const char* pMsg);
     virtual void Draw(int iFont, bool bUseSprite, int x, int y, D3DCOLOR Color, const char* pMsg);
 
-    /// ÇØ´ç ÀÎµ¦½ºÀÇ ÆùÆ®¸¦ ½ÇÁ¦ ±×¸±½ÃÀÇ Height¸¦ ±¸ÇÏ´Â Method
+    /// í•´ë‹¹ ì¸ë±ìŠ¤ì˜ í°íŠ¸ë¥¼ ì‹¤ì œ ê·¸ë¦´ì‹œì˜ Heightë¥¼ êµ¬í•˜ëŠ” Method
     virtual int GetFontHeight(int iFont);
 
-    /// ÇØ´ç ÀÎµ¦½ºÀÇ ÆùÆ®·Î ½ÇÁ¦ ÅØ½ºÆ® Ãâ·Â½Ã ³Êºñ¿Í ³ôÀÌ¸¦ ±¸ÇÏ´Â Method
+    /// í•´ë‹¹ ì¸ë±ìŠ¤ì˜ í°íŠ¸ë¡œ ì‹¤ì œ í…ìŠ¤íŠ¸ ì¶œë ¥ì‹œ ë„ˆë¹„ì™€ ë†’ì´ë¥¼ êµ¬í•˜ëŠ” Method
     virtual SIZE GetFontTextExtent(int iFont, const char* pszText);
 
-    /// ÅØ½ºÆ®°¡ Ãâ·ÂµÉ ±âÁØ À§Ä¡¸¦ º¯°æÇÏ´Â Method
+    /// í…ìŠ¤íŠ¸ê°€ ì¶œë ¥ë  ê¸°ì¤€ ìœ„ì¹˜ë¥¼ ë³€ê²½í•˜ëŠ” Method
     virtual void SetTransformSprite(float x, float y, float z);
 };
 

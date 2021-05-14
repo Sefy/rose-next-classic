@@ -11,24 +11,24 @@ enum EVENT_OBJ_STATE {
 
 //----------------------------------------------------------------------------------------------------
 /// class CObjFixedEvent
-/// ÀÌº¥Æ®¸¦ °¡Áø Á¤Àû ¿ÀºêÁ§Æ®
+/// ì´ë²¤íŠ¸ë¥¼ ê°€ì§„ ì •ì  ì˜¤ë¸Œì íŠ¸
 //----------------------------------------------------------------------------------------------------
 
 class CObjFixedEvent: public CObjFIXED {
 private:
-    /// ExecEventScript È£Ãâ°ú µ¿½Ã¿¡ ¼¼ÆÃµÊ.
+    /// ExecEventScript í˜¸ì¶œê³¼ ë™ì‹œì— ì„¸íŒ…ë¨.
     int m_iCurrentState;
 
     int m_iUniqueEventID;
     std::string m_strTriggerName;
     std::string m_strScriptName;
 
-    /// ¸ğ¼ÇÀ» ¼¼ÆÃÇÏ±âÀ§ÇÑ ´õ¹Ì ³ëµåµé..
+    /// ëª¨ì…˜ì„ ì„¸íŒ…í•˜ê¸°ìœ„í•œ ë”ë¯¸ ë…¸ë“œë“¤..
     HNODE m_PositionDummy;
     HNODE m_AnimatibleDummy;
 
-    /// ÇÑ¹ø Ãæµ¹ÇØ¼­ ÀÌº¥Æ®¸¦ ¹ß»ı½ÃÅ² ¿ÀºêÁ§Æ®´Â ´Ù½Ã Ãæµ¹ÇÏÁö ¾ÊÀ½ -> Ãæµ¹ÇÔÀÌ µÇ±âÀü¿¡´Â
-    /// ÀÌº¥Æ®¸¦ ´Ù½Ã ¹ß»ı½ÃÅ°Áö ¾Ê´Â´Ù.
+    /// í•œë²ˆ ì¶©ëŒí•´ì„œ ì´ë²¤íŠ¸ë¥¼ ë°œìƒì‹œí‚¨ ì˜¤ë¸Œì íŠ¸ëŠ” ë‹¤ì‹œ ì¶©ëŒí•˜ì§€ ì•ŠìŒ -> ì¶©ëŒí•¨ì´ ë˜ê¸°ì „ì—ëŠ”
+    /// ì´ë²¤íŠ¸ë¥¼ ë‹¤ì‹œ ë°œìƒì‹œí‚¤ì§€ ì•ŠëŠ”ë‹¤.
     DWORD m_dwCollisionCheckFrame;
 
     bool m_bCanCheckCollision;
@@ -62,13 +62,13 @@ public:
     void SetScriptName(char* pFileName) { m_strScriptName = pFileName; }
 
     int GetUniqueEventID() { return m_iUniqueEventID; }
-    const char* GetTriggerName() { return m_strTriggerName.c_str(); } /// Æ®¸®°Å ÀÌ¸§ÀÌ µé¾î°¨.
+    const char* GetTriggerName() { return m_strTriggerName.c_str(); } /// íŠ¸ë¦¬ê±° ì´ë¦„ì´ ë“¤ì–´ê°.
     const char* GetScriptName() {
         return m_strScriptName.c_str();
-    } /// ½ÇÁ¦·Î ½ºÅ©¸³ÅÍ ÀÌ¸§ÀÌ µé¾î°£´Ù.
+    } /// ì‹¤ì œë¡œ ìŠ¤í¬ë¦½í„° ì´ë¦„ì´ ë“¤ì–´ê°„ë‹¤.
 
     //-------------------------------------------------------------------------------------------------
-    /// ÀÌº¥Æ® ¿ÀºêÁ§Æ®´Â ¸ğ¼ÇÀ» ºÙÀÌ°Å³ª µîÀ» À§ÇØ¼­ Ãß°¡ÀûÀÎ ³ëµå°¡ ÇÊ¿äÇÏ´Ù.
+    /// ì´ë²¤íŠ¸ ì˜¤ë¸Œì íŠ¸ëŠ” ëª¨ì…˜ì„ ë¶™ì´ê±°ë‚˜ ë“±ì„ ìœ„í•´ì„œ ì¶”ê°€ì ì¸ ë…¸ë“œê°€ í•„ìš”í•˜ë‹¤.
     //-------------------------------------------------------------------------------------------------
     HNODE GetPositionNode() { return m_PositionDummy; }
     HNODE GetAnimatibleNode() { return m_AnimatibleDummy; }
@@ -84,7 +84,7 @@ public:
     /*override*/ void Delete();
 
     //-------------------------------------------------------------------------------------------------
-    /// »óÅÂ¿¡ µû¸¥ ÀÌº¥Æ® ¹ßµ¿
+    /// ìƒíƒœì— ë”°ë¥¸ ì´ë²¤íŠ¸ ë°œë™
     //------------------------------------------------------------------------------------------------
     void ExecEventScript(int iCurrentState,
         bool bJustEnd = false,
@@ -93,9 +93,9 @@ public:
 
     void ExecTrigger();
 
-    /// ÇöÀç Ãæµ¹À» Ã¼Å©ÇÒ¼ö ÀÖ´Â »óÅÂÀÎ°¡?
-    /// ÇÑ¹ø Ãæµ¹ÈÄ Æ¯Á¤ÇÑ »óÈ²ÀÌ( ÀÏÁ¤°Å¸®°¡ ¶³¾îÁø´Ù´øÁö ¾Æ´Ï¸é ±âÅ¸µî ) ÀÏ¾î³ª±â Àü¿¡´Â disable
-    /// µÈ´Ù.
+    /// í˜„ì¬ ì¶©ëŒì„ ì²´í¬í• ìˆ˜ ìˆëŠ” ìƒíƒœì¸ê°€?
+    /// í•œë²ˆ ì¶©ëŒí›„ íŠ¹ì •í•œ ìƒí™©ì´( ì¼ì •ê±°ë¦¬ê°€ ë–¨ì–´ì§„ë‹¤ë˜ì§€ ì•„ë‹ˆë©´ ê¸°íƒ€ë“± ) ì¼ì–´ë‚˜ê¸° ì „ì—ëŠ” disable
+    /// ëœë‹¤.
     bool CanCheckCollision() { return m_bCanCheckCollision; }
     void SetCheckCollisionFlag(bool bCanCheck) { m_bCanCheckCollision = bCanCheck; }
     void SetCollisionCheckFrame(DWORD dwCheckFrame) { m_dwCollisionCheckFrame = dwCheckFrame; }

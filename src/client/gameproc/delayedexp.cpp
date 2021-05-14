@@ -34,12 +34,12 @@ CDelayedExp::GetExp(int iOwnerIndex) {
 
         /// It's the time to apply to avatar.
         if (expData.iOwnerIndex == iOwnerIndex) {
-            /// °»½ÅµÈ ³» °æÇèÄ¡´Ù...
-            /// ¼ø¼­¿¡ ÀÇÇØ °è»ê°á°ú°¡ - °¡ ³ª¿Ã¼ö ÀÖ´Ù.. °á±¹ ÇöÀç °æÇèÄ¡°¡ ¾Æ´Ï¶ó.. Ãß°¡µÈ
-            /// °æÇèÄ¡¸¦ Ã³¸®ÇÏ´Â°É·Î º¯°æ..
+            /// ê°±ì‹ ëœ ë‚´ ê²½í—˜ì¹˜ë‹¤...
+            /// ìˆœì„œì— ì˜í•´ ê³„ì‚°ê²°ê³¼ê°€ - ê°€ ë‚˜ì˜¬ìˆ˜ ìˆë‹¤.. ê²°êµ­ í˜„ì¬ ê²½í—˜ì¹˜ê°€ ì•„ë‹ˆë¼.. ì¶”ê°€ëœ
+            /// ê²½í—˜ì¹˜ë¥¼ ì²˜ë¦¬í•˜ëŠ”ê±¸ë¡œ ë³€ê²½..
             /// long lDiff = expData.iExp - g_pAVATAR->GetCur_EXP();
 
-            /// lDiffÀÇ °æÇèÄ¡¸¦ È¹µæÇß´Ù... ¸Ş¼¼ÁöÃâ·Â..
+            /// lDiffì˜ ê²½í—˜ì¹˜ë¥¼ íšë“í–ˆë‹¤... ë©”ì„¸ì§€ì¶œë ¥..
             char szMsg[256];
             sprintf(szMsg, STR_GET_EXP, expData.iAddExp);
             g_itMGR.AppendChatMsg(szMsg, IT_MGR::CHAT_TYPE_SYSTEM);
@@ -78,7 +78,7 @@ CDelayedExp::Proc() {
 
         /// erase exp
         if (bProcessExp) {
-            /// lDiffÀÇ °æÇèÄ¡¸¦ È¹µæÇß´Ù... ¸Ş¼¼ÁöÃâ·Â..
+            /// lDiffì˜ ê²½í—˜ì¹˜ë¥¼ íšë“í–ˆë‹¤... ë©”ì„¸ì§€ì¶œë ¥..
             char szMsg[256];
             sprintf(szMsg, STR_GET_EXP, expData.iAddExp);
             g_itMGR.AppendChatMsg(szMsg, IT_MGR::CHAT_TYPE_SYSTEM);

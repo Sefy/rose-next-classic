@@ -67,12 +67,12 @@ int
 CGameStateMovePlanet::Enter(int iPrevStateID) {
     ::SetOceanSFXOnOff(false);
 
-    /// ÇöÀç Á¸µ¥ÀÌÅÍ Ç®°í »õ·Î¿î Á¸ µ¥ÀÌÅÍ ·Îµå
+    /// í˜„ìž¬ ì¡´ë°ì´í„° í’€ê³  ìƒˆë¡œìš´ ì¡´ ë°ì´í„° ë¡œë“œ
     g_pTerrain->FreeZONE();
 
     g_GameDATA.m_bJustObjectLoadMode = true;
 
-    /// »õ·Î¿î ÄÆ¾À Á¸ ·Îµå
+    /// ìƒˆë¡œìš´ ì»·ì”¬ ì¡´ ë¡œë“œ
     g_pTerrain->LoadZONE(CUTSCENE_ZONE_NO);
     g_pTerrain->InitZONE(0, 0);
 

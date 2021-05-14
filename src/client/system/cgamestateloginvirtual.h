@@ -3,11 +3,11 @@
 #include "cgamestate.h"
 
 /**
- * CGameStateSelectAvatar¿¡¼­ CGameStateSelectSvr·Î ÀÌµ¿ÇÏ±â À§ÇÑ Áß°£ State Class
- *	- ·Î±×ÀÎ¼­¹ö¿¡ ´Ù½Ã Á¢¼ÓÇØ¾ßÇÏ±â ¶§¹®¿¡ ¾ÆÀÌµð¿Í ÆÐ½º¿öµå¸¦ º¸°üÇÏ¿´´Ù°¡ ÀÚµ¿À¸·Î ¼­¹ö¼±ÅÃÃ¢±îÁö
- *ÁøÇàµÇ´Â ±¸Á¶ÀÌ´Ù
+ * CGameStateSelectAvatarì—ì„œ CGameStateSelectSvrë¡œ ì´ë™í•˜ê¸° ìœ„í•œ ì¤‘ê°„ State Class
+ *	- ë¡œê·¸ì¸ì„œë²„ì— ë‹¤ì‹œ ì ‘ì†í•´ì•¼í•˜ê¸° ë•Œë¬¸ì— ì•„ì´ë””ì™€ íŒ¨ìŠ¤ì›Œë“œë¥¼ ë³´ê´€í•˜ì˜€ë‹¤ê°€ ìžë™ìœ¼ë¡œ ì„œë²„ì„ íƒì°½ê¹Œì§€
+ *ì§„í–‰ë˜ëŠ” êµ¬ì¡°ì´ë‹¤
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CGameStateLoginVirtual: public CGameState {

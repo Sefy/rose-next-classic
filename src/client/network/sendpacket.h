@@ -74,18 +74,18 @@ public:
 
     bool Send_cli_GET_FIELDITEM_REQ(CGameOBJ* pUSER, int iServerObject);
 
-    // ÇÊµå¿¡ ¾ÆÀÌÅÛÀ» ¶³±º´Ù...
+    // í•„ë“œì— ì•„ì´í…œì„ ë–¨êµ°ë‹¤...
     void Send_cli_DROP_ITEM(short nInventoryIndex, int iQuantity);
 
     void Send_cli_TELEPORT_REQ(CGameOBJ* pUSER, short nWarpIDX);
 
-    // º¸³Ê½º Æ÷ÀÎÆ®¸¦ ÀÌ¿ëÇØ¼­ ±âº» ´É·ÂÄ¡¸¦ Çâ»ó ½ÃÅ²´Ù...
+    // ë³´ë„ˆìŠ¤ í¬ì¸íŠ¸ë¥¼ ì´ìš©í•´ì„œ ê¸°ë³¸ ëŠ¥ë ¥ì¹˜ë¥¼ í–¥ìƒ ì‹œí‚¨ë‹¤...
     void Send_cli_USE_BPOINT_REQ(BYTE btAbilityTYPE);
 
     void Send_cli_TRADE_REQ(void);
     void Send_cli_TRADE_REPLY(void);
 
-    /// ¼­¹ö¿¡ ÇØ´ç ¿ÀºêÁ§Æ® HP Á¤º¸ ¿ä±¸
+    /// ì„œë²„ì— í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ HP ì •ë³´ ìš”êµ¬
     void Send_cli_HP_REQ(int iClientTarget);
 
     void Send_cli_P_STORE_OPEN(BYTE btSellItemCount,
@@ -108,14 +108,14 @@ public:
         int iQuestID,
         char* szQuestTriggerName = NULL);
 
-    ///Æ®·¹ÀÌµå °ü·Ã Method
+    ///íŠ¸ë ˆì´ë“œ ê´€ë ¨ Method
     bool Send_cli_TRADE_P2P(WORD wServerIdx, BYTE btResult, char cSlotIdx = 0);
     void Send_cli_TRADE_P2P_ITEM(char cTradeSLOT, short nInventoryIndex, DWORD iQuantity);
-    ///ÆÄÆ¼ °ü·Ã
+    ///íŒŒí‹° ê´€ë ¨
     void Send_cli_PARTY_REQ(BYTE btRequest, DWORD dwDestIDXorTAG);
     void Send_cli_PARTY_REPLY(BYTE btRequest, DWORD dwDestIDXorTAG);
     void Send_cli_PARTY_RULE(BYTE btRule);
-    ///Á¦Á¶ °ü·Ã
+    ///ì œì¡° ê´€ë ¨
     void Send_cli_CREATE_ITEM_REQ(BYTE btSkillSLOT,
         char cTargetItemTYPE,
         short nTargetItemNO,
@@ -124,13 +124,13 @@ public:
 
     void Send_cli_ITEM_RESULT_REPORT(BYTE btREPORT, BYTE btItemType, short nItemNo);
 
-    ///Ã¢°í °ü·Ã
+    ///ì°½ê³  ê´€ë ¨
     void Send_cli_MOVE_ITEM(BYTE btMoveTYPE, BYTE btFromIDX, tagITEM& MoveITEM, bool bPlatinum);
     void Send_cli_BANK_LIST_REQ(BYTE btREQ, char* pszPassword);
-    ///¼Ò¸ğÅº °ü·Ã
+    ///ì†Œëª¨íƒ„ ê´€ë ¨
     void Send_cli_SET_BULLET(BYTE btShotType, short nInvenIdx);
 
-    /// PAT °ü·Ã
+    /// PAT ê´€ë ¨
     void Send_cli_ASSEMBLE_RIDE_ITEM(short nPartIdx, short nInvenIdx);
 
     void Send_cli_SET_WEIGHT_RATE(BYTE btWeightRate);
@@ -161,7 +161,7 @@ public:
 
     //----------------------------------------------------------------------------------------------------
     ///
-    /// @brief Àç¹Ö Àç·Ã°ü·Ã
+    /// @brief ì¬ë° ì¬ë ¨ê´€ë ¨
     ///
     //----------------------------------------------------------------------------------------------------
     void Send_cli_CRAFT_GEMMING_REQ(BYTE btEquipInvIDX, BYTE btGemInvIDX);
@@ -194,7 +194,7 @@ public:
 
     void Send_cli_CART_RIDE(BYTE bType, WORD wOwnerObjIDX_, WORD wGuestObjIDX_);
 
-    //---½º¼¦°ü·Ã...--------------------------------------------------------------------------------------
+    //---ìŠ¤ìƒ·ê´€ë ¨...--------------------------------------------------------------------------------------
     void Send_cli_SCREEN_SHOT_TIME();
     void Send_cli_UPDATE_NAME(char* szName);
     void Send_cli_SET_RIGHTS(DWORD dwRight);

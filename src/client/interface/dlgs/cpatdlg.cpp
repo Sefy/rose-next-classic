@@ -28,32 +28,32 @@ CPatDlg::CPatDlg() {
     // pCmd = new CTCmdDragItemFromPatInven;
     // m_pInvenDragItem->AddTarget( iType, pCmd );
 
-    /////¸Å¸ÅÃ¢À¸·ÎÀÇ ÀÌµ¿
+    /////ë§¤ë§¤ì°½ìœ¼ë¡œì˜ ì´ë™
     // CTCmdNumberInput* pNumberCmd = new CTCmdAddItem2DealFromInventory;
     // CTCmdOpenNumberInputDlg* pOpenCmd = new CTCmdOpenNumberInputDlg;
     // pOpenCmd->SetCommand( pNumberCmd );
 
     // m_pInvenDragItem->AddTarget( DLG_TYPE_DEAL, pOpenCmd );
 
-    /////»óÁ¡Ã¢À¸·Î ÀÌµ¿
+    /////ìƒì ì°½ìœ¼ë¡œ ì´ë™
     // pNumberCmd = new CTCmdSellItem;
     // pOpenCmd = new CTCmdOpenNumberInputDlg;
     // pOpenCmd->SetCommand( pNumberCmd );
     // m_pInvenDragItem->AddTarget( DLG_TYPE_STORE, pOpenCmd );
 
-    /////¶¥À¸·Î µå¶ø
+    /////ë•…ìœ¼ë¡œ ë“œëž
     // pNumberCmd	= new CTCmdDropItem;
     // pOpenCmd	= new CTCmdOpenNumberInputDlg;
     // pOpenCmd->SetCommand( pNumberCmd );
     // m_pInvenDragItem->AddTarget( CDragItem::TARGET_GROUND, pOpenCmd );
 
-    /////Bank·Î ÀÌµ¿
+    /////Bankë¡œ ì´ë™
     // pNumberCmd	= new CTCmdMoveItemInv2Bank;
     // pOpenCmd	= new CTCmdOpenNumberInputDlg;
     // pOpenCmd->SetCommand( pNumberCmd );
     // m_pInvenDragItem->AddTarget( DLG_TYPE_BANK, pOpenCmd );
 
-    /////±³È¯Ã¢À¸·Î ÀÌµ¿
+    /////êµí™˜ì°½ìœ¼ë¡œ ì´ë™
     // pNumberCmd  = new CTCmdAddMyItem2Exchange;
     // pOpenCmd	= new CTCmdOpenNumberInputDlg;
     // pOpenCmd->SetCommand( pNumberCmd );

@@ -785,7 +785,7 @@ bool zz_model::set_look_at (const vec3& there, bool immediate) // internally mod
 	get_angle(cos_angle, from, to);
  
 	const float MIN_DEGREE = 360;
-	if (fabs(cos_angle*ZZ_TO_DEG) < MIN_DEGREE) { // if it is close to to_vector   //ÁÖÄ¡ ¹üÀ§ 0 - 180 
+	if (fabs(cos_angle*ZZ_TO_DEG) < MIN_DEGREE) { // if it is close to to_vector   //ì£¼ì¹˜ ë²”ìœ„ 0 - 180 
 		// rebuild cos_angle and cross_vector
 		get_angle(cos_angle, origin, to);
 		cross(cross_vector, origin, to);
@@ -796,7 +796,7 @@ bool zz_model::set_look_at (const vec3& there, bool immediate) // internally mod
 			euler_angle.x = cos_angle*ZZ_TO_DEG;
 		}		
 	}
-	else {                                                        // Àý´ë ³ª¿Ã¼ö ¾ø´Â Á¶°Ç
+	else {                                                        // ì ˆëŒ€ ë‚˜ì˜¬ìˆ˜ ì—†ëŠ” ì¡°ê±´
 		if (cross_vector.z < 0) { // increase direction with counter-clock wise
 			this->euler_angle.x -= MIN_DEGREE;
 		}
@@ -833,7 +833,7 @@ const quat& zz_model::get_turned_initial_rotation_incremental (quat& rotation_ou
 	
 	float new_angle_diff = angle_per_time * time_diff_in; // ideal angle difference by computation
 	
-	// choose the closest angle   °¢À» -180 ¿¡¼­ 180 ·Î °íÁ¤
+	// choose the closest angle   ê°ì„ -180 ì—ì„œ 180 ë¡œ ê³ ì •
 	if (angle_diff > 180.0f) {
 		angle_diff = -(360.0f - angle_diff); // convert to negative direction
 	}

@@ -42,7 +42,7 @@ CChatBoxManager::Init() {
 #ifdef _DEBUG
         ::MessageBox(NULL, "Chatbox load failed !!", "File open error", MB_OK);
 #endif
-        //½ÇÆÐÇÑ ÀÌÀ¯¸¦ Àû¾îÁØ´Ù..
+        //ì‹¤íŒ¨í•œ ì´ìœ ë¥¼ ì ì–´ì¤€ë‹¤..
         return false;
     }
 
@@ -54,7 +54,7 @@ CChatBoxManager::Init() {
 #ifdef _DEBUG
         g_pCApp->ErrorBOX("Chatbox load failed !!", "File open error");
 #endif
-        //½ÇÆÐÇÑ ÀÌÀ¯¸¦ Àû¾îÁØ´Ù..
+        //ì‹¤íŒ¨í•œ ì´ìœ ë¥¼ ì ì–´ì¤€ë‹¤..
         return false;
     }
 
@@ -100,7 +100,7 @@ CChatBoxManager::AddChat(int iCharIndex, const char* Msg, D3DCOLOR Color) {
     for (; begin != m_ActiveChatBoxList.end(); ++begin) {
         pBox = *begin;
 
-        /// ÀÌ¹Ì ´Ù¸¥ ¸»ÁßÀÌ¶ó¸é.. °»½Å..
+        /// ì´ë¯¸ ë‹¤ë¥¸ ë§ì¤‘ì´ë¼ë©´.. ê°±ì‹ ..
         if (iCharIndex == pBox->GetChatIndex()) {
             pBox->SetMember(iCharIndex, Msg, Color);
             return;

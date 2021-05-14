@@ -4,9 +4,9 @@
 #include "../../CInfo.h"
 
 /**
- * Å¬·£Ã¢¿¡¼­ Å¬·£¸É¹ö List¿¡ »ç¿ëµÇ´Â item class
+ * í´ëœì°½ì—ì„œ í´ëœë§´ë²„ Listì— ì‚¬ìš©ë˜ëŠ” item class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CClanMemberItem: public CWinCtrl {

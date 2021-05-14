@@ -59,7 +59,7 @@ int
 CGameStatePrepareMain::Enter(int iPrevStateID) {
     m_iPrevStateID = iPrevStateID;
 
-    ///¿ÜºÎ¸Ş´º¿¡¼­ »ç¿ëµÇ¾ú´ø Data & Resource¸¦ UnloadÇÑ´Ù.
+    ///ì™¸ë¶€ë©”ë‰´ì—ì„œ ì‚¬ìš©ë˜ì—ˆë˜ Data & Resourceë¥¼ Unloadí•œë‹¤.
     CGameDataCreateAvatar::GetInstance().Clear();
     LogString(LOG_NORMAL, "FreeZone(%d)\n", g_pTerrain->GetZoneNO());
     g_pTerrain->FreeZONE();
@@ -82,7 +82,7 @@ CGameStatePrepareMain::Enter(int iPrevStateID) {
     if (m_hThread) {
         tDone = false;
         ResumeThread(m_hThread);
-    } else /// Thread »ı¼º ½ÇÆĞ½Ã ¸ŞÀÎ¾²·¹µå¿¡¼­ ·ÎµùÇÏ°í State¸¦ ¹Ù²Ù¾î ÁØ´Ù.
+    } else /// Thread ìƒì„± ì‹¤íŒ¨ì‹œ ë©”ì¸ì“°ë ˆë“œì—ì„œ ë¡œë”©í•˜ê³  Stateë¥¼ ë°”ê¾¸ì–´ ì¤€ë‹¤.
 #endif
     {
 #ifndef __THREADED_LOADING
@@ -132,12 +132,12 @@ CGameStatePrepareMain::Leave(int iNextStateID) {
     //	::setDelayedLoad( true );
 
     ///<--------------------------------------------------
-    ///»ç¿ëÀÚ°¡ ÀúÀåÇÑ ½Ã¾ß¿É¼ÇÀ» Àç¼³Á¤ÇØÁØ´Ù.
+    ///ì‚¬ìš©ìê°€ ì €ì¥í•œ ì‹œì•¼ì˜µì…˜ì„ ì¬ì„¤ì •í•´ì¤€ë‹¤.
     t_OptionVideo option;
     g_ClientStorage.GetVideoOption(option);
     g_ClientStorage.ApplyCameraOption(option.iCamera);
 
-    /// ÀÌÆåÆ® ¿É¼Ç ¼³Á¤
+    /// ì´í™íŠ¸ ì˜µì…˜ ì„¤ì •
     g_pSoundLIST->SetVolume(
         g_ClientStorage.GetEffectVolumeByIndex(g_ClientStorage.GetEffectVolumeIndex()));
 
@@ -181,7 +181,7 @@ CGameStatePrepareMain::Leave(int iNextStateID) {
     }
     g_pNet->Send_cli_MEMO_CNT_REQ();
 
-    ///Ä«Æ® Å¾½Â »óÅÂ¿¡ µû¸¥ ¾×Æ¼ºê ½ºÅ³ È°¼ºÈ­/ºñÈ°¼ºÈ­ Setting
+    ///ì¹´íŠ¸ íƒ‘ìŠ¹ ìƒíƒœì— ë”°ë¥¸ ì•¡í‹°ë¸Œ ìŠ¤í‚¬ í™œì„±í™”/ë¹„í™œì„±í™” Setting
     g_pAVATAR->GetSkillSlot()->SetActiveSkillEnableByRideState(false);
 
     return 0;
@@ -190,7 +190,7 @@ CGameStatePrepareMain::Leave(int iNextStateID) {
 void
 CGameStatePrepareMain::Draw() {
     if (g_pCApp->IsActive()) {
-        if (!::beginScene()) //  µğ¹ÙÀÌ½º°¡ ¼Õ½ÇµÈ »óÅÂ¶ó¸é 0À» ¸®ÅÏÇÏ¹Ç·Î, ¸ğµç ·»´õ¸µ ½ºÅµ
+        if (!::beginScene()) //  ë””ë°”ì´ìŠ¤ê°€ ì†ì‹¤ëœ ìƒíƒœë¼ë©´ 0ì„ ë¦¬í„´í•˜ë¯€ë¡œ, ëª¨ë“  ë Œë”ë§ ìŠ¤í‚µ
         {
             return;
         }
@@ -221,7 +221,7 @@ unsigned __stdcall CGameStatePrepareMain::ThreadFunc(void* pArguments) {
     g_pTerrain->LoadZONE(Reply.m_nZoneNO);
     g_pTerrain->InitZONE(Reply.m_PosWARP.x, Reply.m_PosWARP.y);
 
-    /// °³ÀÎ»óÁ¡ ¸®½ºÆ® Å¬¸®¾î
+    /// ê°œì¸ìƒì  ë¦¬ìŠ¤íŠ¸ í´ë¦¬ì–´
     g_UIMed.ResetPersonalStore();
 
     CMinimapDLG* pDlg = g_itMGR.GetMinimapDLG();

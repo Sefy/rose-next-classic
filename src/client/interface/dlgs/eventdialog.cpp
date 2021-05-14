@@ -64,7 +64,7 @@ CEventDialog::SetScript(char* pszScript) {
     pListBox->SetValue(0);
     pListBox->SetExtent(2);
 
-    ///´äº¯ ¿¹Á¦¸¦ ´ãÀ» ListBoxÀÇ À§Ä¡¸¦ Á¶Á¤ÇÑ´Ù.
+    ///ë‹µë³€ ì˜ˆì œë¥¼ ë‹´ì„ ListBoxì˜ ìœ„ì¹˜ë¥¼ ì¡°ì •í•œë‹¤.
     pCtrl = Find(IID_ZLISTBOX_ANSWER_EXAMPLE);
     assert(pCtrl);
     if (pCtrl == NULL)

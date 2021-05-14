@@ -31,7 +31,7 @@ CSkillListItem::CSkillListItem(void) {
 
     m_pButton->SetDisableGrahicID(pResMgr->GetImageNID(IMAGE_RES_UI, "UI09_BTN_PLUS_DISABLE"));
     m_pButton->SetOffset(171, 24);
-    m_pButton->SetControlID(10); ///ÀÓÀÇID Process¿¡¼­ ¸®ÅÏÀ» ¹Þ±â À§ÇØ¼­
+    m_pButton->SetControlID(10); ///ìž„ì˜ID Processì—ì„œ ë¦¬í„´ì„ ë°›ê¸° ìœ„í•´ì„œ
 
     m_Slot.SetOffset(17, 4);
     m_Slot.SetParent(DLG_TYPE_SKILL);
@@ -82,7 +82,7 @@ CSkillListItem::SetIcon(CIconSkill* pIcon) {
 }
 
 //--------------------------------------------------------------------------------
-/// @brief ½ºÅ³¿¡ º¯°æµÇ¾úÀ»¶§ È£ÃâµÇ¾î Áö´Â method( ÃÖÃÊ µî·Ï½Ã& ·¹º§¾÷ )
+/// @brief ìŠ¤í‚¬ì— ë³€ê²½ë˜ì—ˆì„ë•Œ í˜¸ì¶œë˜ì–´ ì§€ëŠ” method( ìµœì´ˆ ë“±ë¡ì‹œ& ë ˆë²¨ì—… )
 //--------------------------------------------------------------------------------
 void
 CSkillListItem::Update() {
@@ -120,7 +120,7 @@ CSkillListItem::Draw() {
     if (!IsVision())
         return;
 
-    /// °ÔÀÌÁö ÁøÇà»óÅÂ¸¦ º¸¿©ÁÖ±â À§ÇØ¼­..
+    /// ê²Œì´ì§€ ì§„í–‰ìƒíƒœë¥¼ ë³´ì—¬ì£¼ê¸° ìœ„í•´ì„œ..
     ::endSprite();
     ::beginSprite(D3DXSPRITE_ALPHABLEND);
 
@@ -251,7 +251,7 @@ CSkillListItem::Update(POINT ptMouse) {
 
                     DWORD text_color = g_dwWHITE;
 
-                    ///ÇÊ¿ä SP
+                    ///í•„ìš” SP
                     if (iNeedSkillPoint > g_pAVATAR->GetCur_SkillPOINT())
                         text_color = g_dwRED;
                     else
@@ -294,7 +294,7 @@ CSkillListItem::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
 
     if (m_pButton && m_pButton->Process(uiMsg, wParam, lParam)) {
         if (uiMsg
-            == WM_LBUTTONUP) ///¼­¹ö¿¡ Level UpÀ» ¿äÃ»ÇÑ´Ù.±×Àü¿¡ ·¹º§¾÷ÀÌ °¡´ÉÇÑÁö ÇÑ¹ø´õ Ã¼Å©ÇÒ°Í
+            == WM_LBUTTONUP) ///ì„œë²„ì— Level Upì„ ìš”ì²­í•œë‹¤.ê·¸ì „ì— ë ˆë²¨ì—…ì´ ê°€ëŠ¥í•œì§€ í•œë²ˆë” ì²´í¬í• ê²ƒ
         {
             CIcon* pIcon = m_Slot.GetIcon();
             if (pIcon) {
@@ -318,7 +318,7 @@ CSkillListItem::IsHasNextLevel(int iSkillSlotIdx) {
 
     short nSkillIDX = g_pAVATAR->m_Skills.m_nSkillINDEX[iSkillSlotIdx];
 
-    ///½ºÅ³·¹º§ÀÌ 10ÀÌ»óÀÌ°Å³ª ÇÊ¿ä Æ÷ÀÎÆ®º¸´Ù ÇöÀç Æ÷ÀÎÆ®°¡ Àû´Ù¸é false
+    ///ìŠ¤í‚¬ë ˆë²¨ì´ 10ì´ìƒì´ê±°ë‚˜ í•„ìš” í¬ì¸íŠ¸ë³´ë‹¤ í˜„ìž¬ í¬ì¸íŠ¸ê°€ ì ë‹¤ë©´ false
     if (SKILL_1LEV_INDEX(nSkillIDX) != SKILL_1LEV_INDEX(nSkillIDX + 1)
         || SKILL_LEVEL(nSkillIDX) + 1 != SKILL_LEVEL(nSkillIDX + 1)) {
         // g_itMGR.AppendChatMsg( STR_CANT_LEVELUP, IT_MGR::CHAT_TYPE_SYSTEM  );
@@ -335,7 +335,7 @@ CSkillListItem::IsValidLevelUp(int iSkillSlotIdx) {
 
     short nSkillIDX = g_pAVATAR->m_Skills.m_nSkillINDEX[iSkillSlotIdx];
 
-    ///½ºÅ³·¹º§ÀÌ 10ÀÌ»óÀÌ°Å³ª ÇÊ¿ä Æ÷ÀÎÆ®º¸´Ù ÇöÀç Æ÷ÀÎÆ®°¡ Àû´Ù¸é false
+    ///ìŠ¤í‚¬ë ˆë²¨ì´ 10ì´ìƒì´ê±°ë‚˜ í•„ìš” í¬ì¸íŠ¸ë³´ë‹¤ í˜„ìž¬ í¬ì¸íŠ¸ê°€ ì ë‹¤ë©´ false
     if (SKILL_1LEV_INDEX(nSkillIDX) != SKILL_1LEV_INDEX(nSkillIDX + 1)
         || SKILL_LEVEL(nSkillIDX) + 1 != SKILL_LEVEL(nSkillIDX + 1)) {
         // g_itMGR.AppendChatMsg( STR_CANT_LEVELUP, IT_MGR::CHAT_TYPE_SYSTEM  );

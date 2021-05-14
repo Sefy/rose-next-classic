@@ -10,7 +10,7 @@ typedef unsigned int HNODE;
 
 //-------------------------------------------------------------------------------------------------
 ///
-/// ╠Б╨╩╣╔юлем ╧в а╦╣╔юлем╦╕ юп╢б╢ы.
+/// Й╦╟КЁ╦К█╟Л²╢М└╟ К╟▐ Л║╢К█╟Л²╢М└╟К╔╪ Л²╫К┼■К▀╓.
 ///
 class CBasicDATA {
 private:
@@ -34,8 +34,8 @@ public:
     CMorpherDATA m_MORPHER;
 
     //	CModelDATA<CFixedPART>	m_ModelBULLET;
-    CModelDATA<CFixedPART> m_ModelSpecial; /// ©Жга, цФ╣╧╣Н..
-    CModelDATA<CFixedPART> m_ModelEvent; /// юл╨╔ф╝ ©ю╨Йа╖ф╝
+    CModelDATA<CFixedPART> m_ModelSpecial; /// Л⌡▄М■└, Л╤╘К▐▄К⌠╠..
+    CModelDATA<CFixedPART> m_ModelEvent; /// Л²╢К╡╓М┼╦ Л≤╓К╦▄Л═²М┼╦
 
     CModelDATA<CFixedPART> m_ModelCNST;
     CModelDATA<CFixedPART> m_ModelDECO;
@@ -48,11 +48,11 @@ public:
     bool Load3DDATA();
     void Free3DDATA();
 
-    /// Zone type ©║ ╣Ш╦╔ ╥н╣Ы╣╔юлем
+    /// Zone type Л≈░ К■╟К╔╦ К║°К■╘К█╟Л²╢М└╟
     bool LoadZoneData(short nZoneNO);
     void FreeZoneData();
 
-    /// Planet type ©║ ╣Ш╦╔ ╥н╣Ы╣╔юлем
+    /// Planet type Л≈░ К■╟К╔╦ К║°К■╘К█╟Л²╢М└╟
     bool LoadPlanetData(short nZoneNO){};
     void FreePlanetData(){};
 

@@ -16,27 +16,27 @@ public:
     unsigned long Get_AICheckTIME(int iIDX) { return m_ulAICheckTIME[iIDX]; }
     void Set_AICheckTIME(int iIDX, unsigned long lCheckTIME) { m_ulAICheckTIME[iIDX] = lCheckTIME; }
 
-    virtual float Get_CurXPOS() = 0 { *(int*)0 = 10; } ///< ÇöÀç XÃà À§Ä¡
-    virtual float Get_CurYPOS() = 0 { *(int*)0 = 10; } ///< ÇöÀç YÃà À§Ä¡
+    virtual float Get_CurXPOS() = 0 { *(int*)0 = 10; } ///< í˜„ì¬ Xì¶• ìœ„ì¹˜
+    virtual float Get_CurYPOS() = 0 { *(int*)0 = 10; } ///< í˜„ì¬ Yì¶• ìœ„ì¹˜
 #ifndef __SERVER
-    virtual float Get_CurZPOS() = 0 { *(int*)0 = 10; } ///< ÇöÀç ZÃà À§Ä¡
+    virtual float Get_CurZPOS() = 0 { *(int*)0 = 10; } ///< í˜„ì¬ Zì¶• ìœ„ì¹˜
 #endif
-    virtual float Get_BornXPOS() = 0 { *(int*)0 = 10; } ///< Ã³À½ »ı¼º XÃà À§Ä¡
-    virtual float Get_BornYPOS() = 0 { *(int*)0 = 10; } ///< Ã³À½ »ı¼º YÃà À§Ä¡
+    virtual float Get_BornXPOS() = 0 { *(int*)0 = 10; } ///< ì²˜ìŒ ìƒì„± Xì¶• ìœ„ì¹˜
+    virtual float Get_BornYPOS() = 0 { *(int*)0 = 10; } ///< ì²˜ìŒ ìƒì„± Yì¶• ìœ„ì¹˜
 
     virtual int Get_TAG() = 0 {
         *(int*)0 = 10;
-    } ///< ´Ù¸¥ °´Ã¼¿Í Áßº¹µÇÁö ¾Ê´Â À¯ÀÏÇÑ °ªÀ» ±¸ÇÑ´Ù.( ÀÏ¹İÀûÀ¸·Î ½½·Ô ÀÎµ¦½º )
-    virtual int Get_ObjTYPE() = 0 { *(int*)0 = 10; } ///< °´Ã¼ÀÇ Å¸ÀÔÀ» ¾ò´Â´Ù.
+    } ///< ë‹¤ë¥¸ ê°ì²´ì™€ ì¤‘ë³µë˜ì§€ ì•ŠëŠ” ìœ ì¼í•œ ê°’ì„ êµ¬í•œë‹¤.( ì¼ë°˜ì ìœ¼ë¡œ ìŠ¬ë¡¯ ì¸ë±ìŠ¤ )
+    virtual int Get_ObjTYPE() = 0 { *(int*)0 = 10; } ///< ê°ì²´ì˜ íƒ€ì…ì„ ì–»ëŠ”ë‹¤.
 
-    //	virtual bool	 Is_SameTYPE(int iType) = 0{ *(int*)0 = 10; }			///< °´Ã¼ÀÇ Å¸ÀÔÀÌ
-    //iType°¡ °°Àº°¡?
-    //	virtual bool	 Is_AVATAR() = 0{ *(int*)0 = 10; }						///< °´Ã¼ÀÇ Å¸ÀÔÀÌ
-    //¾Æ¹ÙÅ¸ ÀÎ°¡?
+    //	virtual bool	 Is_SameTYPE(int iType) = 0{ *(int*)0 = 10; }			///< ê°ì²´ì˜ íƒ€ì…ì´
+    //iTypeê°€ ê°™ì€ê°€?
+    //	virtual bool	 Is_AVATAR() = 0{ *(int*)0 = 10; }						///< ê°ì²´ì˜ íƒ€ì…ì´
+    //ì•„ë°”íƒ€ ì¸ê°€?
 
     virtual int Get_PercentHP() = 0 { *(int*)0 = 10; }
-    virtual int Get_HP() = 0 { *(int*)0 = 10; } ///< °´Ã¼ÀÇ »ı¸í·ÂÀ» ±¸ÇÑ´Ù.
-    virtual int Get_CharNO() = 0 { *(int*)0 = 10; } ///< °´Ã¼ÀÇ ÄÉ¸¯ÅÍ ¹øÈ£¸¦ ¾ò´Â´Ù.
+    virtual int Get_HP() = 0 { *(int*)0 = 10; } ///< ê°ì²´ì˜ ìƒëª…ë ¥ì„ êµ¬í•œë‹¤.
+    virtual int Get_CharNO() = 0 { *(int*)0 = 10; } ///< ê°ì²´ì˜ ì¼€ë¦­í„° ë²ˆí˜¸ë¥¼ ì–»ëŠ”ë‹¤.
 
     virtual int Get_LEVEL() = 0;
     virtual int Get_DEF() = 0;
@@ -52,14 +52,14 @@ public:
     }
     virtual CAI_OBJ* Get_CALLER() { return NULL; }
 
-    virtual float Get_DISTANCE(CAI_OBJ* pAIObj) = 0 { *(int*)0 = 10; } ///< ´ë»ó°úÀÇ °Å¸®¸¦ ±¸ÇÑ´Ù.
+    virtual float Get_DISTANCE(CAI_OBJ* pAIObj) = 0 { *(int*)0 = 10; } ///< ëŒ€ìƒê³¼ì˜ ê±°ë¦¬ë¥¼ êµ¬í•œë‹¤.
     virtual float Get_MoveDISTANCE() = 0 {
         *(int*)0 = 10;
-    } ///< Ã³À½ ½ÃÀÛ À§Ä¡¿Í ÇöÀçÀ§Ä¡ÀÇ °Å¸®¸¦ ±¸ÇÑ´Ù.
+    } ///< ì²˜ìŒ ì‹œì‘ ìœ„ì¹˜ì™€ í˜„ì¬ìœ„ì¹˜ì˜ ê±°ë¦¬ë¥¼ êµ¬í•œë‹¤.
 
-    virtual int Get_RANDOM(int iMod) = 0 { *(int*)0 = 10; } ///< °´Ã¼¿¡ ÀÇÁ¸ÇÑ ·»´ı ¼öÄ¡¸¦ ±¸ÇÑ´Ù.
+    virtual int Get_RANDOM(int iMod) = 0 { *(int*)0 = 10; } ///< ê°ì²´ì— ì˜ì¡´í•œ ë Œë¤ ìˆ˜ì¹˜ë¥¼ êµ¬í•œë‹¤.
 
-    virtual bool Change_CHAR(int /*iCharIDX*/) { return false; } ///< iCharIDXÀÇ °´Ã¼·Î º¯È¯ ½ÃÅ²´Ù.
+    virtual bool Change_CHAR(int /*iCharIDX*/) { return false; } ///< iCharIDXì˜ ê°ì²´ë¡œ ë³€í™˜ ì‹œí‚¨ë‹¤.
     virtual bool Create_PET(int /*iCharIDX*/,
         float /*fPosX*/,
         float /*fPosY*/,
@@ -67,10 +67,10 @@ public:
         BYTE /*btSetOwner*/,
         bool /*bImmediate*/) {
         return false;
-    } ///< iCharIDXÀÇ °´Ã¼¸¦ ¼ÒÈ¯ ½ÃÅ²´Ù.
+    } ///< iCharIDXì˜ ê°ì²´ë¥¼ ì†Œí™˜ ì‹œí‚¨ë‹¤.
     virtual bool Is_ClanMASTER(void) { return false; }
 
-    virtual void Say_MESSAGE(char* /*szMessage*/) { ; } ///< ´ëÈ­¸¦ Ãâ·ÂÇÑ´Ù.
+    virtual void Say_MESSAGE(char* /*szMessage*/) { ; } ///< ëŒ€í™”ë¥¼ ì¶œë ¥í•œë‹¤.
     virtual void Run_AWAY(int /*iDistance*/) { ; }
     virtual void Drop_ITEM(short /*nDropITEM*/, BYTE /*bt2Owner*/) { ; }
 
@@ -80,21 +80,21 @@ public:
     virtual void Recv_ITEM(short /*nItemNO*/, short /*iDupCnt*/) { ; }
 
     // command interface function
-    virtual void Set_EMOTION(short /*nEmotionIDX*/) { ; } ///< °¨Á¤ Ç¥Çö µ¿ÀÛÀ» ¼³Á¤ÇÑ´Ù.
+    virtual void Set_EMOTION(short /*nEmotionIDX*/) { ; } ///< ê°ì • í‘œí˜„ ë™ì‘ì„ ì„¤ì •í•œë‹¤.
 
-    virtual bool SetCMD_STOP() = 0 { *(int*)0 = 10; } ///< °´Ã¼¿¡ Á¤Áö ¸í·ÉÀ» ¼³Á¤ÇÑ´Ù.
+    virtual bool SetCMD_STOP() = 0 { *(int*)0 = 10; } ///< ê°ì²´ì— ì •ì§€ ëª…ë ¹ì„ ì„¤ì •í•œë‹¤.
     virtual bool SetCMD_MOVE2D(float fPosToX, float fPosToY, BYTE btRunMODE) = 0 {
         *(int*)0 = 10;
-    } ///< °´Ã¼¿¡ ÀÌµ¿ ¸í·ÉÀ» ¼³Á¤ÇÑ´Ù.
+    } ///< ê°ì²´ì— ì´ë™ ëª…ë ¹ì„ ì„¤ì •í•œë‹¤.
 #ifndef __SERVER
     virtual bool SetCMD_MOVE(const D3DVECTOR& PosTo, BYTE btRunMODE) = 0 {
         *(int*)0 = 10;
-    } ///< °´Ã¼¿¡ ÀÌµ¿ ¸í·ÉÀ» ¼³Á¤ÇÑ´Ù.
+    } ///< ê°ì²´ì— ì´ë™ ëª…ë ¹ì„ ì„¤ì •í•œë‹¤.
 #endif
     virtual void SetCMD_RUNnATTACK(int iTargetObjTAG) = 0 {
         *(int*)0 = 10;
-    } ///< °´Ã¼¿¡ °ø°İ ¸í·ÉÀ» ¼³Á¤ÇÑ´Ù.
-    virtual void Special_ATTACK() = 0 { *(int*)0 = 10; } ///< °´Ã¼¿¡ Æ¯¼ö °ø°İ ¸í·ÉÀ» ¼³Á¤ÇÑ´Ù.
+    } ///< ê°ì²´ì— ê³µê²© ëª…ë ¹ì„ ì„¤ì •í•œë‹¤.
+    virtual void Special_ATTACK() = 0 { *(int*)0 = 10; } ///< ê°ì²´ì— íŠ¹ìˆ˜ ê³µê²© ëª…ë ¹ì„ ì„¤ì •í•œë‹¤.
 
     virtual CAI_OBJ* AI_FindFirstOBJ(int iDistance) = 0 { *(int*)0 = 10; }
     virtual CAI_OBJ* AI_FindNextOBJ() = 0 { *(int*)0 = 10; }
@@ -110,7 +110,7 @@ public:
                 return true;
         }
 #endif
-        if (-1 == pDestOBJ->Get_TeamNO()) // ÆÀ¹øÈ£ -1 ÀÌ¸é ¹«Á¶°Ç Àû
+        if (-1 == pDestOBJ->Get_TeamNO()) // íŒ€ë²ˆí˜¸ -1 ì´ë©´ ë¬´ì¡°ê±´ ì 
             return false;
 
         if (this->Get_TeamNO() == pDestOBJ->Get_TeamNO())
@@ -129,15 +129,15 @@ public:
                 return true;
         }
 #endif
-        if (-1 == pDestOBJ->Get_TeamNO()) // ÆÀ¹øÈ£ -1 ÀÌ¸é ¹«Á¶°Ç Àû
+        if (-1 == pDestOBJ->Get_TeamNO()) // íŒ€ë²ˆí˜¸ -1 ì´ë©´ ë¬´ì¡°ê±´ ì 
             return false;
 
         return (this->Get_TeamNO() == pDestOBJ->Get_TeamNO());
     }
 
-    virtual BYTE Is_DAY(void) = 0 { *(int*)0 = 10; } // ¹ã³·ÀÎÁö ¸®ÅÏ... ³·:1, ¹ã0
-    virtual int Get_ZoneTIME(void) = 0 { *(int*)0 = 10; } // ÇöÀç Á¸ ½Ã°£À» ¸®ÅÏÇÑ´Ù...
-    virtual int Get_WorldTIME(void) = 0 { *(int*)0 = 10; } // ÇöÀç ¿ùµå ½Ã°£À» ¸®ÅÏÇÑ´Ù...
+    virtual BYTE Is_DAY(void) = 0 { *(int*)0 = 10; } // ë°¤ë‚®ì¸ì§€ ë¦¬í„´... ë‚®:1, ë°¤0
+    virtual int Get_ZoneTIME(void) = 0 { *(int*)0 = 10; } // í˜„ì¬ ì¡´ ì‹œê°„ì„ ë¦¬í„´í•œë‹¤...
+    virtual int Get_WorldTIME(void) = 0 { *(int*)0 = 10; } // í˜„ì¬ ì›”ë“œ ì‹œê°„ì„ ë¦¬í„´í•œë‹¤...
     virtual void Set_TRIGGER(t_HASHKEY /*HashKEY*/) { ; }
 
 #ifdef __SERVER
@@ -163,7 +163,7 @@ public:
 
 ///<-------------------------------------------------------------------------------------------------
 ///
-///	ÀÎ°øÁö´É ÆÄÀÏ Å¬·¹½º..
+///	ì¸ê³µì§€ëŠ¥ íŒŒì¼ í´ë ˆìŠ¤..
 ///
 
 class CAI_PATTERN;
@@ -182,22 +182,22 @@ public:
 
     bool Load(char* szFileName, STBDATA* pSTB, int iLangCol);
 
-    /// 0		Ã³À½ »ı¼º½Ã
+    /// 0		ì²˜ìŒ ìƒì„±ì‹œ
     void AI_WhenCREATED(CAI_OBJ* pSourCHAR);
 
-    /// 1		Á¤Áö »óÅÂÀÏ¶§
+    /// 1		ì •ì§€ ìƒíƒœì¼ë•Œ
     void AI_WhenSTOP(CAI_OBJ* pSourCHAR);
 
-    /// 2		°ø°İ ÀÌµ¿½Ã
+    /// 2		ê³µê²© ì´ë™ì‹œ
     void AI_WhenAttackMOVE(CAI_OBJ* pSourCHAR, CAI_OBJ* pDestCHAR);
 
-    /// 3		Å¸°İ ´çÇßÀ»¶§
+    /// 3		íƒ€ê²© ë‹¹í–ˆì„ë•Œ
     void AI_WhenDAMAGED(CAI_OBJ* pSourCHAR, CAI_OBJ* pDestCHAR, int iDamage);
 
-    /// 4		»ó´ë¹æÀ» Á×¿´À»¶§
+    /// 4		ìƒëŒ€ë°©ì„ ì£½ì˜€ì„ë•Œ
     void AI_WhenKILL(CAI_OBJ* pSourCHAR, CAI_OBJ* pDestCHAR, int iDamage);
 
-    /// 5		ÀÚ½ÅÀÌ Á×À»¶§
+    /// 5		ìì‹ ì´ ì£½ì„ë•Œ
     void AI_WhenDEAD(CAI_OBJ* pSourCHAR, CAI_OBJ* pDestCHAR, int iDamage);
 };
 

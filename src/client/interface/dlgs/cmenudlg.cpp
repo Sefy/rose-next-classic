@@ -159,7 +159,7 @@ CMenuDlg::Update(POINT ptMouse) {
         return;
     CTDialog::Update(ptMouse);
     if (m_uiClickedButtonID) {
-        ///ÀÏÁ¤ÀÌ»ó µå·¡±×»óÅÂÀÏ°æ¿ì
+        ///ì¼ì •ì´ìƒ ë“œë˜ê·¸ìƒíƒœì¼ê²½ìš°
         if (abs(m_ptClickedButton.x - ptMouse.x) >= g_pCApp->GetWIDTH() / 100
             || abs(m_ptClickedButton.y - ptMouse.y) >= g_pCApp->GetHEIGHT() / 100) {
             int iDialogType = 0;
@@ -193,7 +193,7 @@ CMenuDlg::Update(POINT ptMouse) {
             }
 
             if (iDialogType) {
-                ///´ÙÀÌ¾ó·Î±× ¾ÆÀÌÄÜÀº ÇÑ°³¾¿¸¸( ¹ÙÅÁÈ­¸é¿¡ )
+                ///ë‹¤ì´ì–¼ë¡œê·¸ ì•„ì´ì½˜ì€ í•œê°œì”©ë§Œ( ë°”íƒ•í™”ë©´ì— )
                 if (g_itMGR.FindDialogIcon(iDialogType) == NULL) {
                     CIconDialog* pIcon = CIconDialog::CreateIcon(iDialogType, false);
 
@@ -315,7 +315,7 @@ CMenuDlg::ProcOpen() {
             break;
 
         case _OPEN: {
-            // ¾ÅÅ© ±¸Â÷³ª¼­ ¾È¸¶Ãã..^^
+            // ì”½í¬ êµ¬ì°¨ë‚˜ì„œ ì•ˆë§ˆì¶¤..^^
             int iPosX = GetPosition().x - 4;
 
             if (iPosX <= (GetOpenPos().x)) {

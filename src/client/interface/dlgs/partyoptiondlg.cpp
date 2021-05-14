@@ -50,8 +50,8 @@ CPartyOptionDlg::OnLButtonUp(unsigned uiProcID) {
                     g_ClientStorage.SetShowPartyMemberHpGuage(false);
             }
 
-            if (!CParty::GetInstance().IsPartyLeader()) ///ÆÄÆ¼ÀåÀÌ ¾Æ´Ò°æ¿ì¿¡´Â ´Ù¸¥ ¿É¼Ç º¯°æÀº
-                                                        ///¹«½Ã( Á¤»óÀûÀ¸·Î´Â º¯ÇÏÁöµµ ¾Ê´Â´Ù. );
+            if (!CParty::GetInstance().IsPartyLeader()) ///íŒŒí‹°ìž¥ì´ ì•„ë‹ê²½ìš°ì—ëŠ” ë‹¤ë¥¸ ì˜µì…˜ ë³€ê²½ì€
+                                                        ///ë¬´ì‹œ( ì •ìƒì ìœ¼ë¡œëŠ” ë³€í•˜ì§€ë„ ì•ŠëŠ”ë‹¤. );
             {
                 Hide();
                 break;
@@ -78,7 +78,7 @@ CPartyOptionDlg::OnLButtonUp(unsigned uiProcID) {
                     break;
             }
 
-            ///À¯Àú°¡ ÀÔ·ÂÇÑ °ªÀ» ÀÌÀü °ªÀ¸·Î µ¹¸®°í °»½ÅÀÌ µÉ°æ¿ì¿¡´Â ¼­¹ö¿¡¼­ ¹Þ¾Æ¼­ ¹Ù²Ùµµ·ÏÇÑ´Ù.
+            ///ìœ ì €ê°€ ìž…ë ¥í•œ ê°’ì„ ì´ì „ ê°’ìœ¼ë¡œ ëŒë¦¬ê³  ê°±ì‹ ì´ ë ê²½ìš°ì—ëŠ” ì„œë²„ì—ì„œ ë°›ì•„ì„œ ë°”ê¾¸ë„ë¡í•œë‹¤.
             if (m_party_rule & BIT_PARTY_RULE_ITEM_TO_ORDER)
                 pRadioBox->SetPressedButton(IID_RADIOBUTTON_ITEM_SEQUENCE);
             else
@@ -104,7 +104,7 @@ CPartyOptionDlg::OnLButtonUp(unsigned uiProcID) {
                     break;
             }
 
-            ///À¯Àú°¡ ÀÔ·ÂÇÑ °ªÀ» ÀÌÀü °ªÀ¸·Î µ¹¸®°í °»½ÅÀÌ µÉ°æ¿ì¿¡´Â ¼­¹ö¿¡¼­ ¹Þ¾Æ¼­ ¹Ù²Ùµµ·ÏÇÑ´Ù.
+            ///ìœ ì €ê°€ ìž…ë ¥í•œ ê°’ì„ ì´ì „ ê°’ìœ¼ë¡œ ëŒë¦¬ê³  ê°±ì‹ ì´ ë ê²½ìš°ì—ëŠ” ì„œë²„ì—ì„œ ë°›ì•„ì„œ ë°”ê¾¸ë„ë¡í•œë‹¤.
             if (m_party_rule & BIT_PARTY_RULE_EXP_PER_PLAYER)
                 pRadioBox->SetPressedButton(IID_RADIOBOX_EXP_RATIO_LEVEL);
             else

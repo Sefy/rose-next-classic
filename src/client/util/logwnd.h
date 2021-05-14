@@ -11,42 +11,42 @@
 
 // [IfxLogWnd2 Handling Document at 20000214 by iskim]
 //
-// �α׾ƿ��� ����Ϸ��� ������ �����Ͻʽÿ�
-// �α׾ƿ��� ������ �������Դϴ�.
+// 로그아웃을 사용하려면 다음을 참조하십시오
+// 로그아웃의 유형은 세가지입니다.
 //
-// 1) �Ϲݷα� : �Ϲ����� �������� ���˴ϴ�.
-// 2) ����α� : ����� �������� ���˴ϴ�.
-// 3) �����α� : �����߻��� ���˴ϴ�.
+// 1) 일반로그 : 일반적인 목적으로 사용됩니다.
+// 2) 경고로그 : 경고성 목적으로 사용됩니다.
+// 3) 에러로그 : 에러발생시 사용됩니다.
 //
-// �α� 2.0�� ����ϽŴٸ� ������ ���� ������� ����Ͻʽÿ�.
-// A) LOGOUT:�Ϲݷα�
-//		Ex1: LOGOUT(_T("printf�� �������� �������Ͻʽÿ�."));
-//		Ex2: LOGOUT(_T("%04d : �Ϲݷα��Դϴ�."), 100);
+// 로그 2.0을 사용하신다면 다음과 같은 방법으로 사용하십시오.
+// A) LOGOUT:일반로그
+//		Ex1: LOGOUT(_T("printf의 형식으로 포맷팅하십시오."));
+//		Ex2: LOGOUT(_T("%04d : 일반로그입니다."), 100);
 //
-// B) LOGWAR:����α�
-//		Ex1: LOGWAR(_T("%04d : ����α��Դϴ�."), 100);
+// B) LOGWAR:경고로그
+//		Ex1: LOGWAR(_T("%04d : 경고로그입니다."), 100);
 //
-// C) LOGERR:�����α�
-//		Ex1: LOGERR(_T("%04d : �����α��Դϴ�."), 100);
+// C) LOGERR:에러로그
+//		Ex1: LOGERR(_T("%04d : 에러로그입니다."), 100);
 //
-// �ڼ��� �α׾ƿ��� ���� ������ �����մϴ�.
+// 자세한 로그아웃을 위한 덤프를 지원합니다.
 // Prepare Ex)
 //		TCHAR pDump[2048];
-//		::lstrcpy(pDump, _T("�̰��� �����������Դϴ�."), 10);
+//		::lstrcpy(pDump, _T("이것은 덤프데이터입니다."), 10);
 //
-// A) DUMPOUT:�Ϲݷα�
-//		Ex1: DUMPOUT(pDump)(_T("%04d : �Ϲݷα��Դϴ�."), 100);
+// A) DUMPOUT:일반로그
+//		Ex1: DUMPOUT(pDump)(_T("%04d : 일반로그입니다."), 100);
 //
-// B) DUMPWAR:����α�
-//		Ex1: DUMPWAR(pDump)(_T("%04d : ����α��Դϴ�."), 100);
+// B) DUMPWAR:경고로그
+//		Ex1: DUMPWAR(pDump)(_T("%04d : 경고로그입니다."), 100);
 //
-// C) DUMPERR:�Ϲݷα�
-//		Ex1: DUMPERR(pDump)(_T("%04d : �����α��Դϴ�."), 100);
+// C) DUMPERR:일반로그
+//		Ex1: DUMPERR(pDump)(_T("%04d : 에러로그입니다."), 100);
 //
-// ���� �ڼ��� �α׾ƿ��� �����մϴ�.
-//		GetLastError()�� �޽����� �����˴ϴ�.
+// 더욱 자세한 로그아웃을 지원합니다.
+//		GetLastError()의 메시지는 덤프됩니다.
 //
-// A) LOGOUT_LASTERROR : GetLastError()�� �������մϴ�.
+// A) LOGOUT_LASTERROR : GetLastError()를 포맷팅합니다.
 //		Ex1:
 //		try {
 //			... some error
@@ -66,7 +66,7 @@ static char m_szMessage[255];
 static char m_szDump[255];
 static BOOL m_bExceptionHandling;
 
-static LPCTSTR g_logOut = _T("�α� 2.0");
+static LPCTSTR g_logOut = _T("로그 2.0");
 static LPCTSTR g_logOutwindowClassName = _T("ISKIM Frameworks LogWnd2");
 
     // iType

@@ -11,12 +11,12 @@
 class CDragItem;
 class CTCmdNumberInput;
 /**
- * º¸À¯ÇÑ ¾ÆÀÌÅÛ¹× ÀåÂøµÈ ¾ÆÀÌÅÛÀÇ Á¤º¸¸¦ º¸¿©ÁÖ´Â ´ÙÀÌ¾ó·Î±×
- *	- ¼­¹ö¿Í´Â º°µµ·Î Å¬¶óÀÌ¾ğÆ®¿¡¼­¸¸ ÀÎº¥Åä¸®ÀÇ ¾ÆÀÌÅÛÀÇ À§Ä¡¸¦ ÀÌµ¿½ÃÅ³¼ö ÀÖÀ¸¸é ÀúÀåµÇ¾î Áø´Ù.(
- *´ç¿¬È÷ ÀÌµ¿µÈ ¾ÆÀÌÅÛÀÇ À§Ä¡´Â °°Àº PC¿¡¼­¸¸ Àû¿ëµÈ´Ù )
+ * ë³´ìœ í•œ ì•„ì´í…œë° ì¥ì°©ëœ ì•„ì´í…œì˜ ì •ë³´ë¥¼ ë³´ì—¬ì£¼ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
+ *	- ì„œë²„ì™€ëŠ” ë³„ë„ë¡œ í´ë¼ì´ì–¸íŠ¸ì—ì„œë§Œ ì¸ë²¤í† ë¦¬ì˜ ì•„ì´í…œì˜ ìœ„ì¹˜ë¥¼ ì´ë™ì‹œí‚¬ìˆ˜ ìˆìœ¼ë©´ ì €ì¥ë˜ì–´ ì§„ë‹¤.(
+ *ë‹¹ì—°íˆ ì´ë™ëœ ì•„ì´í…œì˜ ìœ„ì¹˜ëŠ” ê°™ì€ PCì—ì„œë§Œ ì ìš©ëœë‹¤ )
  *	- Observable : CItemSlot
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/12
  */
 class CItemDlg: public CTDialog, public IObserver, public IActionListener {
@@ -34,11 +34,11 @@ public:
 
     virtual unsigned ActionPerformed(CActionEvent* e);
 
-    bool IsInsideInven(POINT pt); /// ÁÂÇ¥°¡ ÀÎº¥Åä¸® ½½·Ô ¿µ¿ª	À§ÀÎ°¡?
-    bool IsInsideEquip(POINT pt); /// ÁÂÇ¥°¡ ÀåÂø ½½·Ô ¿µ¿ª À§ÀÎ°¡?
+    bool IsInsideInven(POINT pt); /// ì¢Œí‘œê°€ ì¸ë²¤í† ë¦¬ ìŠ¬ë¡¯ ì˜ì—­	ìœ„ì¸ê°€?
+    bool IsInsideEquip(POINT pt); /// ì¢Œí‘œê°€ ì¥ì°© ìŠ¬ë¡¯ ì˜ì—­ ìœ„ì¸ê°€?
 
-    int GetEquipSlot(POINT pt); /// ÁÂÇ¥·Î Àåºñ ÀåÂøÃ¢ ½½·Ô ¹øÈ£¸¦ ±¸ÇÑ´Ù.
-    CSlot* GetInvenSlot(POINT pt); /// ÁÂÇ¥·Î ÀÎº¥Åä¸® ½½·Ô ¹øÈ£¸¦ ±¸ÇÑ´Ù.
+    int GetEquipSlot(POINT pt); /// ì¢Œí‘œë¡œ ì¥ë¹„ ì¥ì°©ì°½ ìŠ¬ë¡¯ ë²ˆí˜¸ë¥¼ êµ¬í•œë‹¤.
+    CSlot* GetInvenSlot(POINT pt); /// ì¢Œí‘œë¡œ ì¸ë²¤í† ë¦¬ ìŠ¬ë¡¯ ë²ˆí˜¸ë¥¼ êµ¬í•œë‹¤.
 
     void ApplySavedVirtualInventory(std::list<S_InventoryData>& list);
     void GetVirtualInventory(std::list<S_InventoryData>& list);
@@ -50,18 +50,18 @@ public:
 
 private:
     void SwitchIcon(int iReal,
-        int iVirtual); /// ½ÇÁ¦ ÀÎº¥Åä¸® ÀÎµ¦½º¿Í °¡»ó ÀÎº¥Åä¸®ÀÎµ¦½º·Î ¾ÆÀÌÄÜ À§Ä¡ ÀÌµ¿
-    CSlot* GetInvenSlotByRealIndex(int iIndex); /// ½ÇÁ¦ ÀÎº¥Åä¸® ÀÎµ¦½º·Î ½½·Ô ÀÎµ¦½º¸¦ ±¸ÇÑ´Ù.
+        int iVirtual); /// ì‹¤ì œ ì¸ë²¤í† ë¦¬ ì¸ë±ìŠ¤ì™€ ê°€ìƒ ì¸ë²¤í† ë¦¬ì¸ë±ìŠ¤ë¡œ ì•„ì´ì½˜ ìœ„ì¹˜ ì´ë™
+    CSlot* GetInvenSlotByRealIndex(int iIndex); /// ì‹¤ì œ ì¸ë²¤í† ë¦¬ ì¸ë±ìŠ¤ë¡œ ìŠ¬ë¡¯ ì¸ë±ìŠ¤ë¥¼ êµ¬í•œë‹¤.
 
     void OnLButtonDown(unsigned uiProcID, WPARAM wParam, LPARAM lParam);
     void OnLButtonUp(unsigned uiProcID, WPARAM wParam, LPARAM lParam);
 
     bool
-    ProcessSlots(unsigned uiMsg, WPARAM wParam, LPARAM lParam); /// ½½·ÔµéÀÇ CTDialog::ProcessÃ³¸®
+    ProcessSlots(unsigned uiMsg, WPARAM wParam, LPARAM lParam); /// ìŠ¬ë¡¯ë“¤ì˜ CTDialog::Processì²˜ë¦¬
 
     CWinCtrl* FindChildInPane(unsigned uiPaneID, unsigned uiChildID);
     
-    bool IsAvailableRepair(CIcon* pIcon); /// ¼ö¸® °¡´ÉÇÑ ¾ÆÀÌÅÛÀÎ°¡?
+    bool IsAvailableRepair(CIcon* pIcon); /// ìˆ˜ë¦¬ ê°€ëŠ¥í•œ ì•„ì´í…œì¸ê°€?
 
 private:
     enum {
@@ -88,14 +88,14 @@ private:
     int m_iEquipTab; /// 0 ~ 2
     int m_iInventoryTab; /// 0 ~ 2
 
-    CSlot m_AvatarEquipSlots[MAX_EQUIP_IDX - 1]; /// Ä³¸¯ÅÍ ¾ÆÀÌÅÛ ÀåÂø ½½·Ô
-    CSlot m_BulletEquipSlots[MAX_SHOT_TYPE]; /// ¼Ò¸ğÅº ¾ÆÀÌÄÜ ½½·Ô
-    CSlot m_PatEquipSlots[MAX_RIDING_PART]; /// PAT ¾ÆÀÌÅÛ ÀåÂø ½½·Ô
+    CSlot m_AvatarEquipSlots[MAX_EQUIP_IDX - 1]; /// ìºë¦­í„° ì•„ì´í…œ ì¥ì°© ìŠ¬ë¡¯
+    CSlot m_BulletEquipSlots[MAX_SHOT_TYPE]; /// ì†Œëª¨íƒ„ ì•„ì´ì½˜ ìŠ¬ë¡¯
+    CSlot m_PatEquipSlots[MAX_RIDING_PART]; /// PAT ì•„ì´í…œ ì¥ì°© ìŠ¬ë¡¯
     CSlot costume_slots[MAX_COSTUME_IDX];
-    CSlot m_ItemSlots[MAX_INV_TYPE][INVENTORY_PAGE_SIZE]; /// ¸ğµç ÀÎº¥Åä¸® ¾ÆÀÌÅÛ ½½·Ô
+    CSlot m_ItemSlots[MAX_INV_TYPE][INVENTORY_PAGE_SIZE]; /// ëª¨ë“  ì¸ë²¤í† ë¦¬ ì•„ì´í…œ ìŠ¬ë¡¯
 
-    CDragItem* m_pInvenDragItem; /// ÀÎº¥Åä¸®ÀÇ ¾ÆÀÌÅÛ ¾ÆÀÌÄÜ µå·¡±× ¾ÆÀÌÅÛ
-    CDragItem* m_pEquipDragItem; /// ÀåÂøÁßÀÎ ¾ÆÀÌÅÛ ¾ÆÀÌÄÜ µå·¡±× ¾ÆÀÌÅÛ
+    CDragItem* m_pInvenDragItem; /// ì¸ë²¤í† ë¦¬ì˜ ì•„ì´í…œ ì•„ì´ì½˜ ë“œë˜ê·¸ ì•„ì´í…œ
+    CDragItem* m_pEquipDragItem; /// ì¥ì°©ì¤‘ì¸ ì•„ì´í…œ ì•„ì´ì½˜ ë“œë˜ê·¸ ì•„ì´í…œ
 
     CTCmdNumberInput* m_pCmdDropMoney;
     CTCmdNumberInput* m_pCmdAddMyMoney2Exchange;

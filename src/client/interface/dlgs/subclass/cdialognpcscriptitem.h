@@ -4,9 +4,9 @@
 #include "tgamectrl/winctrl.h"
 #include "tgamectrl/JStringParser.h"
 /**
- * NPC¿ÍÀÇ ´ëÈ­½Ã NPC SCRIPT°¡ Ãâ·ÂµÇ´Â ZLISTBOX¸¦ À§ÇÑ Item Class
+ * NPCì™€ì˜ ëŒ€í™”ì‹œ NPC SCRIPTê°€ ì¶œë ¥ë˜ëŠ” ZLISTBOXë¥¼ ìœ„í•œ Item Class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CDialogNpcScriptItem: public CWinCtrl {
@@ -23,7 +23,7 @@ public:
 protected:
     int m_iModuleID;
     int m_iImageID;
-    int m_iLineCount; ///ÀÌ¹ÌÁö ±×¸± ¶óÀÎÄ«¿îÆ®
+    int m_iLineCount; ///ì´ë¯¸ì§€ ê·¸ë¦´ ë¼ì¸ì¹´ìš´íŠ¸
     int m_iLineHeight;
     int m_iBorderWidth;
 

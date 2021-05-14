@@ -10,7 +10,7 @@ CDirectMusicPlayer::~CDirectMusicPlayer(void) {}
 bool
 CDirectMusicPlayer::Init() {
     if (FAILED(m_MMPlayer.Init(g_pCApp->GetHWND(), WM_MUSIC_EVENT))) {
-        MessageBox(g_pCApp->GetHWND(), "»ç¿îµå Ä«µå¿¡ ¹®Á¦°¡ ÀÖ½À´Ï´Ù.", "ERROR", MB_OK);
+        MessageBox(g_pCApp->GetHWND(), "ì‚¬ìš´ë“œ ì¹´ë“œì— ë¬¸ì œê°€ ìžˆìŠµë‹ˆë‹¤.", "ERROR", MB_OK);
         return false;
     }
 
@@ -47,11 +47,11 @@ CDirectMusicPlayer::HandleEvent() {
     m_MMPlayer.HandleEvent();
 }
 
-/// ??? ¹º°¡ ÀÌ»óÇÏ´Ù...
+/// ??? ë­”ê°€ ì´ìƒí•˜ë‹¤...
 void
 CDirectMusicPlayer::SetVolume(long lVolume) {
     HRESULT hr = S_OK;
-    // ÇÒ¶§¸¶´Ù ÇÏ´Â°Ç ¹«½ÄÇÏÁö¸¸.. Àû´çÈ÷ ³ÖÀ»°÷ÀÌ ¾ø´Ù.. ÇöÀç·Î´Â..
+    // í• ë•Œë§ˆë‹¤ í•˜ëŠ”ê±´ ë¬´ì‹í•˜ì§€ë§Œ.. ì ë‹¹ížˆ ë„£ì„ê³³ì´ ì—†ë‹¤.. í˜„ìž¬ë¡œëŠ”..
     if (FAILED(hr = m_MMPlayer.m_pGraphBuilder->QueryInterface(IID_IBasicAudio, (void**)&m_pBA)))
         return;
 

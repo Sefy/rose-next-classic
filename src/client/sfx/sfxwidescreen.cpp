@@ -32,12 +32,12 @@ CSFXWideScreen::Init() {
     //	#ifdef _DEBUG
     //		g_pCApp->ErrorBOX( "CSFXWideScreen load failed !!", "File open error" );
     //	#endif
-    //		//½ÇÆÐÇÑ ÀÌÀ¯¸¦ Àû¾îÁØ´Ù..
+    //		//ì‹¤íŒ¨í•œ ì´ìœ ë¥¼ ì ì–´ì¤€ë‹¤..
     //	return false;
     //}
 
     ///
-    /// ¿£ÁøÀÇ ºäÆ÷Æ® º¯È¯±â´ÉÀ¸·Î ¿ÍÀÌµå ½ºÅ©¸°È¿°ú..
+    /// ì—”ì§„ì˜ ë·°í¬íŠ¸ ë³€í™˜ê¸°ëŠ¥ìœ¼ë¡œ ì™€ì´ë“œ ìŠ¤í¬ë¦°íš¨ê³¼..
     ///
     PlayWideScreen(9.0f / 16.0f);
 
@@ -53,7 +53,7 @@ CSFXWideScreen::Release() {
     }*/
 
     ///
-    /// ¿£ÁøÀÇ ºäÆ÷Æ® º¯È¯±â´ÉÀ¸·Î ¿ÍÀÌµå ½ºÅ©¸°È¿°ú..
+    /// ì—”ì§„ì˜ ë·°í¬íŠ¸ ë³€í™˜ê¸°ëŠ¥ìœ¼ë¡œ ì™€ì´ë“œ ìŠ¤í¬ë¦°íš¨ê³¼..
     ///
     StopWideScreen();
 }

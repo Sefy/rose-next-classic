@@ -1,9 +1,9 @@
 #ifndef _CITState_
 #define _CITState_
 /**
- * °ÔÀÓ¿ùµå¿¡ Á¢¼ÓÈÄ IT_MGR(g_itMGR)ÀÇ State Class
+ * ê²Œì„ì›”ë“œì— ì ‘ì†í›„ IT_MGR(g_itMGR)ì˜ State Class
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/6
  */
 class CITState {
@@ -15,7 +15,7 @@ public:
     virtual unsigned Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) = 0;
     virtual void Update(POINT ptMouse) = 0;
 
-    /// @return bool default draw¸¦ »ç¿ëÇÒ°ÍÀÎ°¡
+    /// @return bool default drawë¥¼ ì‚¬ìš©í• ê²ƒì¸ê°€
     virtual bool Draw() { return true; }
 
     int GetID();

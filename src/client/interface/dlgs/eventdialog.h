@@ -5,12 +5,12 @@
 #include "tgamectrl/JStringParser.h"
 
 /**
- * ¾ÆÀÌÅÛ»ç¿ë½Ã ¿­¸®´Â ´ëÈ­Ã¢µî Event ·Î ¿­¸®´Â ´ÙÀÌ¾ó·Î±×
- *	- ±âº» µ¿ÀÛÀº CDialogDlg¿Í µ¿ÀÏÇÏ´Ù
+ * ì•„ì´í…œì‚¬ìš©ì‹œ ì—´ë¦¬ëŠ” ëŒ€í™”ì°½ë“± Event ë¡œ ì—´ë¦¬ëŠ” ë‹¤ì´ì–¼ë¡œê·¸
+ *	- ê¸°ë³¸ ë™ìž‘ì€ CDialogDlgì™€ ë™ì¼í•˜ë‹¤
  *
- * @Warning		´ë¸¸¹öÁ¯°ú ±¹³»¹öÁ¯°ú´Â Ç¥½Ã ¹æ½ÄÀÌ ´Ù¸£´Ù(XMLµ¥ÀÌÅ¸°¡ Æ²¸®¸ç ±¹°¡ÄÚµå·Î ÄÚµå°¡
- *±¸ºÐµÈ´Ù)
- * @Author		ÃÖÁ¾Áø
+ * @Warning		ëŒ€ë§Œë²„ì ¼ê³¼ êµ­ë‚´ë²„ì ¼ê³¼ëŠ” í‘œì‹œ ë°©ì‹ì´ ë‹¤ë¥´ë‹¤(XMLë°ì´íƒ€ê°€ í‹€ë¦¬ë©° êµ­ê°€ì½”ë“œë¡œ ì½”ë“œê°€
+ *êµ¬ë¶„ëœë‹¤)
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/14
  */
 

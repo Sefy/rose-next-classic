@@ -7,9 +7,9 @@ class CTRadioButton;
 typedef map<unsigned int, CTRadioButton*> RADIOBUTTON_MAP;
 typedef RADIOBUTTON_MAP::iterator RADIOBUTTON_MAP_ITOR;
 /**
- * °°ÀÌ µ¿ÀÛÇÒ RadioButton À» ¹­¾î ÁÙ RadioBox Class
+ * ê°™ì´ ë™ì‘í•  RadioButton ì„ ë¬¶ì–´ ì¤„ RadioBox Class
  *
- * @Author	ÃÖÁ¾Áø
+ * @Author	ìµœì¢…ì§„
  *
  * @Data		2005/8/30
  */
@@ -19,11 +19,11 @@ public:
     virtual ~CTRadioBox(void);
     virtual void Show();
 
-    void RegisterCtrl(CTRadioButton* pCtrl); /// ¶óµğ¿À ¹öÆ° µî·Ï
-    void UnregisterCtrl(CTRadioButton* pCtrl); /// ¶óµğ¿À ¹öÆ° µî·Ï ÇØÁ¦
+    void RegisterCtrl(CTRadioButton* pCtrl); /// ë¼ë””ì˜¤ ë²„íŠ¼ ë“±ë¡
+    void UnregisterCtrl(CTRadioButton* pCtrl); /// ë¼ë””ì˜¤ ë²„íŠ¼ ë“±ë¡ í•´ì œ
     void EventChangeSelect(
-        unsigned int iID); /// µî·ÏµÈ ¶óµğ¿À ¹öÆ°ÀÌ Å¬¸¯µÇ¾úÀ»¶§ ¶óµğ¿À ¹öÆ°ÀÌ È£ÃâÇÏ´Â Method(´Ù¸¥
-                           /// ¹öÆ°µéÀÇ »óÅÂ¸¦ Normal·Î ¹Ù²Ù¾îÁØ´Ù)
+        unsigned int iID); /// ë“±ë¡ëœ ë¼ë””ì˜¤ ë²„íŠ¼ì´ í´ë¦­ë˜ì—ˆì„ë•Œ ë¼ë””ì˜¤ ë²„íŠ¼ì´ í˜¸ì¶œí•˜ëŠ” Method(ë‹¤ë¥¸
+                           /// ë²„íŠ¼ë“¤ì˜ ìƒíƒœë¥¼ Normalë¡œ ë°”ê¾¸ì–´ì¤€ë‹¤)
 
     unsigned int GetPressedButtonID() { return m_iPressedButton; }
     bool SetPressedButton(unsigned int iID);
@@ -32,7 +32,7 @@ public:
 
 protected:
     RADIOBUTTON_MAP m_Children;
-    unsigned int m_iPressedButton; /// ÇöÀç ¼±ÅÃµÈ ¶óµğ¿À ¹öÆ° ID
+    unsigned int m_iPressedButton; /// í˜„ì¬ ì„ íƒëœ ë¼ë””ì˜¤ ë²„íŠ¼ ID
 };
 
 #endif

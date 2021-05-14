@@ -12,12 +12,12 @@ CCheckHack checkHack;
 
 bool __stdcall CallBackFindHack ( char *szFileName )
 {
-    // return true¸é ÇØÅ·Åø ÇÁ·Î¼¼½º °­Á¦ Á¾·á..
-    if ( IDOK == ::MessageBox( NULL, "µ¿½Ã¿¡ ½ÇÇàÇÒ¼ö ¾ø´Â ÇÁ·Î¼¼½º°¡ ½ÇÇàÁßÀÔ´Ï´Ù.", szFileName,
+    // return trueë©´ í•´í‚¹íˆ´ í”„ë¡œì„¸ìŠ¤ ê°•ì œ ì¢…ë£Œ..
+    if ( IDOK == ::MessageBox( NULL, "ë™ì‹œì— ì‹¤í–‰í• ìˆ˜ ì—†ëŠ” í”„ë¡œì„¸ìŠ¤ê°€ ì‹¤í–‰ì¤‘ì…ë‹ˆë‹¤.", szFileName,
 MB_OK ) ) return true;
 
 
-    // ÇØÅ·Åø Á¾·á ¾ÈµÊ :: °ÔÀÓ ÇÁ·Î¼¼½º¸¦ Á¾·á..
+    // í•´í‚¹íˆ´ ì¢…ë£Œ ì•ˆë¨ :: ê²Œì„ í”„ë¡œì„¸ìŠ¤ë¥¼ ì¢…ë£Œ..
     return false;
 }
 
@@ -53,16 +53,16 @@ bool CCheckHack::Check()
             else
             {
                 ::MessageBox( NULL, "invalid TCheck.dll", "...", MB_OK );
-                return false;	// °ÔÀÓ Á¾·á
+                return false;	// ê²Œì„ ì¢…ë£Œ
             }
         } else
         {
             ::MessageBox( NULL, "TCheck.dll not found", "...", MB_OK );
-            return false;		// °ÔÀÓ Á¾·á
+            return false;		// ê²Œì„ ì¢…ë£Œ
         }
     } else
     {
-        // NT platform ÀÌ ¾Æ´Ï¸é ¹«½Ã
+        // NT platform ì´ ì•„ë‹ˆë©´ ë¬´ì‹œ
         ///::MessageBox( NULL, "not active on noe NT platfrom..", "...", MB_OK );
         return true;
     }

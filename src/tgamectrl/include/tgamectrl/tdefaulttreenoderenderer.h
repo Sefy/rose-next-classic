@@ -36,6 +36,6 @@ protected:
     CTImage* m_pNodeImage;
 
     D3DCOLOR m_color;
-    SIZE m_sizeImage; /// close or open image¿« size
+    SIZE m_sizeImage; /// close or open imageÏùò size
 };
 #endif

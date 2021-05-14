@@ -4,10 +4,10 @@
 #include "ccursorstate.h"
 
 /**
- * ¸ÅÇÁ·¹ÀÓ ÀÌ¹ÌÁö¸¦ DrawÇÏ´Â State Class( ±âº» Ä¿¼­¸¸ ÀÖÀ½ )
+ * ë§¤í”„ë ˆì„ ì´ë¯¸ì§€ë¥¼ Drawí•˜ëŠ” State Class( ê¸°ë³¸ ì»¤ì„œë§Œ ìˆìŒ )
  *
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  *
  * @Date			2005/9/6
  */

@@ -4,8 +4,8 @@
 #include "../gamecommon/iobserver.h"
 
 enum {
-    DEAL_SELL, // 0,ÆÇ¸Å
-    DEAL_BUY, // 1.±¸¸Å
+    DEAL_SELL, // 0,íŒë§¤
+    DEAL_BUY, // 1.êµ¬ë§¤
     MAX_DEAL_SELLBUY
 };
 
@@ -18,12 +18,12 @@ class CItem;
 class CTEventDeal;
 
 /**
- * NPC »óÁ¡ ÀÌ¿ë½Ã 2°³ÀÌ»óÀÇ ¾ÆÀÌÅÛÀ» ±¸ÀÔ/ÆÇ¸ÅÇÏ±â À§ÇÑ ÀÎÅÍÆäÀÌ½ºÀÇ Data Class
- *	- ½Ì±ÛÅæ
+ * NPC ìƒì  ì´ìš©ì‹œ 2ê°œì´ìƒì˜ ì•„ì´í…œì„ êµ¬ì…/íŒë§¤í•˜ê¸° ìœ„í•œ ì¸í„°í˜ì´ìŠ¤ì˜ Data Class
+ *	- ì‹±ê¸€í†¤
  *	- Observable	: CItemSlot
  *	- Observer		: CDealDLG
  *
- * @Author		ÃÖÁ¾Áø
+ * @Author		ìµœì¢…ì§„
  * @Date			2005/9/15
  */
 class CDealData: public CObservable, public IObserver {

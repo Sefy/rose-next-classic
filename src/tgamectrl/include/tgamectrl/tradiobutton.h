@@ -8,12 +8,12 @@ class CTRadioBox;
 class ITFont;
 
 /**
- * ¶óµğ¿À ¹öÆ° Class
- *	- ¶óµğ¿À¹Ú½º¿¡ µî·ÏÈÄ ±× ¶óµğ¿À¹Ú½º¿¡ µî·ÏµÈ ¹öÆ°µé°ú ¿¬°èµÇ¾î µ¿ÀÛµÈ´Ù.
- *	- ¹öÆ°ÀÌ Å¬¸¯µÇ¾úÀ»¶§ ¶óµğ¿À ¹Ú½ºÀÇ EventChangeSelect()¸¦ È£ÃâÇÏ¿© ´Ù¸¥ ¹öÆ°µéÀÇ »óÅÂ º¯°æ
- *	- ¿¬°üClass : CTRadioBox
+ * ë¼ë””ì˜¤ ë²„íŠ¼ Class
+ *	- ë¼ë””ì˜¤ë°•ìŠ¤ì— ë“±ë¡í›„ ê·¸ ë¼ë””ì˜¤ë°•ìŠ¤ì— ë“±ë¡ëœ ë²„íŠ¼ë“¤ê³¼ ì—°ê³„ë˜ì–´ ë™ì‘ëœë‹¤.
+ *	- ë²„íŠ¼ì´ í´ë¦­ë˜ì—ˆì„ë•Œ ë¼ë””ì˜¤ ë°•ìŠ¤ì˜ EventChangeSelect()ë¥¼ í˜¸ì¶œí•˜ì—¬ ë‹¤ë¥¸ ë²„íŠ¼ë“¤ì˜ ìƒíƒœ ë³€ê²½
+ *	- ì—°ê´€Class : CTRadioBox
  *
- * @Author			ÃÖÁ¾Áø
+ * @Author			ìµœì¢…ì§„
  *
  * @Data				2005/8/30
  */
@@ -47,7 +47,7 @@ public:
     void SetGhost();
 
 protected:
-    CSinglelineString m_text; /// ¹öÆ°À§¿¡ Ãâ·ÂµÉ ½ºÆ®¸µ
+    CSinglelineString m_text; /// ë²„íŠ¼ìœ„ì— ì¶œë ¥ë  ìŠ¤íŠ¸ë§
 
     short m_iButtonState;
 
@@ -56,10 +56,10 @@ protected:
     int m_iOverGraphicID;
     int m_iDownGraphicID;
 
-    int m_iDisableSoundID; /// DisableµÈ »óÅÂ¿¡¼­ Å¬¸¯½Ã PlayÇÒ Sound ID
-    CTRadioBox* m_pRadioBox; /// µî·ÏµÈ RadioBox
+    int m_iDisableSoundID; /// Disableëœ ìƒíƒœì—ì„œ í´ë¦­ì‹œ Playí•  Sound ID
+    CTRadioBox* m_pRadioBox; /// ë“±ë¡ëœ RadioBox
     ITFont* m_pFontImpl;
-    bool m_bGhost; /// ½ÇÁ¦·Î ¾øÁö¸¸ ÀÚ¸®¸¦ Àâ±â À§ÇÑ ¿ëµµ·Î »ç¿ëµÉ °æ¿ì ( CTabbedPane¿¡¼­ ¶óµğ¿À
-                   /// ¹öÆ°ÀÌ ÀÖ¾î¾ß TabÀÌ µî·ÏµÇ¾î¼­ )
+    bool m_bGhost; /// ì‹¤ì œë¡œ ì—†ì§€ë§Œ ìë¦¬ë¥¼ ì¡ê¸° ìœ„í•œ ìš©ë„ë¡œ ì‚¬ìš©ë  ê²½ìš° ( CTabbedPaneì—ì„œ ë¼ë””ì˜¤
+                   /// ë²„íŠ¼ì´ ìˆì–´ì•¼ Tabì´ ë“±ë¡ë˜ì–´ì„œ )
 };
 #endif

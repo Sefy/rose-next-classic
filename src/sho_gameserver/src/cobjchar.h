@@ -1,7 +1,7 @@
 /**
  * \ingroup SHO_GS
  * \file	CObjCHAR.h
- * \brief	avatar/mob/npcµî ÄÉ¸¯ÅÍÀÇ ±âº» Å¬·¡½º·Î ÄÉ¸¯ÅÍ Ã³¸®
+ * \brief	avatar/mob/npcë“± ì¼€ë¦­í„°ì˜ ê¸°ë³¸ í´ë˜ìŠ¤ë¡œ ì¼€ë¦­í„° ì²˜ë¦¬
  */
 #ifndef __CObjCHAR_H
 #define __CObjCHAR_H
@@ -45,8 +45,8 @@ class CGuild;
  * \ingroup SHO_GS_LIB
  * \class	CObjCHAR
  * \author	wookSang.Jo
- * \brief	ÄÉ¸¯ÅÍ µ¥ÀÌÅÍ °ü¸®¹× Ã³¸®ÇÏ´Â Å¬·¡½º
- *			ÀÎ°øÁö´É Ã³¸® Å¬·¡½ºÀÎ CObjAI¸¦ »ó¼Ó¹ŞÀ½
+ * \brief	ì¼€ë¦­í„° ë°ì´í„° ê´€ë¦¬ë° ì²˜ë¦¬í•˜ëŠ” í´ë˜ìŠ¤
+ *			ì¸ê³µì§€ëŠ¥ ì²˜ë¦¬ í´ë˜ìŠ¤ì¸ CObjAIë¥¼ ìƒì†ë°›ìŒ
  */
 class CObjCHAR: public CObjAI {
 public:
@@ -119,8 +119,8 @@ public:
     virtual ~CObjCHAR();
 
     union {
-        short m_nCharIdx; // NPC, MOB ¹øÈ£
-        short m_nCharRACE; // ¾Æ¹ÙÅ¸: ÀÎ°£ ³²ÀÚ0, ÀÎ°£ ¿©ÀÚ 1, ...
+        short m_nCharIdx; // NPC, MOB ë²ˆí˜¸
+        short m_nCharRACE; // ì•„ë°”íƒ€: ì¸ê°„ ë‚¨ì0, ì¸ê°„ ì—¬ì 1, ...
     };
     float m_fScale;
 
@@ -260,7 +260,7 @@ public:
     }
     // <<<< virtual function ----------------------------------------------------------------------
 
-    /// ½ºÅ³¿¡¼­ ´É·ÂÄ¡¸¦ ¹Ù·Î Àû¿ë...
+    /// ìŠ¤í‚¬ì—ì„œ ëŠ¥ë ¥ì¹˜ë¥¼ ë°”ë¡œ ì ìš©...
     bool Skill_IsPassFilter(CObjCHAR* pTarget, short nSkillIDX);
     // BYTE		Skill_IncAbilityValue( short nSkillIDX );
     void Skill_ChangeIngSTATUS(CObjCHAR* pTarget);
@@ -276,7 +276,7 @@ public:
     int Get_DEF() {
         int iR = GetOri_DEF() + m_IngSTATUS.Adj_DPOWER();
         return (iR > 10) ? iR : 10;
-    } // ¹æ¾î·Â
+    } // ë°©ì–´ë ¥
     int Get_RES() {
         int iR = GetOri_RES() + m_IngSTATUS.Adj_RES();
         return (iR > 10) ? iR : 10;
@@ -285,7 +285,7 @@ public:
     int Get_AVOID() {
         int iR = GetOri_AVOID() + m_IngSTATUS.Adj_AVOID();
         return (iR > 10) ? iR : 10;
-    } // È¸ÇÇ·Â
+    } // íšŒí”¼ë ¥
     int Get_CRITICAL() {
         int iR = GetOri_CRITICAL() + m_IngSTATUS.Adj_CRITICAL();
         return (iR > 10) ? iR : 10;

@@ -52,7 +52,7 @@ CMakeStateResult::Draw() {
     for (int i = 0; i < CManufacture::GetInstance().GetMaterialCount(); ++i)
         m_listGuage[i]->Draw();
 }
-///°ÔÀÌÁö´Â ¼ø¼­´ë·Î À§¿¡ÀÖ´Â °ÔÀÌÁö°¡ Update°¡ ³¡³­µÚ¿¡³ª Updateµé¾î°¥¼ö ÀÖ´Ù.
+///ê²Œì´ì§€ëŠ” ìˆœì„œëŒ€ë¡œ ìœ„ì—ìˆëŠ” ê²Œì´ì§€ê°€ Updateê°€ ëë‚œë’¤ì—ë‚˜ Updateë“¤ì–´ê°ˆìˆ˜ ìˆë‹¤.
 ///
 void
 CMakeStateResult::Update(POINT ptMouse) {
@@ -60,20 +60,20 @@ CMakeStateResult::Update(POINT ptMouse) {
         return;
     DWORD dwCurrTime = g_GameDATA.GetGameTime();
 
-    ///³Ê¹« ÀÛÀº °ªÀÌ ³Ñ¾î°¡¼­ Áõ°¡°ªÀÌ 1ÀÌÇÏ°¡ »ı±æ¼ö ÀÖ´Ù.
+    ///ë„ˆë¬´ ì‘ì€ ê°’ì´ ë„˜ì–´ê°€ì„œ ì¦ê°€ê°’ì´ 1ì´í•˜ê°€ ìƒê¸¸ìˆ˜ ìˆë‹¤.
     if (dwCurrTime - m_dwPrevTime < 33)
         return;
 
     CItemSlot* pItemSlot = g_pAVATAR->GetItemSlot();
     CItem* pItem = NULL;
-    ///°á°ú Animation Ã³¸®
+    ///ê²°ê³¼ Animation ì²˜ë¦¬
 
     for (int i = 0; i < CManufacture::GetInstance().GetMaterialCount(); ++i) {
         if (m_listGuage[i]->Update(ptMouse, m_dwPrevTime, dwCurrTime) == CGuage::UPDATE_END) {
             if (m_pParent->m_btRESULT == RESULT_CREATE_ITEM_SUCCESS) {
                 if (i
                     == CManufacture::GetInstance().GetMaterialCount()
-                        - 1) ///¸Ç¹ØÀÇ °ÔÀÌÁö °»½ÅÀÌ ³¡±îÁö °¬´Ù
+                        - 1) ///ë§¨ë°‘ì˜ ê²Œì´ì§€ ê°±ì‹ ì´ ëê¹Œì§€ ê°”ë‹¤
                 {
 
                     CManufacture::GetInstance().SubItemsAfterRecvResult(
@@ -170,31 +170,31 @@ CMakeStateResult::Init() {
 
     m_dwPrevTime = g_GameDATA.GetGameTime();
     m_bWaitState = false;
-    /// m_pParent¿¡ ÀúÀåµÈ °á°ú°ªÀ» °¡Á®¿Í¼­ Ã³¸®ÇÑ´Ù.
+    /// m_pParentì— ì €ì¥ëœ ê²°ê³¼ê°’ì„ ê°€ì ¸ì™€ì„œ ì²˜ë¦¬í•œë‹¤.
 
     /*
     struct gsv_CREATE_ITEM_REPLY : public t_PACKETHEADER {
-        BYTE	m_btRESULT;								// °á°ú...
-        short	m_nStepORInvIDX;						// Á¦Á¶ ½ÇÆĞ½Ã ½ÇÆĞµÈ ½ºÅÜ, ¼º°ø½Ã µé¾î°£
-    ÀÎº¥Åä¸®¹øÈ£ tagITEM	m_CreatedITEM;							// Á¦Á¶ ¼º°ø½Ã Á¦Á¶µÈ ¾ÆÀÌÅÛ } ;
+        BYTE	m_btRESULT;								// ê²°ê³¼...
+        short	m_nStepORInvIDX;						// ì œì¡° ì‹¤íŒ¨ì‹œ ì‹¤íŒ¨ëœ ìŠ¤í…, ì„±ê³µì‹œ ë“¤ì–´ê°„
+    ì¸ë²¤í† ë¦¬ë²ˆí˜¸ tagITEM	m_CreatedITEM;							// ì œì¡° ì„±ê³µì‹œ ì œì¡°ëœ ì•„ì´í…œ } ;
     */
 
     switch (m_pParent->m_btRESULT) {
-        case RESULT_CREATE_ITEM_SUCCESS: // ¼º°ø :AnimationÁøÇà
+        case RESULT_CREATE_ITEM_SUCCESS: // ì„±ê³µ :Animationì§„í–‰
         {
             for (int i = 0; i < CManufacture::GetInstance().GetMaterialCount(); ++i)
                 m_listGuage[i]->SetAutoIncrementMaxValue(m_pParent->m_nPRO_POINT[i] / 10);
 
             break;
         }
-        case RESULT_CREATE_ITEM_FAILED: // ½ÇÆĞ :AnimationÁøÇà
+        case RESULT_CREATE_ITEM_FAILED: // ì‹¤íŒ¨ :Animationì§„í–‰
         {
             for (int i = 0; i < CManufacture::GetInstance().GetMaterialCount(); ++i)
                 m_listGuage[i]->SetAutoIncrementMaxValue(m_pParent->m_nPRO_POINT[i] / 10);
 
             break;
         }
-        case RESULT_CREATE_ITEM_INVALID_CONDITION: // ¸¶³ª°¡ ºÎÁ·ÇÏ´Ù.
+        case RESULT_CREATE_ITEM_INVALID_CONDITION: // ë§ˆë‚˜ê°€ ë¶€ì¡±í•˜ë‹¤.
         {
             m_bWaitState = true;
             CTCmdChangeState* pCmd = new CTCmdChangeState(CMakeDLG::STATE_NORMAL);
@@ -206,7 +206,7 @@ CMakeStateResult::Init() {
                 NULL);
             break;
         }
-        case RESULT_CREATE_ITEM_NEED_ITEM: // ¼Ò¸ğµÉ ¾ÆÀÌÅÛÀÌ ºÎÁ·ÇÏ´Ù
+        case RESULT_CREATE_ITEM_NEED_ITEM: // ì†Œëª¨ë  ì•„ì´í…œì´ ë¶€ì¡±í•˜ë‹¤
         {
             m_bWaitState = true;
             CTCmdChangeState* pCmd = new CTCmdChangeState(CMakeDLG::STATE_NORMAL);
@@ -219,7 +219,7 @@ CMakeStateResult::Init() {
             CManufacture::GetInstance().SubItemsAfterRecvResult(m_pParent->m_nStepORInvIDX);
             break;
         }
-        case RESULT_CREATE_ITEM_INVALID_ITEM: // ¼Ò¸ğµÉ ¾ÆÀÌÅÛÀÌ ºÎÀûÇÕÇÏ´Ù
+        case RESULT_CREATE_ITEM_INVALID_ITEM: // ì†Œëª¨ë  ì•„ì´í…œì´ ë¶€ì í•©í•˜ë‹¤
         {
             m_bWaitState = true;
             CTCmdChangeState* pCmd = new CTCmdChangeState(CMakeDLG::STATE_NORMAL);
@@ -232,7 +232,7 @@ CMakeStateResult::Init() {
             CManufacture::GetInstance().SubItemsAfterRecvResult(m_pParent->m_nStepORInvIDX);
             break;
         }
-        case RESULT_CREATE_ITEM_NEED_SKILL_LEV: // Á¦Á¶ ½ºÅ³ ·¹º§ÀÌ ºÎÁ·ÇÏ´Ù
+        case RESULT_CREATE_ITEM_NEED_SKILL_LEV: // ì œì¡° ìŠ¤í‚¬ ë ˆë²¨ì´ ë¶€ì¡±í•˜ë‹¤
         {
             m_bWaitState = true;
             CTCmdChangeState* pCmd = new CTCmdChangeState(CMakeDLG::STATE_NORMAL);

@@ -102,7 +102,7 @@ CDynamicDATA<dType>::GetData(int iTag, ULONG lTime) {
         }
     }
 
-    // ¸ø Ã£¾Ò´Ù...
+    // ëª» ì°¾ì•˜ë‹¤...
     return 0;
 }
 

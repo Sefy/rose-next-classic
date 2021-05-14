@@ -141,9 +141,9 @@ CClanOrganizeDlg::OnLButtonDown(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
 
 void
 CClanOrganizeDlg::OrganizeClan() {
-    //Á¶°Ç Ã¼Å©
-    // 1. ³»°¡ ´Ù¸¥ Å¬·£¿¡ °¡ÀÔÇÏÁö ¾Ê¾Ò´Ù.
-    // 2. µ·ÀÌ³ª..·¹º§µîÀÇ Á¶°Ç¿¡ ¸¸Á·ÇÑ´Ù.
+    //ì¡°ê±´ ì²´í¬
+    // 1. ë‚´ê°€ ë‹¤ë¥¸ í´ëžœì— ê°€ìž…í•˜ì§€ ì•Šì•˜ë‹¤.
+    // 2. ëˆì´ë‚˜..ë ˆë²¨ë“±ì˜ ì¡°ê±´ì— ë§Œì¡±í•œë‹¤.
 
     if (g_pAVATAR->Get_LEVEL() >= 30 && g_pAVATAR->Get_MONEY() >= 1000000) {
         CWinCtrl* pCtrl = Find(IID_EDIT_TITLE);
