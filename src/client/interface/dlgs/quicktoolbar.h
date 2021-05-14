@@ -91,6 +91,8 @@ public:
     void SetQuickBarType(short nType);
     short GetQuickBarType();
 
+    void setCurrentPage(short page);
+
 protected:
     bool On_LButtonUP(unsigned iProcID, WPARAM wParam, LPARAM lParam);
 };

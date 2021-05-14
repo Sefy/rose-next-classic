@@ -20,7 +20,6 @@ public:
     virtual void Update(POINT ptMouse) {}
 
 private:
-    bool ProcessHotKeyNormalInput(unsigned uiMsg, WPARAM wParam, LPARAM lParam);
-    bool ProcessHotKeyAutoEnter(unsigned uiMsg, WPARAM wParam, LPARAM lParam);
+    bool ProcessHotKey(unsigned uiMsg, WPARAM wParam, LPARAM lParam);
 };
 #endif

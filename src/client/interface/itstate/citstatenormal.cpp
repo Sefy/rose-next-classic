@@ -4,6 +4,7 @@
 #include "../CDragNDropMgr.h"
 #include "../Dlgs/ChattingDLG.h"
 #include "../Dlgs/CMinimapDLG.h"
+#include "../Dlgs/quicktoolbar.h"
 
 #include "../Icon/CIconDialog.h"
 #include "../../System/CGame.h"
@@ -72,20 +73,10 @@ CITStateNormal::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
 #endif
         }
     }
-
+    
     // 단축키 처리
-    switch (it_GetKeyboardInputType()) {
-        case CTControlMgr::INPUTTYPE_AUTOENTER: {
-            if (!ProcessHotKeyAutoEnter(uiMsg, wParam, lParam))
-                uiRet = 0;
-        } break;
-        case CTControlMgr::INPUTTYPE_NORMAL: {
-            if (!ProcessHotKeyNormalInput(uiMsg, wParam, lParam))
-                uiRet = 0;
-
-        } break;
-        default:
-            break;
+    if (!this->ProcessHotKey(uiMsg, wParam, lParam)) {
+        return 0;
     }
 
     switch (uiMsg) {
@@ -127,143 +118,119 @@ CITStateNormal::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
 /// @brief 채팅을 한번 할때마다 Enter 를 입력 해야 하는 방식
 //*-----------------------------------------------------------------------------------------//
 bool
-CITStateNormal::ProcessHotKeyNormalInput(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
-    if (CTEditBox::s_pFocusEdit == NULL) ///입력 포커스가 없는경우
-    {
-        switch (uiMsg) {
-            case WM_KEYDOWN: {
-                unsigned int oemScan = int(lParam & (0xff << 16)) >> 16;
-                UINT vk = MapVirtualKey(oemScan, 1);
+CITStateNormal::ProcessHotKey(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
 
-                switch (vk) {
-                        // Dagnarus
-                    /*case 0x41:
-                        g_itMGR.OpenDialog( DLG_TYPE_CHAR);
-                        return true;
-                    case 0x43:
-                        g_itMGR.OpenDialog( DLG_TYPE_COMMUNITY );
-                        return true;
-                    case 0x48:
-                        g_itMGR.OpenDialog( DLG_TYPE_HELP );
-                        return true;
-                    case 0x49:
-                    case 0x56:
-                        g_itMGR.OpenDialog( DLG_TYPE_ITEM );
-                        return true;
-                        //Dagnarus
-                    /*case 0x53:
-                        g_itMGR.OpenDialog( DLG_TYPE_SKILL );
-                        return true;
-                    case 0x51:
-                        g_itMGR.OpenDialog( DLG_TYPE_QUEST );
-                        return true;
-                    case 0x4d:
-                        {
-                            CMinimapDLG* pDlg = ( CMinimapDLG*)g_itMGR.FindDlg( DLG_TYPE_MINIMAP );
-                            pDlg->ToggleShowMinimap();
-                            return true;
-                        }
-                    case 0x4c:
-                        {
-                            CMinimapDLG* pDlg = ( CMinimapDLG*)g_itMGR.FindDlg( DLG_TYPE_MINIMAP );
-                            pDlg->ToggleZoomMinimap();
-                            return true;
-                        }
-                    case 0x4e:
-                        {
-                            g_itMGR.OpenDialog( DLG_TYPE_CLAN );
-                            return true;
-                        }
-                /*	case 0x58:
-                        g_itMGR.OpenDialog( DLG_TYPE_SYSTEM );
-                        return true;
-                    case 0x4f:
-                        g_itMGR.OpenDialog( DLG_TYPE_OPTION );
-                        return true;*/
-                    default:
-                        break;
+    // Debug !
+    wchar_t msg[32];
+    switch (uiMsg) {
+        case WM_SYSKEYDOWN:
+            swprintf_s(msg, L"WM_SYSKEYDOWN: 0x%x\n", wParam);
+            OutputDebugStringW(msg);
+            break;
+
+        case WM_SYSCHAR:
+            swprintf_s(msg, L"WM_SYSCHAR: %c\n", (wchar_t)wParam);
+            OutputDebugStringW(msg);
+            break;
+
+        case WM_SYSKEYUP:
+            swprintf_s(msg, L"WM_SYSKEYUP: 0x%x\n", wParam);
+            OutputDebugStringW(msg);
+            break;
+
+        case WM_KEYDOWN:
+            swprintf_s(msg, L"WM_KEYDOWN: 0x%x\n", wParam);
+            OutputDebugStringW(msg);
+            break;
+
+        case WM_KEYUP:
+            swprintf_s(msg, L"WM_KEYUP: 0x%x\n", wParam);
+            OutputDebugStringW(msg);
+            break;
+
+        case WM_CHAR:
+            swprintf_s(msg, L"WM_CHAR: %c\n", (wchar_t)wParam);
+            OutputDebugStringW(msg);
+            break;
+    }
+
+    if (uiMsg == WM_SYSKEYDOWN
+        || (uiMsg == WM_KEYDOWN && it_GetKeyboardInputType() == CTControlMgr::INPUTTYPE_NORMAL
+            && CTEditBox::s_pFocusEdit == NULL)) {
+
+        switch (wParam) {
+            case 0x31:
+            case 0x32:
+            case 0x33:
+            case 0x34:
+            {
+                CQuickBAR* quickbar = (CQuickBAR*)g_itMGR.FindDlg(DLG_TYPE_QUICKBAR);
+
+                if (quickbar) {
+                    quickbar->setCurrentPage(wParam - 0x31);
                 }
+
+                return true;
             }
-                return false;
+            case 0x41: // 'a'
+                //캐릭터창을 연다
+                g_itMGR.OpenDialog(DLG_TYPE_CHAR);
+                return true;
+            case 0x43: // 'c'
+                g_itMGR.OpenDialog(DLG_TYPE_COMMUNITY);
+                return true;
+            case 0x48: // h
+                g_itMGR.OpenDialog(DLG_TYPE_HELP);
+                return true;
+            case 0x49: // 'i'
+            case 0x56: // 'v' /// 2004 / 1 / 26 / Navy /추가( SYSTEM + I가 한손으로 누르기
+                    // 힘들다는 의견으로 )
+                    //인벤토리를 연다
+                g_itMGR.OpenDialog(DLG_TYPE_ITEM);
+                return true;
+            ///스킬창
+            case 0x53: // 's'
+                g_itMGR.OpenDialog(DLG_TYPE_SKILL);
+                return true;
+            /// 퀘스트창
+            case 0x51: // 'q'
+                g_itMGR.OpenDialog(DLG_TYPE_QUEST);
+                return true;
+            ///미니맵 보이기 / 숨기기
+            case 0x4d: // 'm'
+            {
+                CMinimapDLG* pDlg = (CMinimapDLG*)g_itMGR.FindDlg(DLG_TYPE_MINIMAP);
+                pDlg->ToggleShowMinimap();
+                return true;
+            }
+            ///미니맵 확대 / 축소
+            case 0x4c: // 'l'
+            {
+                CMinimapDLG* pDlg = (CMinimapDLG*)g_itMGR.FindDlg(DLG_TYPE_MINIMAP);
+                pDlg->ToggleZoomMinimap();
+                return true;
+            }
+            case 0x4e: // n
+            {
+                g_itMGR.OpenDialog(DLG_TYPE_CLAN);
+                return true;
+            }
+            case 0x58: //'x'
+                g_itMGR.OpenDialog(DLG_TYPE_SYSTEM);
+                return true;
+            case 0x4f: //'o'
+                g_itMGR.OpenDialog(DLG_TYPE_OPTION);
+                return true;
+            // case VK_OEM_3: // '~'
+            case 0x5A: // 'z'
+                g_itMGR.OpenDialog(DLG_TYPE_CONSOLE);
+                return true;
             default:
                 break;
         }
-    }
-    return ProcessHotKeyAutoEnter(uiMsg, wParam, lParam);
-}
-//*-----------------------------------------------------------------------------------------//
-/// @brief 항상 입력창에 포커스가 위치하여 엔터를 칠 필요가 없을때 HotKey처리
-/// @warning NormalInput일경우에도 AutoEnter()를 처리하고 있다.
-//*-----------------------------------------------------------------------------------------//
-bool
-CITStateNormal::ProcessHotKeyAutoEnter(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
-    switch (uiMsg) {
-        case WM_SYSKEYDOWN: {
-            unsigned int oemScan = int(lParam & (0xff << 16)) >> 16;
-            UINT vk = MapVirtualKey(oemScan, 1);
 
-            switch (vk) {
-                case 0x41: // 'a'
-                    //캐릭터창을 연다
-                    g_itMGR.OpenDialog(DLG_TYPE_CHAR);
-                    return true;
-                case 0x43: // 'c'
-                    g_itMGR.OpenDialog(DLG_TYPE_COMMUNITY);
-                    return true;
-                case 0x48: // h
-                    g_itMGR.OpenDialog(DLG_TYPE_HELP);
-                    return true;
-                case 0x49: // 'i'
-                case 0x56: // 'v' /// 2004 / 1 / 26 / Navy /추가( SYSTEM + I가 한손으로 누르기
-                           // 힘들다는 의견으로 )
-                    //인벤토리를 연다
-                    g_itMGR.OpenDialog(DLG_TYPE_ITEM);
-                    return true;
-                ///스킬창
-                case 0x53: // 's'
-                    g_itMGR.OpenDialog(DLG_TYPE_SKILL);
-                    return true;
-                /// 퀘스트창
-                case 0x51: // 'q'
-                    g_itMGR.OpenDialog(DLG_TYPE_QUEST);
-                    return true;
-                ///미니맵 보이기 / 숨기기
-                case 0x4d: // 'm'
-                {
-                    CMinimapDLG* pDlg = (CMinimapDLG*)g_itMGR.FindDlg(DLG_TYPE_MINIMAP);
-                    pDlg->ToggleShowMinimap();
-                    return true;
-                }
-                ///미니맵 확대 / 축소
-                case 0x4c: // 'l'
-                {
-                    CMinimapDLG* pDlg = (CMinimapDLG*)g_itMGR.FindDlg(DLG_TYPE_MINIMAP);
-                    pDlg->ToggleZoomMinimap();
-                    return true;
-                }
-                case 0x4e: // n
-                {
-                    g_itMGR.OpenDialog(DLG_TYPE_CLAN);
-                    return true;
-                }
-                case 0x58: //'x'
-                    g_itMGR.OpenDialog(DLG_TYPE_SYSTEM);
-                    return true;
-                case 0x4f: //'o'
-                    g_itMGR.OpenDialog(DLG_TYPE_OPTION);
-                    return true;
-                // case VK_OEM_3: // '~'
-                case 0x5A: // 'z'
-                    g_itMGR.OpenDialog(DLG_TYPE_CONSOLE);
-                    return true;
-                default:
-                    break;
-            }
-        }
-            return false;
-            break;
-        default:
-            break;
+        return false;
     }
+    
     return true;
 }

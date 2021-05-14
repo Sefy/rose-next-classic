@@ -587,3 +587,10 @@ CQuickBAR::SetStartEndPage(short nStart, short nEnd) {
     m_nStartPage = nStart;
     m_nEndPage = nEnd;
 }
+
+void
+CQuickBAR::setCurrentPage(short page) {
+    m_nCurrentPage = page;
+
+    UpdateHotIconSlot();
+}
