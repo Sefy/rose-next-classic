@@ -1581,7 +1581,7 @@ CItem::GetItemRareType(int type, int no) {
         case ITEM_TYPE_HELMET:
         case ITEM_TYPE_GAUNTLET:
         case ITEM_TYPE_BOOTS:
-            return (g_pTblSTBs[type]->get_int32(no, g_pTblSTBs[type]->col_count - 1));
+            return (g_pTblSTBs[type]->get_int32(no, g_pTblSTBs[type]->col_count - 2));
         default:
             return 0;
     }
