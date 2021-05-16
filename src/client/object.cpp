@@ -1070,3 +1070,31 @@ CObjectMANAGER::ResetClanMarkInfo(DWORD dwClanID, WORD crc16) {
         pNode = m_CharLIST.GetNextNode(pNode);
     }
 }
+
+CObjCHAR*
+CObjectMANAGER::findNearestEnemy(D3DVECTOR basePosition, int excludeItem) {
+
+    float minDistance = NULL;
+    CObjCHAR* closest = NULL;
+
+    classDLLNODE<int>* currentNode = m_CharLIST.GetHeadNode();
+
+    while (currentNode) {
+        CObjCHAR* pChar = static_cast<CObjCHAR*>(m_pOBJECTS[currentNode->DATA]);
+
+        if (pChar && pChar->Get_TYPE() == OBJ_MOB && pChar->IsVisible() && pChar->CanClickable()
+            && pChar->Get_HP() > 0 && pChar->Get_INDEX() != excludeItem) {
+
+            float distance = pChar->Get_DISTANCE(basePosition);
+
+            if (minDistance == NULL || (distance < minDistance)) {
+                minDistance = distance;
+                closest = pChar;
+            }
+        }
+
+        currentNode = m_CharLIST.GetNextNode(currentNode);
+    }
+
+    return closest;
+}

@@ -222,29 +222,35 @@ char* l_szAbility[] = {"STR",
 
     NULL};
 
+bool 
+classUSER::hasRole(int role) {
+    return this->m_dwRIGHT >= role;
+}
+
+// @TODO: delete for a cleaner way ...
 DWORD
 classUSER::A_Cheater() {
-    return this->m_dwRIGHT & RIGHT_MASTER;
+    return hasRole(RIGHT_MG);
 }
 
 DWORD
 classUSER::B_Cheater() {
-    return this->m_dwRIGHT & (RIGHT_MASTER | RIGHT_MG);
+    return hasRole(RIGHT_MG);
 }
 
 DWORD
 classUSER::C_Cheater() {
-    return this->m_dwRIGHT & (RIGHT_MASTER | RIGHT_DEV | RIGHT_MG | RIGHT_NG);
+    return hasRole(RIGHT_MG);
 }
 
 DWORD
 classUSER::GM_Cheater() {
-    return this->m_dwRIGHT & (RIGHT_MASTER | RIGHT_MG | RIGHT_NG);
+    return hasRole(RIGHT_MG);
 }
 
 DWORD
 classUSER::TWGM_Cheater() {
-    return this->m_dwRIGHT & (RIGHT_TWG | RIGHT_MG | RIGHT_DEV | RIGHT_MASTER);
+    return hasRole(RIGHT_MG);
 }
 
 short
@@ -1062,101 +1068,61 @@ classUSER::Cheat_set(classUSER* pUSER, char* pArg1, char* pArg2, char* pArg3) {
         }
     }
 
-    if (B_Cheater()) {
-        if (!strcmpi(pArg1, "worldDROP_M")) {
-            int iValue = atoi(pArg2);
-            if (RIGHT_MG == this->m_dwRIGHT) {
-                if (iValue < 50)
-                    iValue = 50;
-                if (iValue > 300)
-                    iValue = 300;
-            }
-            ::Set_WorldDROP_M(iValue);
+    // I guess rate changing should be replaced with config variables (=> edit config file on server & reload config)
+    if (hasRole(RIGHT_MG)) {
+        int const value = pArg2 ? atoi(pArg2) : NULL;
+
+        if (strcmpi(pArg1, "worlddrop_m") == 0) {
+            ::Set_WorldDROP_M(min(1000, max(50, value)));
             return CHEAT_NOLOG;
-        } else if (!strcmpi(pArg1, "worldDROP")) {
-            int iValue = atoi(pArg2);
-            if (RIGHT_MG == this->m_dwRIGHT) {
-                if (iValue < 50)
-                    iValue = 50;
-                if (iValue > 200)
-                    iValue = 200;
-            }
-            ::Set_WorldDROP(iValue);
+        }
+        else if (strcmpi(pArg1, "worlddrop") == 0) {
+            ::Set_WorldDROP(min(1000, max(50, value)));
             return CHEAT_NOLOG;
-        } else if (!strcmpi(pArg1, "worldEXP")) {
-            int iValue = atoi(pArg2);
-            if (RIGHT_MG == this->m_dwRIGHT) {
-                if (iValue < 50)
-                    iValue = 50;
-                if (iValue > 300)
-                    iValue = 300;
-            }
-            ::Set_WorldEXP(iValue);
+        }
+        else if (strcmpi(pArg1, "worldexp") == 0) {
+            ::Set_WorldEXP(min(1000, max(50, value)));
             return CHEAT_NOLOG;
-        } else if (!strcmpi(pArg1, "worldPROD")) {
-            int iValue = atoi(pArg2);
-            if (RIGHT_MG == this->m_dwRIGHT) {
-                if (iValue < 70)
-                    iValue = 70;
-                if (iValue > 130)
-                    iValue = 130;
-            }
-            ::Set_WorldPROD(iValue);
+        } 
+        else if (strcmpi(pArg1, "worldprod") == 0) { // craft chances
+            ::Set_WorldPROD(min(1000, max(50, value)));
             return CHEAT_NOLOG;
-        } else if (!strcmpi(pArg1, "worldRATE")) {
-            int iValue = atoi(pArg2);
-            if (RIGHT_MG == this->m_dwRIGHT) {
-                if (iValue < 70)
-                    iValue = 70;
-                if (iValue > 120)
-                    iValue = 120;
-            }
-            ::Set_WorldRATE(iValue);
+        }
+        else if (strcmpi(pArg1, "worldrate") == 0) { // prices
+            ::Set_WorldRATE(min(1000, max(50, value)));
             return CHEAT_NOLOG;
-        } else if (!strcmpi(pArg1, "worldREWARD")) {
-            int iValue = atoi(pArg2);
-            if (RIGHT_MG == this->m_dwRIGHT) {
-                if (iValue < 50)
-                    iValue = 50;
-                if (iValue > 300)
-                    iValue = 300;
-            }
-            ::Set_WorldREWARD(iValue);
+        }
+        else if (strcmpi(pArg1, "worldreward") == 0) {
+            ::Set_WorldREWARD(min(300, max(50, value)));
             return CHEAT_NOLOG;
-        } else if (!strcmpi(pArg1, "worldSTAMINA")) {
-            int iValue = atoi(pArg2);
-            if (RIGHT_MG == this->m_dwRIGHT) {
-                if (iValue < 0)
-                    iValue = 0;
-                if (iValue > 200)
-                    iValue = 200;
-            }
-            ::Set_WorldSTAMINA(iValue);
+        }
+        else if (strcmpi(pArg1, "worldstamina") == 0) {
+            ::Set_WorldSTAMINA(min(200, max(value, 0)));
             return CHEAT_NOLOG;
-        } else if (!strcmpi(pArg1, "union")) {
-            int iValue = atoi(pArg2);
-            if (iValue >= 0 && iValue < MAX_UNION_COUNT) {
-                this->SetCur_UNION(iValue);
+        }
+        else if (strcmpi(pArg1, "union") == 0) {
+            if (value >= 0 && value < MAX_UNION_COUNT) {
+                this->SetCur_UNION(value);
                 return CHEAT_SEND;
             }
         }
-#ifdef __KCHS_BATTLECART__
-        else if (!strcmpi(pArg1, "maxpathp")) {
-            int iValue = atoi(pArg2);
-            this->Set_MaxPatHP((short)iValue);
-            return CHEAT_SEND;
-        } else if (!strcmpi(pArg1, "pathp")) {
-            int iValue = atoi(pArg2);
-            this->SetCur_PatHP((short)iValue);
-            return CHEAT_SEND;
-        } else if (!strcmpi(pArg1, "pattime")) {
-            int iValue = atoi(pArg2);
-            this->SetCur_PatCoolTIME(iValue);
-            Send_gsv_PATSTATE_CHAGE(0, this->GetCur_PatCoolTIME());
-            return CHEAT_SEND;
-        }
-#endif
     }
+#ifdef __KCHS_BATTLECART__
+    else if (!strcmpi(pArg1, "maxpathp")) {
+        int iValue = atoi(pArg2);
+        this->Set_MaxPatHP((short)iValue);
+        return CHEAT_SEND;
+    } else if (!strcmpi(pArg1, "pathp")) {
+        int iValue = atoi(pArg2);
+        this->SetCur_PatHP((short)iValue);
+        return CHEAT_SEND;
+    } else if (!strcmpi(pArg1, "pattime")) {
+        int iValue = atoi(pArg2);
+        this->SetCur_PatCoolTIME(iValue);
+        Send_gsv_PATSTATE_CHAGE(0, this->GetCur_PatCoolTIME());
+        return CHEAT_SEND;
+    }
+#endif
     return CHEAT_INVALID;
 }
 

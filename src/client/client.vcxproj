@@ -251,6 +251,7 @@
     <ClCompile Include="..\common\shared\io_quest.cpp" />
     <ClCompile Include="CCamera.cpp" />
     <ClCompile Include="CClientStorage.cpp" />
+    <ClCompile Include="ColorUtil.cpp" />
     <ClCompile Include="CommandFilter.cpp" />
     <ClCompile Include="CViewMSG.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -626,6 +627,7 @@
     <ClInclude Include="..\common\shared\io_quest.h" />
     <ClInclude Include="CCamera.h" />
     <ClInclude Include="CClientStorage.h" />
+    <ClInclude Include="ColorUtil.h" />
     <ClInclude Include="CommandFilter.h" />
     <ClInclude Include="CViewMSG.h" />
     <ClInclude Include="discord_config.h" />

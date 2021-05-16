@@ -834,6 +834,8 @@ public:
 private:
     int m_iRecvSeqNO;
 
+    bool hasRole(int role);
+
     DWORD A_Cheater();
     DWORD B_Cheater();
     DWORD C_Cheater();

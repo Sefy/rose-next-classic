@@ -234,6 +234,11 @@ classPARSESTR::DoCheat(char* pCheatCode, bool bServerCheate) {
     char* pStr = ParseString(pCheatCode, 0);
     short nCodeIdx = ParseCheatCodeIdx(pStr);
 
+    if (strcmpi(pStr, "/mobs") == 0) {
+
+        return CHEAT_RESULT_CLIENT;
+    }
+
     if (bServerCheate) {
         switch (nCodeIdx) {
             case CHEAT_SET:

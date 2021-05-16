@@ -12,6 +12,7 @@
 #include "CClanMarkUserDefined.h"
 #include "ClanMarkManager.h"
 #include "CClanMarkView.h"
+#include "ColorUtil.h"
 
 ///이름 표시에 사용되는 칼라
 const D3DCOLOR g_dwVioletName = D3DCOLOR_ARGB(255, 224, 149, 255);
@@ -124,9 +125,9 @@ CNameBox::Draw(CObjCHAR* pCharOBJ, float x, float y, float z) {
             break;
         }
         case OBJ_USER: {
-            if (g_ClientStorage.m_PlayOption.iShowMyName) {
-                DrawMyName(x, y, z, pCharOBJ, bTargetObject);
-            }
+            // if (g_ClientStorage.m_PlayOption.iShowMyName) {
+            DrawMyName(x, y, z, pCharOBJ, bTargetObject);
+            //}
             break;
         }
         case OBJ_AVATAR: {
@@ -366,31 +367,18 @@ CNameBox::DrawMobName(float x, float y, float z, CObjCHAR* pCharOBJ, bool bTarge
 
 void
 CNameBox::DrawAvatarName(float x, float y, float z, CObjCHAR* pCharOBJ, bool bTargeted) {
-    DWORD dwColor = g_dwWHITE;
     const char* pName = pCharOBJ->Get_NAME();
-    
+
+    DWORD color = ColorUtil::WHITE;
+
     if (CUserInputState::IsEnemy(pCharOBJ)) {
-        dwColor = g_dwRED;
+        color = ColorUtil::RED;
+    } else {
+        color = ColorUtil::getColorByNamePrefix(std::string(pName));
     }
 
     if (pCharOBJ->pvp_state == PvpState::All) {
         // TODO JV: set name color depending on karma status
-    }
-
-    if (pName && strlen(pName) > 3) {
-        if (pName[0] == '[' && pName[1] == 'G' && pName[2] == 'M' && pName[3] == ']') {
-            dwColor = g_dwBLUE;
-        }
-
-        if (pName[0] == '[' && pName[1] == 'D' && pName[2] == 'E' && pName[3] == 'V'
-            && pName[4] == ']') {
-            dwColor = g_dwPINK;
-        }
-
-        if (pName[0] == '[' && pName[1] == 'E' && pName[2] == 'V' && pName[3] == 'E'
-            && pName[4] == 'N' && pName[5] == 'T' && pName[6] == ']') {
-            dwColor = g_dwGREEN;
-        }
     }
 
     SIZE size;
@@ -433,7 +421,7 @@ CNameBox::DrawAvatarName(float x, float y, float z, CObjCHAR* pCharOBJ, bool bTa
             CResourceMgr::GetInstance()->GetImageNID(IMAGE_RES_UI, "UI00_GUAGE_RED_AVATAR"));
 
         RECT rt = {0, 0, iWidthGuage, iHeightGuage};
-        ::drawFont(g_GameDATA.m_hFONT[FONT_NORMAL_OUTLINE], true, &rt, dwColor, DT_CENTER, pName);
+        ::drawFont(g_GameDATA.m_hFONT[FONT_NORMAL_OUTLINE], true, &rt, color, DT_CENTER, pName);
     } else {
         size = getFontTextExtent(g_GameDATA.m_hFONT[FONT_NORMAL_OUTLINE], pName);
         D3DXMATRIX mat;
@@ -442,7 +430,7 @@ CNameBox::DrawAvatarName(float x, float y, float z, CObjCHAR* pCharOBJ, bool bTa
 
         RECT rt = {0, 0, size.cx, size.cy};
 
-        ::drawFont(g_GameDATA.m_hFONT[FONT_NORMAL_OUTLINE], true, &rt, dwColor, DT_CENTER, pName);
+        ::drawFont(g_GameDATA.m_hFONT[FONT_NORMAL_OUTLINE], true, &rt, color, DT_CENTER, pName);
     }
 
     if (bTargeted) {
@@ -474,24 +462,10 @@ CNameBox::DrawAvatarName(float x, float y, float z, CObjCHAR* pCharOBJ, bool bTa
 
 void
 CNameBox::DrawMyName(float x, float y, float z, CObjCHAR* pCharOBJ, bool bTargeted) {
-    DWORD dwColor = g_dwWHITE;
     const char* pName = pCharOBJ->Get_NAME();
 
-    if (pName && strlen(pName) > 3) {
-        if (pName[0] == '[' && pName[1] == 'G' && pName[2] == 'M' && pName[3] == ']') {
-            dwColor = g_dwBLUE;
-        }
-
-        if (pName[0] == '[' && pName[1] == 'D' && pName[2] == 'E' && pName[3] == 'V'
-            && pName[4] == ']') {
-            dwColor = g_dwPINK;
-        }
-
-        if (pName[0] == '[' && pName[1] == 'E' && pName[2] == 'V' && pName[3] == 'E'
-            && pName[4] == 'N' && pName[5] == 'T' && pName[6] == ']') {
-            dwColor = g_dwGREEN;
-        }
-    }
+    DWORD color = ColorUtil::getColorByNamePrefix(std::string(pName));
+    
     int iWidthBackImage = 115;
     int iWidthGuage = 115;
     int iHeightGuage = 14;
@@ -520,7 +494,7 @@ CNameBox::DrawMyName(float x, float y, float z, CObjCHAR* pCharOBJ, bool bTarget
         CResourceMgr::GetInstance()->GetImageNID(IMAGE_RES_UI, "UI00_GUAGE_RED_AVATAR"));
 
     RECT rt = {0, 0, iWidthGuage, iHeightGuage};
-    ::drawFont(g_GameDATA.m_hFONT[FONT_NORMAL_OUTLINE], true, &rt, dwColor, DT_CENTER, pName);
+    ::drawFont(g_GameDATA.m_hFONT[FONT_NORMAL_OUTLINE], true, &rt, color, DT_CENTER, pName);
 
     //---------------------------------------------------------------------------------------------
     /// 클랜에 소속되어 있다면..

@@ -206,6 +206,8 @@ public:
     CObjFixedEvent* GetEventObject(int iEventID);
 
     void ResetClanMarkInfo(DWORD dwClanID, WORD crc16);
+
+    CObjCHAR* findNearestEnemy(D3DVECTOR basePosition, int excludeItem);
 };
 extern CObjectMANAGER* g_pObjMGR;
 extern CObjUSER* g_pAVATAR;

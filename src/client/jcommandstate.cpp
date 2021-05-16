@@ -9,9 +9,9 @@
 
 CUserInputSystem _UserInputSystem;
 
-const int CAMERA_MOVE_SPEED = 10;
-const int KEYMOVE_TIME = 500;
-const int KEYMOVE_DISTANCE = 1000.0f;
+const int CAMERA_MOVE_SPEED = 50;
+const int KEYMOVE_TIME = 100;
+const int KEYMOVE_DISTANCE = 2000;
 
 CUserInputSystem::CUserInputSystem() {
     m_pUserInput = NULL;
@@ -52,7 +52,7 @@ CUserInputSystem::ChangeUserInputStyle(int iStyle) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÀÏ¹Ý Å¬¸¯
+/// @brief ì¼ë°˜ í´ë¦­
 //----------------------------------------------------------------------------------------------------
 
 bool
@@ -83,7 +83,7 @@ CUserInputSystem::RButtonDown(int iTarget, D3DXVECTOR3& PosPICK, WPARAM wParam) 
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ´õºí Å¬¸¯
+/// @brief ë”ë¸” í´ë¦­
 //----------------------------------------------------------------------------------------------------
 
 bool
@@ -149,8 +149,8 @@ CUserInputState::SetCurrentActiveSkillSlot(int iSkillSlotNO) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief PVP ¸ðµåÀÏ¶§ Å¸°Ù¿¡ ´ëÇÑ ¸í·ÉÀ» °áÁ¤..
-///			Avatar ÀÏ¶§¸¸ µé¾î¿È..
+/// @brief PVP ëª¨ë“œì¼ë•Œ íƒ€ê²Ÿì— ëŒ€í•œ ëª…ë ¹ì„ ê²°ì •..
+///			Avatar ì¼ë•Œë§Œ ë“¤ì–´ì˜´..
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -162,14 +162,13 @@ CUserInputState::PVPTarget_Click(int iTargetType,
     if (pObjAVT == NULL) {
         return;
     }
-    
+
     if (!g_pAVATAR->is_pvp_enabled() && pObjAVT->is_pvp_enabled()) {
         g_itMGR.AppendChatMsg("You cannot attack target when in a save zone.",
             IT_MGR::CHAT_TYPE_SYSTEM);
         return;
     } else if (g_pAVATAR->is_pvp_enabled() && !pObjAVT->is_pvp_enabled()) {
-        g_itMGR.AppendChatMsg("Target is in a save zone.",
-            IT_MGR::CHAT_TYPE_SYSTEM);
+        g_itMGR.AppendChatMsg("Target is in a save zone.", IT_MGR::CHAT_TYPE_SYSTEM);
         return;
     } else if (g_pAVATAR->is_pvp_enabled() && CUserInputState::IsEnemy(pObjAVT)) {
         m_iCurrentTarget = iTargetObj;
@@ -179,7 +178,7 @@ CUserInputState::PVPTarget_Click(int iTargetType,
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief µÎ ¾Æ¹ÙÅ¸°¡ ¼­·Î ÀûÀÎÁö ÆÇÁ¤
+/// @brief ë‘ ì•„ë°”íƒ€ê°€ ì„œë¡œ ì ì¸ì§€ íŒì •
 //----------------------------------------------------------------------------------------------------
 
 bool
@@ -193,7 +192,7 @@ CUserInputState::IsEnemy(CObjCHAR* pTarget) {
             if (!g_pAVATAR->Is_ALLIED(pTarget)) {
                 return true;
             }
-            
+
             return false;
         } break;
         case PvpState::AllExceptParty: {
@@ -231,8 +230,8 @@ CDefaultUserInput::~CDefaultUserInput() {}
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief Default Type Àº ¾î¶² ¿ÀºêÁ§Æ®µµ ¼±ÅÃµÇÁö ¾Ê´õ¶óµµ ÀÌÀü Å¸°ÙÀ» Å¬¸®¾î ÇÏÁö ¾Ê´Â´Ù.
-///		   ±×·¡¼­ ¸®ÅÏ°ªÀÌ true.
+/// @brief Default Type ì€ ì–´ë–¤ ì˜¤ë¸Œì íŠ¸ë„ ì„ íƒë˜ì§€ ì•Šë”ë¼ë„ ì´ì „ íƒ€ê²Ÿì„ í´ë¦¬ì–´ í•˜ì§€ ì•ŠëŠ”ë‹¤.
+///		   ê·¸ëž˜ì„œ ë¦¬í„´ê°’ì´ true.
 //----------------------------------------------------------------------------------------------------
 
 bool
@@ -256,7 +255,7 @@ CDefaultUserInput::ClickObject(int iTarget, D3DXVECTOR3& PickPos, WPARAM wParam)
                         PickPos,
                         wParam);
                     /*
-                    //¹ÚÁöÈ£::¸÷ Å¸ÄÏÀÌ ¼³Á¤ µÇ¾ú´Ù¸é º¸³½´Ù.
+                    //ë°•ì§€í˜¸::ëª¹ íƒ€ì¼“ì´ ì„¤ì • ë˜ì—ˆë‹¤ë©´ ë³´ë‚¸ë‹¤.
                     #if	defined(_GBC)
                                 if(g_pObjMGR->m_pOBJECTS[ iTarget ]->Get_TYPE()  == OBJ_MOB)
                                     g_pNet->Send_cli_ATTACK(iTarget);
@@ -267,8 +266,8 @@ CDefaultUserInput::ClickObject(int iTarget, D3DXVECTOR3& PickPos, WPARAM wParam)
         }
     }
     //------------------------------------------------------------------------------
-    //¹ÚÁöÈ£::Æê¸ðµå½Ã ½ºÅ³À» »ç¿ëÇØ¼­ ÁöÇüÀ» Å¬¸¯ÇÏ¸é Å¸ÄÏÀ» ÀÒ¾î ¹ö¸°´Ù.
-    //µû¶ó¼­ Á¤Áö ½ÃÅ²´Ù.
+    //ë°•ì§€í˜¸::íŽ«ëª¨ë“œì‹œ ìŠ¤í‚¬ì„ ì‚¬ìš©í•´ì„œ ì§€í˜•ì„ í´ë¦­í•˜ë©´ íƒ€ì¼“ì„ ìžƒì–´ ë²„ë¦°ë‹¤.
+    //ë”°ë¼ì„œ ì •ì§€ ì‹œí‚¨ë‹¤.
     /*
     #if defined(_GBC)
         else
@@ -308,7 +307,7 @@ CDefaultUserInput::RButtonDown(int iTarget, D3DXVECTOR3& PickPos, WPARAM wParam)
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ´õºíÅ¬¸¯ÀÏ °æ¿ì¿¡´Â Å¸°ÙÀ» ÇØÁ¦ÇÑ´Ù.
+/// @brief ë”ë¸”í´ë¦­ì¼ ê²½ìš°ì—ëŠ” íƒ€ê²Ÿì„ í•´ì œí•œë‹¤.
 //----------------------------------------------------------------------------------------------------
 
 bool
@@ -344,38 +343,37 @@ CDefaultUserInput::DBClickObject(int iTarget, D3DXVECTOR3& PickPos, WPARAM wPara
 bool
 CDefaultUserInput::OnKeyDown(WPARAM wParam, LPARAM lParam) {
     switch (wParam) {
-    	case VK_UP:
-    		{
-    			if (g_pAVATAR == NULL)
-    				return false;
+        case VK_UP: {
+            if (g_pAVATAR == NULL)
+                return false;
 
-    			static int sLastShiftGoFrame = 0;
-    			int CurrentShiftGoFrame = g_GameDATA.GetGameTime();
+            static int sLastShiftGoFrame = 0;
+            int CurrentShiftGoFrame = g_GameDATA.GetGameTime();
 
-    			if (CurrentShiftGoFrame - sLastShiftGoFrame > 500) {
-    				D3DVECTOR Dir = g_pAVATAR->Get_CurPOS() - g_pCamera->Get_Position();
-    				D3DXVECTOR3 vDir = D3DXVECTOR3(Dir.x, Dir.y, Dir.z);
-    				D3DXVec3Normalize(&vDir, &vDir);
-    				vDir.z = 0.0f;
+            if (CurrentShiftGoFrame - sLastShiftGoFrame > KEYMOVE_TIME) {
+                D3DVECTOR Dir = g_pAVATAR->Get_CurPOS() - g_pCamera->Get_Position();
+                D3DXVECTOR3 vDir = D3DXVECTOR3(Dir.x, Dir.y, Dir.z);
+                D3DXVec3Normalize(&vDir, &vDir);
+                vDir.z = 0.0f;
 
-    				vDir = vDir * 1500.0f;
-    				Dir.x = vDir.x;
-    				Dir.y = vDir.y;
-    				Dir.z = vDir.z;
+                vDir = vDir * KEYMOVE_DISTANCE;
+                Dir.x = vDir.x;
+                Dir.y = vDir.y;
+                Dir.z = vDir.z;
 
-    				D3DVECTOR vPos = g_pAVATAR->Get_CurPOS() + Dir;
-    				g_pNet->Send_cli_MOUSECMD(0, vPos);
+                D3DVECTOR vPos = g_pAVATAR->Get_CurPOS() + Dir;
+                g_pNet->Send_cli_MOUSECMD(0, vPos);
 
-    				sLastShiftGoFrame = CurrentShiftGoFrame;
-    			}
-    		}
-    		return true;
-    	case VK_LEFT:
-    		g_pCamera->Add_YAW(-CAMERA_MOVE_SPEED / 2);
-    		break;
-    	case VK_RIGHT:
-    		g_pCamera->Add_YAW(CAMERA_MOVE_SPEED / 2);
-    		break;
+                sLastShiftGoFrame = CurrentShiftGoFrame;
+            }
+        }
+            return true;
+        case VK_LEFT:
+            g_pCamera->Add_YAW(-CAMERA_MOVE_SPEED / 2);
+            break;
+        case VK_RIGHT:
+            g_pCamera->Add_YAW(CAMERA_MOVE_SPEED / 2);
+            break;
     }
 
     return false;
@@ -383,7 +381,7 @@ CDefaultUserInput::OnKeyDown(WPARAM wParam, LPARAM lParam) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ¸¶¿ì½º »óÅÂ ÃÊ±âÈ­.
+/// @brief ë§ˆìš°ìŠ¤ ìƒíƒœ ì´ˆê¸°í™”.
 //----------------------------------------------------------------------------------------------------
 void
 CDefaultUserInput::ClearMouseState() {
@@ -406,7 +404,7 @@ CDefaultUserInput::SetTargetObject(int iTargetObjType,
     m_iCurrentTargetType = iTargetObjType;
 
     //----------------------------------------------------------------------------------------------------
-    /// Ctrl ÀÌ Å¬¸¯µÈ »óÅÂ¿¡¼­ÀÇ Å¸°Ù¼³Á¤, µ¿ÀÛ
+    /// Ctrl ì´ í´ë¦­ëœ ìƒíƒœì—ì„œì˜ íƒ€ê²Ÿì„¤ì •, ë™ìž‘
     //----------------------------------------------------------------------------------------------------
     if (wVKeyState & MK_CONTROL) {
         SetTargetObject_CtrlClick(iTargetObjType, iTargetObj, pickPos, bDBClick);
@@ -414,7 +412,7 @@ CDefaultUserInput::SetTargetObject(int iTargetObjType,
     }
 
     //----------------------------------------------------------------------------------------------------
-    /// shift ÀÌ Å¬¸¯µÈ »óÅÂ¿¡¼­ÀÇ Å¸°Ù¼³Á¤, µ¿ÀÛ
+    /// shift ì´ í´ë¦­ëœ ìƒíƒœì—ì„œì˜ íƒ€ê²Ÿì„¤ì •, ë™ìž‘
     //----------------------------------------------------------------------------------------------------
     /*if( wVKeyState&MK_SHIFT )
     {
@@ -423,14 +421,14 @@ CDefaultUserInput::SetTargetObject(int iTargetObjType,
     }*/
 
     //----------------------------------------------------------------------------------------------------
-    /// ÀÏ¹ÝÀûÀÎ »óÅÂ¿¡¼­ÀÇ Å¸°Ù¼³Á¤, µ¿ÀÛ
+    /// ì¼ë°˜ì ì¸ ìƒíƒœì—ì„œì˜ íƒ€ê²Ÿì„¤ì •, ë™ìž‘
     //----------------------------------------------------------------------------------------------------
     SetTargetObject_Normal(iTargetObjType, iTargetObj, pickPos, bDBClick);
 }
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÀÏ¹ÝÀûÀÎ »óÈ²¿¡¼­ÀÇ Å¸°Ù¼±ÅÃ, µ¿ÀÛ
+/// @brief ì¼ë°˜ì ì¸ ìƒí™©ì—ì„œì˜ íƒ€ê²Ÿì„ íƒ, ë™ìž‘
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -438,13 +436,13 @@ CDefaultUserInput::SetTargetObject_Normal(int iTargetType,
     int iTargetObj,
     D3DVECTOR& pickPos,
     bool bDBClick) {
-    /// Å¸°ÙÀÌ °Ç¹°ÀÌ°Å³ª, ÁöÇü¿ÀºêÁ§Æ®¶ó¸é.. ÀÌ°ÍÀú°Í º¸Áö¸»°í ÀÌµ¿...
+    /// íƒ€ê²Ÿì´ ê±´ë¬¼ì´ê±°ë‚˜, ì§€í˜•ì˜¤ë¸Œì íŠ¸ë¼ë©´.. ì´ê²ƒì €ê²ƒ ë³´ì§€ë§ê³  ì´ë™...
     switch (m_iCurrentTargetType) {
         case OBJ_NPC:
             if (m_iCurrentTarget == iTargetObj || bDBClick) {
                 g_pNet->Send_cli_MOUSECMD(iTargetObj, pickPos);
             } else {
-                ///´Ü¼øÈ÷ Å¸°ÙÆÃ¸¸ ¼³Á¤ÇÑ´Ù.
+                ///ë‹¨ìˆœížˆ íƒ€ê²ŸíŒ…ë§Œ ì„¤ì •í•œë‹¤.
                 m_iCurrentTarget = iTargetObj;
             }
             break;
@@ -453,11 +451,11 @@ CDefaultUserInput::SetTargetObject_Normal(int iTargetType,
             if (g_pAVATAR->Get_COMMAND() == CMD_ATTACK && m_iCurrentTarget == iTargetObj)
                 break;
 
-            /// ÇöÀç Å¸°ÙÆÃ µÈ »ó´ë¸¦ ÇÑ¹ø´õ Å¬¸¯ÇßÀ»¶§..
-            /// È¤Àº µåºíÅ¬¸¯À» ÇßÀ»¶§..
+            /// í˜„ìž¬ íƒ€ê²ŸíŒ… ëœ ìƒëŒ€ë¥¼ í•œë²ˆë” í´ë¦­í–ˆì„ë•Œ..
+            /// í˜¹ì€ ë“œë¸”í´ë¦­ì„ í–ˆì„ë•Œ..
             if (m_iCurrentTarget == iTargetObj || bDBClick) {
                 //----------------------------------------------------------------------------------------------------
-                /// PVP ¸ðµå°¡ È°¼ºÈ­ ‰çÀ»°æ¿ì...
+                /// PVP ëª¨ë“œê°€ í™œì„±í™” Â‰ç‘›ëºåš¥?..
                 //----------------------------------------------------------------------------------------------------
                 PVPTarget_Click(iTargetType, iTargetObj, pickPos, bDBClick);
 
@@ -467,7 +465,7 @@ CDefaultUserInput::SetTargetObject_Normal(int iTargetType,
                 if (pAvatar && pAvatar->IsPersonalStoreMode())
                     g_pNet->Send_cli_MOUSECMD(iTargetObj, pickPos);
             } else {
-                ///´Ü¼øÈ÷ Å¸°ÙÆÃ¸¸ ¼³Á¤ÇÑ´Ù.
+                ///ë‹¨ìˆœížˆ íƒ€ê²ŸíŒ…ë§Œ ì„¤ì •í•œë‹¤.
                 m_iCurrentTarget = iTargetObj;
             }
             break;
@@ -475,21 +473,21 @@ CDefaultUserInput::SetTargetObject_Normal(int iTargetType,
         case OBJ_MOB: {
             CObjMOB* pObjMOB = (CObjMOB*)g_pObjMGR->Get_CharOBJ(iTargetObj, true);
             if (pObjMOB != NULL) {
-                /// ÇöÀç Å¸°ÙÆÃ µÈ »ó´ë¸¦ ÇÑ¹ø´õ Å¬¸¯ÇßÀ»¶§..
-                /// È¤Àº µåºíÅ¬¸¯À» ÇßÀ»¶§..
+                /// í˜„ìž¬ íƒ€ê²ŸíŒ… ëœ ìƒëŒ€ë¥¼ í•œë²ˆë” í´ë¦­í–ˆì„ë•Œ..
+                /// í˜¹ì€ ë“œë¸”í´ë¦­ì„ í–ˆì„ë•Œ..
                 if (m_iCurrentTarget == iTargetObj || bDBClick) {
-                    /// °ø°ÝºÒ°¡ NPC ´Â °ø°Ý¸øÇÔ..
+                    /// ê³µê²©ë¶ˆê°€ NPC ëŠ” ê³µê²©ëª»í•¨..
                     if (g_pAVATAR->Is_ALLIED(pObjMOB) == false
                         && (NPC_CAN_TARGET(pObjMOB->Get_CharNO()) != 1)) {
                         //----------------------------------------------------------------------------------------------------
-                        /// PAT¿¡ Å¸°í ÀÖ´Â µµÁß¿¡´Â ºÒ°¡
-                        /// ±×·¯³ª Castle Gear Àº °¡´É
+                        /// PATì— íƒ€ê³  ìžˆëŠ” ë„ì¤‘ì—ëŠ” ë¶ˆê°€
+                        /// ê·¸ëŸ¬ë‚˜ Castle Gear ì€ ê°€ëŠ¥
                         //----------------------------------------------------------------------------------------------------
                         int iPetMode = g_pAVATAR->GetPetMode();
                         if (iPetMode < 0) {
                             g_pNet->Send_cli_ATTACK(iTargetObj);
                         } else {
-                            /// Pet mode ÀÏ °æ¿ì¿¡´Â..
+                            /// Pet mode ì¼ ê²½ìš°ì—ëŠ”..
                             if (g_pAVATAR->CanAttackPetMode()) {
                                 g_pNet->Send_cli_ATTACK(iTargetObj);
                             } else {
@@ -503,7 +501,7 @@ CDefaultUserInput::SetTargetObject_Normal(int iTargetType,
                     m_iCurrentTarget = iTargetObj;
                     // g_pAVATAR->m_iServerTarget = g_pObjMGR->Get_ServerObjectIndex( iTargetObj );
                 } else {
-                    ///´Ü¼øÈ÷ Å¸°ÙÆÃ¸¸ ¼³Á¤ÇÑ´Ù.
+                    ///ë‹¨ìˆœížˆ íƒ€ê²ŸíŒ…ë§Œ ì„¤ì •í•œë‹¤.
                     m_iCurrentTarget = iTargetObj;
                 }
             }
@@ -518,7 +516,7 @@ CDefaultUserInput::SetTargetObject_Normal(int iTargetType,
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÄÁÅÍ·Ñ Å°¸¦ ´©¸¥»óÅÂ¿¡¼­ÀÇ Å¸°Ù¼±ÅÃ, µ¿ÀÛ
+/// @brief ì»¨í„°ë¡¤ í‚¤ë¥¼ ëˆ„ë¥¸ìƒíƒœì—ì„œì˜ íƒ€ê²Ÿì„ íƒ, ë™ìž‘
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -548,7 +546,7 @@ CDefaultUserInput::SetTargetObject_CtrlClick(int iTargetType,
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ½¬ÇÁÆ® Å°¸¦ ´©¸¥»óÅÂ¿¡¼­ÀÇ Å¸°Ù¼±ÅÃ, µ¿ÀÛ
+/// @brief ì‰¬í”„íŠ¸ í‚¤ë¥¼ ëˆ„ë¥¸ìƒíƒœì—ì„œì˜ íƒ€ê²Ÿì„ íƒ, ë™ìž‘
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -567,7 +565,7 @@ CDefaultUserInput::SetTargetObject_ShiftClick(int iTargetType,
                     m_iCurrentTarget = iTargetObj;
 
                     //----------------------------------------------------------------------------------------------------
-                    /// PAT¿¡ Å¸°í ÀÖ´Â µµÁß¿¡´Â ºÒ°¡
+                    /// PATì— íƒ€ê³  ìžˆëŠ” ë„ì¤‘ì—ëŠ” ë¶ˆê°€
                     //----------------------------------------------------------------------------------------------------
                     if (g_pAVATAR->GetPetMode() < 0)
                         g_pNet->Send_cli_ATTACK(iTargetObj);
@@ -617,7 +615,7 @@ CSevenHeartUserInput::ClickObject(int iTarget, D3DXVECTOR3& PickPos, WPARAM wPar
         }
     }
 
-    // 20050902 È«±Ù 2ÀÎ½Â Ä«Æ® : º¸Á¶¼® Å¾½Â½Ã Å¸°Ù ¼³Á¤ ¸·À½ (´Ü, À¯Àú´Â Å¸°ÙÆÃ °¡´É)
+    // 20050902 í™ê·¼ 2ì¸ìŠ¹ ì¹´íŠ¸ : ë³´ì¡°ì„ íƒ‘ìŠ¹ì‹œ íƒ€ê²Ÿ ì„¤ì • ë§‰ìŒ (ë‹¨, ìœ ì €ëŠ” íƒ€ê²ŸíŒ… ê°€ëŠ¥)
     if (g_pAVATAR->IsRideUser()) {
         g_itMGR.AppendChatMsg(STR_BOARDING_CANT_USE,
             IT_MGR::CHAT_TYPE_SYSTEM,
@@ -629,7 +627,7 @@ CSevenHeartUserInput::ClickObject(int iTarget, D3DXVECTOR3& PickPos, WPARAM wPar
     g_pNet->Send_cli_MOUSECMD(iTarget, PickPos);
     CGame::GetInstance().SetMouseTargetEffect(PickPos.x, PickPos.y, PickPos.z);
 
-    /// ¼±ÅÃµÈ°Ô ¾ø´Ù¸é ¸¶¿ì½º ¸í·É Å¬¸®°Å..
+    /// ì„ íƒëœê²Œ ì—†ë‹¤ë©´ ë§ˆìš°ìŠ¤ ëª…ë ¹ í´ë¦¬ê±°..
     { ClearMouseState(); }
 
     return false;
@@ -677,7 +675,7 @@ CSevenHeartUserInput::DBClickObject(int iTarget, D3DXVECTOR3& PickPos, WPARAM wP
     g_pNet->Send_cli_MOUSECMD(iTarget, PickPos);
     CGame::GetInstance().SetMouseTargetEffect(PickPos.x, PickPos.y, PickPos.z);
 
-    /// ¼±ÅÃµÈ°Ô ¾ø´Ù¸é ¸¶¿ì½º ¸í·É Å¬¸®°Å..
+    /// ì„ íƒëœê²Œ ì—†ë‹¤ë©´ ë§ˆìš°ìŠ¤ ëª…ë ¹ í´ë¦¬ê±°..
     { ClearMouseState(); }
 
     return false;
@@ -686,63 +684,52 @@ CSevenHeartUserInput::DBClickObject(int iTarget, D3DXVECTOR3& PickPos, WPARAM wP
 bool
 CSevenHeartUserInput::OnKeyDown(WPARAM wParam, LPARAM lParam) {
     //----------------------------------------------------------------------------------------------------
-    /// ¸ÅÇÁ·¹ÀÓ Ã¼Å©ÇØ¾ßµÉ ¸Þ¼¼Áöµé..
+    /// ë§¤í”„ë ˆìž„ ì²´í¬í•´ì•¼ë  ë©”ì„¸ì§€ë“¤..
     //----------------------------------------------------------------------------------------------------
 
-    // switch ( wParam )
-    //{
-    //	/// Å°º¸µå ÀüÁø..
-    //	case VK_UP:
-    //		{
-    //			if( g_pAVATAR == NULL )
-    //				return false;
+    switch (wParam) {
+        /// í‚¤ë³´ë“œ ì „ì§„..
+        case VK_UP: {
+            if (g_pAVATAR == NULL)
+                return false;
 
-    //			static int sLastShiftGoFrame = 0;
-    //			int CurrentShiftGoFrame = g_GameDATA.GetGameTime();
+            static int sLastShiftGoFrame = 0;
+            int CurrentShiftGoFrame = g_GameDATA.GetGameTime();
 
-    //			if( CurrentShiftGoFrame - sLastShiftGoFrame > KEYMOVE_TIME )
-    //			{
-    //				D3DVECTOR Dir = g_pAVATAR->Get_CurPOS() - g_pCamera->Get_Position();
-    //				D3DXVECTOR3 vDir = D3DXVECTOR3( Dir.x, Dir.y, Dir.z );
-    //				D3DXVec3Normalize( &vDir, &vDir );
-    //				vDir.z = 0.0f;
+            if (CurrentShiftGoFrame - sLastShiftGoFrame > KEYMOVE_TIME) {
+                D3DVECTOR Dir = g_pAVATAR->Get_CurPOS() - g_pCamera->Get_Position();
+                D3DXVECTOR3 vDir = D3DXVECTOR3(Dir.x, Dir.y, Dir.z);
+                D3DXVec3Normalize(&vDir, &vDir);
+                vDir.z = 0.0f;
 
-    //				vDir = vDir * KEYMOVE_DISTANCE;
-    //				Dir.x = vDir.x;
-    //				Dir.y = vDir.y;
-    //				Dir.z = vDir.z;
+                vDir = vDir * KEYMOVE_DISTANCE;
+                Dir.x = vDir.x;
+                Dir.y = vDir.y;
+                Dir.z = vDir.z;
 
-    //				D3DVECTOR vPos = g_pAVATAR->Get_CurPOS() + Dir;
-    //				g_pNet->Send_cli_MOUSECMD( 0, vPos );
+                D3DVECTOR vPos = g_pAVATAR->Get_CurPOS() + Dir;
+                g_pNet->Send_cli_MOUSECMD(0, vPos);
 
-    //				///CGame::GetInstance().SetMouseTargetEffect( vPos.x, vPos.y, vPos.z );
+                CGame::GetInstance().SetMouseTargetEffect(vPos.x, vPos.y, vPos.z);
 
-    //				sLastShiftGoFrame = CurrentShiftGoFrame ;
-    //			}
-    //		}
-    //		return true;
+                sLastShiftGoFrame = CurrentShiftGoFrame;
+            }
+            return true;
+        }
 
-    //	/*case VK_LEFT:
-    //		{
-    //			g_pCamera->Add_YAW( CAMERA_MOVE_SPEED );
-    //		}
-    //		return true;
+        case VK_LEFT: {
+            g_pCamera->Add_YAW(CAMERA_MOVE_SPEED);
+            return true;
+        }
 
-    //	case VK_RIGHT:
-    //		{
-    //			g_pCamera->Add_YAW( -CAMERA_MOVE_SPEED );
-    //		}
-    //		return true;*/
-
-    //	default:
-    //		{
-    //
-    //		}
-    //		break;
-    //}
+        case VK_RIGHT: {
+            g_pCamera->Add_YAW(-CAMERA_MOVE_SPEED);
+            return true;
+        }
+    }
 
     if (lParam & 0x40000000) {
-        // ÀÌÀü¿¡ ´­·Á ÀÖ´ø Å°´Ù....
+        // ì´ì „ì— ëˆŒë ¤ ìžˆë˜ í‚¤ë‹¤....
         return false;
     }
 
@@ -751,7 +738,7 @@ CSevenHeartUserInput::OnKeyDown(WPARAM wParam, LPARAM lParam) {
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ¸¶¿ì½º »óÅÂ ÃÊ±âÈ­.
+/// @brief ë§ˆìš°ìŠ¤ ìƒíƒœ ì´ˆê¸°í™”.
 //----------------------------------------------------------------------------------------------------
 void
 CSevenHeartUserInput::ClearMouseState() {
@@ -774,7 +761,7 @@ CSevenHeartUserInput::SetTargetObject(int iTargetObjType,
     m_iCurrentTargetType = iTargetObjType;
 
     //----------------------------------------------------------------------------------------------------
-    /// Ctrl ÀÌ Å¬¸¯µÈ »óÅÂ¿¡¼­ÀÇ Å¸°Ù¼³Á¤, µ¿ÀÛ
+    /// Ctrl ì´ í´ë¦­ëœ ìƒíƒœì—ì„œì˜ íƒ€ê²Ÿì„¤ì •, ë™ìž‘
     //----------------------------------------------------------------------------------------------------
     if (wVKeyState & MK_CONTROL) {
         SetTargetObject_CtrlClick(iTargetObjType, iTargetObj, pickPos, bDBClick);
@@ -782,7 +769,7 @@ CSevenHeartUserInput::SetTargetObject(int iTargetObjType,
     }
 
     //----------------------------------------------------------------------------------------------------
-    /// shift ÀÌ Å¬¸¯µÈ »óÅÂ¿¡¼­ÀÇ Å¸°Ù¼³Á¤, µ¿ÀÛ
+    /// shift ì´ í´ë¦­ëœ ìƒíƒœì—ì„œì˜ íƒ€ê²Ÿì„¤ì •, ë™ìž‘
     //----------------------------------------------------------------------------------------------------
     /*if( wVKeyState&MK_SHIFT )
     {
@@ -791,14 +778,14 @@ CSevenHeartUserInput::SetTargetObject(int iTargetObjType,
     }*/
 
     //----------------------------------------------------------------------------------------------------
-    /// ÀÏ¹ÝÀûÀÎ »óÅÂ¿¡¼­ÀÇ Å¸°Ù¼³Á¤, µ¿ÀÛ
+    /// ì¼ë°˜ì ì¸ ìƒíƒœì—ì„œì˜ íƒ€ê²Ÿì„¤ì •, ë™ìž‘
     //----------------------------------------------------------------------------------------------------
     SetTargetObject_Normal(iTargetObjType, iTargetObj, pickPos, bDBClick);
 }
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÀÏ¹ÝÀûÀÎ »óÈ²¿¡¼­ÀÇ Å¸°Ù¼±ÅÃ, µ¿ÀÛ
+/// @brief ì¼ë°˜ì ì¸ ìƒí™©ì—ì„œì˜ íƒ€ê²Ÿì„ íƒ, ë™ìž‘
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -806,7 +793,7 @@ CSevenHeartUserInput::SetTargetObject_Normal(int iTargetType,
     int iTargetObj,
     D3DVECTOR& pickPos,
     bool bDBClick) {
-    /// Å¸°ÙÀÌ °Ç¹°ÀÌ°Å³ª, ÁöÇü¿ÀºêÁ§Æ®¶ó¸é.. ÀÌ°ÍÀú°Í º¸Áö¸»°í ÀÌµ¿...
+    /// íƒ€ê²Ÿì´ ê±´ë¬¼ì´ê±°ë‚˜, ì§€í˜•ì˜¤ë¸Œì íŠ¸ë¼ë©´.. ì´ê²ƒì €ê²ƒ ë³´ì§€ë§ê³  ì´ë™...
     switch (m_iCurrentTargetType) {
         case OBJ_NPC:
             g_pNet->Send_cli_MOUSECMD(iTargetObj, pickPos);
@@ -817,7 +804,7 @@ CSevenHeartUserInput::SetTargetObject_Normal(int iTargetType,
                 break;
 
             //----------------------------------------------------------------------------------------------------
-            /// PVP ¸ðµå°¡ È°¼ºÈ­ ‰çÀ»°æ¿ì...
+            /// PVP ëª¨ë“œê°€ í™œì„±í™” Â‰ç‘›ëºåš¥?..
             //----------------------------------------------------------------------------------------------------
             PVPTarget_Click(iTargetType, iTargetObj, pickPos, bDBClick);
 
@@ -829,25 +816,25 @@ CSevenHeartUserInput::SetTargetObject_Normal(int iTargetType,
             break;
         }
         case OBJ_MOB: {
-            /// ÇöÀç ³»°¡ °ø°ÝÁßÀÎ³ðÀº ´Ù½Ã ÆÐÅ¶À» ³¯¸®Áö ¾Ê´Â´Ù.
+            /// í˜„ìž¬ ë‚´ê°€ ê³µê²©ì¤‘ì¸ë†ˆì€ ë‹¤ì‹œ íŒ¨í‚·ì„ ë‚ ë¦¬ì§€ ì•ŠëŠ”ë‹¤.
             if (g_pAVATAR->Get_COMMAND() == CMD_ATTACK
                 && iTargetObj == g_pObjMGR->Get_ClientObjectIndex(g_pAVATAR->m_iServerTarget))
                 break;
 
             CObjMOB* pObjMOB = (CObjMOB*)g_pObjMGR->Get_CharOBJ(iTargetObj, true);
             if (pObjMOB != NULL) {
-                /// °ø°ÝºÒ°¡ NPC ´Â °ø°Ý¸øÇÔ..
+                /// ê³µê²©ë¶ˆê°€ NPC ëŠ” ê³µê²©ëª»í•¨..
                 if (g_pAVATAR->Is_ALLIED(pObjMOB) == false
                     && (NPC_CAN_TARGET(pObjMOB->Get_CharNO()) != 1)) {
                     //----------------------------------------------------------------------------------------------------
-                    /// PAT¿¡ Å¸°í ÀÖ´Â µµÁß¿¡´Â ºÒ°¡
-                    /// ±×·¯³ª Castle Gear Àº °¡´É
+                    /// PATì— íƒ€ê³  ìžˆëŠ” ë„ì¤‘ì—ëŠ” ë¶ˆê°€
+                    /// ê·¸ëŸ¬ë‚˜ Castle Gear ì€ ê°€ëŠ¥
                     //----------------------------------------------------------------------------------------------------
                     int iPetMode = g_pAVATAR->GetPetMode();
                     if (iPetMode < 0) {
                         g_pNet->Send_cli_ATTACK(iTargetObj);
                     } else {
-                        /// Pet mode ÀÏ °æ¿ì¿¡´Â..
+                        /// Pet mode ì¼ ê²½ìš°ì—ëŠ”..
                         if (g_pAVATAR->CanAttackPetMode()) {
                             g_pNet->Send_cli_ATTACK(iTargetObj);
                         } else {
@@ -872,7 +859,7 @@ CSevenHeartUserInput::SetTargetObject_Normal(int iTargetType,
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ÄÁÅÍ·Ñ Å°¸¦ ´©¸¥»óÅÂ¿¡¼­ÀÇ Å¸°Ù¼±ÅÃ, µ¿ÀÛ
+/// @brief ì»¨í„°ë¡¤ í‚¤ë¥¼ ëˆ„ë¥¸ìƒíƒœì—ì„œì˜ íƒ€ê²Ÿì„ íƒ, ë™ìž‘
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -880,6 +867,8 @@ CSevenHeartUserInput::SetTargetObject_CtrlClick(int iTargetType,
     int iTargetObj,
     D3DVECTOR& pickPos,
     bool bDBClick) {
+    m_iCurrentTargetType = iTargetType;
+
     if (m_iCurrentTarget != iTargetObj) {
         switch (m_iCurrentTargetType) {
             case OBJ_MOB: {
@@ -902,7 +891,7 @@ CSevenHeartUserInput::SetTargetObject_CtrlClick(int iTargetType,
 
 //----------------------------------------------------------------------------------------------------
 /// @param
-/// @brief ½¬ÇÁÆ® Å°¸¦ ´©¸¥»óÅÂ¿¡¼­ÀÇ Å¸°Ù¼±ÅÃ, µ¿ÀÛ
+/// @brief ì‰¬í”„íŠ¸ í‚¤ë¥¼ ëˆ„ë¥¸ìƒíƒœì—ì„œì˜ íƒ€ê²Ÿì„ íƒ, ë™ìž‘
 //----------------------------------------------------------------------------------------------------
 
 void
@@ -921,7 +910,7 @@ CSevenHeartUserInput::SetTargetObject_ShiftClick(int iTargetType,
                     m_iCurrentTarget = iTargetObj;
 
                     //----------------------------------------------------------------------------------------------------
-                    /// PAT¿¡ Å¸°í ÀÖ´Â µµÁß¿¡´Â ºÒ°¡
+                    /// PATì— íƒ€ê³  ìžˆëŠ” ë„ì¤‘ì—ëŠ” ë¶ˆê°€
                     //----------------------------------------------------------------------------------------------------
                     if (g_pAVATAR->GetPetMode() < 0)
                         g_pNet->Send_cli_ATTACK(iTargetObj);

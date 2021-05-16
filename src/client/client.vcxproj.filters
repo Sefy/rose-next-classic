@@ -1208,6 +1208,9 @@
     <ClCompile Include="..\..\thirdparty\discord-2.5.6\cpp\voice_manager.cpp">
       <Filter>Thirdparty\discord</Filter>
     </ClCompile>
+    <ClCompile Include="ColorUtil.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CCamera.h">
@@ -2355,6 +2358,9 @@
     </ClInclude>
     <ClInclude Include="..\..\thirdparty\discord-2.5.6\c\discord_game_sdk.h">
       <Filter>Thirdparty\discord</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorUtil.h">
+      <Filter>Source Files\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

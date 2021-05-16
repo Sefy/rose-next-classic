@@ -85,7 +85,7 @@ CITStateNormal::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
             uiRet = uiMsg;
             switch (wParam) {
                 case 91: /// Window Key
-                    // g_itMGR.OpenDialog( DLG_TYPE_MENU );
+                     g_itMGR.OpenDialog( DLG_TYPE_MENU );
                     /// 윈도우 시작메뉴가 시작되면서 화면전환이 되버린다. 화면이 떠 있을경우에는
                     /// 후킹해서 막아버릴까? 일단 보류
                     break;
@@ -159,6 +159,7 @@ CITStateNormal::ProcessHotKey(unsigned uiMsg, WPARAM wParam, LPARAM lParam) {
             && CTEditBox::s_pFocusEdit == NULL)) {
 
         switch (wParam) {
+            // 1 - 4
             case 0x31:
             case 0x32:
             case 0x33:
